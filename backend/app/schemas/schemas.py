@@ -260,3 +260,5 @@ class ValidateOutputRequest(BaseModel):
     supportive_message: Optional[str] = None
     target_attempt_number: int = 1
     support_level: str = "moderate"
+    learner_id: Optional[str] = None
+

@@ -5,7 +5,9 @@ import TaskBrowser from "./components/TaskBrowser";
 import LearnerBrowser from "./components/LearnerBrowser";
 import AnalysisViewer from "./components/AnalysisViewer";
 import AdaptiveInstructionView from "./components/AdaptiveInstructionView";
+import SafetyRetryView from "./components/SafetyRetryView";
 import { checkHealth, fetchTasks, fetchLearners, fetchScenarios } from "./services/api";
+
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -80,7 +82,17 @@ export default function App() {
               />
             )}
 
+            {activeTab === "safety" && (
+              <SafetyRetryView
+                tasks={tasks}
+                learners={learners}
+                selectedTask={selectedTask}
+                selectedLearner={selectedLearner}
+              />
+            )}
+
             {activeTab === "personalization" && (
+
               <AdaptiveInstructionView
                 tasks={tasks}
                 learners={learners}

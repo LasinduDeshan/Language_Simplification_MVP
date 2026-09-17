@@ -157,42 +157,8 @@ class AnswerChecker:
                     "match_tier": "failed_relations"
                 }
 
-
-            for rel in relations:
-                subj = normalize_text(rel.get("subject", ""))
-                ans = normalize_text(rel.get("answer", ""))
-                
-                # Check if the target answer concept is in transcript
-                # For compound concepts (e.g. "crayon box", "green bin", "water", "tree fruit", "under desk")
-                ans_tokens = ans.split()
-                has_ans = any(tok in norm_transcript for tok in ans_tokens)
-                
-                # If subject is explicitly stated, verify it associates with answer
-                has_subj = (subj in norm_transcript) if subj else True
-
-                if has_ans:
-                    matched_relations.append(rel)
-                else:
-                    unmatched_relations.append(rel)
-
-            if len(matched_relations) == len(relations) and len(relations) > 0:
-                return {
-                    "concept_result": "correct",
-                    "matched_concepts": [f"{r['subject']}_{r['answer']}" for r in matched_relations],
-                    "missing_concepts": [],
-                    "contradictions": [],
-                    "match_tier": "relation_triplet"
-                }
-            elif len(matched_relations) > 0 and len(unmatched_relations) > 0:
-                return {
-                    "concept_result": "partial",
-                    "matched_concepts": [f"{r['subject']}_{r['answer']}" for r in matched_relations],
-                    "missing_concepts": [f"{r['subject']}_{r['answer']}" for r in unmatched_relations],
-                    "contradictions": [],
-                    "match_tier": "partial_relations"
-                }
-
         # ----------------------------------------------------
+
         # Tier 5: Expected Concepts Semantic Match
         # ----------------------------------------------------
         matched_c = []

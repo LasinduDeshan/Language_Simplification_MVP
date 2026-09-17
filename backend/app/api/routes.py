@@ -21,6 +21,8 @@ from app.services.evaluation_service import evaluation_service
 from app.response_analysis.answer_checker import answer_checker
 from app.grammar_analysis.grammar_extractor import grammar_extractor
 from app.response_analysis.language_extractor import language_extractor
+from app.validation.validator import adaptation_validator
+from app.retry_controller.retry_manager import retry_manager
 
 router = APIRouter(prefix="/api")
 
@@ -131,10 +133,12 @@ def record_attempt(id: str, attempt_in: AttemptCreate, db: Session = Depends(get
             "attempt": AttemptResponse.model_validate(result["attempt"]),
             "next_adaptation": AdaptationResponse.model_validate(result["next_adaptation"]) if result["next_adaptation"] else None,
             "experiment_status": result["experiment_status"],
-            "final_outcome": result["final_outcome"]
+            "final_outcome": result["final_outcome"],
+            "escalation_payload": result.get("escalation_payload")
         }
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+
 
 @router.get("/experiments/{id}/history")
 def get_experiment_history(id: str, db: Session = Depends(get_db)):
@@ -265,31 +269,42 @@ def validate_output(req: ValidateOutputRequest, db: Session = Depends(get_db)):
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
 
-    # Simple validation checks
-    words = req.child_instruction.split()
-    length_valid = len(words) <= 12
-    leakage = False
-    
-    # Check restricted solution phrases
-    prot = task.protected_answers or {}
-    restricted = prot.get("restricted_solution_phrases", [])
-    for phrase in restricted:
-        if phrase.lower() in req.child_instruction.lower():
-            leakage = True
-            break
+    learner = None
+    if req.learner_id:
+        learner = task_repository.get_learner_by_id(db, req.learner_id)
 
-    status_str = "rejected" if leakage else ("approved" if length_valid else "review_required")
-    return {
-        "language_valid": True,
-        "age_appropriate": True,
-        "meaning_preserved": True,
-        "answer_leakage": leakage,
-        "sentence_length_valid": length_valid,
-        "average_words_per_sentence": float(len(words)),
-        "maximum_words_in_sentence": len(words),
-        "status": status_str,
-        "failure_reasons": ["protected_answer_revealed"] if leakage else ([] if length_valid else ["exceeds_target_length"])
+    candidate_data = {
+        "child_instruction": req.child_instruction,
+        "supportive_message": req.supportive_message,
+        "support_level": req.support_level,
+        "target_attempt_number": req.target_attempt_number
     }
+
+    eval_res = adaptation_validator.validate_candidate(task, candidate_data, learner)
+    return {
+        "language_valid": eval_res["language_valid"],
+        "age_appropriate": eval_res["age_appropriate"],
+        "meaning_preserved": eval_res["meaning_preserved"],
+        "answer_leakage": eval_res["answer_leakage"],
+        "sentence_length_valid": eval_res["sentence_length_valid"],
+        "support_level_valid": eval_res["support_level_valid"],
+        "safety_valid": eval_res["safety_valid"],
+        "average_words_per_sentence": eval_res["average_words_per_sentence"],
+        "maximum_words_in_sentence": eval_res["maximum_words_in_sentence"],
+        "semantic_score": eval_res["semantic_score"],
+        "status": eval_res["status"],
+        "failure_reasons": eval_res["failure_reasons"],
+        "leakage_details": eval_res.get("leakage_details", {}),
+        "suitability_details": eval_res.get("suitability_details", {})
+    }
+
+@router.get("/retry-state/{experiment_id}")
+def get_retry_state(experiment_id: str, db: Session = Depends(get_db)):
+    try:
+        return retry_manager.get_retry_state(db, experiment_id)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
 
 # ----------------- Integration Payloads (Comp 1, 4, AR) -----------------
 @router.get("/output/component-1/{experiment_id}")

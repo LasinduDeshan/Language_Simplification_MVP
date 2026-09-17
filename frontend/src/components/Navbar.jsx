@@ -1,5 +1,5 @@
 import React from "react";
-import { Sparkles, Activity, BookOpen, Users, PlayCircle, Eye, Sliders } from "lucide-react";
+import { Sparkles, Activity, BookOpen, Users, PlayCircle, Eye, Sliders, ShieldCheck } from "lucide-react";
 
 export default function Navbar({ activeTab, setActiveTab, isBackendHealthy, generationMode, setGenerationMode }) {
   return (
@@ -26,6 +26,14 @@ export default function Navbar({ activeTab, setActiveTab, isBackendHealthy, gene
         >
           <PlayCircle size={16} />
           <span>Dashboard & Simulation</span>
+        </button>
+
+        <button
+          className={`nav-tab ${activeTab === "safety" ? "active" : ""}`}
+          onClick={() => setActiveTab("safety")}
+        >
+          <ShieldCheck size={16} />
+          <span>Safety & Retry</span>
         </button>
 
         <button
@@ -60,6 +68,7 @@ export default function Navbar({ activeTab, setActiveTab, isBackendHealthy, gene
           <span>Learner Profiles (5)</span>
         </button>
       </nav>
+
 
       <div className="navbar-actions">
         {/* Generation Mode Switcher */}

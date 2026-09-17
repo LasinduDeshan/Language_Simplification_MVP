@@ -147,6 +147,36 @@ export async function fetchProgressionPreview(taskId, learnerId) {
   return res.json();
 }
 
+export async function validateOutput({ taskId, childInstruction, supportiveMessage = null, targetAttemptNumber = 1, supportLevel = "moderate", learnerId = null }) {
+  const res = await fetch(`${API_BASE_URL}/validate-output`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      task_id: taskId,
+      child_instruction: childInstruction,
+      supportive_message: supportiveMessage,
+      target_attempt_number: targetAttemptNumber,
+      support_level: supportLevel,
+      learner_id: learnerId
+    })
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.detail || "Failed to validate output");
+  }
+  return res.json();
+}
+
+export async function fetchRetryState(experimentId) {
+  const res = await fetch(`${API_BASE_URL}/retry-state/${experimentId}`);
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.detail || "Failed to fetch retry state");
+  }
+  return res.json();
+}
+
 export function getExportUrl(format) {
   return `${API_BASE_URL}/export/experiments/${format}`;
 }
+
