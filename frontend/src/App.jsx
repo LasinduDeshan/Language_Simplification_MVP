@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar";
 import ScenarioDashboard from "./components/ScenarioDashboard";
 import TaskBrowser from "./components/TaskBrowser";
 import LearnerBrowser from "./components/LearnerBrowser";
+import AnalysisViewer from "./components/AnalysisViewer";
+import AdaptiveInstructionView from "./components/AdaptiveInstructionView";
 import { checkHealth, fetchTasks, fetchLearners, fetchScenarios } from "./services/api";
 
 export default function App() {
@@ -75,6 +77,23 @@ export default function App() {
                 selectedLearner={selectedLearner}
                 setSelectedLearner={setSelectedLearner}
                 generationMode={generationMode}
+              />
+            )}
+
+            {activeTab === "personalization" && (
+              <AdaptiveInstructionView
+                tasks={tasks}
+                learners={learners}
+                selectedTask={selectedTask}
+                selectedLearner={selectedLearner}
+              />
+            )}
+
+            {activeTab === "analysis" && (
+              <AnalysisViewer
+                tasks={tasks}
+                learners={learners}
+                selectedTask={selectedTask}
               />
             )}
 

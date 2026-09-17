@@ -99,6 +99,54 @@ export async function submitExpertEvaluation(evalData) {
   return res.json();
 }
 
+export async function analyzeResponse({ taskId, speechTranscript, speechConfidence = 0.9, learnerAge = 6 }) {
+  const res = await fetch(`${API_BASE_URL}/analyze-response`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      task_id: taskId,
+      speech_transcript: speechTranscript,
+      speech_confidence: speechConfidence,
+      learner_age: learnerAge
+    })
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.detail || "Failed to analyze response");
+  }
+  return res.json();
+}
+
+export async function fetchGrammarTestCases() {
+  const res = await fetch(`${API_BASE_URL}/grammar-test-cases`);
+  if (!res.ok) throw new Error("Failed to fetch grammar test cases");
+  return res.json();
+}
+
+export async function adaptInstruction({ taskId, learnerId, attemptNumber = 1, generationMode = "rule" }) {
+  const res = await fetch(`${API_BASE_URL}/adapt-instruction`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      task_id: taskId,
+      learner_id: learnerId,
+      attempt_number: attemptNumber,
+      generation_mode: generationMode
+    })
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.detail || "Failed to adapt instruction");
+  }
+  return res.json();
+}
+
+export async function fetchProgressionPreview(taskId, learnerId) {
+  const res = await fetch(`${API_BASE_URL}/preview-progression/${taskId}/${learnerId}`);
+  if (!res.ok) throw new Error("Failed to fetch progression preview");
+  return res.json();
+}
+
 export function getExportUrl(format) {
   return `${API_BASE_URL}/export/experiments/${format}`;
 }

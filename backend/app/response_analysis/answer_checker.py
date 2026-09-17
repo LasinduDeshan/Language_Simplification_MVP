@@ -47,59 +47,35 @@ class AnswerChecker:
         relations = prot.get("relations", [])
 
         # ----------------------------------------------------
-        # Tier 1: Exact Match against Acceptable Answers
-        # ----------------------------------------------------
-        for orig_ans in acceptable_answers:
-            if transcript and transcript.strip().lower() == orig_ans.lower():
-                return {
-                    "concept_result": "correct",
-                    "matched_concepts": expected_concepts,
-                    "missing_concepts": [],
-                    "contradictions": [],
-                    "match_tier": "exact"
-                }
-
-        # ----------------------------------------------------
-        # Tier 2: Normalized Match
-        # ----------------------------------------------------
-        for norm_ans in normalized_acceptable:
-            if norm_transcript == norm_ans or norm_ans in norm_transcript or norm_transcript in norm_ans:
-                return {
-                    "concept_result": "correct",
-                    "matched_concepts": expected_concepts,
-                    "missing_concepts": [],
-                    "contradictions": [],
-                    "match_tier": "normalized"
-                }
-
-        # ----------------------------------------------------
-        # Tier 3: Contradiction & Exclusion Checks
+        # Tier 1: Contradiction & Conflict Checks (Run First!)
         # ----------------------------------------------------
         contradictions = []
         task_code = getattr(task, "task_code", "")
 
+        def has_word(w: str, text: str) -> bool:
+            return bool(re.search(r"\b" + re.escape(w) + r"\b", text))
+
         # Task 2 (Habitat): Fish cannot be in tree; bird cannot be in water
-        if "fish" in norm_transcript and "tree" in norm_transcript:
+        if has_word("fish", norm_transcript) and has_word("tree", norm_transcript):
             contradictions.append("fish_in_tree_conflict")
-        if "bird" in norm_transcript and "water" in norm_transcript:
+        if has_word("bird", norm_transcript) and has_word("water", norm_transcript):
             contradictions.append("bird_in_water_conflict")
 
         # Task 1 (Clean up): Paper cannot be on rug
-        if "rug" in norm_transcript:
+        if has_word("rug", norm_transcript):
             contradictions.append("paper_placed_on_rug")
 
         # Task 6 (Cat under desk): Cat cannot be on chair
-        if "chair" in norm_transcript and "desk" not in norm_transcript:
+        if has_word("chair", norm_transcript) and not has_word("desk", norm_transcript):
             contradictions.append("cat_on_chair_conflict")
 
         # Task 8 (Leo sleeping): Mouse was not sleeping
-        if "mouse" in norm_transcript and ("sleep" in norm_transcript or "nap" in norm_transcript):
+        if has_word("mouse", norm_transcript) and ("sleep" in norm_transcript or "nap" in norm_transcript):
             contradictions.append("mouse_sleeping_conflict")
 
         # Task 9 (Pronoun): Target is girl (she); "he" is contradictory
         if task_code == "TASK-ENG-009":
-            words = norm_transcript.split()
-            if "he" in words and "she" not in words:
+            if has_word("he", norm_transcript) and not has_word("she", norm_transcript):
                 contradictions.append("incorrect_gender_pronoun_he")
 
         if contradictions:
@@ -112,11 +88,75 @@ class AnswerChecker:
             }
 
         # ----------------------------------------------------
-        # Tier 4: Relation Triplet Evaluation
+        # Tier 2: Exact & Discrete Normalized Match
+        # ----------------------------------------------------
+        for orig_ans in acceptable_answers:
+            if transcript and transcript.strip().lower() == orig_ans.lower():
+                return {
+                    "concept_result": "correct",
+                    "matched_concepts": expected_concepts,
+                    "missing_concepts": [],
+                    "contradictions": [],
+                    "match_tier": "exact"
+                }
+
+        for norm_ans in normalized_acceptable:
+            if norm_transcript == norm_ans:
+                return {
+                    "concept_result": "correct",
+                    "matched_concepts": expected_concepts,
+                    "missing_concepts": [],
+                    "contradictions": [],
+                    "match_tier": "normalized"
+                }
+
+        # ----------------------------------------------------
+        # Tier 3: Relation Triplet Evaluation
         # ----------------------------------------------------
         if relations:
             matched_relations = []
-            unmatched_relations = []
+            failed_relations = []
+
+            for rel in relations:
+                subj = normalize_text(rel.get("subject", ""))
+                ans = normalize_text(rel.get("answer", ""))
+                ans_tokens = ans.split()
+                
+                subj_present = has_word(subj, norm_transcript) if subj else False
+                ans_present = any(has_word(tok, norm_transcript) for tok in ans_tokens)
+
+                if subj_present and ans_present:
+                    matched_relations.append(rel)
+                elif subj_present and not ans_present:
+                    failed_relations.append(rel)
+                elif not subj_present and ans_present:
+                    matched_relations.append(rel)
+
+            if matched_relations and not failed_relations:
+                return {
+                    "concept_result": "correct",
+                    "matched_concepts": [f"{r.get('subject', '')}_{r.get('answer', '')}" for r in matched_relations],
+                    "missing_concepts": [],
+                    "contradictions": [],
+                    "match_tier": "relation_triplet"
+                }
+            elif matched_relations and failed_relations:
+                return {
+                    "concept_result": "partial",
+                    "matched_concepts": [f"{r.get('subject', '')}_{r.get('answer', '')}" for r in matched_relations],
+                    "missing_concepts": [f"{r.get('subject', '')}_{r.get('answer', '')}" for r in failed_relations],
+                    "contradictions": [],
+                    "match_tier": "partial_relations"
+                }
+            elif failed_relations:
+                return {
+                    "concept_result": "incorrect",
+                    "matched_concepts": [],
+                    "missing_concepts": [f"{r.get('subject', '')}_{r.get('answer', '')}" for r in failed_relations],
+                    "contradictions": [],
+                    "match_tier": "failed_relations"
+                }
+
 
             for rel in relations:
                 subj = normalize_text(rel.get("subject", ""))

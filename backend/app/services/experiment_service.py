@@ -6,6 +6,10 @@ from app.database.models import (
 )
 from app.services.adaptation_service import adaptation_service
 from app.security.input_sanitizer import sanitize_text
+from app.response_analysis.answer_checker import answer_checker
+from app.grammar_analysis.grammar_extractor import grammar_extractor
+from app.response_analysis.language_extractor import language_extractor
+
 
 class ExperimentService:
     def create_experiment_run(
@@ -80,7 +84,7 @@ class ExperimentService:
         db.flush()
 
         # Extract language observations
-        self._record_observations(db, attempt, clean_transcript, speech_confidence)
+        self._record_observations(db, attempt, clean_transcript, speech_confidence, task=task, learner=experiment.learner)
 
         # State transitions
         next_adaptation = None
@@ -143,73 +147,47 @@ class ExperimentService:
         }
 
     def _evaluate_concept(self, task, transcript: Optional[str], selected_answer: Optional[Dict[str, Any]]) -> str:
-        if not transcript and not selected_answer:
-            return "unclear"
-        
-        t_lower = (transcript or "").lower().strip()
-        
-        # 1. Check against acceptable answers
-        for ans in task.acceptable_answers:
-            if ans.lower() in t_lower or t_lower == ans.lower():
-                return "correct"
+        eval_res = answer_checker.evaluate_answer(task, transcript, selected_answer)
+        return eval_res["concept_result"]
 
-        # 2. Check for explicit incorrect placement or contradiction
-        if "tree" in t_lower and "fish" in t_lower:
-            return "incorrect"
-        if "rug" in t_lower:
-            return "incorrect"
-
-        # 3. Check relations in protected_answers
-        prot = task.protected_answers or {}
-        relations = prot.get("relations", [])
-        if relations:
-            matched_all_relations = True
-            at_least_one_matched = False
-            for rel in relations:
-                ans_target = rel.get("answer", "").lower()
-                subj = rel.get("subject", "").lower()
-                if ans_target and ans_target in t_lower:
-                    at_least_one_matched = True
-                elif subj and subj in t_lower:
-                    # Subject mentioned but correct answer not matched
-                    matched_all_relations = False
-            
-            if at_least_one_matched and matched_all_relations:
-                return "correct"
-            elif at_least_one_matched and not matched_all_relations:
-                return "partial"
-
-        return "incorrect"
-
-
-    def _record_observations(self, db: Session, attempt: Attempt, transcript: Optional[str], confidence: Optional[float]):
+    def _record_observations(self, db: Session, attempt: Attempt, transcript: Optional[str], confidence: Optional[float], task=None, learner=None):
         if not transcript:
             return
 
-        is_confirmed = (confidence is not None and confidence >= 0.70)
-        t_lower = transcript.lower()
+        speech_conf = confidence if confidence is not None else 0.9
 
-        # Check for missing preposition
-        if "live water" in t_lower or "crayons box" in t_lower or "paper bin" in t_lower:
+        # 1. Grammar error extraction using spaCy and custom rules
+        grammar_res = grammar_extractor.analyze_grammar(transcript, speech_confidence=speech_conf)
+        for g_obs in grammar_res.get("observations", []):
             db.add(LanguageObservation(
                 attempt_id=attempt.id,
-                category="grammar",
-                observation_code="missing_preposition",
-                evidence=transcript,
-                confidence=confidence or 0.8,
-                confirmed=is_confirmed,
+                category=g_obs["category"],
+                observation_code=g_obs["observation_code"],
+                evidence=g_obs.get("evidence", transcript),
+                confidence=g_obs.get("confidence", speech_conf),
+                confirmed=g_obs.get("confirmed", False),
                 child_visible=False
             ))
-        elif "she kick" in t_lower or "he play" in t_lower:
-            db.add(LanguageObservation(
-                attempt_id=attempt.id,
-                category="grammar",
-                observation_code="subject_verb_agreement",
-                evidence=transcript,
-                confidence=confidence or 0.8,
-                confirmed=is_confirmed,
-                child_visible=False
-            ))
+
+        # 2. Vocabulary difficulty & comprehension extraction
+        if task and learner:
+            lang_obs_list = language_extractor.analyze_vocabulary_and_comprehension(
+                transcript=transcript,
+                task=task,
+                learner_age=learner.age,
+                concept_result=attempt.concept_result
+            )
+            for l_obs in lang_obs_list:
+                db.add(LanguageObservation(
+                    attempt_id=attempt.id,
+                    category=l_obs["category"],
+                    observation_code=l_obs["observation_code"],
+                    evidence=l_obs.get("evidence", transcript),
+                    confidence=l_obs.get("confidence", 0.9),
+                    confirmed=l_obs.get("confirmed", True),
+                    child_visible=False
+                ))
+
 
     def _emit_integration_event(
         self, db: Session, experiment_run_id: str, attempt_id: str, adaptation_id: str,

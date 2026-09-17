@@ -18,8 +18,12 @@ from app.tasks.repository import task_repository, BASE_DATA_DIR
 from app.services.experiment_service import experiment_service
 from app.services.adaptation_service import adaptation_service
 from app.services.evaluation_service import evaluation_service
+from app.response_analysis.answer_checker import answer_checker
+from app.grammar_analysis.grammar_extractor import grammar_extractor
+from app.response_analysis.language_extractor import language_extractor
 
 router = APIRouter(prefix="/api")
+
 
 # ----------------- Health -----------------
 @router.get("/health")
@@ -67,6 +71,15 @@ def create_scenario(scenario: Dict[str, Any]):
     with open(scenarios_file, "w", encoding="utf-8") as f:
         json.dump(scenarios, f, indent=2)
     return {"message": "Scenario added successfully", "scenario": scenario}
+
+# ----------------- Grammar Test Cases -----------------
+@router.get("/grammar-test-cases")
+def get_grammar_test_cases():
+    test_cases_file = os.path.join(BASE_DATA_DIR, "grammar_test_cases", "seed_grammar_cases.json")
+    if os.path.exists(test_cases_file):
+        with open(test_cases_file, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
 
 # ----------------- Experiments -----------------
 @router.post("/experiments", response_model=ExperimentRunResponse)
@@ -147,48 +160,32 @@ def analyze_response(req: AnalyzeResponseRequest, db: Session = Depends(get_db))
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
 
-    concept_res = experiment_service._evaluate_concept(task, req.speech_transcript, None)
-    observations = []
+    # 1. Concept analysis
+    eval_res = answer_checker.evaluate_answer(task, req.speech_transcript, None)
     
-    # Check speech confidence gating
-    is_confirmed = req.speech_confidence >= 0.70
-    t_lower = req.speech_transcript.lower()
+    # 2. Grammar error extraction using spaCy + rules + confidence gating
+    grammar_res = grammar_extractor.analyze_grammar(
+        req.speech_transcript,
+        speech_confidence=req.speech_confidence
+    )
+    
+    # 3. Vocabulary & instruction extraction
+    vocab_obs = language_extractor.analyze_vocabulary_and_comprehension(
+        transcript=req.speech_transcript,
+        task=task,
+        learner_age=req.learner_age,
+        concept_result=eval_res["concept_result"]
+    )
 
-    if "live water" in t_lower or "crayons box" in t_lower:
-        observations.append({
-            "category": "grammar",
-            "observation_code": "missing_preposition",
-            "evidence": req.speech_transcript,
-            "confidence": req.speech_confidence,
-            "confirmed": is_confirmed
-        })
-    elif "she kick" in t_lower or "he play" in t_lower:
-        observations.append({
-            "category": "grammar",
-            "observation_code": "subject_verb_agreement",
-            "evidence": req.speech_transcript,
-            "confidence": req.speech_confidence,
-            "confirmed": is_confirmed
-        })
-
-    # Vocabulary difficulty check
-    for v in task_repository.get_vocabulary_dictionary():
-        if v["word"].lower() in req.speech_transcript.lower() or v["word"].lower() in task.original_instruction.lower():
-            if req.learner_age < v["minimum_age"]:
-                observations.append({
-                    "category": "vocabulary",
-                    "observation_code": f"unfamiliar_{v['word']}",
-                    "evidence": v["word"],
-                    "confidence": 0.9,
-                    "confirmed": True
-                })
+    combined_observations = grammar_res.get("observations", []) + vocab_obs
 
     return {
-        "concept_result": concept_res,
-        "concept_matches": task.acceptable_answers,
-        "observations": observations,
-        "speech_confidence_acceptable": is_confirmed
+        "concept_result": eval_res["concept_result"],
+        "concept_matches": eval_res["matched_concepts"] or task.acceptable_answers,
+        "observations": combined_observations,
+        "speech_confidence_acceptable": grammar_res["speech_confidence_acceptable"]
     }
+
 
 @router.post("/adapt-instruction")
 def adapt_instruction(req: AdaptInstructionRequest, db: Session = Depends(get_db)):
@@ -197,10 +194,70 @@ def adapt_instruction(req: AdaptInstructionRequest, db: Session = Depends(get_db
     if not learner or not task:
         raise HTTPException(status_code=404, detail="Learner or Task not found")
 
-    support_level = adaptation_service.determine_support_level(learner, req.attempt_number)
-    return adaptation_service.generate_child_friendly_instruction(
-        task, learner, req.attempt_number, support_level
+    support_details = adaptation_service.determine_support_details(learner, req.attempt_number)
+    support_level = support_details["support_level"]
+    gen_data = adaptation_service.generate_child_friendly_instruction(
+        task=task,
+        learner=learner,
+        target_attempt_number=req.attempt_number,
+        support_level=support_level,
+        generation_mode=req.generation_mode
     )
+    combined_reason_codes = list(dict.fromkeys(support_details["reason_codes"] + gen_data["reason_codes"]))
+    
+    return {
+        "task_code": task.task_code,
+        "task_title": task.title,
+        "learner_code": learner.learner_code,
+        "attempt_number": req.attempt_number,
+        "support_level": support_level,
+        "base_support": support_details["base_support"],
+        "child_instruction": gen_data["child_instruction"],
+        "supportive_message": gen_data["supportive_message"],
+        "vocabulary_support": gen_data["vocabulary_support"],
+        "answer_format": gen_data["answer_format"],
+        "visual_cues": gen_data["visual_cues"],
+        "reason_codes": combined_reason_codes,
+        "word_count": len(gen_data["child_instruction"].split()),
+        "generation_method": "rule"
+    }
+
+@router.get("/preview-progression/{task_id}/{learner_id}")
+def preview_progression(task_id: str, learner_id: str, db: Session = Depends(get_db)):
+    """Returns side-by-side adaptations for Attempts 1, 2, and 3 for a given task and learner."""
+    learner = task_repository.get_learner_by_id(db, learner_id)
+    task = task_repository.get_task_by_id(db, task_id)
+    if not learner or not task:
+        raise HTTPException(status_code=404, detail="Learner or Task not found")
+
+    attempts_data = []
+    for att_num in [1, 2, 3]:
+        sup_details = adaptation_service.determine_support_details(learner, att_num)
+        gen = adaptation_service.generate_child_friendly_instruction(
+            task=task,
+            learner=learner,
+            target_attempt_number=att_num,
+            support_level=sup_details["support_level"],
+            generation_mode="rule"
+        )
+        combined_reasons = list(dict.fromkeys(sup_details["reason_codes"] + gen["reason_codes"]))
+        attempts_data.append({
+            "attempt_number": att_num,
+            "support_level": sup_details["support_level"],
+            "child_instruction": gen["child_instruction"],
+            "supportive_message": gen["supportive_message"],
+            "vocabulary_support": gen["vocabulary_support"],
+            "answer_format": gen["answer_format"],
+            "visual_cues": gen["visual_cues"],
+            "reason_codes": combined_reasons,
+            "word_count": len(gen["child_instruction"].split())
+        })
+
+    return {
+        "task": TaskResponse.model_validate(task),
+        "learner": LearnerProfileResponse.model_validate(learner),
+        "progression": attempts_data
+    }
 
 @router.post("/validate-output")
 def validate_output(req: ValidateOutputRequest, db: Session = Depends(get_db)):

@@ -1,5 +1,5 @@
 import React from "react";
-import { Sparkles, Activity, BookOpen, Users, PlayCircle, Eye } from "lucide-react";
+import { Sparkles, Activity, BookOpen, Users, PlayCircle, Eye, Sliders } from "lucide-react";
 
 export default function Navbar({ activeTab, setActiveTab, isBackendHealthy, generationMode, setGenerationMode }) {
   return (
@@ -26,6 +26,22 @@ export default function Navbar({ activeTab, setActiveTab, isBackendHealthy, gene
         >
           <PlayCircle size={16} />
           <span>Dashboard & Simulation</span>
+        </button>
+
+        <button
+          className={`nav-tab ${activeTab === "personalization" ? "active" : ""}`}
+          onClick={() => setActiveTab("personalization")}
+        >
+          <Sliders size={16} />
+          <span>Personalization & Rules</span>
+        </button>
+
+        <button
+          className={`nav-tab ${activeTab === "analysis" ? "active" : ""}`}
+          onClick={() => setActiveTab("analysis")}
+        >
+          <Activity size={16} />
+          <span>Analysis & Diagnostics</span>
         </button>
 
         <button

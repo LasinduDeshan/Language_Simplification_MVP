@@ -136,6 +136,19 @@ class AttemptCreate(BaseModel):
     response_time_ms: int = Field(5000, ge=0)
     completion_status: str = Field("completed", pattern="^(completed|skipped|incomplete)$")
 
+# ----------------- Language Observation Schemas -----------------
+class LanguageObservationResponse(BaseModel):
+    id: str
+    attempt_id: str
+    category: str
+    observation_code: str
+    evidence: Optional[str] = None
+    confidence: float
+    confirmed: bool
+    child_visible: bool
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
 class AttemptResponse(BaseModel):
     id: str
     experiment_run_id: str
@@ -149,6 +162,7 @@ class AttemptResponse(BaseModel):
     response_time_ms: int
     completion_status: str
     created_at: datetime
+    observations: List[LanguageObservationResponse] = []
     model_config = ConfigDict(from_attributes=True)
 
 # ----------------- Validation Result Schemas -----------------
@@ -171,19 +185,6 @@ class ValidationResultResponse(BaseModel):
     status: str
     failure_reasons: List[str]
     is_final: bool
-    created_at: datetime
-    model_config = ConfigDict(from_attributes=True)
-
-# ----------------- Language Observation Schemas -----------------
-class LanguageObservationResponse(BaseModel):
-    id: str
-    attempt_id: str
-    category: str
-    observation_code: str
-    evidence: Optional[str] = None
-    confidence: float
-    confirmed: bool
-    child_visible: bool
     created_at: datetime
     model_config = ConfigDict(from_attributes=True)
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   Play, RefreshCw, Sparkles, AlertTriangle, CheckCircle2, ArrowRight,
-  Eye, Code2, Volume2, ShieldAlert
+  Eye, Code2, Volume2, ShieldAlert, Activity, Check, Clock
 } from "lucide-react";
 import {
   createExperiment, generateInitialAdaptation, recordAttempt,
@@ -453,6 +453,131 @@ export default function ScenarioDashboard({
               </p>
             </div>
           )}
+        </div>
+      )}
+
+      {/* Attempt Diagnostic History Timeline */}
+      {history?.attempts && history.attempts.length > 0 && (
+        <div className="card card-glass" style={{ marginBottom: "2rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.25rem", flexWrap: "wrap", gap: "0.5rem" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <Activity size={18} color="#38bdf8" />
+              <h2 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#ffffff" }}>
+                Attempt Diagnostic History ({history.attempts.length} of 3)
+              </h2>
+            </div>
+            <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>
+              Acoustic Gating & Diagnostic Separation Verified
+            </span>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            {history.attempts.map((att) => (
+              <div
+                key={att.id}
+                style={{
+                  background: "rgba(15, 23, 42, 0.6)",
+                  border: `1px solid ${
+                    att.concept_result === "correct" ? "rgba(16, 185, 129, 0.3)" : "rgba(239, 68, 68, 0.3)"
+                  }`,
+                  borderRadius: "var(--radius-md)",
+                  padding: "1.25rem"
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.75rem", flexWrap: "wrap", gap: "0.5rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    <span style={{
+                      background: "rgba(99, 102, 241, 0.2)",
+                      color: "#818cf8",
+                      fontWeight: 700,
+                      padding: "2px 8px",
+                      borderRadius: "4px",
+                      fontSize: "0.8rem"
+                    }}>
+                      Attempt {att.attempt_number}
+                    </span>
+                    <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
+                      Response Time: {(att.response_time_ms / 1000).toFixed(1)}s
+                    </span>
+                  </div>
+
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    <span style={{
+                      padding: "3px 10px",
+                      borderRadius: "var(--radius-full)",
+                      fontSize: "0.75rem",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      background: att.concept_result === "correct" ? "rgba(16, 185, 129, 0.15)" : "rgba(239, 68, 68, 0.15)",
+                      color: att.concept_result === "correct" ? "#34d399" : "#f87171",
+                      border: `1px solid ${att.concept_result === "correct" ? "rgba(16, 185, 129, 0.3)" : "rgba(239, 68, 68, 0.3)"}`
+                    }}>
+                      Concept: {att.concept_result}
+                    </span>
+
+                    {att.speech_confidence !== null && (
+                      <span style={{
+                        padding: "3px 8px",
+                        borderRadius: "var(--radius-full)",
+                        fontSize: "0.72rem",
+                        fontWeight: 600,
+                        background: att.speech_confidence >= 0.70 ? "rgba(16, 185, 129, 0.1)" : "rgba(245, 158, 11, 0.1)",
+                        color: att.speech_confidence >= 0.70 ? "#a7f3d0" : "#fde047"
+                      }}>
+                        Acoustic Conf: {(att.speech_confidence * 100).toFixed(0)}%
+                        {att.speech_confidence < 0.70 ? " (Unconfirmed)" : ""}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div style={{ marginBottom: "0.6rem" }}>
+                  <span style={{ fontSize: "0.7rem", color: "var(--text-muted)", textTransform: "uppercase", fontWeight: 700 }}>Instruction Shown:</span>
+                  <p style={{ fontSize: "0.9rem", color: "#cbd5e1", fontStyle: "italic" }}>
+                    "{att.instruction_shown}"
+                  </p>
+                </div>
+
+                <div style={{ marginBottom: "0.75rem" }}>
+                  <span style={{ fontSize: "0.7rem", color: "var(--text-muted)", textTransform: "uppercase", fontWeight: 700 }}>Child Response:</span>
+                  <p style={{ fontSize: "1rem", fontWeight: 600, color: "#ffffff" }}>
+                    "{att.speech_transcript || "(No speech transcript)"}"
+                  </p>
+                </div>
+
+                {/* Extracted Language Observations */}
+                {att.observations && att.observations.length > 0 && (
+                  <div style={{
+                    background: "rgba(0,0,0,0.25)",
+                    padding: "0.75rem",
+                    borderRadius: "var(--radius-sm)",
+                    marginTop: "0.5rem"
+                  }}>
+                    <span style={{ fontSize: "0.72rem", color: "#818cf8", fontWeight: 700, textTransform: "uppercase", display: "block", marginBottom: "0.4rem" }}>
+                      Diagnostic Observations (Researcher Visible Only):
+                    </span>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                      {att.observations.map((o) => (
+                        <span
+                          key={o.id}
+                          style={{
+                            fontSize: "0.75rem",
+                            background: "rgba(99, 102, 241, 0.15)",
+                            border: "1px solid rgba(99, 102, 241, 0.3)",
+                            color: "#c7d2fe",
+                            padding: "2px 8px",
+                            borderRadius: "4px"
+                          }}
+                        >
+                          <strong>{o.observation_code}</strong>: "{o.evidence}" {o.confirmed ? "✓" : "(unconfirmed)"}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
