@@ -1,0 +1,662 @@
+[
+  {
+    "scenario_code": "SCEN-001",
+    "title": "Child 1 - Animal Habitat Missing Preposition",
+    "description": "6yo learner with emerging English and moderate risk responds without preposition on habitat task",
+    "learner": {
+      "learner_code": "CHILD-001",
+      "age": 6,
+      "grade": "Grade 1",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 55.0,
+      "grammar_score": 48.0,
+      "comprehension_score": 60.0,
+      "instruction_following_score": 50.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-002",
+    "simulated_component_1": {
+      "speech_transcript": "Fish live water.",
+      "speech_confidence": 0.92,
+      "concept_result": "correct",
+      "response_time_ms": 14200,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": ["missing_preposition"],
+      "repeated_vocabulary_issues": ["habitat"],
+      "instruction_pattern": "difficulty_with_two_steps",
+      "recent_accuracy": 0.50,
+      "successful_support": "one_step_with_visual_cue",
+      "recommended_support": "moderate"
+    }
+  },
+  {
+    "scenario_code": "SCEN-002",
+    "title": "Child 1 - Incorrect Concept Habitat Error",
+    "description": "6yo learner gives incorrect habitat pairing with preposition present",
+    "learner": {
+      "learner_code": "CHILD-001",
+      "age": 6,
+      "grade": "Grade 1",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 55.0,
+      "grammar_score": 48.0,
+      "comprehension_score": 60.0,
+      "instruction_following_score": 50.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-002",
+    "simulated_component_1": {
+      "speech_transcript": "Fish live in a tree.",
+      "speech_confidence": 0.94,
+      "concept_result": "incorrect",
+      "response_time_ms": 18000,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": ["habitat"],
+      "instruction_pattern": "unfamiliar_category",
+      "recent_accuracy": 0.45,
+      "successful_support": "two_picture_choice",
+      "recommended_support": "strong"
+    }
+  },
+  {
+    "scenario_code": "SCEN-003",
+    "title": "Child 2 - High Risk Classroom Clean-up Two-step Missed",
+    "description": "5yo high-risk learner only executes first step of a two-step instruction",
+    "learner": {
+      "learner_code": "CHILD-002",
+      "age": 5,
+      "grade": "Kindergarten",
+      "risk_support_level": "high",
+      "vocabulary_score": 40.0,
+      "grammar_score": 38.0,
+      "comprehension_score": 42.0,
+      "instruction_following_score": 35.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-001",
+    "simulated_component_1": {
+      "speech_transcript": "I put crayons.",
+      "speech_confidence": 0.88,
+      "concept_result": "partial",
+      "response_time_ms": 22500,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": ["omitted_second_verb"],
+      "repeated_vocabulary_issues": ["recycle"],
+      "instruction_pattern": "step_dropoff",
+      "recent_accuracy": 0.35,
+      "successful_support": "split_steps",
+      "recommended_support": "strong"
+    }
+  },
+  {
+    "scenario_code": "SCEN-004",
+    "title": "Child 3 - Low Risk Preposition Understanding",
+    "description": "7yo low-risk learner developing English successfully understands spatial relation",
+    "learner": {
+      "learner_code": "CHILD-003",
+      "age": 7,
+      "grade": "Grade 2",
+      "risk_support_level": "low",
+      "vocabulary_score": 78.0,
+      "grammar_score": 74.0,
+      "comprehension_score": 82.0,
+      "instruction_following_score": 80.0,
+      "english_level": "developing",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-006",
+    "simulated_component_1": {
+      "speech_transcript": "The cat is under the table.",
+      "speech_confidence": 0.96,
+      "concept_result": "correct",
+      "response_time_ms": 7800,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": [],
+      "instruction_pattern": "independent",
+      "recent_accuracy": 0.85,
+      "successful_support": "minimal_prompt",
+      "recommended_support": "mild"
+    }
+  },
+  {
+    "scenario_code": "SCEN-005",
+    "title": "Child 4 - Moderate Risk Low Speech Confidence",
+    "description": "4yo learner transcript has low speech confidence (0.58) so grammar pattern must stay unconfirmed",
+    "learner": {
+      "learner_code": "CHILD-004",
+      "age": 4,
+      "grade": "Preschool",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 50.0,
+      "grammar_score": 52.0,
+      "comprehension_score": 55.0,
+      "instruction_following_score": 48.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-003",
+    "simulated_component_1": {
+      "speech_transcript": "Ball blue.",
+      "speech_confidence": 0.58,
+      "concept_result": "partial",
+      "response_time_ms": 19000,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": ["word_order_candidate"],
+      "repeated_vocabulary_issues": ["sphere"],
+      "instruction_pattern": "relies_on_demonstration",
+      "recent_accuracy": 0.55,
+      "successful_support": "pointing_gesture",
+      "recommended_support": "moderate"
+    }
+  },
+  {
+    "scenario_code": "SCEN-006",
+    "title": "Child 5 - Subject-Verb Agreement Pattern",
+    "description": "8yo learner developing English with subject-verb disagreement on pronoun task",
+    "learner": {
+      "learner_code": "CHILD-005",
+      "age": 8,
+      "grade": "Grade 2",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 62.0,
+      "grammar_score": 50.0,
+      "comprehension_score": 68.0,
+      "instruction_following_score": 65.0,
+      "english_level": "developing",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-009",
+    "simulated_component_1": {
+      "speech_transcript": "She kick the ball.",
+      "speech_confidence": 0.91,
+      "concept_result": "correct",
+      "response_time_ms": 11200,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": ["subject_verb_agreement"],
+      "repeated_vocabulary_issues": [],
+      "instruction_pattern": "good_comprehension_weak_syntax",
+      "recent_accuracy": 0.60,
+      "successful_support": "sentence_starter",
+      "recommended_support": "moderate"
+    }
+  },
+  {
+    "scenario_code": "SCEN-007",
+    "title": "Child 2 - AR Planting Complex Vocabulary Overload",
+    "description": "5yo high-risk child overwhelmed by difficult words (deposit, irrigate)",
+    "learner": {
+      "learner_code": "CHILD-002",
+      "age": 5,
+      "grade": "Kindergarten",
+      "risk_support_level": "high",
+      "vocabulary_score": 40.0,
+      "grammar_score": 38.0,
+      "comprehension_score": 42.0,
+      "instruction_following_score": 35.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-010",
+    "simulated_component_1": {
+      "speech_transcript": "What is irrigate?",
+      "speech_confidence": 0.89,
+      "concept_result": "unclear",
+      "response_time_ms": 25000,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": ["unfamiliar_verbs"],
+      "instruction_pattern": "vocabulary_block",
+      "recent_accuracy": 0.30,
+      "successful_support": "concrete_verb_substitution",
+      "recommended_support": "strong"
+    }
+  },
+  {
+    "scenario_code": "SCEN-008",
+    "title": "Child 1 - Three-Step Sequence Retry 1",
+    "description": "6yo learner attempting morning sequence task step-by-step",
+    "learner": {
+      "learner_code": "CHILD-001",
+      "age": 6,
+      "grade": "Grade 1",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 55.0,
+      "grammar_score": 48.0,
+      "comprehension_score": 60.0,
+      "instruction_following_score": 50.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-005",
+    "simulated_component_1": {
+      "speech_transcript": "First wake up, eat breakfast.",
+      "speech_confidence": 0.89,
+      "concept_result": "partial",
+      "response_time_ms": 16000,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": ["sequence"],
+      "instruction_pattern": "skips_middle_step",
+      "recent_accuracy": 0.50,
+      "successful_support": "number_cards",
+      "recommended_support": "moderate"
+    }
+  },
+  {
+    "scenario_code": "SCEN-009",
+    "title": "Child 3 - Fruit Identification High Accuracy",
+    "description": "7yo learner successfully identifies tree fruit with complete sentence",
+    "learner": {
+      "learner_code": "CHILD-003",
+      "age": 7,
+      "grade": "Grade 2",
+      "risk_support_level": "low",
+      "vocabulary_score": 78.0,
+      "grammar_score": 74.0,
+      "comprehension_score": 82.0,
+      "instruction_following_score": 80.0,
+      "english_level": "developing",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-004",
+    "simulated_component_1": {
+      "speech_transcript": "Apples and oranges grow on trees.",
+      "speech_confidence": 0.98,
+      "concept_result": "correct",
+      "response_time_ms": 5500,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": [],
+      "instruction_pattern": "fluent_responder",
+      "recent_accuracy": 0.90,
+      "successful_support": "direct_instruction",
+      "recommended_support": "mild"
+    }
+  },
+  {
+    "scenario_code": "SCEN-010",
+    "title": "Child 4 - Story Comprehension Incorrect Entity",
+    "description": "4yo chooses the wrong character on Leo the lion comprehension task",
+    "learner": {
+      "learner_code": "CHILD-004",
+      "age": 4,
+      "grade": "Preschool",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 50.0,
+      "grammar_score": 52.0,
+      "comprehension_score": 55.0,
+      "instruction_following_score": 48.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-008",
+    "simulated_component_1": {
+      "speech_transcript": "The mouse was sleeping.",
+      "speech_confidence": 0.93,
+      "concept_result": "incorrect",
+      "response_time_ms": 13400,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": ["attentively"],
+      "instruction_pattern": "confuses_subjects",
+      "recent_accuracy": 0.48,
+      "successful_support": "picture_options",
+      "recommended_support": "strong"
+    }
+  },
+  {
+    "scenario_code": "SCEN-011",
+    "title": "Child 5 - Color Shape Matching Missing Copula",
+    "description": "8yo learner identifies shape but omits auxiliary verb",
+    "learner": {
+      "learner_code": "CHILD-005",
+      "age": 8,
+      "grade": "Grade 2",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 62.0,
+      "grammar_score": 50.0,
+      "comprehension_score": 68.0,
+      "instruction_following_score": 65.0,
+      "english_level": "developing",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-007",
+    "simulated_component_1": {
+      "speech_transcript": "Red triangle next to yellow square.",
+      "speech_confidence": 0.95,
+      "concept_result": "correct",
+      "response_time_ms": 9100,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": ["omitted_copula"],
+      "repeated_vocabulary_issues": ["adjacent"],
+      "instruction_pattern": "descriptive_phrases",
+      "recent_accuracy": 0.65,
+      "successful_support": "sentence_modeling",
+      "recommended_support": "moderate"
+    }
+  },
+  {
+    "scenario_code": "SCEN-012",
+    "title": "Child 2 - High Risk Shape Identification Failure",
+    "description": "5yo high-risk learner fails attempt 1 on color shape matching",
+    "learner": {
+      "learner_code": "CHILD-002",
+      "age": 5,
+      "grade": "Kindergarten",
+      "risk_support_level": "high",
+      "vocabulary_score": 40.0,
+      "grammar_score": 38.0,
+      "comprehension_score": 42.0,
+      "instruction_following_score": 35.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-007",
+    "simulated_component_1": {
+      "speech_transcript": "I see yellow square.",
+      "speech_confidence": 0.90,
+      "concept_result": "incorrect",
+      "response_time_ms": 21000,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": ["equilateral", "situated"],
+      "instruction_pattern": "distracted_by_secondary_object",
+      "recent_accuracy": 0.32,
+      "successful_support": "highlight_single_target",
+      "recommended_support": "strong"
+    }
+  },
+  {
+    "scenario_code": "SCEN-013",
+    "title": "Child 1 - Second Attempt After Habitat Failure",
+    "description": "6yo learner receives attempt 2 support for animal habitat task",
+    "learner": {
+      "learner_code": "CHILD-001",
+      "age": 6,
+      "grade": "Grade 1",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 55.0,
+      "grammar_score": 48.0,
+      "comprehension_score": 60.0,
+      "instruction_following_score": 50.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-002",
+    "simulated_component_1": {
+      "speech_transcript": "Fish swim water.",
+      "speech_confidence": 0.91,
+      "concept_result": "correct",
+      "response_time_ms": 11000,
+      "attempt_number": 2
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": ["missing_preposition"],
+      "repeated_vocabulary_issues": ["habitat"],
+      "instruction_pattern": "responds_to_one_animal_focus",
+      "recent_accuracy": 0.52,
+      "successful_support": "one_animal_prompt",
+      "recommended_support": "moderate"
+    }
+  },
+  {
+    "scenario_code": "SCEN-014",
+    "title": "Child 2 - Third Attempt Escalation Near Limit",
+    "description": "5yo high-risk learner fails attempt 2 on classroom task",
+    "learner": {
+      "learner_code": "CHILD-002",
+      "age": 5,
+      "grade": "Kindergarten",
+      "risk_support_level": "high",
+      "vocabulary_score": 40.0,
+      "grammar_score": 38.0,
+      "comprehension_score": 42.0,
+      "instruction_following_score": 35.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-001",
+    "simulated_component_1": {
+      "speech_transcript": "Paper on rug.",
+      "speech_confidence": 0.87,
+      "concept_result": "incorrect",
+      "response_time_ms": 28000,
+      "attempt_number": 2
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": ["sentence_fragment"],
+      "repeated_vocabulary_issues": ["bin", "recycle"],
+      "instruction_pattern": "fatigue_or_confusion",
+      "recent_accuracy": 0.28,
+      "successful_support": "tap_to_place",
+      "recommended_support": "strong"
+    }
+  },
+  {
+    "scenario_code": "SCEN-015",
+    "title": "Child 3 - AR Planting Independent Success",
+    "description": "7yo low-risk learner completes planting task accurately",
+    "learner": {
+      "learner_code": "CHILD-003",
+      "age": 7,
+      "grade": "Grade 2",
+      "risk_support_level": "low",
+      "vocabulary_score": 78.0,
+      "grammar_score": 74.0,
+      "comprehension_score": 82.0,
+      "instruction_following_score": 80.0,
+      "english_level": "developing",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-010",
+    "simulated_component_1": {
+      "speech_transcript": "Put seeds in dirt and water it.",
+      "speech_confidence": 0.97,
+      "concept_result": "correct",
+      "response_time_ms": 8200,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": [],
+      "instruction_pattern": "high_autonomy",
+      "recent_accuracy": 0.88,
+      "successful_support": "unaltered_flow",
+      "recommended_support": "mild"
+    }
+  },
+  {
+    "scenario_code": "SCEN-016",
+    "title": "Child 4 - Big/Small Sorting Correct First Attempt",
+    "description": "4yo learner successfully sorts big balls into blue box",
+    "learner": {
+      "learner_code": "CHILD-004",
+      "age": 4,
+      "grade": "Preschool",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 50.0,
+      "grammar_score": 52.0,
+      "comprehension_score": 55.0,
+      "instruction_following_score": 48.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-003",
+    "simulated_component_1": {
+      "speech_transcript": "Big ball in blue box.",
+      "speech_confidence": 0.91,
+      "concept_result": "correct",
+      "response_time_ms": 12000,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": [],
+      "instruction_pattern": "responds_to_color_prompts",
+      "recent_accuracy": 0.62,
+      "successful_support": "color_coding",
+      "recommended_support": "moderate"
+    }
+  },
+  {
+    "scenario_code": "SCEN-017",
+    "title": "Child 5 - Story Leo Sleeping Understood",
+    "description": "8yo learner accurately identifies Leo sleeping with correct past continuous phrasing",
+    "learner": {
+      "learner_code": "CHILD-005",
+      "age": 8,
+      "grade": "Grade 2",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 62.0,
+      "grammar_score": 50.0,
+      "comprehension_score": 68.0,
+      "instruction_following_score": 65.0,
+      "english_level": "developing",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-008",
+    "simulated_component_1": {
+      "speech_transcript": "Leo the lion was sleeping.",
+      "speech_confidence": 0.96,
+      "concept_result": "correct",
+      "response_time_ms": 6800,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": [],
+      "instruction_pattern": "strong_auditory_memory",
+      "recent_accuracy": 0.70,
+      "successful_support": "short_story_audio",
+      "recommended_support": "mild"
+    }
+  },
+  {
+    "scenario_code": "SCEN-018",
+    "title": "Child 1 - Pronoun He vs She Confusion",
+    "description": "6yo learner uses incorrect gender pronoun on soccer kicking task",
+    "learner": {
+      "learner_code": "CHILD-001",
+      "age": 6,
+      "grade": "Grade 1",
+      "risk_support_level": "moderate",
+      "vocabulary_score": 55.0,
+      "grammar_score": 48.0,
+      "comprehension_score": 60.0,
+      "instruction_following_score": 50.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-009",
+    "simulated_component_1": {
+      "speech_transcript": "He is kicking the ball.",
+      "speech_confidence": 0.93,
+      "concept_result": "incorrect",
+      "response_time_ms": 15000,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": ["pronoun_reversal"],
+      "repeated_vocabulary_issues": [],
+      "instruction_pattern": "pronoun_confusion",
+      "recent_accuracy": 0.50,
+      "successful_support": "picture_gender_cue",
+      "recommended_support": "moderate"
+    }
+  },
+  {
+    "scenario_code": "SCEN-019",
+    "title": "Child 2 - Preposition Cat Desk Complete Mismatch",
+    "description": "5yo high-risk learner places cat on top of chair instead of under desk",
+    "learner": {
+      "learner_code": "CHILD-002",
+      "age": 5,
+      "grade": "Kindergarten",
+      "risk_support_level": "high",
+      "vocabulary_score": 40.0,
+      "grammar_score": 38.0,
+      "comprehension_score": 42.0,
+      "instruction_following_score": 35.0,
+      "english_level": "emerging",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-006",
+    "simulated_component_1": {
+      "speech_transcript": "Cat on chair.",
+      "speech_confidence": 0.88,
+      "concept_result": "incorrect",
+      "response_time_ms": 23000,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": ["spatial_error"],
+      "repeated_vocabulary_issues": ["beneath"],
+      "instruction_pattern": "preposition_confusion",
+      "recent_accuracy": 0.35,
+      "successful_support": "visual_arrow_cue",
+      "recommended_support": "strong"
+    }
+  },
+  {
+    "scenario_code": "SCEN-020",
+    "title": "Child 3 - Morning Sequence Complete Accuracy",
+    "description": "7yo low-risk learner orders all 3 morning steps accurately",
+    "learner": {
+      "learner_code": "CHILD-003",
+      "age": 7,
+      "grade": "Grade 2",
+      "risk_support_level": "low",
+      "vocabulary_score": 78.0,
+      "grammar_score": 74.0,
+      "comprehension_score": 82.0,
+      "instruction_following_score": 80.0,
+      "english_level": "developing",
+      "preferred_language": "en"
+    },
+    "task_code": "TASK-ENG-005",
+    "simulated_component_1": {
+      "speech_transcript": "Wake up, wash face, eat breakfast.",
+      "speech_confidence": 0.98,
+      "concept_result": "correct",
+      "response_time_ms": 7000,
+      "attempt_number": 1
+    },
+    "simulated_component_4": {
+      "repeated_grammar_patterns": [],
+      "repeated_vocabulary_issues": [],
+      "instruction_pattern": "excellent_temporal_sequence",
+      "recent_accuracy": 0.92,
+      "successful_support": "standard_cue",
+      "recommended_support": "mild"
+    }
+  }
+]

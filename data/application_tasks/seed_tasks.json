@@ -1,0 +1,389 @@
+[
+  {
+    "task_code": "TASK-ENG-001",
+    "title": "Classroom Clean-Up Instruction",
+    "task_type": "classroom",
+    "language": "en",
+    "learning_objective": "Follow instructions to put away classroom materials into the correct bin",
+    "original_instruction": "Before sitting on the rug, pack your crayons and put your drawing paper in the green recycle bin.",
+    "minimum_age": 4,
+    "maximum_age": 6,
+    "base_difficulty": "medium",
+    "expected_concepts": ["pack crayons", "put paper in green bin"],
+    "acceptable_answers": ["crayons in box, paper in green bin", "pack crayons and recycle paper"],
+    "protected_answers": {
+      "relations": [
+        {"subject": "crayons", "relation": "put_in", "answer": "crayon box"},
+        {"subject": "paper", "relation": "put_in", "answer": "green bin"}
+      ],
+      "allowed_instruction_terms": ["crayons", "paper"],
+      "restricted_solution_phrases": [
+        "put crayons in the box and paper in green bin",
+        "the answer is crayons in box and paper in bin"
+      ],
+      "answer_reveal_policy": "do_not_reveal_before_response"
+    },
+    "answer_presentation_policy": {
+      "mode": "action_execution",
+      "candidate_answers_may_be_shown": true,
+      "correct_candidate_may_be_identified": false,
+      "explanation_before_attempt": false
+    },
+    "vocabulary_targets": ["pack", "bin", "recycle"],
+    "grammar_targets": ["temporal_clause", "two_step_coordination"],
+    "ar_metadata": {
+      "interactive": true,
+      "object_labels": ["crayons", "paper", "bin"],
+      "interaction_type": "tap_and_place"
+    },
+    "is_active": true
+  },
+  {
+    "task_code": "TASK-ENG-002",
+    "title": "Animal Habitat Categorization",
+    "task_type": "categorization",
+    "language": "en",
+    "learning_objective": "Match animals to their natural living habitat",
+    "original_instruction": "Put the animals into groups according to where they live.",
+    "minimum_age": 5,
+    "maximum_age": 7,
+    "base_difficulty": "medium",
+    "expected_concepts": ["fish live in water", "bird live in tree"],
+    "acceptable_answers": ["fish in water, bird in tree", "fish swim in water, bird in nest"],
+    "protected_answers": {
+      "relations": [
+        {"subject": "fish", "relation": "lives_in", "answer": "water"},
+        {"subject": "bird", "relation": "lives_in", "answer": "tree"}
+      ],
+      "allowed_instruction_terms": ["fish", "bird", "animals"],
+      "restricted_solution_phrases": [
+        "the fish lives in water",
+        "put the fish in water",
+        "fish in water and bird in tree"
+      ],
+      "answer_reveal_policy": "do_not_reveal_before_response"
+    },
+    "answer_presentation_policy": {
+      "mode": "multiple_choice",
+      "candidate_answers_may_be_shown": true,
+      "correct_candidate_may_be_identified": false,
+      "explanation_before_attempt": false
+    },
+    "vocabulary_targets": ["habitat", "group", "nature"],
+    "grammar_targets": ["relative_clause", "prepositional_phrase"],
+    "ar_metadata": {
+      "interactive": true,
+      "object_labels": ["fish", "water", "tree", "bird"],
+      "interaction_type": "drag_and_drop"
+    },
+    "is_active": true
+  },
+  {
+    "task_code": "TASK-ENG-003",
+    "title": "Big and Small Object Sorting",
+    "task_type": "vocabulary",
+    "language": "en",
+    "learning_objective": "Identify and distinguish objects by comparative size (big vs small)",
+    "original_instruction": "Distinguish between the items by placing all the large spheres into the blue container.",
+    "minimum_age": 4,
+    "maximum_age": 5,
+    "base_difficulty": "easy",
+    "expected_concepts": ["select big balls", "put big balls into blue box"],
+    "acceptable_answers": ["big balls in blue box", "put large balls in blue container"],
+    "protected_answers": {
+      "relations": [
+        {"subject": "big ball", "relation": "place_in", "answer": "blue container"}
+      ],
+      "allowed_instruction_terms": ["ball", "container"],
+      "restricted_solution_phrases": [
+        "the big ball goes into the blue container",
+        "put big balls in blue"
+      ],
+      "answer_reveal_policy": "do_not_reveal_before_response"
+    },
+    "answer_presentation_policy": {
+      "mode": "drag_and_drop",
+      "candidate_answers_may_be_shown": true,
+      "correct_candidate_may_be_identified": false,
+      "explanation_before_attempt": false
+    },
+    "vocabulary_targets": ["sphere", "distinguish", "large"],
+    "grammar_targets": ["gerund_preposition", "adjective_noun_order"],
+    "ar_metadata": {
+      "interactive": true,
+      "object_labels": ["big ball", "small ball", "blue box"],
+      "interaction_type": "drag_and_drop"
+    },
+    "is_active": true
+  },
+  {
+    "task_code": "TASK-ENG-004",
+    "title": "Fruit and Vegetable Identification",
+    "task_type": "vocabulary",
+    "language": "en",
+    "learning_objective": "Identify edible fruits that grow on trees",
+    "original_instruction": "Identify the sweet edible fruits that originate from orchards and trees.",
+    "minimum_age": 5,
+    "maximum_age": 7,
+    "base_difficulty": "medium",
+    "expected_concepts": ["apples and oranges grow on trees"],
+    "acceptable_answers": ["apple", "orange", "apple and orange"],
+    "protected_answers": {
+      "relations": [
+        {"subject": "apple", "relation": "is", "answer": "tree fruit"},
+        {"subject": "orange", "relation": "is", "answer": "tree fruit"}
+      ],
+      "allowed_instruction_terms": ["fruit", "apple", "orange"],
+      "restricted_solution_phrases": [
+        "the answer is apple and orange",
+        "apples and oranges grow on trees"
+      ],
+      "answer_reveal_policy": "do_not_reveal_before_response"
+    },
+    "answer_presentation_policy": {
+      "mode": "two_picture_choice",
+      "candidate_answers_may_be_shown": true,
+      "correct_candidate_may_be_identified": false,
+      "explanation_before_attempt": false
+    },
+    "vocabulary_targets": ["originate", "orchard", "edible"],
+    "grammar_targets": ["relative_clause_that", "plural_nouns"],
+    "ar_metadata": {
+      "interactive": true,
+      "object_labels": ["apple", "carrot", "tree"],
+      "interaction_type": "tap_to_select"
+    },
+    "is_active": true
+  },
+  {
+    "task_code": "TASK-ENG-005",
+    "title": "Three-Step Morning Sequence",
+    "task_type": "sequence",
+    "language": "en",
+    "learning_objective": "Order daily morning routine events chronologically",
+    "original_instruction": "Sequence the events appropriately: wake up, wash your face, and consume your morning meal.",
+    "minimum_age": 6,
+    "maximum_age": 8,
+    "base_difficulty": "hard",
+    "expected_concepts": ["first wake up", "then wash face", "then eat breakfast"],
+    "acceptable_answers": ["wake up, wash face, eat breakfast", "1 wake up 2 wash face 3 eat breakfast"],
+    "protected_answers": {
+      "relations": [
+        {"subject": "first_step", "relation": "is", "answer": "wake up"},
+        {"subject": "second_step", "relation": "is", "answer": "wash face"},
+        {"subject": "third_step", "relation": "is", "answer": "eat breakfast"}
+      ],
+      "allowed_instruction_terms": ["morning", "order"],
+      "restricted_solution_phrases": [
+        "first wake up second wash face third eat breakfast",
+        "the correct order is wake up wash face eat breakfast"
+      ],
+      "answer_reveal_policy": "do_not_reveal_before_response"
+    },
+    "answer_presentation_policy": {
+      "mode": "sequence_order",
+      "candidate_answers_may_be_shown": true,
+      "correct_candidate_may_be_identified": false,
+      "explanation_before_attempt": false
+    },
+    "vocabulary_targets": ["sequence", "appropriately", "consume"],
+    "grammar_targets": ["temporal_adverbs", "imperative_series"],
+    "ar_metadata": {
+      "interactive": true,
+      "object_labels": ["bed", "sink", "breakfast plate"],
+      "interaction_type": "number_sequence"
+    },
+    "is_active": true
+  },
+  {
+    "task_code": "TASK-ENG-006",
+    "title": "Preposition Picture Placement",
+    "task_type": "grammar",
+    "language": "en",
+    "learning_objective": "Demonstrate comprehension of spatial prepositions (under, on, beside)",
+    "original_instruction": "Position the miniature feline beneath the wooden writing desk.",
+    "minimum_age": 5,
+    "maximum_age": 7,
+    "base_difficulty": "medium",
+    "expected_concepts": ["cat under table"],
+    "acceptable_answers": ["put cat under desk", "cat under table", "under the table"],
+    "protected_answers": {
+      "relations": [
+        {"subject": "cat", "relation": "placed", "answer": "under desk"}
+      ],
+      "allowed_instruction_terms": ["cat", "desk"],
+      "restricted_solution_phrases": [
+        "the cat goes under the desk",
+        "put the cat under the table"
+      ],
+      "answer_reveal_policy": "do_not_reveal_before_response"
+    },
+    "answer_presentation_policy": {
+      "mode": "drag_and_drop",
+      "candidate_answers_may_be_shown": true,
+      "correct_candidate_may_be_identified": false,
+      "explanation_before_attempt": false
+    },
+    "vocabulary_targets": ["miniature", "feline", "beneath"],
+    "grammar_targets": ["locative_prepositions", "noun_phrase_modifiers"],
+    "ar_metadata": {
+      "interactive": true,
+      "object_labels": ["cat", "desk", "rug"],
+      "interaction_type": "drag_and_drop"
+    },
+    "is_active": true
+  },
+  {
+    "task_code": "TASK-ENG-007",
+    "title": "Color and Shape Matching",
+    "task_type": "categorization",
+    "language": "en",
+    "learning_objective": "Select a specific geometric shape with a designated color",
+    "original_instruction": "Select the red equilateral triangle that is situated adjacent to the yellow square.",
+    "minimum_age": 4,
+    "maximum_age": 6,
+    "base_difficulty": "medium",
+    "expected_concepts": ["select red triangle next to yellow square"],
+    "acceptable_answers": ["red triangle", "red triangle next to yellow square"],
+    "protected_answers": {
+      "relations": [
+        {"subject": "target_shape", "relation": "is", "answer": "red triangle"}
+      ],
+      "allowed_instruction_terms": ["triangle", "square"],
+      "restricted_solution_phrases": [
+        "the answer is the red triangle",
+        "pick the red triangle"
+      ],
+      "answer_reveal_policy": "do_not_reveal_before_response"
+    },
+    "answer_presentation_policy": {
+      "mode": "tap_to_select",
+      "candidate_answers_may_be_shown": true,
+      "correct_candidate_may_be_identified": false,
+      "explanation_before_attempt": false
+    },
+    "vocabulary_targets": ["equilateral", "situated", "adjacent"],
+    "grammar_targets": ["relative_clause", "spatial_adjective"],
+    "ar_metadata": {
+      "interactive": true,
+      "object_labels": ["red triangle", "yellow square", "blue circle"],
+      "interaction_type": "tap_to_select"
+    },
+    "is_active": true
+  },
+  {
+    "task_code": "TASK-ENG-008",
+    "title": "Short Story Comprehension",
+    "task_type": "comprehension",
+    "language": "en",
+    "learning_objective": "Answer a who-question based on a two-sentence narrative",
+    "original_instruction": "Listen attentively: Leo the lion was sleeping peacefully. Suddenly a tiny mouse scurried across his paws. Who was taking a nap?",
+    "minimum_age": 5,
+    "maximum_age": 8,
+    "base_difficulty": "medium",
+    "expected_concepts": ["Leo was sleeping", "the lion was sleeping"],
+    "acceptable_answers": ["lion", "Leo", "the lion", "Leo the lion"],
+    "protected_answers": {
+      "relations": [
+        {"subject": "sleeper", "relation": "is", "answer": "lion"}
+      ],
+      "allowed_instruction_terms": ["Leo", "mouse", "sleeping"],
+      "restricted_solution_phrases": [
+        "the lion was taking a nap",
+        "Leo was sleeping"
+      ],
+      "answer_reveal_policy": "do_not_reveal_before_response"
+    },
+    "answer_presentation_policy": {
+      "mode": "two_picture_choice",
+      "candidate_answers_may_be_shown": true,
+      "correct_candidate_may_be_identified": false,
+      "explanation_before_attempt": false
+    },
+    "vocabulary_targets": ["attentively", "scurried", "peacefully"],
+    "grammar_targets": ["past_continuous", "wh_interrogative"],
+    "ar_metadata": {
+      "interactive": true,
+      "object_labels": ["lion", "mouse", "tree"],
+      "interaction_type": "tap_to_select"
+    },
+    "is_active": true
+  },
+  {
+    "task_code": "TASK-ENG-009",
+    "title": "Pronoun Picture Choice (He vs She)",
+    "task_type": "grammar",
+    "language": "en",
+    "learning_objective": "Apply the appropriate third-person subjective pronoun (he / she)",
+    "original_instruction": "Formulate a sentence stating that the young girl is kicking the soccer ball using the appropriate pronoun.",
+    "minimum_age": 6,
+    "maximum_age": 8,
+    "base_difficulty": "medium",
+    "expected_concepts": ["she is kicking the ball", "she kicks the ball"],
+    "acceptable_answers": ["she is kicking the ball", "she kicks the ball", "she kicks ball"],
+    "protected_answers": {
+      "relations": [
+        {"subject": "girl", "relation": "pronoun", "answer": "she"}
+      ],
+      "allowed_instruction_terms": ["girl", "ball"],
+      "restricted_solution_phrases": [
+        "she is kicking the ball",
+        "use the pronoun she"
+      ],
+      "answer_reveal_policy": "do_not_reveal_before_response"
+    },
+    "answer_presentation_policy": {
+      "mode": "sentence_builder",
+      "candidate_answers_may_be_shown": true,
+      "correct_candidate_may_be_identified": false,
+      "explanation_before_attempt": false
+    },
+    "vocabulary_targets": ["formulate", "stating", "appropriate"],
+    "grammar_targets": ["subject_pronouns", "present_continuous"],
+    "ar_metadata": {
+      "interactive": true,
+      "object_labels": ["girl", "soccer ball", "goal"],
+      "interaction_type": "drag_and_drop"
+    },
+    "is_active": true
+  },
+  {
+    "task_code": "TASK-ENG-010",
+    "title": "AR Garden Planting Explorer",
+    "task_type": "ar",
+    "language": "en",
+    "learning_objective": "Place seed packets into the soil and add water to plant a flower",
+    "original_instruction": "Deposit the sunflower seeds into the excavated furrow and irrigate the soil thoroughly.",
+    "minimum_age": 5,
+    "maximum_age": 8,
+    "base_difficulty": "hard",
+    "expected_concepts": ["put seeds in dirt", "pour water on seeds"],
+    "acceptable_answers": ["seeds in dirt and water it", "plant seeds and add water"],
+    "protected_answers": {
+      "relations": [
+        {"subject": "seeds", "relation": "put_in", "answer": "dirt"},
+        {"subject": "water", "relation": "pour_on", "answer": "seeds"}
+      ],
+      "allowed_instruction_terms": ["seeds", "flower", "water"],
+      "restricted_solution_phrases": [
+        "put sunflower seeds in the dirt and water it",
+        "the answer is seeds in dirt and water"
+      ],
+      "answer_reveal_policy": "do_not_reveal_before_response"
+    },
+    "answer_presentation_policy": {
+      "mode": "ar_simulation",
+      "candidate_answers_may_be_shown": true,
+      "correct_candidate_may_be_identified": false,
+      "explanation_before_attempt": false
+    },
+    "vocabulary_targets": ["deposit", "excavated", "furrow", "irrigate"],
+    "grammar_targets": ["compound_imperative", "adverbial_modifier"],
+    "ar_metadata": {
+      "interactive": true,
+      "object_labels": ["sunflower seed packet", "soil patch", "watering can"],
+      "interaction_type": "ar_step_by_step"
+    },
+    "is_active": true
+  }
+]

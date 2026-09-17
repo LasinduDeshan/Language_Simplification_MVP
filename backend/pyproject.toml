@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "language-simplification-mvp"
+version = "0.1.0"
+description = "English-First Adaptive Child-Friendly Language Support MVP for ages 4-8 at risk of DLD"
+authors = [{ name = "Research Team" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.28.0",
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.2.0",
+    "sqlalchemy>=2.0.28",
+    "alembic>=1.13.1",
+    "spacy>=3.7.4",
+    "textstat>=0.7.3",
+    "python-dotenv>=1.0.1",
+    "requests>=2.31.0"
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+pythonpath = ["."]
