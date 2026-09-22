@@ -177,7 +177,7 @@ function ResultCard({ result, onDelete }) {
               {result.learner_code}
             </div>
             <div style={{ fontSize: "0.72rem", color: "#64748b" }}>
-              Age {result.learner_age} · Risk: <strong style={{ color: riskColor, textTransform: "capitalize" }}>{result.risk_after}</strong>
+              Age {result.learner_age} · Screening Risk (C1): <strong style={{ color: riskColor, textTransform: "capitalize" }}>{result.screening_risk_level || result.risk_after}</strong> · Support: <strong style={{ textTransform: "capitalize", color: "#6366f1" }}>{result.recommended_support_level || "moderate"}</strong>
             </div>
           </div>
         </div>
@@ -226,7 +226,7 @@ function ResultCard({ result, onDelete }) {
         {result.score_before && result.score_after && (
           <div style={{ background: "#f8fafc", borderRadius: "12px", padding: "0.9rem 1rem", marginBottom: "0.75rem" }}>
             <div style={{ fontSize: "0.72rem", color: "#64748b", fontWeight: 700, marginBottom: "0.6rem", textTransform: "uppercase", letterSpacing: "0.04em" }}>
-              Score Evolution (Before → After)
+              Educational Performance Score Updates
             </div>
             <ScoreBar label="Grammar" before={result.score_before.grammar_score} after={result.score_after.grammar_score} delta={result.score_deltas?.grammar ?? 0} />
             <ScoreBar label="Vocabulary" before={result.score_before.vocabulary_score} after={result.score_after.vocabulary_score} delta={result.score_deltas?.vocabulary ?? 0} />
@@ -235,28 +235,11 @@ function ResultCard({ result, onDelete }) {
           </div>
         )}
 
-        {/* CLI + Risk + English badges */}
-        <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "0.5rem" }}>
-          {result.composite_language_index != null && (
-            <span style={{ fontSize: "0.78rem", fontWeight: 700, padding: "0.25rem 0.75rem", borderRadius: "9999px", background: "#f1f5f9", color: "#334155", border: "1px solid #e2e8f0" }}>
-              CLI: {result.composite_language_index}/100
-            </span>
-          )}
-          {result.risk_changed && (
-            <span style={{ fontSize: "0.75rem", fontWeight: 700, padding: "0.25rem 0.75rem", borderRadius: "9999px", background: "#fee2e2", color: "#b91c1c", border: "1px solid #f87171", display: "flex", alignItems: "center", gap: "0.3rem" }}>
-              <AlertTriangle size={11} /> Risk: {result.risk_before} → {result.risk_after}
-            </span>
-          )}
-          {result.score_after?.english_level && (
-            <span style={{ fontSize: "0.75rem", fontWeight: 600, padding: "0.25rem 0.75rem", borderRadius: "9999px", background: "#eff6ff", color: "#1d4ed8", border: "1px solid #bfdbfe", textTransform: "capitalize" }}>
-              English: {result.score_after.english_level}
-            </span>
-          )}
-        </div>
-
-        {result.diagnostic_notes && (
-          <div style={{ fontSize: "0.75rem", color: "#64748b", background: "#f8fafc", borderRadius: "8px", padding: "0.6rem 0.8rem", borderLeft: "3px solid #cbd5e1", marginBottom: "0.5rem" }}>
-            {result.diagnostic_notes}
+        {/* Educational notes */}
+        {(result.educational_summary_notes || result.diagnostic_notes) && (
+          <div style={{ fontSize: "0.75rem", color: "#64748b", background: "#f8fafc", borderRadius: "8px", padding: "0.6rem 0.8rem", borderLeft: "3px solid #6366f1", marginBottom: "0.5rem" }}>
+            <strong style={{ color: "#475569", display: "block", marginBottom: "2px" }}>Educational Summary:</strong>
+            {result.educational_summary_notes || result.diagnostic_notes}
           </div>
         )}
 
@@ -318,21 +301,35 @@ export default function TaskResultsHistoryView({ onNavigateToPlayground }) {
   return (
     <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "1.5rem" }}>
       {/* Header */}
-      <div style={{ background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)", borderRadius: "20px", padding: "1.75rem 2rem", color: "#ffffff", marginBottom: "1.5rem" }}>
+      <div style={{ background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)", borderRadius: "20px", padding: "1.75rem 2rem", color: "#ffffff", marginBottom: "1rem" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1rem" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.3rem" }}>
               <Clock size={22} color="#f97316" />
-              <h1 style={{ margin: 0, fontSize: "1.45rem", fontWeight: 900 }}>Results &amp; History</h1>
+              <h1 style={{ margin: 0, fontSize: "1.45rem", fontWeight: 900 }}>Learning &amp; Evaluation History</h1>
             </div>
             <p style={{ margin: 0, color: "#94a3b8", fontSize: "0.9rem" }}>
-              Every completed session is stored automatically. Track Grammar, Vocabulary, Comprehension &amp; Instruction score evolution over time.
+              Every completed learning interaction is recorded automatically. Tracks Vocabulary, Grammar, Comprehension &amp; Instruction performance progression.
             </p>
           </div>
           <button onClick={loadResults} style={{ background: "#f97316", border: "none", borderRadius: "10px", padding: "0.6rem 1.2rem", color: "#fff", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.9rem" }}>
             <RefreshCw size={15} /> Refresh
           </button>
         </div>
+      </div>
+
+      {/* Non-Diagnostic Disclaimer */}
+      <div style={{
+        background: "rgba(59, 130, 246, 0.08)",
+        border: "1px solid rgba(59, 130, 246, 0.25)",
+        borderRadius: "10px",
+        padding: "0.75rem 1rem",
+        marginBottom: "1.5rem",
+        color: "#1e40af",
+        fontSize: "0.82rem",
+        lineHeight: "1.4"
+      }}>
+        <strong>Educational Tracking Notice:</strong> These indicators are derived from learning interactions to personalize educational scaffolding. They are non-diagnostic and do not modify the DLD screening risk indicator received from Component 1.
       </div>
 
       {/* KPI Cards */}

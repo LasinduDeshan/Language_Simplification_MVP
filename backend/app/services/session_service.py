@@ -1,3 +1,4 @@
+import uuid
 from datetime import datetime
 from typing import Dict, Any, Optional, List
 from sqlalchemy.orm import Session
@@ -431,101 +432,121 @@ class SessionService:
         profile_update = None
         task_result_id = None
         if session.final_outcome in ["success", "completed_with_adult_support", "adult_support_required"]:
-            grammar_err_count = len(attempt.grammar_observations or []) if hasattr(attempt, "grammar_observations") else 0
+            # Check idempotency: avoid duplicate scoring if already evaluated
+            existing_result = db.query(TaskResult).filter(TaskResult.session_id == session.id).first()
+            
+            if not existing_result:
+                grammar_err_count = len(attempt.grammar_observations or []) if hasattr(attempt, "grammar_observations") else 0
 
-            # Capture score snapshot BEFORE update
-            score_before_snap = {
-                "vocabulary_score": round(learner.vocabulary_score, 1),
-                "grammar_score": round(learner.grammar_score, 1),
-                "comprehension_score": round(learner.comprehension_score, 1),
-                "instruction_following_score": round(learner.instruction_following_score, 1),
-                "risk_support_level": learner.risk_support_level,
-                "english_level": learner.english_level
-            }
+                # Capture score snapshot BEFORE update
+                screening_risk = getattr(learner, "screening_risk_level", None) or getattr(learner, "risk_support_level", "moderate")
+                score_before_snap = {
+                    "vocabulary_score": round(learner.vocabulary_score, 1),
+                    "grammar_score": round(learner.grammar_score, 1),
+                    "comprehension_score": round(learner.comprehension_score, 1),
+                    "instruction_following_score": round(learner.instruction_following_score, 1),
+                    "screening_risk_level": screening_risk,
+                    "recommended_support_level": getattr(learner, "recommended_support_level", "moderate"),
+                    "risk_support_level": learner.risk_support_level,
+                    "english_level": learner.english_level
+                }
 
-            profile_update = profile_updater.update_profile_after_session(
-                db=db,
-                learner=learner,
-                task=task,
-                session_final_outcome=session.final_outcome,
-                attempt_number=attempt.attempt_number,
-                grammar_errors_count=grammar_err_count,
-                assistance_level=attempt.assistance_level or "independent"
-            )
+                profile_update = profile_updater.update_profile_after_session(
+                    db=db,
+                    learner=learner,
+                    task=task,
+                    session_final_outcome=session.final_outcome,
+                    attempt_number=attempt.attempt_number,
+                    grammar_errors_count=grammar_err_count,
+                    assistance_level=attempt.assistance_level or "independent",
+                    adult_confirmed=True
+                )
 
-            # Build attempt-by-attempt history for the TaskResult record
-            all_session_attempts = db.query(Attempt).filter(
-                Attempt.activity_session_id == session.id
-            ).order_by(Attempt.attempt_number).all()
+                # Build attempt-by-attempt history for the TaskResult record
+                all_session_attempts = db.query(Attempt).filter(
+                    Attempt.activity_session_id == session.id
+                ).order_by(Attempt.attempt_number).all()
 
-            attempt_history = []
-            for att in all_session_attempts:
-                attempt_history.append({
-                    "attempt_number": att.attempt_number,
-                    "instruction": att.presented_instruction or att.instruction_shown or "",
-                    "transcript": att.manual_transcript or att.speech_transcript or "",
-                    "selected_option": att.selected_option or "",
-                    "concept_result": att.final_concept_result or att.concept_result or "unclear",
-                    "target_skill_result": att.final_target_skill_result or att.target_skill_result or "not_applicable",
-                    "assistance_level": att.assistance_level or "independent",
-                    "response_time_ms": att.response_time_ms or 0,
-                    "retry_required": att.final_retry_required if att.final_retry_required is not None else att.retry_required,
-                    "grammar_observations": att.grammar_observations or [],
-                    "vocabulary_observations": att.vocabulary_observations or []
-                })
+                attempt_history = []
+                for att in all_session_attempts:
+                    attempt_history.append({
+                        "attempt_number": att.attempt_number,
+                        "instruction": att.presented_instruction or att.instruction_shown or "",
+                        "transcript": att.manual_transcript or att.speech_transcript or "",
+                        "selected_option": att.selected_option or "",
+                        "concept_result": att.final_concept_result or att.concept_result or "unclear",
+                        "target_skill_result": att.final_target_skill_result or att.target_skill_result or "not_applicable",
+                        "assistance_level": att.assistance_level or "independent",
+                        "response_time_ms": att.response_time_ms or 0,
+                        "retry_required": att.final_retry_required if att.final_retry_required is not None else att.retry_required,
+                        "grammar_observations": att.grammar_observations or [],
+                        "vocabulary_observations": att.vocabulary_observations or []
+                    })
 
-            # Determine if any attempt was independent
-            any_independent = any(
-                a.get("assistance_level") == "independent" and a.get("concept_result") == "correct"
-                for a in attempt_history
-            )
+                # Build educational summary notes (non-diagnostic wording)
+                outcome_label = {
+                    "success": "independently completed",
+                    "completed_with_adult_support": "completed with adult support",
+                    "adult_support_required": "supported after multi-attempt scaffolding"
+                }.get(session.final_outcome, session.final_outcome)
+                
+                target_dom = profile_update.get("target_domain", "vocabulary")
+                score_before_val = score_before_snap.get(f"{target_dom if target_dom != 'instruction_following' else 'instruction_following'}_score", 50.0)
+                score_after_val = profile_update["after"].get(f"{target_dom if target_dom != 'instruction_following' else 'instruction_following'}_score", 50.0)
+                delta_val = profile_update["deltas"].get(target_dom if target_dom != "instruction_following" else "instruction", 0.0)
 
-            # Build diagnostic notes
-            outcome_label = {
-                "success": "independently mastered",
-                "completed_with_adult_support": "completed with adult support",
-                "adult_support_required": "required adult support after 3 attempts"
-            }.get(session.final_outcome, session.final_outcome)
-            diagnostic_notes = (
-                f"{learner.learner_code} (Age {learner.age}, {score_before_snap['risk_support_level']} risk) "
-                f"{outcome_label} the task '{task.title}' ({task.category}, {task.base_difficulty}). "
-                f"{len(all_session_attempts)} attempt(s) used. "
-                f"Grammar: {score_before_snap['grammar_score']} → {profile_update['after']['grammar_score']} "
-                f"(Δ{profile_update['deltas']['grammar']:+.1f}). "
-                f"Vocab: {score_before_snap['vocabulary_score']} → {profile_update['after']['vocabulary_score']} "
-                f"(Δ{profile_update['deltas']['vocabulary']:+.1f}). "
-                f"CLI: {profile_update['after'].get('composite_language_index', '?')}/100. "
-                f"Risk level: {score_before_snap['risk_support_level']} → {profile_update['after']['risk_support_level']}."
-            )
+                educational_notes = (
+                    f"{learner.learner_code} (Age {learner.age}) {outcome_label} the learning activity '{task.title}' "
+                    f"(Domain: {target_dom}, Difficulty: {task.base_difficulty}). "
+                    f"Attempts used: {len(all_session_attempts)}. "
+                    f"Domain performance: {score_before_val:.1f} → {score_after_val:.1f} (Δ{delta_val:+.1f}). "
+                    f"Recommended support level: {profile_update['after'].get('recommended_support_level')}. "
+                    f"Screening risk remains read-only from Component 1 ({score_before_snap['screening_risk_level']})."
+                )
 
-            # Persist the TaskResult record
-            task_result = TaskResult(
-                session_id=session.id,
-                learner_id=learner.id,
-                task_id=task.id,
-                learner_code=learner.learner_code,
-                learner_age=learner.age,
-                task_code=task.task_code,
-                task_title=task.title,
-                category=task.category or "vocabulary",
-                target_skill=task.target_skill,
-                difficulty=task.base_difficulty or "medium",
-                final_outcome=session.final_outcome,
-                attempts_count=len(all_session_attempts),
-                independent_success=independent_success,
-                score_before=score_before_snap,
-                score_after=profile_update["after"],
-                score_deltas=profile_update["deltas"],
-                risk_before=score_before_snap["risk_support_level"],
-                risk_after=profile_update["after"]["risk_support_level"],
-                risk_changed=profile_update["risk_changed"],
-                composite_language_index=profile_update["after"].get("composite_language_index"),
-                attempt_history=attempt_history,
-                diagnostic_notes=diagnostic_notes,
-                completed_at=session.completed_at or datetime.utcnow()
-            )
-            db.add(task_result)
-            task_result_id = task_result.id
+                score_event_id = str(uuid.uuid4())
+
+                # Persist the TaskResult record with Stage 12 fields
+                task_result = TaskResult(
+                    session_id=session.id,
+                    learner_id=learner.id,
+                    task_id=task.id,
+                    learner_code=learner.learner_code,
+                    learner_age=learner.age,
+                    task_code=task.task_code,
+                    task_title=task.title,
+                    category=task.category or "vocabulary",
+                    target_skill=task.target_skill,
+                    difficulty=task.base_difficulty or "medium",
+                    final_outcome=session.final_outcome,
+                    attempts_count=len(all_session_attempts),
+                    independent_success=independent_success,
+                    score_before=score_before_snap,
+                    score_after=profile_update["after"],
+                    score_deltas=profile_update["deltas"],
+                    risk_before=score_before_snap["screening_risk_level"],
+                    risk_after=score_before_snap["screening_risk_level"],
+                    risk_changed=False,
+                    screening_risk_level=score_before_snap["screening_risk_level"],
+                    recommended_support_level=profile_update["after"].get("recommended_support_level"),
+                    target_domain=target_dom,
+                    evidence_count_before=profile_update.get("evidence_count_before", 0),
+                    evidence_count_after=profile_update.get("evidence_count_after", 1),
+                    score_update_applied=True,
+                    score_update_event_id=score_event_id,
+                    score_updated_at=datetime.utcnow(),
+                    scoring_version="1.0",
+                    calculation_snapshot=profile_update.get("calculation_snapshot", {}),
+                    is_simulated=True,
+                    research_eligible=False,
+                    composite_language_index=profile_update["after"].get("composite_language_index"),
+                    attempt_history=attempt_history,
+                    educational_summary_notes=educational_notes,
+                    diagnostic_notes=educational_notes,  # keep alias populated for legacy queries
+                    completed_at=session.completed_at or datetime.utcnow()
+                )
+                db.add(task_result)
+                task_result_id = task_result.id
 
         db.commit()
         db.refresh(session)

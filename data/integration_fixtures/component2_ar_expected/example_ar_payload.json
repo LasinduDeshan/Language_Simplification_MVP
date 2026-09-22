@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "task_id": "INST-001",
+  "language": "en",
+  "instruction": "Pick up the red ball.",
+  "support_level": "strong",
+  "steps": [
+    "Look at the red ball.",
+    "Pick it up."
+  ],
+  "vocabulary_support": [
+    {
+      "word": "ball",
+      "cue": "round toy to play with"
+    }
+  ],
+  "audio_text": "Pick up the red ball.",
+  "validation_status": "approved",
+  "delivery_status": "not_connected",
+  "is_simulated": true,
+  "environment": "development",
+  "research_eligible": false
+}

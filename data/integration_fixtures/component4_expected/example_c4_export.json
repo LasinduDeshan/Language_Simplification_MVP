@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "learner_id": "CHILD-002",
+  "screening_risk_level": "moderate",
+  "screening_source": "component_1",
+  "risk_modified_by_component_3": false,
+  "recommended_support_level": "strong",
+  "performance_profile": {
+    "vocabulary": {
+      "score": 55.0,
+      "previous_score": 50.0,
+      "score_delta": 5.0,
+      "evidence_count": 4,
+      "local_preliminary_trend": "improving",
+      "recent_activity_scores": [55.0, 50.0],
+      "latest_updated_at": "2026-09-22T12:00:00Z"
+    },
+    "grammar": {
+      "score": 46.1,
+      "previous_score": 45.0,
+      "score_delta": 1.1,
+      "evidence_count": 6,
+      "local_preliminary_trend": "stable",
+      "recent_activity_scores": [46.1, 45.0],
+      "latest_updated_at": "2026-09-22T12:00:00Z"
+    },
+    "comprehension": {
+      "score": 50.0,
+      "previous_score": 50.0,
+      "score_delta": 0.0,
+      "evidence_count": 3,
+      "local_preliminary_trend": "stable",
+      "recent_activity_scores": [50.0],
+      "latest_updated_at": "2026-09-22T12:00:00Z"
+    },
+    "instruction_following": {
+      "score": 48.0,
+      "previous_score": 48.0,
+      "score_delta": 0.0,
+      "evidence_count": 2,
+      "local_preliminary_trend": "stable",
+      "recent_activity_scores": [48.0],
+      "latest_updated_at": "2026-09-22T12:00:00Z"
+    }
+  },
+  "is_simulated": true,
+  "environment": "development",
+  "research_eligible": false,
+  "export_status": "generated_locally_not_delivered"
+}

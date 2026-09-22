@@ -54,3 +54,11 @@ Thumbs.db
 # Database exports / temporary dumps (preserving schema & seeds)
 *.db-journal
 backend/exports/
+
+# Integration Previews (generated locally)
+data/integration_previews/component2_ar_outputs/*
+data/integration_previews/component4_outputs/*
+!data/integration_previews/component2_ar_outputs/.gitkeep
+!data/integration_previews/component4_outputs/.gitkeep
+!data/integration_previews/**/*_example.json
+

@@ -771,8 +771,18 @@ def list_task_results(
                 "risk_before": r.risk_before,
                 "risk_after": r.risk_after,
                 "risk_changed": r.risk_changed,
+                "screening_risk_level": r.screening_risk_level or r.risk_before,
+                "recommended_support_level": r.recommended_support_level,
+                "target_domain": r.target_domain,
+                "evidence_count_before": r.evidence_count_before,
+                "evidence_count_after": r.evidence_count_after,
+                "score_update_applied": r.score_update_applied,
+                "scoring_version": r.scoring_version or "1.0",
+                "is_simulated": r.is_simulated if r.is_simulated is not None else True,
+                "research_eligible": r.research_eligible if r.research_eligible is not None else False,
                 "composite_language_index": r.composite_language_index,
                 "attempt_history": r.attempt_history,
+                "educational_summary_notes": r.educational_summary_notes or r.diagnostic_notes,
                 "diagnostic_notes": r.diagnostic_notes,
                 "completed_at": r.completed_at.isoformat() if r.completed_at else None
             }
@@ -813,8 +823,19 @@ def get_task_result_detail(result_id: str, db: Session = Depends(get_db)):
             "risk_before": r.risk_before,
             "risk_after": r.risk_after,
             "risk_changed": r.risk_changed,
+            "screening_risk_level": r.screening_risk_level or r.risk_before,
+            "recommended_support_level": r.recommended_support_level,
+            "target_domain": r.target_domain,
+            "evidence_count_before": r.evidence_count_before,
+            "evidence_count_after": r.evidence_count_after,
+            "score_update_applied": r.score_update_applied,
+            "scoring_version": r.scoring_version or "1.0",
+            "calculation_snapshot": r.calculation_snapshot,
+            "is_simulated": r.is_simulated if r.is_simulated is not None else True,
+            "research_eligible": r.research_eligible if r.research_eligible is not None else False,
             "composite_language_index": r.composite_language_index,
             "attempt_history": r.attempt_history,
+            "educational_summary_notes": r.educational_summary_notes or r.diagnostic_notes,
             "diagnostic_notes": r.diagnostic_notes,
             "completed_at": r.completed_at.isoformat() if r.completed_at else None
         }
@@ -832,8 +853,166 @@ def delete_task_result(result_id: str, db: Session = Depends(get_db)):
     db.commit()
 
 
-@router.post("/results/backfill")
+@router.get("/results/backfill")
 def backfill_task_results(db: Session = Depends(get_db)):
     """Backfills TaskResult records for all existing completed sessions that lack them."""
     count = session_service.backfill_task_results(db=db)
     return {"backfilled": count, "message": f"Created {count} new TaskResult records from existing sessions."}
+
+
+# ----------------- Stage 12 Cross-Component Integration Contracts -----------------
+from app.integrations.component1.mock_adapter import Component1MockAdapter
+from app.integrations.component2_ar.mock_adapter import Component2ARMockAdapter
+from app.integrations.component4.mock_adapter import Component4MockAdapter
+from app.integrations.common.statuses import STATUS_MOCK, STATUS_NOT_CONNECTED
+from app.core.config import settings
+
+c1_adapter = Component1MockAdapter()
+c2_ar_adapter = Component2ARMockAdapter()
+c4_adapter = Component4MockAdapter()
+
+
+@router.get("/integration/status")
+@router.get("/v1/integration/status")
+def get_integration_status():
+    """
+    Returns the real-time operational status of external group components.
+    In Stage 12, components use mock adapters and are not connected over the network.
+    """
+    return {
+        "component_1": settings.component1_mode,
+        "component_2_ar": STATUS_NOT_CONNECTED,
+        "component_4": STATUS_NOT_CONNECTED,
+        "environment": settings.environment,
+        "is_simulated": True,
+        "research_eligible": False,
+        "delivery_status": "not_connected",
+        "note": "Stage 12 local mock contracts; external cross-component network communication is not connected."
+    }
+
+
+@router.get("/integration-preview/component-4/{learner_id}")
+@router.get("/v1/integration-preview/component-4/{learner_id}")
+def preview_component_4_export(learner_id: str, db: Session = Depends(get_db)):
+    """
+    Generates and returns a validated Component 4 learning analytics export payload.
+    Payload is generated and saved locally; it does not claim external network delivery.
+    """
+    try:
+        payload = c4_adapter.export_learner_performance(learner_id=learner_id, db_session=db)
+        return payload.model_dump(mode="json")
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to generate Component 4 export preview: {str(e)}")
+
+
+@router.get("/integration-preview/component-2-ar/{task_id}")
+@router.get("/v1/integration-preview/component-2-ar/{task_id}")
+def preview_component_2_ar_payload(task_id: str, db: Session = Depends(get_db)):
+    """
+    Generates and returns an AR-compatible instruction payload for Component 2.
+    Saved locally under data/integration_previews/component2_ar_outputs/.
+    """
+    task = db.query(Task).filter((Task.id == task_id) | (Task.task_code == task_id)).first()
+    if not task:
+        raise HTTPException(status_code=404, detail=f"Task '{task_id}' not found")
+
+    instruction = task.child_friendly_instruction or task.original_instruction
+    vocab_targets = task.vocabulary_targets or []
+
+    payload = c2_ar_adapter.generate_ar_payload(
+        task_code=task.task_code,
+        instruction=instruction,
+        support_level="moderate",
+        vocabulary_targets=vocab_targets
+    )
+    return payload.model_dump(mode="json")
+
+
+from app.integrations.component1.schemas import Component1ScreeningInputSchema
+from fastapi import Header
+
+@router.post("/integration/component-1/screening-profile")
+@router.post("/v1/integration/component-1/screening-profile")
+def import_component_1_screening_profile(
+    req: Component1ScreeningInputSchema,
+    x_service_auth: Optional[str] = Header(None, alias="X-Service-Auth"),
+    x_component_role: Optional[str] = Header(None, alias="X-Component-Role"),
+    db: Session = Depends(get_db)
+):
+    """
+    Authorized endpoint for importing external DLD screening profiles from Component 1.
+    Protected by feature flags, service authentication, role permission verification,
+    Pydantic schema validation, event ID idempotency, and audit logging.
+    """
+    # 1. Feature Flag Protection
+    if not settings.enable_component1_external_import:
+        raise HTTPException(
+            status_code=403,
+            detail="External Component 1 integration is not enabled in mock mode."
+        )
+
+    # 2. Service Authentication & Role Verification (when active)
+    if settings.environment == "production":
+        expected_secret = getattr(settings, "service_auth_token", "stage12-service-auth-secret")
+        if not x_service_auth or x_service_auth != expected_secret:
+            raise HTTPException(status_code=401, detail="Unauthorized service caller.")
+        if not x_component_role or x_component_role != "component_1_screening":
+            raise HTTPException(status_code=403, detail="Forbidden: Component 1 screening role required.")
+
+    # 3. Source Verification
+    if req.source != "component_1":
+        raise HTTPException(status_code=400, detail="Invalid source component; expected 'component_1'.")
+
+    # 4. Target Learner Verification
+    learner = db.query(LearnerProfile).filter(
+        (LearnerProfile.id == req.learner_id) | (LearnerProfile.learner_code == req.learner_id)
+    ).first()
+    if not learner:
+        raise HTTPException(status_code=404, detail=f"Learner '{req.learner_id}' not found")
+
+    # 5. Idempotency Check (Event ID)
+    if req.event_id:
+        existing_event = db.query(IntegrationEvent).filter(
+            IntegrationEvent.event_type == "component_1_import",
+            IntegrationEvent.target_component == "component_1",
+            IntegrationEvent.payload.contains({"event_id": req.event_id})
+        ).first()
+        if existing_event:
+            return {
+                "status": "already_processed",
+                "event_id": req.event_id,
+                "learner_code": learner.learner_code,
+                "screening_risk_level": learner.screening_risk_level,
+                "note": "Idempotent duplicate event ignored."
+            }
+
+    # 6. Apply Screening Profile Update (Read-only clinical risk snapshot)
+    learner.screening_risk_level = req.risk_level
+    learner.risk_support_level = req.risk_level
+    learner.screening_source = req.source
+    learner.screening_version = req.screening_version
+    
+    # 7. Audit Logging via IntegrationEvent
+    audit_event = IntegrationEvent(
+        target_component="component_1",
+        event_type="component_1_import",
+        schema_version=req.schema_version,
+        delivery_status="received_and_verified",
+        payload=req.model_dump(mode="json")
+    )
+    db.add(audit_event)
+    db.commit()
+    db.refresh(learner)
+
+    return {
+        "status": "imported",
+        "learner_code": learner.learner_code,
+        "screening_risk_level": learner.screening_risk_level,
+        "screening_source": learner.screening_source,
+        "screening_version": learner.screening_version,
+        "event_id": req.event_id
+    }
+
+

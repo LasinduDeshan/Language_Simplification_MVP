@@ -17,11 +17,29 @@ class LearnerProfile(Base):
     learner_code = Column(String(50), unique=True, nullable=False, index=True)
     age = Column(Integer, nullable=False)
     grade = Column(String(50), nullable=True)
-    risk_support_level = Column(String(20), nullable=False)  # low, moderate, high
+    
+    # Stage 12: Split screening risk from educational support
+    screening_risk_level = Column(String(20), nullable=False, default="moderate")  # low, moderate, high (read-only snapshot from Component 1)
+    recommended_support_level = Column(String(20), nullable=False, default="moderate")  # mild, moderate, strong (calculated for educational personalization)
+    risk_support_level = Column(String(20), nullable=True)  # legacy compatibility field
+    
+    screening_source = Column(String(50), nullable=False, default="component_1")
+    screening_version = Column(String(50), nullable=False, default="c1-1.0")
+    screening_assessed_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    
+    # Educational performance scores (0 - 100)
     vocabulary_score = Column(Float, nullable=False, default=50.0)
     grammar_score = Column(Float, nullable=False, default=50.0)
     comprehension_score = Column(Float, nullable=False, default=50.0)
     instruction_following_score = Column(Float, nullable=False, default=50.0)
+    
+    # Evidence counters per domain
+    vocabulary_evidence_count = Column(Integer, nullable=False, default=0)
+    grammar_evidence_count = Column(Integer, nullable=False, default=0)
+    comprehension_evidence_count = Column(Integer, nullable=False, default=0)
+    instruction_evidence_count = Column(Integer, nullable=False, default=0)
+    performance_scoring_version = Column(String(20), nullable=False, default="1.0")
+
     english_level = Column(String(20), nullable=False, default="emerging")  # emerging, developing, proficient
     preferred_language = Column(String(10), nullable=False, default="en")
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
@@ -458,19 +476,36 @@ class TaskResult(Base):
     score_after = Column(JSON, nullable=False, default=dict)    # captured AFTER profile update
     score_deltas = Column(JSON, nullable=False, default=dict)   # {vocabulary, grammar, comprehension, instruction}
 
-    # Risk Recalibration
-    risk_before = Column(String(20), nullable=True)             # e.g. "moderate"
-    risk_after = Column(String(20), nullable=True)              # e.g. "high"
+    # Risk & Support Snapshots
+    risk_before = Column(String(20), nullable=True)             # e.g. "moderate" (Component 1 screening snapshot)
+    risk_after = Column(String(20), nullable=True)              # e.g. "moderate" (remains unchanged by activity)
     risk_changed = Column(Boolean, nullable=False, default=False)
-    composite_language_index = Column(Float, nullable=True)     # CLI after this session
+    screening_risk_level = Column(String(20), nullable=True)    # read-only snapshot
+    recommended_support_level = Column(String(20), nullable=True) # educational support level
+    composite_language_index = Column(Float, nullable=True)     # internal pedagogical index
+    target_domain = Column(String(50), nullable=True)           # vocabulary | grammar | comprehension | instruction
+    evidence_count_before = Column(Integer, nullable=True, default=0)
+    evidence_count_after = Column(Integer, nullable=True, default=1)
+    
+    # Idempotency & Reproducibility
+    score_update_applied = Column(Boolean, nullable=False, default=False)
+    score_update_event_id = Column(String(36), nullable=True, index=True)
+    score_updated_at = Column(DateTime, nullable=True)
+    scoring_version = Column(String(20), nullable=False, default="1.0")
+    calculation_snapshot = Column(JSON, nullable=True, default=dict)
+    
+    # Research & simulation flags
+    is_simulated = Column(Boolean, nullable=False, default=True)
+    research_eligible = Column(Boolean, nullable=False, default=False)
 
     # Attempt-by-attempt history for educators
     attempt_history = Column(JSON, nullable=False, default=list)
     # Each entry: {attempt_number, instruction, transcript, selected_option, result, target_skill_result,
     #              assistance_level, response_time_ms, grammar_observations, vocabulary_observations}
 
-    # Educational Summary
-    diagnostic_notes = Column(Text, nullable=True)
+    # Educational Summary (Renamed safely from diagnostic_notes)
+    educational_summary_notes = Column(Text, nullable=True)
+    diagnostic_notes = Column(Text, nullable=True)  # legacy compatibility field
 
     completed_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 

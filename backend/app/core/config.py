@@ -26,6 +26,13 @@ class Settings(BaseSettings):
     # Optional API Keys
     gemini_api_key: str = ""
     openai_api_key: str = ""
+
+    # Stage 12 Integration Modes
+    component1_mode: str = "mock"       # mock | api
+    component2_mode: str = "mock"       # mock | api
+    component4_mode: str = "mock"       # mock | api
+    enable_component1_external_import: bool = False
+    scoring_version: str = "1.0"
     
     @property
     def cors_origins_list(self) -> List[str]:

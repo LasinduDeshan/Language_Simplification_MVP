@@ -1,4 +1,4 @@
-# AI-Powered Adaptive Child-Friendly Language Simplification System (MVP)
+# AI-Powered Adaptive Child-Friendly Language Support System (MVP)
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110.0-009688.svg?logo=fastapi)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/React-18-61DAFB.svg?logo=react)](https://reactjs.org/)
@@ -6,11 +6,73 @@
 [![Gemini](https://img.shields.io/badge/AI-Google%20Gemini-4285F4.svg?logo=google)](https://ai.google.dev/)
 [![SQLite](https://img.shields.io/badge/Database-SQLite%20%2F%20SQLAlchemy-003B57.svg?logo=sqlite)](https://sqlite.org/)
 
-**Scope:** English Language Comprehension, Ages 4–8  
-**Domain:** Personalized Real-Time Language Simplification & Diagnostic Profile Evolution for Children with Language Impairments (LI) and Developmental Language Disorder (DLD)  
-**Comprehensive System Documentation:** [SYSTEM_DOCUMENTATION.md](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/SYSTEM_DOCUMENTATION.md)  
+**Scope:** English Language Comprehension & Instruction Personalization, Ages 4–8  
+**Domain:** Educational Language Simplification, Multi-Attempt Scaffolding, and Learning Performance Tracking  
+**System Documentation:** [SYSTEM_DOCUMENTATION.md](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/SYSTEM_DOCUMENTATION.md)  
 **System Concept & Theory:** [SYSTEM_CONCEPT.md](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/SYSTEM_CONCEPT.md)  
 **Research Specification:** [RESEARCH_README.md](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/RESEARCH_README.md)
+
+> [!IMPORTANT]
+> **Educational & Non-Diagnostic Disclaimer:**  
+> This application provides educational language support and research-oriented performance tracking. It is **not a diagnostic instrument** and does not replace assessment, screening, or advice from qualified speech-language pathologists or medical professionals.
+
+---
+
+## 🏛️ Responsibility Boundaries & Component Architecture
+
+In accordance with the multi-component research framework, the system maintains strict responsibility boundaries:
+
+| Information / Responsibility | Owner | May this component update it? | Boundary Notes |
+| :--- | :--- | :---: | :--- |
+| **DLD Risk Indicator** | **Component 1** / Authorized Clinician | **No** | Stored as a **read-only screening snapshot** (`screening_risk_level`). |
+| **Screening Provenance** | **Component 1** | **No** | Version and assessment timestamps for traceability. |
+| **Vocabulary Performance** | **This Component** | **Yes** | Updated automatically from confirmed vocabulary tasks. |
+| **Grammar Performance** | **This Component** | **Yes** | Updated automatically from confirmed grammar tasks. |
+| **Comprehension Performance** | **This Component** | **Yes** | Updated automatically from confirmed comprehension tasks. |
+| **Instruction-Following Performance** | **This Component** | **Yes** | Updated automatically from confirmed sentence & instruction tasks. |
+| **Educational Support Level** | **This Component** | **Yes** | Calculates `recommended_support_level` (`mild`, `moderate`, `strong`) for scaffolding. |
+| **Longitudinal Trend Analytics** | **Component 4** | **By Component 4** | Component 4 receives domain scores and evidence to calculate long-term progression. |
+| **Clinical Diagnosis** | **Qualified Expert** | **Never** | Clinical diagnoses are outside the software's scope. |
+
+```
+   ┌──────────────────────────────────────────────────────────────────┐
+   │               Component 1: DLD Screening Intake                  │
+   │           Read-Only Screening Snapshot (Low / Mod / High)        │
+   └────────────────────────────────┬─────────────────────────────────┘
+                                    │
+                                    ▼
+       ┌────────────────────────────────────────────────────────┐
+       │           Adaptive Simplification Pipeline             │
+       │  • Lexical Substitution (Tier 2/3 -> Tier 1)           │
+       │  • Syntactic Chunking & Active S-V-O Transformation     │
+       │  • Multimodal Symbol / Visual Cue Scaffolding          │
+       └────────────────────────────┬───────────────────────────┘
+                                    │
+                                    ▼
+       ┌────────────────────────────────────────────────────────┐
+       │         Multi-Attempt Scaffolding Controller           │
+       │   Attempt 1: Baseline Adaptive Instruction             │
+       │   Attempt 2: High-Level Linguistic Simplification       │
+       │   Attempt 3: Symbol-Assisted Visual Scaffolding        │
+       │   Fallback: Adult / Educator Guided Handover           │
+       └────────────────────────────┬───────────────────────────┘
+                                    │
+                                    ▼
+       ┌────────────────────────────────────────────────────────┐
+       │       Educational Performance Update Engine             │
+       │   • Updates primary task domain (Vocab, Gram, etc.)    │
+       │   • Increments domain evidence counters                │
+       │   • Recalibrates recommended support level             │
+       │   • Leaves Component 1 screening risk untouched        │
+       └────────────────────────────┬───────────────────────────┘
+                                    │
+                                    ▼
+       ┌────────────────────────────────────────────────────────┐
+       │      Component 4: Learning Analytics & Export           │
+       │   • Four educational domain scores & evidence counts   │
+       │   • Longitudinal trends calculated by Component 4      │
+       └────────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -18,52 +80,31 @@
 
 ### 1. Dynamic Cognitive Load Reduction & Simplification
 - **Lexical Simplification**: Dynamically substitutes Tier 2/3 abstract vocabulary with age-appropriate Tier 1 root words.
-- **Syntactic & Structural Chunking**: Converts complex, passive-voice sentences into short, active Subject-Verb-Object (S-V-O) sequences tailored to working memory capacity.
+- **Syntactic & Structural Chunking**: Converts complex, passive-voice sentences into short, active Subject-Verb-Object (S-V-O) sequences tailored to working memory limits.
 - **Multimodal Visual Scaffolding**: Enriches instructional prompts with pictographic symbols, color tags, and visual focus cues.
 
 ### 2. Multi-Attempt Retry & Scaffolding Controller
 - **Attempt 1 (Baseline Adaptive)**: Instruction simplified based on the child's baseline profile.
 - **Attempt 2 (Linguistic Scaffolding)**: Additional lexical simplification, shorter phrases, and voice synthesis support.
 - **Attempt 3 (Visual Cueing)**: High-contrast symbol-assisted visual cues and minimalist directives.
-- **Fallback (Adult Handover)**: Actionable diagnostic feedback and guided verbal prompt recommendations for educators and caregivers.
+- **Fallback (Adult Handover)**: Actionable educational feedback and guided verbal prompt recommendations for educators and caregivers.
 
-### 3. Real-Time Dynamic Profile Evolution & Risk Transition
-- **Automated Score Deltas ($\Delta$)**: Updates `vocabulary_score`, `grammar_score`, `working_memory_score`, and `processing_speed_score` in real time based on task outcomes and attempt efficiency.
-- **Composite Language Index (CLI)**: Recalculates a unified weighted language score after every interaction.
-- **Risk Level Progression**: Automatically shifts risk levels (e.g. **High $\rightarrow$ Moderate $\rightarrow$ Low**) as the child demonstrates sustained improvement.
+### 3. Automated 4-Domain Educational Performance Tracking
+- **Primary Domain Targeting**: Completed activities update only the specific domain targeted by the task:
+  - `vocabulary_score` & `vocabulary_evidence_count`
+  - `grammar_score` & `grammar_evidence_count`
+  - `comprehension_score` & `comprehension_evidence_count`
+  - `instruction_following_score` & `instruction_evidence_count`
+- **Recommended Support Level**: Continuously recalculates `recommended_support_level` (`mild`, `moderate`, `strong`) for pedagogical adaptation without modifying clinical screening risk.
+- **Idempotent Single Application**: Ensures duplicate submissions cannot alter scores multiple times.
 
-### 4. Comprehensive Diagnostic & Evaluation History
-- Stores every completed task interaction in `task_evaluation_history` table.
-- Records pre-session scores, post-session scores, exact deltas, attempt snapshots, response times, and educator diagnostic notes.
-- Dedicated UI to review chronological progress, trend charts, and risk evolution history.
+### 4. Cross-Component Integration Contracts & Previews
+- **Component 1 (Screening)**: Validated mock adapter loading simulated screening profiles with `is_simulated: true`.
+- **Component 2 (AR)**: Local AR payload preview generation (`data/integration_previews/component2_ar_outputs/`).
+- **Component 4 (Analytics)**: Structured performance export contract (`data/integration_previews/component4_outputs/`) with explicit `risk_modified_by_component_3: false`.
 
-### 5. Multimodal Voice Interaction
-- Integrated **Web Speech API** for both Text-to-Speech (TTS) natural voice read-aloud and Speech-to-Text (STT) voice recognition responses.
-
----
-
-## 🏛️ Architecture Overview
-
-```
-[ Frontend: React + Vite + Lucide Icons ]
-                    │
-           REST API / JSON Payloads
-                    │
-                    ▼
-[ Backend: FastAPI (Python 3.10+) ]
-  ├── Simplification Service (Google Gemini API + Deterministic Fallbacks)
-  ├── Multi-Attempt Retry & Scaffolding Controller
-  ├── Dynamic Profile Evolution Engine (CLI & Risk Transitions)
-  ├── Task & Session Evaluation History Service
-  └── Security, Privacy & Audit Logging Layer
-                    │
-                    ▼
-[ Persistence Layer: SQLite + SQLAlchemy ORM ]
-  ├── Learner Profiles (Demographics, Baseline Metrics, Risk Levels)
-  ├── Tasks Repository (Multi-Domain Exercises & AR Payloads)
-  ├── Activity Sessions (Session States & Attempt Counters)
-  └── Task Evaluation Histories (Diagnostic Archive & Score Deltas)
-```
+### 5. Protected Child View
+- Distraction-free, friendly child view strictly hiding all risk levels, performance scores, grammar error codes, and clinical terms.
 
 ---
 
@@ -72,7 +113,7 @@
 ### Prerequisites
 - **Python 3.10+**
 - **Node.js 18+** and **npm**
-- **Google Gemini API Key**
+- **Google Gemini API Key** (optional for live LLM generation; rule-based fallback works offline)
 
 ---
 
@@ -102,15 +143,18 @@
 4. Configure environment variables in `backend/.env`:
    ```env
    GEMINI_API_KEY=your_gemini_api_key_here
-   DATABASE_URL=sqlite:///./language_simplification.db
+   DATABASE_URL=sqlite:///./adaptive_learning.db
    CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
    DEBUG=True
+   COMPONENT1_MODE=mock
+   COMPONENT2_MODE=mock
+   COMPONENT4_MODE=mock
+   ENABLE_COMPONENT1_EXTERNAL_IMPORT=false
    ```
 
-5. Initialize and seed the database:
+5. Apply database migrations:
    ```bash
    python -m alembic upgrade head
-   python -m app.database.seed
    ```
 
 6. Start the FastAPI development server:
@@ -118,7 +162,7 @@
    python -m uvicorn app.main:app --reload --port 8000
    ```
    - Swagger API Documentation: `http://localhost:8000/docs`
-   - Health Check: `http://localhost:8000/api/health`
+   - Integration Status: `http://localhost:8000/api/integration/status`
 
 ---
 
@@ -156,44 +200,41 @@ python -m pytest tests/ -v
 
 ```
 Language_Simplification_MVP/
-├── README.md                      # Project Overview & Setup Guide
+├── README.md                      # Project Overview & Quick Start
 ├── SYSTEM_DOCUMENTATION.md        # Comprehensive Architecture & Technical Specifications
 ├── SYSTEM_CONCEPT.md              # Theoretical & Pedagogical Foundations
 ├── RESEARCH_README.md             # Research & Experimental Design Notes
 ├── backend/                       # FastAPI Backend Application
 │   ├── app/
-│   │   ├── api/                   # REST API Routers (Learners, Tasks, Sessions, Scenarios)
-│   │   ├── core/                  # Configuration, Settings & Constants
-│   │   ├── database/              # SQLAlchemy Models, Session, and Seed Data
-│   │   ├── retry_controller/      # Multi-Attempt Scaffolding & Fallback Manager
-│   │   ├── security/              # Data Privacy, Input Sanitization & Audit Logging
-│   │   └── services/              # Simplification, LLM Engine, Profile Evolution
+│   │   ├── api/                   # REST API Routers & Integration Previews
+│   │   ├── core/                  # Settings & Integration Modes
+│   │   ├── database/              # SQLAlchemy Models & Migrations
+│   │   ├── integrations/          # Component 1, AR, and Component 4 Mock Adapters
+│   │   │   ├── common/            # Integration Statuses & Error Hierarchy
+│   │   │   ├── component1/        # Component 1 Screening Input Contract
+│   │   │   ├── component2_ar/     # Component 2 AR Output Contract
+│   │   │   └── component4/        # Component 4 Performance Export Contract
+│   │   ├── personalization/       # Profile Updater (4-Domain Scoring & Support Level)
+│   │   ├── retry_controller/      # Multi-Attempt Scaffolding & Escalation Manager
+│   │   ├── security/              # Data Privacy & Input Sanitizer
+│   │   └── services/              # Session, Adaptation & Simplification Services
 │   ├── tests/                     # Automated Pytest Suite
-│   ├── alembic/                   # Database Migrations
 │   └── requirements.txt           # Python Dependencies
 ├── frontend/                      # React SPA Application
 │   ├── src/
-│   │   ├── components/            # Guided Playground, Diagnostics View, Learner Manager
-│   │   ├── App.jsx                # Root Application & Navigation
-│   │   └── main.jsx               # Entry Point
-│   ├── package.json               # Frontend Dependencies & Scripts
-│   └── vite.config.js             # Vite Build Configuration
-└── data/                          # Seed Data & Research Datasets
-    ├── application_tasks/         # Curated Task Datasets
-    ├── learner_profiles/          # Pseudonymous Learner Profiles
-    ├── development_scenarios/     # Preconfigured Simulation Scenarios
-    └── research_exports/          # Experimental Evaluation Exports
+│   │   ├── components/            # Guided Playground, Learner Browser, Results History
+│   │   ├── services/api.js        # API Client & Integration Endpoints
+│   │   └── App.jsx                # Navigation & Root Layout
+│   └── package.json               # Frontend Dependencies & Scripts
+└── data/                          # Seed Data & Integration Fixtures
+    ├── integration_fixtures/      # Golden Test Fixtures (Component 1, AR, Component 4)
+    ├── integration_previews/      # Generated Local Previews
+    ├── application_tasks/         # Curated Task Repository
+    └── learner_profiles/          # Simulated Learner Profiles
 ```
 
 ---
 
-## 🔬 Research & Clinical Impact
+## 🔬 Limitations & Ethical Research Statement
 
-- **Extraneous Load Reduction**: Decreases syntactic processing barriers to enable accurate assessment of underlying knowledge.
-- **Dynamic Scaffolding**: Promotes autonomous completion while preventing frustration through graduated support.
-- **Empirical Evolution**: Provides clinicians and educators with fine-grained performance trajectories and actionable intervention recommendations.
-
----
-
-## 📄 License
-This project is developed as part of ongoing research in AI-Assisted Language Simplification and Cognitive Accessibility for Children.
+The performance indicators are derived from interactions within this application and are intended to support educational personalization and research analysis. They must not be interpreted as standardized clinical assessment results. The DLD risk indicator is received from the separate screening component (Component 1) and is not automatically changed by the language simplification component.

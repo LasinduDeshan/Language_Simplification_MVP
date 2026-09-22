@@ -363,3 +363,25 @@ export async function backfillTaskResults() {
   if (!res.ok) throw new Error("Backfill failed");
   return res.json();
 }
+
+// ----------------- Stage 12 Integration Contracts -----------------
+
+export async function fetchIntegrationStatus() {
+  const res = await fetch(`${API_BASE_URL}/v1/integration/status`);
+  if (!res.ok) throw new Error("Failed to fetch integration status");
+  return res.json();
+}
+
+export async function fetchComp4Preview(learnerId) {
+  const res = await fetch(`${API_BASE_URL}/v1/integration-preview/component-4/${learnerId}`);
+  if (!res.ok) throw new Error("Failed to fetch Component 4 preview");
+  return res.json();
+}
+
+export async function fetchARPreview(taskId) {
+  const res = await fetch(`${API_BASE_URL}/v1/integration-preview/component-2-ar/${taskId}`);
+  if (!res.ok) throw new Error("Failed to fetch AR preview");
+  return res.json();
+}
+
+

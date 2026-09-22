@@ -30,10 +30,10 @@ export default function Navbar({
   const labTabs = [
     { id: "dashboard", label: "Advanced Scenario Console", icon: PlayCircle, desc: "Full simulation & attempt matrix" },
     { id: "tasks", label: "Task Repository (10)", icon: BookOpen, desc: "Browse curated English tasks" },
-    { id: "learners", label: "Learner Profiles (5)", icon: Users, desc: "Review child clinical scores" },
+    { id: "learners", label: "Learner Profiles (5)", icon: Users, desc: "Review educational performance profiles" },
     { id: "analysis", label: "Linguistic & spaCy Diagnostics", icon: Activity, desc: "Clause & grammar parse tree" },
     { id: "personalization", label: "Personalization Rules", icon: Sliders, desc: "Pedagogical templates & tier rules" },
-    { id: "integrations", label: "Subsystem JSON Payloads", icon: Cpu, desc: "Component 1, 3 (AR), 4 schemas" }
+    { id: "integrations", label: "Subsystem JSON Payloads", icon: Cpu, desc: "Component 1, 2 (AR), 4 schemas" }
   ];
 
   const isLabTabActive = labTabs.some(t => t.id === activeTab);
@@ -155,7 +155,7 @@ export default function Navbar({
           <button
             className={`toggle-btn ${viewMode === "researcher" ? "active" : ""}`}
             onClick={() => setViewMode("researcher")}
-            title="Unhide raw JSON, acoustic confidence, and clinical metrics"
+            title="Unhide raw JSON, acoustic confidence, and educational metrics"
           >
             🔬 Researcher
           </button>
