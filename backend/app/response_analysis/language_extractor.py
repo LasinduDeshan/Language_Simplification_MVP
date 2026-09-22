@@ -37,8 +37,9 @@ class LanguageExtractor:
                 })
 
         # 2. Instruction following & Step dropoff analysis
-        task_type = getattr(task, "task_type", "")
-        if task_type in ["classroom", "sequence"]:
+        task_type = getattr(task, "task_type", "") or getattr(task, "category", "")
+        task_code = getattr(task, "task_code", "")
+        if task_type in ["classroom", "sequence", "sentence_and_instruction"] or task_code in ["TASK-ENG-001", "TASK-ENG-004", "TASK-ENG-010"]:
             # Check if learner completed only the first step
             if "crayons" in t_lower and "paper" not in t_lower and "bin" not in t_lower:
                 observations.append({

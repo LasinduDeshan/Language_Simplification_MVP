@@ -192,7 +192,9 @@ class GrammarExtractor:
 
     def _check_word_order(self, doc, transcript: str) -> Optional[Dict[str, Any]]:
         """
-        Detects inverted noun-adjective order in English (e.g., "ball blue" instead of "blue ball").
+        Detects:
+        1. Inverted noun-adjective order in English (e.g., "ball blue" instead of "blue ball").
+        2. Inverted S-V-O order (e.g., "the boy apples likes" where verb is at the end, or "apples likes the boy" where inanimate object is subject).
         """
         t_lower = transcript.lower()
         if "ball blue" in t_lower:
@@ -204,6 +206,7 @@ class GrammarExtractor:
                 "suggested_model": "Say: The blue ball."
             }
 
+        # 1. Noun + Adjective check
         for i in range(len(doc) - 1):
             curr_tok = doc[i]
             next_tok = doc[i + 1]
@@ -216,6 +219,33 @@ class GrammarExtractor:
                         "evidence": f"{curr_tok.text} {next_tok.text}",
                         "confidence": 0.88,
                         "suggested_model": f"Say: The {next_tok.text} {curr_tok.text}."
+                    }
+
+        # 2. SVO / Syntactic ordering check using spaCy dependency relations
+        # If verb is at the end following multiple nouns (SOV order: "the boy apples likes")
+        if len(doc) >= 3 and doc[-1].pos_ == "VERB" and any(t.pos_ == "NOUN" for t in doc[:-1]):
+            noun_count = len([t for t in doc[:-1] if t.pos_ in ["NOUN", "PROPN"]])
+            if noun_count >= 2:
+                return {
+                    "category": "grammar",
+                    "observation_code": "incorrect_word_order_svo",
+                    "evidence": transcript,
+                    "confidence": 0.92,
+                    "suggested_model": f"Say: {doc[1].text if len(doc) > 1 else 'The subject'} {doc[-1].text} {doc[-2].text}."
+                }
+
+        # Inverted semantic subject/object for likes/eats/kicks (e.g. "apples likes the boy")
+        subjects = [t for t in doc if t.dep_ in ["nsubj", "nsubjpass"]]
+        for subj in subjects:
+            verb = subj.head
+            if verb.pos_ == "VERB" and verb.lemma_ in ["like", "eat", "kick", "read", "drink", "wear", "chase"]:
+                if subj.lemma_ in ["apple", "book", "water", "ball", "shoe", "hat", "milk", "bread", "toy"]:
+                    return {
+                        "category": "grammar",
+                        "observation_code": "incorrect_word_order_svo",
+                        "evidence": f"{subj.text} {verb.text}",
+                        "confidence": 0.94,
+                        "suggested_model": "Put the person first, then what they do, then the object."
                     }
 
         return None

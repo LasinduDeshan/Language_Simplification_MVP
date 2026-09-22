@@ -103,8 +103,8 @@ def test_multi_sequence_validation_and_fallback(db_session):
     """
     tasks = task_repository.get_all_tasks(db_session)
     learners = task_repository.get_all_learners(db_session)
-    task = tasks[0]
-    learner = learners[0]
+    task = [t for t in tasks if t.task_code == "TASK-ENG-001"][0]
+    learner = [l for l in learners if l.learner_code == "CHILD-001"][0]
 
     # Create an experiment run
     exp = experiment_service.create_experiment_run(db_session, learner.id, task.id)

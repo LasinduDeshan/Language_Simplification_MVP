@@ -1,0 +1,13 @@
+evaluation_id,adaptation_id,evaluator_code,generation_method,age_appropriateness,clarity,grammar_correctness,meaning_preservation,personalization_suitability,mean_score,comments,created_at
+b4c3089e-8188-45a5-a56c-0f99729d5346,4e63869c-0c78-43ba-a903-ec1e1be3e12d,SLP-EXPERT-01,rule,5,5,5,4,5,4.8,Exemplary child-friendly adaptation. Highly accessible for DLD.,2026-09-17T14:58:41.992606
+9490f650-b38b-421c-b177-4939283fb9c2,4e63869c-0c78-43ba-a903-ec1e1be3e12d,EDUCATOR-EXPERT-02,rule,4,5,4,5,4,4.4,Clear single-action instructions suitable for early childhood classroom.,2026-09-17T14:58:41.992606
+b59a3d65-8a7b-4396-a191-edc391c2b915,4e63869c-0c78-43ba-a903-ec1e1be3e12d,RESEARCHER-EXPERT-03,rule,5,4,5,4,4,4.4,Vocabulary substitution aligned with CEFR pre-A1. Safe length.,2026-09-17T14:58:41.992606
+f16925f5-267c-4cfb-abc7-308fdf1d302d,71641d5d-576a-4515-a711-74cae27cae98,SLP-EXPERT-01,llm,5,5,5,4,5,4.8,Exemplary child-friendly adaptation. Highly accessible for DLD.,2026-09-17T14:58:42.017545
+4b0a8542-3c73-4ccc-8415-c31fb2f4461b,71641d5d-576a-4515-a711-74cae27cae98,EDUCATOR-EXPERT-02,llm,4,5,4,5,4,4.4,Clear single-action instructions suitable for early childhood classroom.,2026-09-17T14:58:42.017545
+948b29eb-04f6-474a-a32f-cf4960ca20d6,71641d5d-576a-4515-a711-74cae27cae98,RESEARCHER-EXPERT-03,llm,5,4,5,4,4,4.4,Vocabulary substitution aligned with CEFR pre-A1. Safe length.,2026-09-17T14:58:42.017545
+b59281d2-db51-40ed-8163-8104661f1f7f,af1ae20f-f9eb-4dbb-b5ad-2aeccf6ee9d2,SLP-EXPERT-01,fallback,5,5,5,4,5,4.8,Exemplary child-friendly adaptation. Highly accessible for DLD.,2026-09-17T14:58:42.031808
+967b4d1c-40bc-4285-9946-bc0bd5538251,af1ae20f-f9eb-4dbb-b5ad-2aeccf6ee9d2,EDUCATOR-EXPERT-02,fallback,4,5,4,5,4,4.4,Clear single-action instructions suitable for early childhood classroom.,2026-09-17T14:58:42.031808
+483435c0-77ca-4996-90ee-2b327f75c223,af1ae20f-f9eb-4dbb-b5ad-2aeccf6ee9d2,RESEARCHER-EXPERT-03,fallback,5,4,5,4,4,4.4,Vocabulary substitution aligned with CEFR pre-A1. Safe length.,2026-09-17T14:58:42.031808
+aa1d4e10-1226-4665-8a08-e1092357bed3,4e63869c-0c78-43ba-a903-ec1e1be3e12d,SLP-TEST-99,rule,5,4,5,4,5,4.6,Vocabulary is exceptionally clear and targeted for young children with language delays.,2026-09-17T15:00:01.735940
+fed37285-b90b-4ac1-b6c5-05bc49e89737,4e63869c-0c78-43ba-a903-ec1e1be3e12d,SLP-TEST-99,rule,5,4,5,4,5,4.6,Vocabulary is exceptionally clear and targeted for young children with language delays.,2026-09-17T15:00:31.891726
+ca3465e4-70ae-4758-b6da-90951e0bf074,4e63869c-0c78-43ba-a903-ec1e1be3e12d,SLP-TEST-99,rule,5,4,5,4,5,4.6,Vocabulary is exceptionally clear and targeted for young children with language delays.,2026-09-17T15:01:00.062928

@@ -5,6 +5,7 @@ from app.database.models import (
     ExperimentRun, Attempt, Adaptation, IntegrationEvent, LanguageObservation, ValidationResult
 )
 from app.security.input_sanitizer import sanitize_text
+from app.personalization.profile_updater import profile_updater
 from app.response_analysis.answer_checker import answer_checker
 from app.grammar_analysis.grammar_extractor import grammar_extractor
 from app.response_analysis.language_extractor import language_extractor
@@ -149,6 +150,20 @@ class RetryManager:
                     generation_mode=experiment.generation_mode
                 )
 
+        profile_update = None
+        if experiment.status in ["completed", "escalated"]:
+            obs = db.query(LanguageObservation).filter(LanguageObservation.attempt_id == attempt.id).all()
+            grammar_err_count = len([o for o in obs if getattr(o, "category", None) == "grammar"])
+            profile_update = profile_updater.update_profile_after_session(
+                db=db,
+                learner=learner,
+                task=task,
+                session_final_outcome=experiment.final_outcome,
+                attempt_number=current_attempt_number,
+                grammar_errors_count=grammar_err_count,
+                assistance_level="independent"
+            )
+
         db.commit()
         db.refresh(attempt)
         if next_adaptation:
@@ -159,7 +174,8 @@ class RetryManager:
             "next_adaptation": next_adaptation,
             "experiment_status": experiment.status,
             "final_outcome": experiment.final_outcome,
-            "escalation_payload": escalation_payload
+            "escalation_payload": escalation_payload,
+            "profile_update": profile_update
         }
 
     def _build_adult_escalation_payload(

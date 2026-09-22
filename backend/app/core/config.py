@@ -12,7 +12,9 @@ class Settings(BaseSettings):
     allowed_origins: str = "http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000"
     
     # Database
-    database_url: str = "sqlite:///./adaptive_learning.db"
+    _BACKEND_DIR: str = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    _DEFAULT_DB: str = os.path.join(_BACKEND_DIR, "adaptive_learning.db").replace("\\", "/")
+    database_url: str = f"sqlite:///{_DEFAULT_DB}"
     
     # LLM Configuration
     llm_provider: str = "google"

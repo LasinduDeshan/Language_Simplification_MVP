@@ -43,7 +43,8 @@ def test_end_to_end_initial_adaptation_and_attempt(client):
     learners = client.get("/api/learners").json()
     tasks = client.get("/api/tasks").json()
     learner_id = learners[0]["id"]
-    task_id = tasks[0]["id"]
+    task = next(t for t in tasks if t.get("task_code") == "TASK-ENG-001")
+    task_id = task["id"]
 
     # 2. Create Experiment Run
     exp_res = client.post("/api/experiments", json={

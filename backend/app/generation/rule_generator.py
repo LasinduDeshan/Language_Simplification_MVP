@@ -247,7 +247,201 @@ class RuleGenerator(BaseInstructionGenerator):
                     "answer_format": "single_tap_selection",
                     "visual_cues": ["glowing_watering_can", "point_can"]
                 }
-            }
+            },
+
+            # ── Grammar tasks ──────────────────────────────────────────────
+
+            "GRAM-ART-001": {  # Indefinite article: a vs an (answer: "an")
+                1: {
+                    "mild": "Which word comes before 'apple': a or an?",
+                    "moderate": "Choose: a or an? — before 'apple'.",
+                    "strong": "Touch the right word before 'apple'.",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["show_a_card", "show_an_card", "highlight_apple_image"]
+                },
+                2: {
+                    "mild": "Say the words: 'an apple'. Which sounds right?",
+                    "moderate": "Which sounds right: 'a apple' or 'an apple'?",
+                    "strong": "Choose: 'a apple' or 'an apple'?",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["show_a_card", "show_an_card", "highlight_correct_sound"]
+                },
+                3: {
+                    "mild": "Touch the word 'an' to go before apple.",
+                    "moderate": "Touch the word 'an'.",
+                    "strong": "Touch 'an'.",
+                    "answer_format": "single_tap_selection",
+                    "visual_cues": ["glowing_an_card", "point_an"]
+                }
+            },
+
+            "GRAM-PREP-001": {  # Location preposition: fish lives IN water
+                1: {
+                    "mild": "Where does the fish live? Choose the right word.",
+                    "moderate": "Choose the word that tells where fish lives.",
+                    "strong": "Touch the word for where fish lives.",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["show_fish_image", "show_water_image", "show_preposition_cards"]
+                },
+                2: {
+                    "mild": "Does the fish live 'in' water or 'on' water?",
+                    "moderate": "Choose: 'in' or 'on' for the fish?",
+                    "strong": "Choose: 'in' or 'on'?",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["highlight_in_card", "highlight_on_card", "show_fish_in_water"]
+                },
+                3: {
+                    "mild": "Touch the word 'in' — the fish lives in water.",
+                    "moderate": "Touch the word 'in'.",
+                    "strong": "Touch 'in'.",
+                    "answer_format": "single_tap_selection",
+                    "visual_cues": ["glowing_in_card", "point_in", "show_fish_in_water"]
+                }
+            },
+
+            "GRAM-SVA-001": {  # Subject-verb agreement: He plays with the ball.
+                1: {
+                    "mild": "Listen: does 'He play' or 'He plays' sound right?",
+                    "moderate": "Choose the right sentence about the boy.",
+                    "strong": "Touch the right sentence.",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["show_boy_with_ball", "show_sentence_cards"]
+                },
+                2: {
+                    "mild": "Which sounds right: 'He play' or 'He plays'?",
+                    "moderate": "Choose: 'He play' or 'He plays'?",
+                    "strong": "Choose: 'play' or 'plays'?",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["highlight_play_card", "highlight_plays_card", "show_boy_image"]
+                },
+                3: {
+                    "mild": "Touch the word 'plays' to make the sentence right.",
+                    "moderate": "Touch the word 'plays'.",
+                    "strong": "Touch 'plays'.",
+                    "answer_format": "single_tap_selection",
+                    "visual_cues": ["glowing_plays_card", "point_plays"]
+                }
+            },
+
+            "GRAM-PRON-001": {  # Subject pronoun: She (for girl)
+                1: {
+                    "mild": "Look at the girl. Do we say 'he' or 'she'?",
+                    "moderate": "Choose the right word for the girl.",
+                    "strong": "Touch the right word for the girl.",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["show_girl_image", "show_he_card", "show_she_card"]
+                },
+                2: {
+                    "mild": "The girl is running. Choose: 'he' or 'she'?",
+                    "moderate": "Choose: 'he' or 'she' for the girl?",
+                    "strong": "Choose: 'he' or 'she'?",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["highlight_she_card", "highlight_he_card", "highlight_girl_image"]
+                },
+                3: {
+                    "mild": "Touch the word 'she' for the girl.",
+                    "moderate": "Touch the word 'she'.",
+                    "strong": "Touch 'she'.",
+                    "answer_format": "single_tap_selection",
+                    "visual_cues": ["glowing_she_card", "point_she", "show_girl_image"]
+                }
+            },
+
+            "GRAM-PLUR-001": {  # Plural: dog → dogs
+                1: {
+                    "mild": "There are three dogs. Say the right word for many dogs.",
+                    "moderate": "Choose the word for many dogs.",
+                    "strong": "Touch the right word for many dogs.",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["show_three_dogs_image", "show_dog_card", "show_dogs_card"]
+                },
+                2: {
+                    "mild": "Is it 'dog' or 'dogs' when there are three?",
+                    "moderate": "Choose: 'dog' or 'dogs' for three?",
+                    "strong": "Choose: 'dog' or 'dogs'?",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["highlight_dogs_card", "highlight_dog_card", "show_count_3"]
+                },
+                3: {
+                    "mild": "Touch the word 'dogs' for three animals.",
+                    "moderate": "Touch the word 'dogs'.",
+                    "strong": "Touch 'dogs'.",
+                    "answer_format": "single_tap_selection",
+                    "visual_cues": ["glowing_dogs_card", "point_dogs"]
+                }
+            },
+
+            "GRAM-TENSE-001": {  # Past tense: walk → walked
+                1: {
+                    "mild": "The boy walked yesterday. Choose the right word.",
+                    "moderate": "Choose the past word for 'walk'.",
+                    "strong": "Touch the right past word.",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["show_boy_walking_image", "show_walk_card", "show_walked_card"]
+                },
+                2: {
+                    "mild": "Did he 'walk' or 'walked' yesterday?",
+                    "moderate": "Choose: 'walk' or 'walked' for yesterday?",
+                    "strong": "Choose: 'walk' or 'walked'?",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["highlight_walked_card", "highlight_walk_card", "show_yesterday_cue"]
+                },
+                3: {
+                    "mild": "Touch the word 'walked' for what happened before.",
+                    "moderate": "Touch the word 'walked'.",
+                    "strong": "Touch 'walked'.",
+                    "answer_format": "single_tap_selection",
+                    "visual_cues": ["glowing_walked_card", "point_walked"]
+                }
+            },
+
+            "GRAM-COMPL-001": {  # Sentence completion: The clouds are in the ___. (sky)
+                1: {
+                    "mild": "The clouds are in the ___. What word fits?",
+                    "moderate": "Choose a word to finish: The clouds are in the ___.",
+                    "strong": "Touch the right word to finish the sentence.",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["show_cloud_image", "show_sky_card", "show_word_choices"]
+                },
+                2: {
+                    "mild": "Are the clouds in the 'sky' or 'floor'?",
+                    "moderate": "Choose: 'sky' or 'floor' for the clouds?",
+                    "strong": "Choose: 'sky' or 'floor'?",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["highlight_sky_card", "highlight_floor_card", "show_cloud_image"]
+                },
+                3: {
+                    "mild": "Touch the word 'sky' to complete the sentence.",
+                    "moderate": "Touch the word 'sky'.",
+                    "strong": "Touch 'sky'.",
+                    "answer_format": "single_tap_selection",
+                    "visual_cues": ["glowing_sky_card", "point_sky", "show_cloud_image"]
+                }
+            },
+
+            "GRAM-WORD-001": {  # Word ordering: The boy likes apples.
+                1: {
+                    "mild": "Put the words in the right order: boy, likes, the, apples.",
+                    "moderate": "Put these words in order to make a sentence.",
+                    "strong": "Touch the words in the right order.",
+                    "answer_format": "word_ordering",
+                    "visual_cues": ["show_word_tiles", "show_boy_image", "show_apple_image"]
+                },
+                2: {
+                    "mild": "Which comes first — 'The boy' or 'likes apples'?",
+                    "moderate": "Put 'The boy' first. Then what comes next?",
+                    "strong": "Start with 'The boy'. Touch the next word.",
+                    "answer_format": "word_ordering",
+                    "visual_cues": ["highlight_the_boy_tile", "show_remaining_tiles", "arrow_next_slot"]
+                },
+                3: {
+                    "mild": "Choose: 'The boy likes apples' or 'Apples likes boy'?",
+                    "moderate": "Choose the right sentence.",
+                    "strong": "Touch the right sentence.",
+                    "answer_format": "two_picture_choice",
+                    "visual_cues": ["show_correct_sentence_card", "show_wrong_sentence_card", "glowing_correct"]
+                }
+            },
         }
 
     def generate(
