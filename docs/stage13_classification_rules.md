@@ -9,10 +9,10 @@ This document outlines the strict classification, ownership boundaries, and priv
 | Data Layer / Subsystem | Owning Component | Component 3 Responsibility Boundary | Sensitivity Classification |
 |---|---|---|---|
 | **Screening Activities & Tasks** | **Component 1** | Adapts permitted instruction language only; never modifies target skill or reveals answers | Protected Benchmark Data |
-| **DLD Screening Risk Level** | **Component 1** | Stored strictly as a read-only screening snapshot (`screening_risk_level`); never modified by interaction outcomes | Sensitive Clinical Screening Data |
+| **DLD Screening Risk Level** | **Component 1** | Stored strictly as a read-only screening snapshot (`screening_risk_level`); never modified by interaction outcomes | Sensitive Screening-Related Personal Data |
 | **AR Tasks & 3D Spatial Cues** | **Component 2** | Supplies simplified instructions & vocabulary; strictly preserves action sequence and 3D object IDs | Protected Spatial Learning Data |
 | **Adaptation Test Set** | **Component 3** | Local development and integration test activities (simulated samples) | Non-Clinical Benchmark Data |
-| **Simplification Corpus** | **Component 3** | Team-authored original–simplified sentence pairs and operations | Public/Research Eligible Text Pairs |
+| **Simplification Corpus** | **Component 3** | Team-authored original–simplified sentence pairs and operations | Internal Draft Simplification Data — Not Research Eligible by Default |
 | **Interaction Dataset** | **Component 3** | Private educational interaction evidence produced during sessions (Database is source of truth) | Private & De-Identified Learner Evidence |
 | **Longitudinal Progression & Trends** | **Component 4** | Receives exported interaction evidence (`local_preliminary_trend` only) | Educational Progression Analytics |
 
@@ -22,7 +22,7 @@ This document outlines the strict classification, ownership boundaries, and priv
 
 ### 1. Adaptation Test Set (`data/adaptation_test_set/`)
 * **Inclusion:**
-  - Tasks authored for testing language simplification across the 4 educational domains (vocabulary, grammar, comprehension, sentence & instruction).
+  - Tasks authored for testing language simplification across the 4 educational domains (Vocabulary, Grammar, Comprehension, Instruction-following; sentence-order activities belong under the Grammar domain).
   - Draft simulation fixtures for external Component 1 screening profiles and Component 2 AR payloads.
   - Development scenarios used to exercise multi-attempt scaffolding workflows.
 * **Exclusion:**

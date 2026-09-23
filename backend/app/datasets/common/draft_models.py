@@ -86,6 +86,7 @@ class DraftSimplificationPair(BaseModel):
     source_type: str = Field("team_authored", pattern="^(team_authored|adaptation_engine_generated|expert_curated)$")
     validation_status: str = Field("draft", pattern="^(draft|in_review|approved)$")
     research_eligible: bool = Field(False)
+    approved_for_child_delivery: bool = Field(False)
     created_at: datetime = Field(default_factory=datetime.utcnow)
     model_config = ConfigDict(extra="ignore")
 

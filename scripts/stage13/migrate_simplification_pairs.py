@@ -57,7 +57,8 @@ def migrate_simplification_pairs():
                     protected_meaning_units=task.get("vocabulary_targets", []) + task.get("grammar_targets", []),
                     source_type="team_authored",
                     validation_status="draft",
-                    research_eligible=False
+                    research_eligible=False,
+                    approved_for_child_delivery=False
                 )
                 pairs.append(p.model_dump(mode="json"))
 
@@ -90,7 +91,8 @@ def migrate_simplification_pairs():
                         operations=["scaffolding", "visual_cues" if level == "strong" else "lexical_substitution"],
                         source_type="team_authored",
                         validation_status="draft",
-                        research_eligible=False
+                        research_eligible=False,
+                        approved_for_child_delivery=False
                     )
                     pairs.append(p.model_dump(mode="json"))
 
@@ -140,7 +142,8 @@ def migrate_simplification_pairs():
                     operations=[ad.generation_method or "rule_simplification"],
                     source_type="adaptation_engine_generated",
                     validation_status="draft",
-                    research_eligible=False
+                    research_eligible=False,
+                    approved_for_child_delivery=False
                 )
                 pairs.append(p.model_dump(mode="json"))
                 mappings.append(MigrationMappingRecord(
