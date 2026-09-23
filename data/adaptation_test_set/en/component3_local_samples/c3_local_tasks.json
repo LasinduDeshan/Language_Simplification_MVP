@@ -1,0 +1,2224 @@
+[
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-VOC-NAMING-001",
+    "legacy_task_code": "VOC-NAMING-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "standard",
+    "target_skill": "animal_naming",
+    "age_min": 4,
+    "age_max": 6,
+    "base_difficulty": "easy",
+    "original_instruction": "Identify and state the name of the depicted domestic animal.",
+    "child_friendly_instruction": "What animal is this?",
+    "stimulus": {
+      "type": "image",
+      "asset_key": "animal_cat_01",
+      "file_path_or_url": "/assets/images/animal_cat.png",
+      "alt_text": "A friendly orange tabby cat sitting on the grass."
+    },
+    "prompt": null,
+    "options": [
+      "cat",
+      "dog",
+      "rabbit"
+    ],
+    "passage": null,
+    "protected_answer": "cat",
+    "protected_elements": [
+      "cat",
+      "animal",
+      "noun_labeling"
+    ],
+    "acceptable_answers": [
+      "cat",
+      "a cat",
+      "kitty",
+      "it is a cat"
+    ],
+    "expected_concepts": [
+      "cat"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "What animal is this?",
+      "moderate": "Look at the animal. What is it?",
+      "strong": "Choose: cat or dog."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.110556"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-VOC-NAMING-002",
+    "legacy_task_code": "VOC-NAMING-002",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "standard",
+    "target_skill": "classroom_vocabulary",
+    "age_min": 4,
+    "age_max": 6,
+    "base_difficulty": "easy",
+    "original_instruction": "Provide the lexical term for the writing utensil illustrated.",
+    "child_friendly_instruction": "What is this used for writing?",
+    "stimulus": {
+      "type": "image",
+      "asset_key": "object_pencil_01",
+      "file_path_or_url": "/assets/images/pencil.png",
+      "alt_text": "A yellow wooden pencil with a pink eraser."
+    },
+    "prompt": null,
+    "options": [
+      "pencil",
+      "scissors",
+      "ruler"
+    ],
+    "passage": null,
+    "protected_answer": "pencil",
+    "protected_elements": [
+      "pencil",
+      "write",
+      "noun_labeling"
+    ],
+    "acceptable_answers": [
+      "pencil",
+      "a pencil",
+      "yellow pencil"
+    ],
+    "expected_concepts": [
+      "pencil"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "What is this used for writing?",
+      "moderate": "Look at the picture. What do we write with?",
+      "strong": "Is it a pencil or scissors?"
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-VOC-MATCH-001",
+    "legacy_task_code": "VOC-MATCH-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "standard",
+    "target_skill": "reading_vocabulary_matching",
+    "age_min": 5,
+    "age_max": 7,
+    "base_difficulty": "easy",
+    "original_instruction": "Select the visual representation corresponding to the word 'book'.",
+    "child_friendly_instruction": "Find the picture of the book.",
+    "stimulus": null,
+    "prompt": "Word: BOOK",
+    "options": [
+      "book_picture",
+      "chair_picture",
+      "crayon_picture"
+    ],
+    "passage": null,
+    "protected_answer": "book",
+    "protected_elements": [
+      "book",
+      "read",
+      "noun_recognition"
+    ],
+    "acceptable_answers": [
+      "book",
+      "book_picture"
+    ],
+    "expected_concepts": [
+      "book_picture"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Find the picture of the book.",
+      "moderate": "Look at the word 'BOOK'. Touch the book.",
+      "strong": "Point to the book you read."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-VOC-DEF-001",
+    "legacy_task_code": "VOC-DEF-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "standard",
+    "target_skill": "job_function_vocabulary",
+    "age_min": 5,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Define the primary professional occupation of a culinary chef.",
+    "child_friendly_instruction": "What does a chef do?",
+    "stimulus": null,
+    "prompt": null,
+    "options": [
+      "cooks food",
+      "flies airplanes",
+      "builds houses"
+    ],
+    "passage": null,
+    "protected_answer": "cooks food",
+    "protected_elements": [
+      "chef",
+      "cook",
+      "kitchen",
+      "action_predicate"
+    ],
+    "acceptable_answers": [
+      "cooks food",
+      "cooks",
+      "makes food",
+      "bakes",
+      "prepares food"
+    ],
+    "expected_concepts": [
+      "cooks food"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "What does a chef do?",
+      "moderate": "A chef works in a kitchen. What do they make?",
+      "strong": "Choose: cooks food or flies planes."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-VOC-SYN-001",
+    "legacy_task_code": "VOC-SYN-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "standard",
+    "target_skill": "vocabulary_simplification",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Provide a common linguistic synonym for the adjective 'enormous'.",
+    "child_friendly_instruction": "What is an easier word for enormous?",
+    "stimulus": null,
+    "prompt": "An enormous elephant is a very ___ elephant.",
+    "options": [
+      "big",
+      "tiny",
+      "fast"
+    ],
+    "passage": null,
+    "protected_answer": "big",
+    "protected_elements": [
+      "enormous",
+      "big",
+      "huge",
+      "adjective_synonym"
+    ],
+    "acceptable_answers": [
+      "big",
+      "giant",
+      "huge",
+      "large"
+    ],
+    "expected_concepts": [
+      "big"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "What is an easier word for enormous?",
+      "moderate": "If an elephant is enormous, is it big or small?",
+      "strong": "Choose: big or tiny."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-VOC-CAT-001",
+    "legacy_task_code": "VOC-CAT-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "standard",
+    "target_skill": "category_sorting",
+    "age_min": 4,
+    "age_max": 7,
+    "base_difficulty": "easy",
+    "original_instruction": "Segregate the presented items according to biological taxonomy and edible provisions.",
+    "child_friendly_instruction": "Which one is a food we can eat?",
+    "stimulus": null,
+    "prompt": null,
+    "options": [
+      "apple",
+      "tiger",
+      "bear"
+    ],
+    "passage": null,
+    "protected_answer": "apple",
+    "protected_elements": [
+      "food",
+      "animal",
+      "fruit",
+      "category_noun"
+    ],
+    "acceptable_answers": [
+      "apple",
+      "an apple"
+    ],
+    "expected_concepts": [
+      "apple"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Which one is a food we can eat?",
+      "moderate": "Look at the pictures: apple, tiger, bear. Which one do we eat?",
+      "strong": "Choose the yummy fruit: apple."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-VOC-ODD-001",
+    "legacy_task_code": "VOC-ODD-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "standard",
+    "target_skill": "semantic_odd_one_out",
+    "age_min": 5,
+    "age_max": 8,
+    "base_difficulty": "easy",
+    "original_instruction": "Identify the semantic outlier among the following collection of items.",
+    "child_friendly_instruction": "Which one does not belong?",
+    "stimulus": null,
+    "prompt": "Apple, Banana, Car, Orange",
+    "options": [
+      "Car",
+      "Apple",
+      "Banana",
+      "Orange"
+    ],
+    "passage": null,
+    "protected_answer": "car",
+    "protected_elements": [
+      "fruit",
+      "vehicle",
+      "car",
+      "category_exclusion"
+    ],
+    "acceptable_answers": [
+      "car",
+      "the car",
+      "a car"
+    ],
+    "expected_concepts": [
+      "Car"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Which one does not belong?",
+      "moderate": "Three are fruits. Which one is a vehicle?",
+      "strong": "Choose: car (not a fruit)."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-VOC-ACT-001",
+    "legacy_task_code": "VOC-ACT-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "standard",
+    "target_skill": "action_verbs",
+    "age_min": 4,
+    "age_max": 6,
+    "base_difficulty": "easy",
+    "original_instruction": "State the active physical locomotion demonstrated in the graphic.",
+    "child_friendly_instruction": "What is the girl doing?",
+    "stimulus": {
+      "type": "image",
+      "asset_key": "action_running_01",
+      "file_path_or_url": "/assets/images/girl_running.png",
+      "alt_text": "A smiling young girl running joyfully across a sunny playground."
+    },
+    "prompt": null,
+    "options": [
+      "running",
+      "sleeping",
+      "eating"
+    ],
+    "passage": null,
+    "protected_answer": "running",
+    "protected_elements": [
+      "running",
+      "fast",
+      "present_continuous_verb"
+    ],
+    "acceptable_answers": [
+      "running",
+      "she is running",
+      "run",
+      "runs"
+    ],
+    "expected_concepts": [
+      "running"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "What is the girl doing?",
+      "moderate": "Look at her feet moving fast. What is she doing?",
+      "strong": "Choose: running or sleeping."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-GRAM-ART-001",
+    "legacy_task_code": "GRAM-ART-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "grammar",
+    "activity_type": "standard",
+    "target_skill": "indefinite_article_a_an",
+    "age_min": 5,
+    "age_max": 7,
+    "base_difficulty": "easy",
+    "original_instruction": "Complete the grammatical syntagma by supplying the proper indefinite article prior to the vowel onset.",
+    "child_friendly_instruction": "Choose the missing word.",
+    "stimulus": null,
+    "prompt": "I ate ___ apple for lunch.",
+    "options": [
+      "an",
+      "a",
+      "the"
+    ],
+    "passage": null,
+    "protected_answer": "an",
+    "protected_elements": [
+      "apple",
+      "lunch",
+      "indefinite_article"
+    ],
+    "acceptable_answers": [
+      "an",
+      "an apple",
+      "i ate an apple"
+    ],
+    "expected_concepts": [
+      "an"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Choose the missing word.",
+      "moderate": "Apple starts with an 'A' sound. Do we say 'a apple' or 'an apple'?",
+      "strong": "Choose: an or a."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-GRAM-PREP-001",
+    "legacy_task_code": "GRAM-PREP-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "grammar",
+    "activity_type": "standard",
+    "target_skill": "location_preposition",
+    "age_min": 5,
+    "age_max": 7,
+    "base_difficulty": "medium",
+    "original_instruction": "Select the appropriate locative preposition indicating immersion in an aquatic environment.",
+    "child_friendly_instruction": "Choose the missing word.",
+    "stimulus": null,
+    "prompt": "The fish lives ___ water.",
+    "options": [
+      "in",
+      "on",
+      "under"
+    ],
+    "passage": null,
+    "protected_answer": "in",
+    "protected_elements": [
+      "fish",
+      "water",
+      "live",
+      "location_preposition"
+    ],
+    "acceptable_answers": [
+      "in",
+      "the fish lives in water",
+      "in water"
+    ],
+    "expected_concepts": [
+      "in"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Choose the missing word.",
+      "moderate": "Where does the fish live? Choose one word.",
+      "strong": "Choose: in, on, or under."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-GRAM-SVA-001",
+    "legacy_task_code": "GRAM-SVA-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "grammar",
+    "activity_type": "standard",
+    "target_skill": "subject_verb_agreement",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Evaluate the agreement between the singular subject pronoun and the conjugated present tense verb.",
+    "child_friendly_instruction": "Which sentence sounds right?",
+    "stimulus": null,
+    "prompt": null,
+    "options": [
+      "He plays with the ball.",
+      "He play with the ball."
+    ],
+    "passage": null,
+    "protected_answer": "he plays with the ball",
+    "protected_elements": [
+      "plays",
+      "ball",
+      "third_person_singular_s"
+    ],
+    "acceptable_answers": [
+      "he plays with the ball",
+      "he plays",
+      "first sentence",
+      "plays"
+    ],
+    "expected_concepts": [
+      "He plays with the ball."
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Which sentence sounds right?",
+      "moderate": "For one boy 'He', do we say 'He plays' or 'He play'?",
+      "strong": "Choose: He plays with the ball."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-GRAM-PRON-001",
+    "legacy_task_code": "GRAM-PRON-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "grammar",
+    "activity_type": "standard",
+    "target_skill": "subject_pronoun_selection",
+    "age_min": 5,
+    "age_max": 7,
+    "base_difficulty": "easy",
+    "original_instruction": "Select the appropriate nominative personal pronoun referring to the female protagonist.",
+    "child_friendly_instruction": "Choose the missing word.",
+    "stimulus": null,
+    "prompt": "Emma is eating. ___ likes apples.",
+    "options": [
+      "She",
+      "He",
+      "They"
+    ],
+    "passage": null,
+    "protected_answer": "she",
+    "protected_elements": [
+      "apples",
+      "eating",
+      "gender_pronoun"
+    ],
+    "acceptable_answers": [
+      "she",
+      "she likes apples",
+      "she does"
+    ],
+    "expected_concepts": [
+      "She"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Choose the missing word.",
+      "moderate": "Emma is a girl. Do we say 'He' or 'She'?",
+      "strong": "Choose: She or He."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-GRAM-PLUR-001",
+    "legacy_task_code": "GRAM-PLUR-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "grammar",
+    "activity_type": "standard",
+    "target_skill": "regular_plural_s",
+    "age_min": 5,
+    "age_max": 7,
+    "base_difficulty": "easy",
+    "original_instruction": "Morphologically inflect the singular canine noun into its plural form to match the numeral.",
+    "child_friendly_instruction": "Complete the sentence.",
+    "stimulus": null,
+    "prompt": "One dog, two ___.",
+    "options": [
+      "dogs",
+      "dog",
+      "doges"
+    ],
+    "passage": null,
+    "protected_answer": "dogs",
+    "protected_elements": [
+      "dog",
+      "two",
+      "plural_s"
+    ],
+    "acceptable_answers": [
+      "dogs",
+      "two dogs"
+    ],
+    "expected_concepts": [
+      "dogs"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Complete the sentence: One dog, two ___.",
+      "moderate": "When there is more than one, we add 's'. One dog, two ___?",
+      "strong": "Choose: dogs or dog."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-GRAM-TENSE-001",
+    "legacy_task_code": "GRAM-TENSE-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "grammar",
+    "activity_type": "standard",
+    "target_skill": "regular_past_tense_ed",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Supply the past temporal inflection of the regular verb 'walk'.",
+    "child_friendly_instruction": "Choose the missing word.",
+    "stimulus": null,
+    "prompt": "Yesterday, Leo ___ to the park.",
+    "options": [
+      "walked",
+      "walks",
+      "walking"
+    ],
+    "passage": null,
+    "protected_answer": "walked",
+    "protected_elements": [
+      "yesterday",
+      "park",
+      "walked",
+      "past_tense_ed"
+    ],
+    "acceptable_answers": [
+      "walked",
+      "leo walked to the park"
+    ],
+    "expected_concepts": [
+      "walked"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Choose the missing word.",
+      "moderate": "It happened yesterday. Did Leo walk or walked?",
+      "strong": "Choose: walked (happened yesterday)."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-GRAM-COMPL-001",
+    "legacy_task_code": "GRAM-COMPL-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "grammar",
+    "activity_type": "standard",
+    "target_skill": "sentence_predicate_completion",
+    "age_min": 5,
+    "age_max": 7,
+    "base_difficulty": "medium",
+    "original_instruction": "Provide an appropriate syntactic completion for the open sentence predicate.",
+    "child_friendly_instruction": "Finish the sentence.",
+    "stimulus": null,
+    "prompt": "The bird flies in the ___.",
+    "options": [
+      "sky",
+      "water",
+      "carpet"
+    ],
+    "passage": null,
+    "protected_answer": "sky",
+    "protected_elements": [
+      "bird",
+      "flies",
+      "sky",
+      "prepositional_object"
+    ],
+    "acceptable_answers": [
+      "sky",
+      "air",
+      "the sky",
+      "blue sky"
+    ],
+    "expected_concepts": [
+      "sky"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Finish the sentence: The bird flies in the ___.",
+      "moderate": "Where do birds fly up high? In the ___?",
+      "strong": "Choose: sky or water."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-GRAM-WORD-001",
+    "legacy_task_code": "GRAM-WORD-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "grammar",
+    "activity_type": "standard",
+    "target_skill": "word_order_svo",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Reconstruct the scrambled syntactic tokens into canonical English word order.",
+    "child_friendly_instruction": "Put the words in order to make a sentence.",
+    "stimulus": null,
+    "prompt": "likes / The boy / apples",
+    "options": [
+      "The boy",
+      "likes",
+      "apples"
+    ],
+    "passage": null,
+    "protected_answer": "the boy likes apples",
+    "protected_elements": [
+      "boy",
+      "likes",
+      "apples",
+      "svo_syntax"
+    ],
+    "acceptable_answers": [
+      "the boy likes apples",
+      "The boy likes apples."
+    ],
+    "expected_concepts": [
+      "The boy likes apples."
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Put the words in order to make a sentence.",
+      "moderate": "Start with 'The boy'. What does he like?",
+      "strong": "Put 'The boy' first, then 'likes', then 'apples'."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-INST-ONE-001",
+    "legacy_task_code": "INST-ONE-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "standard",
+    "target_skill": "single_step_directive",
+    "age_min": 4,
+    "age_max": 6,
+    "base_difficulty": "easy",
+    "original_instruction": "Execute a single direct tactile action selecting the red circular glyph.",
+    "child_friendly_instruction": "Touch the red circle.",
+    "stimulus": null,
+    "prompt": null,
+    "options": [
+      "red_circle",
+      "blue_square",
+      "yellow_triangle"
+    ],
+    "passage": null,
+    "protected_answer": "red_circle",
+    "protected_elements": [
+      "red",
+      "circle",
+      "touch",
+      "imperative_verb"
+    ],
+    "acceptable_answers": [
+      "red_circle",
+      "red circle",
+      "the red circle"
+    ],
+    "expected_concepts": [
+      "red_circle"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Touch the red circle.",
+      "moderate": "Find the red circle. Touch it with your finger.",
+      "strong": "Look at the red circle right here. Touch it."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-INST-TWO-001",
+    "legacy_task_code": "INST-TWO-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "standard",
+    "target_skill": "two_step_instruction_following",
+    "age_min": 5,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Execute the sequential procedural tasks: acquire the red block then deposit within the receptacle.",
+    "child_friendly_instruction": "Pick up the red block and put it in the box.",
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "pick red block and put in box",
+    "protected_elements": [
+      "block",
+      "box",
+      "pick",
+      "put",
+      "compound_imperative"
+    ],
+    "acceptable_answers": [
+      "pick red block and put in box",
+      "red block in box"
+    ],
+    "expected_concepts": [
+      "pick_red_block",
+      "place_in_box"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Pick up the red block and put it in the box.",
+      "moderate": "First pick up the red block. Then put it in the box.",
+      "strong": "Pick up the red block."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-INST-THREE-001",
+    "legacy_task_code": "INST-THREE-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "standard",
+    "target_skill": "three_step_instruction_following",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "hard",
+    "original_instruction": "Carry out three distinct motor commands in chronological sequence.",
+    "child_friendly_instruction": "Tap the star, touch the bell, and clap your hands.",
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "star bell clap",
+    "protected_elements": [
+      "star",
+      "bell",
+      "clap",
+      "three_step_coordination"
+    ],
+    "acceptable_answers": [
+      "star bell clap",
+      "tapped star, touched bell, clapped"
+    ],
+    "expected_concepts": [
+      "tap_star",
+      "touch_bell",
+      "clap_hands"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Tap the star, touch the bell, and clap your hands.",
+      "moderate": "1. Tap the star. 2. Touch the bell. 3. Clap your hands.",
+      "strong": "Step 1: Tap the star."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-INST-BEFORE-001",
+    "legacy_task_code": "INST-BEFORE-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "standard",
+    "target_skill": "temporal_clause_before",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "hard",
+    "original_instruction": "Prior to contacting the square object, initiate tactile contact with the circle.",
+    "child_friendly_instruction": "Before you touch the square, touch the circle.",
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "circle first",
+    "protected_elements": [
+      "before",
+      "first",
+      "circle",
+      "square",
+      "subordinating_temporal_clause"
+    ],
+    "acceptable_answers": [
+      "circle first",
+      "touch circle then square",
+      "circle then square"
+    ],
+    "expected_concepts": [
+      "touch_circle_first"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Before you touch the square, touch the circle.",
+      "moderate": "Touch the circle first. Then touch the square.",
+      "strong": "Touch the circle first!"
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.113624"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-INST-IFTHEN-001",
+    "legacy_task_code": "INST-IFTHEN-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "standard",
+    "target_skill": "conditional_logic_if_then",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Upon visual verification that the illumination is green, perform selection of the vehicle.",
+    "child_friendly_instruction": "If the light is green, tap the car.",
+    "stimulus": null,
+    "prompt": "The light is GREEN.",
+    "options": [
+      "tap_car",
+      "do_nothing"
+    ],
+    "passage": null,
+    "protected_answer": "tap the car",
+    "protected_elements": [
+      "green",
+      "light",
+      "car",
+      "conditional_if_clause"
+    ],
+    "acceptable_answers": [
+      "tap the car",
+      "tap_car",
+      "yes"
+    ],
+    "expected_concepts": [
+      "tap_car"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "If the light is green, tap the car.",
+      "moderate": "The light is green! What do you tap?",
+      "strong": "The light is green. Tap the car now."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-SENT-REL-001",
+    "legacy_task_code": "SENT-REL-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "standard",
+    "target_skill": "relative_clause_comprehension",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "hard",
+    "original_instruction": "Identify and select the canine exhibiting seated posture in lateral proximity to the arboreal specimen.",
+    "child_friendly_instruction": "Choose the dog that is sitting beside the tree.",
+    "stimulus": null,
+    "prompt": null,
+    "options": [
+      "dog_beside_tree",
+      "dog_under_bed",
+      "dog_on_sofa"
+    ],
+    "passage": null,
+    "protected_answer": "dog beside tree",
+    "protected_elements": [
+      "tree",
+      "beside",
+      "next to",
+      "restrictive_relative_clause"
+    ],
+    "acceptable_answers": [
+      "dog beside tree",
+      "dog next to tree",
+      "the dog by the tree"
+    ],
+    "expected_concepts": [
+      "dog_beside_tree"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Choose the dog beside the tree.",
+      "moderate": "Find the tree. Which dog is beside it?",
+      "strong": "Look at the tree. Choose the dog next to it."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-SENT-PASS-001",
+    "legacy_task_code": "SENT-PASS-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "standard",
+    "target_skill": "passive_voice_agent_identification",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "hard",
+    "original_instruction": "Determine the semantic agent in the passive voice construction: 'The ball was kicked by the girl.'",
+    "child_friendly_instruction": "Who kicked the ball?",
+    "stimulus": null,
+    "prompt": "Sentence: The ball was kicked by the girl.",
+    "options": [
+      "the girl",
+      "the ball",
+      "the dog"
+    ],
+    "passage": null,
+    "protected_answer": "the girl",
+    "protected_elements": [
+      "kicked",
+      "girl",
+      "ball",
+      "passive_voice"
+    ],
+    "acceptable_answers": [
+      "the girl",
+      "girl",
+      "a girl"
+    ],
+    "expected_concepts": [
+      "the girl"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Who kicked the ball?",
+      "moderate": "The ball was kicked by the girl. Who did the kicking?",
+      "strong": "The girl kicked the ball. Who was it: the girl or the ball?"
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-SENT-AR-001",
+    "legacy_task_code": "SENT-AR-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "standard",
+    "target_skill": "complex_instruction_sorting",
+    "age_min": 4,
+    "age_max": 7,
+    "base_difficulty": "medium",
+    "original_instruction": "Distinguish between classroom materials and deposit drawing tools into designated storage containers.",
+    "child_friendly_instruction": "Put crayons in the box and paper in the green bin.",
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "crayons in box, paper in green bin",
+    "protected_elements": [
+      "crayons",
+      "box",
+      "paper",
+      "bin",
+      "compound_imperative"
+    ],
+    "acceptable_answers": [
+      "crayons in box, paper in green bin",
+      "put crayons in box and paper in bin"
+    ],
+    "expected_concepts": [
+      "crayons in box",
+      "paper in green bin"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Put crayons in the box and paper in the green bin.",
+      "moderate": "First, put the crayons in the box. Then put the paper in the green bin.",
+      "strong": "Put crayons in the box."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-COMP-PASSAGE-001",
+    "legacy_task_code": "COMP-PASSAGE-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "comprehension",
+    "activity_type": "standard",
+    "target_skill": "passage_literal_comprehension",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Demonstrate textual comprehension through extraction of literal details from narrative prose.",
+    "child_friendly_instruction": "Listen to the story and answer the questions.",
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": "Ben has a red ball. He plays in the garden. The ball rolls under a chair.",
+    "protected_answer": "red, garden, under the chair",
+    "protected_elements": [
+      "ball",
+      "garden",
+      "chair",
+      "wh_questions"
+    ],
+    "acceptable_answers": [
+      "red, garden, under the chair"
+    ],
+    "expected_concepts": [
+      "red",
+      "garden",
+      "under chair"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Listen to the story: Ben has a red ball. Where does he play?",
+      "moderate": "Ben plays outside in the grass. Where does he play?",
+      "strong": "Does Ben play in the garden or bedroom?"
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-COMP-PASSAGE-002",
+    "legacy_task_code": "COMP-PASSAGE-002",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "comprehension",
+    "activity_type": "standard",
+    "target_skill": "passage_literal_comprehension",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Extract factual narrative tokens regarding the characters and settings.",
+    "child_friendly_instruction": "Listen to the story and answer.",
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": "Mia found a little yellow bird near the porch. The bird was singing a happy song. Mia gave the bird some seeds.",
+    "protected_answer": "yellow",
+    "protected_elements": [
+      "bird",
+      "singing",
+      "seeds",
+      "wh_questions"
+    ],
+    "acceptable_answers": [
+      "yellow",
+      "seeds"
+    ],
+    "expected_concepts": [
+      "yellow",
+      "seeds"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "What colour was the little bird?",
+      "moderate": "Look at the story. The bird was bright like the sun. What colour?",
+      "strong": "Choose: yellow or black."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-COMP-SEQ-001",
+    "legacy_task_code": "COMP-SEQ-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "comprehension",
+    "activity_type": "standard",
+    "target_skill": "narrative_event_sequencing",
+    "age_min": 5,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Chronologically order the illustrative stages of seed germination and botanical maturation.",
+    "child_friendly_instruction": "Put the story pictures in order from first to last.",
+    "stimulus": null,
+    "prompt": null,
+    "options": [
+      "plant_seed",
+      "water_soil",
+      "flower_grows"
+    ],
+    "passage": null,
+    "protected_answer": "seed water flower",
+    "protected_elements": [
+      "seed",
+      "water",
+      "flower",
+      "grow",
+      "temporal_adverbs"
+    ],
+    "acceptable_answers": [
+      "seed water flower",
+      "first plant seed, then water, then flower"
+    ],
+    "expected_concepts": [
+      "plant_seed",
+      "water_soil",
+      "flower_grows"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Put the pictures in order from first to last.",
+      "moderate": "What do we do first? Plant the seed or watch the flower?",
+      "strong": "1. Plant seed. 2. Water it. 3. Flower grows."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-COMP-MAIN-001",
+    "legacy_task_code": "COMP-MAIN-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "comprehension",
+    "activity_type": "standard",
+    "target_skill": "main_idea_identification",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "medium",
+    "original_instruction": "Synthesize the overarching thematic proposition from the provided text.",
+    "child_friendly_instruction": "What is this story mostly about?",
+    "stimulus": null,
+    "prompt": null,
+    "options": [
+      "How bees help flowers and make honey",
+      "Why cars drive fast",
+      "How to draw a circle"
+    ],
+    "passage": "Bees fly to colourful flowers. They collect sweet nectar. Bees help flowers make new seeds and make delicious honey.",
+    "protected_answer": "how bees help flowers",
+    "protected_elements": [
+      "bees",
+      "flowers",
+      "honey",
+      "thematic_noun_phrase"
+    ],
+    "acceptable_answers": [
+      "how bees help flowers",
+      "bees making honey",
+      "bees and flowers"
+    ],
+    "expected_concepts": [
+      "How bees help flowers and make honey"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "What is this story mostly about?",
+      "moderate": "Does the story tell us about busy bees or fast cars?",
+      "strong": "Choose: How bees help flowers and make honey."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-COMP-YESNO-001",
+    "legacy_task_code": "COMP-YESNO-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "comprehension",
+    "activity_type": "standard",
+    "target_skill": "factual_yes_no_comprehension",
+    "age_min": 4,
+    "age_max": 6,
+    "base_difficulty": "easy",
+    "original_instruction": "Provide a binary truth evaluation for the propositional premise.",
+    "child_friendly_instruction": "Answer Yes or No.",
+    "stimulus": null,
+    "prompt": "Can a fish fly high in the blue sky?",
+    "options": [
+      "No",
+      "Yes"
+    ],
+    "passage": null,
+    "protected_answer": "no",
+    "protected_elements": [
+      "fish",
+      "fly",
+      "sky",
+      "polar_questions"
+    ],
+    "acceptable_answers": [
+      "no",
+      "nope",
+      "it cannot",
+      "fish cannot fly"
+    ],
+    "expected_concepts": [
+      "No"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Can a fish fly high in the blue sky? Yes or No?",
+      "moderate": "Fish swim in water. Can they fly in the sky?",
+      "strong": "Choose: No (fish swim in water)."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-COMP-WH-001",
+    "legacy_task_code": "COMP-WH-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "comprehension",
+    "activity_type": "standard",
+    "target_skill": "wh_question_answering",
+    "age_min": 5,
+    "age_max": 7,
+    "base_difficulty": "easy",
+    "original_instruction": "Identify the human subject possessing the precipitation shield in the visual scene.",
+    "child_friendly_instruction": "Who is holding the big umbrella?",
+    "stimulus": null,
+    "prompt": "The boy in the yellow coat is holding the umbrella.",
+    "options": [
+      "The boy in the yellow coat",
+      "The dog",
+      "The cat"
+    ],
+    "passage": null,
+    "protected_answer": "the boy",
+    "protected_elements": [
+      "umbrella",
+      "boy",
+      "holding",
+      "wh_subject_question"
+    ],
+    "acceptable_answers": [
+      "the boy",
+      "boy",
+      "boy in yellow coat",
+      "the boy in yellow"
+    ],
+    "expected_concepts": [
+      "The boy in the yellow coat"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Who is holding the big umbrella?",
+      "moderate": "Look at the picture. Is it the boy or the dog holding the umbrella?",
+      "strong": "Choose: The boy in the yellow coat."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-TASK-ENG-001",
+    "legacy_task_code": "TASK-ENG-001",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "classroom",
+    "target_skill": "two_step_instruction_following",
+    "age_min": 4,
+    "age_max": 6,
+    "base_difficulty": "medium",
+    "original_instruction": "Before sitting on the rug, pack your crayons and put your drawing paper in the green recycle bin.",
+    "child_friendly_instruction": null,
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "crayons in box, paper in green bin",
+    "protected_elements": [
+      "pack",
+      "bin",
+      "recycle",
+      "temporal_clause",
+      "two_step_coordination"
+    ],
+    "acceptable_answers": [
+      "crayons in box, paper in green bin",
+      "pack crayons and recycle paper"
+    ],
+    "expected_concepts": [
+      "pack crayons",
+      "put paper in green bin"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Before sitting on the rug, pack your crayons and put paper in the green bin.",
+      "moderate": "First pack your crayons. Then put paper in the green bin.",
+      "strong": "Put crayons in the box."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-TASK-ENG-002",
+    "legacy_task_code": "TASK-ENG-002",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "categorization",
+    "target_skill": "animal_habitat_concept",
+    "age_min": 5,
+    "age_max": 7,
+    "base_difficulty": "medium",
+    "original_instruction": "Put the animals into groups according to where they live.",
+    "child_friendly_instruction": null,
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "fish in water, bird in tree",
+    "protected_elements": [
+      "habitat",
+      "group",
+      "nature",
+      "relative_clause",
+      "prepositional_phrase"
+    ],
+    "acceptable_answers": [
+      "fish in water, bird in tree",
+      "fish swim in water, bird in nest",
+      "fish live in water and bird live in tree",
+      "fish live in water",
+      "fish live water",
+      "fish in water",
+      "water",
+      "in water",
+      "in the water"
+    ],
+    "expected_concepts": [
+      "fish live in water",
+      "bird live in tree"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": {
+      "mild": "Put the animals where they live.",
+      "moderate": "Fish swim in water. Where do birds live?",
+      "strong": "Choose: fish in water or bird in tree."
+    },
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-TASK-ENG-003",
+    "legacy_task_code": "TASK-ENG-003",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "vocabulary",
+    "target_skill": "size_comparison",
+    "age_min": 4,
+    "age_max": 5,
+    "base_difficulty": "easy",
+    "original_instruction": "Distinguish between the items by placing all the large spheres into the blue container.",
+    "child_friendly_instruction": null,
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "big balls in blue box",
+    "protected_elements": [
+      "sphere",
+      "distinguish",
+      "container",
+      "prepositional_phrase",
+      "gerund_complement"
+    ],
+    "acceptable_answers": [
+      "big balls in blue box",
+      "put large balls in blue container"
+    ],
+    "expected_concepts": [
+      "select big balls",
+      "put big balls into blue box"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": null,
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-TASK-ENG-004",
+    "legacy_task_code": "TASK-ENG-004",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "sequence",
+    "target_skill": "three_step_instruction_following",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "hard",
+    "original_instruction": "After selecting the yellow triangle, place the red circle above the square.",
+    "child_friendly_instruction": null,
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "triangle then red circle above square",
+    "protected_elements": [
+      "selecting",
+      "spatial",
+      "geometric",
+      "temporal_clause",
+      "subordinate_conjunction"
+    ],
+    "acceptable_answers": [
+      "triangle then red circle above square",
+      "yellow triangle, circle on top of square"
+    ],
+    "expected_concepts": [
+      "yellow triangle first",
+      "red circle above square"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": null,
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-TASK-ENG-005",
+    "legacy_task_code": "TASK-ENG-005",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "vocabulary",
+    "target_skill": "color_adjectives",
+    "age_min": 4,
+    "age_max": 6,
+    "base_difficulty": "easy",
+    "original_instruction": "Identify the chromatic property of the displayed fruit object and state its color aloud.",
+    "child_friendly_instruction": null,
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "yellow",
+    "protected_elements": [
+      "chromatic",
+      "displayed",
+      "property",
+      "copular_predicate",
+      "attributive_adjective"
+    ],
+    "acceptable_answers": [
+      "yellow",
+      "it is yellow",
+      "yellow banana"
+    ],
+    "expected_concepts": [
+      "yellow",
+      "the banana is yellow"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": null,
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-TASK-ENG-006",
+    "legacy_task_code": "TASK-ENG-006",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "grammar",
+    "activity_type": "grammar",
+    "target_skill": "location_preposition",
+    "age_min": 5,
+    "age_max": 7,
+    "base_difficulty": "medium",
+    "original_instruction": "Specify the precise spatial orientation and location of the feline entity relative to the desk.",
+    "child_friendly_instruction": null,
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "under the desk",
+    "protected_elements": [
+      "spatial",
+      "orientation",
+      "feline",
+      "prepositional_phrase",
+      "locative_inversion"
+    ],
+    "acceptable_answers": [
+      "under the desk",
+      "the cat is under the desk",
+      "under desk"
+    ],
+    "expected_concepts": [
+      "cat under desk",
+      "under"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": null,
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-TASK-ENG-007",
+    "legacy_task_code": "TASK-ENG-007",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "vocabulary",
+    "activity_type": "vocabulary",
+    "target_skill": "action_verbs",
+    "age_min": 4,
+    "age_max": 6,
+    "base_difficulty": "easy",
+    "original_instruction": "Pair each animated action depiction with its corresponding verbal predicate.",
+    "child_friendly_instruction": null,
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "jumping",
+    "protected_elements": [
+      "depiction",
+      "predicate",
+      "corresponding",
+      "present_continuous",
+      "auxiliary_verb"
+    ],
+    "acceptable_answers": [
+      "jumping",
+      "he is jumping",
+      "boy is jumping"
+    ],
+    "expected_concepts": [
+      "jumping",
+      "the boy is jumping"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": null,
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-TASK-ENG-008",
+    "legacy_task_code": "TASK-ENG-008",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "comprehension",
+    "activity_type": "comprehension",
+    "target_skill": "narrative_event_sequencing",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "hard",
+    "original_instruction": "Chronologically order the illustrative scenes according to the auditory narrative.",
+    "child_friendly_instruction": null,
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "wake up, eat breakfast, go to school",
+    "protected_elements": [
+      "chronologically",
+      "illustrative",
+      "auditory",
+      "temporal_adverbs",
+      "sequential_conjunctions"
+    ],
+    "acceptable_answers": [
+      "wake up, eat breakfast, go to school",
+      "waking up then breakfast then school"
+    ],
+    "expected_concepts": [
+      "wake up first",
+      "eat breakfast second",
+      "go to school third"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": null,
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-TASK-ENG-009",
+    "legacy_task_code": "TASK-ENG-009",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "grammar",
+    "activity_type": "grammar",
+    "target_skill": "subject_pronoun_selection",
+    "age_min": 5,
+    "age_max": 7,
+    "base_difficulty": "medium",
+    "original_instruction": "Complete the spoken utterance utilizing the grammatically congruent subjective personal pronoun.",
+    "child_friendly_instruction": null,
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "she is kicking",
+    "protected_elements": [
+      "utterance",
+      "congruent",
+      "subjective",
+      "pronoun_antecedent_agreement",
+      "subject_pronoun"
+    ],
+    "acceptable_answers": [
+      "she is kicking",
+      "she",
+      "she is kicking the ball"
+    ],
+    "expected_concepts": [
+      "she is kicking the ball",
+      "she"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": null,
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "activity_id": "C3-EN-TASK-ENG-010",
+    "legacy_task_code": "TASK-ENG-010",
+    "activity_owner": "component_3",
+    "language": "en",
+    "primary_domain": "sentence_and_instruction",
+    "activity_type": "sequence",
+    "target_skill": "two_step_instruction_following",
+    "age_min": 6,
+    "age_max": 8,
+    "base_difficulty": "hard",
+    "original_instruction": "If the bell chimes twice, tap the green star; otherwise, touch the blue square.",
+    "child_friendly_instruction": null,
+    "stimulus": null,
+    "prompt": null,
+    "options": null,
+    "passage": null,
+    "protected_answer": "tap green star",
+    "protected_elements": [
+      "contingent",
+      "antecedent",
+      "chimes",
+      "conditional_sentence",
+      "coordinating_disjunction"
+    ],
+    "acceptable_answers": [
+      "tap green star",
+      "green star",
+      "tap star"
+    ],
+    "expected_concepts": [
+      "tap green star on two chimes",
+      "green star"
+    ],
+    "adaptation_policy": "instruction_only",
+    "allowed_transformations": [
+      "simplify_instruction",
+      "add_audio",
+      "present_visual_cues"
+    ],
+    "forbidden_transformations": [
+      "change_stimulus",
+      "expose_answer",
+      "change_target_skill"
+    ],
+    "support_versions": null,
+    "is_simulated": true,
+    "research_eligible": false,
+    "created_at": "2026-09-23T14:12:11.114646"
+  }
+]

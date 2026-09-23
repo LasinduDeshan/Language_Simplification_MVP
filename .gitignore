@@ -62,3 +62,14 @@ data/integration_previews/component4_outputs/*
 !data/integration_previews/component4_outputs/.gitkeep
 !data/integration_previews/**/*_example.json
 
+# Stage 13 Interaction Dataset (Private learner runtime records & unreviewed exports)
+data/interaction_dataset/private/**
+data/interaction_dataset/deidentified_exports/**
+data/interaction_dataset/research_releases/**
+
+# Preserve directory structure
+!data/interaction_dataset/private/.gitkeep
+!data/interaction_dataset/deidentified_exports/.gitkeep
+!data/interaction_dataset/research_releases/.gitkeep
+
+

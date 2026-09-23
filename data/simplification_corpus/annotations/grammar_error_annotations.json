@@ -1,0 +1,82 @@
+[
+  {
+    "test_id": "GRAMMAR-TEST-001",
+    "description": "Concept correct with missing preposition error",
+    "task_code": "TASK-ENG-002",
+    "speech_transcript": "Fish live water.",
+    "speech_confidence": 0.92,
+    "expected_concept_result": "correct",
+    "expected_grammar_observations": ["missing_preposition"],
+    "expected_confirmed": true
+  },
+  {
+    "test_id": "GRAMMAR-TEST-002",
+    "description": "Concept incorrect with grammatically correct sentence",
+    "task_code": "TASK-ENG-002",
+    "speech_transcript": "Fish live in a tree.",
+    "speech_confidence": 0.95,
+    "expected_concept_result": "incorrect",
+    "expected_grammar_observations": [],
+    "expected_confirmed": true
+  },
+  {
+    "test_id": "GRAMMAR-TEST-003",
+    "description": "Subject-verb agreement error with correct semantic meaning",
+    "task_code": "TASK-ENG-009",
+    "speech_transcript": "She kick the ball.",
+    "speech_confidence": 0.91,
+    "expected_concept_result": "correct",
+    "expected_grammar_observations": ["subject_verb_agreement"],
+    "expected_confirmed": true
+  },
+  {
+    "test_id": "GRAMMAR-TEST-004",
+    "description": "Incorrect concept with grammatically flawless sentence",
+    "task_code": "TASK-ENG-009",
+    "speech_transcript": "He is kicking the ball.",
+    "speech_confidence": 0.94,
+    "expected_concept_result": "incorrect",
+    "expected_grammar_observations": [],
+    "expected_confirmed": true
+  },
+  {
+    "test_id": "GRAMMAR-TEST-005",
+    "description": "Low speech confidence (<0.70) must mark grammar observation as unconfirmed",
+    "task_code": "TASK-ENG-002",
+    "speech_transcript": "Fish live water.",
+    "speech_confidence": 0.55,
+    "expected_concept_result": "correct",
+    "expected_grammar_observations": ["missing_preposition"],
+    "expected_confirmed": false
+  },
+  {
+    "test_id": "GRAMMAR-TEST-006",
+    "description": "Incorrect word order (noun + adjective instead of adjective + noun)",
+    "task_code": "TASK-ENG-003",
+    "speech_transcript": "I put the ball blue in the box.",
+    "speech_confidence": 0.90,
+    "expected_concept_result": "correct",
+    "expected_grammar_observations": ["incorrect_word_order"],
+    "expected_confirmed": true
+  },
+  {
+    "test_id": "GRAMMAR-TEST-007",
+    "description": "Omitted copula / auxiliary verb in descriptive sentence",
+    "task_code": "TASK-ENG-007",
+    "speech_transcript": "Red triangle next to yellow square.",
+    "speech_confidence": 0.93,
+    "expected_concept_result": "correct",
+    "expected_grammar_observations": ["omitted_copula"],
+    "expected_confirmed": true
+  },
+  {
+    "test_id": "GRAMMAR-TEST-008",
+    "description": "Missing article before singular countable location noun",
+    "task_code": "TASK-ENG-006",
+    "speech_transcript": "Put cat under desk.",
+    "speech_confidence": 0.91,
+    "expected_concept_result": "correct",
+    "expected_grammar_observations": ["missing_article"],
+    "expected_confirmed": true
+  }
+]

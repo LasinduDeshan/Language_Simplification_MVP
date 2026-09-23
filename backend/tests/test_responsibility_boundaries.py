@@ -29,6 +29,10 @@ def test_vocabulary_task_updates_only_vocabulary_domain(db_session):
     assert learner is not None
     assert task is not None
 
+    if learner.vocabulary_score >= 95.0:
+        learner.vocabulary_score = 50.0
+        db_session.commit()
+
     vocab_before = learner.vocabulary_score
     gram_before = learner.grammar_score
     comp_before = learner.comprehension_score
@@ -66,6 +70,10 @@ def test_grammar_task_updates_only_grammar_domain(db_session):
     task = db_session.query(Task).filter(Task.category == "grammar").first()
     assert learner is not None
     assert task is not None
+
+    if learner.grammar_score >= 95.0:
+        learner.grammar_score = 50.0
+        db_session.commit()
 
     vocab_before = learner.vocabulary_score
     gram_before = learner.grammar_score

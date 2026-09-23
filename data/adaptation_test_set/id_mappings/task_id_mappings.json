@@ -1,0 +1,462 @@
+[
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-NAMING-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-VOC-NAMING-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: vocabulary, Skill: animal_naming"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-NAMING-002",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-VOC-NAMING-002",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: vocabulary, Skill: classroom_vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-MATCH-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-VOC-MATCH-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: vocabulary, Skill: reading_vocabulary_matching"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-DEF-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-VOC-DEF-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: vocabulary, Skill: job_function_vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-SYN-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-VOC-SYN-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: vocabulary, Skill: vocabulary_simplification"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-CAT-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-VOC-CAT-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: vocabulary, Skill: category_sorting"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-ODD-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-VOC-ODD-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: vocabulary, Skill: semantic_odd_one_out"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-ACT-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-VOC-ACT-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: vocabulary, Skill: action_verbs"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-ART-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-GRAM-ART-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: grammar, Skill: indefinite_article_a_an"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PREP-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-GRAM-PREP-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: grammar, Skill: location_preposition"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-SVA-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-GRAM-SVA-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: grammar, Skill: subject_verb_agreement"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PRON-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-GRAM-PRON-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: grammar, Skill: subject_pronoun_selection"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PLUR-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-GRAM-PLUR-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: grammar, Skill: regular_plural_s"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-TENSE-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-GRAM-TENSE-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: grammar, Skill: regular_past_tense_ed"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-COMPL-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-GRAM-COMPL-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: grammar, Skill: sentence_predicate_completion"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-WORD-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-GRAM-WORD-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: grammar, Skill: word_order_svo"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-ONE-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-INST-ONE-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: sentence_and_instruction, Skill: single_step_directive"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-TWO-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-INST-TWO-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: sentence_and_instruction, Skill: two_step_instruction_following"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-THREE-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-INST-THREE-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.113624",
+    "notes": "Domain: sentence_and_instruction, Skill: three_step_instruction_following"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-BEFORE-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-INST-BEFORE-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: sentence_and_instruction, Skill: temporal_clause_before"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-IFTHEN-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-INST-IFTHEN-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: sentence_and_instruction, Skill: conditional_logic_if_then"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-REL-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-SENT-REL-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: sentence_and_instruction, Skill: relative_clause_comprehension"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-PASS-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-SENT-PASS-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: sentence_and_instruction, Skill: passive_voice_agent_identification"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-AR-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-SENT-AR-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: sentence_and_instruction, Skill: complex_instruction_sorting"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-PASSAGE-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-COMP-PASSAGE-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: comprehension, Skill: passage_literal_comprehension"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-PASSAGE-002",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-COMP-PASSAGE-002",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: comprehension, Skill: passage_literal_comprehension"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-SEQ-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-COMP-SEQ-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: comprehension, Skill: narrative_event_sequencing"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-MAIN-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-COMP-MAIN-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: comprehension, Skill: main_idea_identification"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-YESNO-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-COMP-YESNO-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: comprehension, Skill: factual_yes_no_comprehension"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-WH-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-COMP-WH-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: comprehension, Skill: wh_question_answering"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-001",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-TASK-ENG-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: sentence_and_instruction, Skill: two_step_instruction_following"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-002",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-TASK-ENG-002",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: vocabulary, Skill: animal_habitat_concept"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-003",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-TASK-ENG-003",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: vocabulary, Skill: size_comparison"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-004",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-TASK-ENG-004",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: sentence_and_instruction, Skill: three_step_instruction_following"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-005",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-TASK-ENG-005",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: vocabulary, Skill: color_adjectives"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-006",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-TASK-ENG-006",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: grammar, Skill: location_preposition"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-007",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-TASK-ENG-007",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: vocabulary, Skill: action_verbs"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-008",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-TASK-ENG-008",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: comprehension, Skill: narrative_event_sequencing"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-009",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-TASK-ENG-009",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: grammar, Skill: subject_pronoun_selection"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-010",
+    "target_layer": "adaptation_test_set/en/component3_local_samples",
+    "target_id": "C3-EN-TASK-ENG-010",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.114646",
+    "notes": "Domain: sentence_and_instruction, Skill: two_step_instruction_following"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/integration_fixtures/component1_inputs/CHILD-001.json",
+    "source_id": "CHILD-001",
+    "target_layer": "adaptation_test_set/en/component1_samples",
+    "target_id": "CHILD-001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.131659",
+    "notes": "Simulated Component 1 screening fixture"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/integration_fixtures/component1_inputs/CHILD-002.json",
+    "source_id": "CHILD-002",
+    "target_layer": "adaptation_test_set/en/component1_samples",
+    "target_id": "CHILD-002",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.135700",
+    "notes": "Simulated Component 1 screening fixture"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/integration_fixtures/component1_inputs/CHILD-003.json",
+    "source_id": "CHILD-003",
+    "target_layer": "adaptation_test_set/en/component1_samples",
+    "target_id": "CHILD-003",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.141516",
+    "notes": "Simulated Component 1 screening fixture"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/integration_fixtures/component1_inputs/CHILD-004.json",
+    "source_id": "CHILD-004",
+    "target_layer": "adaptation_test_set/en/component1_samples",
+    "target_id": "CHILD-004",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.146724",
+    "notes": "Simulated Component 1 screening fixture"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/integration_fixtures/component1_inputs/CHILD-005.json",
+    "source_id": "CHILD-005",
+    "target_layer": "adaptation_test_set/en/component1_samples",
+    "target_id": "CHILD-005",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.150467",
+    "notes": "Simulated Component 1 screening fixture"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/integration_fixtures/component2_ar_expected/example_ar_payload.json",
+    "source_id": "example_ar_payload",
+    "target_layer": "adaptation_test_set/en/component2_ar_samples",
+    "target_id": "example_ar_payload",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:12:11.160714",
+    "notes": "Simulated Component 2 AR output fixture"
+  }
+]

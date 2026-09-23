@@ -44,6 +44,8 @@ def health_check():
     }
 
 # ----------------- Activities Catalog -----------------
+@router.get("/v1/tasks", response_model=List[TaskResponse])
+@router.get("/tasks", response_model=List[TaskResponse])
 @router.get("/activities", response_model=List[TaskResponse])
 def get_activities(
     category: Optional[str] = Query(None, description="vocabulary, grammar, sentence_and_instruction, comprehension"),

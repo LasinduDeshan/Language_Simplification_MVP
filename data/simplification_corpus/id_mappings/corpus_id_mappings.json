@@ -1,0 +1,1962 @@
+[
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-NAMING-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0001",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task VOC-NAMING-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-NAMING-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0002",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task VOC-NAMING-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-NAMING-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0003",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task VOC-NAMING-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-NAMING-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0004",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task VOC-NAMING-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-NAMING-002:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0005",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task VOC-NAMING-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-NAMING-002:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0006",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task VOC-NAMING-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-NAMING-002:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0007",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task VOC-NAMING-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-NAMING-002:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0008",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task VOC-NAMING-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-MATCH-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0009",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task VOC-MATCH-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-MATCH-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0010",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task VOC-MATCH-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-MATCH-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0011",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task VOC-MATCH-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-MATCH-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0012",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task VOC-MATCH-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-DEF-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0013",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task VOC-DEF-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-DEF-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0014",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task VOC-DEF-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-DEF-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0015",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task VOC-DEF-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-DEF-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0016",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task VOC-DEF-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-SYN-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0017",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task VOC-SYN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-SYN-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0018",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task VOC-SYN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-SYN-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0019",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task VOC-SYN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-SYN-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0020",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task VOC-SYN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-CAT-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0021",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task VOC-CAT-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-CAT-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0022",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task VOC-CAT-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-CAT-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0023",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task VOC-CAT-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-CAT-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0024",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task VOC-CAT-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-ODD-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0025",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task VOC-ODD-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-ODD-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0026",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task VOC-ODD-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-ODD-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0027",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task VOC-ODD-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-ODD-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0028",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task VOC-ODD-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-ACT-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0029",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task VOC-ACT-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-ACT-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0030",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task VOC-ACT-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-ACT-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0031",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task VOC-ACT-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "VOC-ACT-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0032",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task VOC-ACT-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-ART-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0033",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task GRAM-ART-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-ART-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0034",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task GRAM-ART-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-ART-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0035",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task GRAM-ART-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-ART-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0036",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task GRAM-ART-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PREP-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0037",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task GRAM-PREP-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PREP-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0038",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task GRAM-PREP-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PREP-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0039",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task GRAM-PREP-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PREP-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0040",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task GRAM-PREP-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-SVA-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0041",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task GRAM-SVA-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-SVA-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0042",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task GRAM-SVA-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-SVA-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0043",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task GRAM-SVA-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-SVA-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0044",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task GRAM-SVA-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PRON-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0045",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Extracted from task GRAM-PRON-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PRON-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0046",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (mild) for task GRAM-PRON-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PRON-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0047",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (moderate) for task GRAM-PRON-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PRON-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0048",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.722978",
+    "notes": "Tiered support variant (strong) for task GRAM-PRON-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PLUR-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0049",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task GRAM-PLUR-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PLUR-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0050",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task GRAM-PLUR-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PLUR-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0051",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task GRAM-PLUR-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-PLUR-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0052",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task GRAM-PLUR-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-TENSE-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0053",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task GRAM-TENSE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-TENSE-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0054",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task GRAM-TENSE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-TENSE-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0055",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task GRAM-TENSE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-TENSE-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0056",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task GRAM-TENSE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-COMPL-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0057",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task GRAM-COMPL-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-COMPL-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0058",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task GRAM-COMPL-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-COMPL-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0059",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task GRAM-COMPL-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-COMPL-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0060",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task GRAM-COMPL-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-WORD-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0061",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task GRAM-WORD-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-WORD-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0062",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task GRAM-WORD-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-WORD-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0063",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task GRAM-WORD-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "GRAM-WORD-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0064",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task GRAM-WORD-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-ONE-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0065",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task INST-ONE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-ONE-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0066",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task INST-ONE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-ONE-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0067",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task INST-ONE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-ONE-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0068",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task INST-ONE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-TWO-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0069",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task INST-TWO-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-TWO-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0070",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task INST-TWO-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-TWO-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0071",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task INST-TWO-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-TWO-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0072",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task INST-TWO-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-THREE-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0073",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task INST-THREE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-THREE-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0074",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task INST-THREE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-THREE-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0075",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task INST-THREE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-THREE-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0076",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task INST-THREE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-BEFORE-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0077",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task INST-BEFORE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-BEFORE-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0078",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task INST-BEFORE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-BEFORE-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0079",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task INST-BEFORE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-BEFORE-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0080",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task INST-BEFORE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-IFTHEN-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0081",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task INST-IFTHEN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-IFTHEN-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0082",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task INST-IFTHEN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-IFTHEN-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0083",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task INST-IFTHEN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "INST-IFTHEN-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0084",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task INST-IFTHEN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-REL-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0085",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task SENT-REL-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-REL-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0086",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task SENT-REL-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-REL-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0087",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task SENT-REL-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-REL-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0088",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task SENT-REL-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-PASS-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0089",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task SENT-PASS-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-PASS-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0090",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task SENT-PASS-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-PASS-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0091",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task SENT-PASS-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-PASS-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0092",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task SENT-PASS-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-AR-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0093",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task SENT-AR-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-AR-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0094",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task SENT-AR-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-AR-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0095",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task SENT-AR-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "SENT-AR-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0096",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task SENT-AR-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-PASSAGE-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0097",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task COMP-PASSAGE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-PASSAGE-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0098",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task COMP-PASSAGE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-PASSAGE-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0099",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task COMP-PASSAGE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-PASSAGE-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0100",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task COMP-PASSAGE-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-PASSAGE-002:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0101",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task COMP-PASSAGE-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-PASSAGE-002:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0102",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task COMP-PASSAGE-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-PASSAGE-002:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0103",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task COMP-PASSAGE-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-PASSAGE-002:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0104",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task COMP-PASSAGE-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-SEQ-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0105",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task COMP-SEQ-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-SEQ-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0106",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task COMP-SEQ-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-SEQ-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0107",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task COMP-SEQ-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-SEQ-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0108",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task COMP-SEQ-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-MAIN-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0109",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task COMP-MAIN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-MAIN-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0110",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task COMP-MAIN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-MAIN-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0111",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task COMP-MAIN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-MAIN-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0112",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task COMP-MAIN-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-YESNO-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0113",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task COMP-YESNO-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-YESNO-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0114",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task COMP-YESNO-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-YESNO-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0115",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task COMP-YESNO-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-YESNO-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0116",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task COMP-YESNO-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-WH-001:instruction_pair",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0117",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Extracted from task COMP-WH-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-WH-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0118",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task COMP-WH-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-WH-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0119",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task COMP-WH-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "COMP-WH-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0120",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task COMP-WH-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-001:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0121",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (mild) for task TASK-ENG-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-001:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0122",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (moderate) for task TASK-ENG-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-001:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0123",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.723965",
+    "notes": "Tiered support variant (strong) for task TASK-ENG-001"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-002:support_mild",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0124",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.724964",
+    "notes": "Tiered support variant (mild) for task TASK-ENG-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-002:support_moderate",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0125",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.724964",
+    "notes": "Tiered support variant (moderate) for task TASK-ENG-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "data/application_tasks/seed_tasks.json",
+    "source_id": "TASK-ENG-002:support_strong",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0126",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.724964",
+    "notes": "Tiered support variant (strong) for task TASK-ENG-002"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "6221230b-bd93-4e39-bec5-08c849db9cf5",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0127",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.780880",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "9337d453-6f15-49a7-baee-13b0560332a7",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0128",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.781878",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "fdc1432d-8e42-41ec-85d3-32be2618b6ba",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0129",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.782883",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "558f1928-8aea-462d-871e-92fa209c8b90",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0130",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.784877",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "7eab9f52-a86e-40a2-ae55-a438f7b1ebfe",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0131",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.785875",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "d1b4a407-0d22-448e-b3cd-27f4e86dd417",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0132",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.786876",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "95ec8aae-2ff6-4841-adb0-31af566bdf1a",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0133",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.786876",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "9a6d7360-e740-4463-aa3f-14330a3d261c",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0134",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.787875",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "8a170221-817a-4d07-8ff7-4e074a998472",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0135",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.788388",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "a4985401-ea76-4bc9-86e4-8a91d76e240a",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0136",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.791295",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "c70e6514-a6e5-41fe-bf7c-1c8cf427bbb1",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0137",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.793145",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "0aebd549-c7d3-45d1-bd13-52db28f29320",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0138",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.794154",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "07b50bc6-f3ad-4145-81e6-848e2ff53478",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0139",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.797623",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "66d08798-6f5d-4bfd-82ad-a40495e5ee0d",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0140",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.798147",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "dda16a5f-11dd-4f36-a1e4-3da2308dd5e9",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0141",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.801417",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "8964645c-8534-48ef-bfd4-9b5151cd2773",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0142",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.802423",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "daef319f-bcb2-4b7a-bf65-cf49e0b5a720",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0143",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.803437",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "445b338d-54ac-49f9-ab3c-bc7b5f0ac0a3",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0144",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.805434",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "85c38553-d9a6-40c9-aa1f-90a0009c2d3e",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0145",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.806705",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "89233bd1-3f7c-44a7-9053-7256c963fece",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0146",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.806705",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "75ee2d86-5c1d-4132-88b4-a4b286f7158b",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0147",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.808240",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "50c49d16-9b49-4858-a86f-e4b886a8f3bc",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0148",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.808240",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "752099b2-9986-40ff-8288-182464223199",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0149",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.809257",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "54e21bfa-d419-411f-b650-3a275cf31172",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0150",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.810257",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "241ebef1-ff58-4d82-96f4-f6ea05daa785",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0151",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.810257",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "d7ebdb67-e078-4b61-a2f1-81c3595751c2",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0152",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.811254",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "a5e159dd-edaa-4ecf-a4e6-397416b72917",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0153",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.811254",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "7d5a0e62-a1b7-4743-8a8c-372bc704e7ea",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0154",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.812251",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "dac9676b-a93f-4eba-b671-2d88f52d250d",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0155",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.814251",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "d05997b2-f4ef-4f32-8bc5-699ccc6b60a9",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0156",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.815269",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "610a7bb8-d3fd-4d80-a951-3bf7bf87439f",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0157",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.816274",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "fd8df4f1-abf7-40fe-8f3d-ffa99d9de805",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0158",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.816274",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "240e30c5-1efd-46ec-af81-b1d22988bdc5",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0159",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.817965",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "98f87960-6214-4d95-b627-872f3b1adcd4",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0160",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.818495",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "ab0a140b-52d2-43d4-908d-e418c628a5cc",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0161",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.819847",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "9ff18b12-f336-406d-9637-3083cae6bc09",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0162",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.820857",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "ceee8b31-2b40-4ef8-9fb9-a025e5190003",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0163",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.820857",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "65f9bda9-6cae-4020-a296-b3ddabe7bebc",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0164",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.822077",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "a65b2298-8892-4ab6-8562-979df6ffbf75",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0165",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.823068",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "8423800a-6282-4c94-98de-d749d892df2b",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0166",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.823068",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "f402fac4-afd2-4400-81e2-5740d0dd284a",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0167",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.824067",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "12593d29-8b58-45e3-a265-7da31881c473",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0168",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.824067",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "4b87bead-9d10-4e7d-be46-206fbe8c7264",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0169",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.826065",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "6fc5ff8a-4273-45aa-b675-d396f68dba16",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0170",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.826065",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "6100c737-69a4-4789-bc2a-54f2a44993b5",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0171",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.827573",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "61d7e4cf-ae53-4bd4-bb80-535159edecae",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0172",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.828582",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "1b24c284-8794-42c1-872b-7973fc0c0297",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0173",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.828582",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "8ebe8fe3-f82c-4a35-b7c0-87137cb69acb",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0174",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.829656",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "da97f081-4fbf-453f-8018-892de6fc8d5d",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0175",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.829656",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "562f4f0e-b12c-40bd-85f3-36f98cc498d6",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0176",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.830656",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "36db306d-be93-4256-9f28-0f4f50a3ad92",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0177",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.831655",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "9de19132-950b-4c83-ba48-edc648c8ad64",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0178",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.831655",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "a55da89a-af38-4217-8bf2-c8a5aa2b4d49",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0179",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.832655",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "14ea67ca-d98c-4589-8d44-54d4da5aeade",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0180",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.832655",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "222138fd-0fa0-4d59-a1d4-17bcb199ff4e",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0181",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.833655",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "42fc9c8b-ba9b-4db8-9eb9-f1716a5923c4",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0182",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.833655",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "b3349ebf-0c42-4553-b687-16136959e2f6",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0183",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.835664",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "ecdddab4-d434-4372-9a8c-2cf4b45608ab",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0184",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.836659",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "6b8d1d2d-f2cb-4af9-a695-1bc9a0f12e55",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0185",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.836659",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "3a6a99ee-db49-463a-9c84-fd920ad55c69",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0186",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.838245",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "eebc7ea4-1014-491d-bdec-889984ede1c5",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0187",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.838245",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "03b880f6-fa1f-477a-a71a-b3a5c54dc435",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0188",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.839264",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "75ce9b08-9996-4a74-9189-5fcbaa1c16a0",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0189",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.841262",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "f7fb636e-ed46-497d-9eaf-ae48389c037e",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0190",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.841262",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "ddb47f99-1c44-4bcb-98ff-e6d68439e952",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0191",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.842486",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "66a4cc0e-f400-4bf2-a736-60d62f6a07e1",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0192",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.843475",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "f829508e-7a58-45ed-9027-f04e4546bded",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0193",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.843475",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "f9ea646f-0a7f-4c68-a8a5-2e27f29dc8e8",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0194",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.844476",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "0aedf07e-bdc4-4cff-a46a-2b6ef3a9e5cc",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0195",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.845479",
+    "notes": "Engine adaptation from session None"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:adaptations",
+    "source_id": "afd9ea1c-20db-432a-93fc-485bca75e465",
+    "target_layer": "simplification_corpus/en/draft",
+    "target_id": "SIMP-EN-0196",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:31.845479",
+    "notes": "Engine adaptation from session None"
+  }
+]
