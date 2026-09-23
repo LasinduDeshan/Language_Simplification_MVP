@@ -14,6 +14,7 @@ ADAPTATION_C3_LOCAL_SAMPLES_DIR = os.path.join(ADAPTATION_TEST_SET_DIR, "en", "c
 ADAPTATION_DRAFT_CONTRACTS_DIR = os.path.join(ADAPTATION_TEST_SET_DIR, "draft_contracts")
 ADAPTATION_ID_MAPPINGS_DIR = os.path.join(ADAPTATION_TEST_SET_DIR, "id_mappings")
 ADAPTATION_RELEASES_DIR = os.path.join(ADAPTATION_TEST_SET_DIR, "releases")
+ADAPTATION_RELEASE_DIR = ADAPTATION_RELEASES_DIR
 
 # 2. Simplification Corpus paths
 SIMPLIFICATION_CORPUS_DIR = os.path.join(DATA_DIR, "simplification_corpus")
@@ -23,6 +24,7 @@ SIMPLIFICATION_APPROVED_DIR = os.path.join(SIMPLIFICATION_CORPUS_DIR, "en", "app
 SIMPLIFICATION_ANNOTATIONS_DIR = os.path.join(SIMPLIFICATION_CORPUS_DIR, "annotations")
 SIMPLIFICATION_ID_MAPPINGS_DIR = os.path.join(SIMPLIFICATION_CORPUS_DIR, "id_mappings")
 SIMPLIFICATION_RELEASES_DIR = os.path.join(SIMPLIFICATION_CORPUS_DIR, "releases")
+SIMPLIFICATION_RELEASE_DIR = SIMPLIFICATION_RELEASES_DIR
 
 # 3. Interaction Dataset paths
 INTERACTION_DATASET_DIR = os.path.join(DATA_DIR, "interaction_dataset")
@@ -33,6 +35,7 @@ INTERACTION_RESEARCH_RELEASES_DIR = os.path.join(INTERACTION_DATASET_DIR, "resea
 
 # 4. Lexicons
 LEXICONS_EN_DIR = os.path.join(DATA_DIR, "lexicons", "en")
+LEXICONS_RELEASE_DIR = os.path.join(LEXICONS_EN_DIR, "releases")
 
 # 5. Legacy Paths
 LEGACY_APPLICATION_TASKS = os.path.join(DATA_DIR, "application_tasks", "seed_tasks.json")

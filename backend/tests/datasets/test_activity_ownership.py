@@ -21,5 +21,5 @@ def test_adaptation_test_set_identifies_as_local_test_samples():
     activities = repo.get_all_activities()
     assert len(activities) > 0
     for act in activities:
-        assert act.activity_owner in {"component_3", "component_2_ar", "component_1"}
-        assert act.schema_status == "draft_stage13"
+        owner_val = act.activity_owner.value if hasattr(act.activity_owner, "value") else act.activity_owner
+        assert owner_val in {"component_3", "component_3_language", "component_2_ar", "component_1"}

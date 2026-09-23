@@ -1,0 +1,3 @@
+"""
+Lexicon repository module.
+"""

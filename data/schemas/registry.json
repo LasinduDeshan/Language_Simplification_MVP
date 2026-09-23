@@ -1,0 +1,47 @@
+{
+  "registry_version": "1.0.0",
+  "schemas": {
+    "adaptation_record": {
+      "current": "1.0.0",
+      "supported": [
+        "1.0.0"
+      ],
+      "schema_file": "1.0.0/adaptation_record.schema.json"
+    },
+    "simplification_pair": {
+      "current": "1.0.0",
+      "supported": [
+        "1.0.0"
+      ],
+      "schema_file": "1.0.0/simplification_pair.schema.json"
+    },
+    "interaction_record": {
+      "current": "1.0.0",
+      "supported": [
+        "1.0.0"
+      ],
+      "schema_file": "1.0.0/interaction_record.schema.json"
+    },
+    "interaction_export": {
+      "current": "1.0.0",
+      "supported": [
+        "1.0.0"
+      ],
+      "schema_file": "1.0.0/interaction_export.schema.json"
+    },
+    "lexicon_entry": {
+      "current": "1.0.0",
+      "supported": [
+        "1.0.0"
+      ],
+      "schema_file": "1.0.0/lexicon_entry.schema.json"
+    },
+    "release_manifest": {
+      "current": "1.0.0",
+      "supported": [
+        "1.0.0"
+      ],
+      "schema_file": "1.0.0/release_manifest.schema.json"
+    }
+  }
+}

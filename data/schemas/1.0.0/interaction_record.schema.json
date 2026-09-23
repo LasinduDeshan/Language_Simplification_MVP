@@ -1,0 +1,361 @@
+{
+  "$defs": {
+    "ActivityOwner": {
+      "enum": [
+        "component_1",
+        "component_2_ar",
+        "component_3_language",
+        "shared"
+      ],
+      "title": "ActivityOwner",
+      "type": "string"
+    },
+    "ConsentMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/ConsentStatus",
+          "default": "not_verified",
+          "description": "Consent status"
+        },
+        "reference_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Consent document reference",
+          "title": "Reference Id"
+        },
+        "verified_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Verification timestamp",
+          "title": "Verified At"
+        }
+      },
+      "title": "ConsentMetadata",
+      "type": "object"
+    },
+    "ConsentStatus": {
+      "enum": [
+        "not_required",
+        "not_verified",
+        "granted",
+        "withdrawn",
+        "expired"
+      ],
+      "title": "ConsentStatus",
+      "type": "string"
+    },
+    "GovernanceMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "validation_status": {
+          "$ref": "#/$defs/ValidationStatus",
+          "default": "draft",
+          "description": "Workflow status"
+        },
+        "research_eligibility_status": {
+          "$ref": "#/$defs/ResearchEligibilityStatus",
+          "default": "not_assessed",
+          "description": "Formal research assessment status"
+        },
+        "research_eligible": {
+          "default": false,
+          "description": "Research readiness flag",
+          "title": "Research Eligible",
+          "type": "boolean"
+        },
+        "approved_for_child_delivery": {
+          "default": false,
+          "description": "Runtime child presentation flag",
+          "title": "Approved For Child Delivery",
+          "type": "boolean"
+        },
+        "is_simulated": {
+          "default": false,
+          "description": "Simulation or synthetic flag",
+          "title": "Is Simulated",
+          "type": "boolean"
+        },
+        "contains_personal_data": {
+          "default": false,
+          "description": "Personal/screening data flag",
+          "title": "Contains Personal Data",
+          "type": "boolean"
+        }
+      },
+      "title": "GovernanceMetadata",
+      "type": "object"
+    },
+    "Outcome": {
+      "enum": [
+        "correct",
+        "partially_correct",
+        "incorrect",
+        "skipped",
+        "adult_support_required",
+        "in_progress"
+      ],
+      "title": "Outcome",
+      "type": "string"
+    },
+    "PrimaryDomain": {
+      "enum": [
+        "vocabulary",
+        "grammar",
+        "comprehension",
+        "instruction_following"
+      ],
+      "title": "PrimaryDomain",
+      "type": "string"
+    },
+    "ResearchEligibilityStatus": {
+      "enum": [
+        "not_assessed",
+        "ineligible",
+        "eligible",
+        "withdrawn"
+      ],
+      "title": "ResearchEligibilityStatus",
+      "type": "string"
+    },
+    "ResponseMode": {
+      "enum": [
+        "manual",
+        "speech",
+        "touch",
+        "ar_interaction",
+        "imported"
+      ],
+      "title": "ResponseMode",
+      "type": "string"
+    },
+    "SupportLevel": {
+      "enum": [
+        "mild",
+        "moderate",
+        "strong"
+      ],
+      "title": "SupportLevel",
+      "type": "string"
+    },
+    "ValidationStatus": {
+      "enum": [
+        "draft",
+        "reviewed",
+        "approved",
+        "rejected",
+        "retired"
+      ],
+      "title": "ValidationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "interaction_id": {
+      "description": "Unique interaction attempt identifier",
+      "title": "Interaction Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "1.0.0",
+      "description": "Schema version",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "0.1.0",
+      "description": "Dataset content release version",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "learner_id": {
+      "description": "Pseudonymous learner identifier (e.g. CHILD-002)",
+      "title": "Learner Id",
+      "type": "string"
+    },
+    "session_id": {
+      "description": "Session UUID in relational database",
+      "title": "Session Id",
+      "type": "string"
+    },
+    "activity_id": {
+      "description": "Executed activity identifier",
+      "title": "Activity Id",
+      "type": "string"
+    },
+    "activity_owner": {
+      "$ref": "#/$defs/ActivityOwner",
+      "default": "component_3_language",
+      "description": "Activity owner"
+    },
+    "primary_domain": {
+      "$ref": "#/$defs/PrimaryDomain",
+      "description": "Educational domain updated"
+    },
+    "occurred_at": {
+      "description": "Occurrence timestamp",
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "attempt_number": {
+      "default": 1,
+      "description": "Attempt number (1-3)",
+      "maximum": 3,
+      "minimum": 1,
+      "title": "Attempt Number",
+      "type": "integer"
+    },
+    "support_level_used": {
+      "$ref": "#/$defs/SupportLevel",
+      "default": "moderate",
+      "description": "Support level during attempt"
+    },
+    "response_mode": {
+      "$ref": "#/$defs/ResponseMode",
+      "default": "manual",
+      "description": "Response input mode"
+    },
+    "response_text_private": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Raw transcription",
+      "title": "Response Text Private"
+    },
+    "normalized_response": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Normalized response text",
+      "title": "Normalized Response"
+    },
+    "outcome": {
+      "$ref": "#/$defs/Outcome",
+      "default": "in_progress",
+      "description": "Evaluation outcome"
+    },
+    "error_categories": {
+      "description": "Observed educational language errors",
+      "items": {
+        "type": "string"
+      },
+      "title": "Error Categories",
+      "type": "array"
+    },
+    "response_time_ms": {
+      "default": 0,
+      "description": "Response latency in ms",
+      "minimum": 0,
+      "title": "Response Time Ms",
+      "type": "integer"
+    },
+    "score_before": {
+      "anyOf": [
+        {
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Domain score before attempt",
+      "title": "Score Before"
+    },
+    "score_delta": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Score delta from attempt",
+      "title": "Score Delta"
+    },
+    "score_after": {
+      "anyOf": [
+        {
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Domain score after attempt",
+      "title": "Score After"
+    },
+    "evidence_count_after": {
+      "default": 0,
+      "description": "Evidence count after attempt",
+      "minimum": 0,
+      "title": "Evidence Count After",
+      "type": "integer"
+    },
+    "adult_confirmed": {
+      "default": false,
+      "description": "Adult supervision confirmation",
+      "title": "Adult Confirmed",
+      "type": "boolean"
+    },
+    "screening_risk_modified": {
+      "default": false,
+      "description": "MUST ALWAYS BE FALSE (Screening risk is read-only)",
+      "title": "Screening Risk Modified",
+      "type": "boolean"
+    },
+    "consent": {
+      "$ref": "#/$defs/ConsentMetadata",
+      "description": "Consent metadata"
+    },
+    "governance": {
+      "$ref": "#/$defs/GovernanceMetadata",
+      "description": "Governance metadata"
+    }
+  },
+  "required": [
+    "interaction_id",
+    "learner_id",
+    "session_id",
+    "activity_id",
+    "primary_domain"
+  ],
+  "title": "PrivateInteractionRecordV1",
+  "type": "object"
+}

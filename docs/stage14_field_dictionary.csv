@@ -1,0 +1,118 @@
+layer_or_model,field_name,data_type,required_or_optional,default_value,description,governance_or_privacy_note,canonical_owner
+CommonMetadata,record_id,string,required,N/A,Globally unique record identifier within its layer,Immutable,Component 3
+CommonMetadata,schema_version,string,required,1.0.0,Semantic version of the record schema,SemVer MAJOR.MINOR.PATCH,Component 3
+CommonMetadata,dataset_version,string,required,0.1.0,Semantic version of the dataset content release,Content SemVer,Component 3
+CommonMetadata,language,string,required,en,BCP 47 language code (en / si),Multilingual ready,Component 3
+CommonMetadata,created_at,datetime,required,UTC Now,Timestamp of initial record creation,ISO 8601 UTC,Component 3
+CommonMetadata,updated_at,datetime,required,UTC Now,Timestamp of last functional content update,ISO 8601 UTC,Component 3
+SourceMetadata,source_type,string (enum),required,team_authored,Origin classification of the content,team_authored/expert_authored/open_licence/etc.,Component 3
+SourceMetadata,source_name,string,required,N/A,Human-readable name of author or originating dataset,Provenance metadata,Component 3
+SourceMetadata,source_record_id,string,optional,null,Original ID in source dataset or upstream system,ID mapping auditability,Component 3
+SourceMetadata,source_url,string,optional,null,URL reference to source,Null if project-internal,Component 3
+SourceMetadata,citation,string,optional,null,Academic or publication citation,Null if project-internal,Component 3
+SourceMetadata,created_by_role,string,required,project_team,Role of creator (project_team/expert/system),Provenance metadata,Component 3
+SourceMetadata,created_at,datetime,required,UTC Now,Creation timestamp of source content,ISO 8601 UTC,Component 3
+RightsMetadata,licence_id,string,required,project-internal,SPDX licence ID or project internal licence,project-internal if unverified,Component 3
+RightsMetadata,licence_url,string,optional,null,Web link to full licence text,Null if internal,Component 3
+RightsMetadata,permission_reference,string,optional,null,Explicit signed permission or consent reference,Required if permission_granted,Component 3
+RightsMetadata,redistribution_allowed,boolean,required,false,Whether dataset redistributes under open license,Defaults to false,Component 3
+RightsMetadata,commercial_use_allowed,boolean,required,false,Whether commercial exploitation is permitted,Defaults to false,Component 3
+RightsMetadata,external_api_processing_allowed,boolean,required,false,Whether record can be sent to external LLM APIs,Strict gating for LLM APIs,Component 3
+GovernanceMetadata,validation_status,string (enum),required,draft,Workflow status (draft/reviewed/approved/rejected/retired),Defaults to draft,Component 3
+GovernanceMetadata,research_eligibility_status,string (enum),required,not_assessed,Formal research readiness status,Defaults to not_assessed,Component 3
+GovernanceMetadata,research_eligible,boolean,required,false,Whether record is eligible for public research,Defaults to false,Component 3
+GovernanceMetadata,approved_for_child_delivery,boolean,required,false,Whether record is safe for child runtime delivery,Requires approved validation_status,Component 3
+GovernanceMetadata,is_simulated,boolean,required,false,Whether record is synthetic simulation data,Flag for experimental records,Component 3
+GovernanceMetadata,contains_personal_data,boolean,required,false,Whether record contains personal or screening data,Privacy safeguard,Component 3
+ReviewBlock,reviewer_id,string,optional,null,Identifier of human or expert reviewer,Mandatory on approved status,Component 3
+ReviewBlock,reviewer_role,string,optional,null,Role of reviewer (linguist/educator/slp),Mandatory on approved status,Component 3
+ReviewBlock,reviewed_at,datetime,optional,null,Timestamp of review,Mandatory on approved status,Component 3
+ReviewBlock,simplicity_score,float,optional,null,Human review score for simplicity (1-5),Review metric,Component 3
+ReviewBlock,grammar_score,float,optional,null,Human review score for grammar quality (1-5),Review metric,Component 3
+ReviewBlock,meaning_preservation_score,float,optional,null,Human review score for meaning preservation (1-5),Review metric,Component 3
+ReviewBlock,age_appropriateness_score,float,optional,null,Human review score for age fit (1-5),Review metric,Component 3
+ReviewBlock,notes,string,optional,null,Qualitative notes from reviewer,Free text notes,Component 3
+ConsentMetadata,status,string (enum),required,not_verified,Learner or parent consent status,not_required/not_verified/granted/etc.,Component 3
+ConsentMetadata,reference_id,string,optional,null,Auditable consent record identifier,Confidential record ref,Component 3
+ConsentMetadata,verified_at,datetime,optional,null,Timestamp of consent verification,ISO 8601 UTC,Component 3
+AdaptationRecord,activity_id,string,required,N/A,Standardized test activity ID (e.g. C3-EN-VOC-0001),Immutable identifier,Component 3
+AdaptationRecord,activity_owner,string (enum),required,component_3_language,Owning component for activity definition,component_1/component_2_ar/component_3_language,Component 3
+AdaptationRecord,activity_type,string,required,standard,Type of activity (naming/word_order/cloze/action),Activity classification,Component 3
+AdaptationRecord,primary_domain,string (enum),required,vocabulary,Educational domain (vocabulary/grammar/comprehension/instruction_following),Approved 4 domains,Component 3
+AdaptationRecord,target_skill,string,optional,null,Fine-grained target skill (e.g. noun_labeling),Pedagogical objective,Component 3
+AdaptationRecord,age_min,integer,required,4,Minimum target age in years (4-8),Age range validation,Component 3
+AdaptationRecord,age_max,integer,required,8,Maximum target age in years (4-8),Age range validation,Component 3
+AdaptationRecord,difficulty,string (enum),required,medium,Baseline difficulty (easy/medium/hard),Difficulty rating,Component 3
+AdaptationRecord,original_instruction,string,required,N/A,Full original prompt or instruction text,Authoring text,Component 3
+AdaptationRecord,child_friendly_instruction,string,optional,null,Pre-simplified child instruction variant,Scaffolding text,Component 3
+AdaptationRecord,stimulus,any,optional,null,Visual/textual stimulus payload (dict or list),Presentation stimulus,Component 3
+AdaptationRecord,options,list[string],optional,null,Multiple choice presentation options,Masks answer indicators,Component 3
+AdaptationRecord,passage,string,optional,null,Reading or listening passage for comprehension,Comprehension stimulus,Component 3
+AdaptationRecord,protected,ProtectedElements,required,N/A,Protected answer and meaning elements,STRICTLY EXCLUDED FROM CHILD VIEW,Component 3
+AdaptationRecord,adaptation_policy,string (enum),required,instruction_only,Governed adaptation policy (none/presentation_only/instruction_only/controlled),Policy constraint,Component 3
+AdaptationRecord,allowed_transformations,list[string],required,["simplify_instruction"],Transformations permitted by policy,Policy constraint,Component 3
+AdaptationRecord,forbidden_transformations,list[string],required,["change_stimulus", "expose_answer"],Transformations strictly forbidden,Policy constraint,Component 3
+SimplificationPair,pair_id,string,required,N/A,Standardized simplification pair ID (e.g. SIMP-EN-000001),Immutable identifier,Component 3
+SimplificationPair,source_activity_id,string,optional,null,Reference to source activity if extracted from test set,Cross-layer provenance link,Component 3
+SimplificationPair,content_type,string (enum),required,instruction,Type of text (instruction/stimulus_prompt/feedback_cue/vocabulary_definition),Content type,Component 3
+SimplificationPair,original_text,string,required,N/A,Original unsimplified sentence or instruction,Source text,Component 3
+SimplificationPair,simplified_text,string,required,N/A,Simplified child-friendly target sentence,Target text,Component 3
+SimplificationPair,support_level,string (enum),required,moderate,Target scaffolding tier (mild/moderate/strong),Scaffolding level,Component 3
+SimplificationPair,age_min,integer,required,4,Target age minimum in years (4-8),Age bracket,Component 3
+SimplificationPair,age_max,integer,required,8,Target age maximum in years (4-8),Age bracket,Component 3
+SimplificationPair,original_difficulty,string (enum),optional,medium,Difficulty of original sentence,Linguistic metric,Component 3
+SimplificationPair,simplified_difficulty,string (enum),optional,easy,Difficulty of simplified sentence,Linguistic metric,Component 3
+SimplificationPair,operations,list[string],required,[],List of linguistic operations applied,lexical_substitution/sentence_splitting/etc.,Component 3
+SimplificationPair,protected_meaning_units,list[string],required,[],Core concepts that must not be lost in simplification,Semantic preservation,Component 3
+SimplificationPair,review,ReviewBlock,required,N/A,Review and rubric scoring block,Human curation rubric,Component 3
+PrivateInteractionRecord,interaction_id,string,required,N/A,Unique interaction attempt ID (e.g. INT-20260923-000001),Operational audit identifier,Component 3
+PrivateInteractionRecord,learner_id,string,required,N/A,Pseudonymous learner identifier (CHILD-XXX),STRICTLY PRIVATE,Component 3
+PrivateInteractionRecord,session_id,string,required,N/A,Activity session UUID in relational database,Relational database FK,Component 3
+PrivateInteractionRecord,activity_id,string,required,N/A,Activity identifier executed by learner,Cross-reference ID,Component 3
+PrivateInteractionRecord,activity_owner,string (enum),required,component_3_language,Owner of activity executed,Governance metadata,Component 3
+PrivateInteractionRecord,primary_domain,string (enum),required,vocabulary,Domain of activity (vocabulary/grammar/comp/instruction),Domain scoring,Component 3
+PrivateInteractionRecord,occurred_at,datetime,required,UTC Now,Occurrence timestamp of interaction attempt,ISO 8601 UTC,Component 3
+PrivateInteractionRecord,attempt_number,integer,required,1,Attempt sequence number (1, 2, or 3),Scaffolding progression,Component 3
+PrivateInteractionRecord,support_level_used,string (enum),required,moderate,Support tier active during attempt (mild/moderate/strong),Scaffolding level,Component 3
+PrivateInteractionRecord,response_mode,string (enum),required,manual,Response input mode (manual/speech/touch/ar_interaction),Input channel,Component 3
+PrivateInteractionRecord,response_text_private,string,optional,null,Raw uncurated response transcript,STRICTLY EXCLUDED FROM EXPORTS,Component 3
+PrivateInteractionRecord,normalized_response,string,optional,null,Lowercased normalized response,Private learner evidence,Component 3
+PrivateInteractionRecord,outcome,string (enum),required,in_progress,Attempt evaluation outcome (correct/partially_correct/incorrect/etc.),Outcome indicator,Component 3
+PrivateInteractionRecord,error_categories,list[string],required,[],Educational language error tags (e.g. word_order, naming),Diagnostic observations,Component 3
+PrivateInteractionRecord,response_time_ms,integer,required,0,Learner response latency in milliseconds,Performance latency,Component 3
+PrivateInteractionRecord,score_before,float,optional,null,Domain performance score before attempt (0-100),Domain scoring,Component 3
+PrivateInteractionRecord,score_delta,float,optional,null,Change applied to domain score,Domain scoring,Component 3
+PrivateInteractionRecord,score_after,float,optional,null,Domain performance score after attempt (0-100),Domain scoring,Component 3
+PrivateInteractionRecord,evidence_count_after,integer,required,0,Cumulative domain evidence count,Evidence weighting,Component 3
+PrivateInteractionRecord,adult_confirmed,boolean,required,false,Whether attempt was confirmed by supervising adult,Score update prerequisite,Component 3
+PrivateInteractionRecord,screening_risk_modified,boolean,required,false,Must always be false (Component 1 screening risk is immutable),Read-only invariant check,Component 3
+PrivateInteractionRecord,consent,ConsentMetadata,required,N/A,Consent metadata block,Privacy safeguard,Component 3
+DeidentifiedInteractionExport,interaction_id,string,required,N/A,Pseudonymous interaction identifier,Export allowlist,Component 3
+DeidentifiedInteractionExport,learner_id,string,required,N/A,De-identified pseudonymous learner ID,Export allowlist,Component 3
+DeidentifiedInteractionExport,activity_id,string,required,N/A,Activity identifier,Export allowlist,Component 3
+DeidentifiedInteractionExport,primary_domain,string (enum),required,vocabulary,Domain of activity,Export allowlist,Component 3
+DeidentifiedInteractionExport,attempt_number,integer,required,1,Attempt number (1-3),Export allowlist,Component 3
+DeidentifiedInteractionExport,support_level_used,string (enum),required,moderate,Support tier used,Export allowlist,Component 3
+DeidentifiedInteractionExport,response_mode,string (enum),required,manual,Response input mode,Export allowlist,Component 3
+DeidentifiedInteractionExport,outcome,string (enum),required,in_progress,Outcome classification,Export allowlist,Component 3
+DeidentifiedInteractionExport,error_categories,list[string],required,[],Educational error categories,Export allowlist,Component 3
+DeidentifiedInteractionExport,response_time_ms,integer,required,0,Response latency in ms,Export allowlist,Component 3
+DeidentifiedInteractionExport,score_delta,float,optional,null,Domain score delta,Export allowlist,Component 3
+DeidentifiedInteractionExport,local_preliminary_trend,string,optional,null,Local preliminary trend indicator for Component 4 export,Analytics indicator,Component 3
+LexiconEntry,entry_id,string,required,N/A,Unique lexicon entry ID (e.g. LEX-EN-000001),Immutable identifier,Component 3
+LexiconEntry,word,string,required,N/A,Target headword or complex lemma,Vocabulary token,Component 3
+LexiconEntry,normalized_form,string,required,N/A,Lowercased stripped normalized word,Normalized token,Component 3
+LexiconEntry,part_of_speech,string,optional,null,Part of speech (noun/verb/adjective/preposition),Syntactic category,Component 3
+LexiconEntry,age_band,string,optional,null,Target developmental age band (e.g. 4-6, 6-8),Age appropriateness,Component 3
+LexiconEntry,difficulty_tier,integer,required,2,Lexical tier (1=basic, 2=high-frequency academic, 3=domain specific),Tiered vocabulary system,Component 3
+LexiconEntry,simpler_alternatives,list[string],required,[],Child-friendly alternative words or phrases,Substitution candidates,Component 3
+LexiconEntry,child_friendly_definition,string,optional,null,Simple child-friendly explanation,Definitional scaffolding,Component 3
+LexiconEntry,example_sentence,string,optional,null,Contextual illustrative example sentence,Contextual cue,Component 3
+ReleaseManifest,manifest_id,string,required,N/A,Unique manifest identifier (e.g. MANIFEST-0.1.0),Manifest identifier,Component 3
+ReleaseManifest,dataset_name,string,required,N/A,Name of dataset collection (e.g. Language_Simplification_MVP_Datasets),Dataset naming,Component 3
+ReleaseManifest,dataset_version,string,required,0.1.0,Semantic version of dataset content release,Content SemVer,Component 3
+ReleaseManifest,schema_version,string,required,1.0.0,Semantic version of schemas used,Schema SemVer,Component 3
+ReleaseManifest,release_status,string,required,draft,Release status (draft/rc/approved_release),Release governance,Component 3
+ReleaseManifest,created_at,datetime,required,UTC Now,Manifest creation timestamp,ISO 8601 UTC,Component 3
+ReleaseManifest,record_counts,RecordCountSummary,required,N/A,Breakdown of record counts across layers,Accounting verification,Component 3
+ReleaseManifest,files,list[ReleaseFileEntry],required,[],List of files, sizes, and complete 64-character SHA-256 hashes,Integrity verification,Component 3

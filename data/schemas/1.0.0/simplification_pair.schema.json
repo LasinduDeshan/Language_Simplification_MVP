@@ -1,0 +1,511 @@
+{
+  "$defs": {
+    "ContentType": {
+      "enum": [
+        "instruction",
+        "stimulus_prompt",
+        "feedback_cue",
+        "vocabulary_definition"
+      ],
+      "title": "ContentType",
+      "type": "string"
+    },
+    "DifficultyLevel": {
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "title": "DifficultyLevel",
+      "type": "string"
+    },
+    "GovernanceMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "validation_status": {
+          "$ref": "#/$defs/ValidationStatus",
+          "default": "draft",
+          "description": "Workflow status"
+        },
+        "research_eligibility_status": {
+          "$ref": "#/$defs/ResearchEligibilityStatus",
+          "default": "not_assessed",
+          "description": "Formal research assessment status"
+        },
+        "research_eligible": {
+          "default": false,
+          "description": "Research readiness flag",
+          "title": "Research Eligible",
+          "type": "boolean"
+        },
+        "approved_for_child_delivery": {
+          "default": false,
+          "description": "Runtime child presentation flag",
+          "title": "Approved For Child Delivery",
+          "type": "boolean"
+        },
+        "is_simulated": {
+          "default": false,
+          "description": "Simulation or synthetic flag",
+          "title": "Is Simulated",
+          "type": "boolean"
+        },
+        "contains_personal_data": {
+          "default": false,
+          "description": "Personal/screening data flag",
+          "title": "Contains Personal Data",
+          "type": "boolean"
+        }
+      },
+      "title": "GovernanceMetadata",
+      "type": "object"
+    },
+    "LanguageCode": {
+      "enum": [
+        "en",
+        "si"
+      ],
+      "title": "LanguageCode",
+      "type": "string"
+    },
+    "ResearchEligibilityStatus": {
+      "enum": [
+        "not_assessed",
+        "ineligible",
+        "eligible",
+        "withdrawn"
+      ],
+      "title": "ResearchEligibilityStatus",
+      "type": "string"
+    },
+    "ReviewBlock": {
+      "additionalProperties": false,
+      "properties": {
+        "reviewer_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Identifier of reviewer",
+          "title": "Reviewer Id"
+        },
+        "reviewer_role": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Role of reviewer (linguist/educator/slp)",
+          "title": "Reviewer Role"
+        },
+        "reviewed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Review timestamp",
+          "title": "Reviewed At"
+        },
+        "simplicity_score": {
+          "anyOf": [
+            {
+              "maximum": 5.0,
+              "minimum": 1.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "1-5 Likert simplicity score",
+          "title": "Simplicity Score"
+        },
+        "grammar_score": {
+          "anyOf": [
+            {
+              "maximum": 5.0,
+              "minimum": 1.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "1-5 Likert grammar score",
+          "title": "Grammar Score"
+        },
+        "meaning_preservation_score": {
+          "anyOf": [
+            {
+              "maximum": 5.0,
+              "minimum": 1.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "1-5 Likert meaning preservation score",
+          "title": "Meaning Preservation Score"
+        },
+        "age_appropriateness_score": {
+          "anyOf": [
+            {
+              "maximum": 5.0,
+              "minimum": 1.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "1-5 Likert age appropriateness score",
+          "title": "Age Appropriateness Score"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Reviewer qualitative notes",
+          "title": "Notes"
+        }
+      },
+      "title": "ReviewBlock",
+      "type": "object"
+    },
+    "RightsMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "licence_id": {
+          "default": "project-internal",
+          "description": "SPDX licence identifier or project-internal",
+          "title": "Licence Id",
+          "type": "string"
+        },
+        "licence_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Web link to licence terms",
+          "title": "Licence Url"
+        },
+        "permission_reference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Permission identifier or document reference",
+          "title": "Permission Reference"
+        },
+        "redistribution_allowed": {
+          "default": false,
+          "description": "Whether dataset allows redistribution",
+          "title": "Redistribution Allowed",
+          "type": "boolean"
+        },
+        "commercial_use_allowed": {
+          "default": false,
+          "description": "Whether commercial use is permitted",
+          "title": "Commercial Use Allowed",
+          "type": "boolean"
+        },
+        "external_api_processing_allowed": {
+          "default": false,
+          "description": "Strict LLM API gating",
+          "title": "External Api Processing Allowed",
+          "type": "boolean"
+        }
+      },
+      "title": "RightsMetadata",
+      "type": "object"
+    },
+    "SourceMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "source_type": {
+          "$ref": "#/$defs/SourceType",
+          "default": "team_authored",
+          "description": "Origin classification of the content"
+        },
+        "source_name": {
+          "default": "Component 3 English MVP",
+          "description": "Author or originating dataset",
+          "title": "Source Name",
+          "type": "string"
+        },
+        "source_record_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Original identifier in upstream source system",
+          "title": "Source Record Id"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "URL reference to source",
+          "title": "Source Url"
+        },
+        "citation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Academic or publication citation",
+          "title": "Citation"
+        },
+        "created_by_role": {
+          "default": "project_team",
+          "description": "Role of creator (project_team/expert/system)",
+          "title": "Created By Role",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "Creation timestamp",
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "title": "SourceMetadata",
+      "type": "object"
+    },
+    "SourceType": {
+      "enum": [
+        "team_authored",
+        "expert_authored",
+        "open_licence",
+        "permission_granted",
+        "generated",
+        "interaction_derived"
+      ],
+      "title": "SourceType",
+      "type": "string"
+    },
+    "SupportLevel": {
+      "enum": [
+        "mild",
+        "moderate",
+        "strong"
+      ],
+      "title": "SupportLevel",
+      "type": "string"
+    },
+    "ValidationStatus": {
+      "enum": [
+        "draft",
+        "reviewed",
+        "approved",
+        "rejected",
+        "retired"
+      ],
+      "title": "ValidationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "pair_id": {
+      "description": "Standardized pair identifier (e.g. SIMP-EN-000001)",
+      "title": "Pair Id",
+      "type": "string"
+    },
+    "source_activity_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Optional link to parent Adaptation Test Set activity",
+      "title": "Source Activity Id"
+    },
+    "schema_version": {
+      "default": "1.0.0",
+      "description": "Schema version",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "0.1.0",
+      "description": "Dataset content release version",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "language": {
+      "$ref": "#/$defs/LanguageCode",
+      "default": "en",
+      "description": "Language code"
+    },
+    "content_type": {
+      "$ref": "#/$defs/ContentType",
+      "default": "instruction",
+      "description": "Content category"
+    },
+    "original_text": {
+      "description": "Original source text",
+      "minLength": 1,
+      "title": "Original Text",
+      "type": "string"
+    },
+    "simplified_text": {
+      "description": "Simplified target text",
+      "minLength": 1,
+      "title": "Simplified Text",
+      "type": "string"
+    },
+    "support_level": {
+      "$ref": "#/$defs/SupportLevel",
+      "default": "moderate",
+      "description": "Scaffolding support tier"
+    },
+    "age_min": {
+      "default": 4,
+      "description": "Target minimum age in years",
+      "maximum": 8,
+      "minimum": 4,
+      "title": "Age Min",
+      "type": "integer"
+    },
+    "age_max": {
+      "default": 8,
+      "description": "Target maximum age in years",
+      "maximum": 8,
+      "minimum": 4,
+      "title": "Age Max",
+      "type": "integer"
+    },
+    "original_difficulty": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DifficultyLevel"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "medium",
+      "description": "Original complexity"
+    },
+    "simplified_difficulty": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DifficultyLevel"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "easy",
+      "description": "Simplified complexity"
+    },
+    "operations": {
+      "description": "Linguistic simplification operations applied",
+      "items": {
+        "type": "string"
+      },
+      "title": "Operations",
+      "type": "array"
+    },
+    "protected_meaning_units": {
+      "description": "Preserved meaning tokens",
+      "items": {
+        "type": "string"
+      },
+      "title": "Protected Meaning Units",
+      "type": "array"
+    },
+    "review": {
+      "$ref": "#/$defs/ReviewBlock",
+      "description": "Human review and evaluation scores"
+    },
+    "source": {
+      "$ref": "#/$defs/SourceMetadata",
+      "description": "Lineage metadata"
+    },
+    "rights": {
+      "$ref": "#/$defs/RightsMetadata",
+      "description": "Rights metadata"
+    },
+    "governance": {
+      "$ref": "#/$defs/GovernanceMetadata",
+      "description": "Governance metadata"
+    },
+    "created_at": {
+      "description": "Creation timestamp",
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "updated_at": {
+      "description": "Update timestamp",
+      "format": "date-time",
+      "title": "Updated At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "pair_id",
+    "original_text",
+    "simplified_text"
+  ],
+  "title": "SimplificationPairV1",
+  "type": "object"
+}
