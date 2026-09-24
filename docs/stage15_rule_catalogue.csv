@@ -1,0 +1,32 @@
+rule_id,dataset_layer,validator_name,severity,threshold,rationale,recommended_action
+COMM-SCHEMA-001,all,schema_version_validator,error,1.0.0,Ensures records conform to registered V1 Pydantic schema,Upgrade record to Schema V1 format
+COMM-ID-002,all,identifier_format_validator,error,valid_regex,Ensures standardized prefixed identifier formats,Correct identifier prefix
+COMM-LANG-003,all,language_code_validator,error,en,Prevents unintended multilingual leakage in English MVP,Ensure language code is 'en'
+COMM-META-004,all,metadata_completeness_validator,warning,complete,Verifies source and governance blocks are populated,Add missing metadata fields
+ADAPT-OWNER-001,adaptation_test_set,ownership_boundary_validator,error,valid_owner,Ensures Component 1 and AR tasks retain upstream ownership,Restore upstream owner
+ADAPT-DOM-002,adaptation_test_set,domain_classification_validator,error,allowed_domain,Ensures 4 valid educational domains only,Classify into vocabulary grammar comprehension or instruction_following
+ADAPT-ALIGN-003,adaptation_test_set,instruction_answer_alignment_validator,error,aligned,Ensures target answer answers the prompt,Align instruction with target answer
+ADAPT-DIST-004,adaptation_test_set,distractor_validity_validator,error,invalid_distractor,Ensures distractors are not accidentally valid answers,Replace ambiguous distractor
+ADAPT-MONO-005,adaptation_test_set,support_progression_validator,warning,monotonic,Ensures strong support is not linguistically harder than mild,Simplify strong support instruction
+ADAPT-AR-006,adaptation_test_set,ar_integrity_validator,error,valid_anchors,Ensures AR assets and action order remain preserved,Restore AR sequence contract
+ADAPT-OBJ-007,adaptation_test_set,objective_preservation_validator,error,preserved,Ensures pedagogical learning objective is preserved,Realign adapted text with learning goal
+ADAPT-LEAK-008,adaptation_test_set,child_safe_leakage_validator,critical,no_leakage,Prevents answer keys from appearing in child view,Purge protected fields from child serializer
+SIMP-MEAN-001,simplification_corpus,meaning_unit_preservation_validator,error,0.80,Ensures core facts and meaning units are retained,Compare original and simplified text manually
+SIMP-NEG-002,simplification_corpus,negation_consistency_validator,error,consistent,Prevents polarity inversion or dropped negations,Restore missing negation
+SIMP-NUM-003,simplification_corpus,quantity_entity_preservation_validator,error,preserved,Ensures numbers and entities are not corrupted,Restore accurate numbers and entities
+SIMP-NOADD-004,simplification_corpus,unsupported_additions_validator,warning,no_hallucination,Prevents invented facts in simplified text,Remove ungrounded claims
+SIMP-MONO-005,simplification_corpus,support_tier_monotonicity_validator,warning,monotonic,Ensures strong tier has equal or lower complexity than mild,Review tier-level linguistic complexity
+SIMP-ASL-006,simplification_corpus,average_sentence_length_validator,warning,15_tokens,Flags sentences too long for ages 4-8,Split long sentences
+SIMP-COMP-007,simplification_corpus,compression_ratio_validator,warning,0.30-1.20,Flags extreme expansion or over-compression,Verify length balance
+SIMP-COPY-008,simplification_corpus,identical_copy_validator,warning,non_identical,Flags unchanged complex text where simplification was required,Perform needed simplification
+SIMP-GOV-009,simplification_corpus,draft_governance_invariant_validator,critical,draft_locked,Enforces draft status and false research/delivery flags,Lock draft invariants
+LEX-HEAD-001,lexicons,headword_uniqueness_validator,error,unique,Prevents duplicate headword-sense collisions,Merge or differentiate senses
+LEX-CIRC-002,lexicons,circular_dependency_validator,error,acyclic,Prevents circular synonym replacement loops,Break replacement cycle
+LEX-EXP-003,lexicons,child_explanation_validator,error,non_empty,Ensures explanation is provided and child-appropriate,Add child-friendly explanation
+LEX-POS-004,lexicons,pos_compatibility_validator,warning,compatible,Ensures replacement matches headword part of speech,Align parts of speech
+LEX-COMP-005,lexicons,lexical_complexity_proxy_validator,warning,simpler,Ensures replacement is not harder than headword,Choose simpler replacement
+LEX-SENSE-006,lexicons,sense_disambiguation_validator,warning,specified,Ensures polysemous words specify target sense,Provide explicit sense definition
+PRIV-ALLOW-001,interaction_exports,privacy_allowlist_validator,critical,allowlist_only,Blocks unapproved fields in research exports,Remove un-allowlisted fields
+PRIV-PII-002,interaction_exports,pii_scanner_validator,critical,zero_pii,Detects names emails phones and raw adult notes,Quarantine export and redact PII
+PRIV-RISK-003,interaction_exports,screening_risk_readonly_validator,critical,readonly_snapshot,Ensures C1 screening risk is not altered by educational records,Restore immutable snapshot
+PRIV-C4-004,interaction_exports,component4_trend_contract_validator,critical,local_preliminary_only,Ensures exports do not claim longitudinal diagnostic trends,Use local_preliminary_trend only

@@ -44,8 +44,11 @@ async def global_exception_handler(request: Request, exc: Exception):
         headers=headers
     )
 
+from app.api.v1.endpoints.quality import router as quality_router
+
 # Register routes
 app.include_router(router)
+app.include_router(quality_router, prefix="/api/v1")
 
 @app.on_event("startup")
 def startup_event():

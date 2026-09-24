@@ -71,5 +71,6 @@ data/interaction_dataset/research_releases/**
 !data/interaction_dataset/private/.gitkeep
 !data/interaction_dataset/deidentified_exports/.gitkeep
 !data/interaction_dataset/research_releases/.gitkeep
-
-
+# Stage 15 Quality Reports (Private reports containing source text, review queue & correction logs)
+data/quality_reports/stage15/private/**
+!data/quality_reports/stage15/private/.gitkeep
