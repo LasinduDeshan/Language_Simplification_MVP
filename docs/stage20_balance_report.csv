@@ -1,0 +1,16 @@
+dimension,category,count,percentage,status
+primary_domain,vocabulary,225,25.0%,balanced
+primary_domain,grammar,225,25.0%,balanced
+primary_domain,comprehension,225,25.0%,balanced
+primary_domain,instruction_following,225,25.0%,balanced
+difficulty,easy,462,51.33%,normal
+difficulty,medium,408,45.33%,normal
+difficulty,hard,30,3.33%,normal
+support_level,mild,300,33.33%,normal
+support_level,moderate,300,33.33%,normal
+support_level,strong,300,33.33%,normal
+age_coverage,age_4,225,N/A,covered
+age_coverage,age_5,555,N/A,covered
+age_coverage,age_6,735,N/A,covered
+age_coverage,age_7,675,N/A,covered
+age_coverage,age_8,306,N/A,covered
