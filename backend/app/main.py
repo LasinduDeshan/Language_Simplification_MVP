@@ -17,13 +17,18 @@ app = FastAPI(
     version="2.2"
 )
 
-# CORS middleware — must be added BEFORE the global exception handler
+# CORS middleware — support all localhost and loopback origins regardless of port
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origins_list,
+    allow_origins=settings.cors_origins_list + [
+        "http://localhost:5173", "http://localhost:5174", "http://localhost:5175",
+        "http://127.0.0.1:5173", "http://127.0.0.1:5174", "http://127.0.0.1:5175",
+        "http://localhost:3000", "http://127.0.0.1:3000"
+    ],
+    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization", "Accept"]
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Global exception handler — ensures CORS headers are always present,
@@ -32,10 +37,9 @@ app.add_middleware(
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
     origin = request.headers.get("origin", "")
-    allowed = settings.cors_origins_list
     logger.error("Unhandled exception on %s %s:\n%s", request.method, request.url, traceback.format_exc())
     headers = {}
-    if origin in allowed:
+    if origin:
         headers["Access-Control-Allow-Origin"] = origin
         headers["Access-Control-Allow-Credentials"] = "true"
     return JSONResponse(

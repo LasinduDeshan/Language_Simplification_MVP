@@ -1,0 +1,35 @@
+{
+  "snapshot_timestamp": "2026-09-27T04:24:15.919820Z",
+  "baseline_dataset_version": "0.1.0",
+  "baseline_schema_version": "1.0.0",
+  "target_dataset_version": "0.2.0",
+  "target_schema_version": "1.0.0",
+  "manifests": {
+    "stage14_manifest_sha256": "a4d85af4e060571e7e0b033e45954029d82fff9dc0619f72e3b128b82e8b9649",
+    "stage15_manifest_sha256": "582d024e5ab92706608ac72cdb1aa49e28aa57ce6a047765a0111f1a615c47a6"
+  },
+  "datasets": {
+    "adaptation_test_set": {
+      "file": "data/adaptation_test_set/releases/0.1.0/adaptation_test_set.json",
+      "sha256": "ec18dcfd50daa55e5f214b0f7194b1f8bc8e8436bddba859416e4c5321efe0b4",
+      "record_count": 40
+    },
+    "simplification_corpus": {
+      "file": "data/simplification_corpus/releases/0.1.0/simplification_corpus.json",
+      "sha256": "45df6c344d3724b2f646fcdef2de770ead78af459c5f6940001ba9a024a52ade",
+      "record_count": 210
+    },
+    "lexicon_repository": {
+      "file": "data/lexicons/en/releases/0.1.0/lexicon_repository.json",
+      "sha256": "5d4ee20464c5a48ec277fd24ae04ab016837d5e4efbe48a182d972e5ea11cb49",
+      "record_count": 18
+    }
+  },
+  "stage15_quality_results": {
+    "total_governed_evaluated": 268,
+    "passed": 218,
+    "failed": 19,
+    "manual_review_required": 31,
+    "quarantined": 0
+  }
+}
