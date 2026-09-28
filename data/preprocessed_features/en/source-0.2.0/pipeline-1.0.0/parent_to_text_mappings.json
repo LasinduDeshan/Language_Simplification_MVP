@@ -25,7 +25,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-VOC-0103__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0104",
@@ -88,14 +88,14 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-VOC-0112__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0113",
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-VOC-0113__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0114",
@@ -109,14 +109,14 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-VOC-0115__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0116",
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-VOC-0116__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0117",
@@ -158,7 +158,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-GRA-0177__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-GRA-0178",
@@ -284,7 +284,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0250__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0251",
@@ -312,7 +312,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0254__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0255",
@@ -333,7 +333,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0257__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0258",
@@ -347,7 +347,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0259__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0260",
@@ -368,7 +368,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0262__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0263",
@@ -403,7 +403,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0267__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0268",
@@ -445,7 +445,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0328__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0329",
@@ -501,7 +501,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0336__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0337",
@@ -557,7 +557,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0344__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0120",
@@ -571,7 +571,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-VOC-0121__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0122",
@@ -711,7 +711,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-GRA-0201__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-GRA-0202",
@@ -774,21 +774,21 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0270__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0271",
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0271__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0272",
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0272__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0273",
@@ -802,7 +802,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0274__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0275",
@@ -837,7 +837,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0279__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0345",
@@ -879,7 +879,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0350__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0351",
@@ -949,7 +949,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-VOC-0140__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0141",
@@ -984,7 +984,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-GRA-0210__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-GRA-0211",
@@ -998,7 +998,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-GRA-0212__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-GRA-0213",
@@ -1054,7 +1054,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-GRA-0220__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-GRA-0221",
@@ -1208,7 +1208,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0362__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0363",
@@ -1222,7 +1222,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0364__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0365",
@@ -1236,7 +1236,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0366__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0367",
@@ -1285,7 +1285,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-VOC-0148__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0149",
@@ -1299,7 +1299,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-VOC-0150__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0151",
@@ -1355,14 +1355,14 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-GRA-0228__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-GRA-0229",
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-GRA-0229__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-GRA-0230",
@@ -1502,7 +1502,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0304__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0370",
@@ -1516,7 +1516,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0371__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0372",
@@ -1607,7 +1607,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0384__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0155",
@@ -1649,7 +1649,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-VOC-0160__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-VOC-0161",
@@ -1810,7 +1810,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-GRA-0243__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-GRA-0244",
@@ -1943,7 +1943,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0317__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0318",
@@ -1957,7 +1957,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-COM-0319__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-COM-0320",
@@ -2013,7 +2013,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0387__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0388",
@@ -2034,7 +2034,7 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0390__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0391",
@@ -2048,14 +2048,14 @@
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0392__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0393",
     "parent_record_type": "source_item",
     "text_instance_id": "SRC-EN-INS-0393__SRC",
     "text_role": "source_text",
-    "dataset_split": "development_candidate_train"
+    "dataset_split": "development_candidate_test"
   },
   {
     "parent_record_id": "SRC-EN-INS-0394",

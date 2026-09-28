@@ -1,9 +1,415 @@
 {
   "release_version": "1.0.0",
   "source_dataset_version": "0.2.0",
-  "total_locked_records": 270,
+  "total_locked_records": 315,
+  "locked_source_groups_count": 45,
   "quarantined_from_development": true,
   "items": [
+    {
+      "text_instance_id": "SRC-EN-VOC-0103__SRC",
+      "parent_record_id": "SRC-EN-VOC-0103",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0112__SRC",
+      "parent_record_id": "SRC-EN-VOC-0112",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0113__SRC",
+      "parent_record_id": "SRC-EN-VOC-0113",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0115__SRC",
+      "parent_record_id": "SRC-EN-VOC-0115",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0116__SRC",
+      "parent_record_id": "SRC-EN-VOC-0116",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0177__SRC",
+      "parent_record_id": "SRC-EN-GRA-0177",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0250__SRC",
+      "parent_record_id": "SRC-EN-COM-0250",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0254__SRC",
+      "parent_record_id": "SRC-EN-COM-0254",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0257__SRC",
+      "parent_record_id": "SRC-EN-COM-0257",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0259__SRC",
+      "parent_record_id": "SRC-EN-COM-0259",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0262__SRC",
+      "parent_record_id": "SRC-EN-COM-0262",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0267__SRC",
+      "parent_record_id": "SRC-EN-COM-0267",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0328__SRC",
+      "parent_record_id": "SRC-EN-INS-0328",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0336__SRC",
+      "parent_record_id": "SRC-EN-INS-0336",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0344__SRC",
+      "parent_record_id": "SRC-EN-INS-0344",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0121__SRC",
+      "parent_record_id": "SRC-EN-VOC-0121",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0201__SRC",
+      "parent_record_id": "SRC-EN-GRA-0201",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0270__SRC",
+      "parent_record_id": "SRC-EN-COM-0270",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0271__SRC",
+      "parent_record_id": "SRC-EN-COM-0271",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0272__SRC",
+      "parent_record_id": "SRC-EN-COM-0272",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0274__SRC",
+      "parent_record_id": "SRC-EN-COM-0274",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0279__SRC",
+      "parent_record_id": "SRC-EN-COM-0279",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0350__SRC",
+      "parent_record_id": "SRC-EN-INS-0350",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0140__SRC",
+      "parent_record_id": "SRC-EN-VOC-0140",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0210__SRC",
+      "parent_record_id": "SRC-EN-GRA-0210",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0212__SRC",
+      "parent_record_id": "SRC-EN-GRA-0212",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0220__SRC",
+      "parent_record_id": "SRC-EN-GRA-0220",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0362__SRC",
+      "parent_record_id": "SRC-EN-INS-0362",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0364__SRC",
+      "parent_record_id": "SRC-EN-INS-0364",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0366__SRC",
+      "parent_record_id": "SRC-EN-INS-0366",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0148__SRC",
+      "parent_record_id": "SRC-EN-VOC-0148",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0150__SRC",
+      "parent_record_id": "SRC-EN-VOC-0150",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0228__SRC",
+      "parent_record_id": "SRC-EN-GRA-0228",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0229__SRC",
+      "parent_record_id": "SRC-EN-GRA-0229",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0304__SRC",
+      "parent_record_id": "SRC-EN-COM-0304",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0371__SRC",
+      "parent_record_id": "SRC-EN-INS-0371",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0384__SRC",
+      "parent_record_id": "SRC-EN-INS-0384",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0160__SRC",
+      "parent_record_id": "SRC-EN-VOC-0160",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0243__SRC",
+      "parent_record_id": "SRC-EN-GRA-0243",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0317__SRC",
+      "parent_record_id": "SRC-EN-COM-0317",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0319__SRC",
+      "parent_record_id": "SRC-EN-COM-0319",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0387__SRC",
+      "parent_record_id": "SRC-EN-INS-0387",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0390__SRC",
+      "parent_record_id": "SRC-EN-INS-0390",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0392__SRC",
+      "parent_record_id": "SRC-EN-INS-0392",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0393__SRC",
+      "parent_record_id": "SRC-EN-INS-0393",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
     {
       "text_instance_id": "SIMP-EN-000309__ORIG",
       "parent_record_id": "SIMP-EN-000309",

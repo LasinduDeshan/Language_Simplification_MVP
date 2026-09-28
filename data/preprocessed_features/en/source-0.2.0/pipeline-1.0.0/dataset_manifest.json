@@ -20,14 +20,25 @@
     "unique_normalized_text_count": 1266,
     "duplicate_text_instance_count": 2351,
     "parent_text_mapping_count": 3617,
-    "success_count": 3184,
+    "success_count": 3139,
     "fallback_success_count": 0,
     "manual_review_count": 163,
     "failed_count": 0,
-    "skipped_locked_test_count": 270,
+    "skipped_locked_test_count": 315,
     "total_accounted": 3617,
     "unaccounted_records": 0,
-    "is_zero_loss": true
+    "is_zero_loss": true,
+    "source_items_cumulative": 370,
+    "source_items_processed": 300,
+    "source_items_legacy_excluded": 70,
+    "locked_source_groups_isolated": 45,
+    "cross_adapter_leakage": 0,
+    "review_reasons_breakdown": {
+      "low_english_function_word_density": 20,
+      "zero_english_function_words": 143
+    },
+    "potential_text_fields": 3660,
+    "absent_optional_text_fields": 43
   },
   "files": {
     "records_jsonl": "preprocessed_records.jsonl",
