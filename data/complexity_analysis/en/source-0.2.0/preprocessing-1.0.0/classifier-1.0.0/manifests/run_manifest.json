@@ -1,0 +1,63 @@
+{
+  "stage": "stage_22_english_complexity_analysis",
+  "pipeline_version": "1.0.0",
+  "classifier_version": "1.0.0",
+  "feature_schema_version": "1.0.0",
+  "source_dataset_version": "0.2.0",
+  "preprocessing_pipeline_version": "1.0.0",
+  "total_files": 13,
+  "files": {
+    "development_results/confusion_matrix.csv": {
+      "sha256": "bfe3fbcb79c57f9260ca7422fcf8f0a135b82b4fc9a40338d19d50e7b32e2fb7",
+      "size_bytes": 95
+    },
+    "development_results/error_analysis.csv": {
+      "sha256": "0082531b35da22ce60a22051f96f7c8e98d163382f05695eb3a3823a3cc10e4e",
+      "size_bytes": 8217
+    },
+    "development_results/model_comparison.csv": {
+      "sha256": "127c21429467b7bb45e4b8e5e6554b26d718528e63cc593ac150d905ea2d37ec",
+      "size_bytes": 955
+    },
+    "development_results/validation_predictions.json": {
+      "sha256": "6407c555aa22cdcb8d3f590440af98e38408f94600f0cc6a9b3240de4b2258bd",
+      "size_bytes": 513086
+    },
+    "feature_registry/feature_allowlist.json": {
+      "sha256": "89389f67d948ff810d5718d7c761b99f9d02fb8cf78d47791c60e11d1aa04b12",
+      "size_bytes": 577
+    },
+    "feature_registry/feature_schema.json": {
+      "sha256": "50e5e3f457062adc9e5b30d64f463b4c3d56fa304451fab332a23958d9a35e0f",
+      "size_bytes": 4566
+    },
+    "feature_registry/stage22_feature_dictionary.csv": {
+      "sha256": "cade626ffff183fa4c4b13114c5edd053d0980351e2f51810d01430dd380a5cc",
+      "size_bytes": 2326
+    },
+    "models/calibration_model.joblib": {
+      "sha256": "7255d8ca1a125dee1bbf4e8f71a6f40f3cdde547ca5522389bc15e647f873b50",
+      "size_bytes": 1605
+    },
+    "models/ood_detector.joblib": {
+      "sha256": "bd92e727f17d62621bcde71379a000e725eaa400052fd28a7d2f9e78831589ab",
+      "size_bytes": 1313
+    },
+    "models/preprocessing_transformer.joblib": {
+      "sha256": "0f8810cf7f98d783919b9794b5a8e49efce8131cd066d87dd65d4b9fe4247491",
+      "size_bytes": 1824
+    },
+    "models/selected_model.joblib": {
+      "sha256": "55716d7b4a0a5f8a5c95dd48d72517fcab5917853a44959257a48dc49e815de5",
+      "size_bytes": 433016
+    },
+    "reports/eligibility_accounting.csv": {
+      "sha256": "1d8c21f9aa0710884575dad8d7fb0a9f9823e3b13fc127d77432752e532ca249",
+      "size_bytes": 687256
+    },
+    "reports/label_audit.csv": {
+      "sha256": "340679a3699d6e9171a1310b38d5291d2b648abaa18e09753eddd13aab3a7261",
+      "size_bytes": 642598
+    }
+  }
+}

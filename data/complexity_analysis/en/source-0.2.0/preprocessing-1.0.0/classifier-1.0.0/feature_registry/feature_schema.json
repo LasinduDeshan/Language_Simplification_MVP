@@ -1,0 +1,170 @@
+[
+  {
+    "name": "char_count",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Total character count in normalized text"
+  },
+  {
+    "name": "token_count",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Total token count including punctuation"
+  },
+  {
+    "name": "word_count",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Total alphanumeric word count"
+  },
+  {
+    "name": "sentence_count",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Total sentence count"
+  },
+  {
+    "name": "punct_count",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Total punctuation token count"
+  },
+  {
+    "name": "avg_word_length",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Average character length per word"
+  },
+  {
+    "name": "avg_sentence_length",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Average token length per sentence"
+  },
+  {
+    "name": "syllable_count",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Estimated total syllable count"
+  },
+  {
+    "name": "avg_syllables_per_word",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Average syllable count per word"
+  },
+  {
+    "name": "long_word_count",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Count of words with >= 7 characters or >= 3 syllables"
+  },
+  {
+    "name": "long_word_ratio",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Ratio of long words to total words"
+  },
+  {
+    "name": "type_token_ratio",
+    "group": "surface",
+    "type": "numeric_continuous",
+    "description": "Lexical diversity ratio (unique lemmas / total tokens)"
+  },
+  {
+    "name": "noun_count",
+    "group": "lexical_pos",
+    "type": "numeric_continuous",
+    "description": "Count of noun tokens"
+  },
+  {
+    "name": "noun_ratio",
+    "group": "lexical_pos",
+    "type": "numeric_continuous",
+    "description": "Ratio of noun tokens to total words"
+  },
+  {
+    "name": "verb_count",
+    "group": "lexical_pos",
+    "type": "numeric_continuous",
+    "description": "Count of verb tokens"
+  },
+  {
+    "name": "verb_ratio",
+    "group": "lexical_pos",
+    "type": "numeric_continuous",
+    "description": "Ratio of verb tokens to total words"
+  },
+  {
+    "name": "adj_count",
+    "group": "lexical_pos",
+    "type": "numeric_continuous",
+    "description": "Count of adjective tokens"
+  },
+  {
+    "name": "adj_ratio",
+    "group": "lexical_pos",
+    "type": "numeric_continuous",
+    "description": "Ratio of adjective tokens to total words"
+  },
+  {
+    "name": "adv_count",
+    "group": "lexical_pos",
+    "type": "numeric_continuous",
+    "description": "Count of adverb tokens"
+  },
+  {
+    "name": "adv_ratio",
+    "group": "lexical_pos",
+    "type": "numeric_continuous",
+    "description": "Ratio of adverb tokens to total words"
+  },
+  {
+    "name": "content_word_ratio",
+    "group": "lexical_pos",
+    "type": "numeric_continuous",
+    "description": "Ratio of content words (NOUN, VERB, ADJ, ADV) to total words"
+  },
+  {
+    "name": "function_word_ratio",
+    "group": "lexical_pos",
+    "type": "numeric_continuous",
+    "description": "Ratio of function words to total words"
+  },
+  {
+    "name": "max_dependency_depth",
+    "group": "syntactic",
+    "type": "numeric_continuous",
+    "description": "Maximum parse-tree dependency depth"
+  },
+  {
+    "name": "avg_dependency_depth",
+    "group": "syntactic",
+    "type": "numeric_continuous",
+    "description": "Average parse-tree dependency depth across tokens"
+  },
+  {
+    "name": "clause_count",
+    "group": "syntactic",
+    "type": "numeric_continuous",
+    "description": "Count of subordinate/coordinate clauses"
+  },
+  {
+    "name": "passive_voice",
+    "group": "syntactic",
+    "type": "binary",
+    "description": "Binary indicator for detected passive voice constructions"
+  },
+  {
+    "name": "negation_count",
+    "group": "semantic_load",
+    "type": "numeric_continuous",
+    "description": "Count of explicit and conditional negation markers"
+  },
+  {
+    "name": "quantity_count",
+    "group": "semantic_load",
+    "type": "numeric_continuous",
+    "description": "Count of numeric digits and quantity terms"
+  }
+]

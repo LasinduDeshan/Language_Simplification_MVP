@@ -1,0 +1,7 @@
+model_id,model_name,macro_f1,weighted_f1,balanced_accuracy,accuracy,recall_easy,recall_medium,recall_hard,expected_calibration_error,hard_to_easy_error_rate,hard_to_easy_error_count,hard_to_easy_wilson_ci,fit_time_seconds,inference_latency_ms
+B0,Majority_Class_Baseline,0.2121,0.297,0.3333,0.4667,1.0,0.0,0.0,0.0374,1.0,3,"[0.4385, 1.0000]",0.042,0.0
+B1,Transparent_Rule_Baseline,0.2352,0.3199,0.5362,0.3333,0.0,0.6087,1.0,0.4178,0.0,0,"[0.0000, 0.5615]",0.036,0.0
+B2,Multinomial_Logistic_Regression,0.9089,0.8667,0.9089,0.8667,0.8571,0.8696,1.0,0.0962,0.0,0,"[0.0000, 0.5615]",0.144,0.0
+B3,Constrained_Decision_Tree,0.6144,0.9008,0.6218,0.9111,0.9524,0.913,0.0,0.038,0.0,0,"[0.0000, 0.5615]",0.059,0.0
+B4,Random_Forest_Classifier,0.9696,0.9556,0.9696,0.9556,0.9524,0.9565,1.0,0.1099,0.0,0,"[0.0000, 0.5615]",0.432,0.023
+B5,Hist_Gradient_Boosting_Classifier,0.9696,0.9556,0.9696,0.9556,0.9524,0.9565,1.0,0.0404,0.0,0,"[0.0000, 0.5615]",4.042,0.026
