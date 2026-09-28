@@ -1,0 +1,342 @@
+{
+  "text_instance_id": "SIMP-EN-0093__SIMP",
+  "parent_record_id": "SIMP-EN-0093",
+  "parent_record_type": "simplification_pair",
+  "text_role": "simplified_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SIMP-EN-0093",
+  "original_text": "Put crayons in the box and paper in the green bin.",
+  "normalized_text": "Put crayons in the box and paper in the green bin.",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.95,
+    "decision": "verified",
+    "fallback_reason": "deterministic_heuristic_verified"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SIMP-EN-0093__SIMP-S01",
+      "sentence_index": 0,
+      "text": "Put crayons in the box and paper in the green bin.",
+      "original_start_char": 0,
+      "original_end_char": 50,
+      "normalized_start_char": 0,
+      "normalized_end_char": 50,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "Put",
+          "lemma": "put",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head_index": 0,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 3,
+          "normalized_start_char": 0,
+          "normalized_end_char": 3
+        },
+        {
+          "index": 1,
+          "text": "crayons",
+          "lemma": "crayon",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "dobj",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 4,
+          "original_end_char": 11,
+          "normalized_start_char": 4,
+          "normalized_end_char": 11
+        },
+        {
+          "index": 2,
+          "text": "in",
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head_index": 0,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 12,
+          "original_end_char": 14,
+          "normalized_start_char": 12,
+          "normalized_end_char": 14
+        },
+        {
+          "index": 3,
+          "text": "the",
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 4,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 15,
+          "original_end_char": 18,
+          "normalized_start_char": 15,
+          "normalized_end_char": 18
+        },
+        {
+          "index": 4,
+          "text": "box",
+          "lemma": "box",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 19,
+          "original_end_char": 22,
+          "normalized_start_char": 19,
+          "normalized_end_char": 22
+        },
+        {
+          "index": 5,
+          "text": "and",
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head_index": 4,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 23,
+          "original_end_char": 26,
+          "normalized_start_char": 23,
+          "normalized_end_char": 26
+        },
+        {
+          "index": 6,
+          "text": "paper",
+          "lemma": "paper",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "conj",
+          "head_index": 4,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 27,
+          "original_end_char": 32,
+          "normalized_start_char": 27,
+          "normalized_end_char": 32
+        },
+        {
+          "index": 7,
+          "text": "in",
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head_index": 0,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 33,
+          "original_end_char": 35,
+          "normalized_start_char": 33,
+          "normalized_end_char": 35
+        },
+        {
+          "index": 8,
+          "text": "the",
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 10,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 36,
+          "original_end_char": 39,
+          "normalized_start_char": 36,
+          "normalized_end_char": 39
+        },
+        {
+          "index": 9,
+          "text": "green",
+          "lemma": "green",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head_index": 10,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 40,
+          "original_end_char": 45,
+          "normalized_start_char": 40,
+          "normalized_end_char": 45
+        },
+        {
+          "index": 10,
+          "text": "bin",
+          "lemma": "bin",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head_index": 7,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 46,
+          "original_end_char": 49,
+          "normalized_start_char": 46,
+          "normalized_end_char": 49
+        },
+        {
+          "index": 11,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 49,
+          "original_end_char": 50,
+          "normalized_start_char": 49,
+          "normalized_end_char": 50
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 40,
+      "token_count": 12,
+      "word_count": 11,
+      "sentence_count": 1,
+      "punct_count": 1,
+      "avg_word_length": 3.55,
+      "avg_sentence_length": 12.0,
+      "unique_token_count": 9,
+      "type_token_ratio": 0.818,
+      "syllable_count": 13,
+      "avg_syllables_per_word": 1.18,
+      "long_word_count": 1
+    },
+    "lexical": {
+      "content_word_count": 6,
+      "function_word_count": 5,
+      "noun_count": 5,
+      "verb_count": 1,
+      "adj_count": 0,
+      "adv_count": 0,
+      "pronoun_count": 0,
+      "prep_count": 2,
+      "finite_verb_count": 0,
+      "auxiliary_verb_count": 0,
+      "out_of_lexicon_count": 11,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": []
+    },
+    "syntactic": {
+      "max_dependency_depth": 7,
+      "avg_dependency_depth": 2.0,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 2,
+      "avg_noun_phrase_length": 5.0,
+      "svo_triplets_available": true,
+      "root_count": 1,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": true
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [],
+      "named_entities": [
+        {
+          "text": "green",
+          "category": "COLOR"
+        },
+        {
+          "text": "green",
+          "category": "PERSON_OR_PLACE"
+        },
+        {
+          "text": "bin",
+          "category": "PERSON_OR_PLACE"
+        }
+      ],
+      "spatial_prepositions": [
+        "in"
+      ],
+      "temporal_connectives": [],
+      "action_verbs": [],
+      "aligned_protected_units": [
+        {
+          "protected_unit": "crayons",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "box",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "paper",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "bin",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "compound_imperative",
+          "is_aligned": false,
+          "status": "unaligned_warning"
+        }
+      ]
+    }
+  },
+  "processing_status": "success",
+  "text_hash": "812f1efa1e000bf54f279660188cae56ae55b2795d1e1799a22c7eca30d2fb60",
+  "feature_hash": "d1a712cf588e3cd6d6ed6d341783df3b2400b90875871ab5661655aa6354e36a",
+  "record_hash": "b4752da89acf9582fedf2e1ebf1bb3c4211d50384bef3f56019bdba9a852eb86"
+}

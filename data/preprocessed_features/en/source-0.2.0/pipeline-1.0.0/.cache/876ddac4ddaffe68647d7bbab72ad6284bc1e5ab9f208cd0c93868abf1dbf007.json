@@ -1,0 +1,262 @@
+{
+  "text_instance_id": "SIMP-EN-000709__SIMP",
+  "parent_record_id": "SIMP-EN-000709",
+  "parent_record_type": "simplification_pair",
+  "text_role": "simplified_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SRC-EN-GRA-0236",
+  "original_text": "Bird is singular. Use: sings.",
+  "normalized_text": "Bird is singular. Use: sings.",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.4,
+    "decision": "manual_review_required",
+    "fallback_reason": "zero_english_function_words"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SIMP-EN-000709__SIMP-S01",
+      "sentence_index": 0,
+      "text": "Bird is singular.",
+      "original_start_char": 0,
+      "original_end_char": 17,
+      "normalized_start_char": 0,
+      "normalized_end_char": 17,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "Bird",
+          "lemma": "bird",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 4,
+          "normalized_start_char": 0,
+          "normalized_end_char": 4
+        },
+        {
+          "index": 1,
+          "text": "is",
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head_index": 1,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 5,
+          "original_end_char": 7,
+          "normalized_start_char": 5,
+          "normalized_end_char": 7
+        },
+        {
+          "index": 2,
+          "text": "singular",
+          "lemma": "singular",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "acomp",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 3,
+          "original_start_char": 8,
+          "original_end_char": 16,
+          "normalized_start_char": 8,
+          "normalized_end_char": 16
+        },
+        {
+          "index": 3,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 16,
+          "original_end_char": 17,
+          "normalized_start_char": 16,
+          "normalized_end_char": 17
+        }
+      ]
+    },
+    {
+      "sentence_id": "SIMP-EN-000709__SIMP-S02",
+      "sentence_index": 1,
+      "text": "Use: sings.",
+      "original_start_char": 18,
+      "original_end_char": 29,
+      "normalized_start_char": 18,
+      "normalized_end_char": 29,
+      "tokens": [
+        {
+          "index": 4,
+          "text": "Use",
+          "lemma": "use",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nmod",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 18,
+          "original_end_char": 21,
+          "normalized_start_char": 18,
+          "normalized_end_char": 21
+        },
+        {
+          "index": 5,
+          "text": ":",
+          "lemma": ":",
+          "pos": "PUNCT",
+          "tag": ":",
+          "dependency": "punct",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 21,
+          "original_end_char": 22,
+          "normalized_start_char": 21,
+          "normalized_end_char": 22
+        },
+        {
+          "index": 6,
+          "text": "sings",
+          "lemma": "sing",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "ROOT",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 23,
+          "original_end_char": 28,
+          "normalized_start_char": 23,
+          "normalized_end_char": 28
+        },
+        {
+          "index": 7,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 28,
+          "original_end_char": 29,
+          "normalized_start_char": 28,
+          "normalized_end_char": 29
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 25,
+      "token_count": 8,
+      "word_count": 5,
+      "sentence_count": 2,
+      "punct_count": 3,
+      "avg_word_length": 4.4,
+      "avg_sentence_length": 4.0,
+      "unique_token_count": 5,
+      "type_token_ratio": 1.0,
+      "syllable_count": 7,
+      "avg_syllables_per_word": 1.4,
+      "long_word_count": 1
+    },
+    "lexical": {
+      "content_word_count": 5,
+      "function_word_count": 0,
+      "noun_count": 3,
+      "verb_count": 1,
+      "adj_count": 1,
+      "adv_count": 0,
+      "pronoun_count": 0,
+      "prep_count": 0,
+      "finite_verb_count": 1,
+      "auxiliary_verb_count": 1,
+      "out_of_lexicon_count": 5,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": [
+        "singular"
+      ]
+    },
+    "syntactic": {
+      "max_dependency_depth": 4,
+      "avg_dependency_depth": 1.6,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 0,
+      "avg_noun_phrase_length": 1.5,
+      "svo_triplets_available": true,
+      "root_count": 2,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": false
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [],
+      "named_entities": [
+        {
+          "text": "Bird",
+          "category": "PERSON_OR_PLACE"
+        }
+      ],
+      "spatial_prepositions": [],
+      "temporal_connectives": [],
+      "action_verbs": [],
+      "aligned_protected_units": [
+        {
+          "protected_unit": "bird",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "sings",
+          "is_aligned": true,
+          "status": "aligned"
+        }
+      ]
+    }
+  },
+  "processing_status": "manual_review_required",
+  "text_hash": "f7a1256e13b55a00c5d267b98c486481c4c66aff21cdd871c44d7f7364ce055a",
+  "feature_hash": "dbe122cc7786962518a2717bfe8f5c77b478aa830d05ce84dbb31059027d3736",
+  "record_hash": "63e5506c68356017badcdcae28389627908d8c51464e69cee1d06b74a16b7a82"
+}

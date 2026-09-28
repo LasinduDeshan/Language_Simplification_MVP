@@ -1,0 +1,297 @@
+{
+  "text_instance_id": "SIMP-EN-000502__SIMP",
+  "parent_record_id": "SIMP-EN-000502",
+  "parent_record_type": "simplification_pair",
+  "text_role": "simplified_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SRC-EN-VOC-0167",
+  "original_text": "habitat means natural home. Tap the correct meaning.",
+  "normalized_text": "habitat means natural home. Tap the correct meaning.",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.95,
+    "decision": "verified",
+    "fallback_reason": "deterministic_heuristic_verified"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SIMP-EN-000502__SIMP-S01",
+      "sentence_index": 0,
+      "text": "habitat means natural home.",
+      "original_start_char": 0,
+      "original_end_char": 27,
+      "normalized_start_char": 0,
+      "normalized_end_char": 27,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "habitat",
+          "lemma": "habitat",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 3,
+          "original_start_char": 0,
+          "original_end_char": 7,
+          "normalized_start_char": 0,
+          "normalized_end_char": 7
+        },
+        {
+          "index": 1,
+          "text": "means",
+          "lemma": "mean",
+          "pos": "VERB",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 8,
+          "original_end_char": 13,
+          "normalized_start_char": 8,
+          "normalized_end_char": 13
+        },
+        {
+          "index": 2,
+          "text": "natural",
+          "lemma": "natural",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head_index": 3,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 3,
+          "original_start_char": 14,
+          "original_end_char": 21,
+          "normalized_start_char": 14,
+          "normalized_end_char": 21
+        },
+        {
+          "index": 3,
+          "text": "home",
+          "lemma": "home",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 22,
+          "original_end_char": 26,
+          "normalized_start_char": 22,
+          "normalized_end_char": 26
+        },
+        {
+          "index": 4,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 26,
+          "original_end_char": 27,
+          "normalized_start_char": 26,
+          "normalized_end_char": 27
+        }
+      ]
+    },
+    {
+      "sentence_id": "SIMP-EN-000502__SIMP-S02",
+      "sentence_index": 1,
+      "text": "Tap the correct meaning.",
+      "original_start_char": 28,
+      "original_end_char": 52,
+      "normalized_start_char": 28,
+      "normalized_end_char": 52,
+      "tokens": [
+        {
+          "index": 5,
+          "text": "Tap",
+          "lemma": "tap",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 28,
+          "original_end_char": 31,
+          "normalized_start_char": 28,
+          "normalized_end_char": 31
+        },
+        {
+          "index": 6,
+          "text": "the",
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 3,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 32,
+          "original_end_char": 35,
+          "normalized_start_char": 32,
+          "normalized_end_char": 35
+        },
+        {
+          "index": 7,
+          "text": "correct",
+          "lemma": "correct",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head_index": 3,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 36,
+          "original_end_char": 43,
+          "normalized_start_char": 36,
+          "normalized_end_char": 43
+        },
+        {
+          "index": 8,
+          "text": "meaning",
+          "lemma": "meaning",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 44,
+          "original_end_char": 51,
+          "normalized_start_char": 44,
+          "normalized_end_char": 51
+        },
+        {
+          "index": 9,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 51,
+          "original_end_char": 52,
+          "normalized_start_char": 51,
+          "normalized_end_char": 52
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 45,
+      "token_count": 10,
+      "word_count": 8,
+      "sentence_count": 2,
+      "punct_count": 2,
+      "avg_word_length": 5.38,
+      "avg_sentence_length": 5.0,
+      "unique_token_count": 8,
+      "type_token_ratio": 1.0,
+      "syllable_count": 14,
+      "avg_syllables_per_word": 1.75,
+      "long_word_count": 4
+    },
+    "lexical": {
+      "content_word_count": 7,
+      "function_word_count": 1,
+      "noun_count": 3,
+      "verb_count": 2,
+      "adj_count": 2,
+      "adv_count": 0,
+      "pronoun_count": 0,
+      "prep_count": 0,
+      "finite_verb_count": 1,
+      "auxiliary_verb_count": 0,
+      "out_of_lexicon_count": 7,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [
+        "habitat"
+      ],
+      "difficult_candidate_words": [
+        "habitat",
+        "natural"
+      ]
+    },
+    "syntactic": {
+      "max_dependency_depth": 8,
+      "avg_dependency_depth": 3.0,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 0,
+      "avg_noun_phrase_length": 1.5,
+      "svo_triplets_available": true,
+      "root_count": 2,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": false
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [],
+      "named_entities": [
+        {
+          "text": "habitat",
+          "category": "PERSON_OR_PLACE"
+        }
+      ],
+      "spatial_prepositions": [],
+      "temporal_connectives": [],
+      "action_verbs": [
+        "mean",
+        "tap"
+      ],
+      "aligned_protected_units": [
+        {
+          "protected_unit": "habitat",
+          "is_aligned": true,
+          "status": "aligned"
+        }
+      ]
+    }
+  },
+  "processing_status": "success",
+  "text_hash": "e7dd2f888f9d6869b5c92ed9ea07e7b79d456f28a44a4a45822b5b8c0f640fbb",
+  "feature_hash": "24e4935ddbe6efdb3db8ef6d748fe8a2a53772c3e19ec4043aa18a2dde69b738",
+  "record_hash": "5db438cceccdea121bead36e1cd7adffb54cad569030000fa6446beb0880ad0a"
+}

@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-09-28T08:52:55.927951Z",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "pydantic": "2.13.4",
+    "spacy": "3.7.5",
+    "stanza": "1.14.0",
+    "fasttext": "installed",
+    "nltk": "3.10.3",
+    "pytest": "7.4.2"
+  },
+  "models": {
+    "spacy_en_core_web_sm": {
+      "name": "core_web_sm",
+      "version": "3.7.1",
+      "pipeline": [
+        "tok2vec",
+        "tagger",
+        "parser",
+        "attribute_ruler",
+        "lemmatizer",
+        "ner"
+      ],
+      "status": "available_offline"
+    },
+    "stanza": {
+      "version": "1.14.0",
+      "status": "installed"
+    }
+  }
+}

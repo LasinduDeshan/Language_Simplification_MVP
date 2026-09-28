@@ -1,0 +1,8 @@
+d237d0c1ad0624587897afea8e1d9469ba23231265f2f99aba8a77ca00922fe5  data/preprocessed_features/en/source-0.2.0/pipeline-1.0.0/preprocessed_records.jsonl
+e2173380748ac723d639d905a6553ce63b0db8d236f3cb77cf1c91a44496303e  data/preprocessed_features/en/source-0.2.0/pipeline-1.0.0/parent_to_text_mappings.json
+131c7f20fbdbf31f189c825a9941c72f9cc77d83b8817af0bb14c723282097c0  data/preprocessed_features/en/source-0.2.0/pipeline-1.0.0/linguistic_features.csv
+8ab2041e72e046d432759d466759e74d9f53b9ac78eed3313f746f254f3f1cce  data/preprocessed_features/en/source-0.2.0/pipeline-1.0.0/reconciliation_report.csv
+b4676d152e0593ad8628b063535951fb9fdcaa089df83a969d1cdf1f24a86bd1  data/preprocessed_features/en/source-0.2.0/pipeline-1.0.0/dataset_manifest.json
+550074a78b50b9ee41b801296aeaf5b56e6b9e65408be1bfcc2515ab974a63dd  data/preprocessed_features/en/source-0.2.0/pipeline-1.0.0/protected_test/locked_test_manifest.json
+5ff97a0124c778a9e0b769afa412de8993cbb9f3e2c91dbdcde9e913831f5486  docs/stage21_spacy_stanza_comparison.md
+70f48e0eb29126d2b818a61a8e0e9150286d0bf72bba06332a266f3b07078419  docs/stage21_feature_dictionary.csv

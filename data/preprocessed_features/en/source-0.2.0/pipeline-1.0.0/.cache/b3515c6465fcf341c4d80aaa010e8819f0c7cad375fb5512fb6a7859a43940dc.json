@@ -1,0 +1,348 @@
+{
+  "text_instance_id": "SIMP-EN-000548__SIMP",
+  "parent_record_id": "SIMP-EN-000548",
+  "parent_record_type": "simplification_pair",
+  "text_role": "simplified_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SRC-EN-GRA-0182",
+  "original_text": "1. Pick little blanket.\n2. Cover teddy.",
+  "normalized_text": "1. Pick little blanket.\n2. Cover teddy.",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.4,
+    "decision": "manual_review_required",
+    "fallback_reason": "zero_english_function_words"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SIMP-EN-000548__SIMP-S01",
+      "sentence_index": 0,
+      "text": "1. Pick little blanket.",
+      "original_start_char": 0,
+      "original_end_char": 23,
+      "normalized_start_char": 0,
+      "normalized_end_char": 23,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "1",
+          "lemma": "1",
+          "pos": "X",
+          "tag": "LS",
+          "dependency": "meta",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": true,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 1,
+          "normalized_start_char": 0,
+          "normalized_end_char": 1
+        },
+        {
+          "index": 1,
+          "text": ".",
+          "lemma": ".",
+          "pos": "X",
+          "tag": "LS",
+          "dependency": "meta",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 1,
+          "original_end_char": 2,
+          "normalized_start_char": 1,
+          "normalized_end_char": 2
+        },
+        {
+          "index": 2,
+          "text": "Pick",
+          "lemma": "pick",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 3,
+          "original_end_char": 7,
+          "normalized_start_char": 3,
+          "normalized_end_char": 7
+        },
+        {
+          "index": 3,
+          "text": "little",
+          "lemma": "little",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head_index": 4,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 8,
+          "original_end_char": 14,
+          "normalized_start_char": 8,
+          "normalized_end_char": 14
+        },
+        {
+          "index": 4,
+          "text": "blanket",
+          "lemma": "blanket",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 15,
+          "original_end_char": 22,
+          "normalized_start_char": 15,
+          "normalized_end_char": 22
+        },
+        {
+          "index": 5,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 22,
+          "original_end_char": 23,
+          "normalized_start_char": 22,
+          "normalized_end_char": 23
+        },
+        {
+          "index": 6,
+          "text": "\n",
+          "lemma": "\n",
+          "pos": "SPACE",
+          "tag": "_SP",
+          "dependency": "dep",
+          "head_index": 5,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 23,
+          "original_end_char": 24,
+          "normalized_start_char": 23,
+          "normalized_end_char": 24
+        }
+      ]
+    },
+    {
+      "sentence_id": "SIMP-EN-000548__SIMP-S02",
+      "sentence_index": 1,
+      "text": "2.",
+      "original_start_char": 24,
+      "original_end_char": 26,
+      "normalized_start_char": 24,
+      "normalized_end_char": 26,
+      "tokens": [
+        {
+          "index": 7,
+          "text": "2",
+          "lemma": "2",
+          "pos": "X",
+          "tag": "LS",
+          "dependency": "ROOT",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": true,
+          "syllable_count": 1,
+          "original_start_char": 24,
+          "original_end_char": 25,
+          "normalized_start_char": 24,
+          "normalized_end_char": 25
+        },
+        {
+          "index": 8,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 25,
+          "original_end_char": 26,
+          "normalized_start_char": 25,
+          "normalized_end_char": 26
+        }
+      ]
+    },
+    {
+      "sentence_id": "SIMP-EN-000548__SIMP-S03",
+      "sentence_index": 2,
+      "text": "Cover teddy.",
+      "original_start_char": 27,
+      "original_end_char": 39,
+      "normalized_start_char": 27,
+      "normalized_end_char": 39,
+      "tokens": [
+        {
+          "index": 9,
+          "text": "Cover",
+          "lemma": "cover",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 27,
+          "original_end_char": 32,
+          "normalized_start_char": 27,
+          "normalized_end_char": 32
+        },
+        {
+          "index": 10,
+          "text": "teddy",
+          "lemma": "teddy",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "ROOT",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 33,
+          "original_end_char": 38,
+          "normalized_start_char": 33,
+          "normalized_end_char": 38
+        },
+        {
+          "index": 11,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 38,
+          "original_end_char": 39,
+          "normalized_start_char": 38,
+          "normalized_end_char": 39
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 34,
+      "token_count": 12,
+      "word_count": 5,
+      "sentence_count": 3,
+      "punct_count": 4,
+      "avg_word_length": 5.4,
+      "avg_sentence_length": 4.0,
+      "unique_token_count": 5,
+      "type_token_ratio": 1.0,
+      "syllable_count": 8,
+      "avg_syllables_per_word": 1.6,
+      "long_word_count": 1
+    },
+    "lexical": {
+      "content_word_count": 5,
+      "function_word_count": 0,
+      "noun_count": 3,
+      "verb_count": 1,
+      "adj_count": 1,
+      "adv_count": 0,
+      "pronoun_count": 0,
+      "prep_count": 0,
+      "finite_verb_count": 0,
+      "auxiliary_verb_count": 0,
+      "out_of_lexicon_count": 5,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": []
+    },
+    "syntactic": {
+      "max_dependency_depth": 9,
+      "avg_dependency_depth": 3.75,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 0,
+      "avg_noun_phrase_length": 1.0,
+      "svo_triplets_available": true,
+      "root_count": 3,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": true
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [
+        "1",
+        "2"
+      ],
+      "named_entities": [
+        {
+          "text": "Cover",
+          "category": "PERSON_OR_PLACE"
+        },
+        {
+          "text": "teddy",
+          "category": "PERSON_OR_PLACE"
+        }
+      ],
+      "spatial_prepositions": [],
+      "temporal_connectives": [],
+      "action_verbs": [
+        "pick"
+      ],
+      "aligned_protected_units": [
+        {
+          "protected_unit": "little blanket",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "teddy",
+          "is_aligned": true,
+          "status": "aligned"
+        }
+      ]
+    }
+  },
+  "processing_status": "manual_review_required",
+  "text_hash": "44453406140ea87a42eda8c2a93402b0d7cbdcc3c15cb9a7023e2956f73c2cab",
+  "feature_hash": "9215b4db8e0e17bed1ab9540fe6319109bd7c8c5bb975786d21c4bb8c1605096",
+  "record_hash": "3ba1dd6d8691ef54cae92a890bcb4b96bb70222f8d3e877f948336327ad9594a"
+}

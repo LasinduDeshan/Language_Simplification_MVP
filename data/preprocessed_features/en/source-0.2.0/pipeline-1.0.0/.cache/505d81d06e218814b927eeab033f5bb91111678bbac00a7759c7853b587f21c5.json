@@ -1,0 +1,333 @@
+{
+  "text_instance_id": "SIMP-EN-001089__SIMP",
+  "parent_record_id": "SIMP-EN-001089",
+  "parent_record_type": "simplification_pair",
+  "text_role": "simplified_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SRC-EN-INS-0363",
+  "original_text": "Step 39: Aim camera at table and find North America.",
+  "normalized_text": "Step 39: Aim camera at table and find North America.",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.95,
+    "decision": "verified",
+    "fallback_reason": "deterministic_heuristic_verified"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SIMP-EN-001089__SIMP-S01",
+      "sentence_index": 0,
+      "text": "Step 39: Aim camera at table and find North America.",
+      "original_start_char": 0,
+      "original_end_char": 52,
+      "normalized_start_char": 0,
+      "normalized_end_char": 52,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "Step",
+          "lemma": "step",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 4,
+          "normalized_start_char": 0,
+          "normalized_end_char": 4
+        },
+        {
+          "index": 1,
+          "text": "39",
+          "lemma": "39",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "nummod",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": true,
+          "syllable_count": 1,
+          "original_start_char": 5,
+          "original_end_char": 7,
+          "normalized_start_char": 5,
+          "normalized_end_char": 7
+        },
+        {
+          "index": 2,
+          "text": ":",
+          "lemma": ":",
+          "pos": "PUNCT",
+          "tag": ":",
+          "dependency": "punct",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 7,
+          "original_end_char": 8,
+          "normalized_start_char": 7,
+          "normalized_end_char": 8
+        },
+        {
+          "index": 3,
+          "text": "Aim",
+          "lemma": "aim",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head_index": 4,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 9,
+          "original_end_char": 12,
+          "normalized_start_char": 9,
+          "normalized_end_char": 12
+        },
+        {
+          "index": 4,
+          "text": "camera",
+          "lemma": "camera",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "appos",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 3,
+          "original_start_char": 13,
+          "original_end_char": 19,
+          "normalized_start_char": 13,
+          "normalized_end_char": 19
+        },
+        {
+          "index": 5,
+          "text": "at",
+          "lemma": "at",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head_index": 4,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 20,
+          "original_end_char": 22,
+          "normalized_start_char": 20,
+          "normalized_end_char": 22
+        },
+        {
+          "index": 6,
+          "text": "table",
+          "lemma": "table",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head_index": 5,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 23,
+          "original_end_char": 28,
+          "normalized_start_char": 23,
+          "normalized_end_char": 28
+        },
+        {
+          "index": 7,
+          "text": "and",
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head_index": 4,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 29,
+          "original_end_char": 32,
+          "normalized_start_char": 29,
+          "normalized_end_char": 32
+        },
+        {
+          "index": 8,
+          "text": "find",
+          "lemma": "find",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "conj",
+          "head_index": 4,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 33,
+          "original_end_char": 37,
+          "normalized_start_char": 33,
+          "normalized_end_char": 37
+        },
+        {
+          "index": 9,
+          "text": "North",
+          "lemma": "north",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head_index": 10,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 38,
+          "original_end_char": 43,
+          "normalized_start_char": 38,
+          "normalized_end_char": 43
+        },
+        {
+          "index": 10,
+          "text": "America",
+          "lemma": "america",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "dobj",
+          "head_index": 8,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 4,
+          "original_start_char": 44,
+          "original_end_char": 51,
+          "normalized_start_char": 44,
+          "normalized_end_char": 51
+        },
+        {
+          "index": 11,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 51,
+          "original_end_char": 52,
+          "normalized_start_char": 51,
+          "normalized_end_char": 52
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 43,
+      "token_count": 12,
+      "word_count": 9,
+      "sentence_count": 1,
+      "punct_count": 2,
+      "avg_word_length": 4.33,
+      "avg_sentence_length": 12.0,
+      "unique_token_count": 9,
+      "type_token_ratio": 1.0,
+      "syllable_count": 14,
+      "avg_syllables_per_word": 1.56,
+      "long_word_count": 1
+    },
+    "lexical": {
+      "content_word_count": 7,
+      "function_word_count": 2,
+      "noun_count": 5,
+      "verb_count": 2,
+      "adj_count": 0,
+      "adv_count": 0,
+      "pronoun_count": 0,
+      "prep_count": 1,
+      "finite_verb_count": 0,
+      "auxiliary_verb_count": 0,
+      "out_of_lexicon_count": 9,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": [
+        "America",
+        "camera"
+      ]
+    },
+    "syntactic": {
+      "max_dependency_depth": 4,
+      "avg_dependency_depth": 1.8,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 2,
+      "avg_noun_phrase_length": 5.0,
+      "svo_triplets_available": true,
+      "root_count": 1,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": true
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [
+        "39"
+      ],
+      "named_entities": [
+        {
+          "text": "Aim",
+          "category": "PERSON_OR_PLACE"
+        },
+        {
+          "text": "North",
+          "category": "PERSON_OR_PLACE"
+        },
+        {
+          "text": "America",
+          "category": "PERSON_OR_PLACE"
+        }
+      ],
+      "spatial_prepositions": [],
+      "temporal_connectives": [],
+      "action_verbs": [
+        "find",
+        "step"
+      ],
+      "aligned_protected_units": [
+        {
+          "protected_unit": "camera",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "North America",
+          "is_aligned": true,
+          "status": "aligned"
+        }
+      ]
+    }
+  },
+  "processing_status": "success",
+  "text_hash": "9b8a407dabb12d30d607391e1dc382a9f91991de10a856924a5fba6872952ccd",
+  "feature_hash": "a77fd9b8d15d35f15cb46789508b853a7dbd80a3e408dae3e78cbefe1320fbc9",
+  "record_hash": "284d002303278d180ceda071e42758500db76d6e7c7a8f6d13b8e29948ca5574"
+}

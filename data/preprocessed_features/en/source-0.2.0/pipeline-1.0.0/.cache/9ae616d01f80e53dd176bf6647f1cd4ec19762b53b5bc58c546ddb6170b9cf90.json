@@ -1,0 +1,205 @@
+{
+  "text_instance_id": "SIMP-EN-0089__SIMP",
+  "parent_record_id": "SIMP-EN-0089",
+  "parent_record_type": "simplification_pair",
+  "text_role": "simplified_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SIMP-EN-0089",
+  "original_text": "Who kicked the ball?",
+  "normalized_text": "Who kicked the ball?",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.95,
+    "decision": "verified",
+    "fallback_reason": "deterministic_heuristic_verified"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SIMP-EN-0089__SIMP-S01",
+      "sentence_index": 0,
+      "text": "Who kicked the ball?",
+      "original_start_char": 0,
+      "original_end_char": 20,
+      "normalized_start_char": 0,
+      "normalized_end_char": 20,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "Who",
+          "lemma": "who",
+          "pos": "PRON",
+          "tag": "WP",
+          "dependency": "nsubj",
+          "head_index": 1,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 3,
+          "normalized_start_char": 0,
+          "normalized_end_char": 3
+        },
+        {
+          "index": 1,
+          "text": "kicked",
+          "lemma": "kick",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 4,
+          "original_end_char": 10,
+          "normalized_start_char": 4,
+          "normalized_end_char": 10
+        },
+        {
+          "index": 2,
+          "text": "the",
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 3,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 11,
+          "original_end_char": 14,
+          "normalized_start_char": 11,
+          "normalized_end_char": 14
+        },
+        {
+          "index": 3,
+          "text": "ball",
+          "lemma": "ball",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 15,
+          "original_end_char": 19,
+          "normalized_start_char": 15,
+          "normalized_end_char": 19
+        },
+        {
+          "index": 4,
+          "text": "?",
+          "lemma": "?",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 19,
+          "original_end_char": 20,
+          "normalized_start_char": 19,
+          "normalized_end_char": 20
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 17,
+      "token_count": 5,
+      "word_count": 4,
+      "sentence_count": 1,
+      "punct_count": 1,
+      "avg_word_length": 4.0,
+      "avg_sentence_length": 5.0,
+      "unique_token_count": 4,
+      "type_token_ratio": 1.0,
+      "syllable_count": 4,
+      "avg_syllables_per_word": 1.0,
+      "long_word_count": 0
+    },
+    "lexical": {
+      "content_word_count": 2,
+      "function_word_count": 2,
+      "noun_count": 1,
+      "verb_count": 1,
+      "adj_count": 0,
+      "adv_count": 0,
+      "pronoun_count": 1,
+      "prep_count": 0,
+      "finite_verb_count": 1,
+      "auxiliary_verb_count": 0,
+      "out_of_lexicon_count": 4,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": []
+    },
+    "syntactic": {
+      "max_dependency_depth": 2,
+      "avg_dependency_depth": 1.0,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 0,
+      "avg_noun_phrase_length": 1.0,
+      "svo_triplets_available": false,
+      "root_count": 1,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": false
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [],
+      "named_entities": [],
+      "spatial_prepositions": [],
+      "temporal_connectives": [],
+      "action_verbs": [
+        "kick"
+      ],
+      "aligned_protected_units": [
+        {
+          "protected_unit": "kicked",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "girl",
+          "is_aligned": false,
+          "status": "unaligned_warning"
+        },
+        {
+          "protected_unit": "ball",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "passive_voice",
+          "is_aligned": false,
+          "status": "unaligned_warning"
+        }
+      ]
+    }
+  },
+  "processing_status": "success",
+  "text_hash": "115bc185352ea80edc8f11aeaebd23a7944175500751180fee53bddc0fa84082",
+  "feature_hash": "95ba2b50b64dfedf74fc2c472682ae7d388244ef2fb899da69d62b503f20fd4f",
+  "record_hash": "8f6195e653218ffe146d14a0a1dbbf5ca12ee46afcd954b3f5a05fdbef815158"
+}
