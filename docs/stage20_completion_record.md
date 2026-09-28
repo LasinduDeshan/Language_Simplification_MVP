@@ -5,7 +5,7 @@
 **Schema Version:** `1.0.0`  
 **Branch:** `feature/dataset-scoring`  
 **Start Commit:** `1373c085dcdb785462169af18308f7d7143c6a9e`  
-**Final Release Commit:** `6875854c46685114fc633a0064d76addfc18d4a2`  
+**Final Release Commit:** `82f32688be3a21b543f5062a5cd52602c7947d32`  
 **Start Tag:** `stage-20-start`  
 **Completion Tag:** `stage-20-complete`  
 
