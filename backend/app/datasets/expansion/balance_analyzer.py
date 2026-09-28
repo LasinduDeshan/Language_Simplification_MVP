@@ -22,6 +22,7 @@ class BalanceAnalyzer:
         domains = Counter(r.get("primary_domain", "unknown") for r in records)
         diffs = Counter(r.get("source_difficulty") or r.get("original_difficulty") or r.get("difficulty") or "medium" for r in records)
         supports = Counter(r.get("support_level", "unspecified") for r in records)
+        response_modes = Counter(r.get("expected_response_mode", "action") for r in records)
         
         ages = Counter()
         for r in records:
@@ -52,6 +53,7 @@ class BalanceAnalyzer:
             "domain_imbalances": domain_imbalances,
             "difficulty_counts": dict(diffs),
             "support_level_counts": dict(supports),
+            "response_mode_counts": dict(response_modes),
             "age_coverage": dict(sorted(ages.items()))
         }
 
@@ -79,8 +81,14 @@ class BalanceAnalyzer:
                 pct = round((cnt / analysis["total_records"]) * 100, 2)
                 writer.writerow(["support_level", supp, cnt, f"{pct}%", "normal"])
                 
+            # Expected response modes
+            for mode, cnt in analysis["response_mode_counts"].items():
+                pct = round((cnt / analysis["total_records"]) * 100, 2)
+                writer.writerow(["expected_response_mode", mode, cnt, f"{pct}%", "normal"])
+
             # Ages
             for age, cnt in analysis["age_coverage"].items():
                 writer.writerow(["age_coverage", f"age_{age}", cnt, "N/A", "covered"])
                 
         return output_path
+

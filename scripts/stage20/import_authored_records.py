@@ -86,7 +86,7 @@ def get_vocab_items():
             f"In the sentence '{ctx}', what does {hw} mean?",
             f"{hw} means {sim}. Tap the correct meaning.",
             f"1. Read: {hw}.\n2. It means {sim}.\n3. Tap {sim}.",
-            [hw, sim], sim, [sim, "wrong_definition_1", "wrong_definition_2"]
+            [hw], sim, [sim, "wrong_definition_1", "wrong_definition_2"]
         ))
     return items[:75]
 
@@ -121,10 +121,10 @@ def get_grammar_items():
     for sing, pl in plurals:
         items.append((
             "grammar", "plural_selection", 4, 6, "easy",
-            f"Select the proper plural noun for more than one {sing}.",
-            f"Choose the correct plural word for multiple {pl}.",
-            f"Count the {pl}. Choose the plural word: {pl}.",
-            f"1. Count more than one.\n2. Select the word {pl}.",
+            f"Select the proper plural noun for more than one {sing}: {sing} to {pl}.",
+            f"Choose the correct plural word for {sing}: multiple {pl}.",
+            f"Count the {sing}. Choose the plural word for {sing}: {pl}.",
+            f"1. Count more than one {sing}.\n2. Select the plural word: {pl}.",
             [sing, pl], pl, [pl, f"{sing}s", f"{sing}es"]
         ))
 
@@ -143,14 +143,14 @@ def get_grammar_items():
         ))
 
     # 4. Preposition use (15)
-    preps = [("underneath", "under"), ("above", "over"), ("beside", "next to"), ("inside", "in"), ("between", "in the middle of"),
-             ("behind", "in back of"), ("across", "over"), ("through", "into and out of"), ("around", "all about"), ("near", "close to"),
-             ("along", "by the side of"), ("toward", "in the direction of"), ("against", "touching"), ("beneath", "below"), ("beyond", "past")]
+    preps = [("underneath", "underneath"), ("above", "above"), ("beside", "beside"), ("inside", "inside"), ("between", "between"),
+             ("behind", "behind"), ("across", "across"), ("through", "through"), ("around", "around"), ("near", "near"),
+             ("along", "along"), ("toward", "toward"), ("against", "against"), ("beneath", "beneath"), ("beyond", "beyond")]
     for pr, smp in preps:
         items.append((
             "grammar", "preposition_use", 5, 7, "medium",
             f"The curious kitten ran {pr} the wooden fence.",
-            f"The curious kitten ran {smp} the fence.",
+            f"The curious kitten ran {smp} the wooden fence.",
             f"Where did the kitten run? Choose: {pr}.",
             f"1. Find the kitten.\n2. It went {pr} the fence.",
             [pr], pr, [pr, "away", "without"]
@@ -171,7 +171,7 @@ def get_grammar_items():
         ("The bright stars shine during the dark night.", "Stars shine at night.", "Stars shine bright.", "1. Plural stars.\n2. Choose shine.", ["stars", "shine"]),
         ("The friendly teacher explains the math problem.", "Teacher explains the lesson.", "Teacher explains clearly.", "1. One teacher.\n2. Choose explains.", ["teacher", "explains"]),
         ("Five noisy ducks swim in the river.", "Five ducks swim in river.", "Ducks swim together.", "1. Five ducks.\n2. Choose swim.", ["ducks", "swim"]),
-        ("The tall sunflower grows in rich soil.", "Sunflower grows tall.", "Sunflower grows fast.", "1. One sunflower.\n2. Choose grows.", ["sunflower", "grows"]),
+        ("The tall sunflower grows in rich soil.", "Sunflower grows tall in soil.", "Sunflower grows fast in soil.", "1. One sunflower.\n2. Choose grows in soil.", ["sunflower", "grows", "soil"]),
         ("All little kittens purr when stroked gently.", "Kittens purr softly.", "Kittens purr together.", "1. Plural kittens.\n2. Choose purr.", ["kittens", "purr"])
     ]
     for orig, mild, mod, strong, prot in agreements:
@@ -184,15 +184,15 @@ def get_comp_items():
     items = []
     stories = [
         ("Maya found a silver coin under the garden stone.", "Maya found a silver coin under the stone.", "Maya found a coin under a stone. Where was it?", "1. Maya found a coin.\n2. It was under the stone.", ["Maya", "coin", "stone"], "under the stone"),
-        ("Leo planted four sunflower seeds in the warm soil.", "Leo planted four seeds in warm soil.", "Leo planted four seeds in soil. How many seeds?", "1. Leo planted seeds.\n2. He planted four seeds.", ["Leo", "seeds", "soil"], "four"),
-        ("Because it rained hard, the baseball game was cancelled.", "Because of heavy rain, the game was stopped.", "The game stopped because it rained. Why?", "1. Heavy rain fell.\n2. The game was cancelled.", ["rain", "game"], "because of rain"),
-        ("The firefighter climbed the tall ladder to rescue the kitten.", "The firefighter climbed the ladder to save the kitten.", "The firefighter climbed a ladder to help kitten.", "1. Ladder is tall.\n2. Firefighter rescues kitten.", ["firefighter", "ladder", "kitten"], "to rescue the kitten"),
-        ("After washing her hands, Sara ate a warm bowl of soup.", "After washing hands, Sara ate warm soup.", "Sara washed hands first. Then she ate soup.", "1. Wash hands first.\n2. Eat soup next.", ["hands", "Sara", "soup"], "washed hands first"),
-        ("The honeybee carried yellow pollen back to the beehive.", "The bee took yellow pollen to the hive.", "The bee took pollen to hive. Where did it go?", "1. Bee has pollen.\n2. Flies to beehive.", ["bee", "pollen", "hive"], "to the beehive"),
-        ("Oliver wore his heavy winter coat because snow was falling.", "Oliver wore his warm coat because of snow.", "It is snowing. Oliver wears a winter coat.", "1. Snow is falling.\n2. Oliver puts on coat.", ["Oliver", "coat", "snow"], "because of snow"),
-        ("Ben lost his red whistle while hiking in the pine woods.", "Ben lost his whistle in the pine woods.", "Ben dropped his red whistle in the woods.", "1. Ben is hiking.\n2. Lost red whistle in woods.", ["Ben", "whistle", "woods"], "in the pine woods"),
-        ("The mother duck led her seven ducklings across the pond.", "Mother duck led seven ducklings across the pond.", "Mother duck swam with seven ducklings. How many?", "1. Mother duck swims.\n2. Seven ducklings follow.", ["duck", "ducklings", "pond"], "seven"),
-        ("Dad baked chocolate muffins for the school bake sale.", "Dad made chocolate muffins for the school sale.", "Dad baked sweet muffins for school.", "1. Dad baked muffins.\n2. For school bake sale.", ["Dad", "muffins"], "chocolate muffins")
+        ("Leo planted four sunflower seeds in the warm soil.", "Leo planted four seeds in warm soil.", "Leo planted four seeds in warm soil. How many seeds?", "1. Leo planted seeds in soil.\n2. He planted four seeds in soil.", ["Leo", "seeds", "soil"], "four"),
+        ("Because it rained hard, the baseball game was cancelled.", "Because of heavy rain, the game was stopped.", "The game stopped because it rained. Why was game stopped?", "1. Heavy rain fell.\n2. The game was cancelled.", ["rain", "game"], "because of rain"),
+        ("The firefighter climbed the tall ladder to rescue the kitten.", "The firefighter climbed the ladder to save the kitten.", "The firefighter climbed a ladder to help kitten.", "1. Ladder is tall.\n2. Firefighter rescues kitten with ladder.", ["firefighter", "ladder", "kitten"], "to rescue the kitten"),
+        ("After washing her hands, Sara ate a warm bowl of soup.", "After washing hands, Sara ate warm soup.", "Sara washed hands first. Then Sara ate soup.", "1. Sara washes hands first.\n2. Sara eats soup next.", ["hands", "Sara", "soup"], "washed hands first"),
+        ("The honeybee carried yellow pollen back to the beehive.", "The bee took yellow pollen to the hive.", "The bee took pollen to hive. Where did bee go?", "1. Bee has pollen.\n2. Bee flies to hive.", ["bee", "pollen", "hive"], "to the beehive"),
+        ("Oliver wore his heavy winter coat because snow was falling.", "Oliver wore his warm coat in snow.", "It is snowing. Oliver wears a winter coat in snow.", "1. Snow is falling.\n2. Oliver puts on coat in snow.", ["Oliver", "coat", "snow"], "because of snow"),
+        ("Ben lost his red whistle while hiking in the pine woods.", "Ben lost his whistle in the pine woods.", "Ben dropped his red whistle in the woods.", "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.", ["Ben", "whistle", "woods"], "in the pine woods"),
+        ("The mother duck led her seven ducklings across the pond.", "Mother duck led seven ducklings across the pond.", "Mother duck swam in pond with seven ducklings. How many?", "1. Mother duck swims in pond.\n2. Seven ducklings follow in pond.", ["duck", "ducklings", "pond"], "seven"),
+        ("Dad baked chocolate muffins for the school bake sale.", "Dad made chocolate muffins for the school sale.", "Dad baked sweet muffins for school bake sale.", "1. Dad baked muffins.\n2. For school bake sale.", ["Dad", "muffins"], "chocolate muffins")
     ]
     for idx, (orig, mild, mod, strong, prot, ans) in enumerate(stories * 8):
         if len(items) >= 75:
@@ -202,8 +202,8 @@ def get_comp_items():
         items.append((
             "comprehension", "wh_question", amin, amax, "medium" if idx % 2 == 0 else "easy",
             f"{orig} Question {idx+1}: Answer the detail.",
-            f"{mild} Question: What detail is stated?",
-            f"{mod} Answer the question: {ans}.",
+            f"{mild} Question {idx+1}: What detail is stated?",
+            f"{mod} Answer the question {idx+1}: {ans}.",
             f"{strong}\n{idx+1}. Answer is {ans}.",
             prot, ans, [ans, "wrong_option_1", "wrong_option_2"]
         ))
@@ -214,10 +214,10 @@ def get_instruction_items():
     items = []
     actions = [
         ("Before placing the blue circle inside the box, pick up the yellow star.", "Pick up yellow star before putting blue circle in box.", "First pick up yellow star. Then put blue circle in box.", "1. Pick yellow star.\n2. Put blue circle in box.", ["blue circle", "box", "yellow star"]),
-        ("If the square is green, touch the triangle; otherwise, touch the circle.", "If square is green, touch triangle. If not, touch circle.", "Look at square. If green: tap triangle. If not: tap circle.", "1. Is square green?\n2. Yes: tap triangle.\n3. No: tap circle.", ["square", "triangle", "circle"]),
+        ("If the square is green, touch the triangle; if not green, touch the circle.", "If square is green, touch triangle. If not green, touch circle.", "Look at square. If green: tap triangle. If not green: tap circle.", "1. Is square green?\n2. Yes: tap triangle.\n3. If not green: tap circle.", ["square", "triangle", "circle"]),
         ("Drag the smiling sun directly above the snowy mountain.", "Move the smiling sun above the snowy mountain.", "Put smiling sun on top of mountain.", "1. Find sun.\n2. Put above mountain.", ["sun", "mountain"]),
-        ("Count four striped fish and tap each one gently.", "Count four striped fish and tap them.", "Find four striped fish. Tap each one.", "1. Count 4 fish.\n2. Tap each fish.", ["fish"]),
-        ("Select every geometric shape except the red diamond.", "Choose all shapes except the red diamond.", "Tap all shapes. Do NOT tap red diamond.", "1. Find shapes.\n2. Do NOT tap red diamond.", ["red diamond"]),
+        ("Count four striped fish and tap each one gently.", "Count four striped fish and tap them.", "Find four striped fish. Tap each fish.", "1. Count 4 fish.\n2. Tap each fish.", ["fish"]),
+        ("Select every geometric shape except the red diamond.", "Choose all shapes except the red diamond.", "Tap all shapes except red diamond. Do not tap red diamond.", "1. Find shapes except red diamond.\n2. Do not tap red diamond.", ["red diamond"]),
         ("Draw a horizontal line, place a square on it, and add a roof.", "Draw a line, put a square on it, and add a roof.", "First draw a line. Next draw square. Then add roof.", "1. Draw line.\n2. Draw square.\n3. Add roof.", ["line", "square", "roof"]),
         ("Close your book, stand up quietly, and walk to the door.", "Close your book, stand up, and walk to the door.", "1. Close book. 2. Stand up. 3. Walk to door.", "1. Close book.\n2. Stand quietly.\n3. Walk to door.", ["book", "door"]),
         ("Color the fluffy rabbit white and color its carrot orange.", "Color the rabbit white and color its carrot orange.", "Make rabbit white. Make carrot orange.", "1. Color rabbit white.\n2. Color carrot orange.", ["rabbit", "carrot"]),

@@ -27,7 +27,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0150",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -68,7 +68,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0150",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -109,7 +109,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0150",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -134,7 +134,7 @@
     "age_max": 7,
     "support_level": "mild",
     "original_text": "The curious kitten ran underneath the wooden fence.",
-    "simplified_text": "The curious kitten ran under the fence.",
+    "simplified_text": "The curious kitten ran underneath the wooden fence.",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -149,7 +149,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0220",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -190,7 +190,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0220",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -231,7 +231,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0220",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -256,7 +256,7 @@
     "age_max": 7,
     "support_level": "mild",
     "original_text": "Maya found a silver coin under the garden stone. Question 1: Answer the detail.",
-    "simplified_text": "Maya found a silver coin under the stone. Question: What detail is stated?",
+    "simplified_text": "Maya found a silver coin under the stone. Question 1: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -273,7 +273,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0250",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -298,7 +298,7 @@
     "age_max": 7,
     "support_level": "moderate",
     "original_text": "Maya found a silver coin under the garden stone. Question 1: Answer the detail.",
-    "simplified_text": "Maya found a coin under a stone. Where was it? Answer the question: under the stone.",
+    "simplified_text": "Maya found a coin under a stone. Where was it? Answer the question 1: under the stone.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -316,7 +316,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0250",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -359,7 +359,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0250",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -384,7 +384,7 @@
     "age_max": 7,
     "support_level": "mild",
     "original_text": "The curious kitten ran around the wooden fence.",
-    "simplified_text": "The curious kitten ran all about the fence.",
+    "simplified_text": "The curious kitten ran around the wooden fence.",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -399,7 +399,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0228",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -440,7 +440,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0228",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -481,7 +481,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0228",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -521,7 +521,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0328",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -546,7 +546,7 @@
     "age_max": 6,
     "support_level": "moderate",
     "original_text": "Step 4: Count four striped fish and tap each one gently.",
-    "simplified_text": "Step 4: Find four striped fish. Tap each one.",
+    "simplified_text": "Step 4: Find four striped fish. Tap each fish.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -562,7 +562,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0328",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -603,7 +603,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0328",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -643,7 +643,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0160",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -684,7 +684,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0160",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -725,7 +725,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0160",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -766,7 +766,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0177",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -808,7 +808,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0177",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -850,7 +850,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0177",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -890,7 +890,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0140",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -931,7 +931,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0140",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -972,7 +972,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0140",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -996,8 +996,8 @@
     "age_min": 6,
     "age_max": 8,
     "support_level": "mild",
-    "original_text": "Step 42: If the square is green, touch the triangle; otherwise, touch the circle.",
-    "simplified_text": "Step 42: If square is green, touch triangle. If not, touch circle.",
+    "original_text": "Step 42: If the square is green, touch the triangle; if not green, touch the circle.",
+    "simplified_text": "Step 42: If square is green, touch triangle. If not green, touch circle.",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -1014,7 +1014,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0366",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1038,8 +1038,8 @@
     "age_min": 6,
     "age_max": 8,
     "support_level": "moderate",
-    "original_text": "Step 42: If the square is green, touch the triangle; otherwise, touch the circle.",
-    "simplified_text": "Step 42: Look at square. If green: tap triangle. If not: tap circle.",
+    "original_text": "Step 42: If the square is green, touch the triangle; if not green, touch the circle.",
+    "simplified_text": "Step 42: Look at square. If green: tap triangle. If not green: tap circle.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -1057,7 +1057,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0366",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1081,8 +1081,8 @@
     "age_min": 6,
     "age_max": 8,
     "support_level": "strong",
-    "original_text": "Step 42: If the square is green, touch the triangle; otherwise, touch the circle.",
-    "simplified_text": "1. Is square green?\n2. Yes: tap triangle.\n3. No: tap circle.",
+    "original_text": "Step 42: If the square is green, touch the triangle; if not green, touch the circle.",
+    "simplified_text": "1. Is square green?\n2. Yes: tap triangle.\n3. If not green: tap circle.",
     "simplification_operations": [
       "atomic_step_segmentation",
       "direct_imperative"
@@ -1100,7 +1100,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0366",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1140,7 +1140,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0148",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1181,7 +1181,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0148",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1222,7 +1222,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0148",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1247,7 +1247,7 @@
     "age_max": 8,
     "support_level": "mild",
     "original_text": "Dad baked chocolate muffins for the school bake sale. Question 10: Answer the detail.",
-    "simplified_text": "Dad made chocolate muffins for the school sale. Question: What detail is stated?",
+    "simplified_text": "Dad made chocolate muffins for the school sale. Question 10: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -1263,7 +1263,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0259",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1288,7 +1288,7 @@
     "age_max": 8,
     "support_level": "moderate",
     "original_text": "Dad baked chocolate muffins for the school bake sale. Question 10: Answer the detail.",
-    "simplified_text": "Dad baked sweet muffins for school. Answer the question: chocolate muffins.",
+    "simplified_text": "Dad baked sweet muffins for school bake sale. Answer the question 10: chocolate muffins.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -1305,7 +1305,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0259",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1347,7 +1347,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0259",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1372,7 +1372,7 @@
     "age_max": 7,
     "support_level": "mild",
     "original_text": "The curious kitten ran near the wooden fence.",
-    "simplified_text": "The curious kitten ran close to the fence.",
+    "simplified_text": "The curious kitten ran near the wooden fence.",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -1387,7 +1387,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0229",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1428,7 +1428,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0229",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1469,7 +1469,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0229",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1510,7 +1510,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0387",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1552,7 +1552,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0387",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1594,7 +1594,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0387",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1635,7 +1635,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0393",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1677,7 +1677,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0393",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1719,7 +1719,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0393",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1760,7 +1760,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0362",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1802,7 +1802,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0362",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1844,7 +1844,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0362",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1869,7 +1869,7 @@
     "age_max": 7,
     "support_level": "mild",
     "original_text": "Maya found a silver coin under the garden stone. Question 21: Answer the detail.",
-    "simplified_text": "Maya found a silver coin under the stone. Question: What detail is stated?",
+    "simplified_text": "Maya found a silver coin under the stone. Question 21: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -1886,7 +1886,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0270",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1911,7 +1911,7 @@
     "age_max": 7,
     "support_level": "moderate",
     "original_text": "Maya found a silver coin under the garden stone. Question 21: Answer the detail.",
-    "simplified_text": "Maya found a coin under a stone. Where was it? Answer the question: under the stone.",
+    "simplified_text": "Maya found a coin under a stone. Where was it? Answer the question 21: under the stone.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -1929,7 +1929,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0270",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -1972,7 +1972,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0270",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2013,7 +2013,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0344",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2055,7 +2055,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0344",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2097,7 +2097,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0344",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2122,7 +2122,7 @@
     "age_max": 8,
     "support_level": "mild",
     "original_text": "Ben lost his red whistle while hiking in the pine woods. Question 68: Answer the detail.",
-    "simplified_text": "Ben lost his whistle in the pine woods. Question: What detail is stated?",
+    "simplified_text": "Ben lost his whistle in the pine woods. Question 68: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -2139,7 +2139,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0317",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2164,7 +2164,7 @@
     "age_max": 8,
     "support_level": "moderate",
     "original_text": "Ben lost his red whistle while hiking in the pine woods. Question 68: Answer the detail.",
-    "simplified_text": "Ben dropped his red whistle in the woods. Answer the question: in the pine woods.",
+    "simplified_text": "Ben dropped his red whistle in the woods. Answer the question 68: in the pine woods.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -2182,7 +2182,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0317",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2207,7 +2207,7 @@
     "age_max": 8,
     "support_level": "strong",
     "original_text": "Ben lost his red whistle while hiking in the pine woods. Question 68: Answer the detail.",
-    "simplified_text": "1. Ben is hiking.\n2. Lost red whistle in woods.\n68. Answer is in the pine woods.",
+    "simplified_text": "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n68. Answer is in the pine woods.",
     "simplification_operations": [
       "atomic_step_segmentation",
       "direct_imperative"
@@ -2225,7 +2225,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0317",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2266,7 +2266,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0364",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2308,7 +2308,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0364",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2350,7 +2350,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0364",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2392,7 +2392,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0390",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2435,7 +2435,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0390",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2478,7 +2478,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0390",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2518,7 +2518,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0121",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2559,7 +2559,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0121",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2600,7 +2600,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0121",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2640,7 +2640,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0103",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2681,7 +2681,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0103",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2722,7 +2722,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0103",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2762,7 +2762,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0212",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2803,7 +2803,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0212",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2844,7 +2844,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0212",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2885,7 +2885,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0384",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2927,7 +2927,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0384",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2969,7 +2969,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0384",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -2994,7 +2994,7 @@
     "age_max": 7,
     "support_level": "mild",
     "original_text": "Because it rained hard, the baseball game was cancelled. Question 23: Answer the detail.",
-    "simplified_text": "Because of heavy rain, the game was stopped. Question: What detail is stated?",
+    "simplified_text": "Because of heavy rain, the game was stopped. Question 23: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -3010,7 +3010,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0272",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3035,7 +3035,7 @@
     "age_max": 7,
     "support_level": "moderate",
     "original_text": "Because it rained hard, the baseball game was cancelled. Question 23: Answer the detail.",
-    "simplified_text": "The game stopped because it rained. Why? Answer the question: because of rain.",
+    "simplified_text": "The game stopped because it rained. Why was game stopped? Answer the question 23: because of rain.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -3052,7 +3052,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0272",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3094,7 +3094,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0272",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3119,7 +3119,7 @@
     "age_max": 7,
     "support_level": "mild",
     "original_text": "After washing her hands, Sara ate a warm bowl of soup. Question 55: Answer the detail.",
-    "simplified_text": "After washing hands, Sara ate warm soup. Question: What detail is stated?",
+    "simplified_text": "After washing hands, Sara ate warm soup. Question 55: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -3136,7 +3136,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0304",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3161,7 +3161,7 @@
     "age_max": 7,
     "support_level": "moderate",
     "original_text": "After washing her hands, Sara ate a warm bowl of soup. Question 55: Answer the detail.",
-    "simplified_text": "Sara washed hands first. Then she ate soup. Answer the question: washed hands first.",
+    "simplified_text": "Sara washed hands first. Then Sara ate soup. Answer the question 55: washed hands first.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -3179,7 +3179,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0304",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3204,7 +3204,7 @@
     "age_max": 7,
     "support_level": "strong",
     "original_text": "After washing her hands, Sara ate a warm bowl of soup. Question 55: Answer the detail.",
-    "simplified_text": "1. Wash hands first.\n2. Eat soup next.\n55. Answer is washed hands first.",
+    "simplified_text": "1. Sara washes hands first.\n2. Sara eats soup next.\n55. Answer is washed hands first.",
     "simplification_operations": [
       "atomic_step_segmentation",
       "direct_imperative"
@@ -3222,7 +3222,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0304",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3263,7 +3263,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0392",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3305,7 +3305,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0392",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3347,7 +3347,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0392",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3371,8 +3371,8 @@
     "age_min": 4,
     "age_max": 6,
     "support_level": "mild",
-    "original_text": "Select the proper plural noun for more than one foot.",
-    "simplified_text": "Choose the correct plural word for multiple feet.",
+    "original_text": "Select the proper plural noun for more than one foot: foot to feet.",
+    "simplified_text": "Choose the correct plural word for foot: multiple feet.",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -3388,7 +3388,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0201",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3412,8 +3412,8 @@
     "age_min": 4,
     "age_max": 6,
     "support_level": "moderate",
-    "original_text": "Select the proper plural noun for more than one foot.",
-    "simplified_text": "Count the feet. Choose the plural word: feet.",
+    "original_text": "Select the proper plural noun for more than one foot: foot to feet.",
+    "simplified_text": "Count the foot. Choose the plural word for foot: feet.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -3430,7 +3430,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0201",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3454,8 +3454,8 @@
     "age_min": 4,
     "age_max": 6,
     "support_level": "strong",
-    "original_text": "Select the proper plural noun for more than one foot.",
-    "simplified_text": "1. Count more than one.\n2. Select the word feet.",
+    "original_text": "Select the proper plural noun for more than one foot: foot to feet.",
+    "simplified_text": "1. Count more than one foot.\n2. Select the plural word: feet.",
     "simplification_operations": [
       "atomic_step_segmentation",
       "direct_imperative"
@@ -3472,7 +3472,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0201",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3512,7 +3512,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0113",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3553,7 +3553,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0113",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3594,7 +3594,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0113",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3635,7 +3635,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0243",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3677,7 +3677,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0243",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3719,7 +3719,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0243",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3744,7 +3744,7 @@
     "age_max": 8,
     "support_level": "mild",
     "original_text": "Dad baked chocolate muffins for the school bake sale. Question 30: Answer the detail.",
-    "simplified_text": "Dad made chocolate muffins for the school sale. Question: What detail is stated?",
+    "simplified_text": "Dad made chocolate muffins for the school sale. Question 30: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -3760,7 +3760,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0279",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3785,7 +3785,7 @@
     "age_max": 8,
     "support_level": "moderate",
     "original_text": "Dad baked chocolate muffins for the school bake sale. Question 30: Answer the detail.",
-    "simplified_text": "Dad baked sweet muffins for school. Answer the question: chocolate muffins.",
+    "simplified_text": "Dad baked sweet muffins for school bake sale. Answer the question 30: chocolate muffins.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -3802,7 +3802,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0279",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3844,7 +3844,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0279",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3869,7 +3869,7 @@
     "age_max": 8,
     "support_level": "mild",
     "original_text": "Leo planted four sunflower seeds in the warm soil. Question 22: Answer the detail.",
-    "simplified_text": "Leo planted four seeds in warm soil. Question: What detail is stated?",
+    "simplified_text": "Leo planted four seeds in warm soil. Question 22: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -3886,7 +3886,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0271",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3911,7 +3911,7 @@
     "age_max": 8,
     "support_level": "moderate",
     "original_text": "Leo planted four sunflower seeds in the warm soil. Question 22: Answer the detail.",
-    "simplified_text": "Leo planted four seeds in soil. How many seeds? Answer the question: four.",
+    "simplified_text": "Leo planted four seeds in warm soil. How many seeds? Answer the question 22: four.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -3929,7 +3929,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0271",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3954,7 +3954,7 @@
     "age_max": 8,
     "support_level": "strong",
     "original_text": "Leo planted four sunflower seeds in the warm soil. Question 22: Answer the detail.",
-    "simplified_text": "1. Leo planted seeds.\n2. He planted four seeds.\n22. Answer is four.",
+    "simplified_text": "1. Leo planted seeds in soil.\n2. He planted four seeds in soil.\n22. Answer is four.",
     "simplification_operations": [
       "atomic_step_segmentation",
       "direct_imperative"
@@ -3972,7 +3972,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0271",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -3997,7 +3997,7 @@
     "age_max": 8,
     "support_level": "mild",
     "original_text": "Ben lost his red whistle while hiking in the pine woods. Question 8: Answer the detail.",
-    "simplified_text": "Ben lost his whistle in the pine woods. Question: What detail is stated?",
+    "simplified_text": "Ben lost his whistle in the pine woods. Question 8: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -4014,7 +4014,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0257",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4039,7 +4039,7 @@
     "age_max": 8,
     "support_level": "moderate",
     "original_text": "Ben lost his red whistle while hiking in the pine woods. Question 8: Answer the detail.",
-    "simplified_text": "Ben dropped his red whistle in the woods. Answer the question: in the pine woods.",
+    "simplified_text": "Ben dropped his red whistle in the woods. Answer the question 8: in the pine woods.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -4057,7 +4057,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0257",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4082,7 +4082,7 @@
     "age_max": 8,
     "support_level": "strong",
     "original_text": "Ben lost his red whistle while hiking in the pine woods. Question 8: Answer the detail.",
-    "simplified_text": "1. Ben is hiking.\n2. Lost red whistle in woods.\n8. Answer is in the pine woods.",
+    "simplified_text": "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n8. Answer is in the pine woods.",
     "simplification_operations": [
       "atomic_step_segmentation",
       "direct_imperative"
@@ -4100,7 +4100,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0257",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4140,7 +4140,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0115",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4181,7 +4181,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0115",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4222,7 +4222,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0115",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4262,7 +4262,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0116",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4303,7 +4303,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0116",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4344,7 +4344,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0116",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4385,7 +4385,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0371",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4427,7 +4427,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0371",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4469,7 +4469,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553579Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0371",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4494,7 +4494,7 @@
     "age_max": 7,
     "support_level": "mild",
     "original_text": "After washing her hands, Sara ate a warm bowl of soup. Question 5: Answer the detail.",
-    "simplified_text": "After washing hands, Sara ate warm soup. Question: What detail is stated?",
+    "simplified_text": "After washing hands, Sara ate warm soup. Question 5: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -4511,7 +4511,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0254",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4536,7 +4536,7 @@
     "age_max": 7,
     "support_level": "moderate",
     "original_text": "After washing her hands, Sara ate a warm bowl of soup. Question 5: Answer the detail.",
-    "simplified_text": "Sara washed hands first. Then she ate soup. Answer the question: washed hands first.",
+    "simplified_text": "Sara washed hands first. Then Sara ate soup. Answer the question 5: washed hands first.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -4554,7 +4554,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0254",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4579,7 +4579,7 @@
     "age_max": 7,
     "support_level": "strong",
     "original_text": "After washing her hands, Sara ate a warm bowl of soup. Question 5: Answer the detail.",
-    "simplified_text": "1. Wash hands first.\n2. Eat soup next.\n5. Answer is washed hands first.",
+    "simplified_text": "1. Sara washes hands first.\n2. Sara eats soup next.\n5. Answer is washed hands first.",
     "simplification_operations": [
       "atomic_step_segmentation",
       "direct_imperative"
@@ -4597,7 +4597,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0254",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4622,7 +4622,7 @@
     "age_max": 8,
     "support_level": "mild",
     "original_text": "Dad baked chocolate muffins for the school bake sale. Question 70: Answer the detail.",
-    "simplified_text": "Dad made chocolate muffins for the school sale. Question: What detail is stated?",
+    "simplified_text": "Dad made chocolate muffins for the school sale. Question 70: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -4638,7 +4638,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0319",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4663,7 +4663,7 @@
     "age_max": 8,
     "support_level": "moderate",
     "original_text": "Dad baked chocolate muffins for the school bake sale. Question 70: Answer the detail.",
-    "simplified_text": "Dad baked sweet muffins for school. Answer the question: chocolate muffins.",
+    "simplified_text": "Dad baked sweet muffins for school bake sale. Answer the question 70: chocolate muffins.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -4680,7 +4680,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0319",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4722,7 +4722,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0319",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4747,7 +4747,7 @@
     "age_max": 7,
     "support_level": "mild",
     "original_text": "Because it rained hard, the baseball game was cancelled. Question 13: Answer the detail.",
-    "simplified_text": "Because of heavy rain, the game was stopped. Question: What detail is stated?",
+    "simplified_text": "Because of heavy rain, the game was stopped. Question 13: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -4763,7 +4763,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0262",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4788,7 +4788,7 @@
     "age_max": 7,
     "support_level": "moderate",
     "original_text": "Because it rained hard, the baseball game was cancelled. Question 13: Answer the detail.",
-    "simplified_text": "The game stopped because it rained. Why? Answer the question: because of rain.",
+    "simplified_text": "The game stopped because it rained. Why was game stopped? Answer the question 13: because of rain.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -4805,7 +4805,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0262",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4847,7 +4847,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0262",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4871,8 +4871,8 @@
     "age_min": 6,
     "age_max": 8,
     "support_level": "mild",
-    "original_text": "Step 12: If the square is green, touch the triangle; otherwise, touch the circle.",
-    "simplified_text": "Step 12: If square is green, touch triangle. If not, touch circle.",
+    "original_text": "Step 12: If the square is green, touch the triangle; if not green, touch the circle.",
+    "simplified_text": "Step 12: If square is green, touch triangle. If not green, touch circle.",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -4889,7 +4889,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0336",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4913,8 +4913,8 @@
     "age_min": 6,
     "age_max": 8,
     "support_level": "moderate",
-    "original_text": "Step 12: If the square is green, touch the triangle; otherwise, touch the circle.",
-    "simplified_text": "Step 12: Look at square. If green: tap triangle. If not: tap circle.",
+    "original_text": "Step 12: If the square is green, touch the triangle; if not green, touch the circle.",
+    "simplified_text": "Step 12: Look at square. If green: tap triangle. If not green: tap circle.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -4932,7 +4932,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0336",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -4956,8 +4956,8 @@
     "age_min": 6,
     "age_max": 8,
     "support_level": "strong",
-    "original_text": "Step 12: If the square is green, touch the triangle; otherwise, touch the circle.",
-    "simplified_text": "1. Is square green?\n2. Yes: tap triangle.\n3. No: tap circle.",
+    "original_text": "Step 12: If the square is green, touch the triangle; if not green, touch the circle.",
+    "simplified_text": "1. Is square green?\n2. Yes: tap triangle.\n3. If not green: tap circle.",
     "simplification_operations": [
       "atomic_step_segmentation",
       "direct_imperative"
@@ -4975,7 +4975,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0336",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5000,7 +5000,7 @@
     "age_max": 7,
     "support_level": "mild",
     "original_text": "After washing her hands, Sara ate a warm bowl of soup. Question 25: Answer the detail.",
-    "simplified_text": "After washing hands, Sara ate warm soup. Question: What detail is stated?",
+    "simplified_text": "After washing hands, Sara ate warm soup. Question 25: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -5017,7 +5017,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0274",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5042,7 +5042,7 @@
     "age_max": 7,
     "support_level": "moderate",
     "original_text": "After washing her hands, Sara ate a warm bowl of soup. Question 25: Answer the detail.",
-    "simplified_text": "Sara washed hands first. Then she ate soup. Answer the question: washed hands first.",
+    "simplified_text": "Sara washed hands first. Then Sara ate soup. Answer the question 25: washed hands first.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -5060,7 +5060,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0274",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5085,7 +5085,7 @@
     "age_max": 7,
     "support_level": "strong",
     "original_text": "After washing her hands, Sara ate a warm bowl of soup. Question 25: Answer the detail.",
-    "simplified_text": "1. Wash hands first.\n2. Eat soup next.\n25. Answer is washed hands first.",
+    "simplified_text": "1. Sara washes hands first.\n2. Sara eats soup next.\n25. Answer is washed hands first.",
     "simplification_operations": [
       "atomic_step_segmentation",
       "direct_imperative"
@@ -5103,7 +5103,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0274",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5145,7 +5145,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0350",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5188,7 +5188,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0350",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5231,7 +5231,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.553054Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-INS-0350",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5271,7 +5271,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0210",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5312,7 +5312,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0210",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5353,7 +5353,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-GRA-0210",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5393,7 +5393,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0112",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5434,7 +5434,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0112",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5475,7 +5475,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-VOC-0112",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5500,7 +5500,7 @@
     "age_max": 8,
     "support_level": "mild",
     "original_text": "Ben lost his red whistle while hiking in the pine woods. Question 18: Answer the detail.",
-    "simplified_text": "Ben lost his whistle in the pine woods. Question: What detail is stated?",
+    "simplified_text": "Ben lost his whistle in the pine woods. Question 18: What detail is stated?",
     "simplification_operations": [
       "lexical_substitution"
     ],
@@ -5517,7 +5517,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0267",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5542,7 +5542,7 @@
     "age_max": 8,
     "support_level": "moderate",
     "original_text": "Ben lost his red whistle while hiking in the pine woods. Question 18: Answer the detail.",
-    "simplified_text": "Ben dropped his red whistle in the woods. Answer the question: in the pine woods.",
+    "simplified_text": "Ben dropped his red whistle in the woods. Answer the question 18: in the pine woods.",
     "simplification_operations": [
       "sentence_splitting",
       "temporal_reordering"
@@ -5560,7 +5560,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0267",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",
@@ -5585,7 +5585,7 @@
     "age_max": 8,
     "support_level": "strong",
     "original_text": "Ben lost his red whistle while hiking in the pine woods. Question 18: Answer the detail.",
-    "simplified_text": "1. Ben is hiking.\n2. Lost red whistle in woods.\n18. Answer is in the pine woods.",
+    "simplified_text": "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n18. Answer is in the pine woods.",
     "simplification_operations": [
       "atomic_step_segmentation",
       "direct_imperative"
@@ -5603,7 +5603,7 @@
     "provenance": {
       "authoring_method": "human_authored_with_ai_assistance",
       "created_by": "research_team_author_01",
-      "created_at": "2026-09-27T04:55:07.552053Z",
+      "created_at": "2026-09-28T07:18:53.830019Z",
       "source_record_id": "SRC-EN-COM-0267",
       "parent_record_id": null,
       "generation_model": "gemini-1.5-flash",

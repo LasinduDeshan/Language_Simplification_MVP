@@ -1,13 +1,18 @@
 accounting_tier,metric_name,count,percentage,reconciliation_status
-Tier 1: Authoring,Total Submitted Records,1712,100.0%,RECONCILED
-Tier 1: Authoring,Accepted for Import,1712,100.0%,RECONCILED
-Tier 1: Authoring,Rejected Before Import,0,0.0%,RECONCILED
-Tier 1: Authoring,Pre-Import Manual Review,0,0.0%,RECONCILED
-Tier 2: Validation,Total Imported Records,1712,100.0%,RECONCILED
-Tier 2: Validation,Automatic Quality Pass,1712,100.0%,RECONCILED
-Tier 2: Validation,Automatic Quality Fail,0,0.0%,RECONCILED
-Tier 2: Validation,Manual Review Required,0,0.0%,RECONCILED
-Tier 2: Validation,Quarantined,0,0.0%,RECONCILED
+Tier 0: Cumulative Governed Repository,v0.1.0 Carried Pairs,210,18.9%,CARRIED_FORWARD
+Tier 0: Cumulative Governed Repository,Stage 20 Authored Pairs,900,81.1%,NEWLY_AUTHORED
+Tier 0: Cumulative Governed Repository,v0.2.0 Total Released Pairs,1110,100.0%,RECONCILED
+Tier 0: Cumulative Governed Repository,v0.2.0 Total Adaptation Activities,192,100.0%,RECONCILED
+Tier 0: Cumulative Governed Repository,v0.2.0 Total Lexicon Entries,378,100.0%,RECONCILED
+Tier 1: Stage 20 Authoring,Total Submitted Records,1712,100.0%,RECONCILED
+Tier 1: Stage 20 Authoring,Accepted for Import,1712,100.0%,RECONCILED
+Tier 1: Stage 20 Authoring,Rejected Before Import,0,0.0%,RECONCILED
+Tier 1: Stage 20 Authoring,Pre-Import Manual Review,0,0.0%,RECONCILED
+Tier 2: Validation Gate,Total Imported Records,1712,100.0%,RECONCILED
+Tier 2: Validation Gate,Automatic Quality Pass (Post-Correction),1712,100.0%,RECONCILED
+Tier 2: Validation Gate,Automatic Quality Fail,0,0.0%,RECONCILED
+Tier 2: Validation Gate,Manual Review Required,0,0.0%,RECONCILED
+Tier 2: Validation Gate,Quarantined,0,0.0%,RECONCILED
 Tier 3: Release Splits,Total Candidate Pairs,900,100.0%,RECONCILED
 Tier 3: Release Splits,development_candidate_train,630,70.0%,RECONCILED
 Tier 3: Release Splits,development_candidate_validation,135,15.0%,RECONCILED
