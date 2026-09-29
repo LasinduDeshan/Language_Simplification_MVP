@@ -44,9 +44,28 @@ If $\text{maximum\_valid\_folds} < 3$, Stage 22 **pauses for annotation** and st
 
 ## 4. Current Stage 22 Governance Status
 
+### 4.1 Gate Dispositions
+- **Primary Tier-1 Training Gate:** **NOT PASSED**
+  - **Reason:** 0 `expert_verified` or `reviewer_consensus` labels
+- **Secondary Provisional-Label Pilot Gate:** **PASSED**
+  - **Pilot Labels Available:** 1,440
+  - **Pilot Labels Eligible After Higher-Precedence Exclusions:** 1,430
+
+The trained B0–B5 models are secondary pilot models trained to reproduce provisional author labels—not validated difficulty classifiers.
+
+### 4.2 Governance Attributes
 Because the available Stage 20 educational corpus records hold draft authoring metadata (`validation_status: "draft"`, `requires_expert_review: true`), all labels are classified as **`provisional`**:
 
-- `approved_for_child_delivery = false`
-- `research_eligible = false`
-- `requires_expert_validation = true`
+```json
+{
+  "model_status": "provisional_label_pilot",
+  "ground_truth_status": "not_expert_validated",
+  "approved_for_child_delivery": false,
+  "research_eligible": false,
+  "production_inference_enabled": false,
+  "requires_expert_validation": true
+}
+```
+
 - Characterization: **Stage 22 completed as an internal pilot complexity classifier.**
+

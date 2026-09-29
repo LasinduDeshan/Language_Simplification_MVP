@@ -5,10 +5,22 @@
   "feature_schema_version": "1.0.0",
   "source_dataset_version": "0.2.0",
   "preprocessing_pipeline_version": "1.0.0",
-  "evaluation_tier": "internal_pilot_sensitivity",
+  "model_status": "provisional_label_pilot",
+  "ground_truth_status": "not_expert_validated",
+  "approved_for_child_delivery": false,
+  "research_eligible": false,
+  "production_inference_enabled": false,
+  "primary_tier1_training_gate": "NOT PASSED",
+  "primary_tier1_gate_reason": "0 expert_verified or reviewer_consensus labels",
+  "secondary_pilot_gate": "PASSED",
+  "pilot_labels_available": 1440,
+  "pilot_labels_eligible_after_exclusions": 1430,
   "governance_status": {
+    "model_status": "provisional_label_pilot",
+    "ground_truth_status": "not_expert_validated",
     "approved_for_child_delivery": false,
     "research_eligible": false,
+    "production_inference_enabled": false,
     "requires_expert_validation": true
   },
   "total_files": 14,
@@ -26,7 +38,7 @@
       "size_bytes": 956
     },
     "development_results/validation_predictions.json": {
-      "sha256": "ee7476bb84f67db83eaeb0c30545c477409ad72157df59ebb13f99fa2c840b34",
+      "sha256": "cb2da976f2bde6da8d43feda262e81107e2104ab281a581d42197029e6f71d6c",
       "size_bytes": 515451
     },
     "feature_registry/feature_allowlist.json": {
@@ -58,8 +70,8 @@
       "size_bytes": 662354
     },
     "reports/complexity_release_summary.md": {
-      "sha256": "6eb81a8991c5e3201b8c4448f176e77ab7d791332e7833846313b9ef3763862b",
-      "size_bytes": 2745
+      "sha256": "3e08051119ceb80b4f3e2db34ee9bea63e77d77277c1afb2af3f67e6caa2a2f7",
+      "size_bytes": 6478
     },
     "reports/eligibility_accounting.csv": {
       "sha256": "7148a831ac1ea7f130d2e25bd4ad7c9da9e7165e12d3ce6178708b07b4402188",
