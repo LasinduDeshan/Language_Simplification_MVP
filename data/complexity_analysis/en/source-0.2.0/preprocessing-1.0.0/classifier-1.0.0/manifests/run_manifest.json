@@ -5,23 +5,29 @@
   "feature_schema_version": "1.0.0",
   "source_dataset_version": "0.2.0",
   "preprocessing_pipeline_version": "1.0.0",
-  "total_files": 13,
+  "evaluation_tier": "internal_pilot_sensitivity",
+  "governance_status": {
+    "approved_for_child_delivery": false,
+    "research_eligible": false,
+    "requires_expert_validation": true
+  },
+  "total_files": 14,
   "files": {
     "development_results/confusion_matrix.csv": {
-      "sha256": "bfe3fbcb79c57f9260ca7422fcf8f0a135b82b4fc9a40338d19d50e7b32e2fb7",
+      "sha256": "038df0e2fd7d5a60735c0e070f52d42255a469db29ea5db2c72a1c1936ecc2b1",
       "size_bytes": 95
     },
     "development_results/error_analysis.csv": {
-      "sha256": "0082531b35da22ce60a22051f96f7c8e98d163382f05695eb3a3823a3cc10e4e",
-      "size_bytes": 8217
+      "sha256": "549fff1e197d3c6a9d7b128e1f12e65189847ac469e1e6aa0de2b853a14422c6",
+      "size_bytes": 8178
     },
     "development_results/model_comparison.csv": {
-      "sha256": "127c21429467b7bb45e4b8e5e6554b26d718528e63cc593ac150d905ea2d37ec",
-      "size_bytes": 955
+      "sha256": "296774dd48d6d7f84ed7f9ea83958bf2cac6c89df13a386e6a5f5c443e30dd3e",
+      "size_bytes": 956
     },
     "development_results/validation_predictions.json": {
-      "sha256": "6407c555aa22cdcb8d3f590440af98e38408f94600f0cc6a9b3240de4b2258bd",
-      "size_bytes": 513086
+      "sha256": "ee7476bb84f67db83eaeb0c30545c477409ad72157df59ebb13f99fa2c840b34",
+      "size_bytes": 515451
     },
     "feature_registry/feature_allowlist.json": {
       "sha256": "89389f67d948ff810d5718d7c761b99f9d02fb8cf78d47791c60e11d1aa04b12",
@@ -36,8 +42,8 @@
       "size_bytes": 2326
     },
     "models/calibration_model.joblib": {
-      "sha256": "7255d8ca1a125dee1bbf4e8f71a6f40f3cdde547ca5522389bc15e647f873b50",
-      "size_bytes": 1605
+      "sha256": "cd5e8a53c194cec1a65d14d02fe170a69b6bea512a20bc7a932b29259ed93965",
+      "size_bytes": 1701
     },
     "models/ood_detector.joblib": {
       "sha256": "bd92e727f17d62621bcde71379a000e725eaa400052fd28a7d2f9e78831589ab",
@@ -48,16 +54,20 @@
       "size_bytes": 1824
     },
     "models/selected_model.joblib": {
-      "sha256": "55716d7b4a0a5f8a5c95dd48d72517fcab5917853a44959257a48dc49e815de5",
-      "size_bytes": 433016
+      "sha256": "15a28c3552d1cc1f27c0528b8bda493d1d72dd229c0c53bd2979e42f144fdcf8",
+      "size_bytes": 662354
+    },
+    "reports/complexity_release_summary.md": {
+      "sha256": "6eb81a8991c5e3201b8c4448f176e77ab7d791332e7833846313b9ef3763862b",
+      "size_bytes": 2745
     },
     "reports/eligibility_accounting.csv": {
-      "sha256": "1d8c21f9aa0710884575dad8d7fb0a9f9823e3b13fc127d77432752e532ca249",
-      "size_bytes": 687256
+      "sha256": "7148a831ac1ea7f130d2e25bd4ad7c9da9e7165e12d3ce6178708b07b4402188",
+      "size_bytes": 800088
     },
     "reports/label_audit.csv": {
-      "sha256": "340679a3699d6e9171a1310b38d5291d2b648abaa18e09753eddd13aab3a7261",
-      "size_bytes": 642598
+      "sha256": "6260dbcf0a603e4e25aab8ef77859a6095d20ace114358927ccd76ba60100831",
+      "size_bytes": 949525
     }
   }
 }

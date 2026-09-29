@@ -1,4 +1,4 @@
-"""Repository for loading, mapping, and governing difficulty labels for Stage 22."""
+"""Repository for loading, mapping, and governing difficulty labels and provenance for Stage 22."""
 
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -7,7 +7,7 @@ import glob
 
 
 class LabelRepository:
-    """Loads and indexes difficulty labels across source items and simplification pairs."""
+    """Loads and indexes difficulty labels with rigorous provenance and tier tracking."""
 
     def __init__(
         self,
@@ -21,7 +21,7 @@ class LabelRepository:
         self._loaded = False
 
     def load_all_labels(self) -> None:
-        """Loads and indexes all label metadata from disk."""
+        """Loads and indexes all label metadata from disk with explicit provenance."""
         # 1. Load source items & simplification pairs from authoring batches
         batch_files = glob.glob(str(self.authoring_batches_dir / "*.json"))
         for bf in batch_files:
@@ -34,11 +34,23 @@ class LabelRepository:
                         sid = item.get("source_item_id")
                         if sid:
                             diff = item.get("source_difficulty", "medium").lower()
+                            # Check if formal expert review was performed
+                            is_draft = item.get("validation_status") == "draft" or item.get("requires_expert_review", True)
+                            tier = "provisional_author" if is_draft else "expert"
+                            label_status = "provisional" if is_draft else "expert_verified"
+
                             self._source_labels[sid] = {
                                 "assigned_difficulty": diff,
-                                "annotator_tier": "reviewer_consensus",
+                                "annotator_tier": tier,
+                                "label_status": label_status,
                                 "provenance_source": f"authoring_batch:{batch_id}",
                                 "source_group_id": sid,
+                                "reviewer_reference": "None (Draft authoring item awaiting expert panel review)" if is_draft else "EXP-01",
+                                "reviewer_role": "provisional_author" if is_draft else "expert_linguist",
+                                "annotation_guideline_version": "v1.0.0-draft",
+                                "reviewed_at": None,
+                                "agreement_status": "single_author_provisional" if is_draft else "consensus",
+                                "adjudication_status": "pending_expert_adjudication" if is_draft else "adjudicated",
                             }
 
                     for pair in data.get("simplification_pairs", []):
@@ -46,17 +58,28 @@ class LabelRepository:
                         if pid:
                             orig_diff = pair.get("source_difficulty") or pair.get("original_difficulty") or "medium"
                             simp_diff = pair.get("simplified_difficulty") or pair.get("target_difficulty")
+                            is_draft = pair.get("validation_status") == "draft" or pair.get("requires_expert_review", True)
+                            tier = "provisional_author" if is_draft else "expert"
+                            label_status = "provisional" if is_draft else "expert_verified"
+
                             self._simp_labels[pid] = {
                                 "original_difficulty": str(orig_diff).lower(),
                                 "simplified_difficulty": str(simp_diff).lower() if simp_diff else None,
-                                "annotator_tier": "reviewer_consensus",
+                                "annotator_tier": tier,
+                                "label_status": label_status,
                                 "provenance_source": f"authoring_batch:{batch_id}",
                                 "source_group_id": pair.get("source_item_id") or pid,
+                                "reviewer_reference": "None (Draft authoring item awaiting expert panel review)" if is_draft else "EXP-01",
+                                "reviewer_role": "provisional_author" if is_draft else "expert_linguist",
+                                "annotation_guideline_version": "v1.0.0-draft",
+                                "reviewed_at": None,
+                                "agreement_status": "single_author_provisional" if is_draft else "consensus",
+                                "adjudication_status": "pending_expert_adjudication" if is_draft else "adjudicated",
                             }
-            except Exception as e:
+            except Exception:
                 pass
 
-        # 2. Load release simplification corpus (1,110 pairs)
+        # 2. Load release simplification corpus
         if self.simplification_corpus_path.exists():
             try:
                 with open(self.simplification_corpus_path, "r", encoding="utf-8") as f:
@@ -72,15 +95,28 @@ class LabelRepository:
                             if hasattr(simp_diff, "value"):
                                 simp_diff = simp_diff.value
 
-                            # Index both raw PID and normalized if needed
+                            # Check review block in pair
+                            review_block = p.get("review", {})
+                            has_reviewer = review_block.get("reviewer_id") is not None
+
+                            tier = "expert" if has_reviewer else "provisional_author"
+                            label_status = "expert_verified" if has_reviewer else "provisional"
+
                             self._simp_labels[pid] = {
                                 "original_difficulty": str(orig_diff).lower(),
                                 "simplified_difficulty": str(simp_diff).lower() if simp_diff else None,
-                                "annotator_tier": "expert",
+                                "annotator_tier": tier,
+                                "label_status": label_status,
                                 "provenance_source": "simplification_corpus_release_0.2.0",
                                 "source_group_id": p.get("source_item_id") or p.get("source_record_id") or pid,
+                                "reviewer_reference": review_block.get("reviewer_id") or "None (Draft authoring item awaiting expert panel review)",
+                                "reviewer_role": review_block.get("reviewer_role") or "provisional_author",
+                                "annotation_guideline_version": "v1.0.0-draft",
+                                "reviewed_at": review_block.get("reviewed_at"),
+                                "agreement_status": "single_author_provisional" if not has_reviewer else "consensus",
+                                "adjudication_status": "pending_expert_adjudication" if not has_reviewer else "adjudicated",
                             }
-            except Exception as e:
+            except Exception:
                 pass
 
         self._loaded = True
@@ -92,7 +128,7 @@ class LabelRepository:
         parent_record_type: str,
         text_role: str,
     ) -> Dict[str, Any]:
-        """Resolves the difficulty label and provenance for an individual text instance."""
+        """Resolves the difficulty label and full provenance for an individual text instance."""
         if not self._loaded:
             self.load_all_labels()
 
@@ -110,22 +146,28 @@ class LabelRepository:
                     return {
                         "assigned_difficulty": diff,
                         "annotator_tier": pair_info["annotator_tier"],
+                        "label_status": pair_info["label_status"],
                         "provenance_source": pair_info["provenance_source"],
                         "source_group_id": pair_info["source_group_id"],
-                    }
-                else:
-                    # Simplified text without independent expert label -> provisional or unannotated
-                    return {
-                        "assigned_difficulty": None,
-                        "annotator_tier": "none",
-                        "provenance_source": pair_info["provenance_source"],
-                        "source_group_id": pair_info["source_group_id"],
+                        "reviewer_reference": pair_info["reviewer_reference"],
+                        "reviewer_role": pair_info["reviewer_role"],
+                        "annotation_guideline_version": pair_info["annotation_guideline_version"],
+                        "reviewed_at": pair_info["reviewed_at"],
+                        "agreement_status": pair_info["agreement_status"],
+                        "adjudication_status": pair_info["adjudication_status"],
                     }
 
         # Fallback / missing
         return {
             "assigned_difficulty": None,
             "annotator_tier": "none",
+            "label_status": "missing",
             "provenance_source": "unassigned",
             "source_group_id": parent_record_id,
+            "reviewer_reference": "N/A",
+            "reviewer_role": "none",
+            "annotation_guideline_version": "v1.0.0-draft",
+            "reviewed_at": None,
+            "agreement_status": "unlabeled",
+            "adjudication_status": "not_applicable",
         }

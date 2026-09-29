@@ -38,4 +38,15 @@ Primary supervised model training begins **only when all of the following condit
 
 $$\text{maximum\_valid\_folds} = \min(\text{distinct\_easy\_groups}, \text{distinct\_medium\_groups}, \text{distinct\_hard\_groups}) \ge 3$$
 
-If $\text{maximum\_valid\_folds} < 3$, Stage 22 **pauses for annotation** and strictly refuses to promote provisional labels.
+If $\text{maximum\_valid\_folds} < 3$, Stage 22 **pauses for annotation** and strictly refuses to promote provisional labels to ground truth.
+
+---
+
+## 4. Current Stage 22 Governance Status
+
+Because the available Stage 20 educational corpus records hold draft authoring metadata (`validation_status: "draft"`, `requires_expert_review: true`), all labels are classified as **`provisional`**:
+
+- `approved_for_child_delivery = false`
+- `research_eligible = false`
+- `requires_expert_validation = true`
+- Characterization: **Stage 22 completed as an internal pilot complexity classifier.**

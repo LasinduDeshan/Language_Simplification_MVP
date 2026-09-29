@@ -25,8 +25,14 @@ class LabelAuditor:
         annotator_tier: str,
         provenance_source: str,
         derived_from_rule_heuristic: bool = False,
+        reviewer_reference: str = "None (Draft authoring item awaiting expert panel review)",
+        reviewer_role: str = "provisional_author",
+        annotation_guideline_version: str = "v1.0.0-draft",
+        reviewed_at: Optional[str] = None,
+        agreement_status: str = "single_author_provisional",
+        adjudication_status: str = "pending_expert_adjudication",
     ) -> LabelAuditRecord:
-        """Audits a single label and returns an immutable LabelAuditRecord."""
+        """Audits a single label and returns an immutable LabelAuditRecord with complete provenance."""
         if not assigned_difficulty or assigned_difficulty not in ("easy", "medium", "hard"):
             label_status: LabelStatus = "missing"
             tier = "none"
@@ -57,6 +63,12 @@ class LabelAuditor:
             label_status=label_status,
             annotator_tier=tier,  # type: ignore
             provenance_source=provenance_source,
+            reviewer_reference=reviewer_reference,
+            reviewer_role=reviewer_role,
+            annotation_guideline_version=annotation_guideline_version,
+            reviewed_at=reviewed_at,
+            agreement_status=agreement_status,
+            adjudication_status=adjudication_status,
             rule_seeded_detected=derived_from_rule_heuristic,
             circular_leakage_risk=circular_risk,
             audit_notes=f"Audited via LabelAuditor (status={label_status})",
@@ -65,6 +77,7 @@ class LabelAuditor:
     def evaluate_label_sufficiency(
         self,
         records: List[Dict[str, Any]],
+        tier_1_only: bool = True,
     ) -> Tuple[bool, int, Dict[DifficultyLabel, int], Optional[str]]:
         """Evaluates whether enough independent source groups exist per class for group-aware CV.
 
@@ -76,9 +89,10 @@ class LabelAuditor:
         hard_groups: Set[str] = set()
 
         for rec in records:
-            status = rec.get("label_status")
-            if status not in ("expert_verified", "reviewer_consensus"):
-                continue
+            if tier_1_only:
+                status = rec.get("label_status")
+                if status not in ("expert_verified", "reviewer_consensus"):
+                    continue
 
             diff = rec.get("assigned_difficulty") or rec.get("difficulty")
             group_id = rec.get("source_group_id") or rec.get("parent_record_id")
@@ -102,7 +116,7 @@ class LabelAuditor:
         # Check all 3 classes represented
         if group_counts["easy"] == 0 or group_counts["medium"] == 0 or group_counts["hard"] == 0:
             msg = (
-                f"Missing class representation in Tier 1 labels: "
+                f"Missing class representation in {'Tier 1' if tier_1_only else 'provisional'} labels: "
                 f"easy={group_counts['easy']}, medium={group_counts['medium']}, hard={group_counts['hard']}. "
                 f"Stage 22 paused for annotation."
             )
@@ -120,7 +134,7 @@ class LabelAuditor:
             return False, maximum_valid_folds, group_counts, msg
 
         msg = (
-            f"Label sufficiency verified: {maximum_valid_folds} valid folds supported "
+            f"Label sufficiency verified ({'Tier 1' if tier_1_only else 'Pilot Level'}): {maximum_valid_folds} valid folds supported "
             f"(easy={group_counts['easy']}, medium={group_counts['medium']}, hard={group_counts['hard']})."
         )
         return True, maximum_valid_folds, group_counts, msg

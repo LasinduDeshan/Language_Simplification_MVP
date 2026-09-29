@@ -66,6 +66,12 @@ class LabelAuditRecord(BaseModel):
     label_status: LabelStatus
     annotator_tier: Literal["expert", "reviewer_consensus", "provisional_author", "heuristic_rule", "none"]
     provenance_source: str
+    reviewer_reference: str = "None (Draft authoring item awaiting expert panel review)"
+    reviewer_role: str = "provisional_author"
+    annotation_guideline_version: str = "v1.0.0-draft"
+    reviewed_at: Optional[str] = None
+    agreement_status: str = "single_author_provisional"
+    adjudication_status: str = "pending_expert_adjudication"
     rule_seeded_detected: bool = False
     circular_leakage_risk: bool = False
     audit_notes: Optional[str] = None

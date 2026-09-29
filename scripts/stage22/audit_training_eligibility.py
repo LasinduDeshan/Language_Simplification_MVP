@@ -38,25 +38,14 @@ def main():
         )
 
         assigned_diff = label_info.get("assigned_difficulty")
-        annotator_tier = label_info.get("annotator_tier", "none")
+        label_status = label_info.get("label_status", "missing")
 
-        if assigned_diff and annotator_tier in ("expert", "reviewer_consensus"):
-            lbl_status = "expert_verified" if annotator_tier == "expert" else "reviewer_consensus"
-        elif assigned_diff and annotator_tier == "provisional_author":
-            lbl_status = "provisional"
-        elif assigned_diff and annotator_tier == "heuristic_rule":
-            lbl_status = "rule_seeded"
-        else:
-            lbl_status = "missing"
-
-        # Check Stage 21 manual review flag if present
-        manual_review = r.get("manual_review_required", False)
-        if isinstance(manual_review, str):
-            manual_review = manual_review.lower() in ("true", "1", "yes")
+        # Stage 21 manual review flag loaded from feature repository
+        manual_review = bool(r.get("manual_review_required", False))
 
         elig = evaluate_record_eligibility(
             record=r,
-            label_status=lbl_status,  # type: ignore
+            label_status=label_status,  # type: ignore
             manual_review_required=manual_review,
         )
 
