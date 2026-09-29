@@ -1,6 +1,6 @@
 [
   {
-    "classification_id": "CLS-1261605FF4DD",
+    "classification_id": "CLS-CBDA04FC4941",
     "text_instance_id": "SIMP-EN-000333__ORIG",
     "source_group_id": "SIMP-EN-000333",
     "predicted_difficulty": "medium",
@@ -56,7 +56,7 @@
     "record_hash": "c3b875a9091d5ada94f9ddf6c2c48d99537079c99afc6924861e74733a9e85fa"
   },
   {
-    "classification_id": "CLS-615A1D03519E",
+    "classification_id": "CLS-792CA49F6DB4",
     "text_instance_id": "SIMP-EN-000333__SIMP",
     "source_group_id": "SIMP-EN-000333",
     "predicted_difficulty": "easy",
@@ -124,7 +124,7 @@
     "record_hash": "654f98a1cf5593167fba889a32f068c3a1c2b64214ca1df86d85fbffcdedda2e"
   },
   {
-    "classification_id": "CLS-869EC994AA5C",
+    "classification_id": "CLS-6AD2A000A967",
     "text_instance_id": "SIMP-EN-000334__ORIG",
     "source_group_id": "SIMP-EN-000334",
     "predicted_difficulty": "medium",
@@ -180,7 +180,7 @@
     "record_hash": "39febeb0f3d6d97c890a0a6976496cdcbc7728e33e6b7efd40a8f0718de6733b"
   },
   {
-    "classification_id": "CLS-E77786535F29",
+    "classification_id": "CLS-C0C0104B302E",
     "text_instance_id": "SIMP-EN-000334__SIMP",
     "source_group_id": "SIMP-EN-000334",
     "predicted_difficulty": "easy",
@@ -248,7 +248,7 @@
     "record_hash": "7640eac4d270095f89d9943ee959994276eb4e0c1b763f42ac59e827eb918a2f"
   },
   {
-    "classification_id": "CLS-C4C86FEA0454",
+    "classification_id": "CLS-45FEF699DB8C",
     "text_instance_id": "SIMP-EN-000335__ORIG",
     "source_group_id": "SIMP-EN-000335",
     "predicted_difficulty": "medium",
@@ -304,7 +304,7 @@
     "record_hash": "93df4cea94cf1a45c710ca732a63f344e29e03991c288547fc569a9a817b0e3b"
   },
   {
-    "classification_id": "CLS-73249BE3A6EC",
+    "classification_id": "CLS-F5D056A91197",
     "text_instance_id": "SIMP-EN-000335__SIMP",
     "source_group_id": "SIMP-EN-000335",
     "predicted_difficulty": "easy",
@@ -365,7 +365,7 @@
     "record_hash": "858fd586dad7b05e7c378ac9817a19bf9ec1db9d59582410e3ab8a4e902116a9"
   },
   {
-    "classification_id": "CLS-ABFFD9C5D8F2",
+    "classification_id": "CLS-4731524AD92F",
     "text_instance_id": "SIMP-EN-000351__ORIG",
     "source_group_id": "SIMP-EN-000351",
     "predicted_difficulty": "easy",
@@ -412,7 +412,7 @@
     "record_hash": "b2f0548fbc08c7381df1c3aca72c3620665c20ec8167a017a91d162b49041171"
   },
   {
-    "classification_id": "CLS-E950B02383F0",
+    "classification_id": "CLS-51709161E757",
     "text_instance_id": "SIMP-EN-000351__SIMP",
     "source_group_id": "SIMP-EN-000351",
     "predicted_difficulty": "easy",
@@ -480,7 +480,7 @@
     "record_hash": "e0f2f85099195548f1550f4c2da1945aa136701e46943abd70ccfff48515e881"
   },
   {
-    "classification_id": "CLS-C8CD036A8667",
+    "classification_id": "CLS-662797CAFD95",
     "text_instance_id": "SIMP-EN-000352__ORIG",
     "source_group_id": "SIMP-EN-000352",
     "predicted_difficulty": "easy",
@@ -527,7 +527,7 @@
     "record_hash": "d9c44f6501ef4ce2957eaace29357eaa5f87c78b2674f25332468604ea6bf6fb"
   },
   {
-    "classification_id": "CLS-5C8B907C0440",
+    "classification_id": "CLS-68C950BD876C",
     "text_instance_id": "SIMP-EN-000352__SIMP",
     "source_group_id": "SIMP-EN-000352",
     "predicted_difficulty": "easy",
@@ -588,7 +588,7 @@
     "record_hash": "3b75083809bb812ba9926ba5546007154190683e4ad94c49c6adba7b764b531a"
   },
   {
-    "classification_id": "CLS-7320DBFCF16E",
+    "classification_id": "CLS-27CB0E3BBC61",
     "text_instance_id": "SIMP-EN-000353__ORIG",
     "source_group_id": "SIMP-EN-000353",
     "predicted_difficulty": "easy",
@@ -635,7 +635,7 @@
     "record_hash": "3b262f0db499dbc26f2a66895f3f905ca40266291ec1a64bf95176f7d99ebc89"
   },
   {
-    "classification_id": "CLS-EF7B8C023759",
+    "classification_id": "CLS-99A5A2418A81",
     "text_instance_id": "SIMP-EN-000353__SIMP",
     "source_group_id": "SIMP-EN-000353",
     "predicted_difficulty": "easy",
@@ -689,7 +689,7 @@
     "record_hash": "51da61fca8b1269573b9920eadb706610673234bdaaae16189b2da985d7ad720"
   },
   {
-    "classification_id": "CLS-60839106B15A",
+    "classification_id": "CLS-0FC79267AED3",
     "text_instance_id": "SIMP-EN-000354__ORIG",
     "source_group_id": "SIMP-EN-000354",
     "predicted_difficulty": "medium",
@@ -738,7 +738,7 @@
     "record_hash": "b6eee46fbc4143f30376229715a1f0a20f35a9d8a4f571d77afa5410b9a4637b"
   },
   {
-    "classification_id": "CLS-3F0E65E1C155",
+    "classification_id": "CLS-9291C0AC86B5",
     "text_instance_id": "SIMP-EN-000354__SIMP",
     "source_group_id": "SIMP-EN-000354",
     "predicted_difficulty": "easy",
@@ -806,7 +806,7 @@
     "record_hash": "3e8988b5c2978a3215b2166e12423bce49421287cce3520102e372753c32c71c"
   },
   {
-    "classification_id": "CLS-25F97F0704A6",
+    "classification_id": "CLS-A9E1B43A4727",
     "text_instance_id": "SIMP-EN-000355__ORIG",
     "source_group_id": "SIMP-EN-000355",
     "predicted_difficulty": "medium",
@@ -855,7 +855,7 @@
     "record_hash": "b6e6524e4c3e78b70397e1443c4110462b7572d5a7affa5e079ed3b2f2e94865"
   },
   {
-    "classification_id": "CLS-C2B1D2F0DEA3",
+    "classification_id": "CLS-4B14F7CBB062",
     "text_instance_id": "SIMP-EN-000355__SIMP",
     "source_group_id": "SIMP-EN-000355",
     "predicted_difficulty": "easy",
@@ -916,7 +916,7 @@
     "record_hash": "efb4340a225c63d60e5a976b87495977ab7066aa41e17430deef9df92a206dd4"
   },
   {
-    "classification_id": "CLS-9C1F5022FED0",
+    "classification_id": "CLS-DDEE74B5482C",
     "text_instance_id": "SIMP-EN-000356__ORIG",
     "source_group_id": "SIMP-EN-000356",
     "predicted_difficulty": "medium",
@@ -965,7 +965,7 @@
     "record_hash": "fb93f8fe545a1d70946942140e299b5f57652fda93402c74280875e514a763bf"
   },
   {
-    "classification_id": "CLS-BE12F2FF7BAA",
+    "classification_id": "CLS-463E8FD390A8",
     "text_instance_id": "SIMP-EN-000356__SIMP",
     "source_group_id": "SIMP-EN-000356",
     "predicted_difficulty": "easy",
@@ -1019,7 +1019,7 @@
     "record_hash": "9c4780c5ba01dbc69ca995371243551467ecf73e514010580082fe71fb0406ef"
   },
   {
-    "classification_id": "CLS-7757AEE6411B",
+    "classification_id": "CLS-8A80BE4DCDB0",
     "text_instance_id": "SIMP-EN-000525__ORIG",
     "source_group_id": "SIMP-EN-000525",
     "predicted_difficulty": "easy",
@@ -1080,7 +1080,7 @@
     "record_hash": "b8730989577adf2bf4b6a2308641a9d5bb6c082475df10205cf9ab44beb3ffea"
   },
   {
-    "classification_id": "CLS-EA6CCF5BD513",
+    "classification_id": "CLS-8B3A7F390A04",
     "text_instance_id": "SIMP-EN-000525__SIMP",
     "source_group_id": "SIMP-EN-000525",
     "predicted_difficulty": "easy",
@@ -1141,7 +1141,7 @@
     "record_hash": "5c59687d78414381673fb559e47bf52136d3516e0841eb136325fe91f676eb1b"
   },
   {
-    "classification_id": "CLS-A2BFD17D7DF0",
+    "classification_id": "CLS-F17840F3CF53",
     "text_instance_id": "SIMP-EN-000526__ORIG",
     "source_group_id": "SIMP-EN-000526",
     "predicted_difficulty": "easy",
@@ -1202,7 +1202,7 @@
     "record_hash": "1057b638ce1da3d7b2976df531e8e1ac5ab1c458687ccf6545eca6022e450152"
   },
   {
-    "classification_id": "CLS-209EF8D4E948",
+    "classification_id": "CLS-9517EA9D5DD1",
     "text_instance_id": "SIMP-EN-000526__SIMP",
     "source_group_id": "SIMP-EN-000526",
     "predicted_difficulty": "easy",
@@ -1270,7 +1270,7 @@
     "record_hash": "ff1ef5686eef45df9dae869f106e58339fafcd86d2750b7b507d6b6383aca3df"
   },
   {
-    "classification_id": "CLS-EBABBE8FE254",
+    "classification_id": "CLS-44AE41000D4C",
     "text_instance_id": "SIMP-EN-000527__ORIG",
     "source_group_id": "SIMP-EN-000527",
     "predicted_difficulty": "easy",
@@ -1331,7 +1331,7 @@
     "record_hash": "a3135c8ba3d8f515bb667e9cb6c82faff7a9f0d08da427c0853738b55de861a5"
   },
   {
-    "classification_id": "CLS-68CF8A7ACA24",
+    "classification_id": "CLS-9B8DF6D37C60",
     "text_instance_id": "SIMP-EN-000527__SIMP",
     "source_group_id": "SIMP-EN-000527",
     "predicted_difficulty": "easy",
@@ -1392,7 +1392,7 @@
     "record_hash": "d8b268ff75160485ac6ee74c2e594cf7b42f0abe7ac1fbb87e2b9ed88e53275a"
   },
   {
-    "classification_id": "CLS-8679A535F240",
+    "classification_id": "CLS-EC9CDEE92C61",
     "text_instance_id": "SIMP-EN-000540__ORIG",
     "source_group_id": "SIMP-EN-000540",
     "predicted_difficulty": "medium",
@@ -1453,7 +1453,7 @@
     "record_hash": "103f113f020134eb2d6b9501de1e9e297b2e323c5c246a94b713579869bf2079"
   },
   {
-    "classification_id": "CLS-383295E01FE9",
+    "classification_id": "CLS-BD00675B9D24",
     "text_instance_id": "SIMP-EN-000540__SIMP",
     "source_group_id": "SIMP-EN-000540",
     "predicted_difficulty": "easy",
@@ -1514,7 +1514,7 @@
     "record_hash": "b38dcb430adcfee63dafefd077f6f93e05a80ed51a9539bc9cdfd66d2dd4f11a"
   },
   {
-    "classification_id": "CLS-386BA5F51DCE",
+    "classification_id": "CLS-28DAB83AD78A",
     "text_instance_id": "SIMP-EN-000541__ORIG",
     "source_group_id": "SIMP-EN-000541",
     "predicted_difficulty": "medium",
@@ -1575,7 +1575,7 @@
     "record_hash": "8a4763146ed77456f869cbc0c41840892b67daa4b0c19feeb8d493def5478427"
   },
   {
-    "classification_id": "CLS-D0B59AEDCAF7",
+    "classification_id": "CLS-34BE354A28B0",
     "text_instance_id": "SIMP-EN-000541__SIMP",
     "source_group_id": "SIMP-EN-000541",
     "predicted_difficulty": "easy",
@@ -1643,7 +1643,7 @@
     "record_hash": "6654b832796e3d976879d4042131a0830aea7424b9734be0851cfdd6ddd097f0"
   },
   {
-    "classification_id": "CLS-C6DD4355983D",
+    "classification_id": "CLS-72E65E633884",
     "text_instance_id": "SIMP-EN-000542__ORIG",
     "source_group_id": "SIMP-EN-000542",
     "predicted_difficulty": "medium",
@@ -1704,7 +1704,7 @@
     "record_hash": "6fa9c864a70c8f6b0413ea3cc01950bbe4a2ed4b031f8be4cab1204f2b5963a8"
   },
   {
-    "classification_id": "CLS-96C1DB9C0C46",
+    "classification_id": "CLS-F292649522CA",
     "text_instance_id": "SIMP-EN-000542__SIMP",
     "source_group_id": "SIMP-EN-000542",
     "predicted_difficulty": "easy",
@@ -1765,7 +1765,7 @@
     "record_hash": "34de44c3306ac041fb52f8000180bbce091f2424ca7aa23b3fafe8522365408c"
   },
   {
-    "classification_id": "CLS-1F801E7DF901",
+    "classification_id": "CLS-1CF2E5D8BAD4",
     "text_instance_id": "SIMP-EN-000753__ORIG",
     "source_group_id": "SIMP-EN-000753",
     "predicted_difficulty": "medium",
@@ -1828,7 +1828,7 @@
     "record_hash": "50ec0d9f8cd85f02bc2f9016b540a1890192f5b65a2b72b7bdd8f58a362f29c9"
   },
   {
-    "classification_id": "CLS-C85CA2F71D61",
+    "classification_id": "CLS-8D7DB34C2D81",
     "text_instance_id": "SIMP-EN-000753__SIMP",
     "source_group_id": "SIMP-EN-000753",
     "predicted_difficulty": "easy",
@@ -1882,7 +1882,7 @@
     "record_hash": "244acada7d6719062ef95b4a0799a72061131b47463ab69076eab505ffdef226"
   },
   {
-    "classification_id": "CLS-DD21D8D7A880",
+    "classification_id": "CLS-55105B19C8D8",
     "text_instance_id": "SIMP-EN-000754__ORIG",
     "source_group_id": "SIMP-EN-000754",
     "predicted_difficulty": "medium",
@@ -1945,7 +1945,7 @@
     "record_hash": "1667ad3cecd01bded44bae2ccdf8f8e75ef581855b4d1261243f94e672b64962"
   },
   {
-    "classification_id": "CLS-5A5EE15CB93B",
+    "classification_id": "CLS-E8118EA7494A",
     "text_instance_id": "SIMP-EN-000754__SIMP",
     "source_group_id": "SIMP-EN-000754",
     "predicted_difficulty": "medium",
@@ -2001,7 +2001,7 @@
     "record_hash": "f10ab23d61c930232d2337ed85a3b032fd53e859f1525b9bbff6e88c1fefadac"
   },
   {
-    "classification_id": "CLS-4E68CBBE8E73",
+    "classification_id": "CLS-3C6B92F083E3",
     "text_instance_id": "SIMP-EN-000755__ORIG",
     "source_group_id": "SIMP-EN-000755",
     "predicted_difficulty": "medium",
@@ -2064,7 +2064,7 @@
     "record_hash": "764934acca14529fd43017e5bf80d58c171017539c71f622e8df2fba41b60776"
   },
   {
-    "classification_id": "CLS-2FC3D8EEF9B0",
+    "classification_id": "CLS-250247856D3B",
     "text_instance_id": "SIMP-EN-000755__SIMP",
     "source_group_id": "SIMP-EN-000755",
     "predicted_difficulty": "easy",
@@ -2127,7 +2127,7 @@
     "record_hash": "2a77e43d32158b5b332dd7ef823878d0672e55c69b776c0523fa73e82c7e3102"
   },
   {
-    "classification_id": "CLS-9BC3B1BAAE24",
+    "classification_id": "CLS-E9D976985083",
     "text_instance_id": "SIMP-EN-000759__ORIG",
     "source_group_id": "SIMP-EN-000759",
     "predicted_difficulty": "medium",
@@ -2183,7 +2183,7 @@
     "record_hash": "d1fccb1ec93b0d356efff1116a0abc3a05466f61c8239d28e2471640677ec63a"
   },
   {
-    "classification_id": "CLS-AD2699C18564",
+    "classification_id": "CLS-BA225311B37C",
     "text_instance_id": "SIMP-EN-000759__SIMP",
     "source_group_id": "SIMP-EN-000759",
     "predicted_difficulty": "medium",
@@ -2237,7 +2237,7 @@
     "record_hash": "bb85b755991cd768b6222062cf391ca09a0a72dcfaf571a3bd8e140537774253"
   },
   {
-    "classification_id": "CLS-C1B4025C7B44",
+    "classification_id": "CLS-3BF2C003175B",
     "text_instance_id": "SIMP-EN-000760__ORIG",
     "source_group_id": "SIMP-EN-000760",
     "predicted_difficulty": "medium",
@@ -2293,7 +2293,7 @@
     "record_hash": "9dc5ecd3291378afb36587cbee3683d56d4787a6b25736cfc44949be36cb5e33"
   },
   {
-    "classification_id": "CLS-07DECAB3D6D7",
+    "classification_id": "CLS-B5258C2B4194",
     "text_instance_id": "SIMP-EN-000760__SIMP",
     "source_group_id": "SIMP-EN-000760",
     "predicted_difficulty": "medium",
@@ -2356,7 +2356,7 @@
     "record_hash": "15268f0f5304f23be39ab8524be7c88a77d5d47f5cadb8f7589fda99b93a5f2a"
   },
   {
-    "classification_id": "CLS-4095494DDC45",
+    "classification_id": "CLS-8EA8E2A0BDAC",
     "text_instance_id": "SIMP-EN-000761__ORIG",
     "source_group_id": "SIMP-EN-000761",
     "predicted_difficulty": "medium",
@@ -2412,7 +2412,7 @@
     "record_hash": "82e57ba8bb9a87e9e6f8c2ba2635416260249018523c3ee437af4bc9e3fbdc8a"
   },
   {
-    "classification_id": "CLS-6C41A0DF60BD",
+    "classification_id": "CLS-0D0122209FCD",
     "text_instance_id": "SIMP-EN-000761__SIMP",
     "source_group_id": "SIMP-EN-000761",
     "predicted_difficulty": "easy",
@@ -2466,7 +2466,7 @@
     "record_hash": "6d9753e1dbebe8ba5231fc74a53db2e8d4450142bf0d35cd282663e42eaaf462"
   },
   {
-    "classification_id": "CLS-FFFFB466DD14",
+    "classification_id": "CLS-308416E1710B",
     "text_instance_id": "SIMP-EN-000789__ORIG",
     "source_group_id": "SIMP-EN-000789",
     "predicted_difficulty": "medium",
@@ -2522,7 +2522,7 @@
     "record_hash": "c543e69a517ec97d3f72d6b35dbe8064d6732ede79dedd5827f3ad60a16002a7"
   },
   {
-    "classification_id": "CLS-EBDFAEA66D5A",
+    "classification_id": "CLS-352F72B98B9E",
     "text_instance_id": "SIMP-EN-000789__SIMP",
     "source_group_id": "SIMP-EN-000789",
     "predicted_difficulty": "medium",
@@ -2576,7 +2576,7 @@
     "record_hash": "38fa451a014b87f739235600e844007a0e38d1a377aadc7e3e005fff19254932"
   },
   {
-    "classification_id": "CLS-6C7FA2E4E699",
+    "classification_id": "CLS-075A28D62901",
     "text_instance_id": "SIMP-EN-000790__ORIG",
     "source_group_id": "SIMP-EN-000790",
     "predicted_difficulty": "medium",
@@ -2632,7 +2632,7 @@
     "record_hash": "65bc63411869552ad518166dbf586f932e5ad7b6ecf64b1b65db8cb74b442d4a"
   },
   {
-    "classification_id": "CLS-4BA44583AB0B",
+    "classification_id": "CLS-27F41746D73D",
     "text_instance_id": "SIMP-EN-000790__SIMP",
     "source_group_id": "SIMP-EN-000790",
     "predicted_difficulty": "medium",
@@ -2695,7 +2695,7 @@
     "record_hash": "f7cb7421e982cc83e49ab7cb2edffa602b8c9dc832d90703213411db9b96ce2a"
   },
   {
-    "classification_id": "CLS-C150B9C9B2B6",
+    "classification_id": "CLS-8347AF0AE5A7",
     "text_instance_id": "SIMP-EN-000791__ORIG",
     "source_group_id": "SIMP-EN-000791",
     "predicted_difficulty": "medium",
@@ -2751,7 +2751,7 @@
     "record_hash": "d883a3e394dfb6a4a6dad6f863693fd1bcf2befa3103e54ab4c5659d08762858"
   },
   {
-    "classification_id": "CLS-FAE4BC0DB9D0",
+    "classification_id": "CLS-740F8DCE7ABF",
     "text_instance_id": "SIMP-EN-000791__SIMP",
     "source_group_id": "SIMP-EN-000791",
     "predicted_difficulty": "easy",
@@ -2805,7 +2805,7 @@
     "record_hash": "0b90ef947ea5057ae8bf45b21d4f32c97e477118c2122426a2afe678bcc5907b"
   },
   {
-    "classification_id": "CLS-5203FB5C5CDC",
+    "classification_id": "CLS-9EC10427E52B",
     "text_instance_id": "SIMP-EN-000798__ORIG",
     "source_group_id": "SIMP-EN-000798",
     "predicted_difficulty": "medium",
@@ -2859,7 +2859,7 @@
     "record_hash": "941155b6d4cebe4dde978fdc69e04fd57ab406dfa92e8d58750010e209fdb2c2"
   },
   {
-    "classification_id": "CLS-EB436EDAA598",
+    "classification_id": "CLS-B210E0AB6494",
     "text_instance_id": "SIMP-EN-000798__SIMP",
     "source_group_id": "SIMP-EN-000798",
     "predicted_difficulty": "easy",
@@ -2913,7 +2913,7 @@
     "record_hash": "4bac0a7605f12e973c20aa3569d63e6a33b26452b95d9aa99ca7d9974d1f3b4c"
   },
   {
-    "classification_id": "CLS-F6076F64DC13",
+    "classification_id": "CLS-76AD982135DD",
     "text_instance_id": "SIMP-EN-000799__ORIG",
     "source_group_id": "SIMP-EN-000799",
     "predicted_difficulty": "medium",
@@ -2967,7 +2967,7 @@
     "record_hash": "7c14c734ed6cbe1d8c374ae234f7ca6903e1e153ea7c6772715c85e77125a387"
   },
   {
-    "classification_id": "CLS-6DDB796A88D9",
+    "classification_id": "CLS-5FF1C29726B3",
     "text_instance_id": "SIMP-EN-000799__SIMP",
     "source_group_id": "SIMP-EN-000799",
     "predicted_difficulty": "medium",
@@ -3021,7 +3021,7 @@
     "record_hash": "a57059a05878765cc321cf090d8ab9bf7cb62d955a04b84119d49c0c7d8fd879"
   },
   {
-    "classification_id": "CLS-43FC946F5C57",
+    "classification_id": "CLS-EA0461E2AC62",
     "text_instance_id": "SIMP-EN-000800__ORIG",
     "source_group_id": "SIMP-EN-000800",
     "predicted_difficulty": "medium",
@@ -3075,7 +3075,7 @@
     "record_hash": "6e6d9ec9c000f251e75c336164af5ee670eb37d0daf001579ae1c175d14f19e6"
   },
   {
-    "classification_id": "CLS-CA655F970B08",
+    "classification_id": "CLS-ACD3374C7092",
     "text_instance_id": "SIMP-EN-000800__SIMP",
     "source_group_id": "SIMP-EN-000800",
     "predicted_difficulty": "easy",
@@ -3136,7 +3136,7 @@
     "record_hash": "544c7e0599d332592d1a74111ffc4f97f7ebf6773327e846009e455ad74a3d6a"
   },
   {
-    "classification_id": "CLS-C7051FA4FE01",
+    "classification_id": "CLS-8111283E48BF",
     "text_instance_id": "SIMP-EN-000804__ORIG",
     "source_group_id": "SIMP-EN-000804",
     "predicted_difficulty": "medium",
@@ -3190,7 +3190,7 @@
     "record_hash": "8a77c7c92066fdf2ae7c56587b3d9f0bd61bec81dc2d70e38de519e3692b2038"
   },
   {
-    "classification_id": "CLS-5AD25CA95580",
+    "classification_id": "CLS-9CA724FAD90D",
     "text_instance_id": "SIMP-EN-000804__SIMP",
     "source_group_id": "SIMP-EN-000804",
     "predicted_difficulty": "medium",
@@ -3244,7 +3244,7 @@
     "record_hash": "d2917f8ef53955395bbfce97a6cfb08b094913e44cc707c18a0ca8b26f49431e"
   },
   {
-    "classification_id": "CLS-9210B01DF4FC",
+    "classification_id": "CLS-3C26967B6A3B",
     "text_instance_id": "SIMP-EN-000805__ORIG",
     "source_group_id": "SIMP-EN-000805",
     "predicted_difficulty": "medium",
@@ -3298,7 +3298,7 @@
     "record_hash": "15c563fa81a07544ecbde64686ccfbd152832caae2c3209705c54b36418cccc7"
   },
   {
-    "classification_id": "CLS-A1289CE8BEEB",
+    "classification_id": "CLS-050970425976",
     "text_instance_id": "SIMP-EN-000805__SIMP",
     "source_group_id": "SIMP-EN-000805",
     "predicted_difficulty": "medium",
@@ -3352,7 +3352,7 @@
     "record_hash": "2923c847eb892633e1077d058a65f48cb85c1db074eff04d5126c7f18de8193b"
   },
   {
-    "classification_id": "CLS-5C503694482D",
+    "classification_id": "CLS-719C25444091",
     "text_instance_id": "SIMP-EN-000806__ORIG",
     "source_group_id": "SIMP-EN-000806",
     "predicted_difficulty": "medium",
@@ -3406,7 +3406,7 @@
     "record_hash": "5d45c35efbbf2f22cb9d95aeff28bb60c2a1af6a9bf7fb6dcfdf0980bfaed3b2"
   },
   {
-    "classification_id": "CLS-0CAFA090E91F",
+    "classification_id": "CLS-3019B1DBA669",
     "text_instance_id": "SIMP-EN-000806__SIMP",
     "source_group_id": "SIMP-EN-000806",
     "predicted_difficulty": "easy",
@@ -3467,7 +3467,7 @@
     "record_hash": "f89d849ded8dce1648f0c07168857fccdd004a2d9ac555ec8ac6fe174af6f538"
   },
   {
-    "classification_id": "CLS-F98A73B6606C",
+    "classification_id": "CLS-C6B8A9E5DFF8",
     "text_instance_id": "SIMP-EN-000807__ORIG",
     "source_group_id": "SIMP-EN-000807",
     "predicted_difficulty": "medium",
@@ -3528,7 +3528,7 @@
     "record_hash": "0814a7f6a7a2151a8532a7fa51aa87b729ac78d4e197661ae1dc3f84bad8eb1b"
   },
   {
-    "classification_id": "CLS-2B8F116291FD",
+    "classification_id": "CLS-96299F876F20",
     "text_instance_id": "SIMP-EN-000807__SIMP",
     "source_group_id": "SIMP-EN-000807",
     "predicted_difficulty": "medium",
@@ -3591,7 +3591,7 @@
     "record_hash": "78895b8c888b49b3b5afca482b67ff3175d6c33f9b03332ccf7bd8189a15630e"
   },
   {
-    "classification_id": "CLS-3B3BBD8B468B",
+    "classification_id": "CLS-0EA11AC2BA2B",
     "text_instance_id": "SIMP-EN-000808__ORIG",
     "source_group_id": "SIMP-EN-000808",
     "predicted_difficulty": "medium",
@@ -3652,7 +3652,7 @@
     "record_hash": "9b20bdd353ad16a89bae64b567e16534dca5295a668925859bc2d088e42cfa27"
   },
   {
-    "classification_id": "CLS-3DD72E0DC2A2",
+    "classification_id": "CLS-38EE4E8E0BAF",
     "text_instance_id": "SIMP-EN-000808__SIMP",
     "source_group_id": "SIMP-EN-000808",
     "predicted_difficulty": "medium",
@@ -3715,7 +3715,7 @@
     "record_hash": "62f50efb6b2bbaf9e6c4ae1f207ab818334a21144bd697adb4fc870c761e728d"
   },
   {
-    "classification_id": "CLS-274E20AACF20",
+    "classification_id": "CLS-D3667AB67ABD",
     "text_instance_id": "SIMP-EN-000809__ORIG",
     "source_group_id": "SIMP-EN-000809",
     "predicted_difficulty": "medium",
@@ -3776,7 +3776,7 @@
     "record_hash": "9ff57fd0ee59808139057cfd75734ff92c64ef896017681eeb054c230038844b"
   },
   {
-    "classification_id": "CLS-F9A7E30F3B0E",
+    "classification_id": "CLS-733A4E8BEF40",
     "text_instance_id": "SIMP-EN-000809__SIMP",
     "source_group_id": "SIMP-EN-000809",
     "predicted_difficulty": "easy",
@@ -3846,7 +3846,7 @@
     "record_hash": "d58d7baa69e0e6e37262f81c15006023c8cd0ea397c4bd7472d54930d537f03b"
   },
   {
-    "classification_id": "CLS-4F4682B04ECE",
+    "classification_id": "CLS-28279F300305",
     "text_instance_id": "SIMP-EN-000981__ORIG",
     "source_group_id": "SIMP-EN-000981",
     "predicted_difficulty": "medium",
@@ -3914,7 +3914,7 @@
     "record_hash": "6af0cfcf02da10fa24b38707d2bd96d6ac15977905e735f7bcbcd8a53b847c04"
   },
   {
-    "classification_id": "CLS-5CC3134DBBD7",
+    "classification_id": "CLS-85243A043F86",
     "text_instance_id": "SIMP-EN-000981__SIMP",
     "source_group_id": "SIMP-EN-000981",
     "predicted_difficulty": "medium",
@@ -3977,7 +3977,7 @@
     "record_hash": "deeab8b4e8a40c2ea16d8959d524ad9e83ce9994694ffea7b2ba9ee7dcce108e"
   },
   {
-    "classification_id": "CLS-853CE12B6D2A",
+    "classification_id": "CLS-1AA4ACB04866",
     "text_instance_id": "SIMP-EN-000982__ORIG",
     "source_group_id": "SIMP-EN-000982",
     "predicted_difficulty": "medium",
@@ -4045,7 +4045,7 @@
     "record_hash": "b221f7db8650a86ff8fb35f805e2d12b2e35a0b71b742c172a0ced1c2e432767"
   },
   {
-    "classification_id": "CLS-7E1B3A7EB8FE",
+    "classification_id": "CLS-E525E62569C9",
     "text_instance_id": "SIMP-EN-000982__SIMP",
     "source_group_id": "SIMP-EN-000982",
     "predicted_difficulty": "easy",
@@ -4099,7 +4099,7 @@
     "record_hash": "18441e8e124e3bb1104e800fb49bb8ec68d0b6ef2625fc428d8d501e62b17475"
   },
   {
-    "classification_id": "CLS-31528FE29783",
+    "classification_id": "CLS-610D78EACBA8",
     "text_instance_id": "SIMP-EN-000983__ORIG",
     "source_group_id": "SIMP-EN-000983",
     "predicted_difficulty": "medium",
@@ -4167,7 +4167,7 @@
     "record_hash": "52ac9cf29f706b65fd7aae11e1f85559ffbbcc01248e8ada007c39f9ff5a2ac7"
   },
   {
-    "classification_id": "CLS-144717F48DD2",
+    "classification_id": "CLS-FF1938D2AC01",
     "text_instance_id": "SIMP-EN-000983__SIMP",
     "source_group_id": "SIMP-EN-000983",
     "predicted_difficulty": "easy",
@@ -4235,7 +4235,7 @@
     "record_hash": "de696a44bcbdf309c422af43618a6069b72ae141a08c84610f2413b592b5a05d"
   },
   {
-    "classification_id": "CLS-4E6E32559539",
+    "classification_id": "CLS-894814DB1413",
     "text_instance_id": "SIMP-EN-000999__ORIG",
     "source_group_id": "SIMP-EN-000999",
     "predicted_difficulty": "medium",
@@ -4296,7 +4296,7 @@
     "record_hash": "6d927cf97a6b4132812923ae0551a49954c635f2b84369cd566a9e033153c848"
   },
   {
-    "classification_id": "CLS-B5E8BAFAEF30",
+    "classification_id": "CLS-F9B187735B4B",
     "text_instance_id": "SIMP-EN-000999__SIMP",
     "source_group_id": "SIMP-EN-000999",
     "predicted_difficulty": "medium",
@@ -4359,7 +4359,7 @@
     "record_hash": "52ecb89ada329cb5ef061620d0958cbee18431d8a708f13fb22b14aedd68b155"
   },
   {
-    "classification_id": "CLS-501FA18AA191",
+    "classification_id": "CLS-5544E6944F2E",
     "text_instance_id": "SIMP-EN-001000__ORIG",
     "source_group_id": "SIMP-EN-001000",
     "predicted_difficulty": "medium",
@@ -4420,7 +4420,7 @@
     "record_hash": "801f605d4754006bb464a2fca70fc60b94c190494acfa59b3927b7a039555422"
   },
   {
-    "classification_id": "CLS-C31A954E73BD",
+    "classification_id": "CLS-DEF7A79BCC9D",
     "text_instance_id": "SIMP-EN-001000__SIMP",
     "source_group_id": "SIMP-EN-001000",
     "predicted_difficulty": "easy",
@@ -4481,7 +4481,7 @@
     "record_hash": "2d464b320cbc030819a89ee5ef8929ef490fe88f3829be160e8da5a3060f446c"
   },
   {
-    "classification_id": "CLS-88F6380E3BBC",
+    "classification_id": "CLS-7CC90061AD35",
     "text_instance_id": "SIMP-EN-001001__ORIG",
     "source_group_id": "SIMP-EN-001001",
     "predicted_difficulty": "medium",
@@ -4542,7 +4542,7 @@
     "record_hash": "88edd95c790de6ef0695eaedb84054e8c515ec4f73ee37a29a494bd3860e1be9"
   },
   {
-    "classification_id": "CLS-419CB0CA2214",
+    "classification_id": "CLS-4B620377F8E6",
     "text_instance_id": "SIMP-EN-001001__SIMP",
     "source_group_id": "SIMP-EN-001001",
     "predicted_difficulty": "easy",
@@ -4612,7 +4612,7 @@
     "record_hash": "b6836529a9797a0cd68ecb8299360a03df643703c485a98d999753658d8c2311"
   },
   {
-    "classification_id": "CLS-9A26F17A2CB5",
+    "classification_id": "CLS-8B880AE3ACC7",
     "text_instance_id": "SIMP-EN-001002__ORIG",
     "source_group_id": "SIMP-EN-001002",
     "predicted_difficulty": "easy",
@@ -4680,7 +4680,7 @@
     "record_hash": "b1c6b64447f5d098e98046ddc154cd0164e98c757cc28453534d66f2735ed095"
   },
   {
-    "classification_id": "CLS-DC7D7C066CDE",
+    "classification_id": "CLS-B8F86DC35F6E",
     "text_instance_id": "SIMP-EN-001002__SIMP",
     "source_group_id": "SIMP-EN-001002",
     "predicted_difficulty": "easy",
@@ -4748,7 +4748,7 @@
     "record_hash": "85f3c45eb8e5bdc179a6023ed99258849b32194486d3dfff2b86736082d97504"
   },
   {
-    "classification_id": "CLS-1E6C5EF20E77",
+    "classification_id": "CLS-FEE510CA8D32",
     "text_instance_id": "SIMP-EN-001003__ORIG",
     "source_group_id": "SIMP-EN-001003",
     "predicted_difficulty": "easy",
@@ -4816,7 +4816,7 @@
     "record_hash": "f423f052fa16098a87c04c2178c386999242b8cb43794e7bf5e480b51ff8e756"
   },
   {
-    "classification_id": "CLS-36EA7F1AC7C3",
+    "classification_id": "CLS-1A02F5A37431",
     "text_instance_id": "SIMP-EN-001003__SIMP",
     "source_group_id": "SIMP-EN-001003",
     "predicted_difficulty": "easy",
@@ -4884,7 +4884,7 @@
     "record_hash": "89e4e7195549121cd41f634e02fbad18fa0fcf8e5b01102452376b8d8fcc4c88"
   },
   {
-    "classification_id": "CLS-E1A68A229249",
+    "classification_id": "CLS-7954090AC0E2",
     "text_instance_id": "SIMP-EN-001004__ORIG",
     "source_group_id": "SIMP-EN-001004",
     "predicted_difficulty": "easy",
@@ -4952,7 +4952,7 @@
     "record_hash": "af857737b422d8e9e858f1f0cecc0cf5ee42e43945bc229a37c5ee91fa0fb3c2"
   },
   {
-    "classification_id": "CLS-E1F2449DD2CC",
+    "classification_id": "CLS-ED2C821898D2",
     "text_instance_id": "SIMP-EN-001004__SIMP",
     "source_group_id": "SIMP-EN-001004",
     "predicted_difficulty": "easy",
@@ -5020,7 +5020,7 @@
     "record_hash": "283d1008c3ef31f02da87cdf4605e83d8bacbaa89112bc186f55decdccab51d0"
   },
   {
-    "classification_id": "CLS-5FBFE720678B",
+    "classification_id": "CLS-0EF16F12D95B",
     "text_instance_id": "SIMP-EN-001017__ORIG",
     "source_group_id": "SIMP-EN-001017",
     "predicted_difficulty": "medium",
@@ -5081,7 +5081,7 @@
     "record_hash": "081bbd7ab0f08e856057aa0156cfde7ac978c534fc66679ad78ccaae69dfbb8b"
   },
   {
-    "classification_id": "CLS-974C867024B3",
+    "classification_id": "CLS-4EC6CE72F776",
     "text_instance_id": "SIMP-EN-001017__SIMP",
     "source_group_id": "SIMP-EN-001017",
     "predicted_difficulty": "medium",
@@ -5130,7 +5130,7 @@
     "record_hash": "5a3e24b0c3a1deac893be4fa997d104a63de63a2fbf6a0f058ca6da8879ecc4a"
   },
   {
-    "classification_id": "CLS-7E3A13F54642",
+    "classification_id": "CLS-2DAFBFCA0769",
     "text_instance_id": "SIMP-EN-001018__ORIG",
     "source_group_id": "SIMP-EN-001018",
     "predicted_difficulty": "medium",
@@ -5191,7 +5191,7 @@
     "record_hash": "a49848beab4ef4010c34f0078c193182907ec59484bcccc6ea9c05df80cb833e"
   },
   {
-    "classification_id": "CLS-A25801DDDC33",
+    "classification_id": "CLS-A18906CD8DBE",
     "text_instance_id": "SIMP-EN-001018__SIMP",
     "source_group_id": "SIMP-EN-001018",
     "predicted_difficulty": "easy",
@@ -5245,7 +5245,7 @@
     "record_hash": "379c62d6108ef5fb781c567a4c18c6478b907cad69e623d73b20df81d0e07b01"
   },
   {
-    "classification_id": "CLS-4B02B0DB11E7",
+    "classification_id": "CLS-BC4DA869FFA1",
     "text_instance_id": "SIMP-EN-001019__ORIG",
     "source_group_id": "SIMP-EN-001019",
     "predicted_difficulty": "medium",
@@ -5306,7 +5306,7 @@
     "record_hash": "655af58d6645f792bfc43307ee140d0e16b2620e674f0a0214bb01646584f860"
   },
   {
-    "classification_id": "CLS-A13578304266",
+    "classification_id": "CLS-C40E55ABF3F4",
     "text_instance_id": "SIMP-EN-001019__SIMP",
     "source_group_id": "SIMP-EN-001019",
     "predicted_difficulty": "easy",
@@ -5367,7 +5367,7 @@
     "record_hash": "b9c1637dc234f1e314c0b8d489a1f56888253e8ff92737231bcedbcf432e76cb"
   },
   {
-    "classification_id": "CLS-C24C48D984CD",
+    "classification_id": "CLS-4D0FF43B108C",
     "text_instance_id": "SIMP-EN-000390__ORIG",
     "source_group_id": "SIMP-EN-000390",
     "predicted_difficulty": "easy",
@@ -5421,7 +5421,7 @@
     "record_hash": "5c57619ac036cbad67cb638f06ddfe331c64d959b5e4e8931236687a771c3775"
   },
   {
-    "classification_id": "CLS-AAB2081B1784",
+    "classification_id": "CLS-A108C492C877",
     "text_instance_id": "SIMP-EN-000390__SIMP",
     "source_group_id": "SIMP-EN-000390",
     "predicted_difficulty": "easy",
@@ -5482,7 +5482,7 @@
     "record_hash": "71fabd1dd0fb2d2244db00f5998c2bb65972f6dbf466a33f76ee2b7b47e548dc"
   },
   {
-    "classification_id": "CLS-C372253CCAC1",
+    "classification_id": "CLS-62041CF2D88C",
     "text_instance_id": "SIMP-EN-000391__ORIG",
     "source_group_id": "SIMP-EN-000391",
     "predicted_difficulty": "easy",
@@ -5536,7 +5536,7 @@
     "record_hash": "3f8a987b530de3bca3da0d74ef719972063d33ee69a7d8cb35d1048e19142860"
   },
   {
-    "classification_id": "CLS-8466884DDF34",
+    "classification_id": "CLS-8EC0B5A6537F",
     "text_instance_id": "SIMP-EN-000391__SIMP",
     "source_group_id": "SIMP-EN-000391",
     "predicted_difficulty": "easy",
@@ -5604,7 +5604,7 @@
     "record_hash": "ec7563e24999784b41ff41412ee7a0bfda2c43e18100753e95e8b12c7b195f8c"
   },
   {
-    "classification_id": "CLS-24C037DC45E5",
+    "classification_id": "CLS-77AB92CFDFB7",
     "text_instance_id": "SIMP-EN-000392__ORIG",
     "source_group_id": "SIMP-EN-000392",
     "predicted_difficulty": "easy",
@@ -5658,7 +5658,7 @@
     "record_hash": "ae0500919198ebb78364515d747e91b8b88d8b281f65e66397fb16d494b33a90"
   },
   {
-    "classification_id": "CLS-5EA768ABF45B",
+    "classification_id": "CLS-98CBD704E7C1",
     "text_instance_id": "SIMP-EN-000392__SIMP",
     "source_group_id": "SIMP-EN-000392",
     "predicted_difficulty": "easy",
@@ -5719,7 +5719,7 @@
     "record_hash": "3f778296ce0d713a639c4b64df580ee381af1e29cc93383e53e184a2037ba7a1"
   },
   {
-    "classification_id": "CLS-3DB78AEC2CA8",
+    "classification_id": "CLS-C32D58E01A79",
     "text_instance_id": "SIMP-EN-000399__ORIG",
     "source_group_id": "SIMP-EN-000399",
     "predicted_difficulty": "easy",
@@ -5773,7 +5773,7 @@
     "record_hash": "79d1bbde67fdf2deb6f0945c01e856233735a813eb2941e1d303462d8395e0ab"
   },
   {
-    "classification_id": "CLS-1B91AC7B35A2",
+    "classification_id": "CLS-8877AF471233",
     "text_instance_id": "SIMP-EN-000399__SIMP",
     "source_group_id": "SIMP-EN-000399",
     "predicted_difficulty": "easy",
@@ -5827,7 +5827,7 @@
     "record_hash": "acbb734f4f61c6be41a2e5fd6c3498b77f34c889b56875583409492996b46e14"
   },
   {
-    "classification_id": "CLS-CFD853BBF57F",
+    "classification_id": "CLS-62A7AAE6D133",
     "text_instance_id": "SIMP-EN-000400__ORIG",
     "source_group_id": "SIMP-EN-000400",
     "predicted_difficulty": "easy",
@@ -5881,7 +5881,7 @@
     "record_hash": "068be38fb66402a432f9f9aa37354f8ac292d1e3d8556e372bf212c053f3fd67"
   },
   {
-    "classification_id": "CLS-770982B70621",
+    "classification_id": "CLS-34BE4B4BE50F",
     "text_instance_id": "SIMP-EN-000400__SIMP",
     "source_group_id": "SIMP-EN-000400",
     "predicted_difficulty": "easy",
@@ -5949,7 +5949,7 @@
     "record_hash": "dee90ee25e56b4ede8deee20df27262f11331c2507b0662d3ec1ea3b27dbc563"
   },
   {
-    "classification_id": "CLS-F3D7D0F51E63",
+    "classification_id": "CLS-2C113139C889",
     "text_instance_id": "SIMP-EN-000401__ORIG",
     "source_group_id": "SIMP-EN-000401",
     "predicted_difficulty": "easy",
@@ -6003,7 +6003,7 @@
     "record_hash": "f2252275fb8cd7821f181a37593ad16db355e34ed824b58e5fd632c36dca3fb8"
   },
   {
-    "classification_id": "CLS-81F8FA6EB543",
+    "classification_id": "CLS-000EC382AB87",
     "text_instance_id": "SIMP-EN-000401__SIMP",
     "source_group_id": "SIMP-EN-000401",
     "predicted_difficulty": "easy",
@@ -6064,7 +6064,7 @@
     "record_hash": "8bdf8254fa97177d4d0cd1805de07ad1ddec62693349c99680a26810942a7d74"
   },
   {
-    "classification_id": "CLS-24B1B31D4B1B",
+    "classification_id": "CLS-6C280A75A112",
     "text_instance_id": "SIMP-EN-000402__ORIG",
     "source_group_id": "SIMP-EN-000402",
     "predicted_difficulty": "easy",
@@ -6118,7 +6118,7 @@
     "record_hash": "0bff62d4804e64d3842178070b604e3f00672226a2bec5441018bc769a3621df"
   },
   {
-    "classification_id": "CLS-FB02C9531D7B",
+    "classification_id": "CLS-819971CDF29F",
     "text_instance_id": "SIMP-EN-000402__SIMP",
     "source_group_id": "SIMP-EN-000402",
     "predicted_difficulty": "easy",
@@ -6172,7 +6172,7 @@
     "record_hash": "058d0bce419fd2a5e51c38014bf1b31e17423b2ae1bf303ee9b031a5cbde1fae"
   },
   {
-    "classification_id": "CLS-38DDF1F97161",
+    "classification_id": "CLS-EFF5208EF08B",
     "text_instance_id": "SIMP-EN-000403__ORIG",
     "source_group_id": "SIMP-EN-000403",
     "predicted_difficulty": "easy",
@@ -6226,7 +6226,7 @@
     "record_hash": "22dd79429e37fd717788a4ceab309da0f7b15b0b88523be00bcb6cd443db1ac0"
   },
   {
-    "classification_id": "CLS-2BF18CD4BEF4",
+    "classification_id": "CLS-9070EA950C0B",
     "text_instance_id": "SIMP-EN-000403__SIMP",
     "source_group_id": "SIMP-EN-000403",
     "predicted_difficulty": "easy",
@@ -6294,7 +6294,7 @@
     "record_hash": "d67125e8bc544326816c8387b871d214a7f141eb70d6332750383fd732a4b436"
   },
   {
-    "classification_id": "CLS-E13C10D369E2",
+    "classification_id": "CLS-B5D405DC4852",
     "text_instance_id": "SIMP-EN-000404__ORIG",
     "source_group_id": "SIMP-EN-000404",
     "predicted_difficulty": "easy",
@@ -6348,7 +6348,7 @@
     "record_hash": "e2bcac6376f66446fca9b7c693cedae643c6e7ba0b8631fed785baa214a94b9c"
   },
   {
-    "classification_id": "CLS-D1F99250FC37",
+    "classification_id": "CLS-AFD48477F7D2",
     "text_instance_id": "SIMP-EN-000404__SIMP",
     "source_group_id": "SIMP-EN-000404",
     "predicted_difficulty": "easy",
@@ -6409,7 +6409,7 @@
     "record_hash": "15a9086e40a3e5e53a2933eaa6472a1ba95644b127e89997686be57ae334586a"
   },
   {
-    "classification_id": "CLS-C4E3AE3BF200",
+    "classification_id": "CLS-18273D84E6BD",
     "text_instance_id": "SIMP-EN-000591__ORIG",
     "source_group_id": "SIMP-EN-000591",
     "predicted_difficulty": "medium",
@@ -6479,7 +6479,7 @@
     "record_hash": "b2dde4fb692a7f6b07574087af225f1ad8b4a20ad67dd91e0e827852b7edf168"
   },
   {
-    "classification_id": "CLS-304640CC9C26",
+    "classification_id": "CLS-65036E91A42E",
     "text_instance_id": "SIMP-EN-000591__SIMP",
     "source_group_id": "SIMP-EN-000591",
     "predicted_difficulty": "medium",
@@ -6540,7 +6540,7 @@
     "record_hash": "bf0baeb74d0a18968f45d4dd3ac83104f35bee854c97e5cc2cef5daa4a7372c5"
   },
   {
-    "classification_id": "CLS-310AD5839CDB",
+    "classification_id": "CLS-B40275175B7A",
     "text_instance_id": "SIMP-EN-000592__ORIG",
     "source_group_id": "SIMP-EN-000592",
     "predicted_difficulty": "medium",
@@ -6610,7 +6610,7 @@
     "record_hash": "9f48535594e49b940cf8170bb5f9c08aaf338cd2f20a6bc49027acf2aee0ec7f"
   },
   {
-    "classification_id": "CLS-7F215677D742",
+    "classification_id": "CLS-5DBB9F668825",
     "text_instance_id": "SIMP-EN-000592__SIMP",
     "source_group_id": "SIMP-EN-000592",
     "predicted_difficulty": "easy",
@@ -6674,7 +6674,7 @@
     "record_hash": "ddd6c1df2514fdc7d903d299f169158baa45a053e16601fb511d78df54f50712"
   },
   {
-    "classification_id": "CLS-D60C3924284E",
+    "classification_id": "CLS-6EC0C2E9536F",
     "text_instance_id": "SIMP-EN-000593__ORIG",
     "source_group_id": "SIMP-EN-000593",
     "predicted_difficulty": "medium",
@@ -6744,7 +6744,7 @@
     "record_hash": "8ea9b885fc5de4eb13f635a4fe91e3d2243f4feeecdf2ce8b2e7f76aae3f139c"
   },
   {
-    "classification_id": "CLS-0C80EB4F1D21",
+    "classification_id": "CLS-8B09187CBB7B",
     "text_instance_id": "SIMP-EN-000593__SIMP",
     "source_group_id": "SIMP-EN-000593",
     "predicted_difficulty": "medium",
@@ -6807,7 +6807,7 @@
     "record_hash": "866e875cf17d057097b47707791b9f6f3deb4282d13d13f4c2bd53184ff66127"
   },
   {
-    "classification_id": "CLS-63083CB6FFA8",
+    "classification_id": "CLS-8F1B91C6A03D",
     "text_instance_id": "SIMP-EN-000828__ORIG",
     "source_group_id": "SIMP-EN-000828",
     "predicted_difficulty": "medium",
@@ -6861,7 +6861,7 @@
     "record_hash": "deeccd10509974381d8758ac3bb04054eae7bdb148b4dbe3c7d36bd33d8049cc"
   },
   {
-    "classification_id": "CLS-9A37C8E6714E",
+    "classification_id": "CLS-D327EA684BB1",
     "text_instance_id": "SIMP-EN-000828__SIMP",
     "source_group_id": "SIMP-EN-000828",
     "predicted_difficulty": "easy",
@@ -6915,7 +6915,7 @@
     "record_hash": "6f5be4d1a35b2be07b437f1675d16a1f5f16446156fe76ac91a9463ecaf02d36"
   },
   {
-    "classification_id": "CLS-41701D4C7B8D",
+    "classification_id": "CLS-628C7E204431",
     "text_instance_id": "SIMP-EN-000829__ORIG",
     "source_group_id": "SIMP-EN-000829",
     "predicted_difficulty": "medium",
@@ -6969,7 +6969,7 @@
     "record_hash": "3f038c799c5055562d1fd136a60d1b405e7d984992dffb889903ce6d7c4cbb54"
   },
   {
-    "classification_id": "CLS-3E80C9EBE74B",
+    "classification_id": "CLS-689219968CA6",
     "text_instance_id": "SIMP-EN-000829__SIMP",
     "source_group_id": "SIMP-EN-000829",
     "predicted_difficulty": "medium",
@@ -7023,7 +7023,7 @@
     "record_hash": "effa380f045763284a0fb827eb60686b1e3cc305ab8df1d3cc726ba9a392e16b"
   },
   {
-    "classification_id": "CLS-3D2A0DCC3663",
+    "classification_id": "CLS-9BD6C7FA761B",
     "text_instance_id": "SIMP-EN-000830__ORIG",
     "source_group_id": "SIMP-EN-000830",
     "predicted_difficulty": "medium",
@@ -7077,7 +7077,7 @@
     "record_hash": "c5e2dffb5ea00b849a1bbe14d77e6f8cb125dd17ba399f699d32e1b461d2a717"
   },
   {
-    "classification_id": "CLS-4B7874134A46",
+    "classification_id": "CLS-5211E1C4E830",
     "text_instance_id": "SIMP-EN-000830__SIMP",
     "source_group_id": "SIMP-EN-000830",
     "predicted_difficulty": "easy",
@@ -7138,7 +7138,7 @@
     "record_hash": "94fba01fdf4bcc8c2fdb8313bda060383b728ac8399012530ca235b0e094672b"
   },
   {
-    "classification_id": "CLS-E77B6C524122",
+    "classification_id": "CLS-7FD20A6393D3",
     "text_instance_id": "SIMP-EN-000834__ORIG",
     "source_group_id": "SIMP-EN-000834",
     "predicted_difficulty": "medium",
@@ -7192,7 +7192,7 @@
     "record_hash": "c35b1c87cde3ce22efc337773d2b69802174ebf9de15822693230589bed5eec9"
   },
   {
-    "classification_id": "CLS-F57A901C19FB",
+    "classification_id": "CLS-8B69EDC2EE2F",
     "text_instance_id": "SIMP-EN-000834__SIMP",
     "source_group_id": "SIMP-EN-000834",
     "predicted_difficulty": "medium",
@@ -7246,7 +7246,7 @@
     "record_hash": "98d4a37fdf8bb2eb7b5ed434a88b2e7f1883fc209d39011e290dc90cdf4c6bb2"
   },
   {
-    "classification_id": "CLS-2A574AB2580E",
+    "classification_id": "CLS-77CD406D50DD",
     "text_instance_id": "SIMP-EN-000835__ORIG",
     "source_group_id": "SIMP-EN-000835",
     "predicted_difficulty": "medium",
@@ -7300,7 +7300,7 @@
     "record_hash": "ad27fdac14abe012a29b58bd5b5f6840864b4ca37f7c53ac7f44766b8ae4a34f"
   },
   {
-    "classification_id": "CLS-04C106383430",
+    "classification_id": "CLS-0C93C15FC210",
     "text_instance_id": "SIMP-EN-000835__SIMP",
     "source_group_id": "SIMP-EN-000835",
     "predicted_difficulty": "medium",
@@ -7354,7 +7354,7 @@
     "record_hash": "d656cfbb366b25dba234ce774bad17e82fa1ebb2c1cf0f86b31915c124a67a6a"
   },
   {
-    "classification_id": "CLS-CE7E0B87F3E0",
+    "classification_id": "CLS-AC635BF09BA8",
     "text_instance_id": "SIMP-EN-000836__ORIG",
     "source_group_id": "SIMP-EN-000836",
     "predicted_difficulty": "medium",
@@ -7408,7 +7408,7 @@
     "record_hash": "3844bf3c650776cb4541da77d970388affcd08f70149446dfbeec006f6cc6633"
   },
   {
-    "classification_id": "CLS-C062E9CB6B4C",
+    "classification_id": "CLS-E32D8B86BAD4",
     "text_instance_id": "SIMP-EN-000836__SIMP",
     "source_group_id": "SIMP-EN-000836",
     "predicted_difficulty": "easy",
@@ -7469,7 +7469,7 @@
     "record_hash": "2a88287c93dbe4bc1f39a831f0327edec16dd91579e311c121961d90226529e9"
   },
   {
-    "classification_id": "CLS-2F1044450949",
+    "classification_id": "CLS-2DC0134CD361",
     "text_instance_id": "SIMP-EN-000423__ORIG",
     "source_group_id": "SIMP-EN-000423",
     "predicted_difficulty": "easy",
@@ -7530,7 +7530,7 @@
     "record_hash": "f81f4e91ae3c7c35b1f472448c9d211281c3466c9b5730d6a4ed4ff5800fcd08"
   },
   {
-    "classification_id": "CLS-2E68FE2B2E63",
+    "classification_id": "CLS-792F0E7907C1",
     "text_instance_id": "SIMP-EN-000423__SIMP",
     "source_group_id": "SIMP-EN-000423",
     "predicted_difficulty": "easy",
@@ -7587,7 +7587,7 @@
     "record_hash": "8dd053b198f60332637bb643aa8121e9463834c03a886ae192f57ddc87c087a6"
   },
   {
-    "classification_id": "CLS-06164A1B398A",
+    "classification_id": "CLS-5FCBAB6E378E",
     "text_instance_id": "SIMP-EN-000424__ORIG",
     "source_group_id": "SIMP-EN-000424",
     "predicted_difficulty": "easy",
@@ -7648,7 +7648,7 @@
     "record_hash": "3c05cbbd89e0185ebf29dff70f8aaaefba6b62f9c6fb0c3e81c396fbc41cc939"
   },
   {
-    "classification_id": "CLS-7072F837CDC3",
+    "classification_id": "CLS-A6B1E28DFB34",
     "text_instance_id": "SIMP-EN-000424__SIMP",
     "source_group_id": "SIMP-EN-000424",
     "predicted_difficulty": "easy",
@@ -7716,7 +7716,7 @@
     "record_hash": "fa5b7e5b12c604badce754001d1befd0267928d3ce6ec93a5bc9fb09043eabe0"
   },
   {
-    "classification_id": "CLS-3F80F14CB573",
+    "classification_id": "CLS-16C5E0C1A88C",
     "text_instance_id": "SIMP-EN-000425__ORIG",
     "source_group_id": "SIMP-EN-000425",
     "predicted_difficulty": "easy",
@@ -7777,7 +7777,7 @@
     "record_hash": "5406f9f7df9d5a3d92b28d8bec20b552fe74189ccd59d1c229e71a7ba8ffb5e2"
   },
   {
-    "classification_id": "CLS-CE8BD5B71795",
+    "classification_id": "CLS-5D4E3BA688BE",
     "text_instance_id": "SIMP-EN-000425__SIMP",
     "source_group_id": "SIMP-EN-000425",
     "predicted_difficulty": "easy",
@@ -7845,7 +7845,7 @@
     "record_hash": "ce44f025dde1ef0c13ab5022cf2b385a8ba4eeb624492196eccc9244b717881f"
   },
   {
-    "classification_id": "CLS-DD8CBF6F3DE4",
+    "classification_id": "CLS-629ED3FFA968",
     "text_instance_id": "SIMP-EN-000651__ORIG",
     "source_group_id": "SIMP-EN-000651",
     "predicted_difficulty": "medium",
@@ -7908,7 +7908,7 @@
     "record_hash": "b881891eaa8b73cb2046ec2ea5cc8e487467e318af4beb30f7995ab183128a77"
   },
   {
-    "classification_id": "CLS-F6AC00AB847F",
+    "classification_id": "CLS-1867D3D9808C",
     "text_instance_id": "SIMP-EN-000651__SIMP",
     "source_group_id": "SIMP-EN-000651",
     "predicted_difficulty": "easy",
@@ -7969,7 +7969,7 @@
     "record_hash": "3d3083af58fd6fe0f20706c8fa662344c74c9013ede990d71612b11be3242ed2"
   },
   {
-    "classification_id": "CLS-376509D0035C",
+    "classification_id": "CLS-B17A2ABC1C85",
     "text_instance_id": "SIMP-EN-000652__ORIG",
     "source_group_id": "SIMP-EN-000652",
     "predicted_difficulty": "medium",
@@ -8032,7 +8032,7 @@
     "record_hash": "c3418116d59d30fb532044e912d4b1a5d954f7b0db2f545faa947d45325eb62e"
   },
   {
-    "classification_id": "CLS-823E8CE522AC",
+    "classification_id": "CLS-958E63293B1B",
     "text_instance_id": "SIMP-EN-000652__SIMP",
     "source_group_id": "SIMP-EN-000652",
     "predicted_difficulty": "easy",
@@ -8100,7 +8100,7 @@
     "record_hash": "f7d5916f7c6cb4f8a62a249bd0f98421f672274444e955f762ebc471b45cb8ff"
   },
   {
-    "classification_id": "CLS-5C91513B8CDB",
+    "classification_id": "CLS-12438B51F9C1",
     "text_instance_id": "SIMP-EN-000653__ORIG",
     "source_group_id": "SIMP-EN-000653",
     "predicted_difficulty": "medium",
@@ -8163,7 +8163,7 @@
     "record_hash": "70842a694f92a31c73a0af7fdf46a5a5872a4a2f286a600280ba4bd5b0d42b4b"
   },
   {
-    "classification_id": "CLS-9F9607DE7B7E",
+    "classification_id": "CLS-116CB5EC2CF9",
     "text_instance_id": "SIMP-EN-000653__SIMP",
     "source_group_id": "SIMP-EN-000653",
     "predicted_difficulty": "easy",
@@ -8217,7 +8217,7 @@
     "record_hash": "bee9029d33f5b584931afc34636a930d791da699f75b503747f6aac92050e649"
   },
   {
-    "classification_id": "CLS-BDA2076FCAD0",
+    "classification_id": "CLS-71FEADE59AAD",
     "text_instance_id": "SIMP-EN-000840__ORIG",
     "source_group_id": "SIMP-EN-000840",
     "predicted_difficulty": "medium",
@@ -8271,7 +8271,7 @@
     "record_hash": "192ac84990722901abb1c0906667483a0af8f571204f7c81485c10685494cc4f"
   },
   {
-    "classification_id": "CLS-447049D09A4E",
+    "classification_id": "CLS-E19D6C5145A6",
     "text_instance_id": "SIMP-EN-000840__SIMP",
     "source_group_id": "SIMP-EN-000840",
     "predicted_difficulty": "medium",
@@ -8327,7 +8327,7 @@
     "record_hash": "d5a316c635f509fc3cd3bf528632a6d2ca9f552d6c35297e368c8bdbc906c6dc"
   },
   {
-    "classification_id": "CLS-BFBF1B3C5A97",
+    "classification_id": "CLS-C61E3ADCC86D",
     "text_instance_id": "SIMP-EN-000841__ORIG",
     "source_group_id": "SIMP-EN-000841",
     "predicted_difficulty": "medium",
@@ -8381,7 +8381,7 @@
     "record_hash": "647fd61db7f66ea3e26676a76f9fd6fa59683b319555f03adfcc14367d54c829"
   },
   {
-    "classification_id": "CLS-89FFD6C0A491",
+    "classification_id": "CLS-45E3ABB804F3",
     "text_instance_id": "SIMP-EN-000841__SIMP",
     "source_group_id": "SIMP-EN-000841",
     "predicted_difficulty": "easy",
@@ -8435,7 +8435,7 @@
     "record_hash": "c191f7d327723d1622affd3516bedd64784d97ccdf778413f0e6df87892e781a"
   },
   {
-    "classification_id": "CLS-74573FB5ECB1",
+    "classification_id": "CLS-C8A3184AF395",
     "text_instance_id": "SIMP-EN-000842__ORIG",
     "source_group_id": "SIMP-EN-000842",
     "predicted_difficulty": "medium",
@@ -8489,7 +8489,7 @@
     "record_hash": "78ed477e0567c8d3eadc485eef28233bf1110062f7da15837be2ad492348373e"
   },
   {
-    "classification_id": "CLS-3416FF36BC7A",
+    "classification_id": "CLS-30872A6A9A60",
     "text_instance_id": "SIMP-EN-000842__SIMP",
     "source_group_id": "SIMP-EN-000842",
     "predicted_difficulty": "easy",
@@ -8557,7 +8557,7 @@
     "record_hash": "96d0e452f28de5fafce601097694c56e0b3a675e971e38d42f6ed5cb679ee42a"
   },
   {
-    "classification_id": "CLS-A91DA3FD7C71",
+    "classification_id": "CLS-8778646FD897",
     "text_instance_id": "SIMP-EN-000861__ORIG",
     "source_group_id": "SIMP-EN-000861",
     "predicted_difficulty": "medium",
@@ -8606,7 +8606,7 @@
     "record_hash": "d25c6826fbb3377fe5837157236e08081af7bf0ed21d53ea502ba3035e521df2"
   },
   {
-    "classification_id": "CLS-872DE7362186",
+    "classification_id": "CLS-52A5DFD49354",
     "text_instance_id": "SIMP-EN-000861__SIMP",
     "source_group_id": "SIMP-EN-000861",
     "predicted_difficulty": "easy",
@@ -8660,7 +8660,7 @@
     "record_hash": "7204216ab8b487daa906f2ffc233383cb72be54e7dd01018f7ad0abf1c217219"
   },
   {
-    "classification_id": "CLS-1540FDBF7AF3",
+    "classification_id": "CLS-3D88E13F3BCD",
     "text_instance_id": "SIMP-EN-000862__ORIG",
     "source_group_id": "SIMP-EN-000862",
     "predicted_difficulty": "medium",
@@ -8709,7 +8709,7 @@
     "record_hash": "9d1af21db88cd6d75acd8006d6b75ba9a0b1418f19f78bcb728ab1613226bc57"
   },
   {
-    "classification_id": "CLS-B4DC30BA4210",
+    "classification_id": "CLS-BC19E0AE6FEA",
     "text_instance_id": "SIMP-EN-000862__SIMP",
     "source_group_id": "SIMP-EN-000862",
     "predicted_difficulty": "easy",
@@ -8770,7 +8770,7 @@
     "record_hash": "41d9d425db243d7100dbbaa6a98b4c9f4fdd1e4d1504ac2c4c1b2f812be52081"
   },
   {
-    "classification_id": "CLS-E0E5580BBEF3",
+    "classification_id": "CLS-D6835A0300E9",
     "text_instance_id": "SIMP-EN-000863__ORIG",
     "source_group_id": "SIMP-EN-000863",
     "predicted_difficulty": "medium",
@@ -8819,7 +8819,7 @@
     "record_hash": "79d7f2898c892db87877da0120b5371ce1ca827244485ba0a64c2f344c037867"
   },
   {
-    "classification_id": "CLS-CAEF4DA97EDF",
+    "classification_id": "CLS-BB4120E550DF",
     "text_instance_id": "SIMP-EN-000863__SIMP",
     "source_group_id": "SIMP-EN-000863",
     "predicted_difficulty": "easy",
@@ -8882,7 +8882,7 @@
     "record_hash": "ad85ca4fd7185d09c8becd268f1720d550ed2a05d24bb697648c58d4241f4221"
   },
   {
-    "classification_id": "CLS-EA20D9157841",
+    "classification_id": "CLS-48AB5A0A4DD1",
     "text_instance_id": "SIMP-EN-000864__ORIG",
     "source_group_id": "SIMP-EN-000864",
     "predicted_difficulty": "medium",
@@ -8936,7 +8936,7 @@
     "record_hash": "a0d9db0c58d8c804e6af241e733d06b9bc55737cc5b23dc9316b6e3c4967e851"
   },
   {
-    "classification_id": "CLS-D8CF20CD6F70",
+    "classification_id": "CLS-8A6E2C56C6A2",
     "text_instance_id": "SIMP-EN-000864__SIMP",
     "source_group_id": "SIMP-EN-000864",
     "predicted_difficulty": "medium",
@@ -8990,7 +8990,7 @@
     "record_hash": "2fea020e8e63b507453cdce7f4ec7ccb23365e62f234f019ebeb5f22fab14906"
   },
   {
-    "classification_id": "CLS-BDCF151BF8FD",
+    "classification_id": "CLS-4E6B10CA15FC",
     "text_instance_id": "SIMP-EN-000865__ORIG",
     "source_group_id": "SIMP-EN-000865",
     "predicted_difficulty": "medium",
@@ -9044,7 +9044,7 @@
     "record_hash": "60de062f60a77d04ff22358152689167ae9bfc17a46d5d1897fd7dd9377d8b5f"
   },
   {
-    "classification_id": "CLS-648E84D2A286",
+    "classification_id": "CLS-EEE28A81B7DA",
     "text_instance_id": "SIMP-EN-000865__SIMP",
     "source_group_id": "SIMP-EN-000865",
     "predicted_difficulty": "medium",
@@ -9098,7 +9098,7 @@
     "record_hash": "81599ac9ae69bbf7171d6fc55fa3a22476c5575afc2c401c1ba15d87509c21d5"
   },
   {
-    "classification_id": "CLS-6F307105A378",
+    "classification_id": "CLS-8FAF0DB0CEB7",
     "text_instance_id": "SIMP-EN-000866__ORIG",
     "source_group_id": "SIMP-EN-000866",
     "predicted_difficulty": "medium",
@@ -9152,7 +9152,7 @@
     "record_hash": "2e05475101f5898d7d837026faeb7c1c7558025c7ebd20d813aa4d096134425b"
   },
   {
-    "classification_id": "CLS-FD449812E890",
+    "classification_id": "CLS-B4AAFDD0F40A",
     "text_instance_id": "SIMP-EN-000866__SIMP",
     "source_group_id": "SIMP-EN-000866",
     "predicted_difficulty": "easy",
@@ -9213,7 +9213,7 @@
     "record_hash": "81449672b6a245c920ac398745516ce9a7a30de9be03a4ceab60ce22389628a7"
   },
   {
-    "classification_id": "CLS-838408B14351",
+    "classification_id": "CLS-0411AE26BB13",
     "text_instance_id": "SIMP-EN-001065__ORIG",
     "source_group_id": "SIMP-EN-001065",
     "predicted_difficulty": "medium",
@@ -9274,7 +9274,7 @@
     "record_hash": "270f8482e9d5423ba472628a89813c5b09e1636f90f76292431ebc9bc3285907"
   },
   {
-    "classification_id": "CLS-C48C359C45DD",
+    "classification_id": "CLS-F2FA990022EB",
     "text_instance_id": "SIMP-EN-001065__SIMP",
     "source_group_id": "SIMP-EN-001065",
     "predicted_difficulty": "medium",
@@ -9337,7 +9337,7 @@
     "record_hash": "bb9ab3de6da5a2ad98372995f2fdff8ac8a959adf4eab55402a8d2c5dfc0af18"
   },
   {
-    "classification_id": "CLS-D13371C32A68",
+    "classification_id": "CLS-CE329BA721F3",
     "text_instance_id": "SIMP-EN-001066__ORIG",
     "source_group_id": "SIMP-EN-001066",
     "predicted_difficulty": "medium",
@@ -9398,7 +9398,7 @@
     "record_hash": "4b668711fb702f7e2b5188b783646c4471107b01b27d91dad7e71aad684e9e9f"
   },
   {
-    "classification_id": "CLS-066FBFA0F6B1",
+    "classification_id": "CLS-0370FF4F17FF",
     "text_instance_id": "SIMP-EN-001066__SIMP",
     "source_group_id": "SIMP-EN-001066",
     "predicted_difficulty": "easy",
@@ -9459,7 +9459,7 @@
     "record_hash": "1c6cd7fe55caa7d31d9d680f449b203d9d9daf5f1fffd0f337a52def444d2303"
   },
   {
-    "classification_id": "CLS-C6F1F7B35813",
+    "classification_id": "CLS-7017A70783DD",
     "text_instance_id": "SIMP-EN-001067__ORIG",
     "source_group_id": "SIMP-EN-001067",
     "predicted_difficulty": "medium",
@@ -9520,7 +9520,7 @@
     "record_hash": "d545c06b780288db71a0c0cc252df7dc69b1a81fe56150e340bae8c51737d495"
   },
   {
-    "classification_id": "CLS-E3215ED1DA55",
+    "classification_id": "CLS-4429FD16FF1D",
     "text_instance_id": "SIMP-EN-001067__SIMP",
     "source_group_id": "SIMP-EN-001067",
     "predicted_difficulty": "easy",
@@ -9581,7 +9581,7 @@
     "record_hash": "9bfd2aaaeb74f221423ea0d69d29fbac89f89791eb96fc575c9b3705e456abf4"
   },
   {
-    "classification_id": "CLS-03D446ECAD25",
+    "classification_id": "CLS-111C0E56A728",
     "text_instance_id": "SIMP-EN-001077__ORIG",
     "source_group_id": "SIMP-EN-001077",
     "predicted_difficulty": "medium",
@@ -9642,7 +9642,7 @@
     "record_hash": "d8f1218c460590e92f69811da6d336edc7be0adde9fc8f55e0473606e09bf45e"
   },
   {
-    "classification_id": "CLS-48DA2D5B8712",
+    "classification_id": "CLS-EEC0FB43A68B",
     "text_instance_id": "SIMP-EN-001077__SIMP",
     "source_group_id": "SIMP-EN-001077",
     "predicted_difficulty": "medium",
@@ -9691,7 +9691,7 @@
     "record_hash": "e45f4fe7d8d199ef4e78427e797215f5c39b51bb044453935281a7972bdccc08"
   },
   {
-    "classification_id": "CLS-D3AFBC60129C",
+    "classification_id": "CLS-099936A10476",
     "text_instance_id": "SIMP-EN-001078__ORIG",
     "source_group_id": "SIMP-EN-001078",
     "predicted_difficulty": "medium",
@@ -9752,7 +9752,7 @@
     "record_hash": "2df7ccf12e3a6936827942a08c1d513e024793581cdb20d97aed9cdc33b02dfd"
   },
   {
-    "classification_id": "CLS-CDD5C86613DC",
+    "classification_id": "CLS-1D80706AE53C",
     "text_instance_id": "SIMP-EN-001078__SIMP",
     "source_group_id": "SIMP-EN-001078",
     "predicted_difficulty": "easy",
@@ -9806,7 +9806,7 @@
     "record_hash": "3375d99688a9bfeef420bf2655cd39bab4e9e6646af7022def32c698a6cff737"
   },
   {
-    "classification_id": "CLS-078437BB169B",
+    "classification_id": "CLS-0B4FC4684AFA",
     "text_instance_id": "SIMP-EN-001079__ORIG",
     "source_group_id": "SIMP-EN-001079",
     "predicted_difficulty": "medium",
@@ -9867,7 +9867,7 @@
     "record_hash": "cf827bd6119e94424bd999276a1a63818c55cd4d12e219835a1006b016fcab8d"
   },
   {
-    "classification_id": "CLS-C3FEC9A6C4C8",
+    "classification_id": "CLS-98977AEE48BD",
     "text_instance_id": "SIMP-EN-001079__SIMP",
     "source_group_id": "SIMP-EN-001079",
     "predicted_difficulty": "easy",
@@ -9928,7 +9928,7 @@
     "record_hash": "04a3eaa2d1b4d11b60327fa114d75ae2920b2796e5933fa91a275694c76ecb85"
   },
   {
-    "classification_id": "CLS-CB8E670682DE",
+    "classification_id": "CLS-982B9DD65EAB",
     "text_instance_id": "SIMP-EN-001083__ORIG",
     "source_group_id": "SIMP-EN-001083",
     "predicted_difficulty": "medium",
@@ -9991,7 +9991,7 @@
     "record_hash": "e87394076e52f500785464e4085973dcf641a9b93708f4bf5adf717af307571f"
   },
   {
-    "classification_id": "CLS-3851E23EA64C",
+    "classification_id": "CLS-35B3D14E7BB1",
     "text_instance_id": "SIMP-EN-001083__SIMP",
     "source_group_id": "SIMP-EN-001083",
     "predicted_difficulty": "easy",
@@ -10059,7 +10059,7 @@
     "record_hash": "d28406f3872b971b096960aa2c6b2c71749b751e8aa7c32138f2bae00ad74600"
   },
   {
-    "classification_id": "CLS-9CB0DD56BA8A",
+    "classification_id": "CLS-7616ACE86C0B",
     "text_instance_id": "SIMP-EN-001084__ORIG",
     "source_group_id": "SIMP-EN-001084",
     "predicted_difficulty": "medium",
@@ -10122,7 +10122,7 @@
     "record_hash": "0869a26140b5488b6e35c0d7211937ed8af7049b3a15992ce977859876ab9dde"
   },
   {
-    "classification_id": "CLS-6E3B69A9CC9C",
+    "classification_id": "CLS-6FB2E21F5DB3",
     "text_instance_id": "SIMP-EN-001084__SIMP",
     "source_group_id": "SIMP-EN-001084",
     "predicted_difficulty": "easy",
@@ -10190,7 +10190,7 @@
     "record_hash": "473b8d8fd51c45e2a9795212001ca04c6f5e5cbe50de1a8a7bc63becaef332f9"
   },
   {
-    "classification_id": "CLS-C3116B43F1B9",
+    "classification_id": "CLS-AFE61F8CBF13",
     "text_instance_id": "SIMP-EN-001085__ORIG",
     "source_group_id": "SIMP-EN-001085",
     "predicted_difficulty": "medium",
@@ -10253,7 +10253,7 @@
     "record_hash": "a98bba04d15956fdad976a8b949f343bf389c3fcba754238e53727ce299205f0"
   },
   {
-    "classification_id": "CLS-2100C6DC1033",
+    "classification_id": "CLS-2CDC08E73258",
     "text_instance_id": "SIMP-EN-001085__SIMP",
     "source_group_id": "SIMP-EN-001085",
     "predicted_difficulty": "easy",
@@ -10314,7 +10314,7 @@
     "record_hash": "e1393baa4636cbf77f5dc52e3b8ca7599cfa8b43ccb9bdc180d6469f04848bb2"
   },
   {
-    "classification_id": "CLS-8799A35942D4",
+    "classification_id": "CLS-DF8F067A8004",
     "text_instance_id": "SIMP-EN-001095__ORIG",
     "source_group_id": "SIMP-EN-001095",
     "predicted_difficulty": "medium",
@@ -10375,7 +10375,7 @@
     "record_hash": "b9a898cf483ca2eaaaf264634cff7da928e7c3a05cca0bf1c7daf07e03dc23e2"
   },
   {
-    "classification_id": "CLS-4CF70F7B3881",
+    "classification_id": "CLS-2DC6B58AA9EC",
     "text_instance_id": "SIMP-EN-001095__SIMP",
     "source_group_id": "SIMP-EN-001095",
     "predicted_difficulty": "medium",
@@ -10438,7 +10438,7 @@
     "record_hash": "8ed2c1c48d291a4b0e00c96b91e091bf8b39653213f713a1ee62548d142a93e5"
   },
   {
-    "classification_id": "CLS-07E3E33BCF19",
+    "classification_id": "CLS-71F5B1C7B250",
     "text_instance_id": "SIMP-EN-001096__ORIG",
     "source_group_id": "SIMP-EN-001096",
     "predicted_difficulty": "medium",
@@ -10499,7 +10499,7 @@
     "record_hash": "e5bcbcc05e4ebcfbc33c1d050dda4993ca045af57013571909d92ea44c7b1d00"
   },
   {
-    "classification_id": "CLS-976A6025526C",
+    "classification_id": "CLS-7656719AEE98",
     "text_instance_id": "SIMP-EN-001096__SIMP",
     "source_group_id": "SIMP-EN-001096",
     "predicted_difficulty": "easy",
@@ -10560,7 +10560,7 @@
     "record_hash": "d31e81f0d621a7e3e742b36f8668521a52fde996323c5ae6ff09a95baf100214"
   },
   {
-    "classification_id": "CLS-6C508AD237C4",
+    "classification_id": "CLS-88451F6E7AE7",
     "text_instance_id": "SIMP-EN-001097__ORIG",
     "source_group_id": "SIMP-EN-001097",
     "predicted_difficulty": "medium",
@@ -10621,7 +10621,7 @@
     "record_hash": "0c3074c930d45441b170beddc00edb7b0feb147db58ea997c9f87f913af21c6e"
   },
   {
-    "classification_id": "CLS-0F92CD2581F8",
+    "classification_id": "CLS-5E8295964B07",
     "text_instance_id": "SIMP-EN-001097__SIMP",
     "source_group_id": "SIMP-EN-001097",
     "predicted_difficulty": "easy",
@@ -10682,7 +10682,7 @@
     "record_hash": "0c763aaa93f15887f431c0cacf3617579848a86bc730db5605f67cc203cb23ea"
   },
   {
-    "classification_id": "CLS-B92D38E5A0C6",
+    "classification_id": "CLS-E2F4B3867CD8",
     "text_instance_id": "SIMP-EN-001107__ORIG",
     "source_group_id": "SIMP-EN-001107",
     "predicted_difficulty": "medium",
@@ -10743,7 +10743,7 @@
     "record_hash": "57a34dfc43c61d096a83e198a69b3992884325bcbb106447628a107d53778422"
   },
   {
-    "classification_id": "CLS-7D44C9922486",
+    "classification_id": "CLS-DB59475F8D1E",
     "text_instance_id": "SIMP-EN-001107__SIMP",
     "source_group_id": "SIMP-EN-001107",
     "predicted_difficulty": "easy",
@@ -10790,7 +10790,7 @@
     "record_hash": "a0025acc8418346babf89587b4dd125b7b32363db2bec249514649147019f85e"
   },
   {
-    "classification_id": "CLS-AF14703443B1",
+    "classification_id": "CLS-DAACD706825B",
     "text_instance_id": "SIMP-EN-001108__ORIG",
     "source_group_id": "SIMP-EN-001108",
     "predicted_difficulty": "medium",
@@ -10851,7 +10851,7 @@
     "record_hash": "59cfac53a24bcc5799a30a247324c5299a54991299a8053c1d99982cbdbf03e4"
   },
   {
-    "classification_id": "CLS-4AE90609E87A",
+    "classification_id": "CLS-0EB32208611E",
     "text_instance_id": "SIMP-EN-001108__SIMP",
     "source_group_id": "SIMP-EN-001108",
     "predicted_difficulty": "easy",
@@ -10912,7 +10912,7 @@
     "record_hash": "fb3ddc2999f532a2cb28506fb041857c9f55ce93e4fc44498d5f56fcee686427"
   },
   {
-    "classification_id": "CLS-6535D587A50E",
+    "classification_id": "CLS-D401D8930CE3",
     "text_instance_id": "SIMP-EN-001109__ORIG",
     "source_group_id": "SIMP-EN-001109",
     "predicted_difficulty": "medium",
@@ -10973,7 +10973,7 @@
     "record_hash": "f1275c374851bd9ff18375c89f6b195ae1b95e29b321ec2638b74aa3027a688e"
   },
   {
-    "classification_id": "CLS-187A9BCF29F1",
+    "classification_id": "CLS-CAF64B280ECD",
     "text_instance_id": "SIMP-EN-001109__SIMP",
     "source_group_id": "SIMP-EN-001109",
     "predicted_difficulty": "easy",
@@ -11034,7 +11034,7 @@
     "record_hash": "30d09c00c751ae6fec91ba0c87e36c27deeb0a88259c6d737993fba9ffaf27e9"
   },
   {
-    "classification_id": "CLS-B1D6758C314C",
+    "classification_id": "CLS-E14BB92BFEB1",
     "text_instance_id": "SIMP-EN-000435__ORIG",
     "source_group_id": "SIMP-EN-000435",
     "predicted_difficulty": "easy",
@@ -11095,7 +11095,7 @@
     "record_hash": "5100878dd928864882b4f795cb6fb5300e6e31fe21836a7b4e8b624b356872b2"
   },
   {
-    "classification_id": "CLS-B4ECC15B2BA3",
+    "classification_id": "CLS-0292EB6AEFFD",
     "text_instance_id": "SIMP-EN-000435__SIMP",
     "source_group_id": "SIMP-EN-000435",
     "predicted_difficulty": "easy",
@@ -11156,7 +11156,7 @@
     "record_hash": "450fb64b5032c956cd93754116d59799efb4043233f5b5b120ebf2951b6e33bf"
   },
   {
-    "classification_id": "CLS-ED0CCD0487A1",
+    "classification_id": "CLS-34746AD36A76",
     "text_instance_id": "SIMP-EN-000436__ORIG",
     "source_group_id": "SIMP-EN-000436",
     "predicted_difficulty": "easy",
@@ -11217,7 +11217,7 @@
     "record_hash": "7f1c3a8393fbde843a89ee1faf74f66e33332f9581e550fa877208aed7ae0ba9"
   },
   {
-    "classification_id": "CLS-54FADB78CA1E",
+    "classification_id": "CLS-C9D640D5D4ED",
     "text_instance_id": "SIMP-EN-000436__SIMP",
     "source_group_id": "SIMP-EN-000436",
     "predicted_difficulty": "easy",
@@ -11285,7 +11285,7 @@
     "record_hash": "e317aab280faf4a685b52c35e3c1fbb4f84b6dd249f7c248aa9d94e18654d641"
   },
   {
-    "classification_id": "CLS-99B7D0370F75",
+    "classification_id": "CLS-863F6225C630",
     "text_instance_id": "SIMP-EN-000437__ORIG",
     "source_group_id": "SIMP-EN-000437",
     "predicted_difficulty": "easy",
@@ -11346,7 +11346,7 @@
     "record_hash": "b75c9287f076ef548035e0f28f0992b0eb12465225c9c7b5ec1e517e6ac2d811"
   },
   {
-    "classification_id": "CLS-96D241A036E7",
+    "classification_id": "CLS-94B9F9E53B91",
     "text_instance_id": "SIMP-EN-000437__SIMP",
     "source_group_id": "SIMP-EN-000437",
     "predicted_difficulty": "easy",
@@ -11414,7 +11414,7 @@
     "record_hash": "e13090434994f3c3dcd3ff89d3c20a99156cba6c1e06eda7eb7e2e3a29386db0"
   },
   {
-    "classification_id": "CLS-C77D61C8F09B",
+    "classification_id": "CLS-6B0096C33F48",
     "text_instance_id": "SIMP-EN-000453__ORIG",
     "source_group_id": "SIMP-EN-000453",
     "predicted_difficulty": "medium",
@@ -11468,7 +11468,7 @@
     "record_hash": "4b37bc6594cbf613cb82dc1f61e27ffea9e3cf37037e9420d0e00079a7f312c2"
   },
   {
-    "classification_id": "CLS-6C895DB827C0",
+    "classification_id": "CLS-E5C810A0E24E",
     "text_instance_id": "SIMP-EN-000453__SIMP",
     "source_group_id": "SIMP-EN-000453",
     "predicted_difficulty": "easy",
@@ -11529,7 +11529,7 @@
     "record_hash": "3e065dca78a2dd37723e7517d5ef70ca42a9ef02dbcc5761058c5c31563e6b87"
   },
   {
-    "classification_id": "CLS-3C09F47FA083",
+    "classification_id": "CLS-7F9BADD9AE58",
     "text_instance_id": "SIMP-EN-000454__ORIG",
     "source_group_id": "SIMP-EN-000454",
     "predicted_difficulty": "medium",
@@ -11583,7 +11583,7 @@
     "record_hash": "829f22a80c8680f7d9b58269f995f10cf536f69fb8bba9024a3a195ff599839d"
   },
   {
-    "classification_id": "CLS-B1ECFF2811D1",
+    "classification_id": "CLS-02F9D33368BB",
     "text_instance_id": "SIMP-EN-000454__SIMP",
     "source_group_id": "SIMP-EN-000454",
     "predicted_difficulty": "easy",
@@ -11651,7 +11651,7 @@
     "record_hash": "4e14eea8a802860f387e5a7e26c917359c2dd4df87f36503d7394ef0f15063b5"
   },
   {
-    "classification_id": "CLS-32B1B109279C",
+    "classification_id": "CLS-399157F8BD37",
     "text_instance_id": "SIMP-EN-000455__ORIG",
     "source_group_id": "SIMP-EN-000455",
     "predicted_difficulty": "medium",
@@ -11705,7 +11705,7 @@
     "record_hash": "37bedab68bb6dc18a63d258b7d8e27a0d523a2ee8bbc642dd8ffeb3fe8661c1e"
   },
   {
-    "classification_id": "CLS-669673DA1164",
+    "classification_id": "CLS-4169DB05F7A5",
     "text_instance_id": "SIMP-EN-000455__SIMP",
     "source_group_id": "SIMP-EN-000455",
     "predicted_difficulty": "easy",
@@ -11766,7 +11766,7 @@
     "record_hash": "f00110cbfa0078ed7cc435e872594392fc6ad93e313323bb80317dab36c12ff0"
   },
   {
-    "classification_id": "CLS-7D89B2474F1A",
+    "classification_id": "CLS-4659DAC93104",
     "text_instance_id": "SIMP-EN-000696__ORIG",
     "source_group_id": "SIMP-EN-000696",
     "predicted_difficulty": "easy",
@@ -11820,7 +11820,7 @@
     "record_hash": "60dc197e19ff5283616db1afae9fd206fee4b161b00150e37db514c126c10973"
   },
   {
-    "classification_id": "CLS-CD73C283EAFF",
+    "classification_id": "CLS-8D6BAB5E691E",
     "text_instance_id": "SIMP-EN-000696__SIMP",
     "source_group_id": "SIMP-EN-000696",
     "predicted_difficulty": "easy",
@@ -11874,7 +11874,7 @@
     "record_hash": "2e4731c8ef61f1910611a72cd02271bdffe6b2fceae7504fc6e341966727244d"
   },
   {
-    "classification_id": "CLS-C9F17FEF1EB0",
+    "classification_id": "CLS-1741B62A015A",
     "text_instance_id": "SIMP-EN-000697__ORIG",
     "source_group_id": "SIMP-EN-000697",
     "predicted_difficulty": "easy",
@@ -11928,7 +11928,7 @@
     "record_hash": "ba94f97fd40a5667d57d61b98a3d4c5b780cea32f5c71f5853fd888dd23e8609"
   },
   {
-    "classification_id": "CLS-A5B18DD97501",
+    "classification_id": "CLS-4B27EC5492FB",
     "text_instance_id": "SIMP-EN-000697__SIMP",
     "source_group_id": "SIMP-EN-000697",
     "predicted_difficulty": "easy",
@@ -11989,7 +11989,7 @@
     "record_hash": "1048f5b26ba32a45e9aaec4a749a101bd4eb1ef78d06c92b51b4fb819b044834"
   },
   {
-    "classification_id": "CLS-08DCCAA7151A",
+    "classification_id": "CLS-E5C3B781FF95",
     "text_instance_id": "SIMP-EN-000698__ORIG",
     "source_group_id": "SIMP-EN-000698",
     "predicted_difficulty": "easy",
@@ -12043,7 +12043,7 @@
     "record_hash": "0f7ac053efe99a6d0ddb78b761d4bf049f6b4968abf738ae87878057b5e494c4"
   },
   {
-    "classification_id": "CLS-F8B5CEE4F42C",
+    "classification_id": "CLS-6CC6BC75E3A7",
     "text_instance_id": "SIMP-EN-000698__SIMP",
     "source_group_id": "SIMP-EN-000698",
     "predicted_difficulty": "easy",
@@ -12104,7 +12104,7 @@
     "record_hash": "521a76fb2332883523fd74cea17f36dbd59caf0107449698f60ef30d787180f6"
   },
   {
-    "classification_id": "CLS-D48D117AC7B7",
+    "classification_id": "CLS-018FDAF6B00B",
     "text_instance_id": "SIMP-EN-000909__ORIG",
     "source_group_id": "SIMP-EN-000909",
     "predicted_difficulty": "medium",
@@ -12160,7 +12160,7 @@
     "record_hash": "8e38bfac52238ea2e5080a5993d790f0b44800ea7e16d1197352462934b18a04"
   },
   {
-    "classification_id": "CLS-F633C9F689B2",
+    "classification_id": "CLS-598EE349FF69",
     "text_instance_id": "SIMP-EN-000909__SIMP",
     "source_group_id": "SIMP-EN-000909",
     "predicted_difficulty": "medium",
@@ -12214,7 +12214,7 @@
     "record_hash": "adca10c55c9573844270580b2b43646a05d6b8140ee8871764986f1b8fd8b8df"
   },
   {
-    "classification_id": "CLS-C37FEE5B982C",
+    "classification_id": "CLS-88A08B09A5F6",
     "text_instance_id": "SIMP-EN-000910__ORIG",
     "source_group_id": "SIMP-EN-000910",
     "predicted_difficulty": "medium",
@@ -12270,7 +12270,7 @@
     "record_hash": "0bedc4a36d71c3320a96bf1b011db4de2d896b9ab2415c139b5106de0456f20c"
   },
   {
-    "classification_id": "CLS-5B2CD3144535",
+    "classification_id": "CLS-668B688E3469",
     "text_instance_id": "SIMP-EN-000910__SIMP",
     "source_group_id": "SIMP-EN-000910",
     "predicted_difficulty": "medium",
@@ -12333,7 +12333,7 @@
     "record_hash": "5feef094f8cb74d13b39bdb470d38f5489fbe48808db5da38c0e245478bea8e8"
   },
   {
-    "classification_id": "CLS-38491EA1BF85",
+    "classification_id": "CLS-2E545C13986E",
     "text_instance_id": "SIMP-EN-000911__ORIG",
     "source_group_id": "SIMP-EN-000911",
     "predicted_difficulty": "medium",
@@ -12389,7 +12389,7 @@
     "record_hash": "eef6054bbac5e3f73e22f83fc6d26ed97e809f91af13348db082a472fcbba6df"
   },
   {
-    "classification_id": "CLS-F6E9085A1381",
+    "classification_id": "CLS-FF90E552D428",
     "text_instance_id": "SIMP-EN-000911__SIMP",
     "source_group_id": "SIMP-EN-000911",
     "predicted_difficulty": "easy",
@@ -12443,7 +12443,7 @@
     "record_hash": "8737a8adbea18041d19d6a33e285abee357be7ab437f96d52841306e9d04abb0"
   },
   {
-    "classification_id": "CLS-2C095F0D32A4",
+    "classification_id": "CLS-2090BB87D21C",
     "text_instance_id": "SIMP-EN-001119__ORIG",
     "source_group_id": "SIMP-EN-001119",
     "predicted_difficulty": "medium",
@@ -12504,7 +12504,7 @@
     "record_hash": "cbdb29a06d54768e393defee896f197aaaabe704fcbe6f27d0eaa708acefd64b"
   },
   {
-    "classification_id": "CLS-76F95AB89299",
+    "classification_id": "CLS-EA93CBE700BA",
     "text_instance_id": "SIMP-EN-001119__SIMP",
     "source_group_id": "SIMP-EN-001119",
     "predicted_difficulty": "medium",
@@ -12567,7 +12567,7 @@
     "record_hash": "bd94407b9136949aeee562d50e5ca93594799b07e60747d2b2a502b5d5542480"
   },
   {
-    "classification_id": "CLS-3FED74CEAEC0",
+    "classification_id": "CLS-B9338FCEB678",
     "text_instance_id": "SIMP-EN-001120__ORIG",
     "source_group_id": "SIMP-EN-001120",
     "predicted_difficulty": "medium",
@@ -12628,7 +12628,7 @@
     "record_hash": "9f34b45a6f4504e08a5d45982f56757db67d1c01c1e28b87cd2f55131e7af1f7"
   },
   {
-    "classification_id": "CLS-8B8C908B7588",
+    "classification_id": "CLS-85CB61E2DDBC",
     "text_instance_id": "SIMP-EN-001120__SIMP",
     "source_group_id": "SIMP-EN-001120",
     "predicted_difficulty": "easy",
@@ -12689,7 +12689,7 @@
     "record_hash": "7ccb6f03b61555aa8034adaf0f83883aeef9d387046fbae56ad28d1ffaf97952"
   },
   {
-    "classification_id": "CLS-5FB3A4228E09",
+    "classification_id": "CLS-1705110F5DED",
     "text_instance_id": "SIMP-EN-001121__ORIG",
     "source_group_id": "SIMP-EN-001121",
     "predicted_difficulty": "medium",
@@ -12750,7 +12750,7 @@
     "record_hash": "9a5c06197a5c6d205c8ea992019db1db8e31c15bf8c25d8aff31be48f7fdec79"
   },
   {
-    "classification_id": "CLS-3475930CFDA2",
+    "classification_id": "CLS-CDBDACEC6D08",
     "text_instance_id": "SIMP-EN-001121__SIMP",
     "source_group_id": "SIMP-EN-001121",
     "predicted_difficulty": "easy",
@@ -12820,7 +12820,7 @@
     "record_hash": "82d701d9e72797c2cbd97c3239fc34d6da445f6e578322288948c712254a42b9"
   },
   {
-    "classification_id": "CLS-39447C7EBB21",
+    "classification_id": "CLS-C29FACC17F4C",
     "text_instance_id": "SIMP-EN-001128__ORIG",
     "source_group_id": "SIMP-EN-001128",
     "predicted_difficulty": "easy",
@@ -12881,7 +12881,7 @@
     "record_hash": "e0f36690a0b4e5b5124bc1a5c690802e8d09a12457fe7395afd104bff970b2aa"
   },
   {
-    "classification_id": "CLS-62825F3BF4FC",
+    "classification_id": "CLS-8FA5AC680BAF",
     "text_instance_id": "SIMP-EN-001128__SIMP",
     "source_group_id": "SIMP-EN-001128",
     "predicted_difficulty": "easy",
@@ -12928,7 +12928,7 @@
     "record_hash": "d0096cad354efee01605316bac55d689ccb1dd10f1a46f7a0689114d383e9813"
   },
   {
-    "classification_id": "CLS-26B040AD22F6",
+    "classification_id": "CLS-133295CAC895",
     "text_instance_id": "SIMP-EN-001129__ORIG",
     "source_group_id": "SIMP-EN-001129",
     "predicted_difficulty": "easy",
@@ -12989,7 +12989,7 @@
     "record_hash": "5c7e2a31bf9a3fd8b190e2fe6861fda33050782eb5354b62361ce3ebe2af86e1"
   },
   {
-    "classification_id": "CLS-9913D9FF228F",
+    "classification_id": "CLS-0677ACA11262",
     "text_instance_id": "SIMP-EN-001129__SIMP",
     "source_group_id": "SIMP-EN-001129",
     "predicted_difficulty": "easy",
@@ -13043,7 +13043,7 @@
     "record_hash": "59f080b673335ee9f01f7ecdb7a40b2bf58851677faebc768cc7fe7e840da15a"
   },
   {
-    "classification_id": "CLS-1236C083DA26",
+    "classification_id": "CLS-93561E276F95",
     "text_instance_id": "SIMP-EN-001130__ORIG",
     "source_group_id": "SIMP-EN-001130",
     "predicted_difficulty": "easy",
@@ -13104,7 +13104,7 @@
     "record_hash": "04f4b4bce35dd82456841c5ce3b66fdc6d7c0a4d77dbb9ed589f4161c96fa6e6"
   },
   {
-    "classification_id": "CLS-320CF7CB69A0",
+    "classification_id": "CLS-7206023522C3",
     "text_instance_id": "SIMP-EN-001130__SIMP",
     "source_group_id": "SIMP-EN-001130",
     "predicted_difficulty": "easy",
@@ -13165,7 +13165,7 @@
     "record_hash": "baa1cb0cc4c0e2e00f593b3b1cd97495682d38c9aa0e63f0c5183c6c1d5a6777"
   },
   {
-    "classification_id": "CLS-967F44623993",
+    "classification_id": "CLS-A14A7778ACC5",
     "text_instance_id": "SIMP-EN-000477__ORIG",
     "source_group_id": "SIMP-EN-000477",
     "predicted_difficulty": "medium",
@@ -13212,7 +13212,7 @@
     "record_hash": "6c826e5cefc6773cc706e86cba3d319c1acf8039bc8bbc588abb64f45b2c28d1"
   },
   {
-    "classification_id": "CLS-204ACBE7094A",
+    "classification_id": "CLS-13E22B63B32A",
     "text_instance_id": "SIMP-EN-000477__SIMP",
     "source_group_id": "SIMP-EN-000477",
     "predicted_difficulty": "medium",
@@ -13268,7 +13268,7 @@
     "record_hash": "2e7b9e802b9ac113c3669b2ac0b319ff2574bfa2455e895c4b64569ee46b27d7"
   },
   {
-    "classification_id": "CLS-3E40C902C57A",
+    "classification_id": "CLS-534EB209BD92",
     "text_instance_id": "SIMP-EN-000478__ORIG",
     "source_group_id": "SIMP-EN-000478",
     "predicted_difficulty": "medium",
@@ -13315,7 +13315,7 @@
     "record_hash": "99ea35870d1550fcc4a80effa487ca4170f9d0b93126fee6fc1f1ac0c8251b1b"
   },
   {
-    "classification_id": "CLS-4706892042E7",
+    "classification_id": "CLS-944666AEA77B",
     "text_instance_id": "SIMP-EN-000478__SIMP",
     "source_group_id": "SIMP-EN-000478",
     "predicted_difficulty": "easy",
@@ -13383,7 +13383,7 @@
     "record_hash": "6abd24c56ec079a40bfb6de109da0c650af23759a7b1ee19666e7df6fff94d1f"
   },
   {
-    "classification_id": "CLS-63AF15AC0E7B",
+    "classification_id": "CLS-2C3EE96D9F21",
     "text_instance_id": "SIMP-EN-000479__ORIG",
     "source_group_id": "SIMP-EN-000479",
     "predicted_difficulty": "medium",
@@ -13430,7 +13430,7 @@
     "record_hash": "9f74af78a36419a6ddb32dd8eeca10a41770ae5c1fe83f3c022387ff9ed62c78"
   },
   {
-    "classification_id": "CLS-2791CDB6EB56",
+    "classification_id": "CLS-9AE46D35C721",
     "text_instance_id": "SIMP-EN-000479__SIMP",
     "source_group_id": "SIMP-EN-000479",
     "predicted_difficulty": "easy",
@@ -13491,7 +13491,7 @@
     "record_hash": "9c58adea61a8b5a4b4fbdb4cfe8c91390396dc73dbc74d92c2b00e9149de8217"
   },
   {
-    "classification_id": "CLS-5BCD55AEFBEC",
+    "classification_id": "CLS-1611EB170F33",
     "text_instance_id": "SIMP-EN-000486__ORIG",
     "source_group_id": "SIMP-EN-000486",
     "predicted_difficulty": "medium",
@@ -13538,7 +13538,7 @@
     "record_hash": "4ecb971c13c1cba3d4c28c14106680212dfbc71430cab09986c264f1bbb3b859"
   },
   {
-    "classification_id": "CLS-85352BA71DD2",
+    "classification_id": "CLS-9BA3B1778BE4",
     "text_instance_id": "SIMP-EN-000486__SIMP",
     "source_group_id": "SIMP-EN-000486",
     "predicted_difficulty": "easy",
@@ -13592,7 +13592,7 @@
     "record_hash": "5bf503b985d0aeaf7774bb8d87faf8495a2d04c969ca97ce9fa84f1462c7f3d4"
   },
   {
-    "classification_id": "CLS-7B6665060CDD",
+    "classification_id": "CLS-E453ACD42654",
     "text_instance_id": "SIMP-EN-000487__ORIG",
     "source_group_id": "SIMP-EN-000487",
     "predicted_difficulty": "medium",
@@ -13639,7 +13639,7 @@
     "record_hash": "6c7db41b98b1cbbcf53f6844df1df027ff6b7adb082352bf000ec73a7110ee2b"
   },
   {
-    "classification_id": "CLS-0EE20BAA776C",
+    "classification_id": "CLS-1438B28CACFD",
     "text_instance_id": "SIMP-EN-000487__SIMP",
     "source_group_id": "SIMP-EN-000487",
     "predicted_difficulty": "easy",
@@ -13700,7 +13700,7 @@
     "record_hash": "419827e33cb71f9aab9e4837e2ae46ac052a3e5798af8cffa6a8fea0b92f470c"
   },
   {
-    "classification_id": "CLS-6318A24729AE",
+    "classification_id": "CLS-924C32D94DE3",
     "text_instance_id": "SIMP-EN-000488__ORIG",
     "source_group_id": "SIMP-EN-000488",
     "predicted_difficulty": "medium",
@@ -13747,7 +13747,7 @@
     "record_hash": "e82eaff3596dbe3c9abdad571f056dd73a5f077b61c85fbf99bf7252e50408c9"
   },
   {
-    "classification_id": "CLS-88C4F797A55E",
+    "classification_id": "CLS-2A3267682445",
     "text_instance_id": "SIMP-EN-000488__SIMP",
     "source_group_id": "SIMP-EN-000488",
     "predicted_difficulty": "easy",
@@ -13801,7 +13801,7 @@
     "record_hash": "4444e3191254023f3d143ebfbb6b9b85f924608d3d84cb1f2dc603da24bdca0e"
   },
   {
-    "classification_id": "CLS-DC87D159984B",
+    "classification_id": "CLS-E1EC0274E868",
     "text_instance_id": "SIMP-EN-000495__ORIG",
     "source_group_id": "SIMP-EN-000495",
     "predicted_difficulty": "medium",
@@ -13872,7 +13872,7 @@
     "record_hash": "eab6dd3b2ac4a395bd5399f60c4e5f83f0e0d111a2142f51b91dd0e4d1c52667"
   },
   {
-    "classification_id": "CLS-0039D5971730",
+    "classification_id": "CLS-E2BDD6E7913B",
     "text_instance_id": "SIMP-EN-000495__SIMP",
     "source_group_id": "SIMP-EN-000495",
     "predicted_difficulty": "medium",
@@ -13933,7 +13933,7 @@
     "record_hash": "8a6ef8d8f2b229bc99a188e6b518780685fc44919ea5e8406c903b94d996df80"
   },
   {
-    "classification_id": "CLS-722CAEC57384",
+    "classification_id": "CLS-F21536BB67A6",
     "text_instance_id": "SIMP-EN-000496__ORIG",
     "source_group_id": "SIMP-EN-000496",
     "predicted_difficulty": "medium",
@@ -14004,7 +14004,7 @@
     "record_hash": "f1058cc392fc82fbeb1dbf39de378adb67e3b0d3f309343cba20ab55a9cc305a"
   },
   {
-    "classification_id": "CLS-3B7021FB0B20",
+    "classification_id": "CLS-618A54207BD7",
     "text_instance_id": "SIMP-EN-000496__SIMP",
     "source_group_id": "SIMP-EN-000496",
     "predicted_difficulty": "easy",
@@ -14072,7 +14072,7 @@
     "record_hash": "d98e53fe4548d07e73a8dd7cb76af903d000e15238a7f92f473423c71cb40682"
   },
   {
-    "classification_id": "CLS-840863E753B1",
+    "classification_id": "CLS-E14B22195E43",
     "text_instance_id": "SIMP-EN-000497__ORIG",
     "source_group_id": "SIMP-EN-000497",
     "predicted_difficulty": "medium",
@@ -14143,7 +14143,7 @@
     "record_hash": "41d28a1cf06ebcf7324bb6d48c8f54842064efae52107bf2f2cc44388d568152"
   },
   {
-    "classification_id": "CLS-FBD295175711",
+    "classification_id": "CLS-6A65BB2F7224",
     "text_instance_id": "SIMP-EN-000497__SIMP",
     "source_group_id": "SIMP-EN-000497",
     "predicted_difficulty": "easy",
@@ -14204,7 +14204,7 @@
     "record_hash": "32e7e00afb2e0540dd3ee7fb3778f2870365b95272944064d959d2dc2d8ad1bd"
   },
   {
-    "classification_id": "CLS-9BC521A77F91",
+    "classification_id": "CLS-61778AE6ADBC",
     "text_instance_id": "SIMP-EN-000744__ORIG",
     "source_group_id": "SIMP-EN-000744",
     "predicted_difficulty": "easy",
@@ -14258,7 +14258,7 @@
     "record_hash": "8ec3f012b8fbd5c22a7d32cfd8892e5dd519a37706b244296057d5ef822f49ac"
   },
   {
-    "classification_id": "CLS-68EC365FE695",
+    "classification_id": "CLS-B50321FD6A5B",
     "text_instance_id": "SIMP-EN-000744__SIMP",
     "source_group_id": "SIMP-EN-000744",
     "predicted_difficulty": "easy",
@@ -14326,7 +14326,7 @@
     "record_hash": "b1305e93b6a86d7c7c0bf4de8604fff48af2e1e5569114db5fd8059fc5e44d42"
   },
   {
-    "classification_id": "CLS-7E0381E30FA3",
+    "classification_id": "CLS-E2CE5E6A7592",
     "text_instance_id": "SIMP-EN-000745__ORIG",
     "source_group_id": "SIMP-EN-000745",
     "predicted_difficulty": "easy",
@@ -14380,7 +14380,7 @@
     "record_hash": "c341bf9ffe98820420c328df26b0779e4e0af473f70c753f069224f8961289e8"
   },
   {
-    "classification_id": "CLS-76D0313F942C",
+    "classification_id": "CLS-518DEA374C12",
     "text_instance_id": "SIMP-EN-000745__SIMP",
     "source_group_id": "SIMP-EN-000745",
     "predicted_difficulty": "easy",
@@ -14448,7 +14448,7 @@
     "record_hash": "5a4d64533dfea8fdc9a168d71cdde839ceb984c876d185b5ced9d711fc3097c8"
   },
   {
-    "classification_id": "CLS-EDF12D663409",
+    "classification_id": "CLS-4198883B8796",
     "text_instance_id": "SIMP-EN-000746__ORIG",
     "source_group_id": "SIMP-EN-000746",
     "predicted_difficulty": "easy",
@@ -14502,7 +14502,7 @@
     "record_hash": "cacb2ddee8dcf86047204fb6e1d61166c92d70fa2ad1c1053c00336d47099e0f"
   },
   {
-    "classification_id": "CLS-2790E62BB193",
+    "classification_id": "CLS-D8AB954DFAF1",
     "text_instance_id": "SIMP-EN-000746__SIMP",
     "source_group_id": "SIMP-EN-000746",
     "predicted_difficulty": "easy",
@@ -14563,7 +14563,7 @@
     "record_hash": "aaafaee4ff43aeffe568d32c5a53847c8c1f375d61f89b2e267e6ba1f1909bc1"
   },
   {
-    "classification_id": "CLS-CBE7A3679755",
+    "classification_id": "CLS-0BAC46581DDC",
     "text_instance_id": "SIMP-EN-000915__ORIG",
     "source_group_id": "SIMP-EN-000915",
     "predicted_difficulty": "medium",
@@ -14626,7 +14626,7 @@
     "record_hash": "734d83d4b9ba4229fd57282a17249c21bb349f5ac8fc6e66860a5bc75b29df74"
   },
   {
-    "classification_id": "CLS-01A575D54AF2",
+    "classification_id": "CLS-B388ED8A2724",
     "text_instance_id": "SIMP-EN-000915__SIMP",
     "source_group_id": "SIMP-EN-000915",
     "predicted_difficulty": "medium",
@@ -14683,7 +14683,7 @@
     "record_hash": "bed0583f8b61fed97ff8060019a595f9cf1cea47dc00780d00a467c39d6e16ca"
   },
   {
-    "classification_id": "CLS-D197BE4857A9",
+    "classification_id": "CLS-612D19158184",
     "text_instance_id": "SIMP-EN-000916__ORIG",
     "source_group_id": "SIMP-EN-000916",
     "predicted_difficulty": "medium",
@@ -14746,7 +14746,7 @@
     "record_hash": "024c38bf15e153cfc3d8bafc2577f36068eadbd3607690d1b908f237b6bdb1e4"
   },
   {
-    "classification_id": "CLS-EB8025F6485E",
+    "classification_id": "CLS-682E69C2C664",
     "text_instance_id": "SIMP-EN-000916__SIMP",
     "source_group_id": "SIMP-EN-000916",
     "predicted_difficulty": "easy",
@@ -14793,7 +14793,7 @@
     "record_hash": "85664887972d7a83cc9d6ab16c456b279d6e0047ea6f671f7d02f245fa4d21a6"
   },
   {
-    "classification_id": "CLS-B7F6B8D13E13",
+    "classification_id": "CLS-9A89FFACDE4A",
     "text_instance_id": "SIMP-EN-000917__ORIG",
     "source_group_id": "SIMP-EN-000917",
     "predicted_difficulty": "medium",
@@ -14856,7 +14856,7 @@
     "record_hash": "a56e6a985a82d8d24142f01be21043ac9cc7322c6cda23b49137991bfb641d81"
   },
   {
-    "classification_id": "CLS-7C2D208CF2DA",
+    "classification_id": "CLS-BC0C02B8ED44",
     "text_instance_id": "SIMP-EN-000917__SIMP",
     "source_group_id": "SIMP-EN-000917",
     "predicted_difficulty": "easy",
@@ -14910,7 +14910,7 @@
     "record_hash": "216c8ced13050a10713f858dc804fa55feeabbdac560ea89e140550e4a0d8281"
   },
   {
-    "classification_id": "CLS-5E5C030F8FDE",
+    "classification_id": "CLS-34C601E72887",
     "text_instance_id": "SIMP-EN-000936__ORIG",
     "source_group_id": "SIMP-EN-000936",
     "predicted_difficulty": "medium",
@@ -14964,7 +14964,7 @@
     "record_hash": "dfe3787069dde2de191e471f5b001b709d024b08027632c15b230214ce742c5e"
   },
   {
-    "classification_id": "CLS-0C617746911B",
+    "classification_id": "CLS-271A313C70FB",
     "text_instance_id": "SIMP-EN-000936__SIMP",
     "source_group_id": "SIMP-EN-000936",
     "predicted_difficulty": "medium",
@@ -15027,7 +15027,7 @@
     "record_hash": "1548450710f267dbb41cd3c332533c78545fdacd536a020c4b641a2bac63ca9f"
   },
   {
-    "classification_id": "CLS-6A48F495DF8E",
+    "classification_id": "CLS-E56BDF4BEE11",
     "text_instance_id": "SIMP-EN-000937__ORIG",
     "source_group_id": "SIMP-EN-000937",
     "predicted_difficulty": "medium",
@@ -15081,7 +15081,7 @@
     "record_hash": "fd4410aa892538039812685bc85539b31faeb4d6d3692cf8f02c11bc233bf8bb"
   },
   {
-    "classification_id": "CLS-6F61F4C46263",
+    "classification_id": "CLS-4D3530A6EB8C",
     "text_instance_id": "SIMP-EN-000937__SIMP",
     "source_group_id": "SIMP-EN-000937",
     "predicted_difficulty": "easy",
@@ -15138,7 +15138,7 @@
     "record_hash": "ff667caa96b97c2b7914a0e1fd5c0c7147bc40207b12473548dc064abc3b5f8c"
   },
   {
-    "classification_id": "CLS-1DAEBA3BA19F",
+    "classification_id": "CLS-49BC38D64A25",
     "text_instance_id": "SIMP-EN-000938__ORIG",
     "source_group_id": "SIMP-EN-000938",
     "predicted_difficulty": "medium",
@@ -15192,7 +15192,7 @@
     "record_hash": "3d94a88caf4a3072272d5938357c9afd83a9ef99173d21eb504512993f93e3ef"
   },
   {
-    "classification_id": "CLS-9E9F47F6C225",
+    "classification_id": "CLS-B17D16C9530C",
     "text_instance_id": "SIMP-EN-000938__SIMP",
     "source_group_id": "SIMP-EN-000938",
     "predicted_difficulty": "easy",
@@ -15253,7 +15253,7 @@
     "record_hash": "975a1cf5b2305bb88839b36c9bd20c30e917efe2cb0a71675a1a6ceccc9ca985"
   },
   {
-    "classification_id": "CLS-C31A6AEE67A0",
+    "classification_id": "CLS-F5B27ED81B03",
     "text_instance_id": "SIMP-EN-000939__ORIG",
     "source_group_id": "SIMP-EN-000939",
     "predicted_difficulty": "medium",
@@ -15309,7 +15309,7 @@
     "record_hash": "15f7670442934c201fcfe55b3cdf569d423e93c33236605e0cf0ddebc4c9cfc1"
   },
   {
-    "classification_id": "CLS-73244CFF437B",
+    "classification_id": "CLS-9DB4180689E2",
     "text_instance_id": "SIMP-EN-000939__SIMP",
     "source_group_id": "SIMP-EN-000939",
     "predicted_difficulty": "medium",
@@ -15363,7 +15363,7 @@
     "record_hash": "2b8fb451df0850a08c2c60e67d7b753deab51f125600c323466978f17fe9e8db"
   },
   {
-    "classification_id": "CLS-ABB38C93381C",
+    "classification_id": "CLS-47B17D19695E",
     "text_instance_id": "SIMP-EN-000940__ORIG",
     "source_group_id": "SIMP-EN-000940",
     "predicted_difficulty": "medium",
@@ -15419,7 +15419,7 @@
     "record_hash": "5749dabc3dac24e5c4d98c934d618ed60f6739c1cb0618b84c1c2029bbe5fda9"
   },
   {
-    "classification_id": "CLS-20042E48290D",
+    "classification_id": "CLS-9EA1D4D580A6",
     "text_instance_id": "SIMP-EN-000940__SIMP",
     "source_group_id": "SIMP-EN-000940",
     "predicted_difficulty": "medium",
@@ -15482,7 +15482,7 @@
     "record_hash": "dcc4943ce7ccb94969bb9d6ecccfe6719905d49e45d1c3cbd92018b368ed875f"
   },
   {
-    "classification_id": "CLS-E80660B36068",
+    "classification_id": "CLS-C4D06C4E1D33",
     "text_instance_id": "SIMP-EN-000941__ORIG",
     "source_group_id": "SIMP-EN-000941",
     "predicted_difficulty": "medium",
@@ -15538,7 +15538,7 @@
     "record_hash": "5de8adfae28d543380411fc5c2261ae2219306ca3299043e2614a5c861b5b78c"
   },
   {
-    "classification_id": "CLS-8A0BEE378E91",
+    "classification_id": "CLS-A75CF0C4B6AB",
     "text_instance_id": "SIMP-EN-000941__SIMP",
     "source_group_id": "SIMP-EN-000941",
     "predicted_difficulty": "easy",
@@ -15592,7 +15592,7 @@
     "record_hash": "11c89e12533444700dc4d345001510f3f436f06e33a37e4bb89ad008cfd1725c"
   },
   {
-    "classification_id": "CLS-B19A5E7B9DC1",
+    "classification_id": "CLS-C9832F51C86E",
     "text_instance_id": "SIMP-EN-001182__ORIG",
     "source_group_id": "SIMP-EN-001182",
     "predicted_difficulty": "easy",
@@ -15660,7 +15660,7 @@
     "record_hash": "3e2fa797259d21c76e5f9bc29c2f0ccf61da8b76dcec0de7f5aaf05c5052e795"
   },
   {
-    "classification_id": "CLS-5A23934BE273",
+    "classification_id": "CLS-5A630B121010",
     "text_instance_id": "SIMP-EN-001182__SIMP",
     "source_group_id": "SIMP-EN-001182",
     "predicted_difficulty": "easy",
@@ -15728,7 +15728,7 @@
     "record_hash": "3a442fc3b51ad53829c55c7b5e374281fce1b9d88f35afb1e16befb745d147ed"
   },
   {
-    "classification_id": "CLS-E19765CC9572",
+    "classification_id": "CLS-93316397180B",
     "text_instance_id": "SIMP-EN-001183__ORIG",
     "source_group_id": "SIMP-EN-001183",
     "predicted_difficulty": "easy",
@@ -15796,7 +15796,7 @@
     "record_hash": "337390a567c6044b421da3d2b6d3f6844106ff9480054af230c1676068d826b3"
   },
   {
-    "classification_id": "CLS-BB8756D1655A",
+    "classification_id": "CLS-E1C0B3F8628B",
     "text_instance_id": "SIMP-EN-001183__SIMP",
     "source_group_id": "SIMP-EN-001183",
     "predicted_difficulty": "easy",
@@ -15864,7 +15864,7 @@
     "record_hash": "a07122cedde6e1c68cd0248b07feaff627ad2db26adfd53afb810a91e28f84bd"
   },
   {
-    "classification_id": "CLS-1D28A68FA10B",
+    "classification_id": "CLS-4FDD7BEFECCC",
     "text_instance_id": "SIMP-EN-001184__ORIG",
     "source_group_id": "SIMP-EN-001184",
     "predicted_difficulty": "easy",
@@ -15932,7 +15932,7 @@
     "record_hash": "ded355735b3d1c9375d53c4100e47d7c0e87593ddf397d528b7e0dfaac64db53"
   },
   {
-    "classification_id": "CLS-4F13298C76AF",
+    "classification_id": "CLS-491536D3DCDD",
     "text_instance_id": "SIMP-EN-001184__SIMP",
     "source_group_id": "SIMP-EN-001184",
     "predicted_difficulty": "easy",
