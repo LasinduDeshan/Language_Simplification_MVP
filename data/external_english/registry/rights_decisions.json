@@ -1,0 +1,72 @@
+{
+  "EXTDATA-ASSET": {
+    "dataset_id": "EXTDATA-ASSET",
+    "rights_status": "approved_local_research",
+    "permissions": {
+      "local_processing_allowed": true,
+      "redistribution_allowed": false,
+      "benchmark_use_allowed": true,
+      "training_use_allowed": false,
+      "derived_feature_release_allowed": true
+    },
+    "evidence_summary": "Verified against official repository LICENSE file (CC-BY-NC 4.0). Approved for local research preprocessing and evaluation benchmarking; raw redistribution prohibited; non-commercial research use only.",
+    "verified_by": "research_governance_lead",
+    "verified_at": "2026-09-29T11:04:28.313302Z"
+  },
+  "EXTDATA-TURKCORPUS": {
+    "dataset_id": "EXTDATA-TURKCORPUS",
+    "rights_status": "approved_local_research",
+    "permissions": {
+      "local_processing_allowed": true,
+      "redistribution_allowed": false,
+      "benchmark_use_allowed": true,
+      "training_use_allowed": false,
+      "derived_feature_release_allowed": true
+    },
+    "evidence_summary": "Verified against official author release (Xu et al., TACL 2016). Approved for local academic evaluation benchmarking; raw redistribution prohibited; training candidate derivation restricted due to benchmark isolation.",
+    "verified_by": "research_governance_lead",
+    "verified_at": "2026-09-29T11:04:28.313302Z"
+  },
+  "EXTDATA-OASISSIMP-EN": {
+    "dataset_id": "EXTDATA-OASISSIMP-EN",
+    "rights_status": "approved_local_research",
+    "permissions": {
+      "local_processing_allowed": true,
+      "redistribution_allowed": false,
+      "benchmark_use_allowed": true,
+      "training_use_allowed": false,
+      "derived_feature_release_allowed": true
+    },
+    "evidence_summary": "Verified against official website (OasisSimpDataset.github.io). Approved for local research preprocessing and benchmark evaluation. Locked to benchmark_only for Release 0.1.0.",
+    "verified_by": "research_governance_lead",
+    "verified_at": "2026-09-29T11:04:28.313302Z"
+  },
+  "EXTDATA-WIKILARGE-PILOT": {
+    "dataset_id": "EXTDATA-WIKILARGE-PILOT",
+    "rights_status": "approved_local_research",
+    "permissions": {
+      "local_processing_allowed": true,
+      "redistribution_allowed": false,
+      "benchmark_use_allowed": false,
+      "training_use_allowed": true,
+      "derived_feature_release_allowed": false
+    },
+    "evidence_summary": "Wikipedia sentence alignment lineage verified (CC-BY-SA 3.0 derived). Approved strictly for local filtered pilot training exploration; raw redistribution prohibited.",
+    "verified_by": "research_governance_lead",
+    "verified_at": "2026-09-29T11:04:28.313302Z"
+  },
+  "EXTDATA-NEWSELA": {
+    "dataset_id": "EXTDATA-NEWSELA",
+    "rights_status": "excluded_rights",
+    "permissions": {
+      "local_processing_allowed": false,
+      "redistribution_allowed": false,
+      "benchmark_use_allowed": false,
+      "training_use_allowed": false,
+      "derived_feature_release_allowed": false
+    },
+    "evidence_summary": "Proprietary commercial news dataset requiring individual institution data use agreements. Formally excluded from automated ingestion.",
+    "verified_by": "research_governance_lead",
+    "verified_at": "2026-09-29T11:04:28.313302Z"
+  }
+}

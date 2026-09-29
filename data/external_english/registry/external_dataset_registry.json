@@ -1,0 +1,102 @@
+{
+  "EXTDATA-ASSET": {
+    "dataset_id": "EXTDATA-ASSET",
+    "dataset_name": "ASSET",
+    "official_source_url": "https://github.com/facebookresearch/asset",
+    "publication_reference": "Alva-Manchego, F., Martin, L., Bordes, A., Scarton, C., Sagot, B., & Specia, L. (2020). ASSET: A Dataset for Tuning and Evaluation of Sentence Simplification Models with Multiple Rewriting Transformations. In Proceedings of ACL 2020 (pp. 4668\u20134679).",
+    "content_licence_name": "Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0)",
+    "content_licence_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "rights_status": "approved_local_research",
+    "permissions": {
+      "local_processing_allowed": true,
+      "redistribution_allowed": false,
+      "benchmark_use_allowed": true,
+      "training_use_allowed": false,
+      "derived_feature_release_allowed": true
+    },
+    "rights_evidence_url": "https://github.com/facebookresearch/asset/blob/master/LICENSE",
+    "rights_verified_by": "research_governance_lead",
+    "rights_verified_at": "2026-09-29T11:04:28.313302Z",
+    "notes": "Verified against official repository LICENSE file (CC-BY-NC 4.0). Approved for local research preprocessing and evaluation benchmarking; raw redistribution prohibited; non-commercial research use only."
+  },
+  "EXTDATA-TURKCORPUS": {
+    "dataset_id": "EXTDATA-TURKCORPUS",
+    "dataset_name": "TurkCorpus",
+    "official_source_url": "https://github.com/cocoxu/simplification",
+    "publication_reference": "Xu, W., Callison-Burch, C., & Napoles, C. (2016). Optimizing statistical machine translation for text simplification. Transactions of the Association for Computational Linguistics, 4, 401\u2013415.",
+    "content_licence_name": "Creative Commons Attribution-ShareAlike 4.0 / Academic Open Access",
+    "content_licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "rights_status": "approved_local_research",
+    "permissions": {
+      "local_processing_allowed": true,
+      "redistribution_allowed": false,
+      "benchmark_use_allowed": true,
+      "training_use_allowed": false,
+      "derived_feature_release_allowed": true
+    },
+    "rights_evidence_url": "https://github.com/cocoxu/simplification",
+    "rights_verified_by": "research_governance_lead",
+    "rights_verified_at": "2026-09-29T11:04:28.313302Z",
+    "notes": "Verified against official author release (Xu et al., TACL 2016). Approved for local academic evaluation benchmarking; raw redistribution prohibited; training candidate derivation restricted due to benchmark isolation."
+  },
+  "EXTDATA-OASISSIMP-EN": {
+    "dataset_id": "EXTDATA-OASISSIMP-EN",
+    "dataset_name": "OasisSimp-English",
+    "official_source_url": "https://OasisSimpDataset.github.io/",
+    "publication_reference": "De Silva, N. et al. (2024). OasisSimp: Multilingual Sentence Simplification Dataset and Benchmarks.",
+    "content_licence_name": "Creative Commons Attribution 4.0 International (CC-BY 4.0)",
+    "content_licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "rights_status": "approved_local_research",
+    "permissions": {
+      "local_processing_allowed": true,
+      "redistribution_allowed": false,
+      "benchmark_use_allowed": true,
+      "training_use_allowed": false,
+      "derived_feature_release_allowed": true
+    },
+    "rights_evidence_url": "https://OasisSimpDataset.github.io/",
+    "rights_verified_by": "research_governance_lead",
+    "rights_verified_at": "2026-09-29T11:04:28.313302Z",
+    "notes": "Verified against official website (OasisSimpDataset.github.io). Approved for local research preprocessing and benchmark evaluation. Locked to benchmark_only for Release 0.1.0."
+  },
+  "EXTDATA-WIKILARGE-PILOT": {
+    "dataset_id": "EXTDATA-WIKILARGE-PILOT",
+    "dataset_name": "WikiLarge Pilot",
+    "official_source_url": "https://github.com/XingxingZhang/dress",
+    "publication_reference": "Zhang, X., & Lapata, M. (2017). Sentence Simplification with Deep Reinforcement Learning. In Proceedings of EMNLP 2017 (pp. 584\u2013594).",
+    "content_licence_name": "Creative Commons Attribution-ShareAlike 3.0 Unported (Wikipedia Lineage)",
+    "content_licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "rights_status": "approved_local_research",
+    "permissions": {
+      "local_processing_allowed": true,
+      "redistribution_allowed": false,
+      "benchmark_use_allowed": false,
+      "training_use_allowed": true,
+      "derived_feature_release_allowed": false
+    },
+    "rights_evidence_url": "https://github.com/XingxingZhang/dress",
+    "rights_verified_by": "research_governance_lead",
+    "rights_verified_at": "2026-09-29T11:04:28.313302Z",
+    "notes": "Wikipedia sentence alignment lineage verified (CC-BY-SA 3.0 derived). Approved strictly for local filtered pilot training exploration; raw redistribution prohibited."
+  },
+  "EXTDATA-NEWSELA": {
+    "dataset_id": "EXTDATA-NEWSELA",
+    "dataset_name": "Newsela",
+    "official_source_url": "https://newsela.com/data/",
+    "publication_reference": "Xu, W., Callison-Burch, C., & Napoles, C. (2015). Problems in Current Text Simplification Research: New Data Can Help. TACL.",
+    "content_licence_name": "Proprietary Commercial Copyright",
+    "content_licence_url": "https://newsela.com/data/",
+    "rights_status": "excluded_rights",
+    "permissions": {
+      "local_processing_allowed": false,
+      "redistribution_allowed": false,
+      "benchmark_use_allowed": false,
+      "training_use_allowed": false,
+      "derived_feature_release_allowed": false
+    },
+    "rights_evidence_url": "https://newsela.com/data/",
+    "rights_verified_by": "research_governance_lead",
+    "rights_verified_at": "2026-09-29T11:04:28.313302Z",
+    "notes": "Proprietary commercial news dataset requiring individual institution data use agreements. Formally excluded from automated ingestion."
+  }
+}

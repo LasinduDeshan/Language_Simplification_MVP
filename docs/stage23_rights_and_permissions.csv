@@ -1,0 +1,6 @@
+dataset_id,dataset_name,rights_status,content_licence,local_processing,redistribution,benchmark_use,training_use,derived_feature_release,verified_by,verified_at,official_url
+EXTDATA-ASSET,ASSET,approved_local_research,Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0),True,False,True,False,True,research_governance_lead,2026-09-29T11:04:28.313302+00:00,https://github.com/facebookresearch/asset
+EXTDATA-TURKCORPUS,TurkCorpus,approved_local_research,Creative Commons Attribution-ShareAlike 4.0 / Academic Open Access,True,False,True,False,True,research_governance_lead,2026-09-29T11:04:28.313302+00:00,https://github.com/cocoxu/simplification
+EXTDATA-OASISSIMP-EN,OasisSimp-English,approved_local_research,Creative Commons Attribution 4.0 International (CC-BY 4.0),True,False,True,False,True,research_governance_lead,2026-09-29T11:04:28.313302+00:00,https://OasisSimpDataset.github.io/
+EXTDATA-WIKILARGE-PILOT,WikiLarge Pilot,approved_local_research,Creative Commons Attribution-ShareAlike 3.0 Unported (Wikipedia Lineage),True,False,False,True,False,research_governance_lead,2026-09-29T11:04:28.313302+00:00,https://github.com/XingxingZhang/dress
+EXTDATA-NEWSELA,Newsela,excluded_rights,Proprietary Commercial Copyright,False,False,False,False,False,research_governance_lead,2026-09-29T11:04:28.313302+00:00,https://newsela.com/data/
