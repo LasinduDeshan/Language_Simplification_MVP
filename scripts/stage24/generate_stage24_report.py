@@ -1,6 +1,6 @@
 """
 Stage 24: Generate all 10 documentation deliverables and sha256 manifest.
-Includes Stage 23/24 metric reconciliation, B4 disposition accounting, baseline activation coverage, and microsecond latency reporting.
+Includes Stage 23/24 metric reconciliation, complete ASSET disposition accounting, baseline activation coverage, and microsecond latency reporting.
 """
 import sys
 from pathlib import Path
@@ -181,11 +181,34 @@ All files verified: Line count = 359 lines per file; Reference count = 10.
 | **B4** | Combined Deterministic | **{asset_data['B4']['metrics']['sari']['mean']:.2f}** | {asset_data['B4']['metrics']['sari_add']:.2f} | {asset_data['B4']['metrics']['sari_keep']:.2f} | {asset_data['B4']['metrics']['sari_del']:.2f} | **{asset_data['B4']['metrics']['corpus_bleu']:.2f}** | {asset_data['B4']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B4']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B4']['operational']['mean_latency_us']:.1f} µs | {asset_data['B4']['operational']['median_latency_us']:.1f} µs | {asset_data['B4']['operational']['p95_latency_us']:.1f} µs | 96.7% |
 | **B5** | Existing Offline Fallback | **{asset_data['B5']['metrics']['sari']['mean']:.2f}** | {asset_data['B5']['metrics']['sari_add']:.2f} | {asset_data['B5']['metrics']['sari_keep']:.2f} | {asset_data['B5']['metrics']['sari_del']:.2f} | **{asset_data['B5']['metrics']['corpus_bleu']:.2f}** | {asset_data['B5']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B5']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B5']['operational']['mean_latency_us']:.1f} µs | {asset_data['B5']['operational']['median_latency_us']:.1f} µs | {asset_data['B5']['operational']['p95_latency_us']:.1f} µs | 57.7% |
 
-## 3. Reconciliation with Stage 23 Results
+## 3. Complete ASSET Disposition Accounting Breakdown
+
+The exact output disposition counts recorded across all 359 ASSET test items are:
+
+| Baseline Method | Passed | Manual Review | Failed | Quarantined | Total Records | Pass Rate |
+|---|---|---|---|---|---|---|
+| **B0 (Identity)** | 359 | 0 | 0 | 0 | 359 | 100.0% |
+| **B1 (Lexical)** | 359 | 0 | 0 | 0 | 359 | 100.0% |
+| **B2 (Splitting)** | 358 | 1 | 0 | 0 | 359 | 99.7% |
+| **B3 (Syntax)** | 359 | 0 | 0 | 0 | 359 | 100.0% |
+| **B4 (Combined)** | 347 | 1 | 11 | 0 | 359 | 96.7% |
+| **B5 (Fallback)** | 207 | 91 | 61 | 0 | 359 | 57.7% |
+| **Total Outputs** | **1,989** | **93** | **72** | **0** | **2,154** | **92.3%** |
+
+### Zero-Loss Final Accounting Reconciliation
+$$2,154 = \\sum_{{B0}}^{{B5}} (\\text{{Passed}} + \\text{{ManualReview}} + \\text{{Failed}} + \\text{{Quarantined}})$$
+$$2,154 = 1,989 + 93 + 72 + 0$$
+
+### Metric Denominator Policy
+1. **Primary Reporting Denominator:** All primary metrics (SARI, Corpus BLEU, FKGL Delta, Compression) are reported over all 359 generated outputs ($N=359$).
+2. **Disposition Tracking:** Pass, manual-review, and failure rates are tracked independently in the disposition table above to provide transparent quality reporting.
+3. **Secondary Eligible-Only Metrics:** For B4, evaluating on the 348 eligible outputs yields SARI 26.92 and Corpus BLEU 89.79. For B5, evaluating on the 298 eligible outputs yields SARI 29.13.
+
+## 4. Reconciliation with Stage 23 Results
 
 | Method | Metric | Stage 23 (Historical Legacy) | Stage 24 (Standard EASSE Reconciled) | Root Cause of Difference |
 |---|---|---|---|---|
-| **Identity (B0)** | SARI | 22.84 | 20.51 | Stage 23 used custom sentence-level unigram Keep approximation; Stage 24 uses standard multi-reference 4-gram EASSE formulation. |
+| **Identity (B0)** | SARI | 22.84 | 20.51 | Stage 23 used custom sentence-level unigram Keep approximation; Stage 24 reports the reconciled Identity SARI under the pinned Stage 24 EASSE-compatible configuration. |
 | **Identity (B0)** | BLEU | 95.80 | 92.56 | Stage 23 reported sentence-level smoothed BLEU average; Stage 24 reports standard SacreBLEU 13a Multi-Reference Corpus BLEU. |
 | **Fallback (B5)** | SARI | 35.84 | 29.13 | Reconciled using authentic reference-averaged deletion precision. |
 
@@ -227,18 +250,39 @@ For all methods and datasets:
 $$\\text{Eligible Inputs} = \\text{Passed} + \\text{Manual Review Required} + \\text{Failed} + \\text{Quarantined}$$
 $$\\text{Unaccounted Records} = 0$$
 
-## 2. Internal Corpus Accounting
+## 2. Internal Corpus Accounting (Release 0.2.0)
 
 | Dataset Split | Source Groups | References per Source | Outputs per Baseline | Total Outputs across B0–B5 | Balance |
 |---|---|---|---|---|---|
 | Validation Split | 45 | 3 | 45 | 270 | 0 |
 | Locked Test Split | 45 | 3 | 45 | 270 | 0 |
 
-## 3. ASSET Benchmark Accounting
-
-| Split | Source Groups | References per Source | Outputs per Baseline | Total Outputs across B0–B5 | Balance |
+### Internal Locked Test Set Dispositions
+| Method | Passed | Manual Review | Failed | Quarantined | Total |
 |---|---|---|---|---|---|
-| Test Split | 359 | 10 | 359 | 2,154 | 0 |
+| B0 (Identity) | 45 | 0 | 0 | 0 | 45 |
+| B1 (Lexical) | 45 | 0 | 0 | 0 | 45 |
+| B2 (Splitting) | 45 | 0 | 0 | 0 | 45 |
+| B3 (Syntax) | 45 | 0 | 0 | 0 | 45 |
+| B4 (Combined) | 42 | 0 | 3 | 0 | 45 |
+| B5 (Fallback) | 45 | 0 | 0 | 0 | 45 |
+| **Total** | **267** | **0** | **3** | **0** | **270** |
+
+$$\\sum_{B0}^{B5} (\\text{Passed} + \\text{ManualReview} + \\text{Failed} + \\text{Quarantined}) = 267 + 0 + 3 + 0 = 270$$
+
+## 3. ASSET Benchmark Accounting (359 Source Groups)
+
+| Baseline Method | Passed | Manual Review | Failed | Quarantined | Total |
+|---|---|---|---|---|---|
+| **B0 (Identity)** | 359 | 0 | 0 | 0 | 359 |
+| **B1 (Lexical)** | 359 | 0 | 0 | 0 | 359 |
+| **B2 (Splitting)** | 358 | 1 | 0 | 0 | 359 |
+| **B3 (Syntax)** | 359 | 0 | 0 | 0 | 359 |
+| **B4 (Combined)** | 347 | 1 | 11 | 0 | 359 |
+| **B5 (Fallback)** | 207 | 91 | 61 | 0 | 359 |
+| **Total** | **1,989** | **93** | **72** | **0** | **2,154** |
+
+$$2,154 = \\sum_{B0}^{B5} (\\text{Passed} + \\text{ManualReview} + \\text{Failed} + \\text{Quarantined}) = 1,989 + 93 + 72 + 0 = 2,154$$
 
 ## 4. Split and Contamination Isolation
 - Locked internal test set: 45 source groups / 135 pairs (315 Stage 21 protected text instances) strictly isolated.
@@ -259,6 +303,13 @@ $$\\text{Unaccounted Records} = 0$$
         "methods_evaluated": ["B0", "B1", "B2", "B3", "B4", "B5"],
         "internal_locked_test_outputs": 270,
         "asset_test_outputs": 2154,
+        "asset_dispositions": {
+            "passed": 1989,
+            "manual_review_required": 93,
+            "automatic_check_failed": 72,
+            "quarantined": 0,
+            "total": 2154
+        },
         "unaccounted_records": 0,
         "asset_file_hashes": {
             "asset.test.orig": "673ceb2672a37168a52040d75e16f9ffd1e3777b9f68e19207f2adf6542723f1",
@@ -300,10 +351,11 @@ $$\\text{Unaccounted Records} = 0$$
    - Internal Corpus: 1 output per unique source group evaluated against 3 references (Mild, Moderate, Strong).
    - Locked Test Set: Exactly 45 source groups producing 270 total outputs across B0–B5.
    - ASSET Benchmark: 359 source groups producing 2,154 total outputs across B0–B5.
-   - Identity SARI reconciled to 20.51 and Corpus BLEU to 92.56 with exact reference-averaged EASSE SARI formula.
+   - Reconciled Identity SARI under the pinned Stage 24 EASSE-compatible configuration is 20.51 and Corpus BLEU is 92.56.
 3. **Exact Metric Parity & Accounting:**
-   - Parity verified at $\Delta = 0.000000 < 0.05$ points on 0–100 scale.
-   - B4 disposition accounting: 42 passed, 3 failed (flagged by structural checks), 0 review, 0 quarantined ($45 = 42 + 0 + 3 + 0$).
+   - Parity verified at $\\Delta = 0.000000 < 0.05$ points on 0–100 scale.
+   - Internal locked test dispositions: 267 passed, 3 failed ($270 = 267 + 0 + 3 + 0$).
+   - ASSET benchmark dispositions: 1,989 passed, 93 manual review, 72 failed ($2,154 = 1,989 + 93 + 72 + 0$).
 4. **All Deliverables Generated:** All 10 documentation deliverables and SHA-256 integrity manifest serialized.
 5. **Testing & Integrity:** Full test suite (313+ tests) passing with 0 errors; clean working tree.
 """, encoding="utf-8")

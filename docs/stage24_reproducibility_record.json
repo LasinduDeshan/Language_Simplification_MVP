@@ -1,6 +1,6 @@
 {
   "stage": "Stage 24 \u2014 English Baseline Simplification",
-  "created_at": "2026-09-30T10:28:56.202974Z",
+  "created_at": "2026-09-30T10:39:57.009355Z",
   "git": {
     "checkpoint_tag": "stage-24-start",
     "completion_tag": "stage-24-complete-v2"
@@ -17,6 +17,13 @@
   ],
   "internal_locked_test_outputs": 270,
   "asset_test_outputs": 2154,
+  "asset_dispositions": {
+    "passed": 1989,
+    "manual_review_required": 93,
+    "automatic_check_failed": 72,
+    "quarantined": 0,
+    "total": 2154
+  },
   "unaccounted_records": 0,
   "asset_file_hashes": {
     "asset.test.orig": "673ceb2672a37168a52040d75e16f9ffd1e3777b9f68e19207f2adf6542723f1",
