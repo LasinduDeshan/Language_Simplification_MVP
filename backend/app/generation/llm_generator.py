@@ -150,6 +150,8 @@ class LLMInstructionGenerator(BaseInstructionGenerator):
         return raw_output
 
     def _call_gemini_api(self, api_key: str, task, learner, attempt_num, support_level, prev_att, prev_obs) -> Optional[Dict[str, Any]]:
+        import random
+
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model_name}:generateContent?key={api_key}"
         headers = {"Content-Type": "application/json"}
         payload = {
@@ -162,12 +164,82 @@ class LLMInstructionGenerator(BaseInstructionGenerator):
                 "response_mime_type": "application/json"
             }
         }
-        resp = requests.post(url, headers=headers, json=payload, timeout=self.timeout)
-        if resp.status_code == 200:
-            data = resp.json()
-            cand_text = data["candidates"][0]["content"]["parts"][0]["text"]
-            return json.loads(cand_text)
+        max_retries = 3
+        backoff_sec = 1.0
+        for attempt in range(max_retries):
+            resp = requests.post(url, headers=headers, json=payload, timeout=self.timeout)
+            if resp.status_code == 200:
+                data = resp.json()
+                cand_text = data["candidates"][0]["content"]["parts"][0]["text"]
+                return json.loads(cand_text)
+            elif resp.status_code in (400, 401, 403, 404):
+                # Non-retryable client / auth / config error
+                raise ValueError(
+                    f"Gemini API non-retryable error (HTTP {resp.status_code}): {resp.text}"
+                )
+            elif resp.status_code in (429, 500, 502, 503, 504):
+                if attempt < max_retries - 1:
+                    # Respect Retry-After header if provided, else use exponential backoff + jitter
+                    retry_after = resp.headers.get("Retry-After")
+                    delay = float(retry_after) if retry_after and retry_after.isdigit() else (backoff_sec + random.uniform(0.1, 0.5))
+                    time.sleep(delay)
+                    backoff_sec *= 2.0
+                    continue
+                raise RuntimeError(
+                    f"Gemini API service error (HTTP {resp.status_code}) after {max_retries} retries: {resp.text}"
+                )
+            else:
+                raise RuntimeError(f"Gemini API returned unhandled error HTTP {resp.status_code}: {resp.text}")
         return None
+
+    def simplify_text(self, text: str) -> str:
+        """Direct text simplification using Gemini API with jittered exponential backoff and Retry-After support."""
+        import random
+
+        gemini_key = (settings.gemini_api_key or os.getenv("GEMINI_API_KEY", "")).strip()
+        if not gemini_key:
+            raise ValueError("GEMINI_API_KEY is not configured in backend environment.")
+
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model_name}:generateContent?key={gemini_key}"
+        headers = {"Content-Type": "application/json"}
+        prompt = (
+            f"Simplify the following sentence for a young child aged 4 to 8. "
+            f"Make it clear, easy to understand, and under 12 words while strictly preserving the core meaning. "
+            f"Respond ONLY with the simplified sentence text without any surrounding quotes or markdown formatting.\n\n"
+            f"Original sentence: {text}"
+        )
+        payload = {
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {
+                "temperature": self.temperature,
+            }
+        }
+        max_retries = 3
+        backoff_sec = 1.0
+        for attempt in range(max_retries):
+            resp = requests.post(url, headers=headers, json=payload, timeout=self.timeout)
+            if resp.status_code == 200:
+                data = resp.json()
+                cand_text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
+                return cand_text
+            elif resp.status_code in (400, 401, 403, 404):
+                # Non-retryable client / auth / config error
+                raise ValueError(
+                    f"Gemini API non-retryable error (HTTP {resp.status_code}): {resp.text}"
+                )
+            elif resp.status_code in (429, 500, 502, 503, 504):
+                if attempt < max_retries - 1:
+                    retry_after = resp.headers.get("Retry-After")
+                    delay = float(retry_after) if retry_after and retry_after.isdigit() else (backoff_sec + random.uniform(0.1, 0.5))
+                    time.sleep(delay)
+                    backoff_sec *= 2.0
+                    continue
+                raise RuntimeError(
+                    f"Gemini API service error (HTTP {resp.status_code}) after {max_retries} retries: {resp.text}"
+                )
+            else:
+                raise RuntimeError(f"Gemini API returned unhandled error HTTP {resp.status_code}: {resp.text}")
+        raise RuntimeError("Gemini simplify_text failed to obtain response.")
 
     def _call_openai_api(self, api_key: str, task, learner, attempt_num, support_level, prev_att, prev_obs) -> Optional[Dict[str, Any]]:
         url = "https://api.openai.com/v1/chat/completions"

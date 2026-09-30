@@ -39,7 +39,10 @@ class Settings(BaseSettings):
         return [origin.strip() for origin in self.allowed_origins.split(",") if origin.strip()]
 
     model_config = {
-        "env_file": ".env",
+        "env_file": (
+            os.path.join(os.path.dirname(__file__), "..", "..", ".env"),
+            ".env",
+        ),
         "extra": "ignore"
     }
 
