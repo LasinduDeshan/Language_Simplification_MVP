@@ -1,0 +1,29 @@
+{
+  "release_version": "0.1.0",
+  "dataset_id": "EXTDATA-ASSET",
+  "total_source_groups": 2359,
+  "total_reference_instances": 23590,
+  "splits": {
+    "validation": {
+      "source_groups": 2000,
+      "reference_instances": 20000,
+      "references_per_source": 10
+    },
+    "test": {
+      "source_groups": 359,
+      "reference_instances": 3590,
+      "references_per_source": 10
+    }
+  },
+  "leakage_statistics": {
+    "exact_overlaps": 0,
+    "near_overlaps": 0,
+    "status": "CLEAN"
+  },
+  "governance_locks": {
+    "evaluation_protected": true,
+    "training_eligible": false,
+    "benchmark_eligible": true,
+    "approved_for_child_delivery": false
+  }
+}

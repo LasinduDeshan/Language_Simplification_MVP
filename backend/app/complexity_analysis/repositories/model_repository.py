@@ -8,8 +8,22 @@ import joblib
 class ModelRepository:
     """Serializes and deserializes trained model components, preprocessors, and OOD detectors."""
 
-    def __init__(self, models_dir: Path = Path("data/complexity_analysis/en/source-0.2.0/preprocessing-1.0.0/classifier-1.0.0/models")):
-        self.models_dir = models_dir
+    def __init__(self, models_dir: Optional[Path] = None):
+        if models_dir is not None:
+            self.models_dir = Path(models_dir)
+        else:
+            default_path = Path("data/complexity_analysis/en/source-0.2.0/preprocessing-1.0.0/classifier-1.0.0/models")
+            if default_path.exists():
+                self.models_dir = default_path
+            else:
+                current = Path(__file__).resolve().parent
+                found = None
+                for parent in [current, *current.parents]:
+                    candidate = parent / "data" / "complexity_analysis" / "en" / "source-0.2.0" / "preprocessing-1.0.0" / "classifier-1.0.0" / "models"
+                    if candidate.exists():
+                        found = candidate
+                        break
+                self.models_dir = found or default_path
 
     def save_package(
         self,

@@ -9,11 +9,25 @@ import json
 class FeatureRepository:
     """Loads Stage 21 preprocessed linguistic feature records and metadata."""
 
-    def __init__(self, base_dir: Path = Path("data/preprocessed_features/en/source-0.2.0/pipeline-1.0.0")):
-        self.base_dir = base_dir
-        self.features_csv_path = base_dir / "linguistic_features.csv"
-        self.records_jsonl_path = base_dir / "preprocessed_records.jsonl"
-        self.mappings_json_path = base_dir / "parent_to_text_mappings.json"
+    def __init__(self, base_dir: Optional[Path] = None):
+        if base_dir is not None:
+            self.base_dir = Path(base_dir)
+        else:
+            default_path = Path("data/preprocessed_features/en/source-0.2.0/pipeline-1.0.0")
+            if default_path.exists():
+                self.base_dir = default_path
+            else:
+                current = Path(__file__).resolve().parent
+                found = None
+                for parent in [current, *current.parents]:
+                    candidate = parent / "data" / "preprocessed_features" / "en" / "source-0.2.0" / "pipeline-1.0.0"
+                    if candidate.exists():
+                        found = candidate
+                        break
+                self.base_dir = found or default_path
+        self.features_csv_path = self.base_dir / "linguistic_features.csv"
+        self.records_jsonl_path = self.base_dir / "preprocessed_records.jsonl"
+        self.mappings_json_path = self.base_dir / "parent_to_text_mappings.json"
         self._review_ids: Optional[set[str]] = None
 
     def _load_review_instance_ids(self) -> set[str]:
