@@ -3,54 +3,52 @@
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Scope:** External English Datasets  
 **Governance Standard:** Stage 23 Legal Rights and Content Licensing Policy  
-**Status:** FORMALLY EVALUATED & SEALED  
+**Status:** FORMALLY EVALUATED (PENDING PRIMARY EVIDENCE VERIFIED)  
 
 ---
 
 ## 1. Registry Decisions Summary
 
-| Dataset ID | Dataset Name | Rights Status | Content Licence | Local Processing | Benchmark Use | Training Use | Redistribution |
-|---|---|---|---|:---:|:---:|:---:|:---:|
-| `EXTDATA-ASSET` | ASSET | `approved_local_research` | CC-BY-NC 4.0 | Yes | Yes | No | No |
-| `EXTDATA-TURKCORPUS` | TurkCorpus | `approved_local_research` | CC-BY-SA 4.0 / Academic | Yes | Yes | No | No |
-| `EXTDATA-OASISSIMP-EN` | OasisSimp-English | `approved_local_research` | CC-BY 4.0 | Yes | Yes | No | No |
-| `EXTDATA-WIKILARGE-PILOT` | WikiLarge Pilot | `approved_local_research` | CC-BY-SA 3.0 (Wikipedia) | Yes | No | Yes (Pilot) | No |
-| `EXTDATA-NEWSELA` | Newsela | `excluded_rights` | Proprietary Copyright | No | No | No | No |
+| Dataset ID | Dataset Name | Rights Status | Content Licence | Local Processing | Benchmark Use | Training Use | Primary Evidence Status |
+|---|---|---|---|:---:|:---:|:---:|---|
+| `EXTDATA-ASSET` | ASSET | `approved_local_research` | CC-BY-NC 4.0 | **Yes** | **Yes** | **No** | Verified via exact LICENSE file (`50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447`) |
+| `EXTDATA-TURKCORPUS` | TurkCorpus | `pending_content_rights_verification` | *Pending* | **No** | **No** | **No** | Pending content license verification (GPL-3.0 is code license only) |
+| `EXTDATA-OASISSIMP-EN` | OasisSimp-English | `pending_content_rights_verification` | *Pending* | **No** | **No** | **No** | Pending explicit archive license verification |
+| `EXTDATA-WIKILARGE-PILOT` | WikiLarge Pilot | `pending_lineage_and_rights_verification` | *Pending* | **No** | **No** | **No** | Pending Wikipedia alignment lineage and training rights verification |
+| `EXTDATA-NEWSELA` | Newsela | `excluded_rights` | Proprietary Copyright | **No** | **No** | **No** | Formally excluded without written permission |
 
 ---
 
 ## 2. Granular Evaluation Records
 
-### 2.1 ASSET (`EXTDATA-ASSET`)
+### 2.1 ASSET (`EXTDATA-ASSET`) — Approved for Local Research
 - **Official Source:** [facebookresearch/asset](https://github.com/facebookresearch/asset)
 - **Publication:** Alva-Manchego et al. (ACL 2020)
-- **Licence:** Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0)
+- **Primary Evidence Type:** `dataset_license_file`
+- **Primary Evidence URL:** `https://raw.githubusercontent.com/facebookresearch/asset/master/LICENSE`
+- **Primary Evidence SHA-256:** `50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447`
+- **Evidence Scope:** `dataset_content`
+- **Verified Licence:** Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0)
 - **Role:** Primary Multi-Reference Evaluation Benchmark (2,359 source groups, 23,590 references).
-- **Restrictions:** Non-commercial research use only; raw corpus redistribution prohibited; benchmark isolation enforced.
+- **Permissions:** `local_processing_allowed: true`, `benchmark_use_allowed: true`, `training_use_allowed: false`, `redistribution_allowed: false`.
 
-### 2.2 TurkCorpus (`EXTDATA-TURKCORPUS`)
+### 2.2 TurkCorpus (`EXTDATA-TURKCORPUS`) — Pending Content Rights
 - **Official Source:** [cocoxu/simplification](https://github.com/cocoxu/simplification)
 - **Publication:** Xu et al. (TACL 2016)
-- **Licence:** CC-BY-SA 4.0 / Academic Open Access
-- **Role:** Standard SARI-Compatible Multi-Reference Benchmark (2,359 source groups, 18,872 references).
-- **Restrictions:** Shares source sentences with ASSET; benchmark isolation enforced.
+- **Primary Evidence Scope:** `repository_software` (Repository is GPL-3.0).
+- **Status:** `pending_content_rights_verification` until exact licensing for Wikipedia sentences and crowdsourced MTurk references is verified.
 
-### 2.3 OasisSimp-English (`EXTDATA-OASISSIMP-EN`)
+### 2.3 OasisSimp-English (`EXTDATA-OASISSIMP-EN`) — Pending Content Rights
 - **Official Source:** [OasisSimpDataset.github.io](https://OasisSimpDataset.github.io/)
 - **Publication:** De Silva et al. (2024)
-- **Licence:** Creative Commons Attribution 4.0 International (CC-BY 4.0)
-- **Role:** Cross-domain and future English–Sinhala bridge benchmark.
-- **Restrictions:** Locked to `benchmark_only` for Release 0.1.0.
+- **Status:** `pending_content_rights_verification` until official dataset archive license file is verified.
 
-### 2.4 WikiLarge Pilot (`EXTDATA-WIKILARGE-PILOT`)
+### 2.4 WikiLarge Pilot (`EXTDATA-WIKILARGE-PILOT`) — Pending Lineage
 - **Official Source:** [XingxingZhang/dress](https://github.com/XingxingZhang/dress)
 - **Publication:** Zhang & Lapata (EMNLP 2017)
-- **Licence:** CC-BY-SA 3.0 (Wikipedia Lineage)
-- **Role:** Optional Filtered Large-Scale Pilot Training Reference.
-- **Status:** Isolated non-blocking pilot.
+- **Status:** `pending_lineage_and_rights_verification` (MIT code license in DRESS does not prove Wikipedia alignment dataset license).
 
-### 2.5 Newsela (`EXTDATA-NEWSELA`)
+### 2.5 Newsela (`EXTDATA-NEWSELA`) — Excluded
 - **Official Source:** [newsela.com/data](https://newsela.com/data/)
 - **Publication:** Xu et al. (TACL 2015)
-- **Licence:** Proprietary Commercial / Restricted Institutional Agreement
-- **Disposition:** `excluded_rights` (Excluded from automated acquisition and processing).
+- **Status:** `excluded_rights` (Proprietary commercial news dataset requiring individual institutional data use agreements).

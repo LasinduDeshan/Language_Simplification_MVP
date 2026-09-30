@@ -1,4 +1,4 @@
-"""Step 1A: Register candidate external English dataset sources."""
+"""Step 1A: Register candidate external English dataset sources in pending initial states."""
 
 from pathlib import Path
 import sys
@@ -24,11 +24,13 @@ def main():
         publication_reference="Alva-Manchego, F., Martin, L., Bordes, A., Scarton, C., Sagot, B., & Specia, L. (2020). ASSET: A Dataset for Tuning and Evaluation of Sentence Simplification Models with Multiple Rewriting Transformations. In Proceedings of ACL 2020 (pp. 4668–4679).",
         content_licence_name=None,
         content_licence_url=None,
+        repository_code_licence="CC-BY-NC-4.0",
+        source_text_licence=None,
+        crowdsourced_references_licence=None,
+        dataset_collection_terms=None,
         rights_status="pending_content_rights_verification",
         permissions=DatasetPermissions(),
-        rights_evidence_url=None,
-        rights_verified_by=None,
-        rights_verified_at=None,
+        evidence=None,
         notes="Primary multi-reference evaluation benchmark for sentence simplification.",
     )
     registry.register(asset_record)
@@ -41,11 +43,13 @@ def main():
         publication_reference="Xu, W., Callison-Burch, C., & Napoles, C. (2016). Optimizing statistical machine translation for text simplification. Transactions of the Association for Computational Linguistics, 4, 401–415.",
         content_licence_name=None,
         content_licence_url=None,
+        repository_code_licence="GPL-3.0",
+        source_text_licence=None,
+        crowdsourced_references_licence=None,
+        dataset_collection_terms=None,
         rights_status="pending_content_rights_verification",
         permissions=DatasetPermissions(),
-        rights_evidence_url=None,
-        rights_verified_by=None,
-        rights_verified_at=None,
+        evidence=None,
         notes="Standard SARI-compatible evaluation benchmark sharing source sentences with ASSET.",
     )
     registry.register(turk_record)
@@ -58,11 +62,13 @@ def main():
         publication_reference="De Silva, N. et al. (2024). OasisSimp: Multilingual Sentence Simplification Dataset and Benchmarks.",
         content_licence_name=None,
         content_licence_url=None,
+        repository_code_licence=None,
+        source_text_licence=None,
+        crowdsourced_references_licence=None,
+        dataset_collection_terms=None,
         rights_status="pending_content_rights_verification",
         permissions=DatasetPermissions(),
-        rights_evidence_url=None,
-        rights_verified_by=None,
-        rights_verified_at=None,
+        evidence=None,
         notes="Multilingual sentence simplification dataset; English split serves as cross-domain benchmark.",
     )
     registry.register(oasissimp_record)
@@ -75,11 +81,13 @@ def main():
         publication_reference="Zhang, X., & Lapata, M. (2017). Sentence Simplification with Deep Reinforcement Learning. In Proceedings of EMNLP 2017 (pp. 584–594).",
         content_licence_name=None,
         content_licence_url=None,
+        repository_code_licence="MIT",
+        source_text_licence="CC-BY-SA 3.0 (Wikipedia Lineage)",
+        crowdsourced_references_licence=None,
+        dataset_collection_terms=None,
         rights_status="pending_lineage_and_rights_verification",
         permissions=DatasetPermissions(),
-        rights_evidence_url=None,
-        rights_verified_by=None,
-        rights_verified_at=None,
+        evidence=None,
         notes="Wikipedia sentence alignments for large-scale training reference; optional filtered pilot only.",
     )
     registry.register(wikilarge_record)
@@ -92,17 +100,13 @@ def main():
         publication_reference="Xu, W., Callison-Burch, C., & Napoles, C. (2015). Problems in Current Text Simplification Research: New Data Can Help. TACL.",
         content_licence_name="Proprietary / Restricted Research Agreement",
         content_licence_url=None,
+        repository_code_licence=None,
+        source_text_licence=None,
+        crowdsourced_references_licence=None,
+        dataset_collection_terms=None,
         rights_status="excluded_rights",
-        permissions=DatasetPermissions(
-            local_processing_allowed=False,
-            redistribution_allowed=False,
-            benchmark_use_allowed=False,
-            training_use_allowed=False,
-            derived_feature_release_allowed=False,
-        ),
-        rights_evidence_url=None,
-        rights_verified_by="research_lead",
-        rights_verified_at=None,
+        permissions=DatasetPermissions(),
+        evidence=None,
         notes="Proprietary news simplification corpus; formally excluded without written license agreement.",
     )
     registry.register(newsela_record)

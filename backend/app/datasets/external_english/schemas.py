@@ -45,8 +45,32 @@ class DatasetPermissions(BaseModel):
     derived_feature_release_allowed: bool = Field(default=False)
 
 
+class RightsEvidence(BaseModel):
+    """Primary evidence documenting legal rights and licensing terms."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    evidence_type: Literal[
+        "dataset_license_file",
+        "paper_statement",
+        "repository_terms",
+        "quarantined_inspection",
+        "direct_communication",
+    ] = "dataset_license_file"
+    evidence_url: Optional[str] = None
+    evidence_sha256: Optional[str] = None
+    evidence_scope: Literal["dataset_content", "repository_software", "mixed_lineage", "unverified"] = "unverified"
+    verified_licence_identifier: Optional[str] = None
+    permission_rationale: str = ""
+    verified_by: Optional[str] = None
+    verified_at: Optional[datetime] = None
+    requires_attribution: bool = False
+    requires_share_alike: bool = False
+    noncommercial_only: bool = False
+
+
 class ExternalDatasetRegistryRecord(BaseModel):
-    """Registry record specifying source metadata and evaluated rights status."""
+    """Registry record specifying source metadata, multi-layer licences, and evaluated rights status."""
 
     model_config = ConfigDict(extra="forbid")
 
@@ -56,11 +80,16 @@ class ExternalDatasetRegistryRecord(BaseModel):
     publication_reference: str
     content_licence_name: Optional[str] = None
     content_licence_url: Optional[str] = None
+    
+    # Multi-layer licensing breakdown
+    repository_code_licence: Optional[str] = None
+    source_text_licence: Optional[str] = None
+    crowdsourced_references_licence: Optional[str] = None
+    dataset_collection_terms: Optional[str] = None
+
     rights_status: RightsStatus = "pending_content_rights_verification"
     permissions: DatasetPermissions = Field(default_factory=DatasetPermissions)
-    rights_evidence_url: Optional[str] = None
-    rights_verified_by: Optional[str] = None
-    rights_verified_at: Optional[datetime] = None
+    evidence: Optional[RightsEvidence] = None
     notes: Optional[str] = None
 
 
@@ -72,6 +101,7 @@ class RightsDecision(BaseModel):
     dataset_id: ExternalDatasetId
     rights_status: RightsStatus
     permissions: DatasetPermissions
+    evidence: Optional[RightsEvidence] = None
     evidence_summary: str
     verified_by: str
     verified_at: datetime
@@ -147,7 +177,7 @@ class NormalizedExternalRecord(BaseModel):
     suitability_metrics: Optional[Dict[str, Any]] = None
 
 
-class ExternalDisposingRecord(BaseModel):
+class ExternalDispositionRecord(BaseModel):
     """Record summary tracking dual-level disposition for a source group and its references."""
 
     model_config = ConfigDict(extra="forbid")

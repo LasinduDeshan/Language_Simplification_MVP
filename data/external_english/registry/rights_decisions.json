@@ -9,51 +9,103 @@
       "training_use_allowed": false,
       "derived_feature_release_allowed": true
     },
-    "evidence_summary": "Verified against official repository LICENSE file (CC-BY-NC 4.0). Approved for local research preprocessing and evaluation benchmarking; raw redistribution prohibited; non-commercial research use only.",
+    "evidence": {
+      "evidence_type": "dataset_license_file",
+      "evidence_url": "https://raw.githubusercontent.com/facebookresearch/asset/master/LICENSE",
+      "evidence_sha256": "50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447",
+      "evidence_scope": "dataset_content",
+      "verified_licence_identifier": "CC-BY-NC-4.0",
+      "permission_rationale": "Official repository LICENSE file confirms dataset content is released under Creative Commons Attribution-NonCommercial 4.0 International. Permitted for local research processing and benchmark evaluation; redistribution and commercial use prohibited.",
+      "verified_by": "research_governance_lead",
+      "verified_at": "2026-09-30T05:51:03.782713Z",
+      "requires_attribution": true,
+      "requires_share_alike": false,
+      "noncommercial_only": true
+    },
+    "evidence_summary": "Verified against primary repository LICENSE file (CC-BY-NC 4.0). Approved for local research preprocessing and evaluation benchmarking; raw redistribution prohibited; non-commercial research use only.",
     "verified_by": "research_governance_lead",
-    "verified_at": "2026-09-29T11:04:28.313302Z"
+    "verified_at": "2026-09-30T05:51:03.782713Z"
   },
   "EXTDATA-TURKCORPUS": {
     "dataset_id": "EXTDATA-TURKCORPUS",
-    "rights_status": "approved_local_research",
+    "rights_status": "pending_content_rights_verification",
     "permissions": {
-      "local_processing_allowed": true,
+      "local_processing_allowed": false,
       "redistribution_allowed": false,
-      "benchmark_use_allowed": true,
+      "benchmark_use_allowed": false,
       "training_use_allowed": false,
-      "derived_feature_release_allowed": true
+      "derived_feature_release_allowed": false
     },
-    "evidence_summary": "Verified against official author release (Xu et al., TACL 2016). Approved for local academic evaluation benchmarking; raw redistribution prohibited; training candidate derivation restricted due to benchmark isolation.",
+    "evidence": {
+      "evidence_type": "repository_terms",
+      "evidence_url": "https://github.com/cocoxu/simplification",
+      "evidence_sha256": null,
+      "evidence_scope": "repository_software",
+      "verified_licence_identifier": null,
+      "permission_rationale": "Repository identifies GPL-3.0 for software tooling, but content licensing for Simple English Wikipedia sentences and crowdsourced MTurk references requires multi-layer primary verification.",
+      "verified_by": "research_governance_lead",
+      "verified_at": "2026-09-30T05:51:03.782713Z",
+      "requires_attribution": true,
+      "requires_share_alike": false,
+      "noncommercial_only": false
+    },
+    "evidence_summary": "Content rights pending: repository software license (GPL-3.0) does not establish dataset content license for Wikipedia sources and crowdsourced references.",
     "verified_by": "research_governance_lead",
-    "verified_at": "2026-09-29T11:04:28.313302Z"
+    "verified_at": "2026-09-30T05:51:03.782713Z"
   },
   "EXTDATA-OASISSIMP-EN": {
     "dataset_id": "EXTDATA-OASISSIMP-EN",
-    "rights_status": "approved_local_research",
+    "rights_status": "pending_content_rights_verification",
     "permissions": {
-      "local_processing_allowed": true,
+      "local_processing_allowed": false,
       "redistribution_allowed": false,
-      "benchmark_use_allowed": true,
+      "benchmark_use_allowed": false,
       "training_use_allowed": false,
-      "derived_feature_release_allowed": true
+      "derived_feature_release_allowed": false
     },
-    "evidence_summary": "Verified against official website (OasisSimpDataset.github.io). Approved for local research preprocessing and benchmark evaluation. Locked to benchmark_only for Release 0.1.0.",
+    "evidence": {
+      "evidence_type": "paper_statement",
+      "evidence_url": "https://OasisSimpDataset.github.io/",
+      "evidence_sha256": null,
+      "evidence_scope": "unverified",
+      "verified_licence_identifier": null,
+      "permission_rationale": "Official website provides validation/test JSONL files with open academic citation requests, but explicit dataset archive license statement is pending verification.",
+      "verified_by": "research_governance_lead",
+      "verified_at": "2026-09-30T05:51:03.782713Z",
+      "requires_attribution": true,
+      "requires_share_alike": false,
+      "noncommercial_only": false
+    },
+    "evidence_summary": "Content rights pending: official website provides open academic files, but explicit dataset archive license file or written confirmation is pending.",
     "verified_by": "research_governance_lead",
-    "verified_at": "2026-09-29T11:04:28.313302Z"
+    "verified_at": "2026-09-30T05:51:03.782713Z"
   },
   "EXTDATA-WIKILARGE-PILOT": {
     "dataset_id": "EXTDATA-WIKILARGE-PILOT",
-    "rights_status": "approved_local_research",
+    "rights_status": "pending_lineage_and_rights_verification",
     "permissions": {
-      "local_processing_allowed": true,
+      "local_processing_allowed": false,
       "redistribution_allowed": false,
       "benchmark_use_allowed": false,
-      "training_use_allowed": true,
+      "training_use_allowed": false,
       "derived_feature_release_allowed": false
     },
-    "evidence_summary": "Wikipedia sentence alignment lineage verified (CC-BY-SA 3.0 derived). Approved strictly for local filtered pilot training exploration; raw redistribution prohibited.",
+    "evidence": {
+      "evidence_type": "repository_terms",
+      "evidence_url": "https://github.com/XingxingZhang/dress",
+      "evidence_sha256": null,
+      "evidence_scope": "mixed_lineage",
+      "verified_licence_identifier": null,
+      "permission_rationale": "Repository provides code under MIT and download links for Wikipedia sentence alignments. Wikipedia source lineage and dataset redistribution terms remain pending formal verification.",
+      "verified_by": "research_governance_lead",
+      "verified_at": "2026-09-30T05:51:03.782713Z",
+      "requires_attribution": true,
+      "requires_share_alike": false,
+      "noncommercial_only": false
+    },
+    "evidence_summary": "Lineage and rights pending: MIT code license in DRESS does not prove Wikipedia alignment dataset license or training redistribution rights.",
     "verified_by": "research_governance_lead",
-    "verified_at": "2026-09-29T11:04:28.313302Z"
+    "verified_at": "2026-09-30T05:51:03.782713Z"
   },
   "EXTDATA-NEWSELA": {
     "dataset_id": "EXTDATA-NEWSELA",
@@ -65,8 +117,21 @@
       "training_use_allowed": false,
       "derived_feature_release_allowed": false
     },
+    "evidence": {
+      "evidence_type": "repository_terms",
+      "evidence_url": "https://newsela.com/data/",
+      "evidence_sha256": null,
+      "evidence_scope": "dataset_content",
+      "verified_licence_identifier": "Proprietary",
+      "permission_rationale": "Proprietary commercial news dataset requiring individual institution data use agreements. Formally excluded from automated ingestion.",
+      "verified_by": "research_governance_lead",
+      "verified_at": "2026-09-30T05:51:03.782713Z",
+      "requires_attribution": true,
+      "requires_share_alike": false,
+      "noncommercial_only": true
+    },
     "evidence_summary": "Proprietary commercial news dataset requiring individual institution data use agreements. Formally excluded from automated ingestion.",
     "verified_by": "research_governance_lead",
-    "verified_at": "2026-09-29T11:04:28.313302Z"
+    "verified_at": "2026-09-30T05:51:03.782713Z"
   }
 }

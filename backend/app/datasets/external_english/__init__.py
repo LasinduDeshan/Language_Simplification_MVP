@@ -4,11 +4,12 @@ from app.datasets.external_english.schemas import (
     ExternalDatasetId,
     RightsStatus,
     DatasetPermissions,
+    RightsEvidence,
     ExternalDatasetRegistryRecord,
     RightsDecision,
     NormalizedExternalRecord,
     DualTextRecord,
-    ExternalDisposingRecord,
+    ExternalDispositionRecord,
     FinalDispositionType,
 )
 
@@ -16,10 +17,11 @@ __all__ = [
     "ExternalDatasetId",
     "RightsStatus",
     "DatasetPermissions",
+    "RightsEvidence",
     "ExternalDatasetRegistryRecord",
     "RightsDecision",
     "NormalizedExternalRecord",
     "DualTextRecord",
-    "ExternalDisposingRecord",
+    "ExternalDispositionRecord",
     "FinalDispositionType",
 ]

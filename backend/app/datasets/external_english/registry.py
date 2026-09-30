@@ -65,8 +65,7 @@ class ExternalDatasetRegistry:
             rec = self._registry[decision.dataset_id]
             rec.rights_status = decision.rights_status
             rec.permissions = decision.permissions
-            rec.rights_verified_by = decision.verified_by
-            rec.rights_verified_at = decision.verified_at
+            rec.evidence = decision.evidence
             rec.notes = decision.evidence_summary
 
     def get(self, dataset_id: ExternalDatasetId) -> Optional[ExternalDatasetRegistryRecord]:
