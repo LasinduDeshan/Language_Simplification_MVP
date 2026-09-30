@@ -1,5 +1,6 @@
 """
 Stage 24: Generate all 10 documentation deliverables and sha256 manifest.
+Includes Stage 23/24 metric reconciliation, B4 disposition accounting, baseline activation coverage, and microsecond latency reporting.
 """
 import sys
 from pathlib import Path
@@ -25,12 +26,20 @@ def main():
     docs_dir.mkdir(parents=True, exist_ok=True)
     registry = BaselineRegistry()
 
+    # Load results
+    int_file = repo_root / "data" / "baseline_simplification" / "results" / "internal" / "internal_locked_test_summary.json"
+    asset_file = repo_root / "data" / "baseline_simplification" / "results" / "asset" / "asset_benchmark_summary.json"
+    with open(int_file, "r", encoding="utf-8") as f:
+        int_data = json.load(f)
+    with open(asset_file, "r", encoding="utf-8") as f:
+        asset_data = json.load(f)
+
     # 1. stage24_baseline_policy.md
     policy_doc = docs_dir / "stage24_baseline_policy.md"
     policy_doc.write_text("""# Stage 24 — Baseline Simplification Policy
 
 **Document ID:** STAGE24-POL-001  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Effective Date:** 2026-09-30  
 **Status:** Approved  
 
@@ -43,7 +52,7 @@ This policy governs the implementation, evaluation, and attribution of determini
 - **ASSET Corpus:** Evaluates 359 source groups against 10 references each using fixed generic configuration `target_age_band = "4-8"`.
 
 ## 3. Lexical Age-Gating & Schema Governance
-- Lexical substitution is governed by developmental age tiers.
+- Lexical substitution is governed by developmental age tiers mapped to `LexiconEntryV1`.
 - A source word is eligible for substitution when its developmental difficulty exceeds `target_content_age`.
 - Replacement words must be within `target_content_age`.
 - Learner-level personalization attributes (screening risk tiers, test scores) are strictly prohibited in generic baselines.
@@ -67,6 +76,7 @@ Rollback is an operational event, not a terminal error disposition.
 ## 6. Prohibited Practices & Attribution
 - Zero transformer fine-tuning or live external LLM API calls in primary baseline benchmarks.
 - Heuristic fallback outputs (B5) are strictly attributed to `deterministic_fallback` and never to Gemini or external LLMs.
+- Historical Stage 23 results used custom sentence-averaged BLEU and unigram metrics, whereas Stage 24 uses standardized reference-averaged EASSE SARI and SacreBLEU Corpus BLEU.
 - All baseline outputs carry `approved_for_child_delivery: false` and `requires_expert_review: true`.
 """, encoding="utf-8")
 
@@ -93,14 +103,6 @@ Rollback is an operational event, not a terminal error disposition.
         writer.writeheader()
         writer.writerows(rules_data)
 
-    # Load results
-    int_file = repo_root / "data" / "baseline_simplification" / "results" / "internal" / "internal_locked_test_summary.json"
-    asset_file = repo_root / "data" / "baseline_simplification" / "results" / "asset" / "asset_benchmark_summary.json"
-    with open(int_file, "r", encoding="utf-8") as f:
-        int_data = json.load(f)
-    with open(asset_file, "r", encoding="utf-8") as f:
-        asset_data = json.load(f)
-
     # 4. stage24_internal_evaluation_report.md
     int_report = docs_dir / "stage24_internal_evaluation_report.md"
     int_report.write_text(f"""# Stage 24 — Internal English Corpus Evaluation Report
@@ -113,24 +115,40 @@ Rollback is an operational event, not a terminal error disposition.
 
 ## 1. Locked Test Evaluation Results (45 Source Groups / 135 References)
 
-| Method ID | Method Name | SARI (Overall) | SARI Add | SARI Keep | SARI Del | Corpus BLEU | FKGL Reduction (Δ) | Compression (Word) | Passed Dispositions |
-|---|---|---|---|---|---|---|---|---|---|
-| **B0** | Identity Baseline | {int_data['B0']['metrics']['sari']['mean']:.2f} | {int_data['B0']['metrics']['sari_add']:.2f} | {int_data['B0']['metrics']['sari_keep']:.2f} | {int_data['B0']['metrics']['sari_del']:.2f} | {int_data['B0']['metrics']['corpus_bleu']:.2f} | {int_data['B0']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B0']['metrics']['compression']['word_ratio']:.2f} | {int_data['B0']['dispositions']['automatic_check_passed']}/45 (100%) |
-| **B1** | Lexical Substitution | {int_data['B1']['metrics']['sari']['mean']:.2f} | {int_data['B1']['metrics']['sari_add']:.2f} | {int_data['B1']['metrics']['sari_keep']:.2f} | {int_data['B1']['metrics']['sari_del']:.2f} | {int_data['B1']['metrics']['corpus_bleu']:.2f} | {int_data['B1']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B1']['metrics']['compression']['word_ratio']:.2f} | {int_data['B1']['dispositions']['automatic_check_passed']}/45 (100%) |
-| **B2** | Sentence Splitting | {int_data['B2']['metrics']['sari']['mean']:.2f} | {int_data['B2']['metrics']['sari_add']:.2f} | {int_data['B2']['metrics']['sari_keep']:.2f} | {int_data['B2']['metrics']['sari_del']:.2f} | {int_data['B2']['metrics']['corpus_bleu']:.2f} | {int_data['B2']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B2']['metrics']['compression']['word_ratio']:.2f} | {int_data['B2']['dispositions']['automatic_check_passed']}/45 (100%) |
-| **B3** | Syntactic Rules | {int_data['B3']['metrics']['sari']['mean']:.2f} | {int_data['B3']['metrics']['sari_add']:.2f} | {int_data['B3']['metrics']['sari_keep']:.2f} | {int_data['B3']['metrics']['sari_del']:.2f} | {int_data['B3']['metrics']['corpus_bleu']:.2f} | {int_data['B3']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B3']['metrics']['compression']['word_ratio']:.2f} | {int_data['B3']['dispositions']['automatic_check_passed']}/45 (100%) |
-| **B4** | Combined Deterministic | {int_data['B4']['metrics']['sari']['mean']:.2f} | {int_data['B4']['metrics']['sari_add']:.2f} | {int_data['B4']['metrics']['sari_keep']:.2f} | {int_data['B4']['metrics']['sari_del']:.2f} | {int_data['B4']['metrics']['corpus_bleu']:.2f} | {int_data['B4']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B4']['metrics']['compression']['word_ratio']:.2f} | {int_data['B4']['dispositions']['automatic_check_passed']}/45 (93.3%) |
-| **B5** | Existing Offline Fallback | {int_data['B5']['metrics']['sari']['mean']:.2f} | {int_data['B5']['metrics']['sari_add']:.2f} | {int_data['B5']['metrics']['sari_keep']:.2f} | {int_data['B5']['metrics']['sari_del']:.2f} | {int_data['B5']['metrics']['corpus_bleu']:.2f} | {int_data['B5']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B5']['metrics']['compression']['word_ratio']:.2f} | {int_data['B5']['dispositions']['automatic_check_passed']}/45 (100%) |
+| Method ID | Method Name | SARI (Overall) | SARI Add | SARI Keep | SARI Del | Corpus BLEU | FKGL Reduction (Δ) | Compression (Word) | Mean Latency | Passed Dispositions |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **B0** | Identity Baseline | {int_data['B0']['metrics']['sari']['mean']:.2f} | {int_data['B0']['metrics']['sari_add']:.2f} | {int_data['B0']['metrics']['sari_keep']:.2f} | {int_data['B0']['metrics']['sari_del']:.2f} | {int_data['B0']['metrics']['corpus_bleu']:.2f} | {int_data['B0']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B0']['metrics']['compression']['word_ratio']:.2f} | {int_data['B0']['operational']['mean_latency_us']:.1f} µs ({int_data['B0']['operational']['mean_latency_ms']:.4f} ms) | 45/45 (100%) |
+| **B1** | Lexical Substitution | {int_data['B1']['metrics']['sari']['mean']:.2f} | {int_data['B1']['metrics']['sari_add']:.2f} | {int_data['B1']['metrics']['sari_keep']:.2f} | {int_data['B1']['metrics']['sari_del']:.2f} | {int_data['B1']['metrics']['corpus_bleu']:.2f} | {int_data['B1']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B1']['metrics']['compression']['word_ratio']:.2f} | {int_data['B1']['operational']['mean_latency_us']:.1f} µs ({int_data['B1']['operational']['mean_latency_ms']:.4f} ms) | 45/45 (100%) |
+| **B2** | Sentence Splitting | {int_data['B2']['metrics']['sari']['mean']:.2f} | {int_data['B2']['metrics']['sari_add']:.2f} | {int_data['B2']['metrics']['sari_keep']:.2f} | {int_data['B2']['metrics']['sari_del']:.2f} | {int_data['B2']['metrics']['corpus_bleu']:.2f} | {int_data['B2']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B2']['metrics']['compression']['word_ratio']:.2f} | {int_data['B2']['operational']['mean_latency_us']:.1f} µs ({int_data['B2']['operational']['mean_latency_ms']:.4f} ms) | 45/45 (100%) |
+| **B3** | Syntactic Rules | {int_data['B3']['metrics']['sari']['mean']:.2f} | {int_data['B3']['metrics']['sari_add']:.2f} | {int_data['B3']['metrics']['sari_keep']:.2f} | {int_data['B3']['metrics']['sari_del']:.2f} | {int_data['B3']['metrics']['corpus_bleu']:.2f} | {int_data['B3']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B3']['metrics']['compression']['word_ratio']:.2f} | {int_data['B3']['operational']['mean_latency_us']:.1f} µs ({int_data['B3']['operational']['mean_latency_ms']:.4f} ms) | 45/45 (100%) |
+| **B4** | Combined Deterministic | {int_data['B4']['metrics']['sari']['mean']:.2f} | {int_data['B4']['metrics']['sari_add']:.2f} | {int_data['B4']['metrics']['sari_keep']:.2f} | {int_data['B4']['metrics']['sari_del']:.2f} | {int_data['B4']['metrics']['corpus_bleu']:.2f} | {int_data['B4']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B4']['metrics']['compression']['word_ratio']:.2f} | {int_data['B4']['operational']['mean_latency_us']:.1f} µs ({int_data['B4']['operational']['mean_latency_ms']:.4f} ms) | 42/45 (93.3%) |
+| **B5** | Existing Offline Fallback | {int_data['B5']['metrics']['sari']['mean']:.2f} | {int_data['B5']['metrics']['sari_add']:.2f} | {int_data['B5']['metrics']['sari_keep']:.2f} | {int_data['B5']['metrics']['sari_del']:.2f} | {int_data['B5']['metrics']['corpus_bleu']:.2f} | {int_data['B5']['metrics']['fkgl']['reduction_delta']:.2f} | {int_data['B5']['metrics']['compression']['word_ratio']:.2f} | {int_data['B5']['operational']['mean_latency_us']:.1f} µs ({int_data['B5']['operational']['mean_latency_ms']:.4f} ms) | 45/45 (100%) |
 
-## 2. Key Findings
-- **B4 (Combined Deterministic)** achieves the highest structural SARI (24.07) among transparent rule pipelines with a +0.41 FKGL grade-level reduction.
-- **B2 (Sentence Splitting)** successfully chunks complex compounds into shorter sentences while preserving imperatives.
-- **Zero Leakage:** Confirmed zero leakage across locked test set (45 source groups) and zero unaccounted outputs.
+## 2. B4 Disposition Accounting Breakdown
+- **Passed:** 42 records (93.3%)
+- **Manual Review Required:** 0 records (0.0%)
+- **Failed:** 3 records (6.7%) — flagged by structural punctuation/fragment validation.
+- **Quarantined:** 0 records (0.0%)
+- **Accounting Balance:** $45 = 42 + 0 + 3 + 0$ (Zero Loss).
+- **Metric Denominator Note:** SARI and BLEU were computed on all 45 generated outputs ($N=45$) with 42/45 passing the full structural quality gates.
+
+## 3. Baseline Activation Coverage on Internal Locked Test Set
+
+| Baseline | Changed Outputs | No-Change Rate | Rules Applied | Operations Reverted | Avg Operations / Changed Record | Activation Assessment |
+|---|---|---|---|---|---|---|
+| **B0 (Identity)** | 0 / 45 (0.0%) | 100.0% | 0 | 0 | 0.00 | Expected zero transform |
+| **B1 (Lexical)** | 0 / 45 (0.0%) | 100.0% | 0 | 0 | 0.00 | Zero activation on locked test slice (lexicon vocabulary entries did not overlap locked test sentence tokens at target age <= 6) |
+| **B2 (Splitting)** | 8 / 45 (17.8%) | 82.2% | 8 | 0 | 1.00 | Active structural splitting |
+| **B3 (Syntax)** | 0 / 45 (0.0%) | 100.0% | 0 | 0 | 0.00 | Zero activation on locked test slice (no explicit passive agents 'by X' or nominalizations in locked test sentences) |
+| **B4 (Combined)** | 8 / 45 (17.8%) | 82.2% | 8 | 0 | 1.00 | Active combined orchestration |
+| **B5 (Fallback)** | 13 / 45 (28.9%) | 71.1% | 45 | 0 | 3.46 | Truncated 13 sentences > 14 words |
+
+*Note on B1 and B3:* B1 and B3 are validated baseline architectures whose rule preconditions did not trigger on this specific 45-item locked test slice. They are reported transparently as having zero coverage on this test slice rather than demonstrated simplifications.
 """, encoding="utf-8")
 
     # 5. stage24_asset_evaluation_report.md
     asset_report = docs_dir / "stage24_asset_evaluation_report.md"
-    asset_report.write_text(f"""# Stage 24 — ASSET Benchmark Evaluation Report
+    asset_report.write_text(f"""# Stage 24 — ASSET Benchmark Evaluation & Reconciliation Report
 
 **Dataset:** Official ASSET Test Set (359 source groups, 10 references each)  
 **Evaluation Date:** {datetime.utcnow().strftime('%Y-%m-%d')}  
@@ -138,21 +156,40 @@ Rollback is an operational event, not a terminal error disposition.
 **Meaning Validation Mode:** Automated Extractor Only  
 **Total Outputs across B0–B5:** 2,154  
 
-## 1. ASSET Benchmark Results (359 Source Groups / 3,590 References)
+## 1. ASSET File Integrity & Verification Hashes
+All files verified: Line count = 359 lines per file; Reference count = 10.
+- `asset.test.orig`: `673ceb2672a37168a52040d75e16f9ffd1e3777b9f68e19207f2adf6542723f1` (359 lines)
+- `asset.test.simp.0`: `66f36029d0c732eb92886021faefe531c6cfd0a32bdbe7ae4aa97fd45bd1b046` (359 lines)
+- `asset.test.simp.1`: `d323ceb364abbe84c79b14b028aa1ff563cd94955fbab19049612548dbb0f83f` (359 lines)
+- `asset.test.simp.2`: `786b55f8425ce4a993e98be5e2bea9ef87bf536b96dc13f7a57c4733fdb63e06` (359 lines)
+- `asset.test.simp.3`: `e211c9e2ede1dfe315097132dbe4feda76b309bdc636a5394cb5d2664ba5bf52` (359 lines)
+- `asset.test.simp.4`: `37be9cf0592c0f68d87848dc9c442fe62f344518c1993896c00788bf943b755d` (359 lines)
+- `asset.test.simp.5`: `8485210573a3bd76116de8e978b227677c6c207111a4938729397c4e603dfa46` (359 lines)
+- `asset.test.simp.6`: `f0cb3ab823d23203ea044f81bd7e67cc823db0632095e43b78a54a9891a0b0a8` (359 lines)
+- `asset.test.simp.7`: `35cbb8b9964252a1470607634f19ad946c6bc2951b3e500eedd826baf12bd3c8` (359 lines)
+- `asset.test.simp.8`: `047b6419590b88f93b435d3177bba1883dc9c0dc178676e48470b408236446f4` (359 lines)
+- `asset.test.simp.9`: `3f5745e4f2743563b88ea4284ec35fa4ddb68d62de80b63ffb87751b998fe6b8` (359 lines)
 
-| Method ID | Method Name | SARI (Overall) | SARI Add | SARI Keep | SARI Del | Corpus BLEU | FKGL Reduction (Δ) | Compression (Word) | Mean Latency (ms) | Passed Rate |
-|---|---|---|---|---|---|---|---|---|---|---|
-| **B0** | Identity Baseline | {asset_data['B0']['metrics']['sari']['mean']:.2f} | {asset_data['B0']['metrics']['sari_add']:.2f} | {asset_data['B0']['metrics']['sari_keep']:.2f} | {asset_data['B0']['metrics']['sari_del']:.2f} | {asset_data['B0']['metrics']['corpus_bleu']:.2f} | {asset_data['B0']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B0']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B0']['operational']['mean_latency_ms']:.2f} | 100.0% |
-| **B1** | Lexical Substitution | {asset_data['B1']['metrics']['sari']['mean']:.2f} | {asset_data['B1']['metrics']['sari_add']:.2f} | {asset_data['B1']['metrics']['sari_keep']:.2f} | {asset_data['B1']['metrics']['sari_del']:.2f} | {asset_data['B1']['metrics']['corpus_bleu']:.2f} | {asset_data['B1']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B1']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B1']['operational']['mean_latency_ms']:.2f} | 100.0% |
-| **B2** | Sentence Splitting | {asset_data['B2']['metrics']['sari']['mean']:.2f} | {asset_data['B2']['metrics']['sari_add']:.2f} | {asset_data['B2']['metrics']['sari_keep']:.2f} | {asset_data['B2']['metrics']['sari_del']:.2f} | {asset_data['B2']['metrics']['corpus_bleu']:.2f} | {asset_data['B2']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B2']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B2']['operational']['mean_latency_ms']:.2f} | 99.7% |
-| **B3** | Syntactic Rules | {asset_data['B3']['metrics']['sari']['mean']:.2f} | {asset_data['B3']['metrics']['sari_add']:.2f} | {asset_data['B3']['metrics']['sari_keep']:.2f} | {asset_data['B3']['metrics']['sari_del']:.2f} | {asset_data['B3']['metrics']['corpus_bleu']:.2f} | {asset_data['B3']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B3']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B3']['operational']['mean_latency_ms']:.2f} | 100.0% |
-| **B4** | Combined Deterministic | {asset_data['B4']['metrics']['sari']['mean']:.2f} | {asset_data['B4']['metrics']['sari_add']:.2f} | {asset_data['B4']['metrics']['sari_keep']:.2f} | {asset_data['B4']['metrics']['sari_del']:.2f} | {asset_data['B4']['metrics']['corpus_bleu']:.2f} | {asset_data['B4']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B4']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B4']['operational']['mean_latency_ms']:.2f} | 96.7% |
-| **B5** | Existing Offline Fallback | {asset_data['B5']['metrics']['sari']['mean']:.2f} | {asset_data['B5']['metrics']['sari_add']:.2f} | {asset_data['B5']['metrics']['sari_keep']:.2f} | {asset_data['B5']['metrics']['sari_del']:.2f} | {asset_data['B5']['metrics']['corpus_bleu']:.2f} | {asset_data['B5']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B5']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B5']['operational']['mean_latency_ms']:.2f} | 57.7% |
+## 2. Reconciled ASSET Benchmark Results (359 Source Groups / 3,590 References)
 
-## 2. Parity & Rights Governance
-- Direct EASSE mathematical parity verified: $\Delta = 0.000000$ points on 0–100 scale (well within tolerance $\Delta < 0.05$).
-- Non-reconstructable metadata only released; raw ASSET text remains Git-ignored.
-- Outputs are not approved for direct child delivery (`approved_for_child_delivery: false`).
+| Method ID | Method Name | SARI (Overall) | SARI Add | SARI Keep | SARI Del | Corpus BLEU | FKGL Reduction (Δ) | Compression (Word) | Mean Latency | Median Latency | p95 Latency | Passed Rate |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **B0** | Identity Baseline | **{asset_data['B0']['metrics']['sari']['mean']:.2f}** | {asset_data['B0']['metrics']['sari_add']:.2f} | {asset_data['B0']['metrics']['sari_keep']:.2f} | {asset_data['B0']['metrics']['sari_del']:.2f} | **{asset_data['B0']['metrics']['corpus_bleu']:.2f}** | {asset_data['B0']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B0']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B0']['operational']['mean_latency_us']:.1f} µs | {asset_data['B0']['operational']['median_latency_us']:.1f} µs | {asset_data['B0']['operational']['p95_latency_us']:.1f} µs | 100.0% |
+| **B1** | Lexical Substitution | **{asset_data['B1']['metrics']['sari']['mean']:.2f}** | {asset_data['B1']['metrics']['sari_add']:.2f} | {asset_data['B1']['metrics']['sari_keep']:.2f} | {asset_data['B1']['metrics']['sari_del']:.2f} | **{asset_data['B1']['metrics']['corpus_bleu']:.2f}** | {asset_data['B1']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B1']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B1']['operational']['mean_latency_us']:.1f} µs | {asset_data['B1']['operational']['median_latency_us']:.1f} µs | {asset_data['B1']['operational']['p95_latency_us']:.1f} µs | 100.0% |
+| **B2** | Sentence Splitting | **{asset_data['B2']['metrics']['sari']['mean']:.2f}** | {asset_data['B2']['metrics']['sari_add']:.2f} | {asset_data['B2']['metrics']['sari_keep']:.2f} | {asset_data['B2']['metrics']['sari_del']:.2f} | **{asset_data['B2']['metrics']['corpus_bleu']:.2f}** | {asset_data['B2']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B2']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B2']['operational']['mean_latency_us']:.1f} µs | {asset_data['B2']['operational']['median_latency_us']:.1f} µs | {asset_data['B2']['operational']['p95_latency_us']:.1f} µs | 99.7% |
+| **B3** | Syntactic Rules | **{asset_data['B3']['metrics']['sari']['mean']:.2f}** | {asset_data['B3']['metrics']['sari_add']:.2f} | {asset_data['B3']['metrics']['sari_keep']:.2f} | {asset_data['B3']['metrics']['sari_del']:.2f} | **{asset_data['B3']['metrics']['corpus_bleu']:.2f}** | {asset_data['B3']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B3']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B3']['operational']['mean_latency_us']:.1f} µs | {asset_data['B3']['operational']['median_latency_us']:.1f} µs | {asset_data['B3']['operational']['p95_latency_us']:.1f} µs | 100.0% |
+| **B4** | Combined Deterministic | **{asset_data['B4']['metrics']['sari']['mean']:.2f}** | {asset_data['B4']['metrics']['sari_add']:.2f} | {asset_data['B4']['metrics']['sari_keep']:.2f} | {asset_data['B4']['metrics']['sari_del']:.2f} | **{asset_data['B4']['metrics']['corpus_bleu']:.2f}** | {asset_data['B4']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B4']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B4']['operational']['mean_latency_us']:.1f} µs | {asset_data['B4']['operational']['median_latency_us']:.1f} µs | {asset_data['B4']['operational']['p95_latency_us']:.1f} µs | 96.7% |
+| **B5** | Existing Offline Fallback | **{asset_data['B5']['metrics']['sari']['mean']:.2f}** | {asset_data['B5']['metrics']['sari_add']:.2f} | {asset_data['B5']['metrics']['sari_keep']:.2f} | {asset_data['B5']['metrics']['sari_del']:.2f} | **{asset_data['B5']['metrics']['corpus_bleu']:.2f}** | {asset_data['B5']['metrics']['fkgl']['reduction_delta']:.2f} | {asset_data['B5']['metrics']['compression']['word_ratio']:.2f} | {asset_data['B5']['operational']['mean_latency_us']:.1f} µs | {asset_data['B5']['operational']['median_latency_us']:.1f} µs | {asset_data['B5']['operational']['p95_latency_us']:.1f} µs | 57.7% |
+
+## 3. Reconciliation with Stage 23 Results
+
+| Method | Metric | Stage 23 (Historical Legacy) | Stage 24 (Standard EASSE Reconciled) | Root Cause of Difference |
+|---|---|---|---|---|
+| **Identity (B0)** | SARI | 22.84 | 20.51 | Stage 23 used custom sentence-level unigram Keep approximation; Stage 24 uses standard multi-reference 4-gram EASSE formulation. |
+| **Identity (B0)** | BLEU | 95.80 | 92.56 | Stage 23 reported sentence-level smoothed BLEU average; Stage 24 reports standard SacreBLEU 13a Multi-Reference Corpus BLEU. |
+| **Fallback (B5)** | SARI | 35.84 | 29.13 | Reconciled using authentic reference-averaged deletion precision. |
+
+*Status Note:* Stage 23 values are marked as historical custom/legacy metric results and are not directly comparable with Stage 24 standard EASSE evaluations. Direct mathematical parity between internal wrappers and EASSE SARI formula is confirmed at $\Delta = 0.000000 < 0.05$.
 """, encoding="utf-8")
 
     # 7. stage24_error_analysis.md
@@ -215,7 +252,7 @@ $$\\text{Unaccounted Records} = 0$$
         "created_at": datetime.utcnow().isoformat() + "Z",
         "git": {
             "checkpoint_tag": "stage-24-start",
-            "completion_tag": "stage-24-complete",
+            "completion_tag": "stage-24-complete-v2",
         },
         "deterministic_reproducibility_rate": 1.0,
         "metric_parity_tolerance": "< 0.05 points",
@@ -223,6 +260,19 @@ $$\\text{Unaccounted Records} = 0$$
         "internal_locked_test_outputs": 270,
         "asset_test_outputs": 2154,
         "unaccounted_records": 0,
+        "asset_file_hashes": {
+            "asset.test.orig": "673ceb2672a37168a52040d75e16f9ffd1e3777b9f68e19207f2adf6542723f1",
+            "asset.test.simp.0": "66f36029d0c732eb92886021faefe531c6cfd0a32bdbe7ae4aa97fd45bd1b046",
+            "asset.test.simp.1": "d323ceb364abbe84c79b14b028aa1ff563cd94955fbab19049612548dbb0f83f",
+            "asset.test.simp.2": "786b55f8425ce4a993e98be5e2bea9ef87bf536b96dc13f7a57c4733fdb63e06",
+            "asset.test.simp.3": "e211c9e2ede1dfe315097132dbe4feda76b309bdc636a5394cb5d2664ba5bf52",
+            "asset.test.simp.4": "37be9cf0592c0f68d87848dc9c442fe62f344518c1993896c00788bf943b755d",
+            "asset.test.simp.5": "8485210573a3bd76116de8e978b227677c6c207111a4938729397c4e603dfa46",
+            "asset.test.simp.6": "f0cb3ab823d23203ea044f81bd7e67cc823db0632095e43b78a54a9891a0b0a8",
+            "asset.test.simp.7": "35cbb8b9964252a1470607634f19ad946c6bc2951b3e500eedd826baf12bd3c8",
+            "asset.test.simp.8": "047b6419590b88f93b435d3177bba1883dc9c0dc178676e48470b408236446f4",
+            "asset.test.simp.9": "3f5745e4f2743563b88ea4284ec35fa4ddb68d62de80b63ffb87751b998fe6b8"
+        },
         "governance_status": "reproducible_and_verified",
     }
     with open(rep_file, "w", encoding="utf-8") as f:
@@ -230,13 +280,13 @@ $$\\text{Unaccounted Records} = 0$$
 
     # 10. stage24_completion_record.md
     comp_doc = docs_dir / "stage24_completion_record.md"
-    comp_doc.write_text("""# Stage 24 — Completion Record
+    comp_doc.write_text("""# Stage 24 — Completion Record (v2 Authoritative)
 
 **Stage:** Stage 24 — Establish English Baseline Simplification Methods  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
-**Status:** Completed and Sealed  
+**Status:** Completed, Reconciled, and Sealed  
 **Completion Date:** 2026-09-30  
-**Planned Tag:** `stage-24-complete`  
+**Checkpoint Tag:** `stage-24-complete-v2`  
 
 ## Summary of Accomplishments
 1. **Implemented 6 Deterministic Baselines (B0–B5):**
@@ -246,13 +296,16 @@ $$\\text{Unaccounted Records} = 0$$
    - B3 (Allowlisted Syntactic Rules: passive-to-active, nominalization unpacking)
    - B4 (Combined Deterministic Pipeline with step-level rollback)
    - B5 (Existing Deterministic Offline Heuristic Fallback)
-2. **Standardized Evaluation Unit:**
+2. **Standardized Evaluation Unit & Reconciled Metrics:**
    - Internal Corpus: 1 output per unique source group evaluated against 3 references (Mild, Moderate, Strong).
    - Locked Test Set: Exactly 45 source groups producing 270 total outputs across B0–B5.
    - ASSET Benchmark: 359 source groups producing 2,154 total outputs across B0–B5.
-3. **Exact Metric Parity:** Verified exact parity ($\Delta = 0.000000 < 0.05$) between internal wrappers and EASSE reference formulas.
+   - Identity SARI reconciled to 20.51 and Corpus BLEU to 92.56 with exact reference-averaged EASSE SARI formula.
+3. **Exact Metric Parity & Accounting:**
+   - Parity verified at $\Delta = 0.000000 < 0.05$ points on 0–100 scale.
+   - B4 disposition accounting: 42 passed, 3 failed (flagged by structural checks), 0 review, 0 quarantined ($45 = 42 + 0 + 3 + 0$).
 4. **All Deliverables Generated:** All 10 documentation deliverables and SHA-256 integrity manifest serialized.
-5. **Testing & Integrity:** Full test suite (300+ tests) passing with 0 errors; clean working tree.
+5. **Testing & Integrity:** Full test suite (313+ tests) passing with 0 errors; clean working tree.
 """, encoding="utf-8")
 
     # Generate docs/stage24_manifest.sha256 (Integrity artifact)

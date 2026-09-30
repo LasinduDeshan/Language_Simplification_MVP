@@ -37,10 +37,10 @@ def compute_sari(
     ref_texts: List[str],
     max_n: int = 4,
 ) -> Tuple[float, float, float, float]:
-    """Computes SARI score and its 3 components (Add, Keep, Delete) according to Xu et al. (TACL 2016) / EASSE.
+    """Computes standard multi-reference SARI (Xu et al., TACL 2016 / EASSE standard).
     
     Returns:
-        (sari_overall, add_score, keep_score, del_score) all in standard range [0, 100].
+        (sari_overall, add_score, keep_score, del_score) in standard range [0, 100].
     """
     orig_tokens = tokenize_words(orig_text)
     pred_tokens = tokenize_words(pred_text)
@@ -49,6 +49,7 @@ def compute_sari(
     if not ref_tokens_list:
         return 0.0, 0.0, 0.0, 0.0
 
+    num_refs = len(ref_tokens_list)
     add_scores: List[float] = []
     keep_scores: List[float] = []
     del_scores: List[float] = []
@@ -58,61 +59,55 @@ def compute_sari(
         pred_ngrams = get_ngrams(pred_tokens, n)
         ref_ngrams_list = [get_ngrams(ref_toks, n) for ref_toks in ref_tokens_list]
 
-        # Union of n-grams across all references
-        all_ref_ngrams = Counter()
-        for ref_ngrams in ref_ngrams_list:
-            for ng, count in ref_ngrams.items():
-                all_ref_ngrams[ng] = max(all_ref_ngrams[ng], count)
-
-        # 1. ADD Component (n-grams in pred NOT in orig, but IN refs)
+        # 1. ADD Component (n-grams in pred NOT in orig, rewarded if added in refs)
         pred_add = pred_ngrams - orig_ngrams
-        ref_add = all_ref_ngrams - orig_ngrams
+        num_add = 0.0
+        for ng, c_pred in pred_add.items():
+            c_ref_avg = sum(ref.get(ng, 0) for ref in ref_ngrams_list) / num_refs
+            num_add += min(c_pred, c_ref_avg)
 
-        if len(pred_add) == 0:
-            add_p = 1.0 if len(ref_add) == 0 else 0.0
-        else:
-            intersection = sum((pred_add & ref_add).values())
-            add_p = intersection / sum(pred_add.values())
+        denom_add_p = sum(pred_add.values())
+        p_add = (num_add / denom_add_p) if denom_add_p > 0 else 0.0
 
-        if len(ref_add) == 0:
-            add_r = 1.0 if len(pred_add) == 0 else 0.0
-        else:
-            intersection = sum((pred_add & ref_add).values())
-            add_r = intersection / sum(ref_add.values())
+        all_ref_ngrams_set = set().union(*[set(ref.keys()) for ref in ref_ngrams_list])
+        denom_add_r = sum(
+            sum(max(0, ref.get(ng, 0) - orig_ngrams.get(ng, 0)) for ref in ref_ngrams_list) / num_refs
+            for ng in all_ref_ngrams_set
+        )
+        r_add = (num_add / denom_add_r) if denom_add_r > 0 else 0.0
+        f_add = (2 * p_add * r_add / (p_add + r_add)) if (p_add + r_add) > 0 else 0.0
+        add_scores.append(f_add)
 
-        add_f1 = (2 * add_p * add_r / (add_p + add_r)) if (add_p + add_r) > 0 else 0.0
-        add_scores.append(add_f1)
+        # 2. KEEP Component (n-grams in orig KEPT in pred, rewarded if kept in refs)
+        pred_keep = orig_ngrams & pred_ngrams
+        num_keep = 0.0
+        for ng, c_pred in pred_keep.items():
+            c_orig = orig_ngrams[ng]
+            c_ref_avg = sum(min(c_orig, ref.get(ng, 0)) for ref in ref_ngrams_list) / num_refs
+            num_keep += min(c_pred, c_ref_avg)
 
-        # 2. KEEP Component (n-grams in orig KEPT in pred, and present in refs)
-        orig_kept_in_pred = orig_ngrams & pred_ngrams
-        orig_kept_in_refs = orig_ngrams & all_ref_ngrams
+        denom_keep_p = sum(pred_keep.values())
+        p_keep = (num_keep / denom_keep_p) if denom_keep_p > 0 else 0.0
 
-        if len(orig_kept_in_pred) == 0:
-            keep_p = 1.0 if len(orig_kept_in_refs) == 0 else 0.0
-        else:
-            intersection = sum((orig_kept_in_pred & orig_kept_in_refs).values())
-            keep_p = intersection / sum(orig_kept_in_pred.values())
+        denom_keep_r = sum(
+            sum(min(orig_ngrams[ng], ref.get(ng, 0)) for ref in ref_ngrams_list) / num_refs
+            for ng in orig_ngrams
+        )
+        r_keep = (num_keep / denom_keep_r) if denom_keep_r > 0 else 0.0
+        f_keep = (2 * p_keep * r_keep / (p_keep + r_keep)) if (p_keep + r_keep) > 0 else 0.0
+        keep_scores.append(f_keep)
 
-        if len(orig_kept_in_refs) == 0:
-            keep_r = 1.0 if len(orig_kept_in_pred) == 0 else 0.0
-        else:
-            intersection = sum((orig_kept_in_pred & orig_kept_in_refs).values())
-            keep_r = intersection / sum(orig_kept_in_refs.values())
+        # 3. DELETE Component (n-grams in orig DELETED from pred, rewarded if deleted in refs)
+        pred_del = orig_ngrams - pred_ngrams
+        num_del = 0.0
+        for ng, c_del in pred_del.items():
+            c_orig = orig_ngrams[ng]
+            c_ref_del = sum(max(0, c_orig - ref.get(ng, 0)) for ref in ref_ngrams_list) / num_refs
+            num_del += min(c_del, c_ref_del)
 
-        keep_f1 = (2 * keep_p * keep_r / (keep_p + keep_r)) if (keep_p + keep_r) > 0 else 0.0
-        keep_scores.append(keep_f1)
-
-        # 3. DELETE Component (n-grams in orig DELETED from pred, and deleted in refs)
-        orig_del_in_pred = orig_ngrams - pred_ngrams
-        orig_del_in_refs = orig_ngrams - all_ref_ngrams
-
-        if len(orig_del_in_pred) == 0:
-            del_p = 1.0 if len(orig_del_in_refs) == 0 else 0.0
-        else:
-            intersection = sum((orig_del_in_pred & orig_del_in_refs).values())
-            del_p = intersection / sum(orig_del_in_pred.values())
-
-        del_scores.append(del_p)
+        denom_del = sum(pred_del.values())
+        p_del = (num_del / denom_del) if denom_del > 0 else 0.0
+        del_scores.append(p_del)
 
     avg_add = sum(add_scores) / len(add_scores) * 100.0
     avg_keep = sum(keep_scores) / len(keep_scores) * 100.0

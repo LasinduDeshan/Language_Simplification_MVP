@@ -1,7 +1,7 @@
 # Stage 24 — Baseline Simplification Policy
 
 **Document ID:** STAGE24-POL-001  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Effective Date:** 2026-09-30  
 **Status:** Approved  
 
@@ -14,7 +14,7 @@ This policy governs the implementation, evaluation, and attribution of determini
 - **ASSET Corpus:** Evaluates 359 source groups against 10 references each using fixed generic configuration `target_age_band = "4-8"`.
 
 ## 3. Lexical Age-Gating & Schema Governance
-- Lexical substitution is governed by developmental age tiers.
+- Lexical substitution is governed by developmental age tiers mapped to `LexiconEntryV1`.
 - A source word is eligible for substitution when its developmental difficulty exceeds `target_content_age`.
 - Replacement words must be within `target_content_age`.
 - Learner-level personalization attributes (screening risk tiers, test scores) are strictly prohibited in generic baselines.
@@ -38,4 +38,5 @@ Rollback is an operational event, not a terminal error disposition.
 ## 6. Prohibited Practices & Attribution
 - Zero transformer fine-tuning or live external LLM API calls in primary baseline benchmarks.
 - Heuristic fallback outputs (B5) are strictly attributed to `deterministic_fallback` and never to Gemini or external LLMs.
+- Historical Stage 23 results used custom sentence-averaged BLEU and unigram metrics, whereas Stage 24 uses standardized reference-averaged EASSE SARI and SacreBLEU Corpus BLEU.
 - All baseline outputs carry `approved_for_child_delivery: false` and `requires_expert_review: true`.

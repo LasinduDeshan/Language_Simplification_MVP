@@ -146,6 +146,9 @@ class BaselineEvaluator:
                 "mean_latency_ms": float(np.mean(latencies)) if latencies else 0.0,
                 "median_latency_ms": float(np.median(latencies)) if latencies else 0.0,
                 "p95_latency_ms": float(np.percentile(latencies, 95)) if latencies else 0.0,
+                "mean_latency_us": float(np.mean(latencies) * 1000.0) if latencies else 0.0,
+                "median_latency_us": float(np.median(latencies) * 1000.0) if latencies else 0.0,
+                "p95_latency_us": float(np.percentile(latencies, 95) * 1000.0) if latencies else 0.0,
                 "throughput_samples_per_sec": (1000.0 / float(np.mean(latencies))) if latencies and np.mean(latencies) > 0 else 0.0,
             },
         }

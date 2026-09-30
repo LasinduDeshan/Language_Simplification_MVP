@@ -2,97 +2,97 @@
   {
     "dataset": "Internal Locked Test",
     "method": "B0",
-    "reported_sari": 21.519777738715547,
-    "recomputed_sari": 21.519777738715547,
+    "reported_sari": 12.272407539161955,
+    "recomputed_sari": 12.272407539161955,
     "delta": 0.0,
     "passed": true
   },
   {
     "dataset": "Internal Locked Test",
     "method": "B1",
-    "reported_sari": 21.519777738715547,
-    "recomputed_sari": 21.519777738715547,
+    "reported_sari": 12.272407539161955,
+    "recomputed_sari": 12.272407539161955,
     "delta": 0.0,
     "passed": true
   },
   {
     "dataset": "Internal Locked Test",
     "method": "B2",
-    "reported_sari": 23.658368430122913,
-    "recomputed_sari": 23.65836843012291,
+    "reported_sari": 17.11737997927882,
+    "recomputed_sari": 17.11737997927882,
+    "delta": 0.0,
+    "passed": true
+  },
+  {
+    "dataset": "Internal Locked Test",
+    "method": "B3",
+    "reported_sari": 12.272407539161955,
+    "recomputed_sari": 12.272407539161955,
+    "delta": 0.0,
+    "passed": true
+  },
+  {
+    "dataset": "Internal Locked Test",
+    "method": "B4",
+    "reported_sari": 17.533120599440785,
+    "recomputed_sari": 17.53312059944078,
     "delta": 3.552713678800501e-15,
     "passed": true
   },
   {
     "dataset": "Internal Locked Test",
-    "method": "B3",
-    "reported_sari": 21.519777738715547,
-    "recomputed_sari": 21.519777738715547,
-    "delta": 0.0,
-    "passed": true
-  },
-  {
-    "dataset": "Internal Locked Test",
-    "method": "B4",
-    "reported_sari": 24.071461550127065,
-    "recomputed_sari": 24.071461550127065,
-    "delta": 0.0,
-    "passed": true
-  },
-  {
-    "dataset": "Internal Locked Test",
     "method": "B5",
-    "reported_sari": 27.231624538009026,
-    "recomputed_sari": 27.231624538009015,
-    "delta": 1.0658141036401503e-14,
+    "reported_sari": 19.933064121327664,
+    "recomputed_sari": 19.933064121327664,
+    "delta": 0.0,
     "passed": true
   },
   {
     "dataset": "ASSET Benchmark",
     "method": "B0",
-    "reported_sari": 50.20038087011355,
-    "recomputed_sari": 50.20038087011353,
-    "delta": 2.1316282072803006e-14,
+    "reported_sari": 20.51194095166222,
+    "recomputed_sari": 20.511940951662215,
+    "delta": 3.552713678800501e-15,
     "passed": true
   },
   {
     "dataset": "ASSET Benchmark",
     "method": "B1",
-    "reported_sari": 50.30975328878676,
-    "recomputed_sari": 50.30975328878674,
-    "delta": 2.1316282072803006e-14,
+    "reported_sari": 21.049647059229137,
+    "recomputed_sari": 21.049647059229137,
+    "delta": 0.0,
     "passed": true
   },
   {
     "dataset": "ASSET Benchmark",
     "method": "B2",
-    "reported_sari": 45.355816859452574,
-    "recomputed_sari": 45.35581685945258,
-    "delta": 7.105427357601002e-15,
+    "reported_sari": 26.32714407368595,
+    "recomputed_sari": 26.327144073685947,
+    "delta": 3.552713678800501e-15,
     "passed": true
   },
   {
     "dataset": "ASSET Benchmark",
     "method": "B3",
-    "reported_sari": 50.20038087011355,
-    "recomputed_sari": 50.20038087011353,
-    "delta": 2.1316282072803006e-14,
+    "reported_sari": 20.51194095166222,
+    "recomputed_sari": 20.511940951662215,
+    "delta": 3.552713678800501e-15,
     "passed": true
   },
   {
     "dataset": "ASSET Benchmark",
     "method": "B4",
-    "reported_sari": 45.19123197837611,
-    "recomputed_sari": 45.191231978376116,
-    "delta": 7.105427357601002e-15,
+    "reported_sari": 26.918706353369874,
+    "recomputed_sari": 26.918706353369874,
+    "delta": 0.0,
     "passed": true
   },
   {
     "dataset": "ASSET Benchmark",
     "method": "B5",
-    "reported_sari": 34.8523663973424,
-    "recomputed_sari": 34.852366397342394,
-    "delta": 7.105427357601002e-15,
+    "reported_sari": 29.126027716279108,
+    "recomputed_sari": 29.126027716279108,
+    "delta": 0.0,
     "passed": true
   }
 ]

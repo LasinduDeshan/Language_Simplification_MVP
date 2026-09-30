@@ -10,13 +10,13 @@
     },
     "metrics": {
       "sari": {
-        "mean": 17.905052235654193,
-        "std": 10.110072545563984,
-        "median": 16.794871794871796
+        "mean": 11.245741190384154,
+        "std": 4.238920635803264,
+        "median": 10.774029891676951
       },
       "sari_add": 0.0,
-      "sari_keep": 50.937378929184796,
-      "sari_del": 2.7777777777777777,
+      "sari_keep": 33.73722357115246,
+      "sari_del": 0.0,
       "corpus_bleu": 43.21088073296501,
       "fkgl": {
         "original_mean": 6.142571628081433,
@@ -29,10 +29,13 @@
       }
     },
     "operational": {
-      "mean_latency_ms": 0.0021799997840490607,
-      "median_latency_ms": 0.0021000014385208488,
-      "p95_latency_ms": 0.002979997952934354,
-      "throughput_samples_per_sec": 458715.641770676
+      "mean_latency_ms": 0.00389333339019989,
+      "median_latency_ms": 0.0036000019463244826,
+      "p95_latency_ms": 0.005440002132672814,
+      "mean_latency_us": 3.89333339019989,
+      "median_latency_us": 3.6000019463244826,
+      "p95_latency_us": 5.440002132672814,
+      "throughput_samples_per_sec": 256849.31131691716
     }
   },
   "B1": {
@@ -46,13 +49,13 @@
     },
     "metrics": {
       "sari": {
-        "mean": 17.905052235654193,
-        "std": 10.110072545563984,
-        "median": 16.794871794871796
+        "mean": 11.245741190384154,
+        "std": 4.238920635803264,
+        "median": 10.774029891676951
       },
       "sari_add": 0.0,
-      "sari_keep": 50.937378929184796,
-      "sari_del": 2.7777777777777777,
+      "sari_keep": 33.73722357115246,
+      "sari_del": 0.0,
       "corpus_bleu": 43.21088073296501,
       "fkgl": {
         "original_mean": 6.142571628081433,
@@ -65,10 +68,13 @@
       }
     },
     "operational": {
-      "mean_latency_ms": 4.128255555972121,
-      "median_latency_ms": 4.135900002438575,
-      "p95_latency_ms": 5.417019999003968,
-      "throughput_samples_per_sec": 242.23306586564266
+      "mean_latency_ms": 8.217768888991689,
+      "median_latency_ms": 8.09780000054161,
+      "p95_latency_ms": 12.04089999955613,
+      "mean_latency_us": 8217.768888991688,
+      "median_latency_us": 8097.800000541611,
+      "p95_latency_us": 12040.89999955613,
+      "throughput_samples_per_sec": 121.68753021754776
     }
   },
   "B2": {
@@ -82,13 +88,13 @@
     },
     "metrics": {
       "sari": {
-        "mean": 20.025412548285665,
-        "std": 12.824338336202603,
-        "median": 17.87506475006475
+        "mean": 13.92227842059713,
+        "std": 10.17401749030123,
+        "median": 11.297011297011297
       },
       "sari_add": 0.0,
-      "sari_keep": 51.23364505226439,
-      "sari_del": 8.842592592592592,
+      "sari_keep": 34.00448958277905,
+      "sari_del": 7.762345679012346,
       "corpus_bleu": 42.907820151501994,
       "fkgl": {
         "original_mean": 6.142571628081433,
@@ -101,10 +107,13 @@
       }
     },
     "operational": {
-      "mean_latency_ms": 6.141704444598872,
-      "median_latency_ms": 4.799599999387283,
-      "p95_latency_ms": 13.120839998737207,
-      "throughput_samples_per_sec": 162.82125084664705
+      "mean_latency_ms": 10.303253333081052,
+      "median_latency_ms": 8.164000002579996,
+      "p95_latency_ms": 21.199399999022702,
+      "mean_latency_us": 10303.253333081053,
+      "median_latency_us": 8164.000002579996,
+      "p95_latency_us": 21199.399999022702,
+      "throughput_samples_per_sec": 97.05672253920628
     }
   },
   "B3": {
@@ -118,13 +127,13 @@
     },
     "metrics": {
       "sari": {
-        "mean": 17.905052235654193,
-        "std": 10.110072545563984,
-        "median": 16.794871794871796
+        "mean": 11.245741190384154,
+        "std": 4.238920635803264,
+        "median": 10.774029891676951
       },
       "sari_add": 0.0,
-      "sari_keep": 50.937378929184796,
-      "sari_del": 2.7777777777777777,
+      "sari_keep": 33.73722357115246,
+      "sari_del": 0.0,
       "corpus_bleu": 43.21088073296501,
       "fkgl": {
         "original_mean": 6.142571628081433,
@@ -137,10 +146,13 @@
       }
     },
     "operational": {
-      "mean_latency_ms": 4.0599533332472975,
-      "median_latency_ms": 3.9286000028369017,
-      "p95_latency_ms": 5.013880001206417,
-      "throughput_samples_per_sec": 246.30824985374002
+      "mean_latency_ms": 8.007220000015675,
+      "median_latency_ms": 7.6485999998112675,
+      "p95_latency_ms": 13.515600001846906,
+      "mean_latency_us": 8007.2200000156745,
+      "median_latency_us": 7648.5999998112675,
+      "p95_latency_us": 13515.600001846906,
+      "throughput_samples_per_sec": 124.88728922123313
     }
   },
   "B4": {
@@ -154,13 +166,13 @@
     },
     "metrics": {
       "sari": {
-        "mean": 20.125428724947106,
-        "std": 13.110608423277057,
-        "median": 16.794871794871796
+        "mean": 14.044383868205777,
+        "std": 10.391804979426006,
+        "median": 10.774029891676951
       },
       "sari_add": 0.0,
-      "sari_keep": 51.122410205849064,
-      "sari_del": 9.253875968992247,
+      "sari_keep": 34.00976659169743,
+      "sari_del": 8.123385012919897,
       "corpus_bleu": 43.16667609998689,
       "fkgl": {
         "original_mean": 6.259280385976695,
@@ -173,10 +185,13 @@
       }
     },
     "operational": {
-      "mean_latency_ms": 32.06691111117834,
-      "median_latency_ms": 30.862100000376813,
-      "p95_latency_ms": 50.77359999922918,
-      "throughput_samples_per_sec": 31.184793463047512
+      "mean_latency_ms": 50.95190666656385,
+      "median_latency_ms": 48.60729999927571,
+      "p95_latency_ms": 92.64994000041037,
+      "mean_latency_us": 50951.90666656385,
+      "median_latency_us": 48607.29999927571,
+      "p95_latency_us": 92649.94000041037,
+      "throughput_samples_per_sec": 19.62635091448363
     }
   },
   "B5": {
@@ -190,13 +205,13 @@
     },
     "metrics": {
       "sari": {
-        "mean": 26.614498110438642,
-        "std": 17.10763719974243,
-        "median": 19.76851851851852
+        "mean": 21.326750665627625,
+        "std": 16.154044981423606,
+        "median": 14.193441808007668
       },
       "sari_add": 0.0,
-      "sari_keep": 51.324975812797405,
-      "sari_del": 28.518518518518515,
+      "sari_keep": 34.10370878700633,
+      "sari_del": 29.87654320987654,
       "corpus_bleu": 43.99866046053874,
       "fkgl": {
         "original_mean": 6.142571628081433,
@@ -209,10 +224,13 @@
       }
     },
     "operational": {
-      "mean_latency_ms": 0.008515555236954242,
-      "median_latency_ms": 0.008300001354655251,
-      "p95_latency_ms": 0.011080000695073977,
-      "throughput_samples_per_sec": 117432.15470676342
+      "mean_latency_ms": 0.011662222257453121,
+      "median_latency_ms": 0.00960000033956021,
+      "p95_latency_ms": 0.01956000196514651,
+      "mean_latency_us": 11.662222257453122,
+      "median_latency_us": 9.60000033956021,
+      "p95_latency_us": 19.56000196514651,
+      "throughput_samples_per_sec": 85746.95096047562
     }
   }
 }
