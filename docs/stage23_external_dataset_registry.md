@@ -3,7 +3,7 @@
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Scope:** External English Datasets  
 **Governance Standard:** Stage 23 Legal Rights and Content Licensing Policy  
-**Status:** FORMALLY EVALUATED (PENDING PRIMARY EVIDENCE VERIFIED)  
+**Status:** FORMALLY EVALUATED (COMMIT-PINNED PRIMARY EVIDENCE VERIFIED)  
 
 ---
 
@@ -11,7 +11,7 @@
 
 | Dataset ID | Dataset Name | Rights Status | Content Licence | Local Processing | Benchmark Use | Training Use | Primary Evidence Status |
 |---|---|---|---|:---:|:---:|:---:|---|
-| `EXTDATA-ASSET` | ASSET | `approved_local_research` | CC-BY-NC 4.0 | **Yes** | **Yes** | **No** | Verified via exact LICENSE file (`50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447`) |
+| `EXTDATA-ASSET` | ASSET | `approved_local_research` | CC-BY-NC 4.0 | **Yes** | **Yes** | **No** | Verified via commit-pinned LICENSE file at `9d659040d0d8942dbc4cd65cf357563b43fd9ab4` (`50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447`) |
 | `EXTDATA-TURKCORPUS` | TurkCorpus | `pending_content_rights_verification` | *Pending* | **No** | **No** | **No** | Pending content license verification (GPL-3.0 is code license only) |
 | `EXTDATA-OASISSIMP-EN` | OasisSimp-English | `pending_content_rights_verification` | *Pending* | **No** | **No** | **No** | Pending explicit archive license verification |
 | `EXTDATA-WIKILARGE-PILOT` | WikiLarge Pilot | `pending_lineage_and_rights_verification` | *Pending* | **No** | **No** | **No** | Pending Wikipedia alignment lineage and training rights verification |
@@ -25,12 +25,16 @@
 - **Official Source:** [facebookresearch/asset](https://github.com/facebookresearch/asset)
 - **Publication:** Alva-Manchego et al. (ACL 2020)
 - **Primary Evidence Type:** `dataset_license_file`
-- **Primary Evidence URL:** `https://raw.githubusercontent.com/facebookresearch/asset/master/LICENSE`
+- **Commit SHA:** `9d659040d0d8942dbc4cd65cf357563b43fd9ab4`
+- **Commit-Pinned Evidence URL:** `https://raw.githubusercontent.com/facebookresearch/asset/9d659040d0d8942dbc4cd65cf357563b43fd9ab4/LICENSE`
+- **Local Snapshot:** `data/external_english/asset/manifests/LICENSE`
 - **Primary Evidence SHA-256:** `50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447`
 - **Evidence Scope:** `dataset_content`
 - **Verified Licence:** Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0)
+- **Intended Use Context:** `noncommercial_academic_research`
 - **Role:** Primary Multi-Reference Evaluation Benchmark (2,359 source groups, 23,590 references).
-- **Permissions:** `local_processing_allowed: true`, `benchmark_use_allowed: true`, `training_use_allowed: false`, `redistribution_allowed: false`.
+- **Permissions:** `local_processing_allowed: true`, `benchmark_use_allowed: true`, `training_use_allowed: false`, `redistribution_allowed: false`, `derived_feature_release_allowed: true`.
+- **Redistribution Policy:** Raw and normalized ASSET text are Git-ignored and kept in local cache only. Release artifacts contain only non-reconstructable feature summaries, indices, and evaluation metrics.
 
 ### 2.2 TurkCorpus (`EXTDATA-TURKCORPUS`) — Pending Content Rights
 - **Official Source:** [cocoxu/simplification](https://github.com/cocoxu/simplification)

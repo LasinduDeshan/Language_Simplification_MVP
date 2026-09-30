@@ -1,4 +1,4 @@
-"""Step 1B: Formally evaluate and verify content rights with strict primary evidence."""
+"""Step 1B: Formally evaluate and verify content rights with strict commit-pinned primary evidence."""
 
 from datetime import datetime, timezone
 from pathlib import Path
@@ -16,25 +16,31 @@ from app.datasets.external_english.schemas import (
 
 
 def main():
-    print("Performing formal dataset content rights evaluation with strict primary evidence...")
+    print("Performing formal dataset content rights evaluation with strict commit-pinned evidence...")
     registry = ExternalDatasetRegistry()
     now_utc = datetime.now(timezone.utc)
 
     # 1. ASSET Verification
     # Official Repository: https://github.com/facebookresearch/asset
-    # Exact LICENSE File URL: https://raw.githubusercontent.com/facebookresearch/asset/master/LICENSE
+    # Commit SHA: 9d659040d0d8942dbc4cd65cf357563b43fd9ab4
+    # Commit-Pinned URL: https://raw.githubusercontent.com/facebookresearch/asset/9d659040d0d8942dbc4cd65cf357563b43fd9ab4/LICENSE
+    # Local Snapshot: data/external_english/asset/manifests/LICENSE
     # Exact SHA-256: 50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447
     asset_evidence = RightsEvidence(
         evidence_type="dataset_license_file",
-        evidence_url="https://raw.githubusercontent.com/facebookresearch/asset/master/LICENSE",
+        evidence_url="https://raw.githubusercontent.com/facebookresearch/asset/9d659040d0d8942dbc4cd65cf357563b43fd9ab4/LICENSE",
+        commit_sha="9d659040d0d8942dbc4cd65cf357563b43fd9ab4",
         evidence_sha256="50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447",
         evidence_scope="dataset_content",
         verified_licence_identifier="CC-BY-NC-4.0",
-        permission_rationale="Official repository LICENSE file confirms dataset content is released under Creative Commons Attribution-NonCommercial 4.0 International. Permitted for local research processing and benchmark evaluation; redistribution and commercial use prohibited.",
+        permission_rationale="Official repository LICENSE file at commit 9d659040d0d8942dbc4cd65cf357563b43fd9ab4 confirms dataset content is released under Creative Commons Attribution-NonCommercial 4.0 International. Permitted for local non-commercial academic research processing and benchmark evaluation; redistribution and commercial use prohibited.",
         verified_by="research_governance_lead",
         verified_at=now_utc,
+        intended_use_context="noncommercial_academic_research",
+        commercial_use_allowed=False,
         requires_attribution=True,
         requires_share_alike=False,
+        licence_notice_required=True,
         noncommercial_only=True,
     )
     asset_decision = RightsDecision(
@@ -48,7 +54,7 @@ def main():
             derived_feature_release_allowed=True,
         ),
         evidence=asset_evidence,
-        evidence_summary="Verified against primary repository LICENSE file (CC-BY-NC 4.0). Approved for local research preprocessing and evaluation benchmarking; raw redistribution prohibited; non-commercial research use only.",
+        evidence_summary="Verified against primary repository LICENSE file at commit 9d659040d0d8942dbc4cd65cf357563b43fd9ab4 (CC-BY-NC 4.0). Approved for local research preprocessing and evaluation benchmarking; raw redistribution prohibited; non-commercial research use only.",
         verified_by="research_governance_lead",
         verified_at=now_utc,
     )
@@ -61,7 +67,6 @@ def main():
     # 2. TurkCorpus Evaluation
     # Repository: https://github.com/cocoxu/simplification (GPL-3.0 software license)
     # The repository software license does not establish the dataset content license for Wikipedia sentences + crowdsourced MTurk references.
-    # Content rights status remains pending until exact dataset license evidence is verified.
     turk_decision = RightsDecision(
         dataset_id="EXTDATA-TURKCORPUS",
         rights_status="pending_content_rights_verification",
@@ -75,14 +80,18 @@ def main():
         evidence=RightsEvidence(
             evidence_type="repository_terms",
             evidence_url="https://github.com/cocoxu/simplification",
+            commit_sha=None,
             evidence_sha256=None,
             evidence_scope="repository_software",
             verified_licence_identifier=None,
             permission_rationale="Repository identifies GPL-3.0 for software tooling, but content licensing for Simple English Wikipedia sentences and crowdsourced MTurk references requires multi-layer primary verification.",
             verified_by="research_governance_lead",
             verified_at=now_utc,
+            intended_use_context="noncommercial_academic_research",
+            commercial_use_allowed=False,
             requires_attribution=True,
             requires_share_alike=False,
+            licence_notice_required=True,
             noncommercial_only=False,
         ),
         evidence_summary="Content rights pending: repository software license (GPL-3.0) does not establish dataset content license for Wikipedia sources and crowdsourced references.",
@@ -98,7 +107,6 @@ def main():
 
     # 3. OasisSimp-English Evaluation
     # Official Website: https://OasisSimpDataset.github.io/
-    # Open academic release on GitHub Pages; explicit dataset content license file requires inspection from official archive.
     oasis_decision = RightsDecision(
         dataset_id="EXTDATA-OASISSIMP-EN",
         rights_status="pending_content_rights_verification",
@@ -112,14 +120,18 @@ def main():
         evidence=RightsEvidence(
             evidence_type="paper_statement",
             evidence_url="https://OasisSimpDataset.github.io/",
+            commit_sha=None,
             evidence_sha256=None,
             evidence_scope="unverified",
             verified_licence_identifier=None,
             permission_rationale="Official website provides validation/test JSONL files with open academic citation requests, but explicit dataset archive license statement is pending verification.",
             verified_by="research_governance_lead",
             verified_at=now_utc,
+            intended_use_context="noncommercial_academic_research",
+            commercial_use_allowed=False,
             requires_attribution=True,
             requires_share_alike=False,
+            licence_notice_required=True,
             noncommercial_only=False,
         ),
         evidence_summary="Content rights pending: official website provides open academic files, but explicit dataset archive license file or written confirmation is pending.",
@@ -130,7 +142,6 @@ def main():
 
     # 4. WikiLarge Pilot Evaluation
     # Repository: https://github.com/XingxingZhang/dress (MIT software license)
-    # Wikipedia sentence alignments lineage and training redistribution rights pending formal verification.
     wikilarge_decision = RightsDecision(
         dataset_id="EXTDATA-WIKILARGE-PILOT",
         rights_status="pending_lineage_and_rights_verification",
@@ -144,14 +155,18 @@ def main():
         evidence=RightsEvidence(
             evidence_type="repository_terms",
             evidence_url="https://github.com/XingxingZhang/dress",
+            commit_sha=None,
             evidence_sha256=None,
             evidence_scope="mixed_lineage",
             verified_licence_identifier=None,
             permission_rationale="Repository provides code under MIT and download links for Wikipedia sentence alignments. Wikipedia source lineage and dataset redistribution terms remain pending formal verification.",
             verified_by="research_governance_lead",
             verified_at=now_utc,
+            intended_use_context="noncommercial_academic_research",
+            commercial_use_allowed=False,
             requires_attribution=True,
             requires_share_alike=False,
+            licence_notice_required=True,
             noncommercial_only=False,
         ),
         evidence_summary="Lineage and rights pending: MIT code license in DRESS does not prove Wikipedia alignment dataset license or training redistribution rights.",
@@ -174,14 +189,18 @@ def main():
         evidence=RightsEvidence(
             evidence_type="repository_terms",
             evidence_url="https://newsela.com/data/",
+            commit_sha=None,
             evidence_sha256=None,
             evidence_scope="dataset_content",
             verified_licence_identifier="Proprietary",
             permission_rationale="Proprietary commercial news dataset requiring individual institution data use agreements. Formally excluded from automated ingestion.",
             verified_by="research_governance_lead",
             verified_at=now_utc,
+            intended_use_context="noncommercial_academic_research",
+            commercial_use_allowed=False,
             requires_attribution=True,
             requires_share_alike=False,
+            licence_notice_required=True,
             noncommercial_only=True,
         ),
         evidence_summary="Proprietary commercial news dataset requiring individual institution data use agreements. Formally excluded from automated ingestion.",
@@ -213,8 +232,11 @@ def main():
             "derived_feature_release": rec.permissions.derived_feature_release_allowed,
             "evidence_type": ev.evidence_type if ev else None,
             "evidence_url": ev.evidence_url if ev else None,
+            "commit_sha": ev.commit_sha if ev else None,
             "evidence_sha256": ev.evidence_sha256 if ev else None,
             "evidence_scope": ev.evidence_scope if ev else None,
+            "intended_use_context": ev.intended_use_context if ev else None,
+            "commercial_use_allowed": ev.commercial_use_allowed if ev else None,
             "verified_by": ev.verified_by if ev else None,
             "verified_at": ev.verified_at.isoformat() if ev and ev.verified_at else None,
             "official_url": rec.official_source_url,
@@ -230,7 +252,7 @@ def main():
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Scope:** External English Datasets  
 **Governance Standard:** Stage 23 Legal Rights and Content Licensing Policy  
-**Status:** FORMALLY EVALUATED (PENDING PRIMARY EVIDENCE VERIFIED)  
+**Status:** FORMALLY EVALUATED (COMMIT-PINNED PRIMARY EVIDENCE VERIFIED)  
 
 ---
 
@@ -238,7 +260,7 @@ def main():
 
 | Dataset ID | Dataset Name | Rights Status | Content Licence | Local Processing | Benchmark Use | Training Use | Primary Evidence Status |
 |---|---|---|---|:---:|:---:|:---:|---|
-| `EXTDATA-ASSET` | ASSET | `approved_local_research` | CC-BY-NC 4.0 | **Yes** | **Yes** | **No** | Verified via exact LICENSE file (`50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447`) |
+| `EXTDATA-ASSET` | ASSET | `approved_local_research` | CC-BY-NC 4.0 | **Yes** | **Yes** | **No** | Verified via commit-pinned LICENSE file at `9d659040d0d8942dbc4cd65cf357563b43fd9ab4` (`50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447`) |
 | `EXTDATA-TURKCORPUS` | TurkCorpus | `pending_content_rights_verification` | *Pending* | **No** | **No** | **No** | Pending content license verification (GPL-3.0 is code license only) |
 | `EXTDATA-OASISSIMP-EN` | OasisSimp-English | `pending_content_rights_verification` | *Pending* | **No** | **No** | **No** | Pending explicit archive license verification |
 | `EXTDATA-WIKILARGE-PILOT` | WikiLarge Pilot | `pending_lineage_and_rights_verification` | *Pending* | **No** | **No** | **No** | Pending Wikipedia alignment lineage and training rights verification |
@@ -252,12 +274,16 @@ def main():
 - **Official Source:** [facebookresearch/asset](https://github.com/facebookresearch/asset)
 - **Publication:** Alva-Manchego et al. (ACL 2020)
 - **Primary Evidence Type:** `dataset_license_file`
-- **Primary Evidence URL:** `https://raw.githubusercontent.com/facebookresearch/asset/master/LICENSE`
+- **Commit SHA:** `9d659040d0d8942dbc4cd65cf357563b43fd9ab4`
+- **Commit-Pinned Evidence URL:** `https://raw.githubusercontent.com/facebookresearch/asset/9d659040d0d8942dbc4cd65cf357563b43fd9ab4/LICENSE`
+- **Local Snapshot:** `data/external_english/asset/manifests/LICENSE`
 - **Primary Evidence SHA-256:** `50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447`
 - **Evidence Scope:** `dataset_content`
 - **Verified Licence:** Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0)
+- **Intended Use Context:** `noncommercial_academic_research`
 - **Role:** Primary Multi-Reference Evaluation Benchmark (2,359 source groups, 23,590 references).
-- **Permissions:** `local_processing_allowed: true`, `benchmark_use_allowed: true`, `training_use_allowed: false`, `redistribution_allowed: false`.
+- **Permissions:** `local_processing_allowed: true`, `benchmark_use_allowed: true`, `training_use_allowed: false`, `redistribution_allowed: false`, `derived_feature_release_allowed: true`.
+- **Redistribution Policy:** Raw and normalized ASSET text are Git-ignored and kept in local cache only. Release artifacts contain only non-reconstructable feature summaries, indices, and evaluation metrics.
 
 ### 2.2 TurkCorpus (`EXTDATA-TURKCORPUS`) — Pending Content Rights
 - **Official Source:** [cocoxu/simplification](https://github.com/cocoxu/simplification)

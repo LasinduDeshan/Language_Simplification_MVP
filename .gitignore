@@ -74,3 +74,10 @@ data/interaction_dataset/research_releases/**
 # Stage 15 Quality Reports (Private reports containing source text, review queue & correction logs)
 data/quality_reports/stage15/private/**
 !data/quality_reports/stage15/private/.gitkeep
+
+# Stage 23 External English Datasets (Raw snapshots and normalized full text cached locally; redistribution prohibited)
+data/external_english/**/raw/*
+data/external_english/**/normalized/*
+!data/external_english/**/raw/.gitkeep
+!data/external_english/**/normalized/.gitkeep
+

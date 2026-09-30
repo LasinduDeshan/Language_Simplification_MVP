@@ -32,6 +32,22 @@ FinalDispositionType = Literal[
     "training_candidate",
 ]
 
+ExternalDatasetAction = Literal[
+    "acquire",
+    "local_process",
+    "benchmark",
+    "train",
+    "redistribute_raw",
+    "redistribute_normalized",
+    "release_features",
+]
+
+IntendedUseContext = Literal[
+    "noncommercial_academic_research",
+    "commercial_deployment",
+    "unspecified",
+]
+
 
 class DatasetPermissions(BaseModel):
     """Granular permissions evaluated for external dataset content."""
@@ -58,15 +74,21 @@ class RightsEvidence(BaseModel):
         "direct_communication",
     ] = "dataset_license_file"
     evidence_url: Optional[str] = None
+    commit_sha: Optional[str] = None
     evidence_sha256: Optional[str] = None
     evidence_scope: Literal["dataset_content", "repository_software", "mixed_lineage", "unverified"] = "unverified"
     verified_licence_identifier: Optional[str] = None
     permission_rationale: str = ""
     verified_by: Optional[str] = None
     verified_at: Optional[datetime] = None
-    requires_attribution: bool = False
+    
+    # Intended use context and compliance conditions
+    intended_use_context: str = "noncommercial_academic_research"
+    commercial_use_allowed: bool = False
+    requires_attribution: bool = True
     requires_share_alike: bool = False
-    noncommercial_only: bool = False
+    licence_notice_required: bool = True
+    noncommercial_only: bool = True
 
 
 class ExternalDatasetRegistryRecord(BaseModel):

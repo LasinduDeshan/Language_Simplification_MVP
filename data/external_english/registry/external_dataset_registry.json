@@ -20,18 +20,22 @@
     },
     "evidence": {
       "evidence_type": "dataset_license_file",
-      "evidence_url": "https://raw.githubusercontent.com/facebookresearch/asset/master/LICENSE",
+      "evidence_url": "https://raw.githubusercontent.com/facebookresearch/asset/9d659040d0d8942dbc4cd65cf357563b43fd9ab4/LICENSE",
+      "commit_sha": "9d659040d0d8942dbc4cd65cf357563b43fd9ab4",
       "evidence_sha256": "50f03face87211373b7a447607f9ca26ad95ad339e8293ac2807958bad7b5447",
       "evidence_scope": "dataset_content",
       "verified_licence_identifier": "CC-BY-NC-4.0",
-      "permission_rationale": "Official repository LICENSE file confirms dataset content is released under Creative Commons Attribution-NonCommercial 4.0 International. Permitted for local research processing and benchmark evaluation; redistribution and commercial use prohibited.",
+      "permission_rationale": "Official repository LICENSE file at commit 9d659040d0d8942dbc4cd65cf357563b43fd9ab4 confirms dataset content is released under Creative Commons Attribution-NonCommercial 4.0 International. Permitted for local non-commercial academic research processing and benchmark evaluation; redistribution and commercial use prohibited.",
       "verified_by": "research_governance_lead",
-      "verified_at": "2026-09-30T05:51:03.782713Z",
+      "verified_at": "2026-09-30T06:26:22.117413Z",
+      "intended_use_context": "noncommercial_academic_research",
+      "commercial_use_allowed": false,
       "requires_attribution": true,
       "requires_share_alike": false,
+      "licence_notice_required": true,
       "noncommercial_only": true
     },
-    "notes": "Verified against primary repository LICENSE file (CC-BY-NC 4.0). Approved for local research preprocessing and evaluation benchmarking; raw redistribution prohibited; non-commercial research use only."
+    "notes": "Verified against primary repository LICENSE file at commit 9d659040d0d8942dbc4cd65cf357563b43fd9ab4 (CC-BY-NC 4.0). Approved for local research preprocessing and evaluation benchmarking; raw redistribution prohibited; non-commercial research use only."
   },
   "EXTDATA-TURKCORPUS": {
     "dataset_id": "EXTDATA-TURKCORPUS",
@@ -55,14 +59,18 @@
     "evidence": {
       "evidence_type": "repository_terms",
       "evidence_url": "https://github.com/cocoxu/simplification",
+      "commit_sha": null,
       "evidence_sha256": null,
       "evidence_scope": "repository_software",
       "verified_licence_identifier": null,
       "permission_rationale": "Repository identifies GPL-3.0 for software tooling, but content licensing for Simple English Wikipedia sentences and crowdsourced MTurk references requires multi-layer primary verification.",
       "verified_by": "research_governance_lead",
-      "verified_at": "2026-09-30T05:51:03.782713Z",
+      "verified_at": "2026-09-30T06:26:22.117413Z",
+      "intended_use_context": "noncommercial_academic_research",
+      "commercial_use_allowed": false,
       "requires_attribution": true,
       "requires_share_alike": false,
+      "licence_notice_required": true,
       "noncommercial_only": false
     },
     "notes": "Content rights pending: repository software license (GPL-3.0) does not establish dataset content license for Wikipedia sources and crowdsourced references."
@@ -89,14 +97,18 @@
     "evidence": {
       "evidence_type": "paper_statement",
       "evidence_url": "https://OasisSimpDataset.github.io/",
+      "commit_sha": null,
       "evidence_sha256": null,
       "evidence_scope": "unverified",
       "verified_licence_identifier": null,
       "permission_rationale": "Official website provides validation/test JSONL files with open academic citation requests, but explicit dataset archive license statement is pending verification.",
       "verified_by": "research_governance_lead",
-      "verified_at": "2026-09-30T05:51:03.782713Z",
+      "verified_at": "2026-09-30T06:26:22.117413Z",
+      "intended_use_context": "noncommercial_academic_research",
+      "commercial_use_allowed": false,
       "requires_attribution": true,
       "requires_share_alike": false,
+      "licence_notice_required": true,
       "noncommercial_only": false
     },
     "notes": "Content rights pending: official website provides open academic files, but explicit dataset archive license file or written confirmation is pending."
@@ -123,14 +135,18 @@
     "evidence": {
       "evidence_type": "repository_terms",
       "evidence_url": "https://github.com/XingxingZhang/dress",
+      "commit_sha": null,
       "evidence_sha256": null,
       "evidence_scope": "mixed_lineage",
       "verified_licence_identifier": null,
       "permission_rationale": "Repository provides code under MIT and download links for Wikipedia sentence alignments. Wikipedia source lineage and dataset redistribution terms remain pending formal verification.",
       "verified_by": "research_governance_lead",
-      "verified_at": "2026-09-30T05:51:03.782713Z",
+      "verified_at": "2026-09-30T06:26:22.117413Z",
+      "intended_use_context": "noncommercial_academic_research",
+      "commercial_use_allowed": false,
       "requires_attribution": true,
       "requires_share_alike": false,
+      "licence_notice_required": true,
       "noncommercial_only": false
     },
     "notes": "Lineage and rights pending: MIT code license in DRESS does not prove Wikipedia alignment dataset license or training redistribution rights."
@@ -157,14 +173,18 @@
     "evidence": {
       "evidence_type": "repository_terms",
       "evidence_url": "https://newsela.com/data/",
+      "commit_sha": null,
       "evidence_sha256": null,
       "evidence_scope": "dataset_content",
       "verified_licence_identifier": "Proprietary",
       "permission_rationale": "Proprietary commercial news dataset requiring individual institution data use agreements. Formally excluded from automated ingestion.",
       "verified_by": "research_governance_lead",
-      "verified_at": "2026-09-30T05:51:03.782713Z",
+      "verified_at": "2026-09-30T06:26:22.117413Z",
+      "intended_use_context": "noncommercial_academic_research",
+      "commercial_use_allowed": false,
       "requires_attribution": true,
       "requires_share_alike": false,
+      "licence_notice_required": true,
       "noncommercial_only": true
     },
     "notes": "Proprietary commercial news dataset requiring individual institution data use agreements. Formally excluded from automated ingestion."
