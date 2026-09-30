@@ -1,0 +1,11 @@
+rule_id,category,baseline_method,description,preconditions,rollback_trigger
+LEX-01-LEMMA-POS-MATCH,Lexical,"B1, B4",Matches token lemma and part-of-speech against lexicon repository,Token is not a protected entity or color,POS mismatch or ungrammatical insertion
+LEX-02-AGE-TIER-GATE,Lexical,"B1, B4",Substitutes word if difficulty exceeds target content age,source_min_age > target_age and replacement_max_age <= target_age,Age inversion or sense ambiguity
+LEX-03-INFLECTION-REPAIR,Lexical,"B1, B4",Matches grammatical inflection and casing of original token,Valid lemma replacement found,Morphological discord
+SPLIT-01-COORD-CONJ,Structural,"B2, B4","Splits compound sentence at coordinating conjunction (and, but, so)",Both clauses possess explicit subjects and finite verbs,Fragment creation or missing verb
+SPLIT-02-SUBORD-CLAUSE,Structural,"B2, B4","Splits subordinate clause (because, when, after)",Independent clause validity verified,Dangling subordinate fragment
+SPLIT-03-FRAGMENT-CHECK,Structural,"B2, B4",Rejects non-sentence fragments while permitting short imperatives,Output sentence length >= 2 words,Fragment detected
+SYN-01-PASSIVE-ACTIVE,Syntactic,"B3, B4",Converts passive voice to active when agent (by X) is explicit,Explicit agent noun phrase present,Agent ambiguity or missing patient
+SYN-02-RELATIVE-APPOSITIVE,Syntactic,"B3, B4",Simplifies non-restrictive appositives into separate declarative statements,Appositive comma boundary unambiguous,Ambiguous scope
+SYN-03-NOMINALIZATION-UNPACK,Syntactic,"B3, B4",Unpacks abstract nominalizations (e.g. make a decision -> decide),Allowlisted verb-noun collocation match,Tense/agreement conflict
+FB-01-RULE-HEURISTIC-EXTRACT,Fallback,B5,Truncates sentence to first 14 tokens with terminal punctuation,Always applicable,None

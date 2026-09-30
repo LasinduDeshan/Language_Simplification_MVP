@@ -1,0 +1,218 @@
+{
+  "B0": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 17.905052235654193,
+        "std": 10.110072545563984,
+        "median": 16.794871794871796
+      },
+      "sari_add": 0.0,
+      "sari_keep": 50.937378929184796,
+      "sari_del": 2.7777777777777777,
+      "corpus_bleu": 43.21088073296501,
+      "fkgl": {
+        "original_mean": 6.142571628081433,
+        "output_mean": 6.142571628081433,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 0.0021799997840490607,
+      "median_latency_ms": 0.0021000014385208488,
+      "p95_latency_ms": 0.002979997952934354,
+      "throughput_samples_per_sec": 458715.641770676
+    }
+  },
+  "B1": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 17.905052235654193,
+        "std": 10.110072545563984,
+        "median": 16.794871794871796
+      },
+      "sari_add": 0.0,
+      "sari_keep": 50.937378929184796,
+      "sari_del": 2.7777777777777777,
+      "corpus_bleu": 43.21088073296501,
+      "fkgl": {
+        "original_mean": 6.142571628081433,
+        "output_mean": 6.142571628081433,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 4.128255555972121,
+      "median_latency_ms": 4.135900002438575,
+      "p95_latency_ms": 5.417019999003968,
+      "throughput_samples_per_sec": 242.23306586564266
+    }
+  },
+  "B2": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 20.025412548285665,
+        "std": 12.824338336202603,
+        "median": 17.87506475006475
+      },
+      "sari_add": 0.0,
+      "sari_keep": 51.23364505226439,
+      "sari_del": 8.842592592592592,
+      "corpus_bleu": 42.907820151501994,
+      "fkgl": {
+        "original_mean": 6.142571628081433,
+        "output_mean": 5.9929350794448855,
+        "reduction_delta": 0.14963654863654877
+      },
+      "compression": {
+        "word_ratio": 0.9939387464387466,
+        "char_ratio": 0.993951048951049
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 6.141704444598872,
+      "median_latency_ms": 4.799599999387283,
+      "p95_latency_ms": 13.120839998737207,
+      "throughput_samples_per_sec": 162.82125084664705
+    }
+  },
+  "B3": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 17.905052235654193,
+        "std": 10.110072545563984,
+        "median": 16.794871794871796
+      },
+      "sari_add": 0.0,
+      "sari_keep": 50.937378929184796,
+      "sari_del": 2.7777777777777777,
+      "corpus_bleu": 43.21088073296501,
+      "fkgl": {
+        "original_mean": 6.142571628081433,
+        "output_mean": 6.142571628081433,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 4.0599533332472975,
+      "median_latency_ms": 3.9286000028369017,
+      "p95_latency_ms": 5.013880001206417,
+      "throughput_samples_per_sec": 246.30824985374002
+    }
+  },
+  "B4": {
+    "total_records": 45,
+    "eligible_records": 43,
+    "dispositions": {
+      "automatic_check_passed": 43,
+      "manual_review_required": 0,
+      "automatic_check_failed": 2,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 20.125428724947106,
+        "std": 13.110608423277057,
+        "median": 16.794871794871796
+      },
+      "sari_add": 0.0,
+      "sari_keep": 51.122410205849064,
+      "sari_del": 9.253875968992247,
+      "corpus_bleu": 43.16667609998689,
+      "fkgl": {
+        "original_mean": 6.259280385976695,
+        "output_mean": 6.102683997868677,
+        "reduction_delta": 0.15659638810801615
+      },
+      "compression": {
+        "word_ratio": 0.9936568276684556,
+        "char_ratio": 0.9936697023906327
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 32.06691111117834,
+      "median_latency_ms": 30.862100000376813,
+      "p95_latency_ms": 50.77359999922918,
+      "throughput_samples_per_sec": 31.184793463047512
+    }
+  },
+  "B5": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 26.614498110438642,
+        "std": 17.10763719974243,
+        "median": 19.76851851851852
+      },
+      "sari_add": 0.0,
+      "sari_keep": 51.324975812797405,
+      "sari_del": 28.518518518518515,
+      "corpus_bleu": 43.99866046053874,
+      "fkgl": {
+        "original_mean": 6.142571628081433,
+        "output_mean": 5.957040971374306,
+        "reduction_delta": 0.18553065670712726
+      },
+      "compression": {
+        "word_ratio": 0.9712636165577341,
+        "char_ratio": 0.9697104565334483
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 0.008515555236954242,
+      "median_latency_ms": 0.008300001354655251,
+      "p95_latency_ms": 0.011080000695073977,
+      "throughput_samples_per_sec": 117432.15470676342
+    }
+  }
+}

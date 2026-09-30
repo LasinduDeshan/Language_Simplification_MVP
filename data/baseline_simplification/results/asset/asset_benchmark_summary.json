@@ -1,0 +1,218 @@
+{
+  "B0": {
+    "total_records": 359,
+    "eligible_records": 359,
+    "dispositions": {
+      "automatic_check_passed": 359,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 50.20038087011355,
+        "std": 15.60498140798524,
+        "median": 49.44390715667311
+      },
+      "sari_add": 0.0,
+      "sari_keep": 95.37830138471385,
+      "sari_del": 55.22284122562674,
+      "corpus_bleu": 92.560969739954,
+      "fkgl": {
+        "original_mean": 11.952567373494,
+        "output_mean": 11.952567373494,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 0.0020044567856307254,
+      "median_latency_ms": 0.0018999999156221747,
+      "p95_latency_ms": 0.0025999979698099196,
+      "throughput_samples_per_sec": 498888.2809390867
+    }
+  },
+  "B1": {
+    "total_records": 359,
+    "eligible_records": 359,
+    "dispositions": {
+      "automatic_check_passed": 359,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 50.30975328878676,
+        "std": 15.593635606111988,
+        "median": 49.44390715667311
+      },
+      "sari_add": 0.012233069884356712,
+      "sari_keep": 95.35179931272471,
+      "sari_del": 55.56522748375115,
+      "corpus_bleu": 92.43882385567895,
+      "fkgl": {
+        "original_mean": 11.952567373494,
+        "output_mean": 11.934398966264476,
+        "reduction_delta": 0.018168407229524706
+      },
+      "compression": {
+        "word_ratio": 1.0003328148174944,
+        "char_ratio": 0.999497806421204
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 5.21724540378075,
+      "median_latency_ms": 5.049299998063361,
+      "p95_latency_ms": 7.497440001316135,
+      "throughput_samples_per_sec": 191.67202663599758
+    }
+  },
+  "B2": {
+    "total_records": 359,
+    "eligible_records": 359,
+    "dispositions": {
+      "automatic_check_passed": 358,
+      "manual_review_required": 1,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 45.355816859452574,
+        "std": 15.675707310740208,
+        "median": 39.573419120704024
+      },
+      "sari_add": 0.22868801474373787,
+      "sari_keep": 93.76587491273192,
+      "sari_del": 42.07288765088208,
+      "corpus_bleu": 89.8789166956809,
+      "fkgl": {
+        "original_mean": 11.952567373494,
+        "output_mean": 10.645479558867855,
+        "reduction_delta": 1.307087814626144
+      },
+      "compression": {
+        "word_ratio": 0.9866039023724826,
+        "char_ratio": 0.9918968924241026
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 9.566981337095392,
+      "median_latency_ms": 7.4903999993694015,
+      "p95_latency_ms": 18.932420000055558,
+      "throughput_samples_per_sec": 104.52617861002409
+    }
+  },
+  "B3": {
+    "total_records": 359,
+    "eligible_records": 359,
+    "dispositions": {
+      "automatic_check_passed": 359,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 50.20038087011355,
+        "std": 15.60498140798524,
+        "median": 49.44390715667311
+      },
+      "sari_add": 0.0,
+      "sari_keep": 95.37830138471385,
+      "sari_del": 55.22284122562674,
+      "corpus_bleu": 92.560969739954,
+      "fkgl": {
+        "original_mean": 11.952567373494,
+        "output_mean": 11.952567373494,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 5.3702387187493255,
+      "median_latency_ms": 5.0241999997524545,
+      "p95_latency_ms": 8.036640001228077,
+      "throughput_samples_per_sec": 186.21146142138164
+    }
+  },
+  "B4": {
+    "total_records": 359,
+    "eligible_records": 348,
+    "dispositions": {
+      "automatic_check_passed": 347,
+      "manual_review_required": 1,
+      "automatic_check_failed": 11,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 45.19123197837611,
+        "std": 15.610238098819792,
+        "median": 39.573086846729296
+      },
+      "sari_add": 0.24853640626863782,
+      "sari_keep": 93.65849286219303,
+      "sari_del": 41.666666666666664,
+      "corpus_bleu": 89.78795454304858,
+      "fkgl": {
+        "original_mean": 12.017505200737267,
+        "output_mean": 10.656556123776287,
+        "reduction_delta": 1.3609490769609809
+      },
+      "compression": {
+        "word_ratio": 0.9866083138962863,
+        "char_ratio": 0.9911669008645106
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 37.06517688022506,
+      "median_latency_ms": 33.757600001990795,
+      "p95_latency_ms": 61.69393000236595,
+      "throughput_samples_per_sec": 26.979501628481856
+    }
+  },
+  "B5": {
+    "total_records": 359,
+    "eligible_records": 298,
+    "dispositions": {
+      "automatic_check_passed": 207,
+      "manual_review_required": 91,
+      "automatic_check_failed": 61,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 34.8523663973424,
+        "std": 15.786131937866477,
+        "median": 28.32548701298701
+      },
+      "sari_add": 0.0,
+      "sari_keep": 80.91643346601306,
+      "sari_del": 23.640665726014127,
+      "corpus_bleu": 86.39214009843123,
+      "fkgl": {
+        "original_mean": 11.620789613292391,
+        "output_mean": 9.696009247768968,
+        "reduction_delta": 1.9247803655234232
+      },
+      "compression": {
+        "word_ratio": 0.7870676095907261,
+        "char_ratio": 0.7853569495544382
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 0.008066852321987063,
+      "median_latency_ms": 0.007700000423938036,
+      "p95_latency_ms": 0.0101999979960965,
+      "throughput_samples_per_sec": 123964.08910008105
+    }
+  }
+}

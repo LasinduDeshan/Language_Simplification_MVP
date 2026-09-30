@@ -1,0 +1,218 @@
+{
+  "B0": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 21.519777738715547,
+        "std": 14.269059184576538,
+        "median": 19.71139971139971
+      },
+      "sari_add": 0.0,
+      "sari_keep": 57.33711099392442,
+      "sari_del": 7.222222222222222,
+      "corpus_bleu": 49.71512606174473,
+      "fkgl": {
+        "original_mean": 5.124591729258398,
+        "output_mean": 5.124591729258398,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 0.002220000331160716,
+      "median_latency_ms": 0.0022000021999701858,
+      "p95_latency_ms": 0.002579998545115813,
+      "throughput_samples_per_sec": 450450.383256094
+    }
+  },
+  "B1": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 21.519777738715547,
+        "std": 14.269059184576538,
+        "median": 19.71139971139971
+      },
+      "sari_add": 0.0,
+      "sari_keep": 57.33711099392442,
+      "sari_del": 7.222222222222222,
+      "corpus_bleu": 49.71512606174473,
+      "fkgl": {
+        "original_mean": 5.124591729258398,
+        "output_mean": 5.124591729258398,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 3.9012955558266387,
+      "median_latency_ms": 4.002000001491979,
+      "p95_latency_ms": 4.7063200021511875,
+      "throughput_samples_per_sec": 256.3251067985573
+    }
+  },
+  "B2": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 23.658368430122913,
+        "std": 17.335701871646055,
+        "median": 19.71139971139971
+      },
+      "sari_add": 0.0,
+      "sari_keep": 56.29917936444281,
+      "sari_del": 14.675925925925926,
+      "corpus_bleu": 46.55605252085803,
+      "fkgl": {
+        "original_mean": 5.124591729258398,
+        "output_mean": 4.745195680862349,
+        "reduction_delta": 0.3793960483960487
+      },
+      "compression": {
+        "word_ratio": 0.9874572649572648,
+        "char_ratio": 0.9903003546081263
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 6.882560000505894,
+      "median_latency_ms": 6.308199997874908,
+      "p95_latency_ms": 12.769220001064241,
+      "throughput_samples_per_sec": 145.29477402688772
+    }
+  },
+  "B3": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 21.519777738715547,
+        "std": 14.269059184576538,
+        "median": 19.71139971139971
+      },
+      "sari_add": 0.0,
+      "sari_keep": 57.33711099392442,
+      "sari_del": 7.222222222222222,
+      "corpus_bleu": 49.71512606174473,
+      "fkgl": {
+        "original_mean": 5.124591729258398,
+        "output_mean": 5.124591729258398,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 4.030884444526034,
+      "median_latency_ms": 3.9668999997957144,
+      "p95_latency_ms": 4.900180001277476,
+      "throughput_samples_per_sec": 248.08451191350974
+    }
+  },
+  "B4": {
+    "total_records": 45,
+    "eligible_records": 42,
+    "dispositions": {
+      "automatic_check_passed": 42,
+      "manual_review_required": 0,
+      "automatic_check_failed": 3,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 24.071461550127065,
+        "std": 17.872690153099878,
+        "median": 20.123556998557
+      },
+      "sari_add": 0.0,
+      "sari_keep": 56.49017830117485,
+      "sari_del": 15.724206349206348,
+      "corpus_bleu": 47.25711727933282,
+      "fkgl": {
+        "original_mean": 5.231110186110188,
+        "output_mean": 4.8246144199715655,
+        "reduction_delta": 0.40649576613862354
+      },
+      "compression": {
+        "word_ratio": 0.9865613553113552,
+        "char_ratio": 0.989607522794421
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 33.59383777788025,
+      "median_latency_ms": 32.158500001969514,
+      "p95_latency_ms": 51.345540000329486,
+      "throughput_samples_per_sec": 29.767364080636437
+    }
+  },
+  "B5": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 27.231624538009026,
+        "std": 16.945108591348486,
+        "median": 24.664440655489248
+      },
+      "sari_add": 0.0,
+      "sari_keep": 57.25042916958261,
+      "sari_del": 24.444444444444443,
+      "corpus_bleu": 50.0444977982959,
+      "fkgl": {
+        "original_mean": 5.124591729258398,
+        "output_mean": 4.953385380052049,
+        "reduction_delta": 0.17120634920634928
+      },
+      "compression": {
+        "word_ratio": 0.9703703703703703,
+        "char_ratio": 0.97052390212077
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 0.014806667038808681,
+      "median_latency_ms": 0.007800001185387373,
+      "p95_latency_ms": 0.01050000064424239,
+      "throughput_samples_per_sec": 67537.14373254782
+    }
+  }
+}

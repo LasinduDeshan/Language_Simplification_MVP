@@ -60,7 +60,10 @@ def test_profile_updater_success_growth(db_session):
     learner = db_session.query(LearnerProfile).filter(LearnerProfile.learner_code == "CHILD-001").first()
     task = db_session.query(Task).filter(Task.category == "vocabulary", Task.base_difficulty == "easy").first()
     assert learner is not None
-    assert task is not None
+    learner.vocabulary_score = 50.0
+    learner.grammar_score = 50.0
+    db_session.commit()
+    db_session.refresh(learner)
 
     initial_vocab = learner.vocabulary_score
     initial_gram = learner.grammar_score

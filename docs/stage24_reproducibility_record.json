@@ -1,0 +1,22 @@
+{
+  "stage": "Stage 24 \u2014 English Baseline Simplification",
+  "created_at": "2026-09-30T10:14:40.961344Z",
+  "git": {
+    "checkpoint_tag": "stage-24-start",
+    "completion_tag": "stage-24-complete"
+  },
+  "deterministic_reproducibility_rate": 1.0,
+  "metric_parity_tolerance": "< 0.05 points",
+  "methods_evaluated": [
+    "B0",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5"
+  ],
+  "internal_locked_test_outputs": 270,
+  "asset_test_outputs": 2154,
+  "unaccounted_records": 0,
+  "governance_status": "reproducible_and_verified"
+}
