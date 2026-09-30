@@ -52,6 +52,7 @@ Thumbs.db
 *.swo
 
 # Database exports / temporary dumps (preserving schema & seeds)
+*.db
 *.db-journal
 backend/exports/
 
