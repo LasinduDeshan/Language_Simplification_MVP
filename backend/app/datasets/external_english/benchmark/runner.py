@@ -1,4 +1,4 @@
-"""Benchmark runner executing baseline models on ASSET dataset and aggregating metrics."""
+"""Benchmark runner executing baseline models on ASSET dataset with clear provider attribution."""
 
 import time
 from typing import Any, Dict, List, Optional
@@ -6,12 +6,13 @@ import numpy as np
 
 from app.datasets.external_english.benchmark.metrics import (
     compute_bleu,
-    compute_bertscore_proxy,
     compute_complexity_reduction,
     compute_sari,
+    compute_semantic_similarity_proxy,
 )
 from app.datasets.external_english.benchmark.simplifiers import (
-    GenericLLMSimplifier,
+    DeterministicFallbackSimplifier,
+    GeminiLLMSimplifier,
     IdentitySimplifier,
     RuleBasedSimplifier,
 )
@@ -22,11 +23,12 @@ class ASSETBenchmarkRunner:
     """Orchestrates benchmark evaluation of multiple simplification baselines on ASSET."""
 
     def __init__(self):
-        self.simplifiers = {
-            "identity": IdentitySimplifier(),
-            "rule_based": RuleBasedSimplifier(),
-            "generic_llm": GenericLLMSimplifier(),
+        self.active_simplifiers = {
+            "identity_baseline": IdentitySimplifier(),
+            "rule_based_simplifier": RuleBasedSimplifier(),
+            "deterministic_fallback": DeterministicFallbackSimplifier(),
         }
+        self.gemini_provider = GeminiLLMSimplifier()
 
     def evaluate_split(
         self,
@@ -38,15 +40,19 @@ class ASSETBenchmarkRunner:
             "split": split_name,
             "sample_count": len(records),
             "baselines": {},
+            "provider_status": {
+                "gemini": self.gemini_provider.get_evaluation_status(),
+            },
         }
 
-        for name, simplifier in self.simplifiers.items():
+        # 1. Evaluate Active Offline Baselines
+        for name, simplifier in self.active_simplifiers.items():
             sari_scores = []
             add_scores = []
             keep_scores = []
             del_scores = []
             bleu_scores = []
-            bertscore_scores = []
+            semantic_proxies = []
             fkgl_reductions = []
             word_compressions = []
             latencies = []
@@ -68,7 +74,7 @@ class ASSETBenchmarkRunner:
                 # Compute Metrics
                 sari, add_s, keep_s, del_s = compute_sari(src, pred, refs)
                 bleu = compute_bleu(pred, refs)
-                bert = compute_bertscore_proxy(pred, refs)
+                sem_proxy = compute_semantic_similarity_proxy(pred, refs)
                 comp = compute_complexity_reduction(src, pred)
 
                 sari_scores.append(sari)
@@ -76,11 +82,13 @@ class ASSETBenchmarkRunner:
                 keep_scores.append(keep_s)
                 del_scores.append(del_s)
                 bleu_scores.append(bleu)
-                bertscore_scores.append(bert)
+                semantic_proxies.append(sem_proxy)
                 fkgl_reductions.append(comp["fkgl_reduction"])
                 word_compressions.append(comp["word_compression_ratio"])
 
             results["baselines"][name] = {
+                "evaluated_outputs": len(records) - invalid_count,
+                "evaluation_status": "Valid",
                 "sari": {
                     "mean": float(np.mean(sari_scores)),
                     "std": float(np.std(sari_scores)),
@@ -101,9 +109,9 @@ class ASSETBenchmarkRunner:
                     "mean": float(np.mean(bleu_scores)),
                     "std": float(np.std(bleu_scores)),
                 },
-                "bertscore_proxy": {
-                    "mean": float(np.mean(bertscore_scores)),
-                    "std": float(np.std(bertscore_scores)),
+                "semantic_similarity_proxy": {
+                    "mean": float(np.mean(semantic_proxies)),
+                    "std": float(np.std(semantic_proxies)),
                 },
                 "fkgl_reduction": {
                     "mean": float(np.mean(fkgl_reductions)),
@@ -116,6 +124,24 @@ class ASSETBenchmarkRunner:
                 "avg_latency_ms": float(np.mean(latencies)),
                 "invalid_output_rate": invalid_count / len(records) if records else 0.0,
                 "fallback_rate": fallback_count / len(records) if records else 0.0,
+            }
+
+        # 2. Record Un-Evaluated / Offline Providers Explicitly
+        if not self.gemini_provider.is_available():
+            results["baselines"]["gemini_llm"] = {
+                "evaluated_outputs": 0,
+                "evaluation_status": "Not evaluated—API unavailable/offline",
+                "requested_provider": "gemini",
+                "provider_calls_attempted": 0,
+                "provider_outputs_received": 0,
+                "fallback_outputs_generated": len(records),
+                "provider_evaluation_status": "not_evaluated_offline",
+                "metrics_attributed_to": "deterministic_fallback",
+                "sari": None,
+                "bleu": None,
+                "semantic_similarity_proxy": None,
+                "fkgl_reduction": None,
+                "avg_latency_ms": None,
             }
 
         return results

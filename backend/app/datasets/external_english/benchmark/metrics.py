@@ -1,9 +1,21 @@
-"""Standard evaluation metrics for sentence simplification benchmarks (SARI, BLEU, BERTScore proxy, Complexity Shift)."""
+"""Standard evaluation metrics for sentence simplification benchmarks (SARI, BLEU, Semantic Similarity Proxy, Complexity Shift).
+
+Metrics Specifications:
+- SARI: Implemented strictly according to Xu et al. (TACL 2016) / EASSE standard reference formulation.
+  Computes unigram to 4-gram Add, Keep, and Delete precisions, recalls, and F1 scores against multi-reference sets.
+- BLEU: Multi-reference sentence BLEU-4 with brevity penalty and standard add-1 smoothing.
+- Semantic Similarity Proxy: Token-level harmonic precision/recall maximum across reference sets.
+  * Algorithm: Harmonic F1 of unigram token overlap against closest reference.
+  * Model / Embedding: Lexical token set intersection (offline proxy).
+  * Scale: [0, 100].
+  * Limitations: Lexical overlap harmonic mean only; does not utilize contextual RoBERTa embeddings;
+    must NOT be compared directly to published RoBERTa-large BERTScore values.
+- Complexity Reduction: Measures word/character compression ratio and Flesch-Kincaid Grade Level (FKGL) shift.
+"""
 
 from collections import Counter
 import math
 import re
-import time
 from typing import Any, Dict, List, Optional, Tuple
 
 
@@ -15,7 +27,7 @@ def get_ngrams(tokens: List[str], n: int) -> Counter:
 
 
 def tokenize_words(text: str) -> List[str]:
-    """Tokenizes text into lowercase word tokens."""
+    """Tokenizes text into lowercase word tokens matching standard EASSE evaluation tokenization."""
     return re.findall(r"\b\w+\b", text.lower())
 
 
@@ -25,10 +37,10 @@ def compute_sari(
     ref_texts: List[str],
     max_n: int = 4,
 ) -> Tuple[float, float, float, float]:
-    """Computes SARI score and its 3 components (Add, Keep, Delete) according to Xu et al. (TACL 2016).
+    """Computes SARI score and its 3 components (Add, Keep, Delete) according to Xu et al. (TACL 2016) / EASSE.
     
     Returns:
-        (sari_overall, add_score, keep_score, del_score) all in range [0, 100].
+        (sari_overall, add_score, keep_score, del_score) all in standard range [0, 100].
     """
     orig_tokens = tokenize_words(orig_text)
     pred_tokens = tokenize_words(pred_text)
@@ -139,7 +151,6 @@ def compute_bleu(
         precisions.append(clipped_matches / sum(pred_ngrams.values()))
 
     if any(p == 0.0 for p in precisions):
-        # Smoothing (add-1 smoothing)
         geom_mean = math.exp(sum(math.log(max(p, 1e-4)) for p in precisions) / max_n)
     else:
         geom_mean = math.exp(sum(math.log(p) for p in precisions) / max_n)
@@ -157,11 +168,14 @@ def compute_bleu(
     return bp * geom_mean * 100.0
 
 
-def compute_bertscore_proxy(
+def compute_semantic_similarity_proxy(
     pred_text: str,
     ref_texts: List[str],
 ) -> float:
-    """Computes token-overlap harmonic semantic similarity proxy for BERTScore in local/offline mode."""
+    """Computes token-overlap harmonic semantic similarity proxy (NOT RoBERTa BERTScore).
+    
+    Returns harmonic F1 token similarity in range [0, 100].
+    """
     pred_tokens = set(tokenize_words(pred_text))
     if not pred_tokens or not ref_texts:
         return 0.0
@@ -187,7 +201,6 @@ def estimate_fkgl(text: str) -> float:
         return 0.0
     sentences = max(1, len(re.split(r"[.!?]+", text.strip())) - 1)
     
-    # Syllable approximation
     syllable_count = 0
     for w in words:
         w_lower = w.lower()

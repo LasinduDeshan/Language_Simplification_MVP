@@ -1,11 +1,11 @@
-"""Unit tests for sentence simplification benchmark metrics."""
+"""Unit tests for sentence simplification benchmark metrics (SARI, BLEU, Semantic Similarity Proxy)."""
 
 import pytest
 from app.datasets.external_english.benchmark.metrics import (
     compute_bleu,
-    compute_bertscore_proxy,
     compute_complexity_reduction,
     compute_sari,
+    compute_semantic_similarity_proxy,
     estimate_fkgl,
 )
 
@@ -46,14 +46,14 @@ def test_bleu_multi_reference():
     assert bleu == 100.0
 
 
-def test_bertscore_proxy():
+def test_semantic_similarity_proxy():
     pred = "The quick brown fox jumps."
     refs = [
         "The quick brown fox jumps over the lazy dog.",
         "A fast brown fox jumps.",
     ]
-    bert_proxy = compute_bertscore_proxy(pred, refs)
-    assert 50.0 <= bert_proxy <= 100.0
+    sem_proxy = compute_semantic_similarity_proxy(pred, refs)
+    assert 50.0 <= sem_proxy <= 100.0
 
 
 def test_complexity_reduction():
@@ -63,3 +63,28 @@ def test_complexity_reduction():
     assert res["word_compression_ratio"] < 1.0
     assert res["char_compression_ratio"] < 1.0
     assert res["fkgl_reduction"] > 0.0
+
+
+def test_multi_reference_benchmark_fixture():
+    """Validates metrics on fixed 10-reference benchmark fixture."""
+    orig = "About 95 species are currently accepted."
+    pred = "About 95 kinds are now known."
+    refs = [
+        "About 95 species are accepted now.",
+        "There are about 95 species accepted.",
+        "About 95 types are currently accepted.",
+        "About 95 species are now recognized.",
+        "Around 95 species are accepted today.",
+        "Currently, about 95 species are accepted.",
+        "About 95 kinds are known.",
+        "About 95 species are recognized.",
+        "95 species are currently accepted.",
+        "About 95 species are accepted.",
+    ]
+    sari, add_s, keep_s, del_s = compute_sari(orig, pred, refs)
+    bleu = compute_bleu(pred, refs)
+    sem_proxy = compute_semantic_similarity_proxy(pred, refs)
+
+    assert sari > 15.0
+    assert bleu > 20.0
+    assert sem_proxy > 50.0

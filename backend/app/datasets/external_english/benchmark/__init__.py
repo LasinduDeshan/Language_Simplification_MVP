@@ -2,13 +2,14 @@
 
 from app.datasets.external_english.benchmark.metrics import (
     compute_bleu,
-    compute_bertscore_proxy,
     compute_complexity_reduction,
     compute_sari,
+    compute_semantic_similarity_proxy,
 )
 from app.datasets.external_english.benchmark.runner import ASSETBenchmarkRunner
 from app.datasets.external_english.benchmark.simplifiers import (
-    GenericLLMSimplifier,
+    DeterministicFallbackSimplifier,
+    GeminiLLMSimplifier,
     IdentitySimplifier,
     RuleBasedSimplifier,
 )
@@ -16,10 +17,11 @@ from app.datasets.external_english.benchmark.simplifiers import (
 __all__ = [
     "compute_sari",
     "compute_bleu",
-    "compute_bertscore_proxy",
+    "compute_semantic_similarity_proxy",
     "compute_complexity_reduction",
     "IdentitySimplifier",
     "RuleBasedSimplifier",
-    "GenericLLMSimplifier",
+    "DeterministicFallbackSimplifier",
+    "GeminiLLMSimplifier",
     "ASSETBenchmarkRunner",
 ]

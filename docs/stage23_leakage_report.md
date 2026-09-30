@@ -1,7 +1,7 @@
 # Stage 23 External Dataset Leakage & Contamination Report
 
 **Dataset:** ASSET (`EXTDATA-ASSET`)  
-**Evaluation Date:** 2026-09-30 06:46:59 UTC  
+**Evaluation Date:** 2026-09-30 07:06:53 UTC  
 **Leakage Status:** `CLEAN`  
 
 ---

@@ -6,7 +6,9 @@
       "split": "test",
       "sample_count": 359,
       "baselines": {
-        "identity": {
+        "identity_baseline": {
+          "evaluated_outputs": 359,
+          "evaluation_status": "Valid",
           "sari": {
             "mean": 50.20038087011355,
             "std": 15.60498140798524
@@ -27,7 +29,7 @@
             "mean": 91.3904608007725,
             "std": 10.934334828102664
           },
-          "bertscore_proxy": {
+          "semantic_similarity_proxy": {
             "mean": 92.65981050318952,
             "std": 5.678093214589248
           },
@@ -39,11 +41,13 @@
             "mean": 1.0,
             "std": 0.0
           },
-          "avg_latency_ms": 0.0001267408987787399,
+          "avg_latency_ms": 0.00013927580303289413,
           "invalid_output_rate": 0.0,
           "fallback_rate": 0.0
         },
-        "rule_based": {
+        "rule_based_simplifier": {
+          "evaluated_outputs": 359,
+          "evaluation_status": "Valid",
           "sari": {
             "mean": 46.9785882159237,
             "std": 16.029840540489456
@@ -64,7 +68,7 @@
             "mean": 91.16788970109555,
             "std": 11.376659350691014
           },
-          "bertscore_proxy": {
+          "semantic_similarity_proxy": {
             "mean": 92.62271652369506,
             "std": 5.996280790247908
           },
@@ -76,11 +80,13 @@
             "mean": 0.975689655480849,
             "std": 0.07491457806225936
           },
-          "avg_latency_ms": 0.06498440115717934,
+          "avg_latency_ms": 0.06549415034962679,
           "invalid_output_rate": 0.0,
           "fallback_rate": 0.0
         },
-        "generic_llm": {
+        "deterministic_fallback": {
+          "evaluated_outputs": 359,
+          "evaluation_status": "Valid",
           "sari": {
             "mean": 32.88435539876859,
             "std": 15.223397500849243
@@ -101,7 +107,7 @@
             "mean": 87.4451739235824,
             "std": 13.809990182313085
           },
-          "bertscore_proxy": {
+          "semantic_similarity_proxy": {
             "mean": 82.01599888670764,
             "std": 11.380916042103733
           },
@@ -113,9 +119,35 @@
             "mean": 0.7482348823122295,
             "std": 0.2101193474501699
           },
-          "avg_latency_ms": 0.003561281316497293,
+          "avg_latency_ms": 0.0033699164667567575,
           "invalid_output_rate": 0.0,
           "fallback_rate": 1.0
+        },
+        "gemini_llm": {
+          "evaluated_outputs": 0,
+          "evaluation_status": "Not evaluated\u2014API unavailable/offline",
+          "requested_provider": "gemini",
+          "provider_calls_attempted": 0,
+          "provider_outputs_received": 0,
+          "fallback_outputs_generated": 359,
+          "provider_evaluation_status": "not_evaluated_offline",
+          "metrics_attributed_to": "deterministic_fallback",
+          "sari": null,
+          "bleu": null,
+          "semantic_similarity_proxy": null,
+          "fkgl_reduction": null,
+          "avg_latency_ms": null
+        }
+      },
+      "provider_status": {
+        "gemini": {
+          "requested_provider": "gemini",
+          "provider_calls_attempted": 0,
+          "provider_outputs_received": 0,
+          "fallback_outputs_generated": 359,
+          "provider_evaluation_status": "not_evaluated_offline",
+          "metrics_attributed_to": "deterministic_fallback",
+          "evaluation_status_summary": "Not evaluated\u2014API unavailable/offline"
         }
       }
     },
@@ -123,7 +155,9 @@
       "split": "validation",
       "sample_count": 2000,
       "baselines": {
-        "identity": {
+        "identity_baseline": {
+          "evaluated_outputs": 2000,
+          "evaluation_status": "Valid",
           "sari": {
             "mean": 52.509757841858125,
             "std": 14.409919694872158
@@ -144,7 +178,7 @@
             "mean": 92.77840333044617,
             "std": 10.960721806694792
           },
-          "bertscore_proxy": {
+          "semantic_similarity_proxy": {
             "mean": 93.35223507143101,
             "std": 4.7409410679631785
           },
@@ -156,11 +190,13 @@
             "mean": 1.0,
             "std": 0.0
           },
-          "avg_latency_ms": 0.00012415001674526138,
+          "avg_latency_ms": 0.00013724994732911,
           "invalid_output_rate": 0.0,
           "fallback_rate": 0.0
         },
-        "rule_based": {
+        "rule_based_simplifier": {
+          "evaluated_outputs": 2000,
+          "evaluation_status": "Valid",
           "sari": {
             "mean": 48.99829484145954,
             "std": 15.598870600281183
@@ -181,7 +217,7 @@
             "mean": 92.83849166551711,
             "std": 10.677909031226394
           },
-          "bertscore_proxy": {
+          "semantic_similarity_proxy": {
             "mean": 93.16358268264645,
             "std": 5.110647710162507
           },
@@ -193,11 +229,13 @@
             "mean": 0.9740860459416781,
             "std": 0.07722870665323134
           },
-          "avg_latency_ms": 0.05766194998068386,
+          "avg_latency_ms": 0.06612165001570247,
           "invalid_output_rate": 0.0,
           "fallback_rate": 0.0
         },
-        "generic_llm": {
+        "deterministic_fallback": {
+          "evaluated_outputs": 2000,
+          "evaluation_status": "Valid",
           "sari": {
             "mean": 33.960353389330095,
             "std": 15.561138038755274
@@ -218,7 +256,7 @@
             "mean": 86.79651972102188,
             "std": 15.213408029914326
           },
-          "bertscore_proxy": {
+          "semantic_similarity_proxy": {
             "mean": 83.11063145130235,
             "std": 11.393809347236067
           },
@@ -230,9 +268,35 @@
             "mean": 0.7676858340046775,
             "std": 0.21017136752654483
           },
-          "avg_latency_ms": 0.0027288499895803398,
+          "avg_latency_ms": 0.0029922999847258325,
           "invalid_output_rate": 0.0,
           "fallback_rate": 1.0
+        },
+        "gemini_llm": {
+          "evaluated_outputs": 0,
+          "evaluation_status": "Not evaluated\u2014API unavailable/offline",
+          "requested_provider": "gemini",
+          "provider_calls_attempted": 0,
+          "provider_outputs_received": 0,
+          "fallback_outputs_generated": 2000,
+          "provider_evaluation_status": "not_evaluated_offline",
+          "metrics_attributed_to": "deterministic_fallback",
+          "sari": null,
+          "bleu": null,
+          "semantic_similarity_proxy": null,
+          "fkgl_reduction": null,
+          "avg_latency_ms": null
+        }
+      },
+      "provider_status": {
+        "gemini": {
+          "requested_provider": "gemini",
+          "provider_calls_attempted": 0,
+          "provider_outputs_received": 0,
+          "fallback_outputs_generated": 359,
+          "provider_evaluation_status": "not_evaluated_offline",
+          "metrics_attributed_to": "deterministic_fallback",
+          "evaluation_status_summary": "Not evaluated\u2014API unavailable/offline"
         }
       }
     }

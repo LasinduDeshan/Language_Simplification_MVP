@@ -15,7 +15,20 @@ class ExternalReleaseBuilder:
     RELEASE_VERSION = "0.1.0"
 
     def __init__(self, output_dir: Optional[Path] = None):
-        self.output_dir = output_dir or Path("data/external_english/release_0_1_0")
+        if output_dir is not None:
+            self.output_dir = Path(output_dir)
+        else:
+            default_path = Path("data/external_english/releases/0.1.0")
+            if default_path.exists():
+                self.output_dir = default_path
+            else:
+                current = Path(__file__).resolve().parent
+                found = None
+                for parent in [current, *current.parents]:
+                    if (parent / "data").exists():
+                        found = parent
+                        break
+                self.output_dir = (found / "data" / "external_english" / "releases" / "0.1.0") if found else default_path
 
     def build_release(
         self,
