@@ -1,0 +1,5 @@
+comparison_id,stage25_tier,baseline_comparator,sari_score,corpus_bleu,cohen_d,comparison_type
+COMP-001,Mild,B0_Identity,32.50,95.66,+0.45,tier_matched
+COMP-002,Moderate,B4_Combined,29.86,92.71,+0.32,multi_reference
+COMP-003,Strong,B4_Combined,31.89,92.29,+0.51,tier_matched
+COMP-004,Strong,B5_Fallback,29.86,92.71,+0.68,multi_reference
