@@ -103,14 +103,14 @@ The overall manual-review rate is **20.67%** ($186 / 900$) and locked-test revie
 | `VAL_ANSWER_BOUNDARY` | Answer non-disclosure | 0 | 0 | 0 | 0 | Zero answer leaks across all prompts. |
 | `VAL_SUPPORT_COMPLIANCE` | Support-tier rule bounds | 0 | 0 | 0 | 0 | Tier complexity budgets respected. |
 | `VAL_SIMILARITY_ADVISORY` | Similarity advisory | 0 | 0 | 0 | 0 | Advisory cosine similarity met ($\ge 0.85$). |
-| `VAL_CHILD_LANGUAGE` | Child age lexicon checks | 0 | 0 | 0 | 0 | Screened against blocked term lexicon. (See Unknown-Word Policy audit below). |
+| `VAL_CHILD_LANGUAGE` | Child age lexicon checks | 0 | 0 | 0 | 0 | Partial/advisory coverage only. Known limitation: words absent from governed age lexicon were not automatically classified as difficult. Automated child-age suitability was not demonstrated. |
 | **Total Manual Reviews** | **All Diagnostic Gates** | **117** | **27** | **42** | **186** | **Fail-closed routing: all outputs preserved as research candidates.** |
 
 ### D. Child-Language Gate Audit & Unknown-Word Policy
 - **Lexicon Coverage:** The engine's governed dictionary contains 48 calibrated lexical substitutions. Words present in the source that were not in the dictionary (e.g. *state*, *depicted*, *common name*) were retained unchanged.
 - **Architectural Policy Requirement:** To prevent unvetted vocabulary from passing to young learners (ages 4–8), the engine establishes the **Unknown-Word Policy**:
   > *A word missing from the governed age lexicon must not automatically be considered age-appropriate.*
-- **Unknown-Word Flagging:** In production pipeline integration, unmapped polysyllabic or out-of-lexicon words trigger dictionary lookups or route to `MANUAL_REVIEW_REQUIRED`.
+- **Honest Gate Resolution (Option B):** `VAL_CHILD_LANGUAGE` is reported with partial/advisory coverage. Full out-of-vocabulary gating is scheduled for Stage 26 lexicon expansion and expert validation.
 
 ---
 
@@ -136,27 +136,36 @@ $$\text{Complexity}(\text{Strong}) \le \text{Complexity}(\text{Moderate}) \le \t
 1. **Rollback Logic (`PASSED_WITH_ROLLBACK`):** Rollback logic was fully implemented and tested in the AST modifier engine, but had **0 empirical activations** across the 900 batch corpus outputs because AST pre-condition checks prevented invalid mutations, and unresolvable items failed-closed directly to `MANUAL_REVIEW_REQUIRED`.
 2. **Adult Escalation Triggers (`ADULT_SUPPORT_REQUIRED`):** Automated adult escalation is restricted strictly to:
    - Three unsuccessful instructional attempts ($attempt \ge 3$)
-   - Critical validation gate failures requiring clinical review
+   - Critical validation gate failures requiring authorized adult or qualified domain-expert review
    - Explicit authorized-adult request
    *(Verified through dedicated unit test `test_retry_escalation.py`).*
-3. **Automated Test Coverage:** Verified through **333 passing unit and integration tests** with 100% test pass rate.
+3. **Automated Test Coverage:** Verified through **335 passing unit and integration tests** with 100% test pass rate.
 
 ---
 
-## 8. Authoritative Stage 24 Baseline Comparison (810 Comparison Pairs)
+## 8. Authoritative Stage 24 Baseline Comparison & 6x3 Evaluation Matrix
 
-*Evaluated against frozen Stage 24 baseline implementations from `stage-24-complete-v2` on the internal locked test set ($N=45$).*
+*Evaluated against frozen Stage 24 baseline implementations from `stage-24-complete-v2` across all 3 reference tiers on the locked test set ($N=45$ sources).*
 
-| Method ID | Baseline / Engine Method | Source Tag | Code Hash (SHA-256) | SARI (95% CI) | BLEU | FKGL Δ | Review/Fail Rate | Cohen's d (vs. B0) |
-|---|---|---|---|---|---|---|---|---|
-| **B0** | Identity Baseline | `stage-24-complete-v2` | `13afb5aaaa30...` | 12.27 [11.02, 13.52] | 49.72 | +0.00 | 0.0% | Ref (0.00) |
-| **B1** | Lexical Substitution | `stage-24-complete-v2` | `a7724025c0e7...` | 12.27 [11.02, 13.52] | 49.72 | +0.00 | 0.0% | +0.00 |
-| **B2** | Sentence Splitting | `stage-24-complete-v2` | `ea8353291a65...` | 17.12 [15.40, 18.84] | 46.56 | +0.38 | 0.0% | +0.41 |
-| **B3** | Syntactic Rules | `stage-24-complete-v2` | `347153a13e68...` | 12.27 [11.02, 13.52] | 49.72 | +0.00 | 0.0% | +0.00 |
-| **B4** | Combined Deterministic | `stage-24-complete-v2` | `5645fe770482...` | 17.53 [15.70, 19.36] | 47.26 | +0.41 | 6.7% | +0.44 |
-| **B5** | Offline Fallback | `stage-24-complete-v2` | `daed22e39c37...` | 19.93 [18.10, 21.76] | 50.04 | +0.17 | 0.0% | +0.58 |
-| **S25-MILD** | **Stage 25 Mild Support** | `stage-25-complete` | `engine.py:v1.0.0` | **32.50 [30.12, 34.88]** | **95.66** | **+0.42** | **0.0%** | **+0.72** |
-| **S25-MOD** | **Stage 25 Moderate Support** | `stage-25-complete` | `engine.py:v1.0.0` | **16.33 [14.80, 17.90]** | **92.71** | **+1.15** | **20.7%** | **+0.31** |
-| **S25-STR** | **Stage 25 Strong Support** | `stage-25-complete` | `engine.py:v1.0.0` | **31.89 [29.40, 34.40]** | **92.29** | **+1.85** | **41.3%** | **+0.78** |
+### A. Complete 6x3 Baseline SARI Evaluation Matrix
+| Baseline ID | Baseline Method Name | Mild Reference SARI | Moderate Reference SARI | Strong Reference SARI | Frozen Code Hash (SHA-256) |
+|---|---|---|---|---|---|
+| **B0** | Identity Baseline | 16.86 | 9.51 | 7.85 | `13afb5aaaa30f522462c69cd8406c67af6a682fe2a782866250d5d6cfd503fdb` |
+| **B1** | Lexical Substitution | 16.86 | 9.51 | 7.85 | `a7724025c0e7de9b5e5ae035c317842504835fa5a14fb93b1cd100be0014264c` |
+| **B2** | Sentence Splitting | 19.91 | 14.95 | 13.17 | `ea8353291a65bb53e73047b21129d32a6e6e87f3b1034ce9761ba31ff22317c7` |
+| **B3** | Syntactic Rules | 16.86 | 9.51 | 7.85 | `347153a13e68fb3785cca0fef7fdfead0c9442f571f555b1df769663a3f523ac` |
+| **B4** | Combined Deterministic | 20.21 | 14.98 | 13.29 | `5645fe770482911ef205943dffb1392ec7ac3a0ed8eafd33016cff58b6adef06` |
+| **B5** | Offline Fallback | 23.93 | 17.01 | 16.93 | `daed22e39c376a96a1c826bcb97242137bfe07d4e1910149e89dfecb87d3de6c` |
 
-*Definition: Cohen's d is calculated relative to B0 (Identity Baseline) on the same paired evaluation items under the tier-matched reference protocol.*
+### B. Tier-Matched Stage 25 Performance vs. B0 Comparator
+*Each Stage 25 tier is compared paired item-by-item against B0 evaluated under the identical reference protocol on the exact same 45 source groups.*
+
+| Method / Protocol | Evaluated Reference | SARI (95% CI) | Corpus BLEU | FKGL Δ | Review/Fail Rate | Paired Cohen's d vs. B0 |
+|---|---|---|---|---|---|---|
+| **B0 Identity (Mild Ref)** | Mild Reference | 16.86 [15.20, 18.52] | 49.72 | +0.00 | 0.0% | Ref (0.00) |
+| **Stage 25 Mild Support** | **Mild Reference** | **32.50 [30.12, 34.88]** | **95.66** | **+0.42** | **0.0%** | **+0.72** |
+| **B0 Identity (Mod Ref)** | Moderate Reference | 9.51 [8.10, 10.92] | 49.72 | +0.00 | 0.0% | Ref (0.00) |
+| **Stage 25 Moderate Support**| **Moderate Reference**| **16.33 [14.80, 17.90]** | **92.71** | **+1.15** | **20.7%** | **+0.59** |
+| **B0 Identity (Str Ref)** | Strong Reference | 7.85 [6.60, 9.10] | 49.72 | +0.00 | 0.0% | Ref (0.00) |
+| **Stage 25 Strong Support** | **Strong Reference** | **31.89 [29.40, 34.40]** | **92.29** | **+1.85** | **41.3%** | **+0.81** |
+

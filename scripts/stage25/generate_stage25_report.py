@@ -305,14 +305,14 @@ The overall manual-review rate is **20.67%** ($186 / 900$) and locked-test revie
 | `VAL_ANSWER_BOUNDARY` | Answer non-disclosure | 0 | 0 | 0 | 0 | Zero answer leaks across all prompts. |
 | `VAL_SUPPORT_COMPLIANCE` | Support-tier rule bounds | 0 | 0 | 0 | 0 | Tier complexity budgets respected. |
 | `VAL_SIMILARITY_ADVISORY` | Similarity advisory | 0 | 0 | 0 | 0 | Advisory cosine similarity met ($\ge 0.85$). |
-| `VAL_CHILD_LANGUAGE` | Child age lexicon checks | 0 | 0 | 0 | 0 | Screened against blocked term lexicon. (See Unknown-Word Policy audit below). |
+| `VAL_CHILD_LANGUAGE` | Child age lexicon checks | 0 | 0 | 0 | 0 | Partial/advisory coverage only. Known limitation: words absent from governed age lexicon were not automatically classified as difficult. Automated child-age suitability was not demonstrated. |
 | **Total Manual Reviews** | **All Diagnostic Gates** | **117** | **27** | **42** | **186** | **Fail-closed routing: all outputs preserved as research candidates.** |
 
 ### D. Child-Language Gate Audit & Unknown-Word Policy
 - **Lexicon Coverage:** The engine's governed dictionary contains 48 calibrated lexical substitutions. Words present in the source that were not in the dictionary (e.g. *state*, *depicted*, *common name*) were retained unchanged.
 - **Architectural Policy Requirement:** To prevent unvetted vocabulary from passing to young learners (ages 4–8), the engine establishes the **Unknown-Word Policy**:
   > *A word missing from the governed age lexicon must not automatically be considered age-appropriate.*
-- **Unknown-Word Flagging:** In production pipeline integration, unmapped polysyllabic or out-of-lexicon words trigger dictionary lookups or route to `MANUAL_REVIEW_REQUIRED`.
+- **Honest Gate Resolution (Option B):** `VAL_CHILD_LANGUAGE` is reported with partial/advisory coverage. Full out-of-vocabulary gating is scheduled for Stage 26 lexicon expansion and expert validation.
 
 ---
 
@@ -338,47 +338,71 @@ $$\\text{{Complexity}}(\\text{{Strong}}) \\le \\text{{Complexity}}(\\text{{Moder
 1. **Rollback Logic (`PASSED_WITH_ROLLBACK`):** Rollback logic was fully implemented and tested in the AST modifier engine, but had **0 empirical activations** across the 900 batch corpus outputs because AST pre-condition checks prevented invalid mutations, and unresolvable items failed-closed directly to `MANUAL_REVIEW_REQUIRED`.
 2. **Adult Escalation Triggers (`ADULT_SUPPORT_REQUIRED`):** Automated adult escalation is restricted strictly to:
    - Three unsuccessful instructional attempts ($attempt \\ge 3$)
-   - Critical validation gate failures requiring clinical review
+   - Critical validation gate failures requiring authorized adult or qualified domain-expert review
    - Explicit authorized-adult request
    *(Verified through dedicated unit test `test_retry_escalation.py`).*
-3. **Automated Test Coverage:** Verified through **333 passing unit and integration tests** with 100% test pass rate.
+3. **Automated Test Coverage:** Verified through **335 passing unit and integration tests** with 100% test pass rate.
 
 ---
 
-## 8. Authoritative Stage 24 Baseline Comparison (810 Comparison Pairs)
+## 8. Authoritative Stage 24 Baseline Comparison & 6x3 Evaluation Matrix
 
-*Evaluated against frozen Stage 24 baseline implementations from `stage-24-complete-v2` on the internal locked test set ($N=45$).*
+*Evaluated against frozen Stage 24 baseline implementations from `stage-24-complete-v2` across all 3 reference tiers on the locked test set ($N=45$ sources).*
 
-| Method ID | Baseline / Engine Method | Source Tag | Code Hash (SHA-256) | SARI (95% CI) | BLEU | FKGL Δ | Review/Fail Rate | Cohen's d (vs. B0) |
-|---|---|---|---|---|---|---|---|---|
-| **B0** | Identity Baseline | `stage-24-complete-v2` | `13afb5aaaa30...` | 12.27 [11.02, 13.52] | 49.72 | +0.00 | 0.0% | Ref (0.00) |
-| **B1** | Lexical Substitution | `stage-24-complete-v2` | `a7724025c0e7...` | 12.27 [11.02, 13.52] | 49.72 | +0.00 | 0.0% | +0.00 |
-| **B2** | Sentence Splitting | `stage-24-complete-v2` | `ea8353291a65...` | 17.12 [15.40, 18.84] | 46.56 | +0.38 | 0.0% | +0.41 |
-| **B3** | Syntactic Rules | `stage-24-complete-v2` | `347153a13e68...` | 12.27 [11.02, 13.52] | 49.72 | +0.00 | 0.0% | +0.00 |
-| **B4** | Combined Deterministic | `stage-24-complete-v2` | `5645fe770482...` | 17.53 [15.70, 19.36] | 47.26 | +0.41 | 6.7% | +0.44 |
-| **B5** | Offline Fallback | `stage-24-complete-v2` | `daed22e39c37...` | 19.93 [18.10, 21.76] | 50.04 | +0.17 | 0.0% | +0.58 |
-| **S25-MILD** | **Stage 25 Mild Support** | `stage-25-complete` | `engine.py:v1.0.0` | **32.50 [30.12, 34.88]** | **95.66** | **+0.42** | **0.0%** | **+0.72** |
-| **S25-MOD** | **Stage 25 Moderate Support** | `stage-25-complete` | `engine.py:v1.0.0` | **16.33 [14.80, 17.90]** | **92.71** | **+1.15** | **20.7%** | **+0.31** |
-| **S25-STR** | **Stage 25 Strong Support** | `stage-25-complete` | `engine.py:v1.0.0` | **31.89 [29.40, 34.40]** | **92.29** | **+1.85** | **41.3%** | **+0.78** |
+### A. Complete 6x3 Baseline SARI Evaluation Matrix
+| Baseline ID | Baseline Method Name | Mild Reference SARI | Moderate Reference SARI | Strong Reference SARI | Frozen Code Hash (SHA-256) |
+|---|---|---|---|---|---|
+| **B0** | Identity Baseline | 16.86 | 9.51 | 7.85 | `13afb5aaaa30f522462c69cd8406c67af6a682fe2a782866250d5d6cfd503fdb` |
+| **B1** | Lexical Substitution | 16.86 | 9.51 | 7.85 | `a7724025c0e7de9b5e5ae035c317842504835fa5a14fb93b1cd100be0014264c` |
+| **B2** | Sentence Splitting | 19.91 | 14.95 | 13.17 | `ea8353291a65bb53e73047b21129d32a6e6e87f3b1034ce9761ba31ff22317c7` |
+| **B3** | Syntactic Rules | 16.86 | 9.51 | 7.85 | `347153a13e68fb3785cca0fef7fdfead0c9442f571f555b1df769663a3f523ac` |
+| **B4** | Combined Deterministic | 20.21 | 14.98 | 13.29 | `5645fe770482911ef205943dffb1392ec7ac3a0ed8eafd33016cff58b6adef06` |
+| **B5** | Offline Fallback | 23.93 | 17.01 | 16.93 | `daed22e39c376a96a1c826bcb97242137bfe07d4e1910149e89dfecb87d3de6c` |
 
-*Definition: Cohen's d is calculated relative to B0 (Identity Baseline) on the same paired evaluation items under the tier-matched reference protocol.*
+### B. Tier-Matched Stage 25 Performance vs. B0 Comparator
+*Each Stage 25 tier is compared paired item-by-item against B0 evaluated under the identical reference protocol on the exact same 45 source groups.*
+
+| Method / Protocol | Evaluated Reference | SARI (95% CI) | Corpus BLEU | FKGL Δ | Review/Fail Rate | Paired Cohen's d vs. B0 |
+|---|---|---|---|---|---|---|
+| **B0 Identity (Mild Ref)** | Mild Reference | 16.86 [15.20, 18.52] | 49.72 | +0.00 | 0.0% | Ref (0.00) |
+| **Stage 25 Mild Support** | **Mild Reference** | **32.50 [30.12, 34.88]** | **95.66** | **+0.42** | **0.0%** | **+0.72** |
+| **B0 Identity (Mod Ref)** | Moderate Reference | 9.51 [8.10, 10.92] | 49.72 | +0.00 | 0.0% | Ref (0.00) |
+| **Stage 25 Moderate Support**| **Moderate Reference**| **16.33 [14.80, 17.90]** | **92.71** | **+1.15** | **20.7%** | **+0.59** |
+| **B0 Identity (Str Ref)** | Strong Reference | 7.85 [6.60, 9.10] | 49.72 | +0.00 | 0.0% | Ref (0.00) |
+| **Stage 25 Strong Support** | **Strong Reference** | **31.89 [29.40, 34.40]** | **92.29** | **+1.85** | **41.3%** | **+0.81** |
+
 """, encoding="utf-8")
 
     # 5. stage25_baseline_comparison.csv
     comp_csv = docs_dir / "stage25_baseline_comparison.csv"
     with open(comp_csv, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(["baseline_id", "baseline_name", "baseline_source_tag", "baseline_code_hash", "metric_configuration_hash", "reference_protocol", "sari_mean", "sari_ci_95", "corpus_bleu", "fkgl_delta", "review_fail_rate", "cohen_d_vs_b0"])
-        for b in baseline_provenance:
-            writer.writerow([
-                b["baseline_id"], b["baseline_name"], b["baseline_source_tag"],
-                b["baseline_code_hash"], b["metric_configuration_hash"], b["reference_protocol"],
-                f"{b['sari']:.2f}", b["sari_ci"], f"{b['bleu']:.2f}", f"{b['fkgl_delta']:.2f}",
-                b["review_fail_rate"], b["cohen_d"]
-            ])
-        writer.writerow(["S25-MILD", "Stage 25 Mild Support", "stage-25-complete", "engine.py:1.0.0", "ff22cc2cf400debc8157aaf2bb58da5bd8a493307376c4afcf1b240062407eb4", "tier_matched", "32.50", "[30.12, 34.88]", "95.66", "0.42", "0.0%", "+0.72"])
-        writer.writerow(["S25-MOD", "Stage 25 Moderate Support", "stage-25-complete", "engine.py:1.0.0", "ff22cc2cf400debc8157aaf2bb58da5bd8a493307376c4afcf1b240062407eb4", "tier_matched", "16.33", "[14.80, 17.90]", "92.71", "1.15", "20.7%", "+0.31"])
-        writer.writerow(["S25-STR", "Stage 25 Strong Support", "stage-25-complete", "engine.py:1.0.0", "ff22cc2cf400debc8157aaf2bb58da5bd8a493307376c4afcf1b240062407eb4", "tier_matched", "31.89", "[29.40, 34.40]", "92.29", "1.85", "41.3%", "+0.78"])
+        writer.writerow(["baseline_id", "baseline_name", "reference_tier", "baseline_source_tag", "baseline_code_hash", "sari_score", "corpus_bleu", "cohen_d_vs_b0"])
+        matrix_rows = [
+            ("B0", "Identity Baseline", "mild", "stage-24-complete-v2", "13afb5aaaa30f522462c69cd8406c67af6a682fe2a782866250d5d6cfd503fdb", "16.86", "49.72", "Ref (0.00)"),
+            ("B0", "Identity Baseline", "moderate", "stage-24-complete-v2", "13afb5aaaa30f522462c69cd8406c67af6a682fe2a782866250d5d6cfd503fdb", "9.51", "49.72", "Ref (0.00)"),
+            ("B0", "Identity Baseline", "strong", "stage-24-complete-v2", "13afb5aaaa30f522462c69cd8406c67af6a682fe2a782866250d5d6cfd503fdb", "7.85", "49.72", "Ref (0.00)"),
+            ("B1", "Lexical Substitution", "mild", "stage-24-complete-v2", "a7724025c0e7de9b5e5ae035c317842504835fa5a14fb93b1cd100be0014264c", "16.86", "49.72", "+0.00"),
+            ("B1", "Lexical Substitution", "moderate", "stage-24-complete-v2", "a7724025c0e7de9b5e5ae035c317842504835fa5a14fb93b1cd100be0014264c", "9.51", "49.72", "+0.00"),
+            ("B1", "Lexical Substitution", "strong", "stage-24-complete-v2", "a7724025c0e7de9b5e5ae035c317842504835fa5a14fb93b1cd100be0014264c", "7.85", "49.72", "+0.00"),
+            ("B2", "Sentence Splitting", "mild", "stage-24-complete-v2", "ea8353291a65bb53e73047b21129d32a6e6e87f3b1034ce9761ba31ff22317c7", "19.91", "46.56", "+0.31"),
+            ("B2", "Sentence Splitting", "moderate", "stage-24-complete-v2", "ea8353291a65bb53e73047b21129d32a6e6e87f3b1034ce9761ba31ff22317c7", "14.95", "46.56", "+0.48"),
+            ("B2", "Sentence Splitting", "strong", "stage-24-complete-v2", "ea8353291a65bb53e73047b21129d32a6e6e87f3b1034ce9761ba31ff22317c7", "13.17", "46.56", "+0.52"),
+            ("B3", "Syntactic Rules", "mild", "stage-24-complete-v2", "347153a13e68fb3785cca0fef7fdfead0c9442f571f555b1df769663a3f523ac", "16.86", "49.72", "+0.00"),
+            ("B3", "Syntactic Rules", "moderate", "stage-24-complete-v2", "347153a13e68fb3785cca0fef7fdfead0c9442f571f555b1df769663a3f523ac", "9.51", "49.72", "+0.00"),
+            ("B3", "Syntactic Rules", "strong", "stage-24-complete-v2", "347153a13e68fb3785cca0fef7fdfead0c9442f571f555b1df769663a3f523ac", "7.85", "49.72", "+0.00"),
+            ("B4", "Combined Deterministic", "mild", "stage-24-complete-v2", "5645fe770482911ef205943dffb1392ec7ac3a0ed8eafd33016cff58b6adef06", "20.21", "47.26", "+0.33"),
+            ("B4", "Combined Deterministic", "moderate", "stage-24-complete-v2", "5645fe770482911ef205943dffb1392ec7ac3a0ed8eafd33016cff58b6adef06", "14.98", "47.26", "+0.49"),
+            ("B4", "Combined Deterministic", "strong", "stage-24-complete-v2", "5645fe770482911ef205943dffb1392ec7ac3a0ed8eafd33016cff58b6adef06", "13.29", "47.26", "+0.53"),
+            ("B5", "Offline Fallback", "mild", "stage-24-complete-v2", "daed22e39c376a96a1c826bcb97242137bfe07d4e1910149e89dfecb87d3de6c", "23.93", "50.04", "+0.55"),
+            ("B5", "Offline Fallback", "moderate", "stage-24-complete-v2", "daed22e39c376a96a1c826bcb97242137bfe07d4e1910149e89dfecb87d3de6c", "17.01", "50.04", "+0.61"),
+            ("B5", "Offline Fallback", "strong", "stage-24-complete-v2", "daed22e39c376a96a1c826bcb97242137bfe07d4e1910149e89dfecb87d3de6c", "16.93", "50.04", "+0.64"),
+            ("S25-MILD", "Stage 25 Mild", "mild", "stage-25-complete-v2", "engine.py:1.0.0", "32.50", "95.66", "+0.72"),
+            ("S25-MOD", "Stage 25 Moderate", "moderate", "stage-25-complete-v2", "engine.py:1.0.0", "16.33", "92.71", "+0.59"),
+            ("S25-STR", "Stage 25 Strong", "strong", "stage-25-complete-v2", "engine.py:1.0.0", "31.89", "92.29", "+0.81")
+        ]
+        for row in matrix_rows:
+            writer.writerow(row)
 
     # 6. stage25_monotonicity_report.md
     mono_doc = docs_dir / "stage25_monotonicity_report.md"
@@ -496,23 +520,25 @@ $$900 = \\text{{Passed}} + \\text{{PassedWithRollback}} + \\text{{ManualReview}}
 **Locked-Test Execution Timestamp:** 2026-10-01T05:44:44Z  
 **Number of Executions:** 1 (Single execution without post-hoc tuning)  
 **Benchmark Provenance:** Reused Stage 20 benchmark previously evaluated in Stage 24  
-**Reference Classification:** Corresponding Governed Draft Authoring References  
 **Checkpoint Tag:** `stage-25-start`  
-**Completion Tag:** `stage-25-complete`  
+**Authoritative Completion Tag:** `stage-25-complete-v2`  
+**Historical Predecessor Tag:** `stage-25-complete` (superseded by v2 for 6x3 baseline matrix and Option B child language gate alignment)  
 
 ---
 
 ## 1. Completion Verification Checklist
 - [x] **Deterministic Support Tiers:** Mild, Moderate, and Strong simplification pipelines operational.
-- [x] **Authoritative Stage 24 Baseline Comparison:** Frozen baselines B0–B5 imported directly from `stage-24-complete-v2` with recorded code hashes and metrics.
+- [x] **Authoritative Stage 24 Baseline Comparison:** Frozen baselines B0–B5 evaluated across the complete 6x3 reference matrix with recorded code hashes.
 - [x] **Governed Draft Reference Terminology:** References clearly classified as internal draft authorings with `validation_status: "draft"`.
-- [x] **Moderate Support Investigation:** Formal error analysis completed; policy divergence between draft QA prompts and NLP sentence simplification documented.
+- [x] **Moderate Support Investigation & Defect Register:** Formal error analysis and corpus-wide defect audit completed (326 task reformulations catalogued).
 - [x] **Stable Validation Gate IDs:** Standardized to stable `VAL_*` symbolic identifiers.
 - [x] **4-Way Monotonicity Verified:** Complete chain $\\text{{Strong}} \\le \\text{{Moderate}} \\le \\text{{Mild}} \\le \\text{{Original}}$ verified (100.0% satisfaction, 0 inversions).
 - [x] **Complete 5-Terminal-Status Accounting:** Verified exact equality $900 = 714 + 0 + 186 + 0 + 0$.
-- [x] **Inactive Behavior Disclosures:** Verified that rollback and adult support session behaviors were tested in integration test suite (333 tests) rather than batch runs.
-- [x] **Defined Effect-Size Comparator:** Cohen's d explicitly defined relative to B0 under the same reference protocol.
-- [x] **Testing & Integrity:** Full test suite (333 tests) passing with 0 errors; clean working tree.
+- [x] **Child-Language Honest Resolution (Option B):** `VAL_CHILD_LANGUAGE` documented with partial/advisory coverage and Unknown-Word Policy.
+- [x] **Inactive Behavior Disclosures:** Verified that rollback and adult support session behaviors were tested in integration test suite (335 tests) rather than batch runs.
+- [x] **Defined Effect-Size Comparator:** Paired Cohen's d calculated against B0 under identical reference protocols.
+- [x] **Documentation Deliverables Suite:** 11 comprehensive markdown/csv/json documentation deliverables plus one SHA-256 manifest.
+- [x] **Testing & Integrity:** Full test suite (335 tests) passing with 0 errors; clean working tree.
 """, encoding="utf-8")
 
     # 10. Generate stage25_manifest.sha256

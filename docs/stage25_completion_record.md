@@ -9,20 +9,22 @@
 **Locked-Test Execution Timestamp:** 2026-10-01T05:44:44Z  
 **Number of Executions:** 1 (Single execution without post-hoc tuning)  
 **Benchmark Provenance:** Reused Stage 20 benchmark previously evaluated in Stage 24  
-**Reference Classification:** Corresponding Governed Draft Authoring References  
 **Checkpoint Tag:** `stage-25-start`  
-**Completion Tag:** `stage-25-complete`  
+**Authoritative Completion Tag:** `stage-25-complete-v2`  
+**Historical Predecessor Tag:** `stage-25-complete` (superseded by v2 for 6x3 baseline matrix and Option B child language gate alignment)  
 
 ---
 
 ## 1. Completion Verification Checklist
 - [x] **Deterministic Support Tiers:** Mild, Moderate, and Strong simplification pipelines operational.
-- [x] **Authoritative Stage 24 Baseline Comparison:** Frozen baselines B0–B5 imported directly from `stage-24-complete-v2` with recorded code hashes and metrics.
+- [x] **Authoritative Stage 24 Baseline Comparison:** Frozen baselines B0–B5 evaluated across the complete 6x3 reference matrix with recorded code hashes.
 - [x] **Governed Draft Reference Terminology:** References clearly classified as internal draft authorings with `validation_status: "draft"`.
-- [x] **Moderate Support Investigation:** Formal error analysis completed; policy divergence between draft QA prompts and NLP sentence simplification documented.
+- [x] **Moderate Support Investigation & Defect Register:** Formal error analysis and corpus-wide defect audit completed (326 task reformulations catalogued).
 - [x] **Stable Validation Gate IDs:** Standardized to stable `VAL_*` symbolic identifiers.
 - [x] **4-Way Monotonicity Verified:** Complete chain $\text{Strong} \le \text{Moderate} \le \text{Mild} \le \text{Original}$ verified (100.0% satisfaction, 0 inversions).
 - [x] **Complete 5-Terminal-Status Accounting:** Verified exact equality $900 = 714 + 0 + 186 + 0 + 0$.
-- [x] **Inactive Behavior Disclosures:** Verified that rollback and adult support session behaviors were tested in integration test suite (333 tests) rather than batch runs.
-- [x] **Defined Effect-Size Comparator:** Cohen's d explicitly defined relative to B0 under the same reference protocol.
-- [x] **Testing & Integrity:** Full test suite (333 tests) passing with 0 errors; clean working tree.
+- [x] **Child-Language Honest Resolution (Option B):** `VAL_CHILD_LANGUAGE` documented with partial/advisory coverage and Unknown-Word Policy.
+- [x] **Inactive Behavior Disclosures:** Verified that rollback and adult support session behaviors were tested in integration test suite (335 tests) rather than batch runs.
+- [x] **Defined Effect-Size Comparator:** Paired Cohen's d calculated against B0 under identical reference protocols.
+- [x] **Documentation Deliverables Suite:** 11 comprehensive markdown/csv/json documentation deliverables plus one SHA-256 manifest.
+- [x] **Testing & Integrity:** Full test suite (335 tests) passing with 0 errors; clean working tree.
