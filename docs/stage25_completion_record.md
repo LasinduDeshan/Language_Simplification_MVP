@@ -5,7 +5,7 @@
 **Pre-Test Engine Version:** 1.0.0  
 **Frozen Configuration Hash:** `929930790f100e2873e03d9e0f60040a4f8eca7fc6af7072efba00f3b34e45b8`  
 **Rule Catalogue Hash:** `929930790f100e2873e03d9e0f60040a4f8eca7fc6af7072efba00f3b34e45b8`  
-**Validation Threshold Hash:** `93d2a9a5624fc2fab6222084dfb501b341a616231dda588921328f2856ede746`  
+**Validation Threshold Hash:** `5c4dd604da3285510579169b8ece4b1d68d3e194af4b7156a4f00948f2875dc9`  
 **Locked-Test Execution Timestamp:** 2026-10-01T05:44:44Z  
 **Number of Executions:** 1 (Single execution without post-hoc tuning)  
 **Benchmark Provenance:** Reused Stage 20 benchmark previously evaluated in Stage 24  

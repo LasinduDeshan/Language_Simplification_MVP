@@ -1,0 +1,138 @@
+{
+  "register_id": "STAGE25-DATASET-DEFECT-001",
+  "created_at": "2026-10-01T07:30:00Z",
+  "stage": "Stage 25 — Controlled English Simplification Engine",
+  "source_release": "Release 0.2.0 (Stage 20 Internal Benchmark)",
+  "governance_disposition": "Locked test benchmark preserved unmodified for Stage 25; dataset defects registered for remediation in Stage 26 / expert review",
+  "taxonomy_classification_future": [
+    "text_simplification",
+    "instruction_rephrasing",
+    "activity_format_transformation",
+    "question_generation",
+    "response_mode_adaptation"
+  ],
+  "affected_records_count": 10,
+  "inconclusive_metric_statement": "Moderate tier-matched SARI (16.33) is inconclusive because the corresponding draft reference subset contains pedagogical task reformulations and activity format modifications rather than controlled sentence simplifications.",
+  "flagged_records": [
+    {
+      "source_item_id": "SRC-EN-GRA-0228",
+      "simplification_pair_id": "SIMP-EN-000685",
+      "target_support_level": "moderate",
+      "source_text": "The curious kitten ran around the wooden fence.",
+      "draft_reference_text": "Where did the kitten run? Choose: around.",
+      "simplification_pair_eligible": false,
+      "record_type": "activity_format_transformation",
+      "review_reason": "response_mode_or_task_intent_changed",
+      "requires_expert_review": true,
+      "notes": "Original declarative sentence transformed into a multiple-choice reading comprehension question."
+    },
+    {
+      "source_item_id": "SRC-EN-GRA-0229",
+      "simplification_pair_id": "SIMP-EN-000688",
+      "target_support_level": "moderate",
+      "source_text": "The curious kitten ran near the wooden fence.",
+      "draft_reference_text": "Where did the kitten run? Choose: near.",
+      "simplification_pair_eligible": false,
+      "record_type": "activity_format_transformation",
+      "review_reason": "response_mode_or_task_intent_changed",
+      "requires_expert_review": true,
+      "notes": "Declarative spatial sentence converted to question-answer selection prompt."
+    },
+    {
+      "source_item_id": "SRC-EN-VOC-0103",
+      "simplification_pair_id": "SIMP-EN-000310",
+      "target_support_level": "moderate",
+      "source_text": "State the common name of the depicted lion.",
+      "draft_reference_text": "Look at the picture. Point to the lion.",
+      "simplification_pair_eligible": false,
+      "record_type": "response_mode_adaptation",
+      "review_reason": "response_mode_or_task_intent_changed",
+      "requires_expert_review": true,
+      "notes": "Naming instruction transformed into pointing interaction."
+    },
+    {
+      "source_item_id": "SRC-EN-VOC-0113",
+      "simplification_pair_id": "SIMP-EN-000340",
+      "target_support_level": "moderate",
+      "source_text": "State the common name of the depicted whale.",
+      "draft_reference_text": "Look at the picture. Point to the whale.",
+      "simplification_pair_eligible": false,
+      "record_type": "response_mode_adaptation",
+      "review_reason": "response_mode_or_task_intent_changed",
+      "requires_expert_review": true,
+      "notes": "Naming instruction transformed into pointing interaction."
+    },
+    {
+      "source_item_id": "SRC-EN-VOC-0115",
+      "simplification_pair_id": "SIMP-EN-000346",
+      "target_support_level": "moderate",
+      "source_text": "State the common name of the depicted frog.",
+      "draft_reference_text": "Look at the picture. Point to the frog.",
+      "simplification_pair_eligible": false,
+      "record_type": "response_mode_adaptation",
+      "review_reason": "response_mode_or_task_intent_changed",
+      "requires_expert_review": true,
+      "notes": "Naming instruction transformed into pointing interaction."
+    },
+    {
+      "source_item_id": "SRC-EN-VOC-0116",
+      "simplification_pair_id": "SIMP-EN-000349",
+      "target_support_level": "moderate",
+      "source_text": "State the common name of the depicted duck.",
+      "draft_reference_text": "Look at the picture. Point to the duck.",
+      "simplification_pair_eligible": false,
+      "record_type": "response_mode_adaptation",
+      "review_reason": "response_mode_or_task_intent_changed",
+      "requires_expert_review": true,
+      "notes": "Naming instruction transformed into pointing interaction."
+    },
+    {
+      "source_item_id": "SRC-EN-VOC-0112",
+      "simplification_pair_id": "SIMP-EN-000337",
+      "target_support_level": "moderate",
+      "source_text": "State the common name of the depicted dolphin.",
+      "draft_reference_text": "Look at the picture. Point to the dolphin.",
+      "simplification_pair_eligible": false,
+      "record_type": "response_mode_adaptation",
+      "review_reason": "response_mode_or_task_intent_changed",
+      "requires_expert_review": true,
+      "notes": "Naming instruction transformed into pointing interaction."
+    },
+    {
+      "source_item_id": "SRC-EN-GRA-0212",
+      "simplification_pair_id": "SIMP-EN-000637",
+      "target_support_level": "moderate",
+      "source_text": "Yesterday, the student ate a creative project.",
+      "draft_reference_text": "It happened yesterday. Choose the past verb: ate.",
+      "simplification_pair_eligible": false,
+      "record_type": "task_reformulation",
+      "review_reason": "semantic_implausibility_and_task_intent_changed",
+      "requires_expert_review": true,
+      "notes": "Source contains semantic plausibility defect ('ate a creative project'); draft reference reformulates into verb identification question."
+    },
+    {
+      "source_item_id": "SRC-EN-GRA-0210",
+      "simplification_pair_id": "SIMP-EN-000631",
+      "target_support_level": "moderate",
+      "source_text": "Yesterday, the student drew a creative project.",
+      "draft_reference_text": "It happened yesterday. Choose the past verb: drew.",
+      "simplification_pair_eligible": false,
+      "record_type": "task_reformulation",
+      "review_reason": "response_mode_or_task_intent_changed",
+      "requires_expert_review": true,
+      "notes": "Sentence reformulates into multiple-choice verb identification question."
+    },
+    {
+      "source_item_id": "SRC-EN-VOC-0140",
+      "simplification_pair_id": "SIMP-EN-000421",
+      "target_support_level": "moderate",
+      "source_text": "Observe the character engaging in dancing across the field.",
+      "draft_reference_text": "What is happening? The character is dancing.",
+      "simplification_pair_eligible": false,
+      "record_type": "question_generation",
+      "review_reason": "response_mode_or_task_intent_changed",
+      "requires_expert_review": true,
+      "notes": "Observation instruction converted into rhetorical question-and-answer format."
+    }
+  ]
+}

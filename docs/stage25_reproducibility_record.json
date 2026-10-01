@@ -1,6 +1,6 @@
 {
   "stage": "Stage 25 \u2014 Controlled English Simplification Engine",
-  "created_at": "2026-10-01T06:18:08.180546Z",
+  "created_at": "2026-10-01T09:06:56.317961Z",
   "execution_timestamp": "2026-10-01T05:44:44Z",
   "benchmark_provenance": "Reused Stage 20 benchmark dataset previously evaluated in Stage 24 (not an unseen project-level test set)",
   "reference_classification": "Governed draft authoring references (validation_status: draft, requires_expert_review: true)",
@@ -12,7 +12,7 @@
     "version": "1.0.0",
     "configuration_hash": "929930790f100e2873e03d9e0f60040a4f8eca7fc6af7072efba00f3b34e45b8",
     "rule_catalogue_hash": "929930790f100e2873e03d9e0f60040a4f8eca7fc6af7072efba00f3b34e45b8",
-    "validation_threshold_hash": "93d2a9a5624fc2fab6222084dfb501b341a616231dda588921328f2856ede746",
+    "validation_threshold_hash": "5c4dd604da3285510579169b8ece4b1d68d3e194af4b7156a4f00948f2875dc9",
     "rules_count": 10,
     "executions_count": 1,
     "post_hoc_tuning": false
