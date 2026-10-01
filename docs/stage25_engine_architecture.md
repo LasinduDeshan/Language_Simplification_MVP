@@ -19,7 +19,7 @@ flowchart TD
     D --> E["Support-Level Controller (Precedence & Immutability)"]
     E --> F["Controlled Simplification Planner"]
     F --> G["Execution Pipeline<br/>- Nominalization Unpacking<br/>- Passive to Active<br/>- Coordinated Splitting<br/>- Lexical Substitution<br/>- Step Numbering & Chunking<br/>- Governed Vocab Definitions"]
-    G --> H["12-Gate Meaning & Safety Validator"]
+    G --> H["12-Gate Meaning & Safety Validator (VAL_*)"]
     H -->|Pass (Clean)| I["Terminal Status: PASSED"]
     H -->|Pass (Rollback)| J["Terminal Status: PASSED_WITH_ROLLBACK"]
     H -->|Ambiguous / Soft Warning| K["Terminal Status: MANUAL_REVIEW_REQUIRED"]

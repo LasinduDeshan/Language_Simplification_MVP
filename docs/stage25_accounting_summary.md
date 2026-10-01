@@ -17,9 +17,9 @@ $$900 = \text{Passed} + \text{PassedWithRollback} + \text{ManualReview} + \text{
 
 | Split | Passed | Passed with Rollback | Manual Review | Rejected | Adult Support Required | Total |
 |---|---|---|---|---|---|---|
-| **Development** | 513 | 0 | 117 | 0 | 0 | **630** |
-| **Validation** | 108 | 0 | 27 | 0 | 0 | **135** |
-| **Locked Test** | 93 | 0 | 42 | 0 | 0 | **135** |
+| **Development Candidate Train** | 513 | 0 | 117 | 0 | 0 | **630** |
+| **Development Candidate Validation** | 108 | 0 | 27 | 0 | 0 | **135** |
+| **Locked Test Set** | 93 | 0 | 42 | 0 | 0 | **135** |
 | **Total Corpus** | **714** | **0** | **186** | **0** | **0** | **900** |
 
 *Zero-Loss Accounting Check: $714 + 0 + 186 + 0 + 0 = 900$ (100.0% exact equality).*
