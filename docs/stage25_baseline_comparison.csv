@@ -1,5 +1,10 @@
-comparison_id,stage25_tier,baseline_comparator,sari_score,corpus_bleu,cohen_d,comparison_type
-COMP-001,Mild,B0_Identity,32.50,95.66,+0.45,tier_matched
-COMP-002,Moderate,B4_Combined,29.86,92.71,+0.32,multi_reference
-COMP-003,Strong,B4_Combined,31.89,92.29,+0.51,tier_matched
-COMP-004,Strong,B5_Fallback,29.86,92.71,+0.68,multi_reference
+comparison_id,method,tier_protocol,sari_mean,sari_ci_95,corpus_bleu,fkgl_delta,review_rate,cohen_d
+COMP-B0,Stage 24 B0 (Identity),Frozen generic,22.84,"[21.10, 24.58]",95.80,0.00,0.0%,0.00
+COMP-B1,Stage 24 B1 (Lexical),Frozen generic,28.12,"[26.40, 29.84]",94.10,0.35,0.0%,0.38
+COMP-B2,Stage 24 B2 (Syntax),Frozen generic,31.45,"[29.60, 33.30]",91.20,0.82,0.3%,0.42
+COMP-B3,Stage 24 B3 (WordNet),Frozen generic,29.80,"[27.90, 31.70]",93.40,0.50,0.0%,0.35
+COMP-B4,Stage 24 B4 (Combined),Frozen generic,33.20,"[31.10, 35.30]",89.50,1.10,3.3%,0.52
+COMP-B5,Stage 24 B5 (Fallback),Frozen generic,35.84,"[33.40, 38.28]",82.10,1.45,42.3%,0.68
+COMP-S25-MILD,Stage 25 Mild,Mild Tier-Matched,32.50,"[30.12, 34.88]",95.66,0.42,0.0%,0.45
+COMP-S25-MOD,Stage 25 Moderate,Moderate Tier-Matched,16.33,"[14.80, 17.90]",92.71,1.15,20.7%,0.32
+COMP-S25-STR,Stage 25 Strong,Strong Tier-Matched,31.89,"[29.40, 34.40]",92.29,1.85,41.3%,0.51

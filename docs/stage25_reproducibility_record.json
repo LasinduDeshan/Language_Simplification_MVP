@@ -1,6 +1,8 @@
 {
   "stage": "Stage 25 \u2014 Controlled English Simplification Engine",
-  "created_at": "2026-10-01T05:30:02.548135Z",
+  "created_at": "2026-10-01T05:45:45.889736Z",
+  "execution_timestamp": "2026-10-01T05:44:44Z",
+  "benchmark_provenance": "Reused Stage 20 benchmark dataset previously evaluated in Stage 24 (not an unseen project-level test set)",
   "git": {
     "checkpoint_tag": "stage-25-start",
     "completion_tag": "stage-25-complete"
@@ -8,7 +10,11 @@
   "engine": {
     "version": "1.0.0",
     "configuration_hash": "929930790f100e2873e03d9e0f60040a4f8eca7fc6af7072efba00f3b34e45b8",
-    "rules_count": 10
+    "rule_catalogue_hash": "929930790f100e2873e03d9e0f60040a4f8eca7fc6af7072efba00f3b34e45b8",
+    "validation_threshold_hash": "93d2a9a5624fc2fab6222084dfb501b341a616231dda588921328f2856ede746",
+    "rules_count": 10,
+    "executions_count": 1,
+    "post_hoc_tuning": false
   },
   "dataset_accounting": {
     "development_source_groups": 210,
@@ -17,7 +23,12 @@
     "validation_outputs": 135,
     "locked_test_source_groups": 45,
     "locked_test_outputs": 135,
-    "total_outputs": 900
+    "total_outputs": 900,
+    "passed": 714,
+    "passed_with_rollback": 0,
+    "manual_review": 186,
+    "rejected": 0,
+    "adult_support_required": 0
   },
   "governance": {
     "validation_status": "draft",
