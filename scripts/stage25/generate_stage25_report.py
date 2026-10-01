@@ -51,9 +51,14 @@ def main():
             "baseline_source_tag": "stage-24-complete-v2",
             "baseline_code_hash": "13afb5aaaa30f522462c69cd8406c67af6a682fe2a782866250d5d6cfd503fdb",
             "metric_configuration_hash": "ff22cc2cf400debc8157aaf2bb58da5bd8a493307376c4afcf1b240062407eb4",
-            "reference_protocol": "tier_matched",
-            "sari": 12.27,
-            "sari_ci": "[11.02, 13.52]",
+            "per_tier_sari": {
+                "mild_reference": 16.86,
+                "moderate_reference": 9.51,
+                "strong_reference": 7.85,
+                "arithmetic_mean": 11.41
+            },
+            "multi_reference_sari": 12.27,
+            "aggregation_note": "Multi-reference SARI (12.27) pools n-grams across all 3 references simultaneously; per-tier single-reference evaluation yields Mild=16.86, Moderate=9.51, Strong=7.85 (mean=11.41).",
             "bleu": 49.72,
             "fkgl_delta": 0.00,
             "review_fail_rate": "0.0%",
@@ -65,9 +70,14 @@ def main():
             "baseline_source_tag": "stage-24-complete-v2",
             "baseline_code_hash": "a7724025c0e7de9b5e5ae035c317842504835fa5a14fb93b1cd100be0014264c",
             "metric_configuration_hash": "ff22cc2cf400debc8157aaf2bb58da5bd8a493307376c4afcf1b240062407eb4",
-            "reference_protocol": "tier_matched",
-            "sari": 12.27,
-            "sari_ci": "[11.02, 13.52]",
+            "per_tier_sari": {
+                "mild_reference": 16.86,
+                "moderate_reference": 9.51,
+                "strong_reference": 7.85,
+                "arithmetic_mean": 11.41
+            },
+            "multi_reference_sari": 12.27,
+            "aggregation_note": "Multi-reference SARI (12.27) pools n-grams across all 3 references simultaneously; per-tier single-reference evaluation yields Mild=16.86, Moderate=9.51, Strong=7.85 (mean=11.41).",
             "bleu": 49.72,
             "fkgl_delta": 0.00,
             "review_fail_rate": "0.0%",
@@ -79,9 +89,14 @@ def main():
             "baseline_source_tag": "stage-24-complete-v2",
             "baseline_code_hash": "ea8353291a65bb53e73047b21129d32a6e6e87f3b1034ce9761ba31ff22317c7",
             "metric_configuration_hash": "ff22cc2cf400debc8157aaf2bb58da5bd8a493307376c4afcf1b240062407eb4",
-            "reference_protocol": "tier_matched",
-            "sari": 17.12,
-            "sari_ci": "[15.40, 18.84]",
+            "per_tier_sari": {
+                "mild_reference": 19.91,
+                "moderate_reference": 14.95,
+                "strong_reference": 13.17,
+                "arithmetic_mean": 16.01
+            },
+            "multi_reference_sari": 17.12,
+            "aggregation_note": "Multi-reference SARI (17.12) pools n-grams across all 3 references simultaneously; per-tier single-reference evaluation yields Mild=19.91, Moderate=14.95, Strong=13.17 (mean=16.01).",
             "bleu": 46.56,
             "fkgl_delta": 0.38,
             "review_fail_rate": "0.0%",
@@ -93,9 +108,14 @@ def main():
             "baseline_source_tag": "stage-24-complete-v2",
             "baseline_code_hash": "347153a13e68fb3785cca0fef7fdfead0c9442f571f555b1df769663a3f523ac",
             "metric_configuration_hash": "ff22cc2cf400debc8157aaf2bb58da5bd8a493307376c4afcf1b240062407eb4",
-            "reference_protocol": "tier_matched",
-            "sari": 12.27,
-            "sari_ci": "[11.02, 13.52]",
+            "per_tier_sari": {
+                "mild_reference": 16.86,
+                "moderate_reference": 9.51,
+                "strong_reference": 7.85,
+                "arithmetic_mean": 11.41
+            },
+            "multi_reference_sari": 12.27,
+            "aggregation_note": "Multi-reference SARI (12.27) pools n-grams across all 3 references simultaneously; per-tier single-reference evaluation yields Mild=16.86, Moderate=9.51, Strong=7.85 (mean=11.41).",
             "bleu": 49.72,
             "fkgl_delta": 0.00,
             "review_fail_rate": "0.0%",
@@ -107,9 +127,14 @@ def main():
             "baseline_source_tag": "stage-24-complete-v2",
             "baseline_code_hash": "5645fe770482911ef205943dffb1392ec7ac3a0ed8eafd33016cff58b6adef06",
             "metric_configuration_hash": "ff22cc2cf400debc8157aaf2bb58da5bd8a493307376c4afcf1b240062407eb4",
-            "reference_protocol": "tier_matched",
-            "sari": 17.53,
-            "sari_ci": "[15.70, 19.36]",
+            "per_tier_sari": {
+                "mild_reference": 20.21,
+                "moderate_reference": 14.98,
+                "strong_reference": 13.29,
+                "arithmetic_mean": 16.16
+            },
+            "multi_reference_sari": 17.53,
+            "aggregation_note": "Multi-reference SARI (17.53) pools n-grams across all 3 references simultaneously; per-tier single-reference evaluation yields Mild=20.21, Moderate=14.98, Strong=13.29 (mean=16.16).",
             "bleu": 47.26,
             "fkgl_delta": 0.41,
             "review_fail_rate": "6.7%",
@@ -121,9 +146,14 @@ def main():
             "baseline_source_tag": "stage-24-complete-v2",
             "baseline_code_hash": "daed22e39c376a96a1c826bcb97242137bfe07d4e1910149e89dfecb87d3de6c",
             "metric_configuration_hash": "ff22cc2cf400debc8157aaf2bb58da5bd8a493307376c4afcf1b240062407eb4",
-            "reference_protocol": "tier_matched",
-            "sari": 19.93,
-            "sari_ci": "[18.10, 21.76]",
+            "per_tier_sari": {
+                "mild_reference": 23.93,
+                "moderate_reference": 17.01,
+                "strong_reference": 16.93,
+                "arithmetic_mean": 19.29
+            },
+            "multi_reference_sari": 19.93,
+            "aggregation_note": "Multi-reference SARI (19.93) pools n-grams across all 3 references simultaneously; per-tier single-reference evaluation yields Mild=23.93, Moderate=17.01, Strong=16.93 (mean=19.29).",
             "bleu": 50.04,
             "fkgl_delta": 0.17,
             "review_fail_rate": "0.0%",
@@ -371,6 +401,14 @@ $$\\text{{Complexity}}(\\text{{Strong}}) \\le \\text{{Complexity}}(\\text{{Moder
 | **B0 Identity (Str Ref)** | Strong Reference | 7.85 [6.60, 9.10] | 49.72 | +0.00 | 0.0% | Ref (0.00) |
 | **Stage 25 Strong Support** | **Strong Reference** | **31.89 [29.40, 34.40]** | **92.29** | **+1.85** | **41.3%** | **+0.81** |
 
+### C. Numerical Reconciliation & Aggregation Methodology Note
+- **Multi-Reference SARI (Stage 24 Corpus-Level Pooling):** In Stage 24, baseline SARI scores were computed using multi-reference SARI where all 3 references (Mild, Moderate, Strong) were pooled simultaneously per source item. This yielded B0=12.27, B1=12.27, B2=17.12, B3=12.27, B4=17.53, and B5=19.93.
+- **Per-Tier Single-Reference Evaluation (Stage 25 Tier-Matched Matrix):** In Stage 25, baselines were evaluated independently against each single-tier reference (Mild, Moderate, Strong). The arithmetic mean of these per-tier evaluations is:
+  - B0 / B1 / B3: $(16.86 + 9.51 + 7.85) / 3 = \mathbf{11.41}$ (vs. multi-reference pooled 12.27)
+  - B2: $(19.91 + 14.95 + 13.17) / 3 = \mathbf{16.01}$ (vs. multi-reference pooled 17.12)
+  - B4: $(20.21 + 14.98 + 13.29) / 3 = \mathbf{16.16}$ (vs. multi-reference pooled 17.53)
+  - B5: $(23.93 + 17.01 + 16.93) / 3 = \mathbf{19.29}$ (vs. multi-reference pooled 19.93)
+- **Mathematical Reason for Divergence:** SARI's n-gram Keep and Deletion denominators expand when multiple reference sentences are pooled simultaneously, altering precision/recall weights relative to single-reference evaluation. Both metrics are mathematically valid under their respective defined protocols.
 """, encoding="utf-8")
 
     # 5. stage25_baseline_comparison.csv

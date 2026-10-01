@@ -169,3 +169,11 @@ $$\text{Complexity}(\text{Strong}) \le \text{Complexity}(\text{Moderate}) \le \t
 | **B0 Identity (Str Ref)** | Strong Reference | 7.85 [6.60, 9.10] | 49.72 | +0.00 | 0.0% | Ref (0.00) |
 | **Stage 25 Strong Support** | **Strong Reference** | **31.89 [29.40, 34.40]** | **92.29** | **+1.85** | **41.3%** | **+0.81** |
 
+### C. Numerical Reconciliation & Aggregation Methodology Note
+- **Multi-Reference SARI (Stage 24 Corpus-Level Pooling):** In Stage 24, baseline SARI scores were computed using multi-reference SARI where all 3 references (Mild, Moderate, Strong) were pooled simultaneously per source item. This yielded B0=12.27, B1=12.27, B2=17.12, B3=12.27, B4=17.53, and B5=19.93.
+- **Per-Tier Single-Reference Evaluation (Stage 25 Tier-Matched Matrix):** In Stage 25, baselines were evaluated independently against each single-tier reference (Mild, Moderate, Strong). The arithmetic mean of these per-tier evaluations is:
+  - B0 / B1 / B3: $(16.86 + 9.51 + 7.85) / 3 = \mathbf11.41$ (vs. multi-reference pooled 12.27)
+  - B2: $(19.91 + 14.95 + 13.17) / 3 = \mathbf16.01$ (vs. multi-reference pooled 17.12)
+  - B4: $(20.21 + 14.98 + 13.29) / 3 = \mathbf16.16$ (vs. multi-reference pooled 17.53)
+  - B5: $(23.93 + 17.01 + 16.93) / 3 = \mathbf19.29$ (vs. multi-reference pooled 19.93)
+- **Mathematical Reason for Divergence:** SARI's n-gram Keep and Deletion denominators expand when multiple reference sentences are pooled simultaneously, altering precision/recall weights relative to single-reference evaluation. Both metrics are mathematically valid under their respective defined protocols.
