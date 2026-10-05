@@ -1,0 +1,5 @@
+model_id,repository,revision,licence,tokenizer_revision,device,dtype,cpu_feasibility_benchmarked,method_category
+google/mt5-small,google/mt5-small,426f8d38072044810018f6dbba53444453b3df8f,Apache-2.0,426f8d38072044810018f6dbba53444453b3df8f,cpu,float32,True,pretrained_zero_shot
+facebook/mbart-large-50,facebook/mbart-large-50,748805f1dfa83d47d4e5f76f4db9da737a346e96,MIT,748805f1dfa83d47d4e5f76f4db9da737a346e96,cpu,float32,True,pretrained_zero_shot
+gemini-api,google-generative-ai/gemini-family,live-api-discovery,Commercial API Terms of Service,api-internal,cloud-api,N/A,True,gemini_prompted
+controlled_stage25,internal/controlled_simplification,stage-25-complete-v2:6b78550,Proprietary MVP,spacy-en_core_web_sm:3.8.0,cpu,N/A,True,controlled_stage25

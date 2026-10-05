@@ -1,0 +1,3 @@
+"""
+Model simplification test package.
+"""

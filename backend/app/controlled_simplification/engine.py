@@ -12,7 +12,8 @@ from app.controlled_simplification.schemas import (
     SupportLevel,
     AppliedOperation,
     ComplexityDeltas,
-    TerminalStatus
+    TerminalStatus,
+    ProtectedElementsConfig
 )
 from app.controlled_simplification.registry import compute_configuration_hash
 from app.controlled_simplification.tier_config import get_tier_config
@@ -228,3 +229,37 @@ class ControlledSimplificationEngine:
         PrivacySafeAuditor.log_response(response)
 
         return response
+
+    def validate_custom_output(
+        self,
+        source_text: str,
+        simplified_text: str,
+        target_support_level: SupportLevel,
+        caller_protected_elements: Optional[List[str]] = None
+    ):
+        """
+        Validates custom candidate text against the source text using all 12 deterministic gates.
+        """
+        source_doc = self.spacy_manager.get_doc(source_text)
+        simp_doc = self.spacy_manager.get_doc(simplified_text)
+        
+        caller_cfg = None
+        if caller_protected_elements:
+            caller_cfg = ProtectedElementsConfig(exact_preservation=caller_protected_elements)
+            
+        protection_context = self.protection_extractor.merge_with_caller_constraints(
+            text=source_text,
+            caller_config=caller_cfg
+        )
+        
+        source_action_graph = self.action_builder.build_graph(source_text)
+        simplified_action_graph = self.action_builder.build_graph(simplified_text)
+        
+        return self.output_validator.validate_output(
+            source_text=source_text,
+            simplified_text=simplified_text,
+            applied_tier=target_support_level,
+            source_action_graph=source_action_graph,
+            simplified_action_graph=simplified_action_graph,
+            effective_protections=protection_context
+        )

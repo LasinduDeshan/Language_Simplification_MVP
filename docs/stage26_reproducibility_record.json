@@ -1,0 +1,785 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "Stage 26",
+  "execution_timestamp": "2026-10-05T14:03:33Z",
+  "prerequisite_tag": "stage-25-complete-v2",
+  "start_tag": "stage-26-start",
+  "evaluation_splits": {
+    "validation_development": {
+      "groups": 45,
+      "pairs": 135
+    },
+    "locked_test_full": {
+      "groups": 45,
+      "pairs": 135
+    },
+    "locked_test_clean_text": {
+      "groups": 13,
+      "pairs": 39
+    }
+  },
+  "results": {
+    "val_dev": {
+      "Identity (B0)": {
+        "mean_sari": 10.73,
+        "mean_bleu": 10.6,
+        "mean_fkgl_red": 0.0,
+        "avg_latency_ms": 0.1,
+        "dispositions": {
+          "passed": 135,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 14.64,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 22.23,
+            "fkgl_reduction": 0.0
+          },
+          "moderate": {
+            "sari": 9.76,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 6.32,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 7.8,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 3.26,
+            "fkgl_reduction": 0.0
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 135
+      },
+      "Stage 25 Controlled": {
+        "mean_sari": 23.61,
+        "mean_bleu": 11.82,
+        "mean_fkgl_red": 0.48,
+        "avg_latency_ms": 23.7,
+        "dispositions": {
+          "passed": 0,
+          "repair_passed": 0,
+          "manual_review_required": 135,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 28.0,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 25.54,
+            "fkgl_reduction": 0.44
+          },
+          "moderate": {
+            "sari": 22.49,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 6.46,
+            "fkgl_reduction": 0.5
+          },
+          "strong": {
+            "sari": 20.34,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 3.45,
+            "fkgl_reduction": 0.5
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 135
+      },
+      "Google mT5-small": {
+        "mean_sari": 11.75,
+        "mean_bleu": 10.6,
+        "mean_fkgl_red": 0.05,
+        "avg_latency_ms": 0.0,
+        "dispositions": {
+          "passed": 135,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 17.69,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 22.23,
+            "fkgl_reduction": 0.14
+          },
+          "moderate": {
+            "sari": 9.76,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 6.32,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 7.8,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 3.26,
+            "fkgl_reduction": 0.0
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 135
+      },
+      "Facebook mBART-50": {
+        "mean_sari": 12.23,
+        "mean_bleu": 10.6,
+        "mean_fkgl_red": 0.07,
+        "avg_latency_ms": 0.0,
+        "dispositions": {
+          "passed": 135,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 16.88,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 22.23,
+            "fkgl_reduction": 0.1
+          },
+          "moderate": {
+            "sari": 9.76,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 6.32,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 10.05,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 3.26,
+            "fkgl_reduction": 0.1
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 135
+      },
+      "Gemini API (Zero-Shot)": {
+        "mean_sari": 21.53,
+        "mean_bleu": 10.41,
+        "mean_fkgl_red": 1.87,
+        "avg_latency_ms": 0.0,
+        "dispositions": {
+          "passed": 135,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 17.69,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 22.23,
+            "fkgl_reduction": 0.14
+          },
+          "moderate": {
+            "sari": 13.59,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 6.32,
+            "fkgl_reduction": 0.18
+          },
+          "strong": {
+            "sari": 33.31,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 2.68,
+            "fkgl_reduction": 5.27
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 135
+      },
+      "Stage 26 Hybrid Pipeline": {
+        "mean_sari": 21.53,
+        "mean_bleu": 10.41,
+        "mean_fkgl_red": 1.87,
+        "avg_latency_ms": 0.1,
+        "dispositions": {
+          "passed": 65,
+          "repair_passed": 0,
+          "manual_review_required": 68,
+          "rejected": 0,
+          "fallback_used": 2
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 17.69,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 22.23,
+            "fkgl_reduction": 0.14
+          },
+          "moderate": {
+            "sari": 13.59,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 6.32,
+            "fkgl_reduction": 0.18
+          },
+          "strong": {
+            "sari": 33.31,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 2.68,
+            "fkgl_reduction": 5.27
+          }
+        },
+        "fallbacks_count": 2,
+        "repairs_count": 0,
+        "total_pairs": 135
+      }
+    },
+    "test_full": {
+      "Identity (B0)": {
+        "mean_sari": 11.41,
+        "mean_bleu": 13.44,
+        "mean_fkgl_red": 0.0,
+        "avg_latency_ms": 0.1,
+        "dispositions": {
+          "passed": 135,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 16.86,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 32.7,
+            "fkgl_reduction": 0.0
+          },
+          "moderate": {
+            "sari": 9.51,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 4.95,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 7.85,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 2.67,
+            "fkgl_reduction": 0.0
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 135
+      },
+      "Stage 25 Controlled": {
+        "mean_sari": 19.26,
+        "mean_bleu": 13.9,
+        "mean_fkgl_red": 0.41,
+        "avg_latency_ms": 25.9,
+        "dispositions": {
+          "passed": 0,
+          "repair_passed": 0,
+          "manual_review_required": 135,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 23.69,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 34.07,
+            "fkgl_reduction": 0.13
+          },
+          "moderate": {
+            "sari": 17.92,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 4.95,
+            "fkgl_reduction": 0.55
+          },
+          "strong": {
+            "sari": 16.16,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 2.69,
+            "fkgl_reduction": 0.55
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 135
+      },
+      "Google mT5-small": {
+        "mean_sari": 12.65,
+        "mean_bleu": 13.44,
+        "mean_fkgl_red": 0.05,
+        "avg_latency_ms": 0.0,
+        "dispositions": {
+          "passed": 135,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 20.59,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 32.7,
+            "fkgl_reduction": 0.16
+          },
+          "moderate": {
+            "sari": 9.51,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 4.95,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 7.85,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 2.67,
+            "fkgl_reduction": 0.0
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 135
+      },
+      "Facebook mBART-50": {
+        "mean_sari": 13.9,
+        "mean_bleu": 13.44,
+        "mean_fkgl_red": 0.11,
+        "avg_latency_ms": 0.0,
+        "dispositions": {
+          "passed": 135,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 20.59,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 32.7,
+            "fkgl_reduction": 0.16
+          },
+          "moderate": {
+            "sari": 9.51,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 4.95,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 11.6,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 2.67,
+            "fkgl_reduction": 0.16
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 135
+      },
+      "Gemini API (Zero-Shot)": {
+        "mean_sari": 22.52,
+        "mean_bleu": 13.99,
+        "mean_fkgl_red": 1.69,
+        "avg_latency_ms": 0.0,
+        "dispositions": {
+          "passed": 135,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 20.59,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 32.7,
+            "fkgl_reduction": 0.16
+          },
+          "moderate": {
+            "sari": 13.32,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 4.95,
+            "fkgl_reduction": 0.18
+          },
+          "strong": {
+            "sari": 33.66,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 4.31,
+            "fkgl_reduction": 4.74
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 135
+      },
+      "Stage 26 Hybrid Pipeline": {
+        "mean_sari": 22.52,
+        "mean_bleu": 13.99,
+        "mean_fkgl_red": 1.69,
+        "avg_latency_ms": 0.1,
+        "dispositions": {
+          "passed": 53,
+          "repair_passed": 0,
+          "manual_review_required": 80,
+          "rejected": 0,
+          "fallback_used": 2
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 20.59,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 32.7,
+            "fkgl_reduction": 0.16
+          },
+          "moderate": {
+            "sari": 13.32,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 4.95,
+            "fkgl_reduction": 0.18
+          },
+          "strong": {
+            "sari": 33.66,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 4.31,
+            "fkgl_reduction": 4.74
+          }
+        },
+        "fallbacks_count": 2,
+        "repairs_count": 0,
+        "total_pairs": 135
+      }
+    },
+    "test_clean": {
+      "Identity (B0)": {
+        "mean_sari": 13.05,
+        "mean_bleu": 17.27,
+        "mean_fkgl_red": 0.0,
+        "avg_latency_ms": 0.1,
+        "dispositions": {
+          "passed": 39,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 21.74,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 46.41,
+            "fkgl_reduction": 0.0
+          },
+          "moderate": {
+            "sari": 11.02,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 5.02,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 6.4,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 0.37,
+            "fkgl_reduction": 0.0
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 39
+      },
+      "Stage 25 Controlled": {
+        "mean_sari": 24.76,
+        "mean_bleu": 18.92,
+        "mean_fkgl_red": 0.52,
+        "avg_latency_ms": 27.1,
+        "dispositions": {
+          "passed": 0,
+          "repair_passed": 0,
+          "manual_review_required": 39,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 34.92,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 51.14,
+            "fkgl_reduction": 0.08
+          },
+          "moderate": {
+            "sari": 21.84,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 5.03,
+            "fkgl_reduction": 0.73
+          },
+          "strong": {
+            "sari": 17.53,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 0.6,
+            "fkgl_reduction": 0.73
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 39
+      },
+      "Google mT5-small": {
+        "mean_sari": 13.05,
+        "mean_bleu": 17.27,
+        "mean_fkgl_red": 0.0,
+        "avg_latency_ms": 0.0,
+        "dispositions": {
+          "passed": 39,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 21.74,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 46.41,
+            "fkgl_reduction": 0.0
+          },
+          "moderate": {
+            "sari": 11.02,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 5.02,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 6.4,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 0.37,
+            "fkgl_reduction": 0.0
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 39
+      },
+      "Facebook mBART-50": {
+        "mean_sari": 13.05,
+        "mean_bleu": 17.27,
+        "mean_fkgl_red": 0.0,
+        "avg_latency_ms": 0.0,
+        "dispositions": {
+          "passed": 39,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 21.74,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 46.41,
+            "fkgl_reduction": 0.0
+          },
+          "moderate": {
+            "sari": 11.02,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 5.02,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 6.4,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 0.37,
+            "fkgl_reduction": 0.0
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 39
+      },
+      "Gemini API (Zero-Shot)": {
+        "mean_sari": 21.26,
+        "mean_bleu": 17.16,
+        "mean_fkgl_red": 1.59,
+        "avg_latency_ms": 0.0,
+        "dispositions": {
+          "passed": 39,
+          "repair_passed": 0,
+          "manual_review_required": 0,
+          "rejected": 0,
+          "fallback_used": 0
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 21.74,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 46.41,
+            "fkgl_reduction": 0.0
+          },
+          "moderate": {
+            "sari": 11.02,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 5.02,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 31.02,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 0.06,
+            "fkgl_reduction": 4.78
+          }
+        },
+        "fallbacks_count": 0,
+        "repairs_count": 0,
+        "total_pairs": 39
+      },
+      "Stage 26 Hybrid Pipeline": {
+        "mean_sari": 21.26,
+        "mean_bleu": 17.16,
+        "mean_fkgl_red": 1.59,
+        "avg_latency_ms": 0.1,
+        "dispositions": {
+          "passed": 18,
+          "repair_passed": 0,
+          "manual_review_required": 19,
+          "rejected": 0,
+          "fallback_used": 2
+        },
+        "tier_metrics": {
+          "mild": {
+            "sari": 21.74,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 46.41,
+            "fkgl_reduction": 0.0
+          },
+          "moderate": {
+            "sari": 11.02,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 5.02,
+            "fkgl_reduction": 0.0
+          },
+          "strong": {
+            "sari": 31.02,
+            "sari_add": 0.0,
+            "sari_keep": 0.0,
+            "sari_del": 0.0,
+            "bleu": 0.06,
+            "fkgl_reduction": 4.78
+          }
+        },
+        "fallbacks_count": 2,
+        "repairs_count": 0,
+        "total_pairs": 39
+      }
+    }
+  }
+}
