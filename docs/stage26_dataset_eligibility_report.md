@@ -4,7 +4,7 @@
 **Source Corpus Release:** Release 0.2.0 (Internal MVP Dataset)  
 **Total Pairs Audited:** 900 Pairs  
 **Total Source Groups Audited:** 300 Source Groups  
-**Created At:** 2026-10-05 13:18:02Z  
+**Created At:** 2026-10-05 14:21:31Z  
 **Governance Invariant:** Original Stage 20 corpus records remain **100% byte-for-byte immutable**. Internal model development approvals are recorded strictly within derived manifests.
 
 ---

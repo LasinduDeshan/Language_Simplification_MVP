@@ -1,19 +1,19 @@
-split,model,total_pairs,mean_sari,mild_sari,mod_sari,strong_sari,mean_bleu,mild_bleu,mod_bleu,strong_bleu,fkgl_reduction,avg_latency_ms,passed_rate,repair_rate,review_rate,fallback_rate
-val_dev,Identity (B0),135,10.73,14.64,9.76,7.8,10.6,22.23,6.32,3.26,0.0,0.1,100.0,0.0,0.0,0.0
-val_dev,Stage 25 Controlled,135,23.61,28.0,22.49,20.34,11.82,25.54,6.46,3.45,0.48,23.7,0.0,0.0,100.0,0.0
-val_dev,Google mT5-small,135,11.75,17.69,9.76,7.8,10.6,22.23,6.32,3.26,0.05,0.0,100.0,0.0,0.0,0.0
-val_dev,Facebook mBART-50,135,12.23,16.88,9.76,10.05,10.6,22.23,6.32,3.26,0.07,0.0,100.0,0.0,0.0,0.0
-val_dev,Gemini API (Zero-Shot),135,21.53,17.69,13.59,33.31,10.41,22.23,6.32,2.68,1.87,0.0,100.0,0.0,0.0,0.0
-val_dev,Stage 26 Hybrid Pipeline,135,21.53,17.69,13.59,33.31,10.41,22.23,6.32,2.68,1.87,0.1,48.1,0.0,50.4,1.5
-test_full,Identity (B0),135,11.41,16.86,9.51,7.85,13.44,32.7,4.95,2.67,0.0,0.1,100.0,0.0,0.0,0.0
-test_full,Stage 25 Controlled,135,19.26,23.69,17.92,16.16,13.9,34.07,4.95,2.69,0.41,25.9,0.0,0.0,100.0,0.0
-test_full,Google mT5-small,135,12.65,20.59,9.51,7.85,13.44,32.7,4.95,2.67,0.05,0.0,100.0,0.0,0.0,0.0
-test_full,Facebook mBART-50,135,13.9,20.59,9.51,11.6,13.44,32.7,4.95,2.67,0.11,0.0,100.0,0.0,0.0,0.0
-test_full,Gemini API (Zero-Shot),135,22.52,20.59,13.32,33.66,13.99,32.7,4.95,4.31,1.69,0.0,100.0,0.0,0.0,0.0
-test_full,Stage 26 Hybrid Pipeline,135,22.52,20.59,13.32,33.66,13.99,32.7,4.95,4.31,1.69,0.1,39.3,0.0,59.3,1.5
-test_clean,Identity (B0),39,13.05,21.74,11.02,6.4,17.27,46.41,5.02,0.37,0.0,0.1,100.0,0.0,0.0,0.0
-test_clean,Stage 25 Controlled,39,24.76,34.92,21.84,17.53,18.92,51.14,5.03,0.6,0.52,27.1,0.0,0.0,100.0,0.0
-test_clean,Google mT5-small,39,13.05,21.74,11.02,6.4,17.27,46.41,5.02,0.37,0.0,0.0,100.0,0.0,0.0,0.0
-test_clean,Facebook mBART-50,39,13.05,21.74,11.02,6.4,17.27,46.41,5.02,0.37,0.0,0.0,100.0,0.0,0.0,0.0
-test_clean,Gemini API (Zero-Shot),39,21.26,21.74,11.02,31.02,17.16,46.41,5.02,0.06,1.59,0.0,100.0,0.0,0.0,0.0
-test_clean,Stage 26 Hybrid Pipeline,39,21.26,21.74,11.02,31.02,17.16,46.41,5.02,0.06,1.59,0.1,46.2,0.0,48.7,5.1
+split,model,execution_mode,total_pairs,mean_sari,mild_sari,mod_sari,strong_sari,mean_bleu,mild_bleu,mod_bleu,strong_bleu,fkgl_reduction,avg_latency_ms,validation_pass_rate,changed_output_rate,identity_output_rate,empty_invalid_rate,tier_compliance_rate,meaning_preservation_rate,fallback_rate
+val_dev,Identity (B0),identity_baseline,135,10.73,14.64,9.76,7.8,10.6,22.23,6.32,3.26,0.0,0.1,100.0,0.0,100.0,0.0,100.0,100.0,0.0
+val_dev,Stage 25 Controlled Engine,local_native_inference,135,23.61,28.0,22.49,20.34,11.82,25.54,6.46,3.45,0.48,23.0,0.0,34.8,65.2,0.0,0.0,0.0,0.0
+val_dev,Google mT5-small (Offline Fixture),simulated_adapter,135,11.75,17.69,9.76,7.8,10.6,22.23,6.32,3.26,0.05,0.0,100.0,3.0,97.0,0.0,3.0,100.0,0.0
+val_dev,Facebook mBART-50 (Offline Fixture),simulated_adapter,135,12.23,16.88,9.76,10.05,10.6,22.23,6.32,3.26,0.07,0.0,100.0,4.4,95.6,0.0,4.4,100.0,0.0
+val_dev,Gemini Adapter (Offline Fixture),offline_fixture,135,21.53,17.69,13.59,33.31,10.41,22.23,6.32,2.68,1.87,0.0,100.0,40.0,60.0,0.0,100.0,100.0,0.0
+val_dev,Stage 26 Hybrid Pipeline,hybrid_pipeline,135,21.53,17.69,13.59,33.31,10.41,22.23,6.32,2.68,1.87,0.1,48.1,40.0,60.0,0.0,100.0,100.0,1.5
+test_full,Identity (B0),identity_baseline,135,11.41,16.86,9.51,7.85,13.44,32.7,4.95,2.67,0.0,0.1,100.0,0.0,100.0,0.0,100.0,100.0,0.0
+test_full,Stage 25 Controlled Engine,local_native_inference,135,19.26,23.69,17.92,16.16,13.9,34.07,4.95,2.69,0.41,24.3,0.0,21.5,78.5,0.0,0.0,0.0,0.0
+test_full,Google mT5-small (Offline Fixture),simulated_adapter,135,12.65,20.59,9.51,7.85,13.44,32.7,4.95,2.67,0.05,0.0,100.0,3.7,96.3,0.0,3.7,100.0,0.0
+test_full,Facebook mBART-50 (Offline Fixture),simulated_adapter,135,13.9,20.59,9.51,11.6,13.44,32.7,4.95,2.67,0.11,0.0,100.0,7.4,92.6,0.0,7.4,100.0,0.0
+test_full,Gemini Adapter (Offline Fixture),offline_fixture,135,22.52,20.59,13.32,33.66,13.99,32.7,4.95,4.31,1.69,0.0,100.0,40.7,59.3,0.0,100.0,100.0,0.0
+test_full,Stage 26 Hybrid Pipeline,hybrid_pipeline,135,22.52,20.59,13.32,33.66,13.99,32.7,4.95,4.31,1.69,0.1,39.3,40.7,59.3,0.0,100.0,100.0,1.5
+test_clean,Identity (B0),identity_baseline,39,13.05,21.74,11.02,6.4,17.27,46.41,5.02,0.37,0.0,0.1,100.0,0.0,100.0,0.0,100.0,100.0,0.0
+test_clean,Stage 25 Controlled Engine,local_native_inference,39,24.76,34.92,21.84,17.53,18.92,51.14,5.03,0.6,0.52,24.3,0.0,28.2,71.8,0.0,0.0,0.0,0.0
+test_clean,Google mT5-small (Offline Fixture),simulated_adapter,39,13.05,21.74,11.02,6.4,17.27,46.41,5.02,0.37,0.0,0.0,100.0,0.0,100.0,0.0,0.0,100.0,0.0
+test_clean,Facebook mBART-50 (Offline Fixture),simulated_adapter,39,13.05,21.74,11.02,6.4,17.27,46.41,5.02,0.37,0.0,0.0,100.0,0.0,100.0,0.0,0.0,100.0,0.0
+test_clean,Gemini Adapter (Offline Fixture),offline_fixture,39,21.26,21.74,11.02,31.02,17.16,46.41,5.02,0.06,1.59,0.0,100.0,33.3,66.7,0.0,100.0,100.0,0.0
+test_clean,Stage 26 Hybrid Pipeline,hybrid_pipeline,39,21.26,21.74,11.02,31.02,17.16,46.41,5.02,0.06,1.59,0.0,46.2,33.3,66.7,0.0,100.0,100.0,5.1

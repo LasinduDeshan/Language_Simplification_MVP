@@ -71,18 +71,25 @@ def main():
         if not ({"mild", "moderate", "strong"}.issubset(levels) or len(g_pairs) == 3):
             incomplete_group_ids.add(gid)
 
-    # Apply 7-class pair precedence:
-    # 1. task_reformulation_excluded
-    # 2. non_development_split_excluded
-    # 3. incomplete_source_group_excluded
-    # 4. rights_or_governance_excluded
-    # 5. quality_failed
-    # 6. manual_review_unresolved
-    # 7. eligible_for_internal_model_development
+    # First determine group-level defect status
+    contaminated_group_ids = set()
+    for gid, g_pairs in groups.items():
+        if any((p.get("pair_id") in flagged_pair_ids or p.get("simplification_pair_id") in flagged_pair_ids) for p in g_pairs):
+            contaminated_group_ids.add(gid)
+
+    # Apply 7-class pair precedence with group contamination propagation:
+    # 1. task_reformulation_excluded (direct defect on pair)
+    # 2. non_development_split_excluded (val/test splits preserved for evaluation)
+    # 3. source_group_reformulation_excluded (clean-looking pair contaminated by group-mate)
+    # 4. incomplete_source_group_excluded
+    # 5. rights_or_governance_excluded
+    # 6. quality_failed / manual_review_unresolved
+    # 7. eligible_for_internal_model_development (pristine complete 3-tier group)
 
     pair_dispositions = {}
     pair_counts = {
         "task_reformulation_excluded": 0,
+        "source_group_reformulation_excluded": 0,
         "non_development_split_excluded": 0,
         "incomplete_source_group_excluded": 0,
         "rights_or_governance_excluded": 0,
@@ -97,22 +104,42 @@ def main():
         pid = p.get("pair_id") or p.get("simplification_pair_id")
         gid = p.get("source_group_id") or p.get("source_item_id") or p.get("source_activity_id")
         split = p["_split"]
+        is_direct_defect = (pid in flagged_pair_ids or p.get("pair_id") in flagged_pair_ids)
+        is_group_contaminated = (gid in contaminated_group_ids)
 
         # Precedence check
-        if pid in flagged_pair_ids or p.get("pair_id") in flagged_pair_ids:
+        if is_direct_defect:
             disp = "task_reformulation_excluded"
+            group_eligible = False
+            group_reason = "direct_task_reformulation_defect"
         elif split != "train":
             disp = "non_development_split_excluded"
+            group_eligible = not is_group_contaminated
+            group_reason = "non_development_split" if not is_group_contaminated else "another_tier_contains_task_reformulation"
+        elif is_group_contaminated:
+            disp = "source_group_reformulation_excluded"
+            group_eligible = False
+            group_reason = "another_tier_contains_task_reformulation"
         elif gid in incomplete_group_ids:
             disp = "incomplete_source_group_excluded"
-        elif p.get("rights", {}).get("external_api_processing_allowed") is False and p.get("rights", {}).get("commercial_use_allowed") is True: # rights check
+            group_eligible = False
+            group_reason = "incomplete_tier_group"
+        elif p.get("rights", {}).get("external_api_processing_allowed") is False and p.get("rights", {}).get("commercial_use_allowed") is True:
             disp = "rights_or_governance_excluded"
+            group_eligible = False
+            group_reason = "governance_restricted"
         elif p.get("validation_status") == "rejected" or p.get("quality_status") == "failed":
             disp = "quality_failed"
+            group_eligible = False
+            group_reason = "quality_failed"
         elif p.get("requires_expert_review") is True and p.get("review_status") == "unresolved":
             disp = "manual_review_unresolved"
+            group_eligible = False
+            group_reason = "manual_review_unresolved"
         else:
             disp = "eligible_for_internal_model_development"
+            group_eligible = True
+            group_reason = None
 
         pair_dispositions[pid] = disp
         pair_counts[disp] += 1
@@ -122,6 +149,9 @@ def main():
             "source_group_id": gid,
             "split": split,
             "support_level": p.get("support_level") or p.get("target_support_level"),
+            "direct_pair_defect": is_direct_defect,
+            "group_eligibility": group_eligible,
+            "group_exclusion_reason": group_reason,
             "source_record_research_eligible": False,
             "source_record_modified": False,
             "primary_eligibility_disposition": disp,

@@ -1,9 +1,9 @@
 # Stage 26 — ASSET Benchmark Evaluation Report
 
-**Document Version:** 1.0.0  
+**Document Version:** 1.1.0  
 **Date:** 2026-10-05  
 **Status:** `NOT_EXECUTED`  
-**Authoritative Prerequisite:** `stage-25-complete-v2`  
+**Authoritative Prerequisite Tag:** `stage-25-complete-v2`  
 
 ---
 
@@ -11,7 +11,7 @@
 
 **Status:** `NOT_EXECUTED`
 
-### Rationale:
-The external ASSET multi-reference benchmark evaluation was not executed in Stage 26 because the primary milestone objective is domain-specific English simplification for young children (ages 4–8) in educational task contexts with strict task boundary and answer preservation constraints. 
-
-External ASSET benchmarks evaluate adult multi-reference sentence simplification (Wiki-based) which lacks clinical safety gates, task preservation constraints, and age 4–8 developmental vocabulary tiering. ASSET evaluation is deferred to future multi-domain comparative studies.
+### Detailed Technical Rationale:
+1. **Target Population Mismatch:** The ASSET benchmark contains adult-oriented sentence simplifications sourced from English Wikipedia. The target population for this research component is young children aged 4–8 in developmental educational task contexts.
+2. **Clinical Safety Constraints:** ASSET lacks action graph representations, step-order preservation rules, and task-boundary non-disclosure constraints.
+3. **Execution Scope:** External general-domain benchmark evaluations are deferred to future multi-domain cross-corpus comparative analyses.

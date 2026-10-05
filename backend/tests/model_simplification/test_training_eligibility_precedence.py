@@ -22,12 +22,15 @@ def test_training_eligibility_manifest_precedence():
     pair_acc = manifest["pair_accounting"]
     assert sum(pair_acc.values()) == 900
     assert pair_acc["task_reformulation_excluded"] == 326
-    assert pair_acc["eligible_for_internal_model_development"] == 405
+    assert pair_acc["source_group_reformulation_excluded"] == 195
+    assert pair_acc["non_development_split_excluded"] == 169
+    assert pair_acc["eligible_for_internal_model_development"] == 210
 
     # Mutually exclusive group balance
     group_acc = manifest["group_accounting"]
     assert sum(group_acc.values()) == 300
     assert group_acc["task_reformulation_group_excluded"] == 203
+    assert group_acc["non_development_group_excluded"] == 27
     assert group_acc["eligible_internal_training_group"] == 70
 
 
@@ -39,8 +42,8 @@ def test_complete_group_invariant():
     records = manifest["records"]
     eligible_records = [r for r in records if r["primary_eligibility_disposition"] == "eligible_for_internal_model_development"]
     
-    # 405 clean pairs in dev split
-    assert len(eligible_records) == 405
+    # 210 pristine pairs in 70 complete training groups
+    assert len(eligible_records) == 210
 
     # Group grouping
     group_map = {}

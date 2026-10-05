@@ -1,31 +1,34 @@
 # Stage 26 — Corpus Accounting & Precedence Summary
 
-**Document Version:** 1.0.0  
+**Document Version:** 1.1.0  
 **Date:** 2026-10-05  
-**Authoritative Prerequisite:** `stage-25-complete-v2`  
+**Authoritative Prerequisite Tag:** `stage-25-complete-v2` (`6b785502b860d4e93d2d31b86bd653c33a210ac9`)  
 
 ---
 
-## 1. 7-Class Precedence Hierarchy Accounting ($N=900$ Pairs)
+## 1. Reconciled 4-Class Mutually Exclusive Pair Accounting ($N=900$ Pairs)
 
-| Precedence Rank | Eligibility Class | Pair Count | Train | Val | Test | Action / Impact |
+To prevent contamination of model training pools, source group contamination propagates to all pairs within that source group:
+
+| Disposition Class | Train Split | Val Split | Test Split | Total Pairs | Direct Pair Defect | Group Eligibility | Internal Training Decision |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| `task_reformulation_excluded` | 225 | 49 | 52 | **326** | `True` | `False` | `excluded_from_training` |
+| `source_group_reformulation_excluded` | 195 | 0 | 0 | **195** | `False` | `False` | `excluded_from_training` |
+| `non_development_split_excluded` | 0 | 86 | 83 | **169** | `False` | `False` / `True` | `excluded_from_training` |
+| `eligible_for_internal_model_development` | 210 | 0 | 0 | **210** | `False` | `True` | `approved_for_pilot_fine_tuning` |
+| **Total** | **630** | **135** | **135** | **900** | — | — | **100.0% Mutually Exclusive** |
+
+$$\text{Accounting Balance: } 326 + 195 + 169 + 210 = 900$$
+
+---
+
+## 2. Reconciled Source-Group Hierarchy Accounting ($N=300$ Groups)
+
+| Precedence Rank | Group Classification Class | Train Groups | Val Groups | Test Groups | Total Groups | Pairs Impacted |
 | :---: | :--- | :---: | :---: | :---: | :---: | :--- |
-| 1 | `task_reformulation_excluded` | 326 | 225 | 49 | 52 | Excluded from training/fine-tuning |
-| 2 | `non_development_split_excluded` | 169 | 0 | 86 | 83 | Evaluation splits preserved clean |
-| 3 | `incomplete_source_group_excluded` | 0 | 0 | 0 | 0 | All source groups complete |
-| 4 | `rights_or_governance_excluded` | 0 | 0 | 0 | 0 | Internal developmental rights clear |
-| 5 | `quality_failed` | 0 | 0 | 0 | 0 | Stage 25 quality verified |
-| 6 | `manual_review_unresolved` | 0 | 0 | 0 | 0 | Reviews tracked |
-| 7 | `eligible_for_internal_model_development` | 405 | 405 | 0 | 0 | Eligible internal training pairs |
-| **Total** | | **900** | **630** | **135** | **135** | **100% Accounted** |
+| 1 | `task_reformulation_group_excluded` | 140 | 32 | 31 | **203** | $140 \times 3 = 420$ Train pairs (225 direct + 195 contaminated) |
+| 2 | `non_development_group_excluded` | 0 | 13 | 14 | **27** | 81 pairs (39 Val, 42 Test) |
+| 7 | `eligible_internal_training_group` | 70 | 0 | 0 | **70** | $70 \times 3 = 210$ clean training pairs |
+| **Total** | | **210** | **45** | **45** | **300** | **900 Pairs** |
 
----
-
-## 2. Source-Group Hierarchy Accounting ($N=300$ Groups)
-
-| Precedence Rank | Group Class | Group Count | Split Distribution | Impact |
-| :---: | :--- | :---: | :--- | :--- |
-| 1 | `task_reformulation_group_excluded` | 203 | 140 Train, 32 Val, 31 Test | Task reformulations isolated |
-| 2 | `non_development_group_excluded` | 27 | 13 Val, 14 Test | Clean evaluation groups |
-| 7 | `eligible_internal_training_group` | 70 | 70 Train ($70 \times 3 = 210$ pairs) | Clean complete 3-tier training groups |
-| **Total** | | **300** | **210 Train, 45 Val, 45 Test** | **100% Accounted** |
+$$\text{Group Balance: } 203 + 27 + 70 = 300$$

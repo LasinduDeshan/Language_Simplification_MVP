@@ -1,9 +1,31 @@
 {
   "schema_version": "1.0.0",
   "stage": "Stage 26",
-  "execution_timestamp": "2026-10-05T14:03:33Z",
+  "execution_timestamp": "2026-10-05T14:24:45Z",
   "prerequisite_tag": "stage-25-complete-v2",
   "start_tag": "stage-26-start",
+  "commit_shas": {
+    "stage_25_complete_v2": "6b785502b860d4e93d2d31b86bd653c33a210ac9",
+    "stage_26_start": "04df5c0f6a0a3e477d16cf88bbd3606dea680901"
+  },
+  "model_registry_revisions": {
+    "google/mt5-small": {
+      "checkpoint": "google/mt5-small",
+      "revision": "408a262453e1e2d46e3c03164932463e260905e3",
+      "license": "Apache-2.0"
+    },
+    "facebook/mbart-large-50": {
+      "checkpoint": "facebook/mbart-large-50",
+      "revision": "7f9b876a91176b6ecba9748b6f79024f2b1d6f51",
+      "license": "MIT"
+    },
+    "gemini": {
+      "requested_provider": "gemini",
+      "configured_model": "gemini-1.5-flash",
+      "resolved_model": "gemini-1.5-flash-mock",
+      "resolution_status": "verified_offline_fixture"
+    }
+  },
   "evaluation_splits": {
     "validation_development": {
       "groups": 45,
@@ -21,6 +43,7 @@
   "results": {
     "val_dev": {
       "Identity (B0)": {
+        "execution_mode": "identity_baseline",
         "mean_sari": 10.73,
         "mean_bleu": 10.6,
         "mean_fkgl_red": 0.0,
@@ -60,13 +83,20 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 0.0,
+        "identity_rate_pct": 100.0,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 100.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 135
       },
-      "Stage 25 Controlled": {
+      "Stage 25 Controlled Engine": {
+        "execution_mode": "local_native_inference",
         "mean_sari": 23.61,
         "mean_bleu": 11.82,
         "mean_fkgl_red": 0.48,
-        "avg_latency_ms": 23.7,
+        "avg_latency_ms": 23.0,
         "dispositions": {
           "passed": 0,
           "repair_passed": 0,
@@ -102,9 +132,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 0.0,
+        "changed_rate_pct": 34.8,
+        "identity_rate_pct": 65.2,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 0.0,
+        "meaning_preservation_rate_pct": 0.0,
         "total_pairs": 135
       },
-      "Google mT5-small": {
+      "Google mT5-small (Offline Fixture)": {
+        "execution_mode": "simulated_adapter",
         "mean_sari": 11.75,
         "mean_bleu": 10.6,
         "mean_fkgl_red": 0.05,
@@ -144,9 +181,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 3.0,
+        "identity_rate_pct": 97.0,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 3.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 135
       },
-      "Facebook mBART-50": {
+      "Facebook mBART-50 (Offline Fixture)": {
+        "execution_mode": "simulated_adapter",
         "mean_sari": 12.23,
         "mean_bleu": 10.6,
         "mean_fkgl_red": 0.07,
@@ -186,9 +230,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 4.4,
+        "identity_rate_pct": 95.6,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 4.4,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 135
       },
-      "Gemini API (Zero-Shot)": {
+      "Gemini Adapter (Offline Fixture)": {
+        "execution_mode": "offline_fixture",
         "mean_sari": 21.53,
         "mean_bleu": 10.41,
         "mean_fkgl_red": 1.87,
@@ -228,9 +279,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 40.0,
+        "identity_rate_pct": 60.0,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 100.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 135
       },
       "Stage 26 Hybrid Pipeline": {
+        "execution_mode": "hybrid_pipeline",
         "mean_sari": 21.53,
         "mean_bleu": 10.41,
         "mean_fkgl_red": 1.87,
@@ -270,11 +328,18 @@
         },
         "fallbacks_count": 2,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 48.1,
+        "changed_rate_pct": 40.0,
+        "identity_rate_pct": 60.0,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 100.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 135
       }
     },
     "test_full": {
       "Identity (B0)": {
+        "execution_mode": "identity_baseline",
         "mean_sari": 11.41,
         "mean_bleu": 13.44,
         "mean_fkgl_red": 0.0,
@@ -314,13 +379,20 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 0.0,
+        "identity_rate_pct": 100.0,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 100.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 135
       },
-      "Stage 25 Controlled": {
+      "Stage 25 Controlled Engine": {
+        "execution_mode": "local_native_inference",
         "mean_sari": 19.26,
         "mean_bleu": 13.9,
         "mean_fkgl_red": 0.41,
-        "avg_latency_ms": 25.9,
+        "avg_latency_ms": 24.3,
         "dispositions": {
           "passed": 0,
           "repair_passed": 0,
@@ -356,9 +428,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 0.0,
+        "changed_rate_pct": 21.5,
+        "identity_rate_pct": 78.5,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 0.0,
+        "meaning_preservation_rate_pct": 0.0,
         "total_pairs": 135
       },
-      "Google mT5-small": {
+      "Google mT5-small (Offline Fixture)": {
+        "execution_mode": "simulated_adapter",
         "mean_sari": 12.65,
         "mean_bleu": 13.44,
         "mean_fkgl_red": 0.05,
@@ -398,9 +477,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 3.7,
+        "identity_rate_pct": 96.3,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 3.7,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 135
       },
-      "Facebook mBART-50": {
+      "Facebook mBART-50 (Offline Fixture)": {
+        "execution_mode": "simulated_adapter",
         "mean_sari": 13.9,
         "mean_bleu": 13.44,
         "mean_fkgl_red": 0.11,
@@ -440,9 +526,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 7.4,
+        "identity_rate_pct": 92.6,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 7.4,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 135
       },
-      "Gemini API (Zero-Shot)": {
+      "Gemini Adapter (Offline Fixture)": {
+        "execution_mode": "offline_fixture",
         "mean_sari": 22.52,
         "mean_bleu": 13.99,
         "mean_fkgl_red": 1.69,
@@ -482,9 +575,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 40.7,
+        "identity_rate_pct": 59.3,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 100.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 135
       },
       "Stage 26 Hybrid Pipeline": {
+        "execution_mode": "hybrid_pipeline",
         "mean_sari": 22.52,
         "mean_bleu": 13.99,
         "mean_fkgl_red": 1.69,
@@ -524,11 +624,18 @@
         },
         "fallbacks_count": 2,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 39.3,
+        "changed_rate_pct": 40.7,
+        "identity_rate_pct": 59.3,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 100.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 135
       }
     },
     "test_clean": {
       "Identity (B0)": {
+        "execution_mode": "identity_baseline",
         "mean_sari": 13.05,
         "mean_bleu": 17.27,
         "mean_fkgl_red": 0.0,
@@ -568,13 +675,20 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 0.0,
+        "identity_rate_pct": 100.0,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 100.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 39
       },
-      "Stage 25 Controlled": {
+      "Stage 25 Controlled Engine": {
+        "execution_mode": "local_native_inference",
         "mean_sari": 24.76,
         "mean_bleu": 18.92,
         "mean_fkgl_red": 0.52,
-        "avg_latency_ms": 27.1,
+        "avg_latency_ms": 24.3,
         "dispositions": {
           "passed": 0,
           "repair_passed": 0,
@@ -610,9 +724,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 0.0,
+        "changed_rate_pct": 28.2,
+        "identity_rate_pct": 71.8,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 0.0,
+        "meaning_preservation_rate_pct": 0.0,
         "total_pairs": 39
       },
-      "Google mT5-small": {
+      "Google mT5-small (Offline Fixture)": {
+        "execution_mode": "simulated_adapter",
         "mean_sari": 13.05,
         "mean_bleu": 17.27,
         "mean_fkgl_red": 0.0,
@@ -652,9 +773,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 0.0,
+        "identity_rate_pct": 100.0,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 0.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 39
       },
-      "Facebook mBART-50": {
+      "Facebook mBART-50 (Offline Fixture)": {
+        "execution_mode": "simulated_adapter",
         "mean_sari": 13.05,
         "mean_bleu": 17.27,
         "mean_fkgl_red": 0.0,
@@ -694,9 +822,16 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 0.0,
+        "identity_rate_pct": 100.0,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 0.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 39
       },
-      "Gemini API (Zero-Shot)": {
+      "Gemini Adapter (Offline Fixture)": {
+        "execution_mode": "offline_fixture",
         "mean_sari": 21.26,
         "mean_bleu": 17.16,
         "mean_fkgl_red": 1.59,
@@ -736,13 +871,20 @@
         },
         "fallbacks_count": 0,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 100.0,
+        "changed_rate_pct": 33.3,
+        "identity_rate_pct": 66.7,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 100.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 39
       },
       "Stage 26 Hybrid Pipeline": {
+        "execution_mode": "hybrid_pipeline",
         "mean_sari": 21.26,
         "mean_bleu": 17.16,
         "mean_fkgl_red": 1.59,
-        "avg_latency_ms": 0.1,
+        "avg_latency_ms": 0.0,
         "dispositions": {
           "passed": 18,
           "repair_passed": 0,
@@ -778,6 +920,12 @@
         },
         "fallbacks_count": 2,
         "repairs_count": 0,
+        "validation_pass_rate_pct": 46.2,
+        "changed_rate_pct": 33.3,
+        "identity_rate_pct": 66.7,
+        "empty_rate_pct": 0.0,
+        "tier_compliance_rate_pct": 100.0,
+        "meaning_preservation_rate_pct": 100.0,
         "total_pairs": 39
       }
     }
