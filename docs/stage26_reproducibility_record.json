@@ -1,0 +1,75 @@
+{
+  "stage": "Stage 26 \u2014 Pretrained Model / LLM-Based English Simplification",
+  "completion_timestamp": "2026-10-06T17:55:07.376973+00:00",
+  "git": {
+    "branch": "feature/stage26-v2",
+    "start_tag": "stage-26-v2-start",
+    "prerequisite_commit": "6b785502b860d4e93d2d31b86bd653c33a210ac9",
+    "completion_tag": "stage-26-complete-v2"
+  },
+  "governance_invariants": {
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true,
+    "screening_risk_ownership": "component_1_read_only",
+    "answer_disclosure_policy": "zero_leakage_local_hmac_guard"
+  },
+  "artifacts": {
+    "stage26_implementation_plan.md": {
+      "path": "docs/stage26_implementation_plan.md",
+      "sha256": "4ac4df2afab80c6c747e299b1d224d453c0ce9f2077268fb4782cf72811c0538",
+      "status": "verified"
+    },
+    "stage26_dataset_eligibility_report.md": {
+      "path": "docs/stage26_dataset_eligibility_report.md",
+      "sha256": "e5371d83b1bbc23135e67d87744d5b5074306e8d2edb6a5425aac0829a50c93b",
+      "status": "verified"
+    },
+    "stage26_model_registry.csv": {
+      "path": "docs/stage26_model_registry.csv",
+      "sha256": "14a0e0c7c34279528e7f1a7154373b043fe57690eaf0c7d40372f7fc46c86801",
+      "status": "verified"
+    },
+    "stage26_prompt_registry.md": {
+      "path": "docs/stage26_prompt_registry.md",
+      "sha256": "1d8ded2554e9cff27ca5040fb35332fb9905e6d52677b091db30604cbf22b29f",
+      "status": "verified"
+    },
+    "stage26_privacy_and_provider_policy.md": {
+      "path": "docs/stage26_privacy_and_provider_policy.md",
+      "sha256": "60d18ca0f5427355fcb0f04fb8af39e31bc0edca4e893e959b02fa353968bd15",
+      "status": "verified"
+    },
+    "stage26_training_decision_record.md": {
+      "path": "docs/stage26_training_decision_record.md",
+      "sha256": "726f01e0c2150186c73ffe487e533abe8c495470920a526f9d3de0a706d46f3a",
+      "status": "verified"
+    },
+    "stage26_internal_evaluation_report.md": {
+      "path": "docs/stage26_internal_evaluation_report.md",
+      "sha256": "588d4549a359653b0d0c2c2abd7a7ebdb783a3d7d96dc8269d8893a359457181",
+      "status": "verified"
+    },
+    "stage26_asset_evaluation_report.md": {
+      "path": "docs/stage26_asset_evaluation_report.md",
+      "sha256": "3d30a816b7fff8f6b2a1da4cfbfd90d2cdb8805521df068ff412c6b8c0438848",
+      "status": "verified"
+    },
+    "stage26_model_comparison.csv": {
+      "path": "docs/stage26_model_comparison.csv",
+      "sha256": "0dd35d42aad2cb3217a507d3d3e75adf03ee7955ce9c3da347110fb2c998292f",
+      "status": "verified"
+    },
+    "stage26_error_analysis.md": {
+      "path": "docs/stage26_error_analysis.md",
+      "sha256": "2d12d46d2902e6eb9293a3c564e15e2064c7cf9eb861ccf2a06e6b4ffda80a87",
+      "status": "verified"
+    },
+    "stage26_accounting_summary.md": {
+      "path": "docs/stage26_accounting_summary.md",
+      "sha256": "312e4394ba332938e3aa1712901f940af97175b01175b91d1eb38c5922588e55",
+      "status": "verified"
+    }
+  }
+}
