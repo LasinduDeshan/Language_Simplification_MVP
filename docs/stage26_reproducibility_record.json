@@ -1,6 +1,6 @@
 {
   "stage": "Stage 26 \u2014 Pretrained Model / LLM-Based English Simplification",
-  "completion_timestamp": "2026-10-07T17:21:20.934157+00:00",
+  "completion_timestamp": "2026-10-07T17:37:46.177919+00:00",
   "git": {
     "branch": "feature/stage26-v2",
     "start_tag": "stage-26-v2-start",
@@ -16,8 +16,15 @@
     "asset_status": "NOT_EXECUTED"
   },
   "locked_run": {
-    "invalid_run_status": "INVALID_EXECUTION \u2014 PROVIDER_QUOTA_EXCEEDED",
-    "official_run_id": "RUN-GEMINI-LOCKED-OFFICIAL-01"
+    "run_id": "RUN-GEMINI-LOCKED-OFFICIAL-01",
+    "expected_items": 135,
+    "completed_native_outputs": 84,
+    "quota_failed": 51,
+    "not_attempted": 0,
+    "duplicate_items": 0,
+    "configuration_hash": "8db764ac5f19c27b1fa31543b1e1f53884629692b2e1f6243ab759eee5003779",
+    "post_lock_tuning": false,
+    "run_validity_status": "INVALID_EXECUTION \u2014 PROVIDER_QUOTA_EXCEEDED"
   },
   "governance_invariants": {
     "validation_status": "draft",
@@ -60,12 +67,12 @@
     },
     "stage26_gemini_execution_audit.md": {
       "path": "docs/stage26_gemini_execution_audit.md",
-      "sha256": "b8914824dc04e4fcfa1acde5ef3e059e6f4d22d0aa6b4e7c164ed957456ba84a",
+      "sha256": "4d868a943d2faefe1ca65741ef721429b98c37d23d092b36caa5353161b8aa4f",
       "status": "verified"
     },
     "stage26_internal_evaluation_report.md": {
       "path": "docs/stage26_internal_evaluation_report.md",
-      "sha256": "4202bc41473fda28a23eba2aa711844d2ed518933eb7c092088c758894343733",
+      "sha256": "84ad287b4422e0aebdcff54ff7b57f86946f3c2d80d6e9dcf888c6ecb13a6c6d",
       "status": "verified"
     },
     "stage26_asset_evaluation_report.md": {
@@ -75,7 +82,7 @@
     },
     "stage26_model_comparison.csv": {
       "path": "docs/stage26_model_comparison.csv",
-      "sha256": "1f9799383e18d76f462a7f4c0be1708f680922ad6f31825e1ee83192a2601882",
+      "sha256": "1dd9c5ab63f507623837cc25aa35f3945863fb90354483463a43da86e6334f2a",
       "status": "verified"
     },
     "stage26_error_analysis.md": {
@@ -85,7 +92,7 @@
     },
     "stage26_accounting_summary.md": {
       "path": "docs/stage26_accounting_summary.md",
-      "sha256": "2a1855a3e7d0a1c5ad741be4dd72896fac6f9d2d1ea0130a0d7749a1dea53d1a",
+      "sha256": "88b09199f3ca2b2f72206a1418492252400016bfcb5cd8621487382c7e464b8b",
       "status": "verified"
     }
   }
