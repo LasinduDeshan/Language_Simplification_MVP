@@ -1,0 +1,776 @@
+[
+  {
+    "entry_id": "LEX-EN-000001",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "habitat",
+    "normalized_form": "habitat",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "home"
+    ],
+    "child_friendly_definition": "the place where an animal lives",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "habitat",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.496562"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.496562",
+    "updated_at": "2026-09-23T16:37:50.496562"
+  },
+  {
+    "entry_id": "LEX-EN-000002",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "originate",
+    "normalized_form": "originate",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "come from"
+    ],
+    "child_friendly_definition": "where something starts",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "originate",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.496562"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.496562",
+    "updated_at": "2026-09-23T16:37:50.496562"
+  },
+  {
+    "entry_id": "LEX-EN-000003",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "edible",
+    "normalized_form": "edible",
+    "part_of_speech": null,
+    "age_band": "7-8",
+    "difficulty_tier": 2,
+    "simpler_alternatives": [
+      "good to eat"
+    ],
+    "child_friendly_definition": "something you can eat safely",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "edible",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.496562"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.496562",
+    "updated_at": "2026-09-23T16:37:50.496562"
+  },
+  {
+    "entry_id": "LEX-EN-000004",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "distinguish",
+    "normalized_form": "distinguish",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "tell apart"
+    ],
+    "child_friendly_definition": "see how things are different",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "distinguish",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.496562"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.496562",
+    "updated_at": "2026-09-23T16:37:50.496562"
+  },
+  {
+    "entry_id": "LEX-EN-000005",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "sequence",
+    "normalized_form": "sequence",
+    "part_of_speech": null,
+    "age_band": "7-8",
+    "difficulty_tier": 2,
+    "simpler_alternatives": [
+      "put in order"
+    ],
+    "child_friendly_definition": "put in the right step order",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "sequence",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.496562"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.496562",
+    "updated_at": "2026-09-23T16:37:50.496562"
+  },
+  {
+    "entry_id": "LEX-EN-000006",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "beneath",
+    "normalized_form": "beneath",
+    "part_of_speech": null,
+    "age_band": "7-8",
+    "difficulty_tier": 2,
+    "simpler_alternatives": [
+      "under"
+    ],
+    "child_friendly_definition": "under something",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "beneath",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.496562"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.496562",
+    "updated_at": "2026-09-23T16:37:50.496562"
+  },
+  {
+    "entry_id": "LEX-EN-000007",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "miniature",
+    "normalized_form": "miniature",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "tiny"
+    ],
+    "child_friendly_definition": "very small",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "miniature",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.496562"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.496562",
+    "updated_at": "2026-09-23T16:37:50.496562"
+  },
+  {
+    "entry_id": "LEX-EN-000008",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "feline",
+    "normalized_form": "feline",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "cat"
+    ],
+    "child_friendly_definition": "a cat animal",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "feline",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.496562"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.496562",
+    "updated_at": "2026-09-23T16:37:50.496562"
+  },
+  {
+    "entry_id": "LEX-EN-000009",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "adjacent",
+    "normalized_form": "adjacent",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "next to"
+    ],
+    "child_friendly_definition": "right beside",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "adjacent",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.496562"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.496562",
+    "updated_at": "2026-09-23T16:37:50.496562"
+  },
+  {
+    "entry_id": "LEX-EN-000010",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "situated",
+    "normalized_form": "situated",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "placed"
+    ],
+    "child_friendly_definition": "where something sits",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "situated",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.497792"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.497792",
+    "updated_at": "2026-09-23T16:37:50.497792"
+  },
+  {
+    "entry_id": "LEX-EN-000011",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "attentively",
+    "normalized_form": "attentively",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "carefully"
+    ],
+    "child_friendly_definition": "listening closely",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "attentively",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.497792"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.497792",
+    "updated_at": "2026-09-23T16:37:50.497792"
+  },
+  {
+    "entry_id": "LEX-EN-000012",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "peacefully",
+    "normalized_form": "peacefully",
+    "part_of_speech": null,
+    "age_band": "7-8",
+    "difficulty_tier": 2,
+    "simpler_alternatives": [
+      "quietly"
+    ],
+    "child_friendly_definition": "calm and quiet",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "peacefully",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.497792"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.497792",
+    "updated_at": "2026-09-23T16:37:50.497792"
+  },
+  {
+    "entry_id": "LEX-EN-000013",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "scurried",
+    "normalized_form": "scurried",
+    "part_of_speech": null,
+    "age_band": "7-8",
+    "difficulty_tier": 2,
+    "simpler_alternatives": [
+      "ran quickly"
+    ],
+    "child_friendly_definition": "ran with quick little steps",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "scurried",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.497792"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.497792",
+    "updated_at": "2026-09-23T16:37:50.497792"
+  },
+  {
+    "entry_id": "LEX-EN-000014",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "deposit",
+    "normalized_form": "deposit",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "put"
+    ],
+    "child_friendly_definition": "place something down",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "deposit",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.497792"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.497792",
+    "updated_at": "2026-09-23T16:37:50.497792"
+  },
+  {
+    "entry_id": "LEX-EN-000015",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "excavated",
+    "normalized_form": "excavated",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "dug"
+    ],
+    "child_friendly_definition": "a hole made in dirt",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "excavated",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.497792"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.497792",
+    "updated_at": "2026-09-23T16:37:50.497792"
+  },
+  {
+    "entry_id": "LEX-EN-000016",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "irrigate",
+    "normalized_form": "irrigate",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "water"
+    ],
+    "child_friendly_definition": "give water to plants",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "irrigate",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.497792"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.497792",
+    "updated_at": "2026-09-23T16:37:50.497792"
+  },
+  {
+    "entry_id": "LEX-EN-000017",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "categorize",
+    "normalized_form": "categorize",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "sort"
+    ],
+    "child_friendly_definition": "put into groups",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "categorize",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.497792"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.497792",
+    "updated_at": "2026-09-23T16:37:50.497792"
+  },
+  {
+    "entry_id": "LEX-EN-000018",
+    "schema_version": "1.0.0",
+    "dataset_version": "0.1.0",
+    "language": "en",
+    "word": "consume",
+    "normalized_form": "consume",
+    "part_of_speech": null,
+    "age_band": "8-8",
+    "difficulty_tier": 3,
+    "simpler_alternatives": [
+      "eat"
+    ],
+    "child_friendly_definition": "eat or drink",
+    "example_sentence": null,
+    "source": {
+      "source_type": "expert_authored",
+      "source_name": "Component 3 English MVP Tiered Lexicon",
+      "source_record_id": "consume",
+      "source_url": null,
+      "citation": null,
+      "created_by_role": "linguist",
+      "created_at": "2026-09-23T16:37:50.497792"
+    },
+    "rights": {
+      "licence_id": "project-internal",
+      "licence_url": null,
+      "permission_reference": null,
+      "redistribution_allowed": false,
+      "commercial_use_allowed": false,
+      "external_api_processing_allowed": false
+    },
+    "governance": {
+      "validation_status": "draft",
+      "research_eligibility_status": "not_assessed",
+      "research_eligible": false,
+      "approved_for_child_delivery": false,
+      "is_simulated": false,
+      "contains_personal_data": false
+    },
+    "created_at": "2026-09-23T16:37:50.497792",
+    "updated_at": "2026-09-23T16:37:50.497792"
+  }
+]

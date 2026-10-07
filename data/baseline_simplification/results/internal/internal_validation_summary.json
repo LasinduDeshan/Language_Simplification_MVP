@@ -1,0 +1,236 @@
+{
+  "B0": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 11.245741190384154,
+        "std": 4.238920635803264,
+        "median": 10.774029891676951
+      },
+      "sari_add": 0.0,
+      "sari_keep": 33.73722357115246,
+      "sari_del": 0.0,
+      "corpus_bleu": 43.21088073296501,
+      "fkgl": {
+        "original_mean": 6.142571628081433,
+        "output_mean": 6.142571628081433,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 0.00389333339019989,
+      "median_latency_ms": 0.0036000019463244826,
+      "p95_latency_ms": 0.005440002132672814,
+      "mean_latency_us": 3.89333339019989,
+      "median_latency_us": 3.6000019463244826,
+      "p95_latency_us": 5.440002132672814,
+      "throughput_samples_per_sec": 256849.31131691716
+    }
+  },
+  "B1": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 11.245741190384154,
+        "std": 4.238920635803264,
+        "median": 10.774029891676951
+      },
+      "sari_add": 0.0,
+      "sari_keep": 33.73722357115246,
+      "sari_del": 0.0,
+      "corpus_bleu": 43.21088073296501,
+      "fkgl": {
+        "original_mean": 6.142571628081433,
+        "output_mean": 6.142571628081433,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 8.217768888991689,
+      "median_latency_ms": 8.09780000054161,
+      "p95_latency_ms": 12.04089999955613,
+      "mean_latency_us": 8217.768888991688,
+      "median_latency_us": 8097.800000541611,
+      "p95_latency_us": 12040.89999955613,
+      "throughput_samples_per_sec": 121.68753021754776
+    }
+  },
+  "B2": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 13.92227842059713,
+        "std": 10.17401749030123,
+        "median": 11.297011297011297
+      },
+      "sari_add": 0.0,
+      "sari_keep": 34.00448958277905,
+      "sari_del": 7.762345679012346,
+      "corpus_bleu": 42.907820151501994,
+      "fkgl": {
+        "original_mean": 6.142571628081433,
+        "output_mean": 5.9929350794448855,
+        "reduction_delta": 0.14963654863654877
+      },
+      "compression": {
+        "word_ratio": 0.9939387464387466,
+        "char_ratio": 0.993951048951049
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 10.303253333081052,
+      "median_latency_ms": 8.164000002579996,
+      "p95_latency_ms": 21.199399999022702,
+      "mean_latency_us": 10303.253333081053,
+      "median_latency_us": 8164.000002579996,
+      "p95_latency_us": 21199.399999022702,
+      "throughput_samples_per_sec": 97.05672253920628
+    }
+  },
+  "B3": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 11.245741190384154,
+        "std": 4.238920635803264,
+        "median": 10.774029891676951
+      },
+      "sari_add": 0.0,
+      "sari_keep": 33.73722357115246,
+      "sari_del": 0.0,
+      "corpus_bleu": 43.21088073296501,
+      "fkgl": {
+        "original_mean": 6.142571628081433,
+        "output_mean": 6.142571628081433,
+        "reduction_delta": 0.0
+      },
+      "compression": {
+        "word_ratio": 1.0,
+        "char_ratio": 1.0
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 8.007220000015675,
+      "median_latency_ms": 7.6485999998112675,
+      "p95_latency_ms": 13.515600001846906,
+      "mean_latency_us": 8007.2200000156745,
+      "median_latency_us": 7648.5999998112675,
+      "p95_latency_us": 13515.600001846906,
+      "throughput_samples_per_sec": 124.88728922123313
+    }
+  },
+  "B4": {
+    "total_records": 45,
+    "eligible_records": 43,
+    "dispositions": {
+      "automatic_check_passed": 43,
+      "manual_review_required": 0,
+      "automatic_check_failed": 2,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 14.044383868205777,
+        "std": 10.391804979426006,
+        "median": 10.774029891676951
+      },
+      "sari_add": 0.0,
+      "sari_keep": 34.00976659169743,
+      "sari_del": 8.123385012919897,
+      "corpus_bleu": 43.16667609998689,
+      "fkgl": {
+        "original_mean": 6.259280385976695,
+        "output_mean": 6.102683997868677,
+        "reduction_delta": 0.15659638810801615
+      },
+      "compression": {
+        "word_ratio": 0.9936568276684556,
+        "char_ratio": 0.9936697023906327
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 50.95190666656385,
+      "median_latency_ms": 48.60729999927571,
+      "p95_latency_ms": 92.64994000041037,
+      "mean_latency_us": 50951.90666656385,
+      "median_latency_us": 48607.29999927571,
+      "p95_latency_us": 92649.94000041037,
+      "throughput_samples_per_sec": 19.62635091448363
+    }
+  },
+  "B5": {
+    "total_records": 45,
+    "eligible_records": 45,
+    "dispositions": {
+      "automatic_check_passed": 45,
+      "manual_review_required": 0,
+      "automatic_check_failed": 0,
+      "quarantined": 0
+    },
+    "metrics": {
+      "sari": {
+        "mean": 21.326750665627625,
+        "std": 16.154044981423606,
+        "median": 14.193441808007668
+      },
+      "sari_add": 0.0,
+      "sari_keep": 34.10370878700633,
+      "sari_del": 29.87654320987654,
+      "corpus_bleu": 43.99866046053874,
+      "fkgl": {
+        "original_mean": 6.142571628081433,
+        "output_mean": 5.957040971374306,
+        "reduction_delta": 0.18553065670712726
+      },
+      "compression": {
+        "word_ratio": 0.9712636165577341,
+        "char_ratio": 0.9697104565334483
+      }
+    },
+    "operational": {
+      "mean_latency_ms": 0.011662222257453121,
+      "median_latency_ms": 0.00960000033956021,
+      "p95_latency_ms": 0.01956000196514651,
+      "mean_latency_us": 11.662222257453122,
+      "median_latency_us": 9.60000033956021,
+      "p95_latency_us": 19.56000196514651,
+      "throughput_samples_per_sec": 85746.95096047562
+    }
+  }
+}

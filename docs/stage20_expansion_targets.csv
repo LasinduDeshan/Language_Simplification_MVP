@@ -1,0 +1,7 @@
+batch_id,batch_name,source_items,simplification_pairs,adaptation_activities,lexicon_entries,vocab_items,grammar_items,comp_items,instruction_items,status
+STAGE20-BATCH-PILOT,Pilot Multi-Domain Gate,80,240,40,60,20,20,20,20,planned
+STAGE20-BATCH-02,Expansion Batch 1 (Ages 4-5),50,150,20,60,15,15,10,10,planned
+STAGE20-BATCH-03,Expansion Batch 2 (Ages 6-7),50,150,20,60,10,15,10,15,planned
+STAGE20-BATCH-04,Expansion Batch 3 (Ages 7-8),50,150,20,60,10,10,15,15,planned
+STAGE20-BATCH-05,Expansion Batch 4 (Gap-Targeted),70,210,20,110,20,15,20,15,planned
+TOTAL,Stage 20 Target Corpus Total,300,900,120,350,75,75,75,75,target

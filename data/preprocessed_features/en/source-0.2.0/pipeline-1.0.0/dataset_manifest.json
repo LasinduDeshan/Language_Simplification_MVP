@@ -1,0 +1,50 @@
+{
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "source_dataset_version": "0.2.0",
+  "target_language": "en",
+  "target_age_group": "4-8",
+  "models": {
+    "spacy_version": "3.7.5",
+    "spacy_model_name": "en_core_web_sm",
+    "spacy_model_version": "3.7.1",
+    "spacy_model_hash": "e4ce9877abf616632f65a6b674041d4711fc0698",
+    "stanza_version": "1.14.0",
+    "stanza_model_package": "en_default",
+    "fasttext_model": "lid.176.ftz",
+    "fasttext_model_hash": "b9643444081efb70f0e84b806dca50a9",
+    "lexicon_version": "0.2.0"
+  },
+  "summary": {
+    "raw_text_instance_count": 3617,
+    "unique_normalized_text_count": 1266,
+    "duplicate_text_instance_count": 2351,
+    "parent_text_mapping_count": 3617,
+    "success_count": 3139,
+    "fallback_success_count": 0,
+    "manual_review_count": 163,
+    "failed_count": 0,
+    "skipped_locked_test_count": 315,
+    "total_accounted": 3617,
+    "unaccounted_records": 0,
+    "is_zero_loss": true,
+    "source_items_cumulative": 370,
+    "source_items_processed": 300,
+    "source_items_legacy_excluded": 70,
+    "locked_source_groups_isolated": 45,
+    "cross_adapter_leakage": 0,
+    "review_reasons_breakdown": {
+      "low_english_function_word_density": 20,
+      "zero_english_function_words": 143
+    },
+    "potential_text_fields": 3660,
+    "absent_optional_text_fields": 43
+  },
+  "files": {
+    "records_jsonl": "preprocessed_records.jsonl",
+    "parent_mappings": "parent_to_text_mappings.json",
+    "features_csv": "linguistic_features.csv",
+    "reconciliation_csv": "reconciliation_report.csv",
+    "locked_test_manifest": "protected_test/locked_test_manifest.json"
+  }
+}

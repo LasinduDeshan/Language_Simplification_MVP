@@ -1,0 +1,13 @@
+primary_domain,difficulty,target_source_items,current_source_items,gap_source_items,target_pairs,current_pairs,gap_pairs,recommended_action
+vocabulary,easy,25,0,25,75,0,75,Author new items
+vocabulary,medium,25,0,25,75,0,75,Author new items
+vocabulary,hard,25,0,25,75,0,75,Author new items
+grammar,easy,25,0,25,75,0,75,Author new items
+grammar,medium,25,0,25,75,0,75,Author new items
+grammar,hard,25,0,25,75,0,75,Author new items
+comprehension,easy,25,0,25,75,0,75,Author new items
+comprehension,medium,25,0,25,75,0,75,Author new items
+comprehension,hard,25,0,25,75,0,75,Author new items
+instruction_following,easy,25,0,25,75,0,75,Author new items
+instruction_following,medium,25,0,25,75,0,75,Author new items
+instruction_following,hard,25,0,25,75,0,75,Author new items

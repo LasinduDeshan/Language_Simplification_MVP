@@ -1,0 +1,164 @@
+[
+  {
+    "word": "habitat",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "home",
+    "simple_definition": "the place where an animal lives",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "originate",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "come from",
+    "simple_definition": "where something starts",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "edible",
+    "minimum_age": 7,
+    "difficulty": "medium",
+    "simple_alternative": "good to eat",
+    "simple_definition": "something you can eat safely",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "distinguish",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "tell apart",
+    "simple_definition": "see how things are different",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "sequence",
+    "minimum_age": 7,
+    "difficulty": "medium",
+    "simple_alternative": "put in order",
+    "simple_definition": "put in the right step order",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "beneath",
+    "minimum_age": 7,
+    "difficulty": "medium",
+    "simple_alternative": "under",
+    "simple_definition": "under something",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "miniature",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "tiny",
+    "simple_definition": "very small",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "feline",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "cat",
+    "simple_definition": "a cat animal",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "adjacent",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "next to",
+    "simple_definition": "right beside",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "situated",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "placed",
+    "simple_definition": "where something sits",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "attentively",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "carefully",
+    "simple_definition": "listening closely",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "peacefully",
+    "minimum_age": 7,
+    "difficulty": "medium",
+    "simple_alternative": "quietly",
+    "simple_definition": "calm and quiet",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "scurried",
+    "minimum_age": 7,
+    "difficulty": "medium",
+    "simple_alternative": "ran quickly",
+    "simple_definition": "ran with quick little steps",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "deposit",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "put",
+    "simple_definition": "place something down",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "excavated",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "dug",
+    "simple_definition": "a hole made in dirt",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "irrigate",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "water",
+    "simple_definition": "give water to plants",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "categorize",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "sort",
+    "simple_definition": "put into groups",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  },
+  {
+    "word": "consume",
+    "minimum_age": 8,
+    "difficulty": "hard",
+    "simple_alternative": "eat",
+    "simple_definition": "eat or drink",
+    "source": "expert_reviewed_project_resource",
+    "review_status": "approved"
+  }
+]

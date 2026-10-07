@@ -1,0 +1,685 @@
+{
+  "manifest_type": "locked_test_manifest",
+  "dataset_version": "0.2.0",
+  "split_version": "1.0.0",
+  "creation_seed": 42,
+  "creation_timestamp": "2026-09-28T07:23:35.912272Z",
+  "total_test_records": 135,
+  "records": [
+    {
+      "record_id": "SIMP-EN-000450",
+      "source_group_id": "SRC-EN-VOC-0150",
+      "content_hash_sha256": "bc5676ed2477bfaeeae3495e21a5108a25a310a8febb643c2dbd78327da0aff0"
+    },
+    {
+      "record_id": "SIMP-EN-000451",
+      "source_group_id": "SRC-EN-VOC-0150",
+      "content_hash_sha256": "27769d9e8cc7a0da0cc58a3af856f38b59ddea847698965a8026063e6324b6de"
+    },
+    {
+      "record_id": "SIMP-EN-000452",
+      "source_group_id": "SRC-EN-VOC-0150",
+      "content_hash_sha256": "3ed06347b54f923f452302d37094f68c1a4dad5bf2ce0e4f8112c7a6bbcded86"
+    },
+    {
+      "record_id": "SIMP-EN-000660",
+      "source_group_id": "SRC-EN-GRA-0220",
+      "content_hash_sha256": "9adc4a10a76c067e6c0d92968df3fb1aadeabd9eba9393f7ee935b8bfa18453c"
+    },
+    {
+      "record_id": "SIMP-EN-000661",
+      "source_group_id": "SRC-EN-GRA-0220",
+      "content_hash_sha256": "da0d276f09051965d9c0dde252de07a60f98ac66eb1c5a06e61b9d1f663f65ca"
+    },
+    {
+      "record_id": "SIMP-EN-000662",
+      "source_group_id": "SRC-EN-GRA-0220",
+      "content_hash_sha256": "8d476d284f00c3b21ee8eceb40081875c220954720292697dc8086bcb0763b84"
+    },
+    {
+      "record_id": "SIMP-EN-000750",
+      "source_group_id": "SRC-EN-COM-0250",
+      "content_hash_sha256": "78f1e5c439b115d8557bda541a7f480d6a7082a8a066e681098e1253d20d0652"
+    },
+    {
+      "record_id": "SIMP-EN-000751",
+      "source_group_id": "SRC-EN-COM-0250",
+      "content_hash_sha256": "d2193da5a7bf68496123ad6ea7c9806009b3f94ea8699ead9f3a2c8fec99a44e"
+    },
+    {
+      "record_id": "SIMP-EN-000752",
+      "source_group_id": "SRC-EN-COM-0250",
+      "content_hash_sha256": "145e3083d1b81e717d2a097724e1396d2a9c0d0360b4b460b4201b27bb63740f"
+    },
+    {
+      "record_id": "SIMP-EN-000684",
+      "source_group_id": "SRC-EN-GRA-0228",
+      "content_hash_sha256": "bc8c6039c17e7634cce6787043b69d32a646f9ecafdf47d5ac4341b1d53ff86b"
+    },
+    {
+      "record_id": "SIMP-EN-000685",
+      "source_group_id": "SRC-EN-GRA-0228",
+      "content_hash_sha256": "75da9b9b60a99a2106f87bdc26901db6218bf883d304c82c0f927b1386b0ed61"
+    },
+    {
+      "record_id": "SIMP-EN-000686",
+      "source_group_id": "SRC-EN-GRA-0228",
+      "content_hash_sha256": "07b23b42c4ec6c77a9268ed1c1c49e918162800aaf83ffa3a8f9d659d91a90d1"
+    },
+    {
+      "record_id": "SIMP-EN-000984",
+      "source_group_id": "SRC-EN-INS-0328",
+      "content_hash_sha256": "34a71ba3b97c661f5e1813eb62951fff64da16d4a07a393be971eb66aeddb9e9"
+    },
+    {
+      "record_id": "SIMP-EN-000985",
+      "source_group_id": "SRC-EN-INS-0328",
+      "content_hash_sha256": "9fa46a2a0c4ece25c5e7534151575b4837a276cf3b0fe2a0f339d30b19ce447c"
+    },
+    {
+      "record_id": "SIMP-EN-000986",
+      "source_group_id": "SRC-EN-INS-0328",
+      "content_hash_sha256": "79a0a8dc82e878153c0db363124e0f207363511479f1a74603aa246730300af0"
+    },
+    {
+      "record_id": "SIMP-EN-000480",
+      "source_group_id": "SRC-EN-VOC-0160",
+      "content_hash_sha256": "241d0a9c8f543b6c4f521790b9acb4d45b21a0e6d1e63615d9b077d7b4df79d4"
+    },
+    {
+      "record_id": "SIMP-EN-000481",
+      "source_group_id": "SRC-EN-VOC-0160",
+      "content_hash_sha256": "f31d4410af19d9d4bdbd02202db876b0f9f9e5ab5fa84e0ae26204c1b635ec70"
+    },
+    {
+      "record_id": "SIMP-EN-000482",
+      "source_group_id": "SRC-EN-VOC-0160",
+      "content_hash_sha256": "b7a7b0d413b6ced64764cb24508e8a282b923623000ec49fb3e927e0e44de73e"
+    },
+    {
+      "record_id": "SIMP-EN-000531",
+      "source_group_id": "SRC-EN-GRA-0177",
+      "content_hash_sha256": "b3a24c651fa29157e2d03d8d9e3a45fd1d8453b887d43ea88634d7ff14b6c927"
+    },
+    {
+      "record_id": "SIMP-EN-000532",
+      "source_group_id": "SRC-EN-GRA-0177",
+      "content_hash_sha256": "7628b9f4abb05408285882e413b443259b5d6541bb2dbf8998bb896299203fa9"
+    },
+    {
+      "record_id": "SIMP-EN-000533",
+      "source_group_id": "SRC-EN-GRA-0177",
+      "content_hash_sha256": "cbde89ef749b889444bd789867342711a289083d4be8a41be6af277974846131"
+    },
+    {
+      "record_id": "SIMP-EN-000420",
+      "source_group_id": "SRC-EN-VOC-0140",
+      "content_hash_sha256": "b09dc09e7287a73f86c05f06be76dd9000401df248bb7943b574f19a2ef3a95a"
+    },
+    {
+      "record_id": "SIMP-EN-000421",
+      "source_group_id": "SRC-EN-VOC-0140",
+      "content_hash_sha256": "239c2cf0923387eb847e88e9c02bc445212ff6d971aebcaaa2169e4895988f77"
+    },
+    {
+      "record_id": "SIMP-EN-000422",
+      "source_group_id": "SRC-EN-VOC-0140",
+      "content_hash_sha256": "81c9943054a58444acea9eebc9b424447d99cb59b535193719ecdc9cee430c8c"
+    },
+    {
+      "record_id": "SIMP-EN-001098",
+      "source_group_id": "SRC-EN-INS-0366",
+      "content_hash_sha256": "a068a873cc0a931ff10fd7c0d66fd0e611e4c34e8bb412c9378cc269c07f6866"
+    },
+    {
+      "record_id": "SIMP-EN-001099",
+      "source_group_id": "SRC-EN-INS-0366",
+      "content_hash_sha256": "21c0eec8dcb827d32f02d9a2408654abfa840ef34579e1127b4afff1cc1fe45c"
+    },
+    {
+      "record_id": "SIMP-EN-001100",
+      "source_group_id": "SRC-EN-INS-0366",
+      "content_hash_sha256": "a56929aaaf458c041310686b245cafa5f0c15021b02fc1eeb4092ed5d160653c"
+    },
+    {
+      "record_id": "SIMP-EN-000444",
+      "source_group_id": "SRC-EN-VOC-0148",
+      "content_hash_sha256": "31020fb858eaaeb550d9a36d33283ce591c392e606ce4be5d436233fa00c3275"
+    },
+    {
+      "record_id": "SIMP-EN-000445",
+      "source_group_id": "SRC-EN-VOC-0148",
+      "content_hash_sha256": "0aefc1b5c8382c000ba2eea68a6f692ccbd07633d21142badcf7f7dec40daf25"
+    },
+    {
+      "record_id": "SIMP-EN-000446",
+      "source_group_id": "SRC-EN-VOC-0148",
+      "content_hash_sha256": "754b3314ab714d1f0c0b98de343cb6e320693a5984e41962cbac8d2fb5b78452"
+    },
+    {
+      "record_id": "SIMP-EN-000777",
+      "source_group_id": "SRC-EN-COM-0259",
+      "content_hash_sha256": "73f1f22bfb39b734c607b5cf80b54b6028550791de770de8d6f06d26149eea92"
+    },
+    {
+      "record_id": "SIMP-EN-000778",
+      "source_group_id": "SRC-EN-COM-0259",
+      "content_hash_sha256": "cca95508ecb611b80dea69526a7fd5f538d36ec2c2dc7e5c4714d6198f1a9a93"
+    },
+    {
+      "record_id": "SIMP-EN-000779",
+      "source_group_id": "SRC-EN-COM-0259",
+      "content_hash_sha256": "fa47795173a66a3f3eeb444ca40a6af03fd2176d9b30c69e42945c7e1cdb667d"
+    },
+    {
+      "record_id": "SIMP-EN-000687",
+      "source_group_id": "SRC-EN-GRA-0229",
+      "content_hash_sha256": "31ab7bc01fa3869244e334d7cbfbab4b220b977050f98d206446568007b9b737"
+    },
+    {
+      "record_id": "SIMP-EN-000688",
+      "source_group_id": "SRC-EN-GRA-0229",
+      "content_hash_sha256": "dbe6e03f829359b497c6fbe2638a30ef8613fb48f81026453fc22a41e4e09486"
+    },
+    {
+      "record_id": "SIMP-EN-000689",
+      "source_group_id": "SRC-EN-GRA-0229",
+      "content_hash_sha256": "b46ef567af04cc37418a06c6db0a2802f30df63114919c4a86f085fb010c16dd"
+    },
+    {
+      "record_id": "SIMP-EN-001161",
+      "source_group_id": "SRC-EN-INS-0387",
+      "content_hash_sha256": "0c61969b3388a1bc7b98439b3d26fd2315e11314f1c50200d8e979f3509f9dc7"
+    },
+    {
+      "record_id": "SIMP-EN-001162",
+      "source_group_id": "SRC-EN-INS-0387",
+      "content_hash_sha256": "fdfc4bae805f198425ea775eb4f23c82c2856c5660f4bd21ff28d2c7620e8412"
+    },
+    {
+      "record_id": "SIMP-EN-001163",
+      "source_group_id": "SRC-EN-INS-0387",
+      "content_hash_sha256": "bec1c3c5fde03298e6dcb9d632ad3a65abbfb45920eae018c43ea9a3255a6b67"
+    },
+    {
+      "record_id": "SIMP-EN-001179",
+      "source_group_id": "SRC-EN-INS-0393",
+      "content_hash_sha256": "0aed25936a1a80c0a1c0f9f29e47782262fb382e38d04544cc7cd635df09f6eb"
+    },
+    {
+      "record_id": "SIMP-EN-001180",
+      "source_group_id": "SRC-EN-INS-0393",
+      "content_hash_sha256": "3595c383666d19776a1ac54bd748189df246515d152e4fa2b1250a31a2e35ef5"
+    },
+    {
+      "record_id": "SIMP-EN-001181",
+      "source_group_id": "SRC-EN-INS-0393",
+      "content_hash_sha256": "d20bfe5e64e6f76656d57797e0a584c6bc4294648fad90a1148badf9171b3289"
+    },
+    {
+      "record_id": "SIMP-EN-001086",
+      "source_group_id": "SRC-EN-INS-0362",
+      "content_hash_sha256": "9718a708650289862d22bd69e37a21d6d098f8b1d6947f49c060060a94eaca01"
+    },
+    {
+      "record_id": "SIMP-EN-001087",
+      "source_group_id": "SRC-EN-INS-0362",
+      "content_hash_sha256": "58f8bc6adaef3ba5b0e6c709ab8fc3831886cdf1d6c6b5fb789c3f0bc939a848"
+    },
+    {
+      "record_id": "SIMP-EN-001088",
+      "source_group_id": "SRC-EN-INS-0362",
+      "content_hash_sha256": "9eed385244e8b8781f30083d2797d01843a8015346f3254821a2e840a5d49334"
+    },
+    {
+      "record_id": "SIMP-EN-000810",
+      "source_group_id": "SRC-EN-COM-0270",
+      "content_hash_sha256": "f71a9cf067388f67831444d4aa44ad4a0f3281d7e259b72e5d47a340c4b91732"
+    },
+    {
+      "record_id": "SIMP-EN-000811",
+      "source_group_id": "SRC-EN-COM-0270",
+      "content_hash_sha256": "3f1a2a7f1131c4273d7ab4310fcc5e08280cf9ded7a7006afdfb3b44ad3bf08e"
+    },
+    {
+      "record_id": "SIMP-EN-000812",
+      "source_group_id": "SRC-EN-COM-0270",
+      "content_hash_sha256": "d7e0cbceacf37d3af5388903ab1e02e1efa92ee70821da4d21ac98c1828d9511"
+    },
+    {
+      "record_id": "SIMP-EN-001032",
+      "source_group_id": "SRC-EN-INS-0344",
+      "content_hash_sha256": "5ecd1d7fa08eab14fb34d02837da17defc00f8b04c1662a98b129d595027da52"
+    },
+    {
+      "record_id": "SIMP-EN-001033",
+      "source_group_id": "SRC-EN-INS-0344",
+      "content_hash_sha256": "62ae6b80c1db1f681d92a4aa3175352a7b6d1c97d458440111bbd38977fb9f4a"
+    },
+    {
+      "record_id": "SIMP-EN-001034",
+      "source_group_id": "SRC-EN-INS-0344",
+      "content_hash_sha256": "ba640d384af16669390c135eafaaf0458bcf9ded1176e9ceb2c6e15e2a746969"
+    },
+    {
+      "record_id": "SIMP-EN-000951",
+      "source_group_id": "SRC-EN-COM-0317",
+      "content_hash_sha256": "eea5778a2c0acaca0833f1858c1278c3d5ec55aea0b9386d37ab4f845bd452e4"
+    },
+    {
+      "record_id": "SIMP-EN-000952",
+      "source_group_id": "SRC-EN-COM-0317",
+      "content_hash_sha256": "c8444b13f919e97c97bb3ef253dfd31c74448e0e63a7e4de8e52aab3b4fddc6a"
+    },
+    {
+      "record_id": "SIMP-EN-000953",
+      "source_group_id": "SRC-EN-COM-0317",
+      "content_hash_sha256": "26cd476de7349b16f4f3ba376cdd18c860d4acc3804323e00dd7f0df5d3be6d8"
+    },
+    {
+      "record_id": "SIMP-EN-001092",
+      "source_group_id": "SRC-EN-INS-0364",
+      "content_hash_sha256": "d7642c95a28edfcff7deb4814610393d3a36b08b9d1999f92780df398837b847"
+    },
+    {
+      "record_id": "SIMP-EN-001093",
+      "source_group_id": "SRC-EN-INS-0364",
+      "content_hash_sha256": "5427752ecb42dea180113e72f94622d346092605f724b19066fefe55c5c1e30f"
+    },
+    {
+      "record_id": "SIMP-EN-001094",
+      "source_group_id": "SRC-EN-INS-0364",
+      "content_hash_sha256": "0e4ee0a11a994c28933c030f8a9754eb83ee17278d179145ae832321c79ff005"
+    },
+    {
+      "record_id": "SIMP-EN-001170",
+      "source_group_id": "SRC-EN-INS-0390",
+      "content_hash_sha256": "7c1f0e98dc7615f6d4e2168fd8831c04eed018c69f33a619350d89d832d88136"
+    },
+    {
+      "record_id": "SIMP-EN-001171",
+      "source_group_id": "SRC-EN-INS-0390",
+      "content_hash_sha256": "a1526d3cf6b666fbfca95ca70cb0951ad2059110b68f89d74c62500d6aeaca8d"
+    },
+    {
+      "record_id": "SIMP-EN-001172",
+      "source_group_id": "SRC-EN-INS-0390",
+      "content_hash_sha256": "c9b30d98aef89bb20ebbe329b3a495db11e998ceadadc3e981c4e9b0d3770d8f"
+    },
+    {
+      "record_id": "SIMP-EN-000363",
+      "source_group_id": "SRC-EN-VOC-0121",
+      "content_hash_sha256": "32fa98558ada7ba58655045b834d8502cfc3578e8110cacff074dcd61b38290e"
+    },
+    {
+      "record_id": "SIMP-EN-000364",
+      "source_group_id": "SRC-EN-VOC-0121",
+      "content_hash_sha256": "b4e6bfe6068790d6dea21dca2b420cd96a1b6b6d20c2030ff5fda2d0ae09f80f"
+    },
+    {
+      "record_id": "SIMP-EN-000365",
+      "source_group_id": "SRC-EN-VOC-0121",
+      "content_hash_sha256": "2ecf06d359e4bfb9016022d473169be00994efbe28f055daf78aa0dae4ec1866"
+    },
+    {
+      "record_id": "SIMP-EN-000309",
+      "source_group_id": "SRC-EN-VOC-0103",
+      "content_hash_sha256": "8da114f3226f60c829f9babb750d3f96b427566a3d426c0e9a53e99937bfc937"
+    },
+    {
+      "record_id": "SIMP-EN-000310",
+      "source_group_id": "SRC-EN-VOC-0103",
+      "content_hash_sha256": "b4d1b25ced0cc1dcf2aac3e8924059b3ffe2ec66fedee5f5775f352f1017d33b"
+    },
+    {
+      "record_id": "SIMP-EN-000311",
+      "source_group_id": "SRC-EN-VOC-0103",
+      "content_hash_sha256": "66fdd2a98482bd263c03e4b6a4dbe7a85127495b13bbfe6ffc2a2cac53aa47aa"
+    },
+    {
+      "record_id": "SIMP-EN-000636",
+      "source_group_id": "SRC-EN-GRA-0212",
+      "content_hash_sha256": "9ec0663aeaeb30eabbb69e6afbd33e2ef8681426e7aef8f9a239b80be7ed5aa9"
+    },
+    {
+      "record_id": "SIMP-EN-000637",
+      "source_group_id": "SRC-EN-GRA-0212",
+      "content_hash_sha256": "272ff267f599c5398183cc377b0fefef136ab928dc649dc8dd1cd0d2f61658f6"
+    },
+    {
+      "record_id": "SIMP-EN-000638",
+      "source_group_id": "SRC-EN-GRA-0212",
+      "content_hash_sha256": "0809c212dbfb5cf05ffc248998ec7a74e9fe9eaad644ed072aedb403777c380b"
+    },
+    {
+      "record_id": "SIMP-EN-001152",
+      "source_group_id": "SRC-EN-INS-0384",
+      "content_hash_sha256": "c2b1ce361d8f90f92ca364bb0e8cc31b8c3cfbfa7cea1f0d034bdab482dcb270"
+    },
+    {
+      "record_id": "SIMP-EN-001153",
+      "source_group_id": "SRC-EN-INS-0384",
+      "content_hash_sha256": "5457e85c04ddfd7a25f1d523710d05a74a2bbd908b04e42c6d16ba40a5289aa6"
+    },
+    {
+      "record_id": "SIMP-EN-001154",
+      "source_group_id": "SRC-EN-INS-0384",
+      "content_hash_sha256": "73ac4f325b819c269d2544a059eafb12dab8758998e216edee534bbc42919a76"
+    },
+    {
+      "record_id": "SIMP-EN-000816",
+      "source_group_id": "SRC-EN-COM-0272",
+      "content_hash_sha256": "d584d3a119c70014e2e6b866d422b44e7055d3c7a6dec689aa3e9a558f8ed80c"
+    },
+    {
+      "record_id": "SIMP-EN-000817",
+      "source_group_id": "SRC-EN-COM-0272",
+      "content_hash_sha256": "45d7f98b01ae162a2b1a5eb836f9fef49940227f243d3e18da7af6b48f4001e4"
+    },
+    {
+      "record_id": "SIMP-EN-000818",
+      "source_group_id": "SRC-EN-COM-0272",
+      "content_hash_sha256": "77f5c59fbca81c02375c6b72c5745c1f7e21786e4bd6efa4125a5705d4d1487a"
+    },
+    {
+      "record_id": "SIMP-EN-000912",
+      "source_group_id": "SRC-EN-COM-0304",
+      "content_hash_sha256": "c96d635d6eb0be6b9625936f38ba4fa14e8d5460e45be37d2b36402e5c2c6427"
+    },
+    {
+      "record_id": "SIMP-EN-000913",
+      "source_group_id": "SRC-EN-COM-0304",
+      "content_hash_sha256": "b0cce2b3313aa72d2643a7db7a333c6bfadf5aef06c5faa42a92715f90004e1b"
+    },
+    {
+      "record_id": "SIMP-EN-000914",
+      "source_group_id": "SRC-EN-COM-0304",
+      "content_hash_sha256": "14d7d0d9283dc99027066c40cef5f38f173156ebedbea183fb2547bbc3468336"
+    },
+    {
+      "record_id": "SIMP-EN-001176",
+      "source_group_id": "SRC-EN-INS-0392",
+      "content_hash_sha256": "8258cbd89f7fe63ba10c5dfbe6620d6795cf95d962be3e00ea8e749f17a86d29"
+    },
+    {
+      "record_id": "SIMP-EN-001177",
+      "source_group_id": "SRC-EN-INS-0392",
+      "content_hash_sha256": "ae65ec707e28c228fe11b196daa125dd3b0fe6abcc21072fc7e139c7eb07e79e"
+    },
+    {
+      "record_id": "SIMP-EN-001178",
+      "source_group_id": "SRC-EN-INS-0392",
+      "content_hash_sha256": "9628f27cfe54ee5c2f755a3a36e44389217c4e54f77f137661153e2e988c93ca"
+    },
+    {
+      "record_id": "SIMP-EN-000603",
+      "source_group_id": "SRC-EN-GRA-0201",
+      "content_hash_sha256": "df88db4c3d46da1f5c54915a4a94dfa95d3d20eb110e9f793c2c1f0958662323"
+    },
+    {
+      "record_id": "SIMP-EN-000604",
+      "source_group_id": "SRC-EN-GRA-0201",
+      "content_hash_sha256": "a3a2a0cf15e49f8acba5f6f5cd7d12054bc59c698485c4e8158f9e3c5536e70a"
+    },
+    {
+      "record_id": "SIMP-EN-000605",
+      "source_group_id": "SRC-EN-GRA-0201",
+      "content_hash_sha256": "d889e65238dd9cf84246a3b92869217a2b8503a2eb513d111590ab7a0817c4ff"
+    },
+    {
+      "record_id": "SIMP-EN-000339",
+      "source_group_id": "SRC-EN-VOC-0113",
+      "content_hash_sha256": "6bfc713013b8a99ace0b65320e8ac480b231a1f9b9d57ee85ce9f58dbf0ba3af"
+    },
+    {
+      "record_id": "SIMP-EN-000340",
+      "source_group_id": "SRC-EN-VOC-0113",
+      "content_hash_sha256": "878097ab1da310574857948415220975bccd4409d3e970f5a4f034acc71a3834"
+    },
+    {
+      "record_id": "SIMP-EN-000341",
+      "source_group_id": "SRC-EN-VOC-0113",
+      "content_hash_sha256": "de7f512a5a7771711f7e4cd4a0a2e3d4da1d9b29922581aa99ecf83e0a39ef58"
+    },
+    {
+      "record_id": "SIMP-EN-000729",
+      "source_group_id": "SRC-EN-GRA-0243",
+      "content_hash_sha256": "e96a9d615072f19c5a60587d4f85ea9e9913769439e7da29ed1e9b3ff4b412f9"
+    },
+    {
+      "record_id": "SIMP-EN-000730",
+      "source_group_id": "SRC-EN-GRA-0243",
+      "content_hash_sha256": "cd5ede8788bea6417f70a1a093381a5a468785de5e55300b1b8a2fc9fb45fde3"
+    },
+    {
+      "record_id": "SIMP-EN-000731",
+      "source_group_id": "SRC-EN-GRA-0243",
+      "content_hash_sha256": "edd664b7a719c9722c67aa7dfb240bdf9bef23825e9d01ffb2f6c5a103bb34b7"
+    },
+    {
+      "record_id": "SIMP-EN-000837",
+      "source_group_id": "SRC-EN-COM-0279",
+      "content_hash_sha256": "421b70f85d313c232172495966b6513a89678ce0217785300f2a49b4b4b1ddd1"
+    },
+    {
+      "record_id": "SIMP-EN-000838",
+      "source_group_id": "SRC-EN-COM-0279",
+      "content_hash_sha256": "d578e17fe1544ee242a345f52879658dd78a4aebff8ccfe53bcd9a0616f98918"
+    },
+    {
+      "record_id": "SIMP-EN-000839",
+      "source_group_id": "SRC-EN-COM-0279",
+      "content_hash_sha256": "28de1f8f466742bf2328201eacf5d4613bc9700ff36e15999269557f74e60454"
+    },
+    {
+      "record_id": "SIMP-EN-000813",
+      "source_group_id": "SRC-EN-COM-0271",
+      "content_hash_sha256": "a7f86993c58db42ba5a304e373bf38008272e0239372229c788c965b9f8ab198"
+    },
+    {
+      "record_id": "SIMP-EN-000814",
+      "source_group_id": "SRC-EN-COM-0271",
+      "content_hash_sha256": "defd53d87460de121d03899086ad9e005dde19a86d97a39dafcc01417ff0aa4d"
+    },
+    {
+      "record_id": "SIMP-EN-000815",
+      "source_group_id": "SRC-EN-COM-0271",
+      "content_hash_sha256": "cfa46cd2b64477e162d2af2bfffdf920d1aa04b2557e091edb61a09dcff794d8"
+    },
+    {
+      "record_id": "SIMP-EN-000771",
+      "source_group_id": "SRC-EN-COM-0257",
+      "content_hash_sha256": "785bb1850310a5c055840dff7f986ec0b22d0c67738283c63c1f8325722ee328"
+    },
+    {
+      "record_id": "SIMP-EN-000772",
+      "source_group_id": "SRC-EN-COM-0257",
+      "content_hash_sha256": "d67a98bb3ebe6ddb51db431aa0f2aa54027fbcb937c8a437cc555ca0151579b9"
+    },
+    {
+      "record_id": "SIMP-EN-000773",
+      "source_group_id": "SRC-EN-COM-0257",
+      "content_hash_sha256": "5490bb1c6965dbd7dd1ef9413ecfbf6aeb637a9f485a9054a85a035c47d4dcb4"
+    },
+    {
+      "record_id": "SIMP-EN-000345",
+      "source_group_id": "SRC-EN-VOC-0115",
+      "content_hash_sha256": "c166eca50bfbe672de6e152fec77348ae1a5927f22ecbf23f62c3af1970a9c42"
+    },
+    {
+      "record_id": "SIMP-EN-000346",
+      "source_group_id": "SRC-EN-VOC-0115",
+      "content_hash_sha256": "2cc4889c66ac79f661d0d810b9d97fcd6ef1c400674550ec5d49c723f1cd1945"
+    },
+    {
+      "record_id": "SIMP-EN-000347",
+      "source_group_id": "SRC-EN-VOC-0115",
+      "content_hash_sha256": "ec2777f2681f2b84cdbd7ead96a09afebfb863733d90929d42fd84831d4c495e"
+    },
+    {
+      "record_id": "SIMP-EN-000348",
+      "source_group_id": "SRC-EN-VOC-0116",
+      "content_hash_sha256": "5c3a347380fd71d573e3e4148839c24b45ad7dd0d3a946bda8278d190f82df81"
+    },
+    {
+      "record_id": "SIMP-EN-000349",
+      "source_group_id": "SRC-EN-VOC-0116",
+      "content_hash_sha256": "7321b2fef2abd6c6400f00176b131f1b9ba8670c373b7295c4d31984c8c190d2"
+    },
+    {
+      "record_id": "SIMP-EN-000350",
+      "source_group_id": "SRC-EN-VOC-0116",
+      "content_hash_sha256": "483a61a8fbe54ab5cb40af307d3210ab1ec476f5f9d68b3713fe098d1b00081c"
+    },
+    {
+      "record_id": "SIMP-EN-001113",
+      "source_group_id": "SRC-EN-INS-0371",
+      "content_hash_sha256": "7dd7464a0d992899d64a9d5320256153b38557e87745fbe38e230cedbd75e27c"
+    },
+    {
+      "record_id": "SIMP-EN-001114",
+      "source_group_id": "SRC-EN-INS-0371",
+      "content_hash_sha256": "a5e5c3e601dd92ebcc9bbcd452f4cef2629667bc268c11b08413077383af4fa5"
+    },
+    {
+      "record_id": "SIMP-EN-001115",
+      "source_group_id": "SRC-EN-INS-0371",
+      "content_hash_sha256": "6d808f62d9c30fa1a308e9ef5d11357da121598629d5f937dea53995bada2143"
+    },
+    {
+      "record_id": "SIMP-EN-000762",
+      "source_group_id": "SRC-EN-COM-0254",
+      "content_hash_sha256": "e149f571da00b8b17a1e9d4015ad164549f30a1721d93c0f06eccc921cadf4e6"
+    },
+    {
+      "record_id": "SIMP-EN-000763",
+      "source_group_id": "SRC-EN-COM-0254",
+      "content_hash_sha256": "11fa420bf7127844fcfdf62bf26be028a008f6947d92a12c72044f134259d523"
+    },
+    {
+      "record_id": "SIMP-EN-000764",
+      "source_group_id": "SRC-EN-COM-0254",
+      "content_hash_sha256": "f0f41c43cc4a6ebdc64e4160d780ba3a576ef0dc9b1d2bc0ba7fc9fdfd0cae4d"
+    },
+    {
+      "record_id": "SIMP-EN-000957",
+      "source_group_id": "SRC-EN-COM-0319",
+      "content_hash_sha256": "d4aced72c037a049103f4846ebd60e9bbcc16314f33d89fd239a824b329951f3"
+    },
+    {
+      "record_id": "SIMP-EN-000958",
+      "source_group_id": "SRC-EN-COM-0319",
+      "content_hash_sha256": "11c757d74e71611cc867da9844fe8a2c4cbfa6aa0c36033090f17350cc7fb627"
+    },
+    {
+      "record_id": "SIMP-EN-000959",
+      "source_group_id": "SRC-EN-COM-0319",
+      "content_hash_sha256": "4f392f67d0d88912577975d369e92edb83edbd6f2dcdbb77c4ea8411b8fb87fc"
+    },
+    {
+      "record_id": "SIMP-EN-000786",
+      "source_group_id": "SRC-EN-COM-0262",
+      "content_hash_sha256": "ecc1eb805d2adb9b564794235a23e295d4a17ed1d29010bc767c211f101cc10b"
+    },
+    {
+      "record_id": "SIMP-EN-000787",
+      "source_group_id": "SRC-EN-COM-0262",
+      "content_hash_sha256": "4485a1fd3c596846262d158223d166200d6cd19f1318f28688fa022f812d3394"
+    },
+    {
+      "record_id": "SIMP-EN-000788",
+      "source_group_id": "SRC-EN-COM-0262",
+      "content_hash_sha256": "ee5fd2c38bd10b5742ee22317c9ce37e0af6a4c9130109338268a8cd15128b17"
+    },
+    {
+      "record_id": "SIMP-EN-001008",
+      "source_group_id": "SRC-EN-INS-0336",
+      "content_hash_sha256": "188edf3d077e5177612c66bdc531b2afae503ef7534a938a5e814fb996079887"
+    },
+    {
+      "record_id": "SIMP-EN-001009",
+      "source_group_id": "SRC-EN-INS-0336",
+      "content_hash_sha256": "c8aa9ca9e16a606953d7acfa749c0483c12f1569dff78198d6f6f7524b21cefc"
+    },
+    {
+      "record_id": "SIMP-EN-001010",
+      "source_group_id": "SRC-EN-INS-0336",
+      "content_hash_sha256": "f3f49a1ae08942a12cfac25e3b2d8e6a722a2ad3edc9a0e8f33e8b126e787470"
+    },
+    {
+      "record_id": "SIMP-EN-000822",
+      "source_group_id": "SRC-EN-COM-0274",
+      "content_hash_sha256": "c74ade7d6d90deaa882202f80ec95f7ba634f1d06b0a493ffac9d53741f0bd82"
+    },
+    {
+      "record_id": "SIMP-EN-000823",
+      "source_group_id": "SRC-EN-COM-0274",
+      "content_hash_sha256": "99e74a9bdf204b29b08c60b7fd64e4efa07727b5118710435886d06e0920bec8"
+    },
+    {
+      "record_id": "SIMP-EN-000824",
+      "source_group_id": "SRC-EN-COM-0274",
+      "content_hash_sha256": "05c75ea28eb635e272c03d3c1eb54559a043897ee8b24fbbb6a0b32a44bc6b99"
+    },
+    {
+      "record_id": "SIMP-EN-001050",
+      "source_group_id": "SRC-EN-INS-0350",
+      "content_hash_sha256": "2bc1d868eec21010253d7596b2eb7715cbae3bf02436f2ed65df1962c4f16bf2"
+    },
+    {
+      "record_id": "SIMP-EN-001051",
+      "source_group_id": "SRC-EN-INS-0350",
+      "content_hash_sha256": "dd98054a3a46573c80fe2d61b8350abd819be684d50575f90a17871d685e437f"
+    },
+    {
+      "record_id": "SIMP-EN-001052",
+      "source_group_id": "SRC-EN-INS-0350",
+      "content_hash_sha256": "3aa11280d55a2143bd8c61269e9d755aa8ca762a10c7a15d815d0efc25982820"
+    },
+    {
+      "record_id": "SIMP-EN-000630",
+      "source_group_id": "SRC-EN-GRA-0210",
+      "content_hash_sha256": "f805e781d8e587e62508a09566a4329a624677921742e9dae9048563f0c43441"
+    },
+    {
+      "record_id": "SIMP-EN-000631",
+      "source_group_id": "SRC-EN-GRA-0210",
+      "content_hash_sha256": "24fb55b860eb407573020342f9e8299261de7c63229bb3b0f9bc5a2aaed1746d"
+    },
+    {
+      "record_id": "SIMP-EN-000632",
+      "source_group_id": "SRC-EN-GRA-0210",
+      "content_hash_sha256": "daf306b1ec7aa601bd768fa0fcc8643a84cde0dbe9ab2c4cfbb8b5c731ed92ca"
+    },
+    {
+      "record_id": "SIMP-EN-000336",
+      "source_group_id": "SRC-EN-VOC-0112",
+      "content_hash_sha256": "694410ec45427ad8071932c338cc2cfb62d4e1cdb16cb5f41389d62970b5ee45"
+    },
+    {
+      "record_id": "SIMP-EN-000337",
+      "source_group_id": "SRC-EN-VOC-0112",
+      "content_hash_sha256": "c890bb1bcf6faf254dd353b172671e45b1981f81ce3f8c0567c107ccb45dc51e"
+    },
+    {
+      "record_id": "SIMP-EN-000338",
+      "source_group_id": "SRC-EN-VOC-0112",
+      "content_hash_sha256": "12d56851634ef5cc193022bdea2644be980f6d58e8091b2929cf272fa5f05db7"
+    },
+    {
+      "record_id": "SIMP-EN-000801",
+      "source_group_id": "SRC-EN-COM-0267",
+      "content_hash_sha256": "a2f14b418f26d2128c6b536e2f37a55a3d47cba036d98b75b8f17893e865b2f0"
+    },
+    {
+      "record_id": "SIMP-EN-000802",
+      "source_group_id": "SRC-EN-COM-0267",
+      "content_hash_sha256": "edecf328be4273caf2ee9e875f5cce76678e23d78ae7552937b096351a1255a9"
+    },
+    {
+      "record_id": "SIMP-EN-000803",
+      "source_group_id": "SRC-EN-COM-0267",
+      "content_hash_sha256": "2777a0616075f5d4f89d8cf459f0c0bc344907edf69e91dcf3b1495adcb8fe1f"
+    }
+  ]
+}

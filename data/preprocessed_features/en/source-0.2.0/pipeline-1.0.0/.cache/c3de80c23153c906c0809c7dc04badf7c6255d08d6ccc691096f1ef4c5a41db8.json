@@ -1,0 +1,255 @@
+{
+  "text_instance_id": "SRC-EN-GRA-0244__SRC",
+  "parent_record_id": "SRC-EN-GRA-0244",
+  "parent_record_type": "source_item",
+  "text_role": "source_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SRC-EN-GRA-0244",
+  "original_text": "The silver airplane flies above the clouds.",
+  "normalized_text": "The silver airplane flies above the clouds.",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.95,
+    "decision": "verified",
+    "fallback_reason": "deterministic_heuristic_verified"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SRC-EN-GRA-0244__SRC-S01",
+      "sentence_index": 0,
+      "text": "The silver airplane flies above the clouds.",
+      "original_start_char": 0,
+      "original_end_char": 43,
+      "normalized_start_char": 0,
+      "normalized_end_char": 43,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "The",
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 3,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 3,
+          "normalized_start_char": 0,
+          "normalized_end_char": 3
+        },
+        {
+          "index": 1,
+          "text": "silver",
+          "lemma": "silver",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "compound",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 4,
+          "original_end_char": 10,
+          "normalized_start_char": 4,
+          "normalized_end_char": 10
+        },
+        {
+          "index": 2,
+          "text": "airplane",
+          "lemma": "airplane",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head_index": 3,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 11,
+          "original_end_char": 19,
+          "normalized_start_char": 11,
+          "normalized_end_char": 19
+        },
+        {
+          "index": 3,
+          "text": "flies",
+          "lemma": "fly",
+          "pos": "VERB",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head_index": 3,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 20,
+          "original_end_char": 25,
+          "normalized_start_char": 20,
+          "normalized_end_char": 25
+        },
+        {
+          "index": 4,
+          "text": "above",
+          "lemma": "above",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head_index": 3,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 26,
+          "original_end_char": 31,
+          "normalized_start_char": 26,
+          "normalized_end_char": 31
+        },
+        {
+          "index": 5,
+          "text": "the",
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 6,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 32,
+          "original_end_char": 35,
+          "normalized_start_char": 32,
+          "normalized_end_char": 35
+        },
+        {
+          "index": 6,
+          "text": "clouds",
+          "lemma": "cloud",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head_index": 4,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 36,
+          "original_end_char": 42,
+          "normalized_start_char": 36,
+          "normalized_end_char": 42
+        },
+        {
+          "index": 7,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 3,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 42,
+          "original_end_char": 43,
+          "normalized_start_char": 42,
+          "normalized_end_char": 43
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 37,
+      "token_count": 8,
+      "word_count": 7,
+      "sentence_count": 1,
+      "punct_count": 1,
+      "avg_word_length": 5.14,
+      "avg_sentence_length": 8.0,
+      "unique_token_count": 6,
+      "type_token_ratio": 0.857,
+      "syllable_count": 10,
+      "avg_syllables_per_word": 1.43,
+      "long_word_count": 1
+    },
+    "lexical": {
+      "content_word_count": 4,
+      "function_word_count": 3,
+      "noun_count": 2,
+      "verb_count": 1,
+      "adj_count": 1,
+      "adv_count": 0,
+      "pronoun_count": 0,
+      "prep_count": 1,
+      "finite_verb_count": 1,
+      "auxiliary_verb_count": 0,
+      "out_of_lexicon_count": 7,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": [
+        "airplane"
+      ]
+    },
+    "syntactic": {
+      "max_dependency_depth": 3,
+      "avg_dependency_depth": 1.29,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 0,
+      "avg_noun_phrase_length": 2.0,
+      "svo_triplets_available": true,
+      "root_count": 1,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": false
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [],
+      "named_entities": [
+        {
+          "text": "silver",
+          "category": "COLOR"
+        }
+      ],
+      "spatial_prepositions": [
+        "above"
+      ],
+      "temporal_connectives": [],
+      "action_verbs": [
+        "fly"
+      ],
+      "aligned_protected_units": [
+        {
+          "protected_unit": "airplane",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "flies",
+          "is_aligned": true,
+          "status": "aligned"
+        }
+      ]
+    }
+  },
+  "processing_status": "success",
+  "text_hash": "61ddc2c17108fa4fc739025955f88d14767f86d440c6a7ef91008b2739f210b5",
+  "feature_hash": "281d8f1c251d7c2b2c6f05810fa02b508eb30657ab15802c422ddf5c9b31abe8",
+  "record_hash": "037f062b72b0aa25587595d7f1db0c9392504853e3e788c721e15b6256471e9d"
+}

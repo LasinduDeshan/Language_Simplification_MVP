@@ -1,0 +1,174 @@
+{
+  "$defs": {
+    "RecordCountSummaryV1": {
+      "additionalProperties": false,
+      "properties": {
+        "adaptation_activities": {
+          "description": "Total activities in Adaptation Test Set",
+          "minimum": 0,
+          "title": "Adaptation Activities",
+          "type": "integer"
+        },
+        "simplification_pairs": {
+          "description": "Total pairs in Simplification Corpus",
+          "minimum": 0,
+          "title": "Simplification Pairs",
+          "type": "integer"
+        },
+        "lexicon_entries": {
+          "description": "Total entries in Lexicon Repository",
+          "minimum": 0,
+          "title": "Lexicon Entries",
+          "type": "integer"
+        },
+        "total_reusable_records": {
+          "description": "Sum of reusable records across layers",
+          "minimum": 0,
+          "title": "Total Reusable Records",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "adaptation_activities",
+        "simplification_pairs",
+        "lexicon_entries",
+        "total_reusable_records"
+      ],
+      "title": "RecordCountSummaryV1",
+      "type": "object"
+    },
+    "ReleaseFileEntryV1": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "description": "Relative file path within repository",
+          "title": "Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "description": "File size in bytes",
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        },
+        "sha256": {
+          "description": "Complete 64-character SHA-256 hash",
+          "maxLength": 64,
+          "minLength": 64,
+          "title": "Sha256",
+          "type": "string"
+        },
+        "record_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Record count inside file",
+          "title": "Record Count"
+        }
+      },
+      "required": [
+        "path",
+        "size_bytes",
+        "sha256"
+      ],
+      "title": "ReleaseFileEntryV1",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "manifest_id": {
+      "description": "Unique manifest ID (e.g. MANIFEST-0.1.0)",
+      "title": "Manifest Id",
+      "type": "string"
+    },
+    "dataset_name": {
+      "default": "Language_Simplification_MVP_Datasets",
+      "description": "Dataset collection name",
+      "title": "Dataset Name",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "0.1.0",
+      "description": "Release version of the dataset",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "1.0.0",
+      "description": "Schema version used by release",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "release_status": {
+      "default": "draft",
+      "description": "Release status (draft/rc/approved_release)",
+      "title": "Release Status",
+      "type": "string"
+    },
+    "created_at": {
+      "description": "Creation timestamp",
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "record_counts": {
+      "$ref": "#/$defs/RecordCountSummaryV1",
+      "description": "Breakdown of record counts"
+    },
+    "files": {
+      "description": "List of published files and SHA-256 hashes",
+      "items": {
+        "$ref": "#/$defs/ReleaseFileEntryV1"
+      },
+      "title": "Files",
+      "type": "array"
+    },
+    "included_languages": {
+      "description": "Languages included in release",
+      "items": {
+        "type": "string"
+      },
+      "title": "Included Languages",
+      "type": "array"
+    },
+    "research_eligibility_status": {
+      "default": "not_assessed",
+      "description": "Dataset-level research eligibility",
+      "title": "Research Eligibility Status",
+      "type": "string"
+    },
+    "source_release": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Parent or base release",
+      "title": "Source Release"
+    },
+    "generator_version": {
+      "default": "stage14_generator_v1",
+      "description": "Generator script version",
+      "title": "Generator Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_id",
+    "record_counts"
+  ],
+  "title": "ReleaseManifestV1",
+  "type": "object"
+}

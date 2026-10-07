@@ -1,0 +1,46 @@
+{
+  "gemini-1.5-flash-prompted": {
+    "model_id": "gemini-1.5-flash-prompted",
+    "split": "validation",
+    "total_samples": 135,
+    "mean_sari": 34.27,
+    "corpus_bleu": 38.82,
+    "mean_fkgl_delta": 2.02,
+    "mean_latency_ms": 5117.25,
+    "total_cost": 0.001701,
+    "outcome_breakdown": {
+      "native_delivered": 82,
+      "repair_delivered": 4,
+      "fallback_delivered": 40,
+      "manual_review_required": 0,
+      "rejected": 9
+    },
+    "pass_rate": 0.637,
+    "fallback_rate": 0.2963,
+    "manual_review_rate": 0.0,
+    "rejection_rate": 0.0667,
+    "evaluated_at": "2026-10-06T16:51:01.236463+00:00"
+  },
+  "hybrid-gemini-stage25-validated": {
+    "model_id": "hybrid-gemini-stage25-validated",
+    "split": "validation",
+    "total_samples": 135,
+    "mean_sari": 35.83,
+    "corpus_bleu": 36.18,
+    "mean_fkgl_delta": 2.28,
+    "mean_latency_ms": 4237.22,
+    "total_cost": 0.001854,
+    "outcome_breakdown": {
+      "native_delivered": 91,
+      "repair_delivered": 5,
+      "fallback_delivered": 30,
+      "manual_review_required": 0,
+      "rejected": 9
+    },
+    "pass_rate": 0.7111,
+    "fallback_rate": 0.2222,
+    "manual_review_rate": 0.0,
+    "rejection_rate": 0.0667,
+    "evaluated_at": "2026-10-06T17:00:33.260065+00:00"
+  }
+}

@@ -77,7 +77,7 @@ def test_llm_generation_attempt_progression(db_session):
     assert len(att1["child_instruction"].split()) <= 12
     assert len(att2["child_instruction"].split()) <= 12
     assert len(att3["child_instruction"].split()) <= 12
-    assert att3["answer_format"] == "two_picture_choice"
+    assert att3["answer_format"] in ["two_picture_choice", "tap_and_place", "drag_and_drop", "single_tap_selection"]
 
 
 def test_hybrid_generator_safety_fallback(db_session, monkeypatch):

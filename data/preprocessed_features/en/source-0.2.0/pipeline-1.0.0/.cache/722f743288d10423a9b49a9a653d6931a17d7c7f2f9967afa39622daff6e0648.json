@@ -1,0 +1,210 @@
+{
+  "text_instance_id": "SIMP-EN-0128__SIMP",
+  "parent_record_id": "SIMP-EN-0128",
+  "parent_record_type": "simplification_pair",
+  "text_role": "simplified_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SIMP-EN-0128",
+  "original_text": "Find all the green vegetables.",
+  "normalized_text": "Find all the green vegetables.",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.95,
+    "decision": "verified",
+    "fallback_reason": "deterministic_heuristic_verified"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SIMP-EN-0128__SIMP-S01",
+      "sentence_index": 0,
+      "text": "Find all the green vegetables.",
+      "original_start_char": 0,
+      "original_end_char": 30,
+      "normalized_start_char": 0,
+      "normalized_end_char": 30,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "Find",
+          "lemma": "find",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 4,
+          "normalized_start_char": 0,
+          "normalized_end_char": 4
+        },
+        {
+          "index": 1,
+          "text": "all",
+          "lemma": "all",
+          "pos": "DET",
+          "tag": "PDT",
+          "dependency": "predet",
+          "head_index": 4,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 5,
+          "original_end_char": 8,
+          "normalized_start_char": 5,
+          "normalized_end_char": 8
+        },
+        {
+          "index": 2,
+          "text": "the",
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 4,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 9,
+          "original_end_char": 12,
+          "normalized_start_char": 9,
+          "normalized_end_char": 12
+        },
+        {
+          "index": 3,
+          "text": "green",
+          "lemma": "green",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head_index": 4,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 13,
+          "original_end_char": 18,
+          "normalized_start_char": 13,
+          "normalized_end_char": 18
+        },
+        {
+          "index": 4,
+          "text": "vegetables",
+          "lemma": "vegetable",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "dobj",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 3,
+          "original_start_char": 19,
+          "original_end_char": 29,
+          "normalized_start_char": 19,
+          "normalized_end_char": 29
+        },
+        {
+          "index": 5,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 29,
+          "original_end_char": 30,
+          "normalized_start_char": 29,
+          "normalized_end_char": 30
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 26,
+      "token_count": 6,
+      "word_count": 5,
+      "sentence_count": 1,
+      "punct_count": 1,
+      "avg_word_length": 5.0,
+      "avg_sentence_length": 6.0,
+      "unique_token_count": 5,
+      "type_token_ratio": 1.0,
+      "syllable_count": 7,
+      "avg_syllables_per_word": 1.4,
+      "long_word_count": 1
+    },
+    "lexical": {
+      "content_word_count": 3,
+      "function_word_count": 2,
+      "noun_count": 1,
+      "verb_count": 1,
+      "adj_count": 1,
+      "adv_count": 0,
+      "pronoun_count": 0,
+      "prep_count": 0,
+      "finite_verb_count": 0,
+      "auxiliary_verb_count": 0,
+      "out_of_lexicon_count": 5,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": [
+        "vegetables"
+      ]
+    },
+    "syntactic": {
+      "max_dependency_depth": 4,
+      "avg_dependency_depth": 2.0,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 0,
+      "avg_noun_phrase_length": 1.0,
+      "svo_triplets_available": false,
+      "root_count": 1,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": true
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [
+        "all"
+      ],
+      "named_entities": [
+        {
+          "text": "green",
+          "category": "COLOR"
+        }
+      ],
+      "spatial_prepositions": [],
+      "temporal_connectives": [],
+      "action_verbs": [
+        "find"
+      ],
+      "aligned_protected_units": []
+    }
+  },
+  "processing_status": "success",
+  "text_hash": "d66feebf7977b370cfc42cb78b0845a1188bf09b6ed9a8dbd175c5e4d657951a",
+  "feature_hash": "21082c22152ebb11c148ce7214e0e418e04752f10e595e1dbae88ecf2c8de4df",
+  "record_hash": "bddb0713e93de6ddad6f2d8c75de250268f0ff98f8c799bf1dd0cabb0fb6177e"
+}

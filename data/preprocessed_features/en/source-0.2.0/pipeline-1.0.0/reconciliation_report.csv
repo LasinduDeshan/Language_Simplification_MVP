@@ -1,0 +1,11 @@
+metric_name,count,percentage,reconciliation_status
+Raw Text Instances Extracted,3617,100.0%,EXTRACTED
+Unique Normalized Texts Processed,1266,35.0%,PROCESSED
+Duplicate Text Instances (Cached/Mapped),2351,65.0%,DEDUPLICATED
+Parent-to-Text Associations Preserved,3617,N/A,PRESERVED_MANY_TO_MANY
+Primary Pipeline Success,3139,86.8%,RECONCILED
+Fallback Pipeline Success,0,0.0%,RECONCILED
+Manual Review Required,163,4.5%,RECONCILED
+Processing Failed,0,0.0%,RECONCILED
+Skipped Locked Test Records,315,8.7%,GUARDED_ISOLATION
+Unaccounted Records,0,0.0%,ZERO_LOSS_VERIFIED

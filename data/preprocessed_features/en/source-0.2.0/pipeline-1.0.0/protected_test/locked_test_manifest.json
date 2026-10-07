@@ -1,0 +1,2844 @@
+{
+  "release_version": "1.0.0",
+  "source_dataset_version": "0.2.0",
+  "total_locked_records": 315,
+  "locked_source_groups_count": 45,
+  "quarantined_from_development": true,
+  "items": [
+    {
+      "text_instance_id": "SRC-EN-VOC-0103__SRC",
+      "parent_record_id": "SRC-EN-VOC-0103",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0112__SRC",
+      "parent_record_id": "SRC-EN-VOC-0112",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0113__SRC",
+      "parent_record_id": "SRC-EN-VOC-0113",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0115__SRC",
+      "parent_record_id": "SRC-EN-VOC-0115",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0116__SRC",
+      "parent_record_id": "SRC-EN-VOC-0116",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0177__SRC",
+      "parent_record_id": "SRC-EN-GRA-0177",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0250__SRC",
+      "parent_record_id": "SRC-EN-COM-0250",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0254__SRC",
+      "parent_record_id": "SRC-EN-COM-0254",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0257__SRC",
+      "parent_record_id": "SRC-EN-COM-0257",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0259__SRC",
+      "parent_record_id": "SRC-EN-COM-0259",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0262__SRC",
+      "parent_record_id": "SRC-EN-COM-0262",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0267__SRC",
+      "parent_record_id": "SRC-EN-COM-0267",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0328__SRC",
+      "parent_record_id": "SRC-EN-INS-0328",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0336__SRC",
+      "parent_record_id": "SRC-EN-INS-0336",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0344__SRC",
+      "parent_record_id": "SRC-EN-INS-0344",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0121__SRC",
+      "parent_record_id": "SRC-EN-VOC-0121",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0201__SRC",
+      "parent_record_id": "SRC-EN-GRA-0201",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0270__SRC",
+      "parent_record_id": "SRC-EN-COM-0270",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0271__SRC",
+      "parent_record_id": "SRC-EN-COM-0271",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0272__SRC",
+      "parent_record_id": "SRC-EN-COM-0272",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0274__SRC",
+      "parent_record_id": "SRC-EN-COM-0274",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0279__SRC",
+      "parent_record_id": "SRC-EN-COM-0279",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0350__SRC",
+      "parent_record_id": "SRC-EN-INS-0350",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0140__SRC",
+      "parent_record_id": "SRC-EN-VOC-0140",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0210__SRC",
+      "parent_record_id": "SRC-EN-GRA-0210",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0212__SRC",
+      "parent_record_id": "SRC-EN-GRA-0212",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0220__SRC",
+      "parent_record_id": "SRC-EN-GRA-0220",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0362__SRC",
+      "parent_record_id": "SRC-EN-INS-0362",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0364__SRC",
+      "parent_record_id": "SRC-EN-INS-0364",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0366__SRC",
+      "parent_record_id": "SRC-EN-INS-0366",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0148__SRC",
+      "parent_record_id": "SRC-EN-VOC-0148",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0150__SRC",
+      "parent_record_id": "SRC-EN-VOC-0150",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0228__SRC",
+      "parent_record_id": "SRC-EN-GRA-0228",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0229__SRC",
+      "parent_record_id": "SRC-EN-GRA-0229",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0304__SRC",
+      "parent_record_id": "SRC-EN-COM-0304",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0371__SRC",
+      "parent_record_id": "SRC-EN-INS-0371",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0384__SRC",
+      "parent_record_id": "SRC-EN-INS-0384",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-VOC-0160__SRC",
+      "parent_record_id": "SRC-EN-VOC-0160",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-GRA-0243__SRC",
+      "parent_record_id": "SRC-EN-GRA-0243",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0317__SRC",
+      "parent_record_id": "SRC-EN-COM-0317",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-COM-0319__SRC",
+      "parent_record_id": "SRC-EN-COM-0319",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0387__SRC",
+      "parent_record_id": "SRC-EN-INS-0387",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0390__SRC",
+      "parent_record_id": "SRC-EN-INS-0390",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0392__SRC",
+      "parent_record_id": "SRC-EN-INS-0392",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SRC-EN-INS-0393__SRC",
+      "parent_record_id": "SRC-EN-INS-0393",
+      "parent_record_type": "source_item",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000309__ORIG",
+      "parent_record_id": "SIMP-EN-000309",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000309__SIMP",
+      "parent_record_id": "SIMP-EN-000309",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000310__ORIG",
+      "parent_record_id": "SIMP-EN-000310",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000310__SIMP",
+      "parent_record_id": "SIMP-EN-000310",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000311__ORIG",
+      "parent_record_id": "SIMP-EN-000311",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000311__SIMP",
+      "parent_record_id": "SIMP-EN-000311",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000336__ORIG",
+      "parent_record_id": "SIMP-EN-000336",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000336__SIMP",
+      "parent_record_id": "SIMP-EN-000336",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000337__ORIG",
+      "parent_record_id": "SIMP-EN-000337",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000337__SIMP",
+      "parent_record_id": "SIMP-EN-000337",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000338__ORIG",
+      "parent_record_id": "SIMP-EN-000338",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000338__SIMP",
+      "parent_record_id": "SIMP-EN-000338",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000339__ORIG",
+      "parent_record_id": "SIMP-EN-000339",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000339__SIMP",
+      "parent_record_id": "SIMP-EN-000339",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000340__ORIG",
+      "parent_record_id": "SIMP-EN-000340",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000340__SIMP",
+      "parent_record_id": "SIMP-EN-000340",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000341__ORIG",
+      "parent_record_id": "SIMP-EN-000341",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000341__SIMP",
+      "parent_record_id": "SIMP-EN-000341",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000345__ORIG",
+      "parent_record_id": "SIMP-EN-000345",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000345__SIMP",
+      "parent_record_id": "SIMP-EN-000345",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000346__ORIG",
+      "parent_record_id": "SIMP-EN-000346",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000346__SIMP",
+      "parent_record_id": "SIMP-EN-000346",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000347__ORIG",
+      "parent_record_id": "SIMP-EN-000347",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000347__SIMP",
+      "parent_record_id": "SIMP-EN-000347",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000348__ORIG",
+      "parent_record_id": "SIMP-EN-000348",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000348__SIMP",
+      "parent_record_id": "SIMP-EN-000348",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000349__ORIG",
+      "parent_record_id": "SIMP-EN-000349",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000349__SIMP",
+      "parent_record_id": "SIMP-EN-000349",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000350__ORIG",
+      "parent_record_id": "SIMP-EN-000350",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000350__SIMP",
+      "parent_record_id": "SIMP-EN-000350",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000531__ORIG",
+      "parent_record_id": "SIMP-EN-000531",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000531__SIMP",
+      "parent_record_id": "SIMP-EN-000531",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000532__ORIG",
+      "parent_record_id": "SIMP-EN-000532",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000532__SIMP",
+      "parent_record_id": "SIMP-EN-000532",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000533__ORIG",
+      "parent_record_id": "SIMP-EN-000533",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000533__SIMP",
+      "parent_record_id": "SIMP-EN-000533",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000750__ORIG",
+      "parent_record_id": "SIMP-EN-000750",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000750__SIMP",
+      "parent_record_id": "SIMP-EN-000750",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000751__ORIG",
+      "parent_record_id": "SIMP-EN-000751",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000751__SIMP",
+      "parent_record_id": "SIMP-EN-000751",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000752__ORIG",
+      "parent_record_id": "SIMP-EN-000752",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000752__SIMP",
+      "parent_record_id": "SIMP-EN-000752",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000762__ORIG",
+      "parent_record_id": "SIMP-EN-000762",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000762__SIMP",
+      "parent_record_id": "SIMP-EN-000762",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000763__ORIG",
+      "parent_record_id": "SIMP-EN-000763",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000763__SIMP",
+      "parent_record_id": "SIMP-EN-000763",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000764__ORIG",
+      "parent_record_id": "SIMP-EN-000764",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000764__SIMP",
+      "parent_record_id": "SIMP-EN-000764",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000771__ORIG",
+      "parent_record_id": "SIMP-EN-000771",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000771__SIMP",
+      "parent_record_id": "SIMP-EN-000771",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000772__ORIG",
+      "parent_record_id": "SIMP-EN-000772",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000772__SIMP",
+      "parent_record_id": "SIMP-EN-000772",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000773__ORIG",
+      "parent_record_id": "SIMP-EN-000773",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000773__SIMP",
+      "parent_record_id": "SIMP-EN-000773",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000777__ORIG",
+      "parent_record_id": "SIMP-EN-000777",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000777__SIMP",
+      "parent_record_id": "SIMP-EN-000777",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000778__ORIG",
+      "parent_record_id": "SIMP-EN-000778",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000778__SIMP",
+      "parent_record_id": "SIMP-EN-000778",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000779__ORIG",
+      "parent_record_id": "SIMP-EN-000779",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000779__SIMP",
+      "parent_record_id": "SIMP-EN-000779",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000786__ORIG",
+      "parent_record_id": "SIMP-EN-000786",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000786__SIMP",
+      "parent_record_id": "SIMP-EN-000786",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000787__ORIG",
+      "parent_record_id": "SIMP-EN-000787",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000787__SIMP",
+      "parent_record_id": "SIMP-EN-000787",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000788__ORIG",
+      "parent_record_id": "SIMP-EN-000788",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000788__SIMP",
+      "parent_record_id": "SIMP-EN-000788",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000801__ORIG",
+      "parent_record_id": "SIMP-EN-000801",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000801__SIMP",
+      "parent_record_id": "SIMP-EN-000801",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000802__ORIG",
+      "parent_record_id": "SIMP-EN-000802",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000802__SIMP",
+      "parent_record_id": "SIMP-EN-000802",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000803__ORIG",
+      "parent_record_id": "SIMP-EN-000803",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000803__SIMP",
+      "parent_record_id": "SIMP-EN-000803",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000984__ORIG",
+      "parent_record_id": "SIMP-EN-000984",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000984__SIMP",
+      "parent_record_id": "SIMP-EN-000984",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000985__ORIG",
+      "parent_record_id": "SIMP-EN-000985",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000985__SIMP",
+      "parent_record_id": "SIMP-EN-000985",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000986__ORIG",
+      "parent_record_id": "SIMP-EN-000986",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000986__SIMP",
+      "parent_record_id": "SIMP-EN-000986",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001008__ORIG",
+      "parent_record_id": "SIMP-EN-001008",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001008__SIMP",
+      "parent_record_id": "SIMP-EN-001008",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001009__ORIG",
+      "parent_record_id": "SIMP-EN-001009",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001009__SIMP",
+      "parent_record_id": "SIMP-EN-001009",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001010__ORIG",
+      "parent_record_id": "SIMP-EN-001010",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001010__SIMP",
+      "parent_record_id": "SIMP-EN-001010",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001032__ORIG",
+      "parent_record_id": "SIMP-EN-001032",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001032__SIMP",
+      "parent_record_id": "SIMP-EN-001032",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001033__ORIG",
+      "parent_record_id": "SIMP-EN-001033",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001033__SIMP",
+      "parent_record_id": "SIMP-EN-001033",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001034__ORIG",
+      "parent_record_id": "SIMP-EN-001034",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001034__SIMP",
+      "parent_record_id": "SIMP-EN-001034",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000363__ORIG",
+      "parent_record_id": "SIMP-EN-000363",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000363__SIMP",
+      "parent_record_id": "SIMP-EN-000363",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000364__ORIG",
+      "parent_record_id": "SIMP-EN-000364",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000364__SIMP",
+      "parent_record_id": "SIMP-EN-000364",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000365__ORIG",
+      "parent_record_id": "SIMP-EN-000365",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000365__SIMP",
+      "parent_record_id": "SIMP-EN-000365",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000603__ORIG",
+      "parent_record_id": "SIMP-EN-000603",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000603__SIMP",
+      "parent_record_id": "SIMP-EN-000603",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000604__ORIG",
+      "parent_record_id": "SIMP-EN-000604",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000604__SIMP",
+      "parent_record_id": "SIMP-EN-000604",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000605__ORIG",
+      "parent_record_id": "SIMP-EN-000605",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000605__SIMP",
+      "parent_record_id": "SIMP-EN-000605",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000810__ORIG",
+      "parent_record_id": "SIMP-EN-000810",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000810__SIMP",
+      "parent_record_id": "SIMP-EN-000810",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000811__ORIG",
+      "parent_record_id": "SIMP-EN-000811",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000811__SIMP",
+      "parent_record_id": "SIMP-EN-000811",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000812__ORIG",
+      "parent_record_id": "SIMP-EN-000812",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000812__SIMP",
+      "parent_record_id": "SIMP-EN-000812",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000813__ORIG",
+      "parent_record_id": "SIMP-EN-000813",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000813__SIMP",
+      "parent_record_id": "SIMP-EN-000813",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000814__ORIG",
+      "parent_record_id": "SIMP-EN-000814",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000814__SIMP",
+      "parent_record_id": "SIMP-EN-000814",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000815__ORIG",
+      "parent_record_id": "SIMP-EN-000815",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000815__SIMP",
+      "parent_record_id": "SIMP-EN-000815",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000816__ORIG",
+      "parent_record_id": "SIMP-EN-000816",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000816__SIMP",
+      "parent_record_id": "SIMP-EN-000816",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000817__ORIG",
+      "parent_record_id": "SIMP-EN-000817",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000817__SIMP",
+      "parent_record_id": "SIMP-EN-000817",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000818__ORIG",
+      "parent_record_id": "SIMP-EN-000818",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000818__SIMP",
+      "parent_record_id": "SIMP-EN-000818",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000822__ORIG",
+      "parent_record_id": "SIMP-EN-000822",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000822__SIMP",
+      "parent_record_id": "SIMP-EN-000822",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000823__ORIG",
+      "parent_record_id": "SIMP-EN-000823",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000823__SIMP",
+      "parent_record_id": "SIMP-EN-000823",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000824__ORIG",
+      "parent_record_id": "SIMP-EN-000824",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000824__SIMP",
+      "parent_record_id": "SIMP-EN-000824",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000837__ORIG",
+      "parent_record_id": "SIMP-EN-000837",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000837__SIMP",
+      "parent_record_id": "SIMP-EN-000837",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000838__ORIG",
+      "parent_record_id": "SIMP-EN-000838",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000838__SIMP",
+      "parent_record_id": "SIMP-EN-000838",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000839__ORIG",
+      "parent_record_id": "SIMP-EN-000839",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000839__SIMP",
+      "parent_record_id": "SIMP-EN-000839",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001050__ORIG",
+      "parent_record_id": "SIMP-EN-001050",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001050__SIMP",
+      "parent_record_id": "SIMP-EN-001050",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001051__ORIG",
+      "parent_record_id": "SIMP-EN-001051",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001051__SIMP",
+      "parent_record_id": "SIMP-EN-001051",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001052__ORIG",
+      "parent_record_id": "SIMP-EN-001052",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001052__SIMP",
+      "parent_record_id": "SIMP-EN-001052",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000420__ORIG",
+      "parent_record_id": "SIMP-EN-000420",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000420__SIMP",
+      "parent_record_id": "SIMP-EN-000420",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000421__ORIG",
+      "parent_record_id": "SIMP-EN-000421",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000421__SIMP",
+      "parent_record_id": "SIMP-EN-000421",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000422__ORIG",
+      "parent_record_id": "SIMP-EN-000422",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000422__SIMP",
+      "parent_record_id": "SIMP-EN-000422",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000630__ORIG",
+      "parent_record_id": "SIMP-EN-000630",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000630__SIMP",
+      "parent_record_id": "SIMP-EN-000630",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000631__ORIG",
+      "parent_record_id": "SIMP-EN-000631",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000631__SIMP",
+      "parent_record_id": "SIMP-EN-000631",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000632__ORIG",
+      "parent_record_id": "SIMP-EN-000632",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000632__SIMP",
+      "parent_record_id": "SIMP-EN-000632",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000636__ORIG",
+      "parent_record_id": "SIMP-EN-000636",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000636__SIMP",
+      "parent_record_id": "SIMP-EN-000636",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000637__ORIG",
+      "parent_record_id": "SIMP-EN-000637",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000637__SIMP",
+      "parent_record_id": "SIMP-EN-000637",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000638__ORIG",
+      "parent_record_id": "SIMP-EN-000638",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000638__SIMP",
+      "parent_record_id": "SIMP-EN-000638",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000660__ORIG",
+      "parent_record_id": "SIMP-EN-000660",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000660__SIMP",
+      "parent_record_id": "SIMP-EN-000660",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000661__ORIG",
+      "parent_record_id": "SIMP-EN-000661",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000661__SIMP",
+      "parent_record_id": "SIMP-EN-000661",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000662__ORIG",
+      "parent_record_id": "SIMP-EN-000662",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000662__SIMP",
+      "parent_record_id": "SIMP-EN-000662",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001086__ORIG",
+      "parent_record_id": "SIMP-EN-001086",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001086__SIMP",
+      "parent_record_id": "SIMP-EN-001086",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001087__ORIG",
+      "parent_record_id": "SIMP-EN-001087",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001087__SIMP",
+      "parent_record_id": "SIMP-EN-001087",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001088__ORIG",
+      "parent_record_id": "SIMP-EN-001088",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001088__SIMP",
+      "parent_record_id": "SIMP-EN-001088",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001092__ORIG",
+      "parent_record_id": "SIMP-EN-001092",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001092__SIMP",
+      "parent_record_id": "SIMP-EN-001092",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001093__ORIG",
+      "parent_record_id": "SIMP-EN-001093",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001093__SIMP",
+      "parent_record_id": "SIMP-EN-001093",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001094__ORIG",
+      "parent_record_id": "SIMP-EN-001094",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001094__SIMP",
+      "parent_record_id": "SIMP-EN-001094",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001098__ORIG",
+      "parent_record_id": "SIMP-EN-001098",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001098__SIMP",
+      "parent_record_id": "SIMP-EN-001098",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001099__ORIG",
+      "parent_record_id": "SIMP-EN-001099",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001099__SIMP",
+      "parent_record_id": "SIMP-EN-001099",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001100__ORIG",
+      "parent_record_id": "SIMP-EN-001100",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001100__SIMP",
+      "parent_record_id": "SIMP-EN-001100",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000444__ORIG",
+      "parent_record_id": "SIMP-EN-000444",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000444__SIMP",
+      "parent_record_id": "SIMP-EN-000444",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000445__ORIG",
+      "parent_record_id": "SIMP-EN-000445",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000445__SIMP",
+      "parent_record_id": "SIMP-EN-000445",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000446__ORIG",
+      "parent_record_id": "SIMP-EN-000446",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000446__SIMP",
+      "parent_record_id": "SIMP-EN-000446",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000450__ORIG",
+      "parent_record_id": "SIMP-EN-000450",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000450__SIMP",
+      "parent_record_id": "SIMP-EN-000450",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000451__ORIG",
+      "parent_record_id": "SIMP-EN-000451",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000451__SIMP",
+      "parent_record_id": "SIMP-EN-000451",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000452__ORIG",
+      "parent_record_id": "SIMP-EN-000452",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000452__SIMP",
+      "parent_record_id": "SIMP-EN-000452",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000684__ORIG",
+      "parent_record_id": "SIMP-EN-000684",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000684__SIMP",
+      "parent_record_id": "SIMP-EN-000684",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000685__ORIG",
+      "parent_record_id": "SIMP-EN-000685",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000685__SIMP",
+      "parent_record_id": "SIMP-EN-000685",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000686__ORIG",
+      "parent_record_id": "SIMP-EN-000686",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000686__SIMP",
+      "parent_record_id": "SIMP-EN-000686",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000687__ORIG",
+      "parent_record_id": "SIMP-EN-000687",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000687__SIMP",
+      "parent_record_id": "SIMP-EN-000687",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000688__ORIG",
+      "parent_record_id": "SIMP-EN-000688",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000688__SIMP",
+      "parent_record_id": "SIMP-EN-000688",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000689__ORIG",
+      "parent_record_id": "SIMP-EN-000689",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000689__SIMP",
+      "parent_record_id": "SIMP-EN-000689",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000912__ORIG",
+      "parent_record_id": "SIMP-EN-000912",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000912__SIMP",
+      "parent_record_id": "SIMP-EN-000912",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000913__ORIG",
+      "parent_record_id": "SIMP-EN-000913",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000913__SIMP",
+      "parent_record_id": "SIMP-EN-000913",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000914__ORIG",
+      "parent_record_id": "SIMP-EN-000914",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000914__SIMP",
+      "parent_record_id": "SIMP-EN-000914",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001113__ORIG",
+      "parent_record_id": "SIMP-EN-001113",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001113__SIMP",
+      "parent_record_id": "SIMP-EN-001113",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001114__ORIG",
+      "parent_record_id": "SIMP-EN-001114",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001114__SIMP",
+      "parent_record_id": "SIMP-EN-001114",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001115__ORIG",
+      "parent_record_id": "SIMP-EN-001115",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001115__SIMP",
+      "parent_record_id": "SIMP-EN-001115",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001152__ORIG",
+      "parent_record_id": "SIMP-EN-001152",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001152__SIMP",
+      "parent_record_id": "SIMP-EN-001152",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001153__ORIG",
+      "parent_record_id": "SIMP-EN-001153",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001153__SIMP",
+      "parent_record_id": "SIMP-EN-001153",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001154__ORIG",
+      "parent_record_id": "SIMP-EN-001154",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001154__SIMP",
+      "parent_record_id": "SIMP-EN-001154",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000480__ORIG",
+      "parent_record_id": "SIMP-EN-000480",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000480__SIMP",
+      "parent_record_id": "SIMP-EN-000480",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000481__ORIG",
+      "parent_record_id": "SIMP-EN-000481",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000481__SIMP",
+      "parent_record_id": "SIMP-EN-000481",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000482__ORIG",
+      "parent_record_id": "SIMP-EN-000482",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000482__SIMP",
+      "parent_record_id": "SIMP-EN-000482",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000729__ORIG",
+      "parent_record_id": "SIMP-EN-000729",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000729__SIMP",
+      "parent_record_id": "SIMP-EN-000729",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000730__ORIG",
+      "parent_record_id": "SIMP-EN-000730",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000730__SIMP",
+      "parent_record_id": "SIMP-EN-000730",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000731__ORIG",
+      "parent_record_id": "SIMP-EN-000731",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000731__SIMP",
+      "parent_record_id": "SIMP-EN-000731",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000951__ORIG",
+      "parent_record_id": "SIMP-EN-000951",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000951__SIMP",
+      "parent_record_id": "SIMP-EN-000951",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000952__ORIG",
+      "parent_record_id": "SIMP-EN-000952",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000952__SIMP",
+      "parent_record_id": "SIMP-EN-000952",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000953__ORIG",
+      "parent_record_id": "SIMP-EN-000953",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000953__SIMP",
+      "parent_record_id": "SIMP-EN-000953",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000957__ORIG",
+      "parent_record_id": "SIMP-EN-000957",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000957__SIMP",
+      "parent_record_id": "SIMP-EN-000957",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000958__ORIG",
+      "parent_record_id": "SIMP-EN-000958",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000958__SIMP",
+      "parent_record_id": "SIMP-EN-000958",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000959__ORIG",
+      "parent_record_id": "SIMP-EN-000959",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-000959__SIMP",
+      "parent_record_id": "SIMP-EN-000959",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001161__ORIG",
+      "parent_record_id": "SIMP-EN-001161",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001161__SIMP",
+      "parent_record_id": "SIMP-EN-001161",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001162__ORIG",
+      "parent_record_id": "SIMP-EN-001162",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001162__SIMP",
+      "parent_record_id": "SIMP-EN-001162",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001163__ORIG",
+      "parent_record_id": "SIMP-EN-001163",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001163__SIMP",
+      "parent_record_id": "SIMP-EN-001163",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001170__ORIG",
+      "parent_record_id": "SIMP-EN-001170",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001170__SIMP",
+      "parent_record_id": "SIMP-EN-001170",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001171__ORIG",
+      "parent_record_id": "SIMP-EN-001171",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001171__SIMP",
+      "parent_record_id": "SIMP-EN-001171",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001172__ORIG",
+      "parent_record_id": "SIMP-EN-001172",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001172__SIMP",
+      "parent_record_id": "SIMP-EN-001172",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001176__ORIG",
+      "parent_record_id": "SIMP-EN-001176",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001176__SIMP",
+      "parent_record_id": "SIMP-EN-001176",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001177__ORIG",
+      "parent_record_id": "SIMP-EN-001177",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001177__SIMP",
+      "parent_record_id": "SIMP-EN-001177",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001178__ORIG",
+      "parent_record_id": "SIMP-EN-001178",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001178__SIMP",
+      "parent_record_id": "SIMP-EN-001178",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001179__ORIG",
+      "parent_record_id": "SIMP-EN-001179",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001179__SIMP",
+      "parent_record_id": "SIMP-EN-001179",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001180__ORIG",
+      "parent_record_id": "SIMP-EN-001180",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001180__SIMP",
+      "parent_record_id": "SIMP-EN-001180",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001181__ORIG",
+      "parent_record_id": "SIMP-EN-001181",
+      "parent_record_type": "simplification_pair",
+      "text_role": "source_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    },
+    {
+      "text_instance_id": "SIMP-EN-001181__SIMP",
+      "parent_record_id": "SIMP-EN-001181",
+      "parent_record_type": "simplification_pair",
+      "text_role": "simplified_text",
+      "text_hash": "LOCKED_TEST_HASH",
+      "record_hash": "LOCKED_RECORD_HASH",
+      "processing_status": "skipped_locked_test"
+    }
+  ]
+}

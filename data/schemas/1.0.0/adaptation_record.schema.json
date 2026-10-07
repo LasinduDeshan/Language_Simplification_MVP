@@ -1,0 +1,480 @@
+{
+  "$defs": {
+    "ActivityOwner": {
+      "enum": [
+        "component_1",
+        "component_2_ar",
+        "component_3_language",
+        "shared"
+      ],
+      "title": "ActivityOwner",
+      "type": "string"
+    },
+    "AdaptationPolicy": {
+      "enum": [
+        "none",
+        "presentation_only",
+        "instruction_only",
+        "controlled"
+      ],
+      "title": "AdaptationPolicy",
+      "type": "string"
+    },
+    "DifficultyLevel": {
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "title": "DifficultyLevel",
+      "type": "string"
+    },
+    "GovernanceMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "validation_status": {
+          "$ref": "#/$defs/ValidationStatus",
+          "default": "draft",
+          "description": "Workflow status"
+        },
+        "research_eligibility_status": {
+          "$ref": "#/$defs/ResearchEligibilityStatus",
+          "default": "not_assessed",
+          "description": "Formal research assessment status"
+        },
+        "research_eligible": {
+          "default": false,
+          "description": "Research readiness flag",
+          "title": "Research Eligible",
+          "type": "boolean"
+        },
+        "approved_for_child_delivery": {
+          "default": false,
+          "description": "Runtime child presentation flag",
+          "title": "Approved For Child Delivery",
+          "type": "boolean"
+        },
+        "is_simulated": {
+          "default": false,
+          "description": "Simulation or synthetic flag",
+          "title": "Is Simulated",
+          "type": "boolean"
+        },
+        "contains_personal_data": {
+          "default": false,
+          "description": "Personal/screening data flag",
+          "title": "Contains Personal Data",
+          "type": "boolean"
+        }
+      },
+      "title": "GovernanceMetadata",
+      "type": "object"
+    },
+    "LanguageCode": {
+      "enum": [
+        "en",
+        "si"
+      ],
+      "title": "LanguageCode",
+      "type": "string"
+    },
+    "PrimaryDomain": {
+      "enum": [
+        "vocabulary",
+        "grammar",
+        "comprehension",
+        "instruction_following"
+      ],
+      "title": "PrimaryDomain",
+      "type": "string"
+    },
+    "ProtectedElements": {
+      "additionalProperties": false,
+      "properties": {
+        "answer": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Protected answer key (MUST NEVER LEAK TO CHILD)",
+          "title": "Answer"
+        },
+        "elements": {
+          "description": "Protected words or structural elements",
+          "items": {
+            "type": "string"
+          },
+          "title": "Elements",
+          "type": "array"
+        },
+        "target_skill_locked": {
+          "default": true,
+          "description": "Whether target skill cannot be altered",
+          "title": "Target Skill Locked",
+          "type": "boolean"
+        },
+        "acceptable_answers": {
+          "description": "Alternative acceptable responses",
+          "items": {
+            "type": "string"
+          },
+          "title": "Acceptable Answers",
+          "type": "array"
+        }
+      },
+      "title": "ProtectedElements",
+      "type": "object"
+    },
+    "ResearchEligibilityStatus": {
+      "enum": [
+        "not_assessed",
+        "ineligible",
+        "eligible",
+        "withdrawn"
+      ],
+      "title": "ResearchEligibilityStatus",
+      "type": "string"
+    },
+    "RightsMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "licence_id": {
+          "default": "project-internal",
+          "description": "SPDX licence identifier or project-internal",
+          "title": "Licence Id",
+          "type": "string"
+        },
+        "licence_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Web link to licence terms",
+          "title": "Licence Url"
+        },
+        "permission_reference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Permission identifier or document reference",
+          "title": "Permission Reference"
+        },
+        "redistribution_allowed": {
+          "default": false,
+          "description": "Whether dataset allows redistribution",
+          "title": "Redistribution Allowed",
+          "type": "boolean"
+        },
+        "commercial_use_allowed": {
+          "default": false,
+          "description": "Whether commercial use is permitted",
+          "title": "Commercial Use Allowed",
+          "type": "boolean"
+        },
+        "external_api_processing_allowed": {
+          "default": false,
+          "description": "Strict LLM API gating",
+          "title": "External Api Processing Allowed",
+          "type": "boolean"
+        }
+      },
+      "title": "RightsMetadata",
+      "type": "object"
+    },
+    "SourceMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "source_type": {
+          "$ref": "#/$defs/SourceType",
+          "default": "team_authored",
+          "description": "Origin classification of the content"
+        },
+        "source_name": {
+          "default": "Component 3 English MVP",
+          "description": "Author or originating dataset",
+          "title": "Source Name",
+          "type": "string"
+        },
+        "source_record_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Original identifier in upstream source system",
+          "title": "Source Record Id"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "URL reference to source",
+          "title": "Source Url"
+        },
+        "citation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Academic or publication citation",
+          "title": "Citation"
+        },
+        "created_by_role": {
+          "default": "project_team",
+          "description": "Role of creator (project_team/expert/system)",
+          "title": "Created By Role",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "Creation timestamp",
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "title": "SourceMetadata",
+      "type": "object"
+    },
+    "SourceType": {
+      "enum": [
+        "team_authored",
+        "expert_authored",
+        "open_licence",
+        "permission_granted",
+        "generated",
+        "interaction_derived"
+      ],
+      "title": "SourceType",
+      "type": "string"
+    },
+    "ValidationStatus": {
+      "enum": [
+        "draft",
+        "reviewed",
+        "approved",
+        "rejected",
+        "retired"
+      ],
+      "title": "ValidationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "activity_id": {
+      "description": "Standardized activity identifier (e.g. C3-EN-VOC-0001)",
+      "title": "Activity Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "1.0.0",
+      "description": "Schema version",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "0.1.0",
+      "description": "Dataset content release version",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "activity_owner": {
+      "$ref": "#/$defs/ActivityOwner",
+      "default": "component_3_language",
+      "description": "Owning component"
+    },
+    "language": {
+      "$ref": "#/$defs/LanguageCode",
+      "default": "en",
+      "description": "Language code"
+    },
+    "activity_type": {
+      "default": "standard",
+      "description": "Type of task (naming/word_order/cloze/action)",
+      "title": "Activity Type",
+      "type": "string"
+    },
+    "primary_domain": {
+      "$ref": "#/$defs/PrimaryDomain",
+      "description": "Primary educational domain"
+    },
+    "target_skill": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Fine-grained pedagogical target skill",
+      "title": "Target Skill"
+    },
+    "age_min": {
+      "default": 4,
+      "description": "Target minimum age in years",
+      "maximum": 8,
+      "minimum": 4,
+      "title": "Age Min",
+      "type": "integer"
+    },
+    "age_max": {
+      "default": 8,
+      "description": "Target maximum age in years",
+      "maximum": 8,
+      "minimum": 4,
+      "title": "Age Max",
+      "type": "integer"
+    },
+    "difficulty": {
+      "$ref": "#/$defs/DifficultyLevel",
+      "default": "medium",
+      "description": "Baseline difficulty"
+    },
+    "original_instruction": {
+      "description": "Original unsimplified instruction",
+      "minLength": 1,
+      "title": "Original Instruction",
+      "type": "string"
+    },
+    "child_friendly_instruction": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Pre-simplified variant",
+      "title": "Child Friendly Instruction"
+    },
+    "stimulus": {
+      "anyOf": [
+        {},
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Visual or textual stimulus payload",
+      "title": "Stimulus"
+    },
+    "options": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Multiple choice options",
+      "title": "Options"
+    },
+    "passage": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Reading or listening passage",
+      "title": "Passage"
+    },
+    "protected": {
+      "$ref": "#/$defs/ProtectedElements",
+      "description": "Protected elements and answer keys"
+    },
+    "adaptation_policy": {
+      "$ref": "#/$defs/AdaptationPolicy",
+      "default": "instruction_only",
+      "description": "Governed adaptation policy"
+    },
+    "allowed_transformations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Allowed Transformations",
+      "type": "array"
+    },
+    "forbidden_transformations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Forbidden Transformations",
+      "type": "array"
+    },
+    "source": {
+      "$ref": "#/$defs/SourceMetadata",
+      "description": "Lineage metadata"
+    },
+    "rights": {
+      "$ref": "#/$defs/RightsMetadata",
+      "description": "Rights metadata"
+    },
+    "governance": {
+      "$ref": "#/$defs/GovernanceMetadata",
+      "description": "Governance metadata"
+    },
+    "created_at": {
+      "description": "Record creation timestamp",
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "updated_at": {
+      "description": "Record update timestamp",
+      "format": "date-time",
+      "title": "Updated At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "activity_id",
+    "primary_domain",
+    "original_instruction"
+  ],
+  "title": "AdaptationRecordV1",
+  "type": "object"
+}

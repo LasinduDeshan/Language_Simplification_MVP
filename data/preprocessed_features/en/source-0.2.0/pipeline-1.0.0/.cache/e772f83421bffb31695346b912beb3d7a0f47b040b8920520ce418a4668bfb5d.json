@@ -1,0 +1,208 @@
+{
+  "text_instance_id": "SIMP-EN-000357__SIMP",
+  "parent_record_id": "SIMP-EN-000357",
+  "parent_record_type": "simplification_pair",
+  "text_role": "simplified_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SRC-EN-VOC-0119",
+  "original_text": "What animal is this kangaroo?",
+  "normalized_text": "What animal is this kangaroo?",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.95,
+    "decision": "verified",
+    "fallback_reason": "deterministic_heuristic_verified"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SIMP-EN-000357__SIMP-S01",
+      "sentence_index": 0,
+      "text": "What animal is this kangaroo?",
+      "original_start_char": 0,
+      "original_end_char": 29,
+      "normalized_start_char": 0,
+      "normalized_end_char": 29,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "What",
+          "lemma": "what",
+          "pos": "PRON",
+          "tag": "WP",
+          "dependency": "det",
+          "head_index": 1,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 4,
+          "normalized_start_char": 0,
+          "normalized_end_char": 4
+        },
+        {
+          "index": 1,
+          "text": "animal",
+          "lemma": "animal",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 3,
+          "original_start_char": 5,
+          "original_end_char": 11,
+          "normalized_start_char": 5,
+          "normalized_end_char": 11
+        },
+        {
+          "index": 2,
+          "text": "is",
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head_index": 2,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 12,
+          "original_end_char": 14,
+          "normalized_start_char": 12,
+          "normalized_end_char": 14
+        },
+        {
+          "index": 3,
+          "text": "this",
+          "lemma": "this",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 4,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 15,
+          "original_end_char": 19,
+          "normalized_start_char": 15,
+          "normalized_end_char": 19
+        },
+        {
+          "index": 4,
+          "text": "kangaroo",
+          "lemma": "kangaroo",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 3,
+          "original_start_char": 20,
+          "original_end_char": 28,
+          "normalized_start_char": 20,
+          "normalized_end_char": 28
+        },
+        {
+          "index": 5,
+          "text": "?",
+          "lemma": "?",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 2,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 28,
+          "original_end_char": 29,
+          "normalized_start_char": 28,
+          "normalized_end_char": 29
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 25,
+      "token_count": 6,
+      "word_count": 5,
+      "sentence_count": 1,
+      "punct_count": 1,
+      "avg_word_length": 4.8,
+      "avg_sentence_length": 6.0,
+      "unique_token_count": 5,
+      "type_token_ratio": 1.0,
+      "syllable_count": 9,
+      "avg_syllables_per_word": 1.8,
+      "long_word_count": 1
+    },
+    "lexical": {
+      "content_word_count": 3,
+      "function_word_count": 2,
+      "noun_count": 2,
+      "verb_count": 1,
+      "adj_count": 0,
+      "adv_count": 0,
+      "pronoun_count": 1,
+      "prep_count": 0,
+      "finite_verb_count": 1,
+      "auxiliary_verb_count": 1,
+      "out_of_lexicon_count": 5,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": [
+        "animal",
+        "kangaroo"
+      ]
+    },
+    "syntactic": {
+      "max_dependency_depth": 2,
+      "avg_dependency_depth": 1.0,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 0,
+      "avg_noun_phrase_length": 2.0,
+      "svo_triplets_available": true,
+      "root_count": 1,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": false
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [],
+      "named_entities": [],
+      "spatial_prepositions": [],
+      "temporal_connectives": [],
+      "action_verbs": [],
+      "aligned_protected_units": [
+        {
+          "protected_unit": "kangaroo",
+          "is_aligned": true,
+          "status": "aligned"
+        }
+      ]
+    }
+  },
+  "processing_status": "success",
+  "text_hash": "8af5a4cfd81eb2a5165a5e116d194fbcd1beda2acf6f8d5dd03bd19bf5889512",
+  "feature_hash": "a6e7958c4e242fd7d1dd2c6d199e365abd602a712d68c828a2745df4c68ae667",
+  "record_hash": "f59c7efa9776dd4b463e35df98495f24acc56083d4e29a3804dc00a9d14f550c"
+}

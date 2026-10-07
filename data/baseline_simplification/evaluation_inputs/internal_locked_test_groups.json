@@ -1,0 +1,677 @@
+[
+  {
+    "source_item_id": "SRC-EN-VOC-0150",
+    "source_group_id": "SRC-EN-VOC-0150",
+    "source_text": "Select the word that accurately explains the term gigantic.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Read the word gigantic.\n2. Choose its meaning."
+    },
+    "reference_texts": [
+      "Choose the meaning of the word gigantic.",
+      "What does gigantic mean? Choose the best explanation.",
+      "1. Read the word gigantic.\n2. Choose its meaning."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0220",
+    "source_group_id": "SRC-EN-GRA-0220",
+    "source_text": "The curious kitten ran underneath the wooden fence.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Find the kitten.\n2. It went underneath the fence."
+    },
+    "reference_texts": [
+      "The curious kitten ran underneath the wooden fence.",
+      "Where did the kitten run? Choose: underneath.",
+      "1. Find the kitten.\n2. It went underneath the fence."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0250",
+    "source_group_id": "SRC-EN-COM-0250",
+    "source_text": "Maya found a silver coin under the garden stone. Question 1: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Maya found a coin.\n2. It was under the stone.\n1. Answer is under the stone."
+    },
+    "reference_texts": [
+      "Maya found a silver coin under the stone. Question 1: What detail is stated?",
+      "Maya found a coin under a stone. Where was it? Answer the question 1: under the stone.",
+      "1. Maya found a coin.\n2. It was under the stone.\n1. Answer is under the stone."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0228",
+    "source_group_id": "SRC-EN-GRA-0228",
+    "source_text": "The curious kitten ran around the wooden fence.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Find the kitten.\n2. It went around the fence."
+    },
+    "reference_texts": [
+      "The curious kitten ran around the wooden fence.",
+      "Where did the kitten run? Choose: around.",
+      "1. Find the kitten.\n2. It went around the fence."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0328",
+    "source_group_id": "SRC-EN-INS-0328",
+    "source_text": "Step 4: Count four striped fish and tap each one gently.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Count 4 fish.\n2. Tap each fish."
+    },
+    "reference_texts": [
+      "Step 4: Count four striped fish and tap them.",
+      "Step 4: Find four striped fish. Tap each fish.",
+      "1. Count 4 fish.\n2. Tap each fish."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0160",
+    "source_group_id": "SRC-EN-VOC-0160",
+    "source_text": "Select the word that accurately explains the term gigantic.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Read the word gigantic.\n2. Choose its meaning."
+    },
+    "reference_texts": [
+      "Choose the meaning of the word gigantic.",
+      "What does gigantic mean? Choose the best explanation.",
+      "1. Read the word gigantic.\n2. Choose its meaning."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0177",
+    "source_group_id": "SRC-EN-GRA-0177",
+    "source_text": "Set the green frog under the leaf.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Pick green frog.\n2. Put under leaf."
+    },
+    "reference_texts": [
+      "Put the green frog below the leaf.",
+      "Find green frog. Put it under the leaf.",
+      "1. Pick green frog.\n2. Put under leaf."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0140",
+    "source_group_id": "SRC-EN-VOC-0140",
+    "source_text": "Observe the character engaging in dancing across the field.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the character.\n2. Tap dancing."
+    },
+    "reference_texts": [
+      "Look at the character dancing in the field.",
+      "What is happening? The character is dancing.",
+      "1. Look at the character.\n2. Tap dancing."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0366",
+    "source_group_id": "SRC-EN-INS-0366",
+    "source_text": "Step 42: If the square is green, touch the triangle; if not green, touch the circle.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Is square green?\n2. Yes: tap triangle.\n3. If not green: tap circle."
+    },
+    "reference_texts": [
+      "Step 42: If square is green, touch triangle. If not green, touch circle.",
+      "Step 42: Look at square. If green: tap triangle. If not green: tap circle.",
+      "1. Is square green?\n2. Yes: tap triangle.\n3. If not green: tap circle."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0148",
+    "source_group_id": "SRC-EN-VOC-0148",
+    "source_text": "Observe the character engaging in flying across the field.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the character.\n2. Tap flying."
+    },
+    "reference_texts": [
+      "Look at the character flying in the field.",
+      "What is happening? The character is flying.",
+      "1. Look at the character.\n2. Tap flying."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0259",
+    "source_group_id": "SRC-EN-COM-0259",
+    "source_text": "Dad baked chocolate muffins for the school bake sale. Question 10: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Dad baked muffins.\n2. For school bake sale.\n10. Answer is chocolate muffins."
+    },
+    "reference_texts": [
+      "Dad made chocolate muffins for the school sale. Question 10: What detail is stated?",
+      "Dad baked sweet muffins for school bake sale. Answer the question 10: chocolate muffins.",
+      "1. Dad baked muffins.\n2. For school bake sale.\n10. Answer is chocolate muffins."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0229",
+    "source_group_id": "SRC-EN-GRA-0229",
+    "source_text": "The curious kitten ran near the wooden fence.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Find the kitten.\n2. It went near the fence."
+    },
+    "reference_texts": [
+      "The curious kitten ran near the wooden fence.",
+      "Where did the kitten run? Choose: near.",
+      "1. Find the kitten.\n2. It went near the fence."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0387",
+    "source_group_id": "SRC-EN-INS-0387",
+    "source_text": "Step 63: Drag the smiling sun directly above the snowy mountain.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Find sun.\n2. Put above mountain."
+    },
+    "reference_texts": [
+      "Step 63: Move the smiling sun above the snowy mountain.",
+      "Step 63: Put smiling sun on top of mountain.",
+      "1. Find sun.\n2. Put above mountain."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0393",
+    "source_group_id": "SRC-EN-INS-0393",
+    "source_text": "Step 69: Point camera at table marker and locate North America.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Point camera.\n2. Find North America."
+    },
+    "reference_texts": [
+      "Step 69: Aim camera at table and find North America.",
+      "Step 69: Point camera at marker. Tap North America.",
+      "1. Point camera.\n2. Find North America."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0362",
+    "source_group_id": "SRC-EN-INS-0362",
+    "source_text": "Step 38: Color the fluffy rabbit white and color its carrot orange.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Color rabbit white.\n2. Color carrot orange."
+    },
+    "reference_texts": [
+      "Step 38: Color the rabbit white and color its carrot orange.",
+      "Step 38: Make rabbit white. Make carrot orange.",
+      "1. Color rabbit white.\n2. Color carrot orange."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0270",
+    "source_group_id": "SRC-EN-COM-0270",
+    "source_text": "Maya found a silver coin under the garden stone. Question 21: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Maya found a coin.\n2. It was under the stone.\n21. Answer is under the stone."
+    },
+    "reference_texts": [
+      "Maya found a silver coin under the stone. Question 21: What detail is stated?",
+      "Maya found a coin under a stone. Where was it? Answer the question 21: under the stone.",
+      "1. Maya found a coin.\n2. It was under the stone.\n21. Answer is under the stone."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0344",
+    "source_group_id": "SRC-EN-INS-0344",
+    "source_text": "Step 20: Sort the round beads into the bowl and square blocks into the box.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Beads into bowl.\n2. Blocks into box."
+    },
+    "reference_texts": [
+      "Step 20: Put round beads in bowl and square blocks in box.",
+      "Step 20: Sort beads into bowl and blocks into box.",
+      "1. Beads into bowl.\n2. Blocks into box."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0317",
+    "source_group_id": "SRC-EN-COM-0317",
+    "source_text": "Ben lost his red whistle while hiking in the pine woods. Question 68: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n68. Answer is in the pine woods."
+    },
+    "reference_texts": [
+      "Ben lost his whistle in the pine woods. Question 68: What detail is stated?",
+      "Ben dropped his red whistle in the woods. Answer the question 68: in the pine woods.",
+      "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n68. Answer is in the pine woods."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0364",
+    "source_group_id": "SRC-EN-INS-0364",
+    "source_text": "Step 40: Sort the round beads into the bowl and square blocks into the box.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Beads into bowl.\n2. Blocks into box."
+    },
+    "reference_texts": [
+      "Step 40: Put round beads in bowl and square blocks in box.",
+      "Step 40: Sort beads into bowl and blocks into box.",
+      "1. Beads into bowl.\n2. Blocks into box."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0390",
+    "source_group_id": "SRC-EN-INS-0390",
+    "source_text": "Step 66: Draw a horizontal line, place a square on it, and add a roof.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Draw line.\n2. Draw square.\n3. Add roof."
+    },
+    "reference_texts": [
+      "Step 66: Draw a line, put a square on it, and add a roof.",
+      "Step 66: First draw a line. Next draw square. Then add roof.",
+      "1. Draw line.\n2. Draw square.\n3. Add roof."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0121",
+    "source_group_id": "SRC-EN-VOC-0121",
+    "source_text": "Select the item named banana from the collection.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look for the banana.\n2. Tap the banana."
+    },
+    "reference_texts": [
+      "Choose the banana from the group.",
+      "Find the banana. Tap on it.",
+      "1. Look for the banana.\n2. Tap the banana."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0103",
+    "source_group_id": "SRC-EN-VOC-0103",
+    "source_text": "State the common name of the depicted lion.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the picture.\n2. Tap the lion."
+    },
+    "reference_texts": [
+      "What animal is this lion?",
+      "Look at the picture. Point to the lion.",
+      "1. Look at the picture.\n2. Tap the lion."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0212",
+    "source_group_id": "SRC-EN-GRA-0212",
+    "source_text": "Yesterday, the student ate a creative project.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. It happened in the past.\n2. Choose the word ate."
+    },
+    "reference_texts": [
+      "Yesterday, the student ate something nice.",
+      "It happened yesterday. Choose the past verb: ate.",
+      "1. It happened in the past.\n2. Choose the word ate."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0384",
+    "source_group_id": "SRC-EN-INS-0384",
+    "source_text": "Step 60: Sort the round beads into the bowl and square blocks into the box.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Beads into bowl.\n2. Blocks into box."
+    },
+    "reference_texts": [
+      "Step 60: Put round beads in bowl and square blocks in box.",
+      "Step 60: Sort beads into bowl and blocks into box.",
+      "1. Beads into bowl.\n2. Blocks into box."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0272",
+    "source_group_id": "SRC-EN-COM-0272",
+    "source_text": "Because it rained hard, the baseball game was cancelled. Question 23: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Heavy rain fell.\n2. The game was cancelled.\n23. Answer is because of rain."
+    },
+    "reference_texts": [
+      "Because of heavy rain, the game was stopped. Question 23: What detail is stated?",
+      "The game stopped because it rained. Why was game stopped? Answer the question 23: because of rain.",
+      "1. Heavy rain fell.\n2. The game was cancelled.\n23. Answer is because of rain."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0304",
+    "source_group_id": "SRC-EN-COM-0304",
+    "source_text": "After washing her hands, Sara ate a warm bowl of soup. Question 55: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Sara washes hands first.\n2. Sara eats soup next.\n55. Answer is washed hands first."
+    },
+    "reference_texts": [
+      "After washing hands, Sara ate warm soup. Question 55: What detail is stated?",
+      "Sara washed hands first. Then Sara ate soup. Answer the question 55: washed hands first.",
+      "1. Sara washes hands first.\n2. Sara eats soup next.\n55. Answer is washed hands first."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0392",
+    "source_group_id": "SRC-EN-INS-0392",
+    "source_text": "Step 68: Color the fluffy rabbit white and color its carrot orange.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Color rabbit white.\n2. Color carrot orange."
+    },
+    "reference_texts": [
+      "Step 68: Color the rabbit white and color its carrot orange.",
+      "Step 68: Make rabbit white. Make carrot orange.",
+      "1. Color rabbit white.\n2. Color carrot orange."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0201",
+    "source_group_id": "SRC-EN-GRA-0201",
+    "source_text": "Select the proper plural noun for more than one foot: foot to feet.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Count more than one foot.\n2. Select the plural word: feet."
+    },
+    "reference_texts": [
+      "Choose the correct plural word for foot: multiple feet.",
+      "Count the foot. Choose the plural word for foot: feet.",
+      "1. Count more than one foot.\n2. Select the plural word: feet."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0113",
+    "source_group_id": "SRC-EN-VOC-0113",
+    "source_text": "State the common name of the depicted whale.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the picture.\n2. Tap the whale."
+    },
+    "reference_texts": [
+      "What animal is this whale?",
+      "Look at the picture. Point to the whale.",
+      "1. Look at the picture.\n2. Tap the whale."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0243",
+    "source_group_id": "SRC-EN-GRA-0243",
+    "source_text": "Two gray squirrels climb the tall tree.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Two squirrels.\n2. Choose climb."
+    },
+    "reference_texts": [
+      "Two squirrels climb the tall tree.",
+      "Squirrels climb together.",
+      "1. Two squirrels.\n2. Choose climb."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0279",
+    "source_group_id": "SRC-EN-COM-0279",
+    "source_text": "Dad baked chocolate muffins for the school bake sale. Question 30: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Dad baked muffins.\n2. For school bake sale.\n30. Answer is chocolate muffins."
+    },
+    "reference_texts": [
+      "Dad made chocolate muffins for the school sale. Question 30: What detail is stated?",
+      "Dad baked sweet muffins for school bake sale. Answer the question 30: chocolate muffins.",
+      "1. Dad baked muffins.\n2. For school bake sale.\n30. Answer is chocolate muffins."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0271",
+    "source_group_id": "SRC-EN-COM-0271",
+    "source_text": "Leo planted four sunflower seeds in the warm soil. Question 22: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Leo planted seeds in soil.\n2. He planted four seeds in soil.\n22. Answer is four."
+    },
+    "reference_texts": [
+      "Leo planted four seeds in warm soil. Question 22: What detail is stated?",
+      "Leo planted four seeds in warm soil. How many seeds? Answer the question 22: four.",
+      "1. Leo planted seeds in soil.\n2. He planted four seeds in soil.\n22. Answer is four."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0257",
+    "source_group_id": "SRC-EN-COM-0257",
+    "source_text": "Ben lost his red whistle while hiking in the pine woods. Question 8: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n8. Answer is in the pine woods."
+    },
+    "reference_texts": [
+      "Ben lost his whistle in the pine woods. Question 8: What detail is stated?",
+      "Ben dropped his red whistle in the woods. Answer the question 8: in the pine woods.",
+      "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n8. Answer is in the pine woods."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0115",
+    "source_group_id": "SRC-EN-VOC-0115",
+    "source_text": "State the common name of the depicted frog.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the picture.\n2. Tap the frog."
+    },
+    "reference_texts": [
+      "What animal is this frog?",
+      "Look at the picture. Point to the frog.",
+      "1. Look at the picture.\n2. Tap the frog."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0116",
+    "source_group_id": "SRC-EN-VOC-0116",
+    "source_text": "State the common name of the depicted duck.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the picture.\n2. Tap the duck."
+    },
+    "reference_texts": [
+      "What animal is this duck?",
+      "Look at the picture. Point to the duck.",
+      "1. Look at the picture.\n2. Tap the duck."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0371",
+    "source_group_id": "SRC-EN-INS-0371",
+    "source_text": "Step 47: Close your book, stand up quietly, and walk to the door.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Close book.\n2. Stand quietly.\n3. Walk to door."
+    },
+    "reference_texts": [
+      "Step 47: Close your book, stand up, and walk to the door.",
+      "Step 47: 1. Close book. 2. Stand up. 3. Walk to door.",
+      "1. Close book.\n2. Stand quietly.\n3. Walk to door."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0254",
+    "source_group_id": "SRC-EN-COM-0254",
+    "source_text": "After washing her hands, Sara ate a warm bowl of soup. Question 5: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Sara washes hands first.\n2. Sara eats soup next.\n5. Answer is washed hands first."
+    },
+    "reference_texts": [
+      "After washing hands, Sara ate warm soup. Question 5: What detail is stated?",
+      "Sara washed hands first. Then Sara ate soup. Answer the question 5: washed hands first.",
+      "1. Sara washes hands first.\n2. Sara eats soup next.\n5. Answer is washed hands first."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0319",
+    "source_group_id": "SRC-EN-COM-0319",
+    "source_text": "Dad baked chocolate muffins for the school bake sale. Question 70: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Dad baked muffins.\n2. For school bake sale.\n70. Answer is chocolate muffins."
+    },
+    "reference_texts": [
+      "Dad made chocolate muffins for the school sale. Question 70: What detail is stated?",
+      "Dad baked sweet muffins for school bake sale. Answer the question 70: chocolate muffins.",
+      "1. Dad baked muffins.\n2. For school bake sale.\n70. Answer is chocolate muffins."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0262",
+    "source_group_id": "SRC-EN-COM-0262",
+    "source_text": "Because it rained hard, the baseball game was cancelled. Question 13: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Heavy rain fell.\n2. The game was cancelled.\n13. Answer is because of rain."
+    },
+    "reference_texts": [
+      "Because of heavy rain, the game was stopped. Question 13: What detail is stated?",
+      "The game stopped because it rained. Why was game stopped? Answer the question 13: because of rain.",
+      "1. Heavy rain fell.\n2. The game was cancelled.\n13. Answer is because of rain."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0336",
+    "source_group_id": "SRC-EN-INS-0336",
+    "source_text": "Step 12: If the square is green, touch the triangle; if not green, touch the circle.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Is square green?\n2. Yes: tap triangle.\n3. If not green: tap circle."
+    },
+    "reference_texts": [
+      "Step 12: If square is green, touch triangle. If not green, touch circle.",
+      "Step 12: Look at square. If green: tap triangle. If not green: tap circle.",
+      "1. Is square green?\n2. Yes: tap triangle.\n3. If not green: tap circle."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0274",
+    "source_group_id": "SRC-EN-COM-0274",
+    "source_text": "After washing her hands, Sara ate a warm bowl of soup. Question 25: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Sara washes hands first.\n2. Sara eats soup next.\n25. Answer is washed hands first."
+    },
+    "reference_texts": [
+      "After washing hands, Sara ate warm soup. Question 25: What detail is stated?",
+      "Sara washed hands first. Then Sara ate soup. Answer the question 25: washed hands first.",
+      "1. Sara washes hands first.\n2. Sara eats soup next.\n25. Answer is washed hands first."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0350",
+    "source_group_id": "SRC-EN-INS-0350",
+    "source_text": "Step 26: Draw a horizontal line, place a square on it, and add a roof.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Draw line.\n2. Draw square.\n3. Add roof."
+    },
+    "reference_texts": [
+      "Step 26: Draw a line, put a square on it, and add a roof.",
+      "Step 26: First draw a line. Next draw square. Then add roof.",
+      "1. Draw line.\n2. Draw square.\n3. Add roof."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0210",
+    "source_group_id": "SRC-EN-GRA-0210",
+    "source_text": "Yesterday, the student drew a creative project.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. It happened in the past.\n2. Choose the word drew."
+    },
+    "reference_texts": [
+      "Yesterday, the student drew something nice.",
+      "It happened yesterday. Choose the past verb: drew.",
+      "1. It happened in the past.\n2. Choose the word drew."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0112",
+    "source_group_id": "SRC-EN-VOC-0112",
+    "source_text": "State the common name of the depicted dolphin.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the picture.\n2. Tap the dolphin."
+    },
+    "reference_texts": [
+      "What animal is this dolphin?",
+      "Look at the picture. Point to the dolphin.",
+      "1. Look at the picture.\n2. Tap the dolphin."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0267",
+    "source_group_id": "SRC-EN-COM-0267",
+    "source_text": "Ben lost his red whistle while hiking in the pine woods. Question 18: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n18. Answer is in the pine woods."
+    },
+    "reference_texts": [
+      "Ben lost his whistle in the pine woods. Question 18: What detail is stated?",
+      "Ben dropped his red whistle in the woods. Answer the question 18: in the pine woods.",
+      "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n18. Answer is in the pine woods."
+    ],
+    "governed_annotations": {}
+  }
+]

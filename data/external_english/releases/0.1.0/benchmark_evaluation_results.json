@@ -1,0 +1,304 @@
+{
+  "release_version": "0.1.0",
+  "evaluation_suite": "Stage 23 ASSET Baseline Evaluation",
+  "results": {
+    "test": {
+      "split": "test",
+      "sample_count": 359,
+      "baselines": {
+        "identity_baseline": {
+          "evaluated_outputs": 359,
+          "evaluation_status": "Valid",
+          "sari": {
+            "mean": 50.20038087011355,
+            "std": 15.60498140798524
+          },
+          "sari_add": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "sari_keep": {
+            "mean": 95.37830138471385,
+            "std": 6.443416065183771
+          },
+          "sari_del": {
+            "mean": 55.22284122562674,
+            "std": 41.79410244483995
+          },
+          "bleu": {
+            "mean": 91.3904608007725,
+            "std": 10.934334828102664
+          },
+          "semantic_similarity_proxy": {
+            "mean": 92.65981050318952,
+            "std": 5.678093214589248
+          },
+          "fkgl_reduction": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "word_compression_ratio": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "avg_latency_ms": 0.00013927580303289413,
+          "invalid_output_rate": 0.0,
+          "fallback_rate": 0.0
+        },
+        "rule_based_simplifier": {
+          "evaluated_outputs": 359,
+          "evaluation_status": "Valid",
+          "sari": {
+            "mean": 46.9785882159237,
+            "std": 16.029840540489456
+          },
+          "sari_add": {
+            "mean": 0.6669934475030896,
+            "std": 2.118631189369184
+          },
+          "sari_keep": {
+            "mean": 93.21012949735083,
+            "std": 8.53769702629186
+          },
+          "sari_del": {
+            "mean": 47.05864170291717,
+            "std": 42.4254273993797
+          },
+          "bleu": {
+            "mean": 91.16788970109555,
+            "std": 11.376659350691014
+          },
+          "semantic_similarity_proxy": {
+            "mean": 92.62271652369506,
+            "std": 5.996280790247908
+          },
+          "fkgl_reduction": {
+            "mean": 0.23930153338498025,
+            "std": 0.8855033330892363
+          },
+          "word_compression_ratio": {
+            "mean": 0.975689655480849,
+            "std": 0.07491457806225936
+          },
+          "avg_latency_ms": 0.06549415034962679,
+          "invalid_output_rate": 0.0,
+          "fallback_rate": 0.0
+        },
+        "deterministic_fallback": {
+          "evaluated_outputs": 359,
+          "evaluation_status": "Valid",
+          "sari": {
+            "mean": 32.88435539876859,
+            "std": 15.223397500849243
+          },
+          "sari_add": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "sari_keep": {
+            "mean": 78.33907004462249,
+            "std": 15.23052210622943
+          },
+          "sari_del": {
+            "mean": 20.31399615168329,
+            "std": 34.54992054520588
+          },
+          "bleu": {
+            "mean": 87.4451739235824,
+            "std": 13.809990182313085
+          },
+          "semantic_similarity_proxy": {
+            "mean": 82.01599888670764,
+            "std": 11.380916042103733
+          },
+          "fkgl_reduction": {
+            "mean": 2.301234312751672,
+            "std": 2.920551690105628
+          },
+          "word_compression_ratio": {
+            "mean": 0.7482348823122295,
+            "std": 0.2101193474501699
+          },
+          "avg_latency_ms": 0.0033699164667567575,
+          "invalid_output_rate": 0.0,
+          "fallback_rate": 1.0
+        },
+        "gemini_llm": {
+          "evaluated_outputs": 0,
+          "evaluation_status": "Not evaluated\u2014API unavailable/offline",
+          "requested_provider": "gemini",
+          "provider_calls_attempted": 0,
+          "provider_outputs_received": 0,
+          "fallback_outputs_generated": 359,
+          "provider_evaluation_status": "not_evaluated_offline",
+          "metrics_attributed_to": "deterministic_fallback",
+          "sari": null,
+          "bleu": null,
+          "semantic_similarity_proxy": null,
+          "fkgl_reduction": null,
+          "avg_latency_ms": null
+        }
+      },
+      "provider_status": {
+        "gemini": {
+          "requested_provider": "gemini",
+          "provider_calls_attempted": 0,
+          "provider_outputs_received": 0,
+          "fallback_outputs_generated": 359,
+          "provider_evaluation_status": "not_evaluated_offline",
+          "metrics_attributed_to": "deterministic_fallback",
+          "evaluation_status_summary": "Not evaluated\u2014API unavailable/offline"
+        }
+      }
+    },
+    "validation": {
+      "split": "validation",
+      "sample_count": 2000,
+      "baselines": {
+        "identity_baseline": {
+          "evaluated_outputs": 2000,
+          "evaluation_status": "Valid",
+          "sari": {
+            "mean": 52.509757841858125,
+            "std": 14.409919694872158
+          },
+          "sari_add": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "sari_keep": {
+            "mean": 96.17927352557439,
+            "std": 5.998490912537446
+          },
+          "sari_del": {
+            "mean": 61.35,
+            "std": 38.74503193959194
+          },
+          "bleu": {
+            "mean": 92.77840333044617,
+            "std": 10.960721806694792
+          },
+          "semantic_similarity_proxy": {
+            "mean": 93.35223507143101,
+            "std": 4.7409410679631785
+          },
+          "fkgl_reduction": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "word_compression_ratio": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "avg_latency_ms": 0.00013724994732911,
+          "invalid_output_rate": 0.0,
+          "fallback_rate": 0.0
+        },
+        "rule_based_simplifier": {
+          "evaluated_outputs": 2000,
+          "evaluation_status": "Valid",
+          "sari": {
+            "mean": 48.99829484145954,
+            "std": 15.598870600281183
+          },
+          "sari_add": {
+            "mean": 0.7376669521074718,
+            "std": 2.485026482545027
+          },
+          "sari_keep": {
+            "mean": 94.07789450665211,
+            "std": 8.22732345628144
+          },
+          "sari_del": {
+            "mean": 52.17932306561902,
+            "std": 41.42533816860608
+          },
+          "bleu": {
+            "mean": 92.83849166551711,
+            "std": 10.677909031226394
+          },
+          "semantic_similarity_proxy": {
+            "mean": 93.16358268264645,
+            "std": 5.110647710162507
+          },
+          "fkgl_reduction": {
+            "mean": 0.17491283460411353,
+            "std": 0.8859361189132933
+          },
+          "word_compression_ratio": {
+            "mean": 0.9740860459416781,
+            "std": 0.07722870665323134
+          },
+          "avg_latency_ms": 0.06612165001570247,
+          "invalid_output_rate": 0.0,
+          "fallback_rate": 0.0
+        },
+        "deterministic_fallback": {
+          "evaluated_outputs": 2000,
+          "evaluation_status": "Valid",
+          "sari": {
+            "mean": 33.960353389330095,
+            "std": 15.561138038755274
+          },
+          "sari_add": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "sari_keep": {
+            "mean": 80.25087208051836,
+            "std": 15.096467784404362
+          },
+          "sari_del": {
+            "mean": 21.6301880874719,
+            "std": 35.60553570155837
+          },
+          "bleu": {
+            "mean": 86.79651972102188,
+            "std": 15.213408029914326
+          },
+          "semantic_similarity_proxy": {
+            "mean": 83.11063145130235,
+            "std": 11.393809347236067
+          },
+          "fkgl_reduction": {
+            "mean": 2.2614968259127273,
+            "std": 2.9222898344387067
+          },
+          "word_compression_ratio": {
+            "mean": 0.7676858340046775,
+            "std": 0.21017136752654483
+          },
+          "avg_latency_ms": 0.0029922999847258325,
+          "invalid_output_rate": 0.0,
+          "fallback_rate": 1.0
+        },
+        "gemini_llm": {
+          "evaluated_outputs": 0,
+          "evaluation_status": "Not evaluated\u2014API unavailable/offline",
+          "requested_provider": "gemini",
+          "provider_calls_attempted": 0,
+          "provider_outputs_received": 0,
+          "fallback_outputs_generated": 2000,
+          "provider_evaluation_status": "not_evaluated_offline",
+          "metrics_attributed_to": "deterministic_fallback",
+          "sari": null,
+          "bleu": null,
+          "semantic_similarity_proxy": null,
+          "fkgl_reduction": null,
+          "avg_latency_ms": null
+        }
+      },
+      "provider_status": {
+        "gemini": {
+          "requested_provider": "gemini",
+          "provider_calls_attempted": 0,
+          "provider_outputs_received": 0,
+          "fallback_outputs_generated": 359,
+          "provider_evaluation_status": "not_evaluated_offline",
+          "metrics_attributed_to": "deterministic_fallback",
+          "evaluation_status_summary": "Not evaluated\u2014API unavailable/offline"
+        }
+      }
+    }
+  }
+}

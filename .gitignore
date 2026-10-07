@@ -52,5 +52,33 @@ Thumbs.db
 *.swo
 
 # Database exports / temporary dumps (preserving schema & seeds)
+*.db
 *.db-journal
 backend/exports/
+
+# Integration Previews (generated locally)
+data/integration_previews/component2_ar_outputs/*
+data/integration_previews/component4_outputs/*
+!data/integration_previews/component2_ar_outputs/.gitkeep
+!data/integration_previews/component4_outputs/.gitkeep
+!data/integration_previews/**/*_example.json
+
+# Stage 13 Interaction Dataset (Private learner runtime records & unreviewed exports)
+data/interaction_dataset/private/**
+data/interaction_dataset/deidentified_exports/**
+data/interaction_dataset/research_releases/**
+
+# Preserve directory structure
+!data/interaction_dataset/private/.gitkeep
+!data/interaction_dataset/deidentified_exports/.gitkeep
+!data/interaction_dataset/research_releases/.gitkeep
+# Stage 15 Quality Reports (Private reports containing source text, review queue & correction logs)
+data/quality_reports/stage15/private/**
+!data/quality_reports/stage15/private/.gitkeep
+
+# Stage 23 External English Datasets (Raw snapshots and normalized full text cached locally; redistribution prohibited)
+data/external_english/**/raw/*
+data/external_english/**/normalized/*
+!data/external_english/**/raw/.gitkeep
+!data/external_english/**/normalized/.gitkeep
+

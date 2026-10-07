@@ -1,0 +1,176 @@
+{
+  "text_instance_id": "SIMP-EN-000721__SIMP",
+  "parent_record_id": "SIMP-EN-000721",
+  "parent_record_type": "simplification_pair",
+  "text_role": "simplified_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SRC-EN-GRA-0240",
+  "original_text": "Frog leaps far.",
+  "normalized_text": "Frog leaps far.",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.4,
+    "decision": "manual_review_required",
+    "fallback_reason": "zero_english_function_words"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SIMP-EN-000721__SIMP-S01",
+      "sentence_index": 0,
+      "text": "Frog leaps far.",
+      "original_start_char": 0,
+      "original_end_char": 15,
+      "normalized_start_char": 0,
+      "normalized_end_char": 15,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "Frog",
+          "lemma": "frog",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 4,
+          "normalized_start_char": 0,
+          "normalized_end_char": 4
+        },
+        {
+          "index": 1,
+          "text": "leaps",
+          "lemma": "leap",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "ROOT",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 5,
+          "original_end_char": 10,
+          "normalized_start_char": 5,
+          "normalized_end_char": 10
+        },
+        {
+          "index": 2,
+          "text": "far",
+          "lemma": "far",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 11,
+          "original_end_char": 14,
+          "normalized_start_char": 11,
+          "normalized_end_char": 14
+        },
+        {
+          "index": 3,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 1,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 14,
+          "original_end_char": 15,
+          "normalized_start_char": 14,
+          "normalized_end_char": 15
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 13,
+      "token_count": 4,
+      "word_count": 3,
+      "sentence_count": 1,
+      "punct_count": 1,
+      "avg_word_length": 4.0,
+      "avg_sentence_length": 4.0,
+      "unique_token_count": 3,
+      "type_token_ratio": 1.0,
+      "syllable_count": 3,
+      "avg_syllables_per_word": 1.0,
+      "long_word_count": 0
+    },
+    "lexical": {
+      "content_word_count": 3,
+      "function_word_count": 0,
+      "noun_count": 2,
+      "verb_count": 0,
+      "adj_count": 0,
+      "adv_count": 1,
+      "pronoun_count": 0,
+      "prep_count": 0,
+      "finite_verb_count": 0,
+      "auxiliary_verb_count": 0,
+      "out_of_lexicon_count": 3,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": []
+    },
+    "syntactic": {
+      "max_dependency_depth": 1,
+      "avg_dependency_depth": 0.67,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 0,
+      "avg_noun_phrase_length": 2.0,
+      "svo_triplets_available": false,
+      "root_count": 1,
+      "parse_failure_count": 0,
+      "fragment_detected": true,
+      "imperative_detected": false
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [],
+      "named_entities": [],
+      "spatial_prepositions": [],
+      "temporal_connectives": [],
+      "action_verbs": [],
+      "aligned_protected_units": [
+        {
+          "protected_unit": "frog",
+          "is_aligned": true,
+          "status": "aligned"
+        },
+        {
+          "protected_unit": "leaps",
+          "is_aligned": true,
+          "status": "aligned"
+        }
+      ]
+    }
+  },
+  "processing_status": "manual_review_required",
+  "text_hash": "ee475a1b429a796b344fc2ac584ab16c34671e9a6f79486867c5b50a57ff7442",
+  "feature_hash": "a991f0b4654c4832c718d53b63805e0cc56cc2bc1318ea31a5c938fa06a28de2",
+  "record_hash": "f73779b60ff418d89849987b3d349703704f92c8ce6c03220e57cdaf4eac1758"
+}

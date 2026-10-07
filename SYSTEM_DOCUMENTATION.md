@@ -1,26 +1,25 @@
 # AI-Powered Adaptive Language Simplification System
-## Complete System Technical & Functional Documentation
+## Complete System Technical & Responsibility Boundaries Documentation (Stage 12)
 
 ---
 
-## 1. Executive Summary & Research Background
+## 1. Executive Summary & Responsibility Boundaries
 
-The **Adaptive Language Simplification System (ALSS)** is an evidence-based clinical and educational MVP engineered to assist children with Language Impairments (LI), Developmental Language Disorder (DLD), and associated cognitive processing challenges. 
+The **Adaptive Language Simplification System (ALSS)** is an educational support application for children aged 4–8 who may experience language-learning difficulties or may be at risk of Developmental Language Disorder (DLD). 
 
-Standard pedagogical software presents static instructional language that often imposes an unmanageable **extraneous cognitive load** on struggling learners. ALSS dynamically evaluates a child's linguistic capabilities (e.g., vocabulary mastery, syntax comprehension, working memory limits, processing speed) and progressively simplifies task instructions across lexical, syntactic, and multimodal dimensions.
+It personalizes child-friendly English instructions, evaluates activity performance, and maintains four educational indicators: **vocabulary**, **grammar**, **comprehension**, and **instruction-following** performance. These indicators are automatically updated from confirmed learning interactions and are shared with the Personalized Recommendation and Learning Analytics Module (Component 4). 
 
-Furthermore, ALSS incorporates an automated **Dynamic Profile Evolution & Risk Transition Engine**, transforming every learning interaction into a diagnostic data point that continuously updates the child's developmental profile, recalibrates their **Composite Language Index (CLI)**, and adjusts their clinical **Risk Classification** (High, Moderate, Low/Mild).
+The component does **not** diagnose DLD and does **not** independently alter the DLD risk indicator received from the screening component (Component 1).
+
+> [!IMPORTANT]
+> **Non-Diagnostic Disclaimer:**  
+> This application provides educational language support and research-oriented performance tracking. It is **not a diagnostic instrument** and does not replace assessment or advice from qualified speech-language professionals.
 
 ```
    ┌──────────────────────────────────────────────────────────────────┐
-   │                    Learner Interaction Loop                     │
+   │               Component 1: DLD Screening Intake                  │
+   │           Read-Only Screening Snapshot (Low / Mod / High)        │
    └────────────────────────────────┬─────────────────────────────────┘
-                                    │
-                                    ▼
-       ┌────────────────────────────────────────────────────────┐
-       │               Dynamic Assessment Intake                │
-       │   Learner Profile (Vocab, Grammar, Working Memory)     │
-       └────────────────────────────┬───────────────────────────┘
                                     │
                                     ▼
        ┌────────────────────────────────────────────────────────┐
@@ -41,288 +40,162 @@ Furthermore, ALSS incorporates an automated **Dynamic Profile Evolution & Risk T
                                     │
                                     ▼
        ┌────────────────────────────────────────────────────────┐
-       │       Dynamic Profile Evolution & Analytics Engine      │
-       │   • Delta Score Calculation (Δ Vocab, Δ Grammar)       │
-       │   • Composite Language Index (CLI) Recalibration       │
-       │   • Risk Level Transition (High -> Moderate -> Low)    │
-       │   • Full Session Snapshot Stored in Database           │
+       │       Educational Performance Update Engine             │
+       │   • Updates primary task domain (Vocab, Gram, etc.)    │
+       │   • Increments domain evidence counters                │
+       │   • Recalibrates recommended support level             │
+       │   • Leaves Component 1 screening risk untouched        │
+       └────────────────────────────┬───────────────────────────┘
+                                    │
+                                    ▼
+       ┌────────────────────────────────────────────────────────┐
+       │      Component 4: Learning Analytics & Export           │
+       │   • Four educational domain scores & evidence counts   │
+       │   • Longitudinal trends calculated by Component 4      │
        └────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 2. Core Architectural Overview
+## 2. Component Ownership & Inter-System Contracts
 
-The application follows a decoupled modern client-server architecture:
+| Information / Variable | Component Owner | May this component update it? | Integration Notes |
+| :--- | :--- | :---: | :--- |
+| **DLD Risk Indicator** | **Component 1** / Authorized Expert | **No** | Stored as a read-only snapshot (`screening_risk_level`). |
+| **Screening Version & Date** | **Component 1** | **No** | Used for traceability and audit logs. |
+| **Vocabulary Performance** | **This Component** | **Yes** | Updated automatically from vocabulary tasks. |
+| **Grammar Performance** | **This Component** | **Yes** | Updated automatically from grammar tasks. |
+| **Comprehension Performance** | **This Component** | **Yes** | Updated automatically from comprehension tasks. |
+| **Instruction Performance** | **This Component** | **Yes** | Updated automatically from instruction tasks. |
+| **Educational Support Level** | **This Component** | **Yes** | Calculates `recommended_support_level` (`mild`, `moderate`, `strong`). |
+| **Longitudinal Trend Analytics** | **Component 4** | **By Component 4** | Based on repeated activity evidence over time. |
+| **Next Activity Recommendation** | **Component 4** | **By Component 4** | Ingested by this component for activity selection. |
+| **Clinical DLD Diagnosis** | **Qualified Expert** | **Never** | Outside the software's responsibility. |
 
+### 2.1 Current Integration Status (Stage 12 Mock Mode)
+
+During Stage 12, group components communicate via local contracts and mock adapters:
+
+```json
+{
+  "component_1": "mock",
+  "component_2_ar": "not_connected",
+  "component_4": "not_connected",
+  "is_simulated": true,
+  "research_eligible": false
+}
 ```
-[ Frontend: React + Vite + Tailwind/CSS Modules ]
-                    │
-         HTTP / REST / WebSockets
-                    │
-                    ▼
-[ Backend: FastAPI (Python 3.10+) ]
-  ├── Simplification Service (NLP & LLM Engine - Google Gemini API)
-  ├── Multi-Attempt Retry & Scaffolding Controller
-  ├── Dynamic Profile Evolution Engine
-  ├── Session & History Analytics Service
-  └── Security, Privacy & Audit Logging Layer
-                    │
-                    ▼
-[ Database Layer: SQLite / SQLAlchemy ORM ]
-  ├── Learner Profiles
-  ├── Interactive Tasks
-  ├── Activity Sessions
-  ├── Task Evaluation Histories (Diagnostic Archive)
-  └── Audit Logs
-```
 
-### 2.1 Technology Stack
-
-| Layer | Component / Tool | Role / Purpose |
-| :--- | :--- | :--- |
-| **Frontend** | React 18, Vite | High-performance interactive Single Page Application (SPA) |
-| **Styling & UI** | Lucide-React, Custom CSS | Child-friendly, accessible design with high readability & contrast |
-| **Backend** | FastAPI, Uvicorn | Asynchronous Python REST API framework |
-| **AI / NLP** | Google Gemini API (`gemini-1.5-flash` / `gemini-pro`) | Real-time adaptive linguistic simplification & validation |
-| **Database** | SQLite + SQLAlchemy ORM | Local relational storage of profiles, tasks, and historical session diagnostics |
-| **Audio / Speech** | Web Speech API (TTS & STT) | Multimodal speech synthesis and speech-to-text input |
+- **Component 1 (Screening)**: Reads simulated profiles from `data/integration_fixtures/component1_inputs/`.
+- **Component 2 (AR)**: Generates validated local AR payloads under `data/integration_previews/component2_ar_outputs/`.
+- **Component 4 (Analytics)**: Exports four-domain performance payloads under `data/integration_previews/component4_outputs/` with `risk_modified_by_component_3: false`.
 
 ---
 
-## 3. Dynamic Simplification & Scaffolding Pipeline
+## 3. Four-Domain Educational Performance Tracking
 
-### 3.1 Three-Tier Simplification Strategy
+### 3.1 Primary Domain Targeting
+After a confirmed activity session, the system updates **only** the educational performance domain targeted by the activity:
 
-When a learner receives an instructional prompt, ALSS applies three coordinated simplification layers based on the child's real-time baseline scores:
+- **Vocabulary Task** $\rightarrow$ updates `vocabulary_score` and increments `vocabulary_evidence_count`.
+- **Grammar Task** $\rightarrow$ updates `grammar_score` and increments `grammar_evidence_count`.
+- **Comprehension Task** $\rightarrow$ updates `comprehension_score` and increments `comprehension_evidence_count`.
+- **Sentence & Instruction Task** $\rightarrow$ updates `instruction_following_score` and increments `instruction_evidence_count`.
 
-1. **Lexical Simplification**:
-   - Replaces low-frequency or polysemous words (Tier 2/3) with high-frequency, concrete equivalents (Tier 1).
-   - Constrains vocabulary to the child's estimated lexical age bracket.
-2. **Syntactic & Structural Simplification**:
-   - Deconstructs passive voice into direct Subject-Verb-Object (S-V-O) declarative structures.
-   - Splits compound and complex sentences containing relative clauses, conditional triggers, or subordinate clauses into distinct sequential chunks.
-   - Caps Maximum Sentence Length according to the child's working memory span (e.g., max 5-7 words for high-risk profiles).
-3. **Multimodal & Visual Scaffolding**:
-   - Augments textual instruction with color-coded key phrases, pictographic icons, and structured clue cards to reduce working memory strain.
+### 3.2 Performance Score Formula
+Every score update follows the evidence formula:
 
----
-
-## 4. Multi-Attempt Retry & Scaffolding Workflow
-
-The system provides a structured 3-attempt pedagogical framework before escalating to adult caregiver intervention:
-
-```
-+-------------------------------------------------------------------------------+
-|                             ATTEMPT 1: BASELINE                               |
-| • Prompt simplified according to baseline profile                             |
-| • Standard interactive choice or input UI                                     |
-+---------------------------------------+---------------------------------------+
-                                        │
-                         [Incorrect / Timeout / Hint]
-                                        ▼
-+-------------------------------------------------------------------------------+
-|                     ATTEMPT 2: LINGUISTIC SCAFFOLDING                         |
-| • Instruction further simplified (shorter sentences, active voice)           |
-| • Difficult vocabulary replaced with ultra-basic root words                   |
-| • Audio narration automatically highlighted                                  |
-+---------------------------------------+---------------------------------------+
-                                        │
-                         [Incorrect / Timeout / Hint]
-                                        ▼
-+-------------------------------------------------------------------------------+
-|                       ATTEMPT 3: MULTIMODAL CUEING                            |
-| • Minimalist directive (e.g., "Look at the big cat.")                        |
-| • Visual Symbol / Icon representation injected                                |
-| • High-contrast focus cue on target choices                                   |
-+---------------------------------------+---------------------------------------+
-                                        │
-                                   [Incorrect]
-                                        ▼
-+-------------------------------------------------------------------------------+
-|                       FALLBACK: ADULT HANDOVER                                |
-| • Constructive feedback displayed for educator/parent                         |
-| • Recommended verbal cue and physical prompt guidance                         |
-| • Session recorded with adult support flag                                    |
-+-------------------------------------------------------------------------------+
-```
-
----
-
-## 5. Dynamic Profile Evolution & Risk Transition Engine
-
-### 5.1 Real-Time Score Adaptation Model
-
-Every task completed updates the child's profile parameters using an evidence-based differential formula:
-
-$$\Delta S = \alpha \cdot \text{OutcomeFactor} \cdot \text{DifficultyWeight} \cdot \text{AttemptPenalty}$$
+$$\Delta S = \alpha \cdot \text{BaseDelta}(\text{Outcome}, \text{Attempt}) \cdot \text{DifficultyMultiplier} + \text{SyntaxAdjustment}$$
 
 Where:
-- **Outcome Factor**: $+1.0$ for independent success, $+0.3$ to $+0.5$ for supported success, $-0.4$ for unassisted errors.
-- **Attempt Penalty**:
-  - Attempt 1: $1.0$ (Full credit)
-  - Attempt 2: $0.65$ (Partial credit)
-  - Attempt 3: $0.35$ (Minimal credit)
-  - Adult Handover: $0.0$ to negative correction
-- **Target Metrics Updated**:
-  - `vocabulary_score` ($0 - 100$)
-  - `grammar_score` ($0 - 100$)
-  - `working_memory_score` ($0 - 100$)
-  - `processing_speed_score` ($0 - 100$)
-  - `attention_score` ($0 - 100$)
+- **Base Delta**:
+  - Independent Success (Attempt 1): $+5.0$
+  - Supported Success (Attempt 2): $+3.0$
+  - Supported Success (Attempt 3): $+1.5$
+  - Adult Supported Completion: $+2.0$
+  - Multi-Attempt Escalation: $-2.5$
+- **Difficulty Multiplier**: Easy ($1.0$), Medium ($1.2$), Hard ($1.5$).
+- **Syntax Adjustment**: Clean syntax bonus ($+1.0$) or persistent error impact ($-1.0$) for grammar tasks.
 
-### 5.2 Composite Language Index (CLI)
+### 3.3 Separation of Screening Risk from Educational Support
+The clinical risk indicator received from Component 1 (`screening_risk_level`: `low`, `moderate`, `high`) is **immutable** during activity processing. 
 
-The **Composite Language Index (CLI)** provides a single unified metric of the learner's overall language capability:
-
-$$\text{CLI} = 0.35 \cdot \text{Vocab} + 0.35 \cdot \text{Grammar} + 0.15 \cdot \text{Memory} + 0.10 \cdot \text{ProcessingSpeed} + 0.05 \cdot \text{Attention}$$
-
-### 5.3 Automated Risk Level Transition Rules
-
-The clinical risk profile automatically updates based on the recalculated CLI and skill balances:
-
-| Risk Level | Composite Language Index (CLI) Threshold | Description | Simplification Behavior |
-| :--- | :--- | :--- | :--- |
-| **High Risk** | $\text{CLI} < 45.0$ | Severe language comprehension and working memory barriers | Maximum simplification, max sentence length 5 words, symbol icons mandatory |
-| **Moderate Risk** | $45.0 \le \text{CLI} < 75.0$ | Emerging syntax and vocabulary mastery with occasional scaffold needs | Moderate simplification, Tier 1/2 vocabulary blend, active voice |
-| **Low / Mild Risk** | $\text{CLI} \ge 75.0$ | High functional competence; near age-appropriate language comprehension | Minimal simplification, rich vocabulary, standard sentence complexity |
-
-When a learner with a **High Risk** profile consistently succeeds, their scores increase, and their risk classification dynamically shifts to **Moderate**, instantly adapting subsequent task instructions.
+This component calculates `recommended_support_level`:
+- **Strong Support**: When Composite Learning Support Index $< 48.0$ or target domain score $< 40.0$.
+- **Mild Support**: When Composite Learning Support Index $\ge 70.0$ and target domain score $\ge 65.0$.
+- **Moderate Support**: All intermediate performance brackets.
 
 ---
 
-## 6. Database Schema & Data Models
+## 4. Multi-Attempt Scaffolding Pipeline
 
-The system persistence layer is built on SQLite with SQLAlchemy ORM models:
+The system employs a 3-attempt pedagogical framework before adult caregiver escalation:
 
-### 6.1 `LearnerProfile`
-Stores learner demographic and linguistic assessment parameters:
+1. **Attempt 1 (Baseline Adaptive)**: Instruction simplified based on the child's baseline profile and recommended support level.
+2. **Attempt 2 (Linguistic Scaffolding)**: Additional lexical simplification, atomic sub-steps, and natural voice read-aloud.
+3. **Attempt 3 (Visual Scaffolding)**: High-contrast symbol-assisted visual cues and minimalist directives.
+4. **Fallback (Adult Handover)**: Actionable feedback and guided verbal cue recommendations for educators and caregivers.
+
+---
+
+## 5. Database Schema & Data Models
+
+### 5.1 `LearnerProfile`
+Stores learner demographics, Component 1 screening metadata, and educational performance scores:
 - `id` (UUID, Primary Key)
-- `learner_code` (e.g., `CHILD-002`)
-- `name`, `age`, `native_language`
-- `risk_level` (`high`, `moderate`, `low`)
-- `vocabulary_score` (Float, 0-100)
-- `grammar_score` (Float, 0-100)
-- `working_memory_score` (Float, 0-100)
-- `processing_speed_score` (Float, 0-100)
-- `attention_score` (Float, 0-100)
-- `composite_language_index` (Float, 0-100)
-- `created_at`, `updated_at`
+- `learner_code` (e.g. `CHILD-002`)
+- `age` (4–8)
+- `screening_risk_level` (String: `low`, `moderate`, `high` — read-only from Component 1)
+- `recommended_support_level` (String: `mild`, `moderate`, `strong`)
+- `screening_source` (String, default `component_1`)
+- `screening_version` (String, default `c1-1.0`)
+- `screening_assessed_at` (DateTime)
+- `vocabulary_score`, `grammar_score`, `comprehension_score`, `instruction_following_score` (Float, 0–100)
+- `vocabulary_evidence_count`, `grammar_evidence_count`, `comprehension_evidence_count`, `instruction_evidence_count` (Integer)
+- `performance_scoring_version` (String, default `1.0`)
 
-### 6.2 `Task`
-Defines pedagogical exercises and language activities:
+### 5.2 `TaskResult` (Learning & Evaluation Archive)
+Maintains an immutable record of every completed activity session:
 - `id` (UUID, Primary Key)
-- `task_code` (e.g., `TASK-GRAM-001`)
-- `title`, `description`
-- `category` (`vocabulary`, `grammar`, `comprehension`, `executive_function`)
-- `target_skill` (e.g., `word_order_svo`, `tier2_adjectives`)
-- `baseline_instruction` (Original unsimplified prompt)
-- `difficulty` (`easy`, `medium`, `hard`)
-- `content_payload` (JSON options, correct answers, symbols)
-
-### 6.3 `TaskEvaluationHistory` (Diagnostic Archive)
-Maintains an immutable audit log of every task executed:
-- `id` (UUID, Primary Key)
-- `session_id` (ForeignKey `activity_sessions.id`)
-- `learner_id` (ForeignKey `learner_profiles.id`)
-- `learner_code` (String, e.g. `CHILD-002`)
-- `learner_age` (Integer)
-- `task_id` (ForeignKey `tasks.id`)
-- `task_code` (String, e.g. `TASK-GRAM-001`)
-- `task_title`, `category`, `target_skill`, `difficulty`
-- `final_outcome` (`success`, `completed_with_adult_support`, `adult_support_required`)
-- `attempts_count` (1, 2, or 3)
-- `independent_success` (Boolean)
-- `score_before` (JSON dictionary of pre-session metrics)
-- `score_after` (JSON dictionary of post-session metrics)
-- `score_deltas` (JSON dictionary of calculated $\Delta$ changes)
-- `risk_changed` (Boolean flag)
-- `composite_language_index` (Float, post-session CLI)
-- `attempt_history` (JSON array of attempt snapshots: instructions, selections, times)
-- `diagnostic_notes` (Educator / clinician summary notes)
-- `created_at` (Timestamp)
+- `session_id`, `learner_id`, `task_id`
+- `learner_code`, `task_code`, `task_title`, `category`, `target_skill`, `difficulty`
+- `final_outcome`, `attempts_count`, `independent_success`
+- `score_before`, `score_after`, `score_deltas`
+- `screening_risk_level` (read-only snapshot)
+- `recommended_support_level`
+- `target_domain` (e.g. `grammar`)
+- `evidence_count_before`, `evidence_count_after`
+- `score_update_applied` (Boolean flag for idempotency)
+- `score_update_event_id` (UUID)
+- `scoring_version` (default `1.0`)
+- `calculation_snapshot` (JSON input weights & deltas)
+- `attempt_history` (JSON array of attempt snapshots)
+- `educational_summary_notes` (Educator / clinician summary notes)
+- `is_simulated` (Boolean, default `True`)
+- `research_eligible` (Boolean, default `False`)
+- `completed_at` (DateTime)
 
 ---
 
-## 7. Backend API Specification
+## 6. Backend API Specification
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/v1/learners/` | List all registered learner profiles |
-| `GET` | `/api/v1/learners/{id}` | Retrieve specific learner profile with full metrics |
-| `POST` | `/api/v1/learners/` | Create a new learner profile |
-| `GET` | `/api/v1/tasks/` | Fetch pedagogical tasks filtered by category or skill |
-| `POST` | `/api/v1/simplify/instruction` | Generate real-time multi-level simplification for a task |
-| `POST` | `/api/v1/sessions/evaluate-task` | Submit completed task, calculate score deltas, evolve profile, record history |
-| `GET` | `/api/v1/sessions/evaluations/learner/{code}` | Retrieve diagnostic evaluation history for a learner |
-| `GET` | `/api/v1/sessions/evaluations/latest` | Fetch most recent evaluation across all sessions |
-| `POST` | `/api/v1/scenarios/run` | Execute automated test scenarios against research benchmarks |
-
----
-
-## 8. Frontend Interface & Key Components
-
-1. **Guided Playground (`GuidedPlayground.jsx`)**:
-   - Primary child-facing task execution view.
-   - Interactive speech synthesizer (Read Aloud) and voice recognition.
-   - Real-time scaffolding reveal on retry (text chunking, visual cues).
-   - Instant diagnostic outcome modal with score delta ($\Delta$) visualization.
-2. **Diagnostic History & Analytics (`EvaluationHistoryView.jsx`)**:
-   - Chronological breakdown of all completed sessions.
-   - Pre vs. Post score comparisons with color-coded delta indicators ($+\Delta$, $-\Delta$).
-   - Risk transition timeline (e.g., tracking evolution from High $\rightarrow$ Moderate).
-   - Attempt-by-attempt diagnostic transcript reader.
-3. **Learner Management & Dashboard (`LearnerProfiles.jsx`)**:
-   - Radar charts and metric bars for Vocabulary, Grammar, Memory, and Processing Speed.
-   - Rapid learner switching for multi-child clinical sessions.
-4. **Scenario Evaluation Lab (`ScenarioEvaluation.jsx`)**:
-   - Batch evaluation tool to validate simplification algorithms against standard DLD baseline datasets.
+| Endpoint | Method | Responsibility / Description |
+| :--- | :---: | :--- |
+| `/api/activities` | `GET` | List curated English language tasks filtered by category/age. |
+| `/api/learners` | `GET` | Retrieve learner educational profiles with screening metadata. |
+| `/api/activity-sessions` | `POST` | Initialize a new supervised learning activity session. |
+| `/api/activity-sessions/{id}/attempts` | `POST` | Generate multi-attempt adaptive instruction with scaffolding. |
+| `/api/attempts/{id}/response` | `PATCH` | Record transcribed response and assistance level. |
+| `/api/attempts/{id}/confirm-response` | `POST` | Adult confirms transcribed response before scoring. |
+| `/api/attempts/{id}/transition` | `POST` | Complete attempt, update primary domain score, persist TaskResult. |
+| `/api/results` | `GET` | Query longitudinal learning & evaluation history records. |
+| `/api/integration/status` | `GET` | Returns status of external components (`mock`, `not_connected`). |
+| `/api/integration-preview/component-4/{id}` | `GET` | Generate local Component 4 performance export preview. |
+| `/api/integration-preview/component-2-ar/{id}` | `GET` | Generate local Component 2 AR instruction preview. |
+| `/api/integration/component-1/screening-profile` | `POST` | Authorized external screening profile import (guarded in mock mode). |
 
 ---
 
-## 9. Setup & Execution Instructions
+## 7. Limitations Statement
 
-### 9.1 Prerequisites
-- Python 3.10+
-- Node.js 18+ and npm
-- Valid Google Gemini API Key (set in `.env`)
-
-### 9.2 Backend Setup
-```bash
-cd backend
-python -m venv venv
-# Windows:
-.\venv\Scripts\activate
-# Linux/macOS:
-source venv/bin/activate
-
-pip install -r requirements.txt
-python -m uvicorn app.main:app --reload --port 8000
-```
-
-### 9.3 Frontend Setup
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-### 9.4 Environment Variables Configuration
-**Backend (`backend/.env`)**:
-```env
-GEMINI_API_KEY=your_actual_gemini_api_key_here
-DATABASE_URL=sqlite:///./language_simplification.db
-CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
-DEBUG=True
-```
-
----
-
-## 10. Research Validation & Future Extensions
-
-1. **Longitudinal Learning Curve Tracking**:
-   - Advanced Bayesian Knowledge Tracing (BKT) to model memory decay and retention over multi-week intervals.
-2. **Multilingual DLD Adaptation**:
-   - Cross-lingual transfer for bilingual learners experiencing code-switching and dual-language syntactic challenges.
-3. **Acoustic & Prosodic Simplification**:
-   - Dynamic modulation of speech rate, fundamental frequency ($F_0$), and syllable pauses during TTS playback based on processing speed deficits.
+The performance indicators are derived from interactions within this application and are intended to support educational personalization and research analysis. They must not be interpreted as standardized clinical assessment results. The DLD risk indicator is received from the separate screening component (Component 1) and is not automatically changed by the language simplification component.

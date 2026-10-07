@@ -1,0 +1,98 @@
+[
+  {
+    "dataset": "Internal Locked Test",
+    "method": "B0",
+    "reported_sari": 12.272407539161955,
+    "recomputed_sari": 12.272407539161955,
+    "delta": 0.0,
+    "passed": true
+  },
+  {
+    "dataset": "Internal Locked Test",
+    "method": "B1",
+    "reported_sari": 12.272407539161955,
+    "recomputed_sari": 12.272407539161955,
+    "delta": 0.0,
+    "passed": true
+  },
+  {
+    "dataset": "Internal Locked Test",
+    "method": "B2",
+    "reported_sari": 17.11737997927882,
+    "recomputed_sari": 17.11737997927882,
+    "delta": 0.0,
+    "passed": true
+  },
+  {
+    "dataset": "Internal Locked Test",
+    "method": "B3",
+    "reported_sari": 12.272407539161955,
+    "recomputed_sari": 12.272407539161955,
+    "delta": 0.0,
+    "passed": true
+  },
+  {
+    "dataset": "Internal Locked Test",
+    "method": "B4",
+    "reported_sari": 17.533120599440785,
+    "recomputed_sari": 17.53312059944078,
+    "delta": 3.552713678800501e-15,
+    "passed": true
+  },
+  {
+    "dataset": "Internal Locked Test",
+    "method": "B5",
+    "reported_sari": 19.933064121327664,
+    "recomputed_sari": 19.933064121327664,
+    "delta": 0.0,
+    "passed": true
+  },
+  {
+    "dataset": "ASSET Benchmark",
+    "method": "B0",
+    "reported_sari": 20.51194095166222,
+    "recomputed_sari": 20.511940951662215,
+    "delta": 3.552713678800501e-15,
+    "passed": true
+  },
+  {
+    "dataset": "ASSET Benchmark",
+    "method": "B1",
+    "reported_sari": 21.049647059229137,
+    "recomputed_sari": 21.049647059229137,
+    "delta": 0.0,
+    "passed": true
+  },
+  {
+    "dataset": "ASSET Benchmark",
+    "method": "B2",
+    "reported_sari": 26.32714407368595,
+    "recomputed_sari": 26.327144073685947,
+    "delta": 3.552713678800501e-15,
+    "passed": true
+  },
+  {
+    "dataset": "ASSET Benchmark",
+    "method": "B3",
+    "reported_sari": 20.51194095166222,
+    "recomputed_sari": 20.511940951662215,
+    "delta": 3.552713678800501e-15,
+    "passed": true
+  },
+  {
+    "dataset": "ASSET Benchmark",
+    "method": "B4",
+    "reported_sari": 26.918706353369874,
+    "recomputed_sari": 26.918706353369874,
+    "delta": 0.0,
+    "passed": true
+  },
+  {
+    "dataset": "ASSET Benchmark",
+    "method": "B5",
+    "reported_sari": 29.126027716279108,
+    "recomputed_sari": 29.126027716279108,
+    "delta": 0.0,
+    "passed": true
+  }
+]

@@ -1,0 +1,11 @@
+rule_id,category,description,version,rule_hash
+ACT_TEMPORAL_UNROLL,action_graph,"Reorders inverted temporal clauses (e.g. 'Before X, do Y') into chronological execution sequence.",1.0.0,5467ff99a9388c3c
+ACT_NUMBERED_STEPS,action_graph,Formats multi-action instructions into numbered atomic steps (1. Step one. 2. Step two.).,1.0.0,d98ef420092519c5
+ACT_MODIFIER_PROTECT,action_graph,Preserves safety-critical and task-critical modifiers on their associated action nodes.,1.0.0,e6e5490064eadcf8
+SYN_PASSIVE_TO_ACTIVE,syntactic,Converts passive voice with explicit agent into active voice.,1.0.0,523af74b113d2b12
+SYN_NOMINALIZATION_UNPACK,syntactic,Unpacks abstract nominalizations into simple direct verbs (e.g. 'make a choice' -> 'choose').,1.0.0,91c65151a860294c
+SYN_CLAUSE_SPLIT,syntactic,Splits long compound and coordinated sentences at safe conjunction boundaries.,1.0.0,eda180d9843f1fd7
+SYN_EXPLICIT_SUBJECT,syntactic,Re-inserts explicit grammatical subject in split coordinated clauses.,1.0.0,a018a9568ba6c2be
+LEX_SUB_AGE_APPROPRIATE,lexical,Substitutes words exceeding target-age complexity using governed lexicon and allowlisted equivalents.,1.0.0,a2e41b3f485aa23b
+LEX_MORPH_REPAIR,lexical,"Repairs verb tense, subject-verb agreement, and determiners after lexical substitution.",1.0.0,5cba4b90e9937f03
+VOCAB_DEF_ATTACH,vocabulary_support,Attaches governed child-friendly definitions and contextual examples for complex domain words.,1.0.0,8133ec6811184c22

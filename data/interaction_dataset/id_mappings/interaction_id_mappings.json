@@ -1,0 +1,772 @@
+[
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "8c654625-4342-4cfa-a1ec-98138be0a615",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-ed1c7022",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "4c61ce30-587a-4e8a-9fa8-aec10982d5dd",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-44f2c9f1",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "4c61ce30-587a-4e8a-9fa8-aec10982d5dd",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-63143fad",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "4c61ce30-587a-4e8a-9fa8-aec10982d5dd",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-295920f3",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "5ee89f1a-9941-470e-8585-67bbef17e54d",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-14ab376b",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "5ee89f1a-9941-470e-8585-67bbef17e54d",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-01718d5f",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "5ee89f1a-9941-470e-8585-67bbef17e54d",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-c3994314",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "3cb491cc-3dc4-4ac6-98d8-9031099d4c61",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-f09978eb",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "3cb491cc-3dc4-4ac6-98d8-9031099d4c61",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-5523f5b8",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "3cb491cc-3dc4-4ac6-98d8-9031099d4c61",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-8ccbe54a",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "19985fcf-a3d9-47f6-9b4b-4bbe87cbca39",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-528a4e69",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "19985fcf-a3d9-47f6-9b4b-4bbe87cbca39",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-25d08c0d",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "19985fcf-a3d9-47f6-9b4b-4bbe87cbca39",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-eaa4196e",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "03b79925-b0b8-409f-97a3-c3575c2a3730",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-8ab3e489",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "4054b6e8-ac40-43a5-809d-dfb7b657c522",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-6f743fb3",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "7d2a9555-2bdc-45b9-a7b8-55154b17a3d3",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-e9aadecc",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "c125c84e-8d5f-4703-960a-4e558ea8b892",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-22afd60a",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "c125c84e-8d5f-4703-960a-4e558ea8b892",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-46c2d2b7",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "c125c84e-8d5f-4703-960a-4e558ea8b892",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-beafbf27",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "7b1aba77-66eb-47c5-a266-a02ca0eb5118",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-ba31b2f6",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "7b1aba77-66eb-47c5-a266-a02ca0eb5118",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-e0752355",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "7b1aba77-66eb-47c5-a266-a02ca0eb5118",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-4b71cb2d",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "f6964d67-5c26-411f-970c-fa8cd828ff81",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-331ca2cb",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "f6964d67-5c26-411f-970c-fa8cd828ff81",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-2cbd026f",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "f6964d67-5c26-411f-970c-fa8cd828ff81",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-1fe455d8",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "3b717e51-da00-4030-b529-12bb8dfef097",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-05a87562",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "2fea7201-4581-42d9-90a7-84f737f16e95",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-dc3ac4fb",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "391c0932-8d9a-4f6d-b736-6d8e2485045f",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-67e3aee4",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "46d3e373-788d-4f3b-a8cf-41c2e36ec04c",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-cd6263de",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "46d3e373-788d-4f3b-a8cf-41c2e36ec04c",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-72bcac26",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "46d3e373-788d-4f3b-a8cf-41c2e36ec04c",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-bd4cd3a8",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "b5b210eb-a7d9-46f0-a7d3-0413fd543917",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-382ad38b",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "b5b210eb-a7d9-46f0-a7d3-0413fd543917",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-9b4e0cfc",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "b5b210eb-a7d9-46f0-a7d3-0413fd543917",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-7acadcc2",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "ba652714-e1ca-4cc6-809b-89d0788cba83",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-ef2dbd52",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "4cb134db-6f8a-4bb3-9636-b812d72714b2",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-c31642d5",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "905e174a-6689-43d0-8023-281e90cb7f29",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-5b614f30",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "67d2df09-fe8d-4879-a42e-a22925e4d5f8",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-9367434e",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "269694c7-af8b-4ea5-bc79-829d715c6da0",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-5269f76c",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "269694c7-af8b-4ea5-bc79-829d715c6da0",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-20b24ebc",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "269694c7-af8b-4ea5-bc79-829d715c6da0",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-f44a4161",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "6a1045c8-5031-4eef-981d-f75df926765c",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-b506890f",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "6a1045c8-5031-4eef-981d-f75df926765c",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-df9e2e19",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "6a1045c8-5031-4eef-981d-f75df926765c",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-4d5ce43d",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "ef5292e4-4c02-4eb3-907d-3793c4cadd5a",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-da0eec7d",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "e9e4a0ca-4e88-4e78-b3c2-3ad4f5eaf1e3",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-057a3104",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "1d80cac4-b075-4803-ab2d-db3c9e98b6f1",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-b1909f70",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "2fc42f8d-28c2-4827-9f01-9d764ee2d74c",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-a1c8f548",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "a3e2b374-50f3-4373-8f0f-335cf45cbcb6",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-a66d79bc",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "f6e018e0-e1b2-4851-8a0f-3162ea09ce62",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-df8f5c7f",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "c2c4a882-361d-44df-a2ed-9d3e77daa382",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-3a6e57d4",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "cfe5cdb4-6bac-4634-822a-c056f8a2885a",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-df3f7a96",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "56a27d74-72ee-4371-8f77-4affedb7accf",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-dfd641f8",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "8f448a7f-ad5d-4930-b7e8-034980a86ef2",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-0b054ed3",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: comprehension"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "ad53c631-0534-43bb-a0e0-e6b254a8187f",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-8c81ebdf",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: sentence_and_instruction"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "e4b9bd95-07a4-453b-a670-a92dfff349aa",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-1d500a90",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "9d7dd5c7-6265-474b-9d38-e88af75c0804",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-30dcb563",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "1ada44f5-8d0c-4fbd-bd72-1f45c8807ae4",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-4f52a607",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "47072697-56c6-4c18-a056-5e6360de1fdd",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-299c3980",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "d4ac3654-2f1e-4f5a-b180-a1627173f5b6",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-9a227d7b",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: comprehension"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "f2f09c0d-1ad3-46bb-9a15-1d3e4c1f2076",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-251f2f91",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: sentence_and_instruction"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "e8c508bf-d13f-4efa-85d4-5995f9c725a7",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-609d432b",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "a77c2777-c9e6-4d0e-813d-de51eb82b074",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-e10d5a8a",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "c092a4cf-4f5d-4303-a4c6-c728ebd0fa28",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-f3fff5c2",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "587e5028-269b-48b2-be56-abb3c0974a17",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-6cd7598e",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: comprehension"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "4d5f8eaf-295e-4fbf-b542-6703c6e08800",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-03551870",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: sentence_and_instruction"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "213c3cdf-a898-4fa2-80b4-2e95a2a3f2c6",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-b5e947c1",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "cff745eb-d165-4467-8be1-1b0dd3c07169",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-4256ff76",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "cff745eb-d165-4467-8be1-1b0dd3c07169",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-1bd35cac",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "cff745eb-d165-4467-8be1-1b0dd3c07169",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-93d2e966",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "24dca490-b7f3-47c1-b09b-92c15e60fc25",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-60060ea8",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "24dca490-b7f3-47c1-b09b-92c15e60fc25",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-3b9f3210",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "24dca490-b7f3-47c1-b09b-92c15e60fc25",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-55fc4a3b",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-003, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "61368c56-05cf-41c8-a261-90acf1ae860e",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-ec01d4b9",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "de3f42b2-1dfa-45eb-b79a-a568ed244bf5",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-59f77a7d",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "d3189490-1b9b-4cbc-a7ee-d9eb9aa93a39",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-f44418a9",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-002, Domain: grammar"
+  },
+  {
+    "schema_status": "draft_stage13",
+    "source_path": "db_table:attempts",
+    "source_id": "04352d6e-d0fe-47e9-9067-ca60de2696f1",
+    "target_layer": "interaction_dataset/private",
+    "target_id": "INT-eacfa1e1",
+    "disposition": "migrated",
+    "migration_timestamp": "2026-09-23T14:13:33.275739",
+    "notes": "Learner: CHILD-001, Domain: vocabulary"
+  }
+]

@@ -1,0 +1,321 @@
+{
+  "text_instance_id": "SRC-EN-INS-0379__SRC",
+  "parent_record_id": "SRC-EN-INS-0379",
+  "parent_record_type": "source_item",
+  "text_role": "source_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SRC-EN-INS-0379",
+  "original_text": "Step 55: Select every geometric shape except the red diamond.",
+  "normalized_text": "Step 55: Select every geometric shape except the red diamond.",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.95,
+    "decision": "verified",
+    "fallback_reason": "deterministic_heuristic_verified"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SRC-EN-INS-0379__SRC-S01",
+      "sentence_index": 0,
+      "text": "Step 55: Select every geometric shape except the red diamond.",
+      "original_start_char": 0,
+      "original_end_char": 61,
+      "normalized_start_char": 0,
+      "normalized_end_char": 61,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "Step",
+          "lemma": "step",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "npadvmod",
+          "head_index": 3,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 4,
+          "normalized_start_char": 0,
+          "normalized_end_char": 4
+        },
+        {
+          "index": 1,
+          "text": "55",
+          "lemma": "55",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "nummod",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": true,
+          "syllable_count": 1,
+          "original_start_char": 5,
+          "original_end_char": 7,
+          "normalized_start_char": 5,
+          "normalized_end_char": 7
+        },
+        {
+          "index": 2,
+          "text": ":",
+          "lemma": ":",
+          "pos": "PUNCT",
+          "tag": ":",
+          "dependency": "punct",
+          "head_index": 3,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 7,
+          "original_end_char": 8,
+          "normalized_start_char": 7,
+          "normalized_end_char": 8
+        },
+        {
+          "index": 3,
+          "text": "Select",
+          "lemma": "select",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head_index": 3,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 9,
+          "original_end_char": 15,
+          "normalized_start_char": 9,
+          "normalized_end_char": 15
+        },
+        {
+          "index": 4,
+          "text": "every",
+          "lemma": "every",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 6,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 3,
+          "original_start_char": 16,
+          "original_end_char": 21,
+          "normalized_start_char": 16,
+          "normalized_end_char": 21
+        },
+        {
+          "index": 5,
+          "text": "geometric",
+          "lemma": "geometric",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head_index": 6,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 3,
+          "original_start_char": 22,
+          "original_end_char": 31,
+          "normalized_start_char": 22,
+          "normalized_end_char": 31
+        },
+        {
+          "index": 6,
+          "text": "shape",
+          "lemma": "shape",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head_index": 3,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 32,
+          "original_end_char": 37,
+          "normalized_start_char": 32,
+          "normalized_end_char": 37
+        },
+        {
+          "index": 7,
+          "text": "except",
+          "lemma": "except",
+          "pos": "SCONJ",
+          "tag": "IN",
+          "dependency": "prep",
+          "head_index": 6,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 38,
+          "original_end_char": 44,
+          "normalized_start_char": 38,
+          "normalized_end_char": 44
+        },
+        {
+          "index": 8,
+          "text": "the",
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 10,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 45,
+          "original_end_char": 48,
+          "normalized_start_char": 45,
+          "normalized_end_char": 48
+        },
+        {
+          "index": 9,
+          "text": "red",
+          "lemma": "red",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head_index": 10,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 49,
+          "original_end_char": 52,
+          "normalized_start_char": 49,
+          "normalized_end_char": 52
+        },
+        {
+          "index": 10,
+          "text": "diamond",
+          "lemma": "diamond",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head_index": 7,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 2,
+          "original_start_char": 53,
+          "original_end_char": 60,
+          "normalized_start_char": 53,
+          "normalized_end_char": 60
+        },
+        {
+          "index": 11,
+          "text": ".",
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 3,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 60,
+          "original_end_char": 61,
+          "normalized_start_char": 60,
+          "normalized_end_char": 61
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 52,
+      "token_count": 12,
+      "word_count": 9,
+      "sentence_count": 1,
+      "punct_count": 2,
+      "avg_word_length": 5.33,
+      "avg_sentence_length": 12.0,
+      "unique_token_count": 9,
+      "type_token_ratio": 1.0,
+      "syllable_count": 16,
+      "avg_syllables_per_word": 1.78,
+      "long_word_count": 2
+    },
+    "lexical": {
+      "content_word_count": 6,
+      "function_word_count": 3,
+      "noun_count": 3,
+      "verb_count": 1,
+      "adj_count": 2,
+      "adv_count": 0,
+      "pronoun_count": 0,
+      "prep_count": 0,
+      "finite_verb_count": 0,
+      "auxiliary_verb_count": 0,
+      "out_of_lexicon_count": 9,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": [
+        "every",
+        "geometric"
+      ]
+    },
+    "syntactic": {
+      "max_dependency_depth": 3,
+      "avg_dependency_depth": 1.7,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 1,
+      "passive_voice_detected": false,
+      "coordination_count": 0,
+      "avg_noun_phrase_length": 3.0,
+      "svo_triplets_available": true,
+      "root_count": 1,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": false
+    },
+    "protected_elements": {
+      "negation_markers": [
+        "except"
+      ],
+      "quantity_numbers": [
+        "55"
+      ],
+      "named_entities": [
+        {
+          "text": "red",
+          "category": "COLOR"
+        }
+      ],
+      "spatial_prepositions": [],
+      "temporal_connectives": [],
+      "action_verbs": [
+        "select"
+      ],
+      "aligned_protected_units": [
+        {
+          "protected_unit": "red diamond",
+          "is_aligned": true,
+          "status": "aligned"
+        }
+      ]
+    }
+  },
+  "processing_status": "success",
+  "text_hash": "7b230eb6ae91a4d347691e851efbef43f6570a0508cad6bfcd3e0304fc363a33",
+  "feature_hash": "5ec50351afec170f357c508333f84fb8cfcf5cd426d1ea9cc9579f99aba5a637",
+  "record_hash": "a82cb451d8e1cc43fcd9649885ebbf28abac032d990fedd12eaa7a17de857707"
+}

@@ -1,0 +1,3 @@
+check_name,group_id,details,status
+group_aware_isolation,ALL_SOURCE_GROUPS,Isolated 300 groups,PASSED
+adaptation_test_isolation,ADAPTATION_TEST_SET,40 protected test activities isolated from candidate train,PASSED

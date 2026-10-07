@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CommonMetadata",
+  "type": "object",
+  "properties": {
+    "source": {
+      "$defs": {
+        "SourceType": {
+          "enum": [
+            "team_authored",
+            "expert_authored",
+            "open_licence",
+            "permission_granted",
+            "generated",
+            "interaction_derived"
+          ],
+          "title": "SourceType",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "source_type": {
+          "$ref": "#/$defs/SourceType",
+          "default": "team_authored",
+          "description": "Origin classification of the content"
+        },
+        "source_name": {
+          "default": "Component 3 English MVP",
+          "description": "Author or originating dataset",
+          "title": "Source Name",
+          "type": "string"
+        },
+        "source_record_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Original identifier in upstream source system",
+          "title": "Source Record Id"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "URL reference to source",
+          "title": "Source Url"
+        },
+        "citation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Academic or publication citation",
+          "title": "Citation"
+        },
+        "created_by_role": {
+          "default": "project_team",
+          "description": "Role of creator (project_team/expert/system)",
+          "title": "Created By Role",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "Creation timestamp",
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "title": "SourceMetadata",
+      "type": "object"
+    },
+    "rights": {
+      "additionalProperties": false,
+      "properties": {
+        "licence_id": {
+          "default": "project-internal",
+          "description": "SPDX licence identifier or project-internal",
+          "title": "Licence Id",
+          "type": "string"
+        },
+        "licence_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Web link to licence terms",
+          "title": "Licence Url"
+        },
+        "permission_reference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Permission identifier or document reference",
+          "title": "Permission Reference"
+        },
+        "redistribution_allowed": {
+          "default": false,
+          "description": "Whether dataset allows redistribution",
+          "title": "Redistribution Allowed",
+          "type": "boolean"
+        },
+        "commercial_use_allowed": {
+          "default": false,
+          "description": "Whether commercial use is permitted",
+          "title": "Commercial Use Allowed",
+          "type": "boolean"
+        },
+        "external_api_processing_allowed": {
+          "default": false,
+          "description": "Strict LLM API gating",
+          "title": "External Api Processing Allowed",
+          "type": "boolean"
+        }
+      },
+      "title": "RightsMetadata",
+      "type": "object"
+    },
+    "governance": {
+      "$defs": {
+        "ResearchEligibilityStatus": {
+          "enum": [
+            "not_assessed",
+            "ineligible",
+            "eligible",
+            "withdrawn"
+          ],
+          "title": "ResearchEligibilityStatus",
+          "type": "string"
+        },
+        "ValidationStatus": {
+          "enum": [
+            "draft",
+            "reviewed",
+            "approved",
+            "rejected",
+            "retired"
+          ],
+          "title": "ValidationStatus",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "validation_status": {
+          "$ref": "#/$defs/ValidationStatus",
+          "default": "draft",
+          "description": "Workflow status"
+        },
+        "research_eligibility_status": {
+          "$ref": "#/$defs/ResearchEligibilityStatus",
+          "default": "not_assessed",
+          "description": "Formal research assessment status"
+        },
+        "research_eligible": {
+          "default": false,
+          "description": "Research readiness flag",
+          "title": "Research Eligible",
+          "type": "boolean"
+        },
+        "approved_for_child_delivery": {
+          "default": false,
+          "description": "Runtime child presentation flag",
+          "title": "Approved For Child Delivery",
+          "type": "boolean"
+        },
+        "is_simulated": {
+          "default": false,
+          "description": "Simulation or synthetic flag",
+          "title": "Is Simulated",
+          "type": "boolean"
+        },
+        "contains_personal_data": {
+          "default": false,
+          "description": "Personal/screening data flag",
+          "title": "Contains Personal Data",
+          "type": "boolean"
+        }
+      },
+      "title": "GovernanceMetadata",
+      "type": "object"
+    }
+  },
+  "required": [
+    "source",
+    "rights",
+    "governance"
+  ]
+}

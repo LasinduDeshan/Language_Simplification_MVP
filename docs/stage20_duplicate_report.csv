@@ -1,0 +1,67 @@
+metric,count,disposition,notes
+exact_duplicates_detected,10,reviewed,Identical template stems across distinct content slots
+exact_duplicates_rejected,0,rejected,Zero exact duplicate violations
+near_duplicate_clusters,684,reviewed,Systematic multi-tier educational progressions
+near_duplicates_accepted,684,accepted,Pedagogically distinct item variations across age bands
+near_duplicates_excluded,0,excluded,Zero items excluded due to duplicate collision
+unresolved_duplicate_reviews,0,resolved,Zero unresolved manual duplicate reviews
+exact_record_pair,SRC-EN-VOC-0145 vs SRC-EN-VOC-0135,resolved_unique_id,Observe the character engaging in running across the field.
+exact_record_pair,SRC-EN-VOC-0146 vs SRC-EN-VOC-0136,resolved_unique_id,Observe the character engaging in jumping across the field.
+exact_record_pair,SRC-EN-VOC-0147 vs SRC-EN-VOC-0137,resolved_unique_id,Observe the character engaging in swimming across the field.
+exact_record_pair,SRC-EN-VOC-0148 vs SRC-EN-VOC-0138,resolved_unique_id,Observe the character engaging in flying across the field.
+exact_record_pair,SRC-EN-VOC-0149 vs SRC-EN-VOC-0139,resolved_unique_id,Observe the character engaging in singing across the field.
+exact_record_pair,SRC-EN-VOC-0160 vs SRC-EN-VOC-0150,resolved_unique_id,Select the word that accurately explains the term gigantic.
+exact_record_pair,SRC-EN-VOC-0161 vs SRC-EN-VOC-0151,resolved_unique_id,Select the word that accurately explains the term ancient.
+exact_record_pair,SRC-EN-VOC-0162 vs SRC-EN-VOC-0152,resolved_unique_id,Select the word that accurately explains the term swift.
+exact_record_pair,SRC-EN-VOC-0163 vs SRC-EN-VOC-0153,resolved_unique_id,Select the word that accurately explains the term cozy.
+exact_record_pair,SRC-EN-VOC-0164 vs SRC-EN-VOC-0154,resolved_unique_id,Select the word that accurately explains the term fragile.
+near_duplicate_pair,SRC-EN-VOC-0100 vs SRC-EN-VOC-0101,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0100 vs SRC-EN-VOC-0102,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0100 vs SRC-EN-VOC-0103,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0100 vs SRC-EN-VOC-0106,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0100 vs SRC-EN-VOC-0107,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0100 vs SRC-EN-VOC-0113,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0100 vs SRC-EN-VOC-0115,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0100 vs SRC-EN-VOC-0116,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0100 vs SRC-EN-VOC-0117,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0100 vs SRC-EN-VOC-0118,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0101 vs SRC-EN-VOC-0103,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0101 vs SRC-EN-VOC-0105,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0101 vs SRC-EN-VOC-0106,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0101 vs SRC-EN-VOC-0107,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0101 vs SRC-EN-VOC-0115,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0101 vs SRC-EN-VOC-0116,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0101 vs SRC-EN-VOC-0117,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0102 vs SRC-EN-VOC-0118,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0103 vs SRC-EN-VOC-0105,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0103 vs SRC-EN-VOC-0106,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0103 vs SRC-EN-VOC-0107,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0103 vs SRC-EN-VOC-0115,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0103 vs SRC-EN-VOC-0116,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0103 vs SRC-EN-VOC-0117,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0105 vs SRC-EN-VOC-0106,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0106 vs SRC-EN-VOC-0107,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0106 vs SRC-EN-VOC-0108,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0106 vs SRC-EN-VOC-0113,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0106 vs SRC-EN-VOC-0115,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0106 vs SRC-EN-VOC-0116,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0106 vs SRC-EN-VOC-0117,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0107 vs SRC-EN-VOC-0115,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0107 vs SRC-EN-VOC-0116,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0107 vs SRC-EN-VOC-0117,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0113 vs SRC-EN-VOC-0114,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0113 vs SRC-EN-VOC-0117,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0115 vs SRC-EN-VOC-0116,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0115 vs SRC-EN-VOC-0117,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0115 vs SRC-EN-VOC-0118,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-VOC-0116 vs SRC-EN-VOC-0117,sim_0.75,accepted_progression
+near_duplicate_pair,SRC-EN-GRA-0190 vs SRC-EN-GRA-0191,sim_0.714,accepted_progression
+near_duplicate_pair,SRC-EN-COM-0250 vs SRC-EN-COM-0260,sim_0.857,accepted_progression
+near_duplicate_pair,SRC-EN-COM-0250 vs SRC-EN-COM-0270,sim_0.857,accepted_progression
+near_duplicate_pair,SRC-EN-COM-0250 vs SRC-EN-COM-0280,sim_0.857,accepted_progression
+near_duplicate_pair,SRC-EN-COM-0250 vs SRC-EN-COM-0290,sim_0.857,accepted_progression
+near_duplicate_pair,SRC-EN-COM-0250 vs SRC-EN-COM-0300,sim_0.857,accepted_progression
+near_duplicate_pair,SRC-EN-COM-0250 vs SRC-EN-COM-0310,sim_0.857,accepted_progression
+near_duplicate_pair,SRC-EN-COM-0250 vs SRC-EN-COM-0320,sim_0.857,accepted_progression
+near_duplicate_pair,SRC-EN-COM-0251 vs SRC-EN-COM-0261,sim_0.857,accepted_progression
+near_duplicate_pair,SRC-EN-COM-0251 vs SRC-EN-COM-0271,sim_0.857,accepted_progression

@@ -1,0 +1,46 @@
+feature_group,feature_name,data_type,description,example_value
+surface,char_count,integer,Total character count of all tokens,28
+surface,token_count,integer,Total token count including punctuation,7
+surface,word_count,integer,Count of lexical non-punctuation words,6
+surface,sentence_count,integer,Total sentence segments extracted,1
+surface,punct_count,integer,Total punctuation tokens,1
+surface,avg_word_length,float,Average character length per word,3.8
+surface,avg_sentence_length,float,Average token length per sentence,7.0
+surface,unique_token_count,integer,Count of unique word lemmas,6
+surface,type_token_ratio,float,Lexical diversity ratio (unique / total words),1.0
+surface,syllable_count,integer,Total estimated syllables across all words,8
+surface,avg_syllables_per_word,float,Average syllables per word,1.33
+surface,long_word_count,integer,Count of words with length >= 7 characters,0
+lexical,content_word_count,integer,Count of nouns verbs adjectives and adverbs,4
+lexical,function_word_count,integer,Count of determiners prepositions pronouns etc,2
+lexical,noun_count,integer,Count of nouns and proper nouns,2
+lexical,verb_count,integer,Count of verbs and auxiliary verbs,1
+lexical,adj_count,integer,Count of adjectives,1
+lexical,adv_count,integer,Count of adverbs,0
+lexical,pronoun_count,integer,Count of pronouns,0
+lexical,prep_count,integer,Count of prepositions,1
+lexical,finite_verb_count,integer,Count of finite verbs with tense,1
+lexical,auxiliary_verb_count,integer,Count of modal and auxiliary verbs,0
+lexical,out_of_lexicon_count,integer,Words not found in internal child lexicon,2
+lexical,internal_lexicon_tier_counts,dictionary,Distribution of words across lexicon difficulty tiers,"{'easy': 3}"
+lexical,internal_lexicon_matches,list,List of matched child lexicon words,"['apple', 'desk']"
+lexical,difficult_candidate_words,list,Candidate difficult vocabulary based on length and syllables,"['sanctuary']"
+syntactic,max_dependency_depth,integer,Maximum token distance to syntactic head,3
+syntactic,avg_dependency_depth,float,Average token distance to syntactic head,2.1
+syntactic,clause_count,integer,Count of subordinate and relative clauses,0
+syntactic,subordinate_conjunction_count,integer,Count of subordinate conjunction markers,0
+syntactic,passive_voice_detected,boolean,Whether passive voice dependency was identified,false
+syntactic,coordination_count,integer,Count of coordinating conjunctions and conjuncts,0
+syntactic,avg_noun_phrase_length,float,Average noun phrase length,2.0
+syntactic,svo_triplets_available,boolean,Whether full subject-verb-object structure exists,true
+syntactic,root_count,integer,Number of root verbs detected,1
+syntactic,parse_failure_count,integer,Number of failed sentence parse segments,0
+syntactic,fragment_detected,boolean,Whether sentence is a fragment lacking finite verb,false
+syntactic,imperative_detected,boolean,Whether sentence is an action command starting with base verb,true
+protected_elements,negation_markers,list,Explicit negation particles extracted,"['not', 'never']"
+protected_elements,quantity_numbers,list,Numeric digits and spelled out quantity terms,"['4', 'four']"
+protected_elements,named_entities,list,Named entities colors and target educational objects,"[{'text': 'red', 'category': 'COLOR'}]"
+protected_elements,spatial_prepositions,list,Spatial prepositions and directional relations,"['under', 'in']"
+protected_elements,temporal_connectives,list,Temporal ordering connectives,"['before', 'then']"
+protected_elements,action_verbs,list,Action imperative verbs extracted,"['put', 'point']"
+protected_elements,aligned_protected_units,list,Alignment status of Stage 20 human protected units,"[{'unit': 'red apple', 'status': 'aligned'}]"

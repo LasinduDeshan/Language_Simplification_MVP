@@ -1,0 +1,29 @@
+name,group,type,description
+char_count,surface,numeric_continuous,Total character count in normalized text
+token_count,surface,numeric_continuous,Total token count including punctuation
+word_count,surface,numeric_continuous,Total alphanumeric word count
+sentence_count,surface,numeric_continuous,Total sentence count
+punct_count,surface,numeric_continuous,Total punctuation token count
+avg_word_length,surface,numeric_continuous,Average character length per word
+avg_sentence_length,surface,numeric_continuous,Average token length per sentence
+syllable_count,surface,numeric_continuous,Estimated total syllable count
+avg_syllables_per_word,surface,numeric_continuous,Average syllable count per word
+long_word_count,surface,numeric_continuous,Count of words with >= 7 characters or >= 3 syllables
+long_word_ratio,surface,numeric_continuous,Ratio of long words to total words
+type_token_ratio,surface,numeric_continuous,Lexical diversity ratio (unique lemmas / total tokens)
+noun_count,lexical_pos,numeric_continuous,Count of noun tokens
+noun_ratio,lexical_pos,numeric_continuous,Ratio of noun tokens to total words
+verb_count,lexical_pos,numeric_continuous,Count of verb tokens
+verb_ratio,lexical_pos,numeric_continuous,Ratio of verb tokens to total words
+adj_count,lexical_pos,numeric_continuous,Count of adjective tokens
+adj_ratio,lexical_pos,numeric_continuous,Ratio of adjective tokens to total words
+adv_count,lexical_pos,numeric_continuous,Count of adverb tokens
+adv_ratio,lexical_pos,numeric_continuous,Ratio of adverb tokens to total words
+content_word_ratio,lexical_pos,numeric_continuous,"Ratio of content words (NOUN, VERB, ADJ, ADV) to total words"
+function_word_ratio,lexical_pos,numeric_continuous,Ratio of function words to total words
+max_dependency_depth,syntactic,numeric_continuous,Maximum parse-tree dependency depth
+avg_dependency_depth,syntactic,numeric_continuous,Average parse-tree dependency depth across tokens
+clause_count,syntactic,numeric_continuous,Count of subordinate/coordinate clauses
+passive_voice,syntactic,binary,Binary indicator for detected passive voice constructions
+negation_count,semantic_load,numeric_continuous,Count of explicit and conditional negation markers
+quantity_count,semantic_load,numeric_continuous,Count of numeric digits and quantity terms

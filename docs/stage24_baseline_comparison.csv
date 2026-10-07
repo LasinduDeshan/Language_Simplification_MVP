@@ -1,0 +1,7 @@
+baseline_id,baseline_name,internal_sari,internal_sari_add,internal_sari_keep,internal_sari_del,internal_bleu,internal_fkgl_delta,internal_word_comp,asset_sari,asset_sari_add,asset_sari_keep,asset_sari_del,asset_bleu,asset_fkgl_delta,asset_word_comp,mean_latency_ms,disposition_pass_rate
+B0,Identity Baseline,12.27,0.00,36.82,0.00,49.72,0.00,1.00,20.51,0.00,61.54,0.00,92.56,0.00,1.00,0.00,100.0%
+B1,Lexical Substitution,12.27,0.00,36.82,0.00,49.72,0.00,1.00,21.05,0.01,61.63,1.51,92.44,0.02,1.00,6.20,100.0%
+B2,Sentence Splitting,17.12,0.00,36.83,14.52,46.56,0.38,0.99,26.33,0.22,61.15,17.61,89.88,1.31,0.99,9.23,100.0%
+B3,Syntactic Rules,12.27,0.00,36.82,0.00,49.72,0.00,1.00,20.51,0.00,61.54,0.00,92.56,0.00,1.00,5.05,100.0%
+B4,Combined Deterministic,17.53,0.00,37.04,15.56,47.26,0.41,0.99,26.92,0.24,61.15,19.37,89.79,1.36,0.99,39.57,93.3%
+B5,Existing Offline Fallback,19.93,0.00,37.02,22.78,50.04,0.17,0.97,29.13,0.00,54.62,32.76,86.39,1.92,0.79,0.01,100.0%

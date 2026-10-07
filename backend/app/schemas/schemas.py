@@ -7,11 +7,29 @@ class LearnerProfileBase(BaseModel):
     learner_code: str = Field(..., max_length=50, description="Pseudonymous learner identifier")
     age: int = Field(..., ge=4, le=8, description="Age in years (4 to 8)")
     grade: Optional[str] = Field(None, max_length=50)
-    risk_support_level: str = Field("moderate", pattern="^(low|moderate|high)$")
+    
+    # Stage 12: Split screening risk from educational support
+    screening_risk_level: str = Field("moderate", pattern="^(low|moderate|high)$", description="Read-only screening risk level from Component 1")
+    recommended_support_level: str = Field("moderate", pattern="^(mild|moderate|strong)$", description="Calculated support level for educational personalization")
+    risk_support_level: Optional[str] = Field("moderate", description="Legacy compatibility field")
+    
+    screening_source: str = Field("component_1", description="Source of screening data")
+    screening_version: str = Field("c1-1.0", description="Screening protocol version")
+    screening_assessed_at: Optional[datetime] = None
+    
+    # Educational performance scores
     vocabulary_score: float = Field(50.0, ge=0.0, le=100.0)
     grammar_score: float = Field(50.0, ge=0.0, le=100.0)
     comprehension_score: float = Field(50.0, ge=0.0, le=100.0)
     instruction_following_score: float = Field(50.0, ge=0.0, le=100.0)
+    
+    # Evidence counters per domain
+    vocabulary_evidence_count: int = Field(0, ge=0)
+    grammar_evidence_count: int = Field(0, ge=0)
+    comprehension_evidence_count: int = Field(0, ge=0)
+    instruction_evidence_count: int = Field(0, ge=0)
+    performance_scoring_version: str = "1.0"
+    
     english_level: str = Field("emerging", pattern="^(emerging|developing|proficient)$")
     preferred_language: str = Field("en")
 
@@ -20,6 +38,7 @@ class LearnerProfileCreate(LearnerProfileBase):
 
 class LearnerProfileResponse(LearnerProfileBase):
     id: str
+    disclaimer: str = "Educational performance indicators; not a diagnosis."
     created_at: datetime
     updated_at: datetime
     model_config = ConfigDict(from_attributes=True)
@@ -418,3 +437,64 @@ class ValidateOutputRequest(BaseModel):
     target_attempt_number: int = 1
     support_level: str = "moderate"
     learner_id: Optional[str] = None
+
+
+# ----------------- Stage 12 Task Result & Integration Schemas -----------------
+class TaskResultResponse(BaseModel):
+    id: str
+    session_id: Optional[str] = None
+    learner_id: str
+    task_id: str
+    learner_code: str
+    learner_age: int
+    task_code: str
+    task_title: str
+    category: str
+    target_skill: Optional[str] = None
+    difficulty: str
+    final_outcome: str
+    attempts_count: int
+    independent_success: bool
+    score_before: Dict[str, Any]
+    score_after: Dict[str, Any]
+    score_deltas: Dict[str, Any]
+    risk_before: Optional[str] = None
+    risk_after: Optional[str] = None
+    risk_changed: bool = False
+    screening_risk_level: Optional[str] = None
+    recommended_support_level: Optional[str] = None
+    composite_language_index: Optional[float] = None
+    target_domain: Optional[str] = None
+    evidence_count_before: Optional[int] = 0
+    evidence_count_after: Optional[int] = 1
+    score_update_applied: bool = False
+    score_update_event_id: Optional[str] = None
+    score_updated_at: Optional[datetime] = None
+    scoring_version: str = "1.0"
+    calculation_snapshot: Optional[Dict[str, Any]] = None
+    is_simulated: bool = True
+    research_eligible: bool = False
+    attempt_history: List[Dict[str, Any]] = []
+    educational_summary_notes: Optional[str] = None
+    diagnostic_notes: Optional[str] = None
+    completed_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+
+class ScreeningProfileImportRequest(BaseModel):
+    learner_id: str
+    risk_level: str = Field(..., pattern="^(low|moderate|high)$")
+    screening_version: str = "c1-1.0"
+    assessed_at: Optional[datetime] = None
+    source: str = "component_1"
+    validation_reference: Optional[str] = None
+    is_simulated: bool = False
+
+
+class IntegrationStatusResponse(BaseModel):
+    component_1: str = "mock"
+    component_2_ar: str = "not_connected"
+    component_4: str = "not_connected"
+    environment: str = "development"
+    note: str = "Stage 12 local mock contracts; external communication not connected."
+

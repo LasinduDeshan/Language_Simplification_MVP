@@ -1,0 +1,677 @@
+[
+  {
+    "source_item_id": "SRC-EN-INS-0365",
+    "source_group_id": "SRC-EN-INS-0365",
+    "source_text": "Step 41: Before placing the blue circle inside the box, pick up the yellow star.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Pick yellow star.\n2. Put blue circle in box."
+    },
+    "reference_texts": [
+      "Step 41: Pick up yellow star before putting blue circle in box.",
+      "Step 41: First pick up yellow star. Then put blue circle in box.",
+      "1. Pick yellow star.\n2. Put blue circle in box."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0266",
+    "source_group_id": "SRC-EN-COM-0266",
+    "source_text": "Oliver wore his heavy winter coat because snow was falling. Question 17: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Snow is falling.\n2. Oliver puts on coat in snow.\n17. Answer is because of snow."
+    },
+    "reference_texts": [
+      "Oliver wore his warm coat in snow. Question 17: What detail is stated?",
+      "It is snowing. Oliver wears a winter coat in snow. Answer the question 17: because of snow.",
+      "1. Snow is falling.\n2. Oliver puts on coat in snow.\n17. Answer is because of snow."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0312",
+    "source_group_id": "SRC-EN-COM-0312",
+    "source_text": "Because it rained hard, the baseball game was cancelled. Question 63: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Heavy rain fell.\n2. The game was cancelled.\n63. Answer is because of rain."
+    },
+    "reference_texts": [
+      "Because of heavy rain, the game was stopped. Question 63: What detail is stated?",
+      "The game stopped because it rained. Why was game stopped? Answer the question 63: because of rain.",
+      "1. Heavy rain fell.\n2. The game was cancelled.\n63. Answer is because of rain."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0248",
+    "source_group_id": "SRC-EN-GRA-0248",
+    "source_text": "The tall sunflower grows in rich soil.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. One sunflower.\n2. Choose grows in soil."
+    },
+    "reference_texts": [
+      "Sunflower grows tall in soil.",
+      "Sunflower grows fast in soil.",
+      "1. One sunflower.\n2. Choose grows in soil."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0288",
+    "source_group_id": "SRC-EN-COM-0288",
+    "source_text": "The mother duck led her seven ducklings across the pond. Question 39: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Mother duck swims in pond.\n2. Seven ducklings follow in pond.\n39. Answer is seven."
+    },
+    "reference_texts": [
+      "Mother duck led seven ducklings across the pond. Question 39: What detail is stated?",
+      "Mother duck swam in pond with seven ducklings. How many? Answer the question 39: seven.",
+      "1. Mother duck swims in pond.\n2. Seven ducklings follow in pond.\n39. Answer is seven."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0334",
+    "source_group_id": "SRC-EN-INS-0334",
+    "source_text": "Step 10: Sort the round beads into the bowl and square blocks into the box.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Beads into bowl.\n2. Blocks into box."
+    },
+    "reference_texts": [
+      "Step 10: Put round beads in bowl and square blocks in box.",
+      "Step 10: Sort beads into bowl and blocks into box.",
+      "1. Beads into bowl.\n2. Blocks into box."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0165",
+    "source_group_id": "SRC-EN-VOC-0165",
+    "source_text": "Based on the sentence 'Animals reside safely in a protected wildlife sanctuary.', identify the meaning of sanctuary.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Read: sanctuary.\n2. It means safe place.\n3. Tap safe place."
+    },
+    "reference_texts": [
+      "In the sentence 'Animals reside safely in a protected wildlife sanctuary.', what does sanctuary mean?",
+      "sanctuary means safe place. Tap the correct meaning.",
+      "1. Read: sanctuary.\n2. It means safe place.\n3. Tap safe place."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0278",
+    "source_group_id": "SRC-EN-COM-0278",
+    "source_text": "The mother duck led her seven ducklings across the pond. Question 29: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Mother duck swims in pond.\n2. Seven ducklings follow in pond.\n29. Answer is seven."
+    },
+    "reference_texts": [
+      "Mother duck led seven ducklings across the pond. Question 29: What detail is stated?",
+      "Mother duck swam in pond with seven ducklings. How many? Answer the question 29: seven.",
+      "1. Mother duck swims in pond.\n2. Seven ducklings follow in pond.\n29. Answer is seven."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0159",
+    "source_group_id": "SRC-EN-VOC-0159",
+    "source_text": "Select the word that accurately explains the term vibrant.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Read the word vibrant.\n2. Choose its meaning."
+    },
+    "reference_texts": [
+      "Choose the meaning of the word vibrant.",
+      "What does vibrant mean? Choose the best explanation.",
+      "1. Read the word vibrant.\n2. Choose its meaning."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0327",
+    "source_group_id": "SRC-EN-INS-0327",
+    "source_text": "Step 3: Drag the smiling sun directly above the snowy mountain.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Find sun.\n2. Put above mountain."
+    },
+    "reference_texts": [
+      "Step 3: Move the smiling sun above the snowy mountain.",
+      "Step 3: Put smiling sun on top of mountain.",
+      "1. Find sun.\n2. Put above mountain."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0151",
+    "source_group_id": "SRC-EN-VOC-0151",
+    "source_text": "Select the word that accurately explains the term ancient.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Read the word ancient.\n2. Choose its meaning."
+    },
+    "reference_texts": [
+      "Choose the meaning of the word ancient.",
+      "What does ancient mean? Choose the best explanation.",
+      "1. Read the word ancient.\n2. Choose its meaning."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0141",
+    "source_group_id": "SRC-EN-VOC-0141",
+    "source_text": "Observe the character engaging in climbing across the field.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the character.\n2. Tap climbing."
+    },
+    "reference_texts": [
+      "Look at the character climbing in the field.",
+      "What is happening? The character is climbing.",
+      "1. Look at the character.\n2. Tap climbing."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0253",
+    "source_group_id": "SRC-EN-COM-0253",
+    "source_text": "The firefighter climbed the tall ladder to rescue the kitten. Question 4: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Ladder is tall.\n2. Firefighter rescues kitten with ladder.\n4. Answer is to rescue the kitten."
+    },
+    "reference_texts": [
+      "The firefighter climbed the ladder to save the kitten. Question 4: What detail is stated?",
+      "The firefighter climbed a ladder to help kitten. Answer the question 4: to rescue the kitten.",
+      "1. Ladder is tall.\n2. Firefighter rescues kitten with ladder.\n4. Answer is to rescue the kitten."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0162",
+    "source_group_id": "SRC-EN-VOC-0162",
+    "source_text": "Select the word that accurately explains the term swift.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Read the word swift.\n2. Choose its meaning."
+    },
+    "reference_texts": [
+      "Choose the meaning of the word swift.",
+      "What does swift mean? Choose the best explanation.",
+      "1. Read the word swift.\n2. Choose its meaning."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0280",
+    "source_group_id": "SRC-EN-COM-0280",
+    "source_text": "Maya found a silver coin under the garden stone. Question 31: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Maya found a coin.\n2. It was under the stone.\n31. Answer is under the stone."
+    },
+    "reference_texts": [
+      "Maya found a silver coin under the stone. Question 31: What detail is stated?",
+      "Maya found a coin under a stone. Where was it? Answer the question 31: under the stone.",
+      "1. Maya found a coin.\n2. It was under the stone.\n31. Answer is under the stone."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0118",
+    "source_group_id": "SRC-EN-VOC-0118",
+    "source_text": "State the common name of the depicted parrot.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the picture.\n2. Tap the parrot."
+    },
+    "reference_texts": [
+      "What animal is this parrot?",
+      "Look at the picture. Point to the parrot.",
+      "1. Look at the picture.\n2. Tap the parrot."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0355",
+    "source_group_id": "SRC-EN-INS-0355",
+    "source_text": "Step 31: Before placing the blue circle inside the box, pick up the yellow star.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Pick yellow star.\n2. Put blue circle in box."
+    },
+    "reference_texts": [
+      "Step 31: Pick up yellow star before putting blue circle in box.",
+      "Step 31: First pick up yellow star. Then put blue circle in box.",
+      "1. Pick yellow star.\n2. Put blue circle in box."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0313",
+    "source_group_id": "SRC-EN-COM-0313",
+    "source_text": "The firefighter climbed the tall ladder to rescue the kitten. Question 64: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Ladder is tall.\n2. Firefighter rescues kitten with ladder.\n64. Answer is to rescue the kitten."
+    },
+    "reference_texts": [
+      "The firefighter climbed the ladder to save the kitten. Question 64: What detail is stated?",
+      "The firefighter climbed a ladder to help kitten. Answer the question 64: to rescue the kitten.",
+      "1. Ladder is tall.\n2. Firefighter rescues kitten with ladder.\n64. Answer is to rescue the kitten."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0369",
+    "source_group_id": "SRC-EN-INS-0369",
+    "source_text": "Step 45: Select every geometric shape except the red diamond.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Find shapes except red diamond.\n2. Do not tap red diamond."
+    },
+    "reference_texts": [
+      "Step 45: Choose all shapes except the red diamond.",
+      "Step 45: Tap all shapes except red diamond. Do not tap red diamond.",
+      "1. Find shapes except red diamond.\n2. Do not tap red diamond."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0333",
+    "source_group_id": "SRC-EN-INS-0333",
+    "source_text": "Step 9: Point camera at table marker and locate North America.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Point camera.\n2. Find North America."
+    },
+    "reference_texts": [
+      "Step 9: Aim camera at table and find North America.",
+      "Step 9: Point camera at marker. Tap North America.",
+      "1. Point camera.\n2. Find North America."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0361",
+    "source_group_id": "SRC-EN-INS-0361",
+    "source_text": "Step 37: Close your book, stand up quietly, and walk to the door.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Close book.\n2. Stand quietly.\n3. Walk to door."
+    },
+    "reference_texts": [
+      "Step 37: Close your book, stand up, and walk to the door.",
+      "Step 37: 1. Close book. 2. Stand up. 3. Walk to door.",
+      "1. Close book.\n2. Stand quietly.\n3. Walk to door."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0263",
+    "source_group_id": "SRC-EN-COM-0263",
+    "source_text": "The firefighter climbed the tall ladder to rescue the kitten. Question 14: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Ladder is tall.\n2. Firefighter rescues kitten with ladder.\n14. Answer is to rescue the kitten."
+    },
+    "reference_texts": [
+      "The firefighter climbed the ladder to save the kitten. Question 14: What detail is stated?",
+      "The firefighter climbed a ladder to help kitten. Answer the question 14: to rescue the kitten.",
+      "1. Ladder is tall.\n2. Firefighter rescues kitten with ladder.\n14. Answer is to rescue the kitten."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0130",
+    "source_group_id": "SRC-EN-VOC-0130",
+    "source_text": "Select the item named book from the collection.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look for the book.\n2. Tap the book."
+    },
+    "reference_texts": [
+      "Choose the book from the group.",
+      "Find the book. Tap on it.",
+      "1. Look for the book.\n2. Tap the book."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0134",
+    "source_group_id": "SRC-EN-VOC-0134",
+    "source_text": "Select the item named table from the collection.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look for the table.\n2. Tap the table."
+    },
+    "reference_texts": [
+      "Choose the table from the group.",
+      "Find the table. Tap on it.",
+      "1. Look for the table.\n2. Tap the table."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0251",
+    "source_group_id": "SRC-EN-COM-0251",
+    "source_text": "Leo planted four sunflower seeds in the warm soil. Question 2: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Leo planted seeds in soil.\n2. He planted four seeds in soil.\n2. Answer is four."
+    },
+    "reference_texts": [
+      "Leo planted four seeds in warm soil. Question 2: What detail is stated?",
+      "Leo planted four seeds in warm soil. How many seeds? Answer the question 2: four.",
+      "1. Leo planted seeds in soil.\n2. He planted four seeds in soil.\n2. Answer is four."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0133",
+    "source_group_id": "SRC-EN-VOC-0133",
+    "source_text": "Select the item named clock from the collection.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look for the clock.\n2. Tap the clock."
+    },
+    "reference_texts": [
+      "Choose the clock from the group.",
+      "Find the clock. Tap on it.",
+      "1. Look for the clock.\n2. Tap the clock."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0303",
+    "source_group_id": "SRC-EN-COM-0303",
+    "source_text": "The firefighter climbed the tall ladder to rescue the kitten. Question 54: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Ladder is tall.\n2. Firefighter rescues kitten with ladder.\n54. Answer is to rescue the kitten."
+    },
+    "reference_texts": [
+      "The firefighter climbed the ladder to save the kitten. Question 54: What detail is stated?",
+      "The firefighter climbed a ladder to help kitten. Answer the question 54: to rescue the kitten.",
+      "1. Ladder is tall.\n2. Firefighter rescues kitten with ladder.\n54. Answer is to rescue the kitten."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0287",
+    "source_group_id": "SRC-EN-COM-0287",
+    "source_text": "Ben lost his red whistle while hiking in the pine woods. Question 38: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n38. Answer is in the pine woods."
+    },
+    "reference_texts": [
+      "Ben lost his whistle in the pine woods. Question 38: What detail is stated?",
+      "Ben dropped his red whistle in the woods. Answer the question 38: in the pine woods.",
+      "1. Ben is hiking in woods.\n2. Ben lost red whistle in woods.\n38. Answer is in the pine woods."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0276",
+    "source_group_id": "SRC-EN-COM-0276",
+    "source_text": "Oliver wore his heavy winter coat because snow was falling. Question 27: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Snow is falling.\n2. Oliver puts on coat in snow.\n27. Answer is because of snow."
+    },
+    "reference_texts": [
+      "Oliver wore his warm coat in snow. Question 27: What detail is stated?",
+      "It is snowing. Oliver wears a winter coat in snow. Answer the question 27: because of snow.",
+      "1. Snow is falling.\n2. Oliver puts on coat in snow.\n27. Answer is because of snow."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0394",
+    "source_group_id": "SRC-EN-INS-0394",
+    "source_text": "Step 70: Sort the round beads into the bowl and square blocks into the box.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Beads into bowl.\n2. Blocks into box."
+    },
+    "reference_texts": [
+      "Step 70: Put round beads in bowl and square blocks in box.",
+      "Step 70: Sort beads into bowl and blocks into box.",
+      "1. Beads into bowl.\n2. Blocks into box."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0197",
+    "source_group_id": "SRC-EN-GRA-0197",
+    "source_text": "Select the proper plural noun for more than one butterfly: butterfly to butterflies.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Count more than one butterfly.\n2. Select the plural word: butterflies."
+    },
+    "reference_texts": [
+      "Choose the correct plural word for butterfly: multiple butterflies.",
+      "Count the butterfly. Choose the plural word for butterfly: butterflies.",
+      "1. Count more than one butterfly.\n2. Select the plural word: butterflies."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0180",
+    "source_group_id": "SRC-EN-GRA-0180",
+    "source_text": "Hang the purple coat inside the closet.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Take purple coat.\n2. Put in closet."
+    },
+    "reference_texts": [
+      "Put the purple coat in the closet.",
+      "Take purple coat. Hang it in closet.",
+      "1. Take purple coat.\n2. Put in closet."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0376",
+    "source_group_id": "SRC-EN-INS-0376",
+    "source_text": "Step 52: If the square is green, touch the triangle; if not green, touch the circle.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Is square green?\n2. Yes: tap triangle.\n3. If not green: tap circle."
+    },
+    "reference_texts": [
+      "Step 52: If square is green, touch triangle. If not green, touch circle.",
+      "Step 52: Look at square. If green: tap triangle. If not green: tap circle.",
+      "1. Is square green?\n2. Yes: tap triangle.\n3. If not green: tap circle."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0269",
+    "source_group_id": "SRC-EN-COM-0269",
+    "source_text": "Dad baked chocolate muffins for the school bake sale. Question 20: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Dad baked muffins.\n2. For school bake sale.\n20. Answer is chocolate muffins."
+    },
+    "reference_texts": [
+      "Dad made chocolate muffins for the school sale. Question 20: What detail is stated?",
+      "Dad baked sweet muffins for school bake sale. Answer the question 20: chocolate muffins.",
+      "1. Dad baked muffins.\n2. For school bake sale.\n20. Answer is chocolate muffins."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0373",
+    "source_group_id": "SRC-EN-INS-0373",
+    "source_text": "Step 49: Point camera at table marker and locate North America.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Point camera.\n2. Find North America."
+    },
+    "reference_texts": [
+      "Step 49: Aim camera at table and find North America.",
+      "Step 49: Point camera at marker. Tap North America.",
+      "1. Point camera.\n2. Find North America."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0175",
+    "source_group_id": "SRC-EN-GRA-0175",
+    "source_text": "Put the red ball beside the box.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Pick up red ball.\n2. Put it next to the box."
+    },
+    "reference_texts": [
+      "Place the red ball next to the box.",
+      "Find the red ball. Put it next to the box.",
+      "1. Pick up red ball.\n2. Put it next to the box."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0339",
+    "source_group_id": "SRC-EN-INS-0339",
+    "source_text": "Step 15: Select every geometric shape except the red diamond.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Find shapes except red diamond.\n2. Do not tap red diamond."
+    },
+    "reference_texts": [
+      "Step 15: Choose all shapes except the red diamond.",
+      "Step 15: Tap all shapes except red diamond. Do not tap red diamond.",
+      "1. Find shapes except red diamond.\n2. Do not tap red diamond."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0232",
+    "source_group_id": "SRC-EN-GRA-0232",
+    "source_text": "The curious kitten ran against the wooden fence.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Find the kitten.\n2. It went against the fence."
+    },
+    "reference_texts": [
+      "The curious kitten ran against the wooden fence.",
+      "Where did the kitten run? Choose: against.",
+      "1. Find the kitten.\n2. It went against the fence."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0268",
+    "source_group_id": "SRC-EN-COM-0268",
+    "source_text": "The mother duck led her seven ducklings across the pond. Question 19: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Mother duck swims in pond.\n2. Seven ducklings follow in pond.\n19. Answer is seven."
+    },
+    "reference_texts": [
+      "Mother duck led seven ducklings across the pond. Question 19: What detail is stated?",
+      "Mother duck swam in pond with seven ducklings. How many? Answer the question 19: seven.",
+      "1. Mother duck swims in pond.\n2. Seven ducklings follow in pond.\n19. Answer is seven."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-INS-0359",
+    "source_group_id": "SRC-EN-INS-0359",
+    "source_text": "Step 35: Select every geometric shape except the red diamond.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Find shapes except red diamond.\n2. Do not tap red diamond."
+    },
+    "reference_texts": [
+      "Step 35: Choose all shapes except the red diamond.",
+      "Step 35: Tap all shapes except red diamond. Do not tap red diamond.",
+      "1. Find shapes except red diamond.\n2. Do not tap red diamond."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0111",
+    "source_group_id": "SRC-EN-VOC-0111",
+    "source_text": "State the common name of the depicted penguin.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the picture.\n2. Tap the penguin."
+    },
+    "reference_texts": [
+      "What animal is this penguin?",
+      "Look at the picture. Point to the penguin.",
+      "1. Look at the picture.\n2. Tap the penguin."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0117",
+    "source_group_id": "SRC-EN-VOC-0117",
+    "source_text": "State the common name of the depicted owl.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the picture.\n2. Tap the owl."
+    },
+    "reference_texts": [
+      "What animal is this owl?",
+      "Look at the picture. Point to the owl.",
+      "1. Look at the picture.\n2. Tap the owl."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-VOC-0145",
+    "source_group_id": "SRC-EN-VOC-0145",
+    "source_text": "Observe the character engaging in running across the field.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Look at the character.\n2. Tap running."
+    },
+    "reference_texts": [
+      "Look at the character running in the field.",
+      "What is happening? The character is running.",
+      "1. Look at the character.\n2. Tap running."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-COM-0305",
+    "source_group_id": "SRC-EN-COM-0305",
+    "source_text": "The honeybee carried yellow pollen back to the beehive. Question 56: Answer the detail.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. Bee has pollen.\n2. Bee flies to hive.\n56. Answer is to the beehive."
+    },
+    "reference_texts": [
+      "The bee took yellow pollen to the hive. Question 56: What detail is stated?",
+      "The bee took pollen to hive. Where did bee go? Answer the question 56: to the beehive.",
+      "1. Bee has pollen.\n2. Bee flies to hive.\n56. Answer is to the beehive."
+    ],
+    "governed_annotations": {}
+  },
+  {
+    "source_item_id": "SRC-EN-GRA-0217",
+    "source_group_id": "SRC-EN-GRA-0217",
+    "source_text": "Yesterday, the student spoke a creative project.",
+    "target_content_age": 6,
+    "references": {
+      "moderate": "1. It happened in the past.\n2. Choose the word spoke."
+    },
+    "reference_texts": [
+      "Yesterday, the student spoke something nice.",
+      "It happened yesterday. Choose the past verb: spoke.",
+      "1. It happened in the past.\n2. Choose the word spoke."
+    ],
+    "governed_annotations": {}
+  }
+]

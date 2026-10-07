@@ -1,0 +1,188 @@
+{
+  "text_instance_id": "SIMP-EN-0080__SIMP",
+  "parent_record_id": "SIMP-EN-0080",
+  "parent_record_type": "simplification_pair",
+  "text_role": "simplified_text",
+  "source_dataset_version": "0.2.0",
+  "pipeline_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "language": "en",
+  "dataset_split": "development_candidate_train",
+  "source_group_id": "SIMP-EN-0080",
+  "original_text": "Touch the circle first!",
+  "normalized_text": "Touch the circle first!",
+  "language_verification": {
+    "verification_engine": "deterministic_heuristic",
+    "model_version": "heuristic_v1",
+    "confidence": 0.95,
+    "decision": "verified",
+    "fallback_reason": "deterministic_heuristic_verified"
+  },
+  "sentences": [
+    {
+      "sentence_id": "SIMP-EN-0080__SIMP-S01",
+      "sentence_index": 0,
+      "text": "Touch the circle first!",
+      "original_start_char": 0,
+      "original_end_char": 23,
+      "normalized_start_char": 0,
+      "normalized_end_char": 23,
+      "tokens": [
+        {
+          "index": 0,
+          "text": "Touch",
+          "lemma": "touch",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 0,
+          "original_end_char": 5,
+          "normalized_start_char": 0,
+          "normalized_end_char": 5
+        },
+        {
+          "index": 1,
+          "text": "the",
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head_index": 2,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 6,
+          "original_end_char": 9,
+          "normalized_start_char": 6,
+          "normalized_end_char": 9
+        },
+        {
+          "index": 2,
+          "text": "circle",
+          "lemma": "circle",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": false,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 10,
+          "original_end_char": 16,
+          "normalized_start_char": 10,
+          "normalized_end_char": 16
+        },
+        {
+          "index": 3,
+          "text": "first",
+          "lemma": "first",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head_index": 0,
+          "is_stop": true,
+          "is_punct": false,
+          "is_num": true,
+          "syllable_count": 1,
+          "original_start_char": 17,
+          "original_end_char": 22,
+          "normalized_start_char": 17,
+          "normalized_end_char": 22
+        },
+        {
+          "index": 4,
+          "text": "!",
+          "lemma": "!",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head_index": 0,
+          "is_stop": false,
+          "is_punct": true,
+          "is_num": false,
+          "syllable_count": 1,
+          "original_start_char": 22,
+          "original_end_char": 23,
+          "normalized_start_char": 22,
+          "normalized_end_char": 23
+        }
+      ]
+    }
+  ],
+  "features": {
+    "surface": {
+      "char_count": 20,
+      "token_count": 5,
+      "word_count": 4,
+      "sentence_count": 1,
+      "punct_count": 1,
+      "avg_word_length": 4.75,
+      "avg_sentence_length": 5.0,
+      "unique_token_count": 4,
+      "type_token_ratio": 1.0,
+      "syllable_count": 4,
+      "avg_syllables_per_word": 1.0,
+      "long_word_count": 0
+    },
+    "lexical": {
+      "content_word_count": 3,
+      "function_word_count": 1,
+      "noun_count": 1,
+      "verb_count": 1,
+      "adj_count": 0,
+      "adv_count": 1,
+      "pronoun_count": 0,
+      "prep_count": 0,
+      "finite_verb_count": 0,
+      "auxiliary_verb_count": 0,
+      "out_of_lexicon_count": 4,
+      "internal_lexicon_tier_counts": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "internal_lexicon_matches": [],
+      "difficult_candidate_words": []
+    },
+    "syntactic": {
+      "max_dependency_depth": 3,
+      "avg_dependency_depth": 1.5,
+      "clause_count": 0,
+      "subordinate_conjunction_count": 0,
+      "passive_voice_detected": false,
+      "coordination_count": 0,
+      "avg_noun_phrase_length": 1.0,
+      "svo_triplets_available": false,
+      "root_count": 1,
+      "parse_failure_count": 0,
+      "fragment_detected": false,
+      "imperative_detected": true
+    },
+    "protected_elements": {
+      "negation_markers": [],
+      "quantity_numbers": [
+        "first"
+      ],
+      "named_entities": [],
+      "spatial_prepositions": [],
+      "temporal_connectives": [
+        "first"
+      ],
+      "action_verbs": [
+        "touch"
+      ],
+      "aligned_protected_units": []
+    }
+  },
+  "processing_status": "success",
+  "text_hash": "283fe9438ecb7a97f082ecf8c631e6b22fb4acd3ed33c7746234a59afd9c0221",
+  "feature_hash": "bb16fe8eb4c4d077984d0e12700f233d09b4491c228ec48beeed50f5271fb8c8",
+  "record_hash": "47a20b2947882a1c4c564825469a319913567222c7821f5a81a4bc2a7faeb25f"
+}

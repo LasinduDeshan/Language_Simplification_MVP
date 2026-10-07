@@ -1,0 +1,43 @@
+{
+  "frozen_at": "2026-10-06T16:29:26.185811+00:00",
+  "prompt_registry_version": "2.1.0",
+  "prompt_registry_sha256": "1d8ded2554e9cff27ca5040fb35332fb9905e6d52677b091db30604cbf22b29f",
+  "model_registry_sha256": "14a0e0c7c34279528e7f1a7154373b043fe57690eaf0c7d40372f7fc46c86801",
+  "registered_models": [
+    {
+      "model_id": "gemini-1.5-flash-prompted",
+      "provider": "google",
+      "repo_or_endpoint": "gemini-1.5-flash",
+      "intended_mode": "pretrained_prefix_prompt",
+      "config_hash": "2c55701af937588ff8d796c4403eb6e60574218ebd1af58c12d10f7bfb3d3072"
+    },
+    {
+      "model_id": "mt5-base-zero-shot",
+      "provider": "huggingface",
+      "repo_or_endpoint": "google/mt5-base",
+      "intended_mode": "pretrained_zero_shot",
+      "config_hash": "2d75b480a5d73fd1337c2b8f1c7fb1c3fc3526edc672dc4cca239c5ea0a5e9c6"
+    },
+    {
+      "model_id": "mbart-large-50-zero-shot",
+      "provider": "huggingface",
+      "repo_or_endpoint": "facebook/mbart-large-50-many-to-many-mmt",
+      "intended_mode": "pretrained_zero_shot",
+      "config_hash": "929becde29d1599c6b0f1ed104e54c4ea1a047567d06380577f848c2fd3a743f"
+    },
+    {
+      "model_id": "stage25-controlled-deterministic",
+      "provider": "local_rule",
+      "repo_or_endpoint": "stage-25-complete-v2",
+      "intended_mode": "deterministic_stage25",
+      "config_hash": "d109e797651e7fb763911f301214098f2e54fa84e2dac8d43f760836d006a157"
+    },
+    {
+      "model_id": "hybrid-gemini-stage25-validated",
+      "provider": "hybrid",
+      "repo_or_endpoint": "gemini-1.5-flash + stage25-rules",
+      "intended_mode": "hybrid",
+      "config_hash": "aa55a529601eec683d926820ef87422c63a3a8870e215e40f5c6933f9c6eb954"
+    }
+  ]
+}
