@@ -1,6 +1,7 @@
 """
-Stage 26 WP5 & WP8: Run Zero-Shot and Prompted Local Transformer Models on Internal Validation & Locked Splits.
-Evaluates mT5, mBART, and Stage 25 deterministic comparator.
+Stage 26 WP5 & WP8: Zero-Shot and Transformer Inference Reporting on Validation Split.
+Records native transformer inference status (NOT_EXECUTED / 0 valid native outputs)
+and attributes fallback outputs strictly to Stage 25 fallback rows.
 """
 import sys
 import json
@@ -33,6 +34,9 @@ def evaluate_adapter_on_split(adapter, items: List[Dict[str, Any]], model_id: st
     fkgl_deltas = []
     outcome_counts = {cat: 0 for cat in ProviderResultAttribution.ALL_CATEGORIES}
 
+    native_success_count = 0
+    fallback_count = 0
+
     for item in items:
         source_text = item.get("source_text") or item.get("text", "")
         tier = item.get("support_level", "moderate").lower()
@@ -51,6 +55,11 @@ def evaluate_adapter_on_split(adapter, items: List[Dict[str, Any]], model_id: st
         res = adapter.generate(req)
         cat, provider = ProviderResultAttribution.classify_outcome(res)
         outcome_counts[cat] += 1
+
+        if res.fallback_used:
+            fallback_count += 1
+        else:
+            native_success_count += 1
 
         cand = res.candidate_text or source_text
 
@@ -79,7 +88,6 @@ def evaluate_adapter_on_split(adapter, items: List[Dict[str, Any]], model_id: st
         })
 
     # Corpus BLEU
-    # Sacrebleu expects refs as list of ref-streams
     max_refs = max(len(r) for r in bleu_refs) if bleu_refs else 1
     ref_streams = []
     for r_idx in range(max_refs):
@@ -87,19 +95,41 @@ def evaluate_adapter_on_split(adapter, items: List[Dict[str, Any]], model_id: st
         ref_streams.append(stream)
 
     corpus_bleu = sacrebleu.corpus_bleu(bleu_preds, ref_streams).score if bleu_preds else 0.0
-
     mean_sari = float(sum(sari_scores) / max(1, len(sari_scores)))
     mean_fkgl_delta = float(sum(fkgl_deltas) / max(1, len(fkgl_deltas)))
     total_latency = (time.perf_counter() - start_time) * 1000.0
     mean_latency = total_latency / max(1, len(items))
 
+    # Determine native inference status
+    if "stage25" in model_id:
+        native_status = "EVALUATED_DETERMINISTIC"
+        native_sari = round(mean_sari, 2)
+        native_bleu = round(corpus_bleu, 2)
+        native_fkgl = round(mean_fkgl_delta, 2)
+    elif native_success_count == 0:
+        native_status = "NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS"
+        native_sari = None
+        native_bleu = None
+        native_fkgl = None
+    else:
+        native_status = "EVALUATED_NATIVE"
+        native_sari = round(mean_sari, 2)
+        native_bleu = round(corpus_bleu, 2)
+        native_fkgl = round(mean_fkgl_delta, 2)
+
     summary = {
         "model_id": model_id,
         "split": split_name,
         "total_samples": len(items),
-        "mean_sari": round(mean_sari, 2),
-        "corpus_bleu": round(corpus_bleu, 2),
-        "mean_fkgl_delta": round(mean_fkgl_delta, 2),
+        "native_inference_status": native_status,
+        "valid_native_outputs": native_success_count,
+        "fallback_outputs": fallback_count,
+        "native_mean_sari": native_sari,
+        "native_corpus_bleu": native_bleu,
+        "native_mean_fkgl_delta": native_fkgl,
+        "fallback_mean_sari": round(mean_sari, 2) if fallback_count > 0 else None,
+        "fallback_corpus_bleu": round(corpus_bleu, 2) if fallback_count > 0 else None,
+        "fallback_mean_fkgl_delta": round(mean_fkgl_delta, 2) if fallback_count > 0 else None,
         "mean_latency_ms": round(mean_latency, 2),
         "outcome_breakdown": outcome_counts,
         "pass_rate": round((outcome_counts[ProviderResultAttribution.CAT_NATIVE_DELIVERED] + outcome_counts[ProviderResultAttribution.CAT_REPAIR_DELIVERED]) / max(1, len(items)), 4),
@@ -148,7 +178,7 @@ def main():
         print(f"[*] Evaluating {model_id} on validation split ({len(eval_items)} items)...")
         summary, recs = evaluate_adapter_on_split(adapter, eval_items, model_id, "validation")
         all_summaries[model_id] = summary
-        print(f"    SARI: {summary['mean_sari']:.2f} | BLEU: {summary['corpus_bleu']:.2f} | Pass Rate: {summary['pass_rate']*100:.1f}% | Fallback: {summary['fallback_rate']*100:.1f}%")
+        print(f"    Status: {summary['native_inference_status']} | Native Outputs: {summary['valid_native_outputs']} | Fallback Outputs: {summary['fallback_outputs']}")
 
     with open(out_dir / "zero_shot_and_stage25_validation_summary.json", "w", encoding="utf-8") as f:
         json.dump(all_summaries, f, indent=2)

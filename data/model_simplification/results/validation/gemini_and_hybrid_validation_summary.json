@@ -1,46 +1,46 @@
 {
-  "gemini-1.5-flash-prompted": {
-    "model_id": "gemini-1.5-flash-prompted",
+  "gemini-3.5-flash-lite-prompted": {
+    "model_id": "gemini-3.5-flash-lite-prompted",
+    "resolved_model": "gemini-3.5-flash-lite",
     "split": "validation",
     "total_samples": 135,
-    "mean_sari": 34.27,
-    "corpus_bleu": 38.82,
-    "mean_fkgl_delta": 2.02,
-    "mean_latency_ms": 5117.25,
-    "total_cost": 0.001701,
+    "mean_sari": 37.46,
+    "corpus_bleu": 34.87,
+    "mean_fkgl_delta": 2.75,
+    "total_cost": 0.002062,
     "outcome_breakdown": {
-      "native_delivered": 82,
-      "repair_delivered": 4,
-      "fallback_delivered": 40,
+      "native_delivered": 116,
+      "repair_delivered": 0,
+      "fallback_delivered": 3,
       "manual_review_required": 0,
-      "rejected": 9
+      "rejected": 16
     },
-    "pass_rate": 0.637,
-    "fallback_rate": 0.2963,
+    "pass_rate": 0.8593,
+    "fallback_rate": 0.0222,
     "manual_review_rate": 0.0,
-    "rejection_rate": 0.0667,
-    "evaluated_at": "2026-10-06T16:51:01.236463+00:00"
+    "rejection_rate": 0.1185,
+    "evaluated_at": "2026-10-07T16:55:06.363142+00:00"
   },
   "hybrid-gemini-stage25-validated": {
     "model_id": "hybrid-gemini-stage25-validated",
+    "resolved_model": "gemini-3.5-flash-lite + stage25-rules",
     "split": "validation",
     "total_samples": 135,
-    "mean_sari": 35.83,
-    "corpus_bleu": 36.18,
-    "mean_fkgl_delta": 2.28,
-    "mean_latency_ms": 4237.22,
-    "total_cost": 0.001854,
+    "mean_sari": 36.89,
+    "corpus_bleu": 36.8,
+    "mean_fkgl_delta": 2.29,
+    "total_cost": 0.002062,
     "outcome_breakdown": {
-      "native_delivered": 91,
-      "repair_delivered": 5,
-      "fallback_delivered": 30,
+      "native_delivered": 111,
+      "repair_delivered": 8,
+      "fallback_delivered": 16,
       "manual_review_required": 0,
-      "rejected": 9
+      "rejected": 0
     },
-    "pass_rate": 0.7111,
-    "fallback_rate": 0.2222,
+    "pass_rate": 0.8815,
+    "fallback_rate": 0.1185,
     "manual_review_rate": 0.0,
-    "rejection_rate": 0.0667,
-    "evaluated_at": "2026-10-06T17:00:33.260065+00:00"
+    "rejection_rate": 0.0,
+    "evaluated_at": "2026-10-07T16:55:06.363142+00:00"
   }
 }

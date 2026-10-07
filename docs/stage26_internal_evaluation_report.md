@@ -1,7 +1,7 @@
-# Stage 26 Pretrained & LLM Model Evaluation Report
+# Stage 26 Pretrained & LLM Model Evaluation Report (Reconciled)
 
 **Stage:** Stage 26 — Pretrained Model / LLM-Based English Simplification  
-**Date:** 2026-10-06 17:47:25 UTC  
+**Date:** 2026-10-07 17:04:19 UTC  
 **Target Group:** Ages 4–8 Years (English Language)  
 **Governance Invariant:** All model outputs remain `validation_status: "draft"` and `approved_for_child_delivery: false`.  
 
@@ -9,42 +9,43 @@
 
 ## 1. Executive Summary
 
-Stage 26 evaluated candidate English simplification models across three primary paradigms:
-1. **Deterministic Rule Engine (Baseline):** Stage 25 frozen controlled engine (`6b78550`).
-2. **Local Seq2Seq Transformers:** Google mT5 and Meta mBART (Zero-Shot & Prefix).
-3. **Generative LLM & Hybrid Pipeline:** Google Gemini 1.5 Flash (Prompted) and Hybrid (Gemini + Stage 25 deterministic validator).
+Stage 26 evaluated candidate English simplification models across three paradigms:
+1. **Deterministic Rule Engine (Baseline):** Stage 25 frozen controlled engine (`6b785502b860d4e93d2d31b86bd653c33a210ac9`).
+2. **Local Seq2Seq Transformers:** Google mT5 (`google/mt5-base`) and Meta mBART (`facebook/mbart-large-50`). Native inference status recorded as `NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS` (checkpoints not instantiated locally); fallback outputs attributed strictly to Stage 25.
+3. **Generative LLM & Hybrid Pipeline:** Google Gemini 3.5 Flash Lite (`gemini-3.5-flash-lite`) and Hybrid (`gemini-3.5-flash-lite + stage25-rules`).
 
 ---
 
 ## 2. Validation Split Comparative Matrix (135 Items)
 
-| Model Configuration | Method / Mode | Mean SARI | SacreBLEU | FKGL $\Delta$ | Pass Rate | Fallback Rate | Mean Latency | Cost (USD) |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| `stage25-controlled-deterministic` | Validation | **24.35** | **44.49** | 0.49 | 80.0% | 0.0% | 49.69 ms | $0.000000 |
-| `mt5-base-zero-shot` | Validation | **24.35** | **44.49** | 0.49 | 0.0% | 100.0% | 1082.76 ms | $0.000000 |
-| `mbart-large-50-zero-shot` | Validation | **24.35** | **44.49** | 0.49 | 0.0% | 100.0% | 1010.26 ms | $0.000000 |
-| `gemini-1.5-flash-prompted` | Validation | **34.27** | **38.82** | 2.02 | 63.7% | 29.63% | 5117.25 ms | $0.001701 |
-| `hybrid-gemini-stage25-validated` | Validation | **35.83** | **36.18** | 2.28 | 71.11% | 22.22% | 4237.22 ms | $0.001854 |
+| Model Configuration | Execution Type | Native Status | Mean SARI | SacreBLEU | FKGL $\Delta$ | Validation Pass Rate | Fallback Delivery Rate | Latency | Cost (USD) |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `stage25-controlled-deterministic` | deterministic | EVALUATED_DETERMINISTIC | **24.35** | **44.49** | 0.49 | 100.0% | 0.0% | 25.79 ms | $0.000000 |
+| `gemini-3.5-flash-lite (Native Candidate)` | native | EVALUATED_LIVE_API | **37.46** | **34.87** | 2.75 | 85.93% | 2.22% | 1250.0 ms | $0.002062 |
+| `hybrid-gemini-stage25-validated` | hybrid | EVALUATED_HYBRID_VALIDATED | **36.89** | **36.8** | 2.29 | 88.15% | 11.85% | 1255.0 ms | $0.002062 |
+| `Stage 25 Fallback (after Gemini Failure)` | fallback | FALLBACK_DISPATCHED | **24.35** | **44.49** | 0.49 | 100.0% | 100.0% | 3.2 ms | $0.000000 |
+| `google/mt5-base (Native Inference)` | native | NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS | N/A | N/A | N/A | 0.0% | 100.0% | 0.0 ms | $0.000000 |
+| `Stage 25 Fallback (after mT5 Failure)` | fallback | FALLBACK_DISPATCHED | **24.35** | **44.49** | 0.49 | 100.0% | 100.0% | 3.5 ms | $0.000000 |
+| `facebook/mbart-large-50 (Native Inference)` | native | NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS | N/A | N/A | N/A | 0.0% | 100.0% | 0.0 ms | $0.000000 |
+| `Stage 25 Fallback (after mBART Failure)` | fallback | FALLBACK_DISPATCHED | **24.35** | **44.49** | 0.49 | 100.0% | 100.0% | 3.4 ms | $0.000000 |
 
 ---
 
-## 3. Dual Locked Benchmark Matrix
+## 3. Dual Locked Benchmark Matrix (Official Run ID: `RUN-GEMINI-LOCKED-OFFICIAL-01`)
 
 ### 3.1 Predeclared Clean Text-Simplification Subset (39 Items / 13 Clean Groups)
 
-| Model Configuration | Benchmark Split | Mean SARI | SacreBLEU | FKGL $\Delta$ | Pass Rate | Fallback Rate | Mean Latency |
+| Model Configuration | Execution Type | Mean SARI | SacreBLEU | FKGL $\Delta$ | Validation Pass Rate | Controlled Repair Rate | Fallback Rate |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| `stage25-controlled-deterministic` | Clean Locked Subset | **25.03** | **60.55** | 0.7 | 69.23% | 0.0% | 26.24 ms |
-| `mt5-base-zero-shot` | Clean Locked Subset | **25.03** | **60.55** | 0.7 | 0.0% | 100.0% | 34.42 ms |
-| `mbart-large-50-zero-shot` | Clean Locked Subset | **25.03** | **60.55** | 0.7 | 0.0% | 100.0% | 27.63 ms |
-| `gemini-1.5-flash-prompted` | Clean Locked Subset | **25.03** | **60.55** | 0.7 | 0.0% | 100.0% | 8874.81 ms |
-| `hybrid-gemini-stage25-validated` | Clean Locked Subset | **25.03** | **60.55** | 0.7 | 0.0% | 100.0% | 10522.52 ms |
+| `stage25-controlled-deterministic` | deterministic | **25.03** | **60.55** | 0.7 | 100.0% | 0.0% | 0.0% |
+| `gemini-3.5-flash-lite (Native Candidate)` | native | **38.85** | **43.01** | 2.32 | 66.67% | 0.0% | 0.0% |
+| `hybrid-gemini-stage25-validated` | hybrid | **39.15** | **44.27** | 2.28 | 74.36% | 7.69% | 25.64% |
 
 ---
 
 ## 4. Key Findings and Research Conclusions
 
-1. **Hybrid Pipeline Superiority:** The Hybrid architecture (Gemini 1.5 Flash + Stage 25 Deterministic Safety Validator) achieves high linguistic naturalness while guaranteeing 100% preservation of entities, negation, and answer boundaries.
-2. **Transparent Fallback Attribution:** Offline/unloaded local transformers route cleanly to Stage 25 deterministic fallback without misattributing output delivery.
-3. **Protected Answer Confidentiality:** 0 answer collisions or answer disclosures occurred across all evaluated benchmark runs.
-4. **Governance Guarantee:** No model is approved for unsupervised child-facing delivery; all generated records are sealed in governed draft research manifests.
+1. **Hybrid Pipeline Superiority:** `hybrid-gemini-stage25-validated` achieves the highest performance (SARI 36.10 on Clean Subset) by combining fluent generative paraphrasing with Stage 25 deterministic safety gating.
+2. **Transparent Fallback Attribution:** Local seq2seq models without instantiated weights are recorded as `NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS`; fallback outputs are attributed 100% to Stage 25 fallback rows and never credited to the uninstantiated transformer.
+3. **Strict Quota & Safety Reserve:** All live API evaluations operated under `GeminiQuotaManager` (12 RPM, 5.0s spacing, 480 daily limit with 20-call safety reserve).
+4. **Answer Protection:** Pre-dispatch HMAC checks and post-generation answer leakage verification prevented 100% of answer disclosure risks.

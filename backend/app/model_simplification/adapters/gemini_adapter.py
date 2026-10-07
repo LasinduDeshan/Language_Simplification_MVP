@@ -1,7 +1,8 @@
 """
 Stage 26 Gemini Provider Adapter.
-Integrates Google Gemini API with dynamic model verification, pre-dispatch collision checks,
-allowlist payload serialization, jittered exponential retry, cost tracking, and transparent Stage 25 fallback.
+Integrates Google Gemini API (gemini-3.5-flash-lite) with dynamic model verification,
+pre-dispatch collision checks, allowlist payload serialization, jittered exponential retry,
+quota and rate-limit management, cost tracking, and transparent Stage 25 fallback.
 """
 import os
 import time
@@ -22,31 +23,34 @@ from app.model_simplification.provider_payload_serializer import ProviderPayload
 from app.model_simplification.hmac_answer_guard import HMACAnswerGuard
 from app.model_simplification.cost_tracker import CostTracker
 from app.model_simplification.adapters.stage25_adapter import Stage25ControlledAdapter
+from app.model_simplification.quota_manager import GeminiQuotaManager
 
 
 class GeminiModelAdapter:
     """
-    Adapter for Google Gemini API with safety boundaries and fallback routing.
+    Adapter for Google Gemini API with safety boundaries, quota throttling, and fallback routing.
     """
 
     def __init__(
         self,
         api_key: Optional[str] = None,
         model_id: Optional[str] = None,
-        timeout_seconds: int = 15,
+        timeout_seconds: int = 30,
         max_retries: int = 3,
         fallback_adapter: Optional[Stage25ControlledAdapter] = None,
+        quota_manager: Optional[GeminiQuotaManager] = None,
     ):
         if api_key is not None:
             self.api_key = api_key.strip()
         else:
             self.api_key = (getattr(settings, "gemini_api_key", "") or os.getenv("GEMINI_API_KEY", "")).strip()
-        self.configured_model = model_id or getattr(settings, "llm_model", "gemini-1.5-flash")
+        self.configured_model = model_id or getattr(settings, "llm_model", "gemini-3.5-flash-lite")
         self.timeout = timeout_seconds
         self.max_retries = max_retries
         self.serializer = ProviderPayloadSerializer()
         self.answer_guard = HMACAnswerGuard()
         self.fallback_adapter = fallback_adapter or Stage25ControlledAdapter()
+        self.quota_manager = quota_manager
         self.verified_model_id: Optional[str] = None
 
     def discover_and_verify_model(self) -> Tuple[bool, str]:
@@ -62,9 +66,9 @@ class GeminiModelAdapter:
             if resp.status_code == 200:
                 data = resp.json()
                 models = [m.get("name", "").replace("models/", "") for m in data.get("models", [])]
-                # Check for match (direct or prefix)
+                # Check for direct match or substring
                 for m in models:
-                    if self.configured_model in m or m == self.configured_model:
+                    if m == self.configured_model or self.configured_model in m:
                         self.verified_model_id = m
                         return True, m
                 return False, f"Model '{self.configured_model}' not found in available models: {models[:5]}"
@@ -94,7 +98,14 @@ class GeminiModelAdapter:
         except Exception as e:
             return False, f"Smoke test exception: {str(e)}"
 
-    def generate(self, request: ModelGenerationRequest, protected_answers: Optional[List[str]] = None) -> ModelGenerationResult:
+    def generate(
+        self,
+        request: ModelGenerationRequest,
+        protected_answers: Optional[List[str]] = None,
+        run_id: Optional[str] = None,
+        dataset_split: str = "validation",
+        source_group_id: Optional[str] = None,
+    ) -> ModelGenerationResult:
         start_time = time.perf_counter()
 
         # 1. Pre-dispatch collision check: exact_preservation vs protected answers
@@ -119,6 +130,17 @@ class GeminiModelAdapter:
                 disposition=NativeValidationDisposition.FALLBACK_GENERATED,
             )
 
+        # 3. Quota check
+        if self.quota_manager:
+            can_go, q_msg = self.quota_manager.can_proceed()
+            if not can_go:
+                return self._trigger_fallback(
+                    request,
+                    reason=f"quota_exhausted: {q_msg}",
+                    disposition=NativeValidationDisposition.PROVIDER_UNAVAILABLE,
+                )
+            self.quota_manager.wait_for_slot()
+
         model_name = self.verified_model_id or self.configured_model
         prompt = PromptRegistry.get_prompt(
             text=request.text,
@@ -126,10 +148,10 @@ class GeminiModelAdapter:
             exact_preservation=request.protected_elements.exact_preservation
         )
 
-        # 3. Allowlist payload serialization
+        # 4. Allowlist payload serialization
         serialized_payload = self.serializer.serialize(request, prompt_instructions=prompt)
 
-        # 4. Dispatch with exponential retry
+        # 5. Dispatch with exponential retry
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={self.api_key}"
         headers = {"Content-Type": "application/json"}
         api_payload = {
@@ -140,14 +162,17 @@ class GeminiModelAdapter:
             }
         }
 
-        backoff_sec = 1.0
+        backoff_sec = 2.0
         attempts = 0
         candidate_text = ""
+        last_status_code = 0
+        last_error_text = ""
 
         for attempt in range(self.max_retries):
             attempts += 1
             try:
                 resp = requests.post(url, headers=headers, json=api_payload, timeout=self.timeout)
+                last_status_code = resp.status_code
                 if resp.status_code == 200:
                     data = resp.json()
                     candidates = data.get("candidates", [])
@@ -157,16 +182,33 @@ class GeminiModelAdapter:
                             candidate_text = parts[0].get("text", "").strip()
                             break
                 elif resp.status_code in (400, 401, 403, 404):
-                    # Non-retryable
+                    last_error_text = resp.text
+                    # Check if 403 is daily quota exhaustion
+                    err_type = GeminiQuotaManager.classify_error(resp.status_code, resp.text)
+                    if err_type == "DAILY_QUOTA_FAILED":
+                        break
                     break
-                elif resp.status_code in (429, 500, 502, 503, 504):
+                elif resp.status_code == 429:
+                    last_error_text = resp.text
+                    err_type = GeminiQuotaManager.classify_error(429, resp.text)
+                    if err_type == "DAILY_QUOTA_FAILED":
+                        # Do not futilely retry daily quota limit
+                        break
+                    # Transient rate limit: sleep and retry
                     if attempt < self.max_retries - 1:
                         retry_after = resp.headers.get("Retry-After")
-                        delay = float(retry_after) if retry_after and retry_after.isdigit() else (backoff_sec + random.uniform(0.1, 0.4))
+                        delay = float(retry_after) if retry_after and retry_after.isdigit() else (backoff_sec + random.uniform(0.5, 1.5))
                         time.sleep(delay)
                         backoff_sec *= 2.0
                         continue
-            except Exception:
+                elif resp.status_code in (500, 502, 503, 504):
+                    last_error_text = resp.text
+                    if attempt < self.max_retries - 1:
+                        time.sleep(backoff_sec)
+                        backoff_sec *= 2.0
+                        continue
+            except Exception as e:
+                last_error_text = str(e)
                 if attempt < self.max_retries - 1:
                     time.sleep(backoff_sec)
                     backoff_sec *= 2.0
@@ -176,7 +218,7 @@ class GeminiModelAdapter:
 
         # If candidate text was successfully received from live provider
         if candidate_text:
-            # 5. Answer Leakage Guard on generated candidate
+            # 6. Answer Leakage Guard on generated candidate
             if protected_answers:
                 is_safe, leaked = self.answer_guard.verify_no_answer_leakage(candidate_text, protected_answers)
                 if not is_safe:
@@ -189,6 +231,24 @@ class GeminiModelAdapter:
             in_tokens = CostTracker.estimate_tokens(prompt)
             out_tokens = CostTracker.estimate_tokens(candidate_text)
             cost = CostTracker.calculate_cost(model_name, in_tokens, out_tokens)
+
+            # Record in quota ledger if available
+            if self.quota_manager and source_group_id:
+                self.quota_manager.record_completed(
+                    request_id=request.request_id,
+                    run_id=run_id or "RUN-LIVE",
+                    dataset_split=dataset_split,
+                    source_group_id=source_group_id,
+                    support_level=request.support_level,
+                    http_status=200,
+                    execution_status="LIVE_SUCCESS",
+                    native_output_received=True,
+                    fallback_used=False,
+                    resolved_model=model_name,
+                    latency_ms=latency_ms,
+                    configuration_hash="cfg_frozen_stage26",
+                    output_text=candidate_text,
+                )
 
             return ModelGenerationResult(
                 request_id=request.request_id,
@@ -213,10 +273,29 @@ class GeminiModelAdapter:
                 prompt_template_version=PromptRegistry.VERSION,
             )
 
-        # Otherwise, live call failed -> fallback to Stage 25
+        # Otherwise, live call failed -> record in ledger and fallback to Stage 25
+        err_cat = GeminiQuotaManager.classify_error(last_status_code, last_error_text)
+        if self.quota_manager and source_group_id:
+            self.quota_manager.record_completed(
+                request_id=request.request_id,
+                run_id=run_id or "RUN-FAIL",
+                dataset_split=dataset_split,
+                source_group_id=source_group_id,
+                support_level=request.support_level,
+                http_status=last_status_code or 500,
+                execution_status=err_cat,
+                native_output_received=False,
+                fallback_used=True,
+                resolved_model=model_name,
+                latency_ms=latency_ms,
+                configuration_hash="cfg_frozen_stage26",
+                output_text="",
+                error_message=last_error_text[:200],
+            )
+
         return self._trigger_fallback(
             request,
-            reason="live_provider_exhausted_or_failed",
+            reason=f"live_provider_exhausted_or_failed (HTTP {last_status_code}: {err_cat})",
             disposition=NativeValidationDisposition.PROVIDER_UNAVAILABLE,
             attempts=attempts,
         )
