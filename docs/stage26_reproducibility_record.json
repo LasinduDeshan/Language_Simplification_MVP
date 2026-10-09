@@ -1,6 +1,6 @@
 {
   "stage": "Stage 26 \u2014 Pretrained Model / LLM-Based English Simplification",
-  "timestamp": "2026-10-09T08:19:07.558769+00:00",
+  "timestamp": "2026-10-09T11:52:39.035254+00:00",
   "status_summary": {
     "implementation": "Complete",
     "attribution_and_accounting": "Substantially corrected & verified",
@@ -133,7 +133,7 @@
     },
     "stage26_internal_evaluation_report.md": {
       "path": "docs/stage26_internal_evaluation_report.md",
-      "sha256": "145ad20671ddda53a1f48d8c5f7c2496641c2753b7a53bd77bc9f047dcd508a2",
+      "sha256": "8df7eb35cbf09bdd2f6828f605bef2de5393f5dc239cd5809d27f1e2ff9c14cc",
       "status": "verified"
     },
     "stage26_asset_evaluation_report.md": {
