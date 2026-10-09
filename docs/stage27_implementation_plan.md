@@ -21,14 +21,19 @@ The objective of Stage 27 is to **produce an expert-reviewed and adjudicated ref
 2. **Utilize grammatically correct, natural, and child-friendly English** appropriate for children aged 4–8;
 3. **Comply with intended support-level progressions** (Mild, Moderate, Strong);
 4. **Resolve all 326 historically flagged task-reformulation cases** into a defensible 6-class taxonomy;
-5. **Establish human expert evidence and provisional approvals** for Release 0.3.0, distinguishing historical locked references from reviewed reference sets.
+5. **Establish human expert evidence and provisional approvals** for Release 0.3.0, distinguishing historical locked references from reviewed reference sets. Expert review increases empirical confidence, but is never described as universal certification.
 
 > [!IMPORTANT]
 > **GOVERNANCE & SAFETY BOUNDARIES:**
 > - **Dataset Validation Only:** Stage 27 validates educational text content. It does **not** diagnose Developmental Language Disorder (DLD), validate Component 1 screening processes, or authorize unsupervised child delivery.
 > - **Child-Delivery Invariant:** Every record produced or reviewed in Stage 27 retains `approved_for_unsupervised_child_delivery: false` and `requires_professional_monitoring: true`.
 > - **Release 0.2.0 Immutability:** Release `0.2.0` files remain byte-for-byte immutable. All approvals, taxonomy classifications, and corrections will be published in a new governed release: `0.3.0`.
-> - **Dual Benchmark Integrity:** Historical locked benchmark records (`historical_locked_release_0.2.0`) and expert-reviewed reference records (`expert_reviewed_reference_release_0.3.0`) remain explicitly separated. Stage 28 will report results against both separately.
+> - **Historical Locked Benchmark Invariant:** Experts may review historical locked-test records, but revisions must be stored as new versioned records. Release `0.2.0` records, references, IDs, hashes, and previous Stage 24–26 benchmark results must never be overwritten.
+> - **Dual Benchmark Integrity:** The two benchmark tracks remain strictly decoupled:
+>   | Benchmark Track | Governing Dataset | Purpose |
+>   | :--- | :--- | :--- |
+>   | **Historical Locked Benchmark** | Release `0.2.0` (`historical_locked_release_0.2.0`) | Reproduce Stages 24–26 results byte-for-byte |
+>   | **Expert-Reviewed Benchmark** | Release `0.3.0` (`expert_reviewed_reference_release_0.3.0`) | Primary Stage 28 expert-aligned comparison |
 
 ---
 
@@ -53,7 +58,7 @@ The objective of Stage 27 is to **produce an expert-reviewed and adjudicated ref
 | **Internal Locked Evaluation Items** | 135 | Preserved byte-for-byte; split membership, IDs, and SHA-256 hashes immutable | `historical_locked_release_0.2.0` |
 
 ### 2.3 Separate Accounting Conservation Equations
-To prevent conflating disparate review units, separate accounting equations are enforced for each dataset layer:
+To prevent conflating disparate review units or mixing review routes with final dispositions, separate accounting equations are enforced for each dataset layer:
 
 1. **Simplification Pairs Accounting:**
    $$\text{Assigned}_{\text{pairs}} = \text{Reviewed}_{\text{pairs}} + \text{Withdrawn}_{\text{pairs}} + \text{Unavailable}_{\text{pairs}} + \text{Unaccounted}_{\text{pairs}} = 1,110$$
@@ -67,14 +72,13 @@ To prevent conflating disparate review units, separate accounting equations are 
    $$\text{Assigned}_{\text{act}} = \text{Reviewed}_{\text{act}} + \text{Withdrawn}_{\text{act}} + \text{Unavailable}_{\text{act}} + \text{Unaccounted}_{\text{act}} = 192$$
    *Mandatory Closeout Requirement:* $\text{Unaccounted}_{\text{act}} = 0$.
 
-4. **Reformulation Queue Resolution:**
-   $$326 = C + A + R + U$$
-   where:
-   - $C$ = Consensus resolved by two independent reviewers without conflict;
-   - $A$ = Adjudicated disagreement resolved by the lead adjudicator;
-   - $R$ = Rejected as unusable / invalid;
-   - $U$ = Unresolved.
-   *Mandatory Closeout Requirement:* $U = 0$.
+4. **Reformulation Queue Resolution (Two Decoupled Equations):**
+   - **Review-Route Accounting:**
+     $$326 = \text{consensus\_resolved} + \text{adjudicated} + \text{unresolved}$$
+   - **Final-Disposition Accounting:**
+     $$326 = \text{retained\_text\_simplification} + \text{reclassified\_auxiliary} + \text{rejected} + \text{unresolved}$$
+   - *Mandatory Closeout Requirement:*
+     $$\text{unresolved} = 0, \quad \text{unaccounted} = 0$$
 
 5. **Withdrawn, Unavailable & Reassignment Policies:**
    - Any record marked `withdrawn` or `unavailable` must have a documented justification logged (e.g., source corruption, licensing exclusion, reviewer health event).
@@ -102,7 +106,7 @@ To maintain ethical and professional integrity, specific review decisions are re
 | **Meaning Preservation & Propositional Accuracy** | Linguist, teacher, or trained linguistic reviewer |
 | **Age Appropriateness (Ages 4–8)** | Early-childhood educator or developmental specialist |
 | **DLD-Related Accessibility & Language Scaffolding** | Qualified speech-language or domain professional |
-| **Supervised Child Delivery Recommendation** | Authorized professional under the ethics protocol |
+| **Supervised Child Delivery Review Recommendation** | Authorized professional under the ethics protocol |
 
 *Unsupervised child delivery cannot be authorized by any reviewer in Stage 27.*
 
@@ -160,10 +164,10 @@ flowchart TD
 
 ### Policy for the 326 Reformulation Records
 1. All 326 flagged records receive two independent blinded taxonomy reviews.
-2. If both reviewers assign the identical taxonomy class and report no critical failure conflicts, the consensus classification is accepted ($C$).
-3. If the reviewers assign different taxonomy classes or report conflicting critical checks, the item is routed to the Adjudication Queue ($A$).
+2. If both reviewers assign the identical taxonomy class and report no critical failure conflicts, the consensus classification is accepted ($\text{consensus\_resolved}$).
+3. If the reviewers assign different taxonomy classes or report conflicting critical checks, the item is routed to the Adjudication Queue ($\text{adjudicated}$).
 4. The adjudicator will also audit a random 10% sample of consensus items to verify taxonomy calibration.
-5. All 326 records must achieve resolved status ($U = 0$).
+5. All 326 records must achieve resolved status ($\text{unresolved} = 0, \text{unaccounted} = 0$).
 
 ---
 
@@ -232,8 +236,8 @@ requires_expert_recheck             # Material revision requires secondary exper
 
 #### Group 3: Final Authorization Decisions
 ```text
-approved_for_research_evaluation    # Certified for Stage 28 research benchmarking
-approved_for_supervised_child_delivery # Conditional authorization under professional monitoring
+eligible_for_stage28_evaluation     # Eligible for Stage 28 research benchmarking (expert_review_status: "approved")
+recommended_for_supervised_child_delivery_review # Authorizes consideration within a supervised study only; does not provide ethics approval, parental consent, safeguarding approval, or production deployment
 approved_for_unsupervised_child_delivery # UNIVERSAL INVARIANT: ALWAYS FALSE in Stage 27
 ```
 
@@ -246,7 +250,7 @@ Final disposition is assigned according to strict hierarchical precedence:
 5. Approved with Revision (`approved_with_revision`)
 6. Expert Approved (`expert_approved`)
 
-*(Note: `insufficient_agreement` is an evaluation-level metric and is not used as a record-level quality disposition. Individual records with reviewer divergence are flagged as `requires_adjudication` until resolved).*
+*(Note: `insufficient_agreement` is an evaluation-level diagnostic metric and is not used as a record-level quality disposition. Individual records with reviewer divergence are flagged as `requires_adjudication` until resolved).*
 
 ---
 
@@ -284,7 +288,7 @@ The 378 English lexicon entries are evaluated across 12 linguistic criteria:
 8. **Example Sentence:** Exemplifies meaning in an everyday child context.
 9. **Circular Definition Check:** Definition does not use headword or derivational cognate.
 10. **Sense Mismatch Check:** Replacement matches exact semantic context of target sentences.
-11. **Simplicity Verification:** Replacement has verified lower developmental acquisition age.
+11. **Simplicity Verification:** Supported by cited developmental norms where available; otherwise recorded as expert judgement requiring provenance.
 12. **Coverage Gap Flagging:** Identification of missing child synonyms.
 
 **Lexicon Dispositions:** `approved`, `approved_with_revision`, `wrong_word_sense`, `replacement_not_simpler`, `age_tier_incorrect`, `definition_not_child_friendly`, `circular_definition`, `rejected`.
@@ -395,13 +399,23 @@ backend/app/datasets/expert_review/
 
 ---
 
-## 12. Indicative Execution Schedule
+## 12. Indicative Execution Schedule & Throughput-Dependent Planning
 
-Reviewing 1,110 simplification pairs (dual-reviewed), 378 lexicon entries, 192 activities, disagreements, and revisions requires a realistic, phased timeline. Final duration depends on expert availability and empirical pilot timing:
+Reviewing:
+- **1,110 simplification pairs** (dual review = 2,220 reviews);
+- **378 lexicon entries** (dual review = 756 reviews);
+- **192 adaptation activities** (dual review = 384 reviews);
+totals **1,680 review units** and approximately **3,360 independent review submissions**, prior to adjudication and revisions. A fixed short full-review period is therefore not assumed.
+
+### Pilot-Derived Schedule Formulation
+The full review schedule is dynamically derived based on empirical pilot metrics:
+$$\text{estimated\_review\_duration} = \frac{\text{total\_required\_reviews}}{\text{measured\_accepted\_reviews\_per\_reviewer\_per\_day} \times \text{available\_reviewers}}$$
+
+The final operational schedule will be frozen only after measuring empirical pilot completion velocity and disagreement rates.
 
 ```mermaid
 gantt
-    title Indicative Stage 27 Schedule
+    title Indicative Stage 27 Schedule (Throughput Dependent)
     dateFormat  YYYY-MM-DD
     section Preparation
     Protocol and reviewer onboarding    :2026-10-11, 14d
@@ -466,7 +480,7 @@ docs/
 ## 15. Stage 27 to Stage 28 Handover Protocol
 
 Upon completion of Stage 27, Stage 28 (English Model and Simplification Comparison) will receive:
-1. **The Certified Text-Simplification Subset:** Exactly those records classified as `text_simplification` with disposition `expert_approved` or `approved_with_revision`.
+1. **The Expert-Reviewed and Adjudicated Text-Simplification Subset:** Exactly those records classified as `text_simplification` with disposition `expert_approved` or `approved_with_revision`.
 2. **Multi-Dimensional Expert Rating Benchmarks:** Ground-truth human ratings for meaning preservation, fluency, simplicity, and age appropriateness to correlate against automated SARI/BLEU/FKGL metrics.
 3. **Partitioned Auxiliary Datasets:** Reclassified instructions, activity formats, questions, and response adaptations cleanly partitioned into auxiliary governed corpora.
 4. **Adjudication Decisions & Disagreement Logs:** Providing transparency into linguistic edge cases.
@@ -484,7 +498,7 @@ Stage 27 is complete only when all of the following criteria are formally verifi
 - [ ] Pilot review completed
 - [ ] Rubric version frozen
 - [ ] All selected records mutually accounted for
-- [ ] All 326 flagged reformulations resolved ($U = 0$)
+- [ ] All 326 flagged reformulations resolved ($\text{unresolved} = 0, \text{unaccounted} = 0$)
 - [ ] Agreement statistics calculated using the appropriate design
 - [ ] Required disagreements adjudicated
 - [ ] Critical failures override numerical averages
