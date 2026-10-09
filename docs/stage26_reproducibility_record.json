@@ -1,19 +1,25 @@
 {
   "stage": "Stage 26 \u2014 Pretrained Model / LLM-Based English Simplification",
-  "timestamp": "2026-10-07T17:58:44.104802+00:00",
+  "timestamp": "2026-10-09T08:19:07.558769+00:00",
   "status_summary": {
     "implementation": "Complete",
-    "attribution_and_accounting": "Substantially corrected",
+    "attribution_and_accounting": "Substantially corrected & verified",
     "validation_evaluation": "Complete",
-    "official_gemini_locked_evaluation": "Not complete",
-    "current_gemini_locked_metrics": "Partial diagnostic results from an invalid quota-interrupted execution",
-    "stage_26_formal_completion": "Pending one complete 135-item run (RUN-GEMINI-LOCKED-OFFICIAL-02)"
+    "official_gemini_locked_evaluation": "Complete (RUN-GEMINI-LOCKED-OFFICIAL-03 certified VALID_COMPLETE_NATIVE_EXECUTION)",
+    "current_gemini_locked_metrics": "Certified official locked-benchmark results (135/135 full set, 39/39 clean subset)",
+    "stage_26_formal_completion": "Complete (certified under stage-26-complete-v4)"
   },
   "git": {
     "branch": "feature/stage26-v2",
     "start_tag": "stage-26-v2-start",
     "prerequisite_commit": "6b785502b860d4e93d2d31b86bd653c33a210ac9",
-    "working_tag": "stage-26-complete-v3"
+    "working_tag": "stage-26-complete-v4",
+    "historical_tags_preserved": [
+      "stage-26-start",
+      "stage-26-complete",
+      "stage-26-complete-v2",
+      "stage-26-complete-v3"
+    ]
   },
   "resolved_models": {
     "gemini_api_model": "gemini-3.5-flash-lite",
@@ -24,7 +30,7 @@
     "asset_status": "NOT_EXECUTED"
   },
   "locked_run_audit": {
-    "invalid_run_preserved": {
+    "run_01_invalid": {
       "run_id": "RUN-GEMINI-LOCKED-OFFICIAL-01",
       "expected_items": 135,
       "completed_native_outputs": 84,
@@ -33,44 +39,41 @@
       "not_attempted": 0,
       "duplicate_items": 0,
       "configuration_hash": "8db764ac5f19c27b1fa31543b1e1f53884629692b2e1f6243ab759eee5003779",
-      "post_lock_tuning": false,
-      "run_validity_status": "INVALID_EXECUTION \u2014 PROVIDER_QUOTA_EXCEEDED",
-      "metric_denominators": {
-        "full_locked_set": {
-          "expected": 135,
-          "native_evaluated": 84,
-          "denominator": 84
-        },
-        "clean_subset": {
-          "expected": 39,
-          "native_evaluated": 29,
-          "denominator": 29
-        }
-      },
-      "hybrid_fallback_disaggregation": {
-        "full_locked_set": {
-          "total_fallbacks": 53,
-          "quota_fallbacks": 51,
-          "safety_gate_fallbacks": 2
-        },
-        "clean_subset": {
-          "total_fallbacks": 10,
-          "quota_fallbacks": 10,
-          "safety_gate_fallbacks": 0
-        }
-      }
+      "run_validity_status": "INVALID_EXECUTION \u2014 PROVIDER_QUOTA_EXCEEDED"
     },
-    "pending_official_run": {
+    "run_02_invalid": {
       "run_id": "RUN-GEMINI-LOCKED-OFFICIAL-02",
       "expected_items": 135,
-      "target_native_outputs": 135,
-      "target_quota_failed": 0,
-      "target_other_failed": 0,
-      "target_not_attempted": 0,
-      "target_duplicate_items": 0,
+      "completed_native_outputs": 132,
+      "quota_failed": 0,
+      "other_failed": 3,
+      "not_attempted": 0,
+      "duplicate_items": 0,
+      "clean_subset_completed_native": 39,
       "configuration_hash": "8db764ac5f19c27b1fa31543b1e1f53884629692b2e1f6243ab759eee5003779",
+      "run_validity_status": "INVALID_EXECUTION \u2014 NETWORK_OR_PROVIDER_FAILURE"
+    },
+    "run_03_official_valid": {
+      "run_id": "RUN-GEMINI-LOCKED-OFFICIAL-03",
+      "expected_items": 135,
+      "logical_evaluation_items": 135,
+      "provider_http_attempts": 135,
+      "completed_native_outputs": 135,
+      "quota_failed": 0,
+      "other_failed": 0,
+      "not_attempted": 0,
+      "duplicate_items": 0,
+      "fallback_outputs": 0,
+      "clean_subset_expected": 39,
+      "clean_subset_completed_native": 39,
+      "configuration_hash": "8db764ac5f19c27b1fa31543b1e1f53884629692b2e1f6243ab759eee5003779",
+      "prompt_registry_hash": "a5ae1df8457684181c117695d3cd6885a4b9d4102ab837ba0f236348a4226a85",
+      "dataset_hash": "61bbc2b26c943dcbbc630b4af6c7598a2cebb1025e272a96a7bcc510f4d066d3",
+      "clean_subset_manifest_hash": "4a9e0f8096ca914303b94cf93a49fad7de2feec80b1a24c6fc734586051c1a8c",
+      "operational_retry_policy_version": "1.1.0",
+      "maximum_attempts_per_item": 4,
       "post_lock_tuning": false,
-      "scheduled_dispatch": "Immediate dispatch after midnight Pacific Time quota reset (~07:00 UTC / 12:30 PM Sri Lanka time)"
+      "run_validity_status": "VALID_COMPLETE_NATIVE_EXECUTION"
     }
   },
   "project_level_accounting": {
@@ -120,12 +123,17 @@
     },
     "stage26_gemini_execution_audit.md": {
       "path": "docs/stage26_gemini_execution_audit.md",
-      "sha256": "53002dc04193a7ca22070fe605379622305ac1573e282a6d213afc49abea9b1f",
+      "sha256": "b26837dab5542688d700881a39fd59617dc786d1b38c8d191aa765ad8792efd3",
+      "status": "verified"
+    },
+    "stage26_runner_integrity_audit.md": {
+      "path": "docs/stage26_runner_integrity_audit.md",
+      "sha256": "86216ad0fc1c7a0e1c05f559f37b45031ee6c3c68cd4b5b7dff9a5dc04b1f8d4",
       "status": "verified"
     },
     "stage26_internal_evaluation_report.md": {
       "path": "docs/stage26_internal_evaluation_report.md",
-      "sha256": "68cdd6cebaa7eb9d5065c752dc6a804c4ab9a222b44640a94596638a229fb47f",
+      "sha256": "145ad20671ddda53a1f48d8c5f7c2496641c2753b7a53bd77bc9f047dcd508a2",
       "status": "verified"
     },
     "stage26_asset_evaluation_report.md": {
@@ -135,7 +143,7 @@
     },
     "stage26_model_comparison.csv": {
       "path": "docs/stage26_model_comparison.csv",
-      "sha256": "1805b0435a929241db3ed6a818fc20b1fef6e51317a6131cd384970b5791abe5",
+      "sha256": "8f8191230938246b7036a52c538dfffe035dfa31b7e32bb7dbf4c28a772fa79d",
       "status": "verified"
     },
     "stage26_error_analysis.md": {
@@ -145,7 +153,7 @@
     },
     "stage26_accounting_summary.md": {
       "path": "docs/stage26_accounting_summary.md",
-      "sha256": "1be01200947927c7cf5bdfdc24053889adf8dc9b497737053769cbaecea5d1de",
+      "sha256": "1ed459193841d40380835b571122fc3fecc639c1396ca695407b2e82e508144d",
       "status": "verified"
     }
   }

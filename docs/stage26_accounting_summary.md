@@ -1,7 +1,7 @@
 # Stage 26 Accounting & Category Reconciliation Summary
 
 **Stage:** Stage 26 — Pretrained Model / LLM-Based English Simplification  
-**Date:** 2026-10-07 17:58:30 UTC  
+**Date:** 2026-10-09 08:12:05 UTC  
 **Overall Status:** `ALL RECONCILED (100% MUTUALLY EXCLUSIVE)`  
 
 ---
@@ -26,8 +26,10 @@
 | `val_mbart-large-50-zero-shot` | 135 | 0 | 0 | 135 | 0 | 0 | 135 | **RECONCILED** |
 | `val_gemini-3.5-flash-lite-prompted` | 135 | 116 | 0 | 3 | 0 | 16 | 135 | **RECONCILED** |
 | `val_hybrid-gemini-stage25-validated` | 135 | 111 | 8 | 16 | 0 | 0 | 135 | **RECONCILED** |
-| `full_historical_locked_set_gemini-3.5-flash-lite-prompted` | 135 | 84 | 0 | 51 | 0 | 0 | 135 | **RECONCILED** |
-| `full_historical_locked_set_hybrid-gemini-stage25-validated` | 135 | 78 | 4 | 53 | 0 | 0 | 135 | **RECONCILED** |
+| `full_historical_locked_set_gemini-3.5-flash-lite-prompted` | 135 | 135 | 0 | 0 | 0 | 0 | 135 | **RECONCILED** |
+| `full_historical_locked_set_hybrid-gemini-stage25-validated` | 135 | 124 | 7 | 4 | 0 | 0 | 135 | **RECONCILED** |
+| `clean_text_simplification_subset_gemini-3.5-flash-lite-prompted` | 39 | 39 | 0 | 0 | 0 | 0 | 39 | **RECONCILED** |
+| `clean_text_simplification_subset_hybrid-gemini-stage25-validated` | 39 | 33 | 0 | 6 | 0 | 0 | 39 | **RECONCILED** |
 
 ---
 

@@ -14,10 +14,9 @@ The earlier aggregate snapshot of $270 = 206\text{ live} + 24\text{ quota failed
 | Execution Run | Run Identifier | Expected Logical Items | Provider Attempts | Live Success | Quota Failed (429) | Other Failed | Attributed Fallback | Execution Status |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
 | **Validation Run** | `RUN-VAL-GEMINI-20261007` | 135 | 154 | **116** | 19 | 0 | 19 | **Valid (Development Validation)** |
-| **Previous Locked Run** | `RUN-GEMINI-LOCKED-HISTORICAL-01` | 135 | 142 | **0** | 135 | 0 | 135 | **INVALID_EXECUTION — PROVIDER_QUOTA_EXCEEDED** |
-| **Interrupted Locked Run** | `RUN-GEMINI-LOCKED-OFFICIAL-01` | 135 | 135 | **84** | 51 | 0 | 51 | **INVALID_EXECUTION — PROVIDER_QUOTA_EXCEEDED** |
-| **Official Locked Run** | `RUN-GEMINI-LOCKED-OFFICIAL-02` | 135 | *135 expected* | *135 expected* | *0 expected* | *0 expected* | *hybrid only* | **Pending daily quota reset** |
-| **TOTALS IN GOVERNED LEDGERS** | *All Audited Dispatches* | **405** | **431** | **200** | **205** | **0** | **205** | *100% Mathematically Reconciled* |
+| **Interrupted Locked Run 01** | `RUN-GEMINI-LOCKED-OFFICIAL-01` | 135 | 135 | **84** | 51 | 0 | 51 | **INVALID_EXECUTION — PROVIDER_QUOTA_EXCEEDED** |
+| **Interrupted Locked Run 02** | `RUN-GEMINI-LOCKED-OFFICIAL-02` | 135 | 135 | **132** | 0 | 3 | 3 | **INVALID_EXECUTION — NETWORK_OR_PROVIDER_FAILURE** (Clean subset: 39/39) |
+| **Official Locked Run 03** | `RUN-GEMINI-LOCKED-OFFICIAL-03` | 135 | 135 | **135** | 0 | 0 | 0 | **VALID_COMPLETE_NATIVE_EXECUTION** (Official Locked Benchmark) |
 
 ---
 

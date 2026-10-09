@@ -1,0 +1,8 @@
+{
+  "event_type": "preflight",
+  "excluded_from_benchmark": true,
+  "model": "gemini-3.5-flash-lite",
+  "http_status": 200,
+  "timestamp": "2026-10-08T18:09:20.519644+00:00",
+  "notes": "Minimal 1-token pre-flight probe confirmed daily quota has reset and provider is reachable. Request is formally excluded from benchmark metrics."
+}

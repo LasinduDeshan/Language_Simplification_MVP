@@ -1,7 +1,7 @@
 # Stage 26 Pretrained & LLM Model Evaluation Report (Reconciled)
 
 **Stage:** Stage 26 — Pretrained Model / LLM-Based English Simplification  
-**Date:** 2026-10-07 17:50:23 UTC  
+**Date:** 2026-10-09 06:54:37 UTC  
 **Target Group:** Ages 4–8 Years (English Language)  
 **Governance Invariant:** All model outputs remain `validation_status: "draft"` and `approved_for_child_delivery: false`.  
 

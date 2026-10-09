@@ -141,6 +141,9 @@ class GeminiQuotaManager:
         configuration_hash: str,
         output_text: str,
         error_message: Optional[str] = None,
+        finish_reason: Optional[str] = None,
+        attempt_count: int = 1,
+        token_metadata: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         """
         Persists a single request result into ledger.
@@ -162,6 +165,9 @@ class GeminiQuotaManager:
             "output_hash": output_hash,
             "output_text": output_text,
             "error_message": error_message,
+            "finish_reason": finish_reason or ("STOP" if native_output_received else None),
+            "attempt_count": attempt_count,
+            "token_metadata": token_metadata or {},
             "timestamp": datetime.now(timezone.utc).isoformat(),
         }
 

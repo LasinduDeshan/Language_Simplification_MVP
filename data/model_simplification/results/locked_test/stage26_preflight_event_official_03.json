@@ -1,0 +1,9 @@
+{
+  "event_type": "preflight",
+  "run_id": "RUN-GEMINI-LOCKED-OFFICIAL-03",
+  "excluded_from_benchmark": true,
+  "model": "gemini-3.5-flash-lite",
+  "http_status": 200,
+  "timestamp": "2026-10-09T06:41:04.821600+00:00",
+  "notes": "Minimal 1-token pre-flight probe confirmed daily quota is active and reachable. Excluded from benchmark metrics."
+}

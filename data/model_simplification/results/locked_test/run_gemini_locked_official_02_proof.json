@@ -1,0 +1,12 @@
+{
+  "run_id": "RUN-GEMINI-LOCKED-OFFICIAL-02",
+  "expected_items": 135,
+  "completed_native_outputs": 132,
+  "quota_failed": 3,
+  "other_failed": 0,
+  "not_attempted": 0,
+  "duplicate_items": 0,
+  "configuration_hash": "8db764ac5f19c27b1fa31543b1e1f53884629692b2e1f6243ab759eee5003779",
+  "post_lock_tuning": false,
+  "run_validity_status": "INVALID_EXECUTION \u2014 PROVIDER_QUOTA_EXCEEDED"
+}

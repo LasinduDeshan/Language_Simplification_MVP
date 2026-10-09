@@ -35,8 +35,8 @@ class GeminiModelAdapter:
         self,
         api_key: Optional[str] = None,
         model_id: Optional[str] = None,
-        timeout_seconds: int = 30,
-        max_retries: int = 3,
+        timeout_seconds: Any = (30.0, 60.0),
+        max_retries: int = 4,
         fallback_adapter: Optional[Stage25ControlledAdapter] = None,
         quota_manager: Optional[GeminiQuotaManager] = None,
     ):
@@ -162,11 +162,12 @@ class GeminiModelAdapter:
             }
         }
 
-        backoff_sec = 2.0
+        backoff_delays = [2.0, 4.0, 8.0, 16.0]
         attempts = 0
         candidate_text = ""
         last_status_code = 0
         last_error_text = ""
+        finish_reason = ""
 
         for attempt in range(self.max_retries):
             attempts += 1
@@ -177,13 +178,17 @@ class GeminiModelAdapter:
                     data = resp.json()
                     candidates = data.get("candidates", [])
                     if candidates:
-                        parts = candidates[0].get("content", {}).get("parts", [])
-                        if parts:
-                            candidate_text = parts[0].get("text", "").strip()
-                            break
+                        cand = candidates[0]
+                        finish_reason = cand.get("finishReason", "STOP")
+                        if finish_reason not in {"SAFETY", "RECITATION", "BLOCKED"}:
+                            parts = cand.get("content", {}).get("parts", [])
+                            if parts:
+                                txt = parts[0].get("text", "").strip()
+                                if txt:
+                                    candidate_text = txt
+                                    break
                 elif resp.status_code in (400, 401, 403, 404):
                     last_error_text = resp.text
-                    # Check if 403 is daily quota exhaustion
                     err_type = GeminiQuotaManager.classify_error(resp.status_code, resp.text)
                     if err_type == "DAILY_QUOTA_FAILED":
                         break
@@ -192,26 +197,25 @@ class GeminiModelAdapter:
                     last_error_text = resp.text
                     err_type = GeminiQuotaManager.classify_error(429, resp.text)
                     if err_type == "DAILY_QUOTA_FAILED":
-                        # Do not futilely retry daily quota limit
+                        # Daily quota exhausted: stop immediately
                         break
-                    # Transient rate limit: sleep and retry
+                    # Transient rate limit: backoff delay with jitter
                     if attempt < self.max_retries - 1:
                         retry_after = resp.headers.get("Retry-After")
-                        delay = float(retry_after) if retry_after and retry_after.isdigit() else (backoff_sec + random.uniform(0.5, 1.5))
+                        delay = float(retry_after) if retry_after and retry_after.isdigit() else (backoff_delays[min(attempt, len(backoff_delays) - 1)] + random.uniform(0.1, 0.5))
                         time.sleep(delay)
-                        backoff_sec *= 2.0
                         continue
-                elif resp.status_code in (500, 502, 503, 504):
+                elif resp.status_code in (408, 500, 502, 503, 504):
                     last_error_text = resp.text
                     if attempt < self.max_retries - 1:
-                        time.sleep(backoff_sec)
-                        backoff_sec *= 2.0
+                        delay = backoff_delays[min(attempt, len(backoff_delays) - 1)] + random.uniform(0.1, 0.5)
+                        time.sleep(delay)
                         continue
-            except Exception as e:
+            except (requests.exceptions.ConnectionError, requests.exceptions.Timeout, requests.exceptions.RequestException) as e:
                 last_error_text = str(e)
                 if attempt < self.max_retries - 1:
-                    time.sleep(backoff_sec)
-                    backoff_sec *= 2.0
+                    delay = backoff_delays[min(attempt, len(backoff_delays) - 1)] + random.uniform(0.1, 0.5)
+                    time.sleep(delay)
                     continue
 
         latency_ms = (time.perf_counter() - start_time) * 1000.0
@@ -246,8 +250,11 @@ class GeminiModelAdapter:
                     fallback_used=False,
                     resolved_model=model_name,
                     latency_ms=latency_ms,
-                    configuration_hash="cfg_frozen_stage26",
+                    configuration_hash="8db764ac5f19c27b1fa31543b1e1f53884629692b2e1f6243ab759eee5003779",
                     output_text=candidate_text,
+                    finish_reason=finish_reason or "STOP",
+                    attempt_count=attempts,
+                    token_metadata={"input_tokens": in_tokens, "output_tokens": out_tokens},
                 )
 
             return ModelGenerationResult(
@@ -288,9 +295,12 @@ class GeminiModelAdapter:
                 fallback_used=True,
                 resolved_model=model_name,
                 latency_ms=latency_ms,
-                configuration_hash="cfg_frozen_stage26",
+                configuration_hash="8db764ac5f19c27b1fa31543b1e1f53884629692b2e1f6243ab759eee5003779",
                 output_text="",
                 error_message=last_error_text[:200],
+                finish_reason="FAILED",
+                attempt_count=attempts,
+                token_metadata={},
             )
 
         return self._trigger_fallback(
