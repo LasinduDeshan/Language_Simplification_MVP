@@ -49,10 +49,12 @@ async def global_exception_handler(request: Request, exc: Exception):
     )
 
 from app.api.v1.endpoints.quality import router as quality_router
+from app.api.v1.endpoints.expert_review import router as expert_review_router
 
 # Register routes
 app.include_router(router)
 app.include_router(quality_router, prefix="/api/v1")
+app.include_router(expert_review_router, prefix="/api/v1")
 
 @app.on_event("startup")
 def startup_event():
