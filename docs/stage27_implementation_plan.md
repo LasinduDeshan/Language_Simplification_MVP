@@ -80,7 +80,15 @@ To prevent conflating disparate review units or mixing review routes with final 
    - *Mandatory Closeout Requirement:*
      $$\text{unresolved} = 0, \quad \text{unaccounted} = 0$$
 
-5. **Withdrawn, Unavailable & Reassignment Policies:**
+5. **Review-Submission Accounting:**
+   Expected independent review submissions across all assigned units (dual blinded review):
+   $$(1,110 \times 2) + (378 \times 2) + (192 \times 2) = 2,220 + 756 + 384 = 3,360$$
+   The submission ledger enforces:
+   $$3,360 = \text{completed\_submissions} + \text{revoked\_incomplete\_submissions} + \text{pending\_reassigned\_submissions} + \text{unaccounted\_submissions}$$
+   *Mandatory Closeout Requirements:*
+   $$\text{pending\_reassigned\_submissions} = 0, \quad \text{unaccounted\_submissions} = 0$$
+
+6. **Withdrawn, Unavailable & Reassignment Policies:**
    - Any record marked `withdrawn` or `unavailable` must have a documented justification logged (e.g., source corruption, licensing exclusion, reviewer health event).
    - If a reviewer becomes unavailable during an incomplete batch, incomplete items are formally revoked and reassigned to a qualified replacement reviewer, with all handoffs logged in audit history.
 
@@ -314,14 +322,25 @@ Agreement statistics are calculated according to formal study design criteria ra
 
 | Evaluation Dimension | Data Type | Statistical Method | Predefined Project Target | Design Criteria & Assumptions |
 | :--- | :---: | :---: | :---: | :--- |
-| **Critical Binary Checks** | Binary (0/1) | Cohen's Kappa ($\kappa$) | $\kappa \ge 0.75$ | Two raters per item; nominal binary agreement |
+| **Critical Binary Checks** | Binary (0/1) | Cohen's Kappa ($\kappa$) | $\kappa \ge 0.75$ | Two raters per item; nominal binary agreement within same pair |
 | **Taxonomy Classification** | Nominal (6 classes) | Unweighted Cohen's $\kappa$ | $\kappa \ge 0.70$ | Two raters; multi-class nominal categorization |
 | **Dimension Ratings (1–5)** | Ordinal (1–5) | Quadratic Weighted Cohen's $\kappa_w$ | $\kappa_w \ge 0.70$ | Penalizes distance squared between ordered ratings |
-| **Missing / Multi-Rater Items** | Ordinal / Nominal | Krippendorff's Alpha ($\alpha$) | $\alpha \ge 0.75$ | Supports variable rater subsets and missing observations |
-| **Continuous Composite Scores** | Continuous | Intraclass Correlation Coefficient (ICC) | $\text{ICC} \ge 0.75$ | Document model: `ICC(3,1)` for fixed expert panel, or `ICC(2,1)` for random panel |
+| **Missing / Multi-Rater Items** | Ordinal / Nominal | Krippendorff's Alpha ($\alpha$) | $\alpha \ge 0.75$ | Supports variable rater subsets, missing ratings, and corpus-level aggregation |
+| **Continuous Composite Scores** | Continuous | Intraclass Correlation Coefficient (ICC) | $\text{ICC} \ge 0.75$ | Within fixed reviewer pairs: `ICC(3,1)` absolute agreement, single measure |
 | **Raw Consensus** | Percentage | Exact Percentage Agreement ($P_o$) | $P_o \ge 85.0\%$ | Descriptive consensus baseline |
 
-### ICC Model Specification Requirements
+### Multi-Reviewer and Batch Agreement Policy
+ICC and Cohen’s kappa will be calculated only within batches sharing the same reviewer pair. Krippendorff’s alpha will be used for aggregate corpus-level agreement when reviewer membership varies across batches.
+
+To maintain traceability across the review panel, each batch records:
+```text
+reviewer_panel_id
+reviewer_ids
+records_reviewed
+agreement_method
+agreement_denominator
+```
+
 When reporting ICC, the evaluation report must explicitly document:
 ```text
 number_of_reviewers: 2
@@ -363,7 +382,7 @@ flowchart LR
 - **Public Audit Exports:** Contain only `revision_id`, `record_id`, `original_hash`, `revised_hash`, `revision_reason_category`, and automated validation status. Raw sensitive or developmental stimuli are not needlessly exposed.
 
 ### Revalidation Policy
-- Minor grammatical or vocabulary revisions: Certified by the lead adjudicator following automated Stage 14 schema and Stage 15 quality checks.
+- Minor grammatical or vocabulary revisions: Approved by the lead adjudicator after Stage 14 schema validation and Stage 15 automated quality validation.
 - Material pedagogical or semantic revisions: Routed back to both independent reviewers for secondary verification.
 
 ---
@@ -433,7 +452,7 @@ gantt
 
 ## 13. Comprehensive Automated Test Plan
 
-The implementation includes 15 dedicated pytest modules under `backend/tests/datasets/expert_review/`:
+The implementation will include 15 dedicated pytest modules under `backend/tests/datasets/expert_review/`:
 1. `test_reviewer_registry.py`: Qualifications, consent recording, access revocation.
 2. `test_review_manifest.py`: Manifest schema validation, record count conservation equations.
 3. `test_blinded_assignment.py`: Blinding guards (model, split, automated metrics hidden).
@@ -481,7 +500,7 @@ docs/
 
 Upon completion of Stage 27, Stage 28 (English Model and Simplification Comparison) will receive:
 1. **The Expert-Reviewed and Adjudicated Text-Simplification Subset:** Exactly those records classified as `text_simplification` with disposition `expert_approved` or `approved_with_revision`.
-2. **Multi-Dimensional Expert Rating Benchmarks:** Ground-truth human ratings for meaning preservation, fluency, simplicity, and age appropriateness to correlate against automated SARI/BLEU/FKGL metrics.
+2. **Multi-Dimensional Expert Rating Benchmarks:** Expert-reviewed and adjudicated reference ratings for meaning preservation, fluency, simplicity, and age appropriateness to correlate against automated SARI/BLEU/FKGL metrics. *(Two experts' ratings provide valuable evaluation evidence, but are not presented as absolute ground truth).*
 3. **Partitioned Auxiliary Datasets:** Reclassified instructions, activity formats, questions, and response adaptations cleanly partitioned into auxiliary governed corpora.
 4. **Adjudication Decisions & Disagreement Logs:** Providing transparency into linguistic edge cases.
 5. **Governed Dataset Release 0.3.0:** Signed with cryptographic manifests for immediate consumption by Stage 28 comparative benchmark runners, clearly distinguishing `historical_locked_release_0.2.0` from `expert_reviewed_reference_release_0.3.0`.
@@ -498,8 +517,9 @@ Stage 27 is complete only when all of the following criteria are formally verifi
 - [ ] Pilot review completed
 - [ ] Rubric version frozen
 - [ ] All selected records mutually accounted for
+- [ ] All 3,360 independent review submissions accounted for ($\text{pending\_reassigned\_submissions} = 0, \text{unaccounted\_submissions} = 0$)
 - [ ] All 326 flagged reformulations resolved ($\text{unresolved} = 0, \text{unaccounted} = 0$)
-- [ ] Agreement statistics calculated using the appropriate design
+- [ ] Agreement statistics calculated using the appropriate design (batch-level Cohen's kappa/ICC for fixed pairs, Krippendorff's alpha across batches)
 - [ ] Required disagreements adjudicated
 - [ ] Critical failures override numerical averages
 - [ ] Revisions preserve original versions and hashes
