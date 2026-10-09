@@ -1,6 +1,6 @@
 model_id,provider,repo_or_endpoint,commit_revision,tokenizer_revision,licence,intended_mode,device_type,datatype,decoding_strategy,num_beams,config_hash
-gemini-1.5-flash-prompted,google,gemini-1.5-flash,,,Google AI Terms of Service,pretrained_prefix_prompt,cpu,float32,greedy_sampling,4,2c55701af937588ff8d796c4403eb6e60574218ebd1af58c12d10f7bfb3d3072
+gemini-3.5-flash-lite-prompted,google,gemini-3.5-flash-lite,,,Google AI Terms of Service,pretrained_prefix_prompt,cpu,float32,greedy_sampling,4,92a5e615d7b4b2b596e86c09adc9b133b9b7f858d2202c9e55e2b09053b0bc03
 mt5-base-zero-shot,huggingface,google/mt5-base,aa72111,aa72111,Apache-2.0,pretrained_zero_shot,cpu,float32,beam_search,4,2d75b480a5d73fd1337c2b8f1c7fb1c3fc3526edc672dc4cca239c5ea0a5e9c6
 mbart-large-50-zero-shot,huggingface,facebook/mbart-large-50-many-to-many-mmt,61869e5,61869e5,MIT,pretrained_zero_shot,cpu,float32,beam_search,4,929becde29d1599c6b0f1ed104e54c4ea1a047567d06380577f848c2fd3a743f
 stage25-controlled-deterministic,local_rule,stage-25-complete-v2,6b785502b860d4e93d2d31b86bd653c33a210ac9,,project-internal,deterministic_stage25,cpu,float32,deterministic_rules,4,d109e797651e7fb763911f301214098f2e54fa84e2dac8d43f760836d006a157
-hybrid-gemini-stage25-validated,hybrid,gemini-1.5-flash + stage25-rules,,,project-internal,hybrid,cpu,float32,generative_plus_surface_repair,4,aa55a529601eec683d926820ef87422c63a3a8870e215e40f5c6933f9c6eb954
+hybrid-gemini-stage25-validated,hybrid,gemini-3.5-flash-lite + stage25-rules,,,project-internal,hybrid,cpu,float32,generative_plus_surface_repair,4,538df6dccb9ad9923a11276eeed91b0c7f131c90b0f13490da49816da4dc41e6

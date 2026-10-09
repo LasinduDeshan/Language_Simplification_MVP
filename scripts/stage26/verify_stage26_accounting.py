@@ -13,31 +13,42 @@ repo_root = Path(__file__).resolve().parent.parent.parent
 
 
 def main():
-    val_file = repo_root / "data" / "model_simplification" / "results" / "validation" / "zero_shot_and_stage25_validation_summary.json"
+    val_zero_file = repo_root / "data" / "model_simplification" / "results" / "validation" / "zero_shot_and_stage25_validation_summary.json"
+    val_gem_file = repo_root / "data" / "model_simplification" / "results" / "validation" / "gemini_and_hybrid_validation_summary.json"
     locked_file = repo_root / "data" / "model_simplification" / "results" / "locked_test" / "stage26_dual_locked_benchmark_summary.json"
     docs_dir = repo_root / "docs"
     docs_dir.mkdir(parents=True, exist_ok=True)
     out_path = docs_dir / "stage26_accounting_summary.md"
 
     summaries = []
-    if val_file.exists():
-        with open(val_file, "r", encoding="utf-8") as f:
+    if val_zero_file.exists():
+        with open(val_zero_file, "r", encoding="utf-8") as f:
             data = json.load(f)
             for k, v in data.items():
-                summaries.append((f"val_{k}", v))
+                if isinstance(v, dict) and "outcome_breakdown" in v:
+                    summaries.append((f"val_{k}", v, v.get("total_samples", 135)))
+
+    if val_gem_file.exists():
+        with open(val_gem_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            for k, v in data.items():
+                if isinstance(v, dict) and "outcome_breakdown" in v:
+                    summaries.append((f"val_{k}", v, v.get("total_samples", 135)))
 
     if locked_file.exists():
         with open(locked_file, "r", encoding="utf-8") as f:
             data = json.load(f)
             for split_name, s_map in data.items():
-                for k, v in s_map.items():
-                    summaries.append((f"{split_name}_{k}", v))
+                if isinstance(s_map, dict):
+                    split_total = s_map.get("total_samples", 135 if "full" in split_name else 39)
+                    for k, v in s_map.items():
+                        if isinstance(v, dict) and "outcome_breakdown" in v:
+                            summaries.append((f"{split_name}_{k}", v, v.get("total_samples", split_total)))
 
     accounting_rows = []
     all_reconciled = True
 
-    for name, s in summaries:
-        total = s.get("total_samples", 0)
+    for name, s, total in summaries:
         ob = s.get("outcome_breakdown", {})
         native_del = ob.get("native_delivered", 0)
         repair_del = ob.get("repair_delivered", 0)
@@ -87,7 +98,7 @@ def main():
 ## 2. Reconciled Run-Level Accounting Table
 
 | Run / Model Identifier | Total Units | Native Del. | Repair Del. | Fallback Del. | Manual Review | Rejected | Sum | Status |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 """
     for r in accounting_rows:
         status_str = "RECONCILED" if r["reconciled"] else "MISMATCH"

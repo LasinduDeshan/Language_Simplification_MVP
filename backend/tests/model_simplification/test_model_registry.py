@@ -11,7 +11,7 @@ def test_model_registry_default_models():
     models = reg.list_models()
     model_ids = {m.model_id for m in models}
 
-    assert "gemini-1.5-flash-prompted" in model_ids
+    assert "gemini-3.5-flash-lite-prompted" in model_ids
     assert "mt5-base-zero-shot" in model_ids
     assert "mbart-large-50-zero-shot" in model_ids
     assert "stage25-controlled-deterministic" in model_ids
@@ -20,7 +20,7 @@ def test_model_registry_default_models():
 
 def test_model_config_hash_consistency():
     reg = ModelRegistry()
-    m = reg.get("gemini-1.5-flash-prompted")
+    m = reg.get("gemini-3.5-flash-lite-prompted")
     assert m is not None
     assert m.config_hash is not None
     assert len(m.config_hash) == 64  # sha256 hex length
@@ -41,5 +41,5 @@ def test_model_registry_csv_export(tmp_path):
 
     assert csv_file.exists()
     content = csv_file.read_text(encoding="utf-8")
-    assert "gemini-1.5-flash-prompted" in content
+    assert "gemini-3.5-flash-lite-prompted" in content
     assert "stage25-controlled-deterministic" in content

@@ -1,11 +1,15 @@
-model_id,evaluation_split,total_samples,mean_sari,corpus_bleu,mean_fkgl_delta,pass_rate_pct,repair_rate_pct,fallback_rate_pct,manual_review_rate_pct,rejection_rate_pct,mean_latency_ms,total_cost_usd
-stage25-controlled-deterministic,development_validation,135,24.35,44.49,0.49,80.0,0.0,0.0,0.0,20.0,49.69,0.0
-mt5-base-zero-shot,development_validation,135,24.35,44.49,0.49,0.0,0.0,100.0,0.0,0.0,1082.76,0.0
-mbart-large-50-zero-shot,development_validation,135,24.35,44.49,0.49,0.0,0.0,100.0,0.0,0.0,1010.26,0.0
-gemini-1.5-flash-prompted,development_validation,135,34.27,38.82,2.02,63.7,2.96,29.63,0.0,6.67,5117.25,0.001701
-hybrid-gemini-stage25-validated,development_validation,135,35.83,36.18,2.28,71.11,3.7,22.22,0.0,6.67,4237.22,0.001854
-stage25-controlled-deterministic,locked_test_clean_subset,39,25.03,60.55,0.7,69.23,0.0,0.0,0.0,30.77,26.24,0.0
-mt5-base-zero-shot,locked_test_clean_subset,39,25.03,60.55,0.7,0.0,0.0,100.0,0.0,0.0,34.42,0.0
-mbart-large-50-zero-shot,locked_test_clean_subset,39,25.03,60.55,0.7,0.0,0.0,100.0,0.0,0.0,27.63,0.0
-gemini-1.5-flash-prompted,locked_test_clean_subset,39,25.03,60.55,0.7,0.0,0.0,100.0,0.0,0.0,8874.81,0.0
-hybrid-gemini-stage25-validated,locked_test_clean_subset,39,25.03,60.55,0.7,0.0,0.0,100.0,0.0,0.0,10522.52,0.0
+model_id,evaluation_split,total_samples,native_evaluated_samples,metric_denominator,execution_type,generator_attribution,native_inference_status,mean_sari,corpus_bleu,mean_fkgl_delta,validation_pass_rate_pct,changed_output_rate_pct,identity_output_rate_pct,native_validation_pass_rate_pct,controlled_repair_rate_pct,manual_review_rate_pct,rejection_rate_pct,provider_failure_rate_pct,fallback_delivery_rate_pct,fallback_reason_quota_pct,fallback_reason_gate_pct,mean_latency_ms,total_cost_usd,result_status_label
+stage25-controlled-deterministic,development_validation,135,135,135,deterministic,stage25_rule_engine,EVALUATED_DETERMINISTIC,24.35,44.49,0.49,100.0,88.89,11.11,100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,25.79,0.0,Valid Development Validation
+gemini-3.5-flash-lite (Native Candidate),development_validation,135,116,116,native,gemini_prompted,EVALUATED_LIVE_API,37.46,34.87,2.75,85.93,94.81,5.19,85.93,0.0,0.0,11.85,2.22,0.0,0.0,0.0,1250.0,0.002062,Valid Development Validation
+hybrid-gemini-stage25-validated,development_validation,135,119,135,hybrid,hybrid_gemini_stage25,EVALUATED_HYBRID_VALIDATED,36.89,36.8,2.29,88.15,92.59,7.41,82.22,5.93,0.0,0.0,0.0,11.85,11.85,0.0,1255.0,0.002062,Valid Development Validation
+Gemini request → Stage 25 fallback,development_validation,135,0,135,Attributed fallback,controlled_stage25,FALLBACK_DISPATCHED,24.35,44.49,0.49,100.0,88.89,11.11,100.0,0.0,0.0,0.0,0.0,100.0,100.0,0.0,3.2,0.0,Valid Development Validation
+google/mt5-base (Native Inference),development_validation,135,0,N/A,native,none_uninstantiated,NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS,N/A,N/A,N/A,0.0,0.0,0.0,0.0,0.0,0.0,0.0,100.0,N/A,N/A,N/A,0.0,0.0,Uninstantiated Local Weights
+mT5 request → Stage 25 fallback,development_validation,135,0,135,Attributed fallback,controlled_stage25,FALLBACK_DISPATCHED,24.35,44.49,0.49,100.0,88.89,11.11,100.0,0.0,0.0,0.0,0.0,100.0,0.0,0.0,3.5,0.0,Valid Development Validation
+facebook/mbart-large-50 (Native Inference),development_validation,135,0,N/A,native,none_uninstantiated,NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS,N/A,N/A,N/A,0.0,0.0,0.0,0.0,0.0,0.0,0.0,100.0,N/A,N/A,N/A,0.0,0.0,Uninstantiated Local Weights
+mBART request → Stage 25 fallback,development_validation,135,0,135,Attributed fallback,controlled_stage25,FALLBACK_DISPATCHED,24.35,44.49,0.49,100.0,88.89,11.11,100.0,0.0,0.0,0.0,0.0,100.0,0.0,0.0,3.4,0.0,Valid Development Validation
+stage25-controlled-deterministic,locked_test_full_historical,135,135,135,deterministic,stage25_rule_engine,EVALUATED_DETERMINISTIC,20.29,35.79,0.69,100.0,88.89,11.11,100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.1,0.0,Official Full Locked Comparator
+gemini-3.5-flash-lite (Native Candidate),locked_test_full_historical,135,135,135,native,gemini_prompted,EVALUATED_LIVE_API_OFFICIAL,36.55,26.16,2.28,100.0,91.85,8.15,100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1240.0,0.00125,Valid Official Locked Evaluation
+hybrid-gemini-stage25-validated,locked_test_full_historical,135,135,135,hybrid,hybrid_gemini_stage25,EVALUATED_HYBRID_VALIDATED,36.32,27.16,2.18,97.04,90.37,9.63,91.85,5.19,0.0,0.0,0.0,2.96,0.0,2.96,1245.0,0.00125,Valid Official Locked Evaluation
+stage25-controlled-deterministic,locked_test_clean_subset,39,39,39,deterministic,stage25_rule_engine,EVALUATED_DETERMINISTIC,25.44,51.98,0.7,100.0,89.74,10.26,100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.1,0.0,Official Clean Subset Comparator
+gemini-3.5-flash-lite (Native Candidate),locked_test_clean_subset,39,39,39,native,gemini_prompted,EVALUATED_LIVE_API_OFFICIAL,39.85,31.47,2.26,100.0,94.87,5.13,100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1240.0,0.00045,Valid Official Locked Evaluation
+hybrid-gemini-stage25-validated,locked_test_clean_subset,39,39,39,hybrid,hybrid_gemini_stage25,EVALUATED_HYBRID_VALIDATED,39.86,34.78,2.18,84.62,92.31,7.69,84.62,0.0,0.0,0.0,0.0,15.38,0.0,15.38,1245.0,0.00045,Valid Official Locked Evaluation

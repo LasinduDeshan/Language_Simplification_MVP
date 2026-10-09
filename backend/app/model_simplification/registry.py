@@ -42,11 +42,11 @@ class ModelRegistry:
         self._load_default_registry()
 
     def _load_default_registry(self):
-        # 1. Gemini 1.5 Flash (Prompted)
+        # 1. Gemini 3.5 Flash Lite (Prompted)
         gemini = ModelMetadata(
-            model_id="gemini-1.5-flash-prompted",
+            model_id="gemini-3.5-flash-lite-prompted",
             provider="google",
-            repo_or_endpoint="gemini-1.5-flash",
+            repo_or_endpoint="gemini-3.5-flash-lite",
             licence="Google AI Terms of Service",
             intended_mode="pretrained_prefix_prompt",
             temperature=0.2,
@@ -100,7 +100,7 @@ class ModelRegistry:
         hybrid = ModelMetadata(
             model_id="hybrid-gemini-stage25-validated",
             provider="hybrid",
-            repo_or_endpoint="gemini-1.5-flash + stage25-rules",
+            repo_or_endpoint="gemini-3.5-flash-lite + stage25-rules",
             licence="project-internal",
             intended_mode="hybrid",
             decoding_strategy="generative_plus_surface_repair",
@@ -114,7 +114,12 @@ class ModelRegistry:
         self._models[model.model_id] = model
 
     def get(self, model_id: str) -> Optional[ModelMetadata]:
-        return self._models.get(model_id)
+        if model_id in self._models:
+            return self._models[model_id]
+        # Allow legacy alias resolution
+        if "gemini" in model_id.lower() and not "hybrid" in model_id.lower():
+            return self._models.get("gemini-3.5-flash-lite-prompted")
+        return None
 
     def list_models(self) -> List[ModelMetadata]:
         return list(self._models.values())

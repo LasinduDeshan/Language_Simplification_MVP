@@ -1,15 +1,43 @@
 {
-  "frozen_at": "2026-10-06T16:29:26.185811+00:00",
+  "frozen_at": "2026-10-07T16:46:07.214398+00:00",
+  "resolved_model_id": "gemini-3.5-flash-lite",
   "prompt_registry_version": "2.1.0",
   "prompt_registry_sha256": "1d8ded2554e9cff27ca5040fb35332fb9905e6d52677b091db30604cbf22b29f",
-  "model_registry_sha256": "14a0e0c7c34279528e7f1a7154373b043fe57690eaf0c7d40372f7fc46c86801",
+  "model_registry_sha256": "927f06c6646439018fd1b2f5915d5eae99eb2eff8edadfa94074455b84d609d5",
+  "clean_manifest_sha256": "ae2076554c063c07669e78e056e021a7a897951e423f926bde7190309cfe57d0",
+  "generation_parameters": {
+    "temperature": 0.2,
+    "max_output_tokens": 256,
+    "decoding_strategy": "greedy_sampling"
+  },
+  "validation_thresholds": {
+    "similarity_threshold": 0.85,
+    "max_sentence_length_mild": 20,
+    "max_sentence_length_moderate": 15,
+    "max_sentence_length_strong": 10
+  },
+  "retry_policy": {
+    "max_retries": 3,
+    "initial_backoff_seconds": 2.0,
+    "rate_limit_rpm": 12,
+    "min_request_delay_seconds": 5.0,
+    "daily_quota_max": 480,
+    "daily_safety_reserve": 20
+  },
+  "fallback_policy": {
+    "fallback_provider": "stage25_rule_engine",
+    "attribution_mode": "explicit_separate_accounting",
+    "fallback_on_429": true,
+    "fallback_on_rejection": true
+  },
+  "stage25_comparator_commit": "6b785502b860d4e93d2d31b86bd653c33a210ac9",
   "registered_models": [
     {
-      "model_id": "gemini-1.5-flash-prompted",
+      "model_id": "gemini-3.5-flash-lite-prompted",
       "provider": "google",
-      "repo_or_endpoint": "gemini-1.5-flash",
+      "repo_or_endpoint": "gemini-3.5-flash-lite",
       "intended_mode": "pretrained_prefix_prompt",
-      "config_hash": "2c55701af937588ff8d796c4403eb6e60574218ebd1af58c12d10f7bfb3d3072"
+      "config_hash": "92a5e615d7b4b2b596e86c09adc9b133b9b7f858d2202c9e55e2b09053b0bc03"
     },
     {
       "model_id": "mt5-base-zero-shot",
@@ -35,9 +63,9 @@
     {
       "model_id": "hybrid-gemini-stage25-validated",
       "provider": "hybrid",
-      "repo_or_endpoint": "gemini-1.5-flash + stage25-rules",
+      "repo_or_endpoint": "gemini-3.5-flash-lite + stage25-rules",
       "intended_mode": "hybrid",
-      "config_hash": "aa55a529601eec683d926820ef87422c63a3a8870e215e40f5c6933f9c6eb954"
+      "config_hash": "538df6dccb9ad9923a11276eeed91b0c7f131c90b0f13490da49816da4dc41e6"
     }
   ]
 }

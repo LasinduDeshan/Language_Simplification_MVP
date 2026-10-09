@@ -1,0 +1,37 @@
+{
+  "run_id": "RUN-GEMINI-LOCKED-OFFICIAL-03",
+  "model_configuration_hash": "8db764ac5f19c27b1fa31543b1e1f53884629692b2e1f6243ab759eee5003779",
+  "prompt_registry_hash": "a5ae1df8457684181c117695d3cd6885a4b9d4102ab837ba0f236348a4226a85",
+  "dataset_hash": "61bbc2b26c943dcbbc630b4af6c7598a2cebb1025e272a96a7bcc510f4d066d3",
+  "clean_subset_manifest_hash": "4a9e0f8096ca914303b94cf93a49fad7de2feec80b1a24c6fc734586051c1a8c",
+  "operational_retry_policy_version": "1.1.0",
+  "maximum_attempts_per_item": 4,
+  "request_spacing_seconds": 6.0,
+  "connection_timeout_seconds": 30.0,
+  "read_timeout_seconds": 60.0,
+  "retryable_http_statuses": [
+    408,
+    429,
+    500,
+    502,
+    503,
+    504
+  ],
+  "retryable_exceptions": [
+    "requests.exceptions.ConnectionError",
+    "requests.exceptions.ReadTimeout",
+    "requests.exceptions.Timeout",
+    "requests.exceptions.RequestException"
+  ],
+  "backoff_delays_seconds": [
+    2.0,
+    4.0,
+    8.0,
+    16.0
+  ],
+  "backoff_jitter": true,
+  "daily_quota_429_action": "stop_immediately",
+  "fallback_during_native_evaluation": "prohibited",
+  "post_lock_model_tuning": false,
+  "established_at": "2026-10-09T06:10:00Z"
+}
