@@ -3,7 +3,7 @@
 **Project:** AI-Powered Adaptive Child-Friendly Language Simplification System  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Language:** English (Target Age: 4–8 Years)  
-**Date:** 2026-10-09 11:52:39 UTC  
+**Date:** 2026-10-09 11:58:56 UTC  
 **Prerequisite Tag:** `stage-25-complete-v2` (`6b785502b860d4e93d2d31b86bd653c33a210ac9`)  
 **Restart Start Tag:** `stage-26-v2-start`  
 **Current Working Tag:** `stage-26-complete-v4`  
@@ -72,7 +72,7 @@ $$500\text{ (Google Daily Cap)} - 431\text{ (Governed Attempts prior to Run 03)}
 
 ## 4. Dual Locked Benchmark Metrics Summary
 
-| Evaluation Split | Model / Pipeline | Native Samples | Mean SARI | Corpus BLEU | Mean FKGL Δ | Validation Pass Rate |
+| Evaluation Split | Model / Pipeline | Native Samples | Mean SARI | Mean Sentence BLEU-4 | Mean FKGL Δ | Validation Pass Rate |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Full Historical Locked Set (135 Items)** | `stage25-controlled-deterministic` | 135/135 | 20.29 | 35.79 | 0.69 | 100.0% |
 | | `gemini-3.5-flash-lite (Native Candidate)` | **135/135** | **36.55** | **26.16** | **2.28** | **100.0%** |

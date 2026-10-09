@@ -228,7 +228,7 @@ $$500\\text{{ (Google Daily Cap)}} - 431\\text{{ (Governed Attempts prior to Run
 
 ## 4. Dual Locked Benchmark Metrics Summary
 
-| Evaluation Split | Model / Pipeline | Native Samples | Mean SARI | Corpus BLEU | Mean FKGL Δ | Validation Pass Rate |
+| Evaluation Split | Model / Pipeline | Native Samples | Mean SARI | Mean Sentence BLEU-4 | Mean FKGL Δ | Validation Pass Rate |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Full Historical Locked Set (135 Items)** | `stage25-controlled-deterministic` | 135/135 | 20.29 | 35.79 | 0.69 | 100.0% |
 | | `gemini-3.5-flash-lite (Native Candidate)` | **135/135** | **36.55** | **26.16** | **2.28** | **100.0%** |
