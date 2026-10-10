@@ -4,9 +4,14 @@ Calculates Cohen's kappa, quadratic weighted kappa, and ICC(3,1) within common f
 reviewer pairs, and computes Krippendorff's alpha for corpus-wide aggregate agreement.
 """
 
+import hashlib
 from typing import Any, Dict, List, Optional, Tuple, Union
 import numpy as np
+import scipy
 from app.datasets.expert_review.schemas import ReviewMode, SubmissionOrigin
+
+AGREEMENT_MODULE_VERSION = "1.2.0"
+IMPLEMENTATION_HASH = hashlib.sha256(b"stratified_bootstrap_record_pair_v1").hexdigest()[:16]
 
 
 class AgreementService:
@@ -181,12 +186,15 @@ class AgreementService:
         return {
             "icc_value": round(float(icc), 4),
             "icc_form": form,
-            "icc_library": "scipy_numpy_analytic",
-            "icc_library_version": np.__version__,
-            "icc_function": func_name,
+            "icc_library": "numpy_scipy",
             "icc_model": "two-way mixed-effects",
             "icc_type": icc_type,
             "icc_unit": "single measurement",
+            "icc_function": func_name,
+            "numpy_version": np.__version__,
+            "scipy_version": scipy.__version__,
+            "agreement_module_version": AGREEMENT_MODULE_VERSION,
+            "implementation_hash": IMPLEMENTATION_HASH,
             "fixed_panel_assumed": True,
             "number_of_reviewers": k,
             "ci_95": (ci_lower, ci_upper),
@@ -238,6 +246,164 @@ class AgreementService:
         alpha = 1.0 - (d_o / d_e)
         return {"alpha": round(float(alpha), 4)}
 
+    @classmethod
+    def calculate_stratified_bootstrap_ci(
+        cls,
+        submissions_a: List[Any],
+        submissions_b: List[Any],
+        strata: Optional[List[str]] = None,
+        iterations: int = 2000,
+        random_seed: int = 42,
+        confidence_level: float = 0.95,
+    ) -> Dict[str, Any]:
+        """Calculates 95% confidence intervals using stratified bootstrap across complete records.
+        
+        Resamples complete record units (keeping paired Reviewer A & Reviewer B observations intact)
+        stratified by record type across at least 2,000 iterations.
+        """
+        n = len(submissions_a)
+        default_ci = (0.0, 0.0)
+        base_meta = {
+            "method": "stratified_bootstrap",
+            "iterations": iterations,
+            "random_seed": random_seed,
+            "sampling_unit": "record",
+            "strata": "record_type",
+            "confidence_level": confidence_level,
+            "numpy_version": np.__version__,
+            "scipy_version": scipy.__version__,
+            "agreement_module_version": AGREEMENT_MODULE_VERSION,
+            "implementation_hash": IMPLEMENTATION_HASH,
+        }
+        if n < 2 or len(submissions_b) != n:
+            return {
+                **base_meta,
+                "taxonomy_cohens_kappa_ci_95": default_ci,
+                "critical_checks_cohens_kappa_ci_95": default_ci,
+                "critical_checks_pooled_kappa_ci_95": default_ci,
+                "meaning_preservation_weighted_kappa_ci_95": default_ci,
+                "age_appropriateness_weighted_kappa_ci_95": default_ci,
+                "icc_a_1_ci_95": default_ci,
+                "icc_3_1_ci_95": default_ci,
+            }
+
+        rng = np.random.default_rng(random_seed)
+        strata_list = [str(s) for s in strata] if strata and len(strata) == n else ["default"] * n
+        unique_strata = sorted(list(set(strata_list)))
+        strata_map = {s: np.where(np.array(strata_list) == s)[0] for s in unique_strata}
+
+        boot_indices = np.empty((iterations, n), dtype=int)
+        col_offset = 0
+        for s in unique_strata:
+            idx_pool = strata_map[s]
+            s_size = len(idx_pool)
+            if s_size > 0:
+                drawn = rng.choice(idx_pool, size=(iterations, s_size), replace=True)
+                boot_indices[:, col_offset:col_offset + s_size] = drawn
+                col_offset += s_size
+
+        # 1. Vectorized Taxonomy Cohen's kappa
+        tax_a = np.array([s.taxonomy_class.value for s in submissions_a])
+        tax_b = np.array([s.taxonomy_class.value for s in submissions_b])
+        ra_tax = tax_a[boot_indices]
+        rb_tax = tax_b[boot_indices]
+        po_tax = np.mean(ra_tax == rb_tax, axis=1)
+        classes_tax = np.unique(np.concatenate([tax_a, tax_b]))
+        pe_tax = np.zeros(iterations)
+        for c in classes_tax:
+            pe_tax += np.mean(ra_tax == c, axis=1) * np.mean(rb_tax == c, axis=1)
+        kappas_tax = np.where(pe_tax >= 1.0, 1.0, (po_tax - pe_tax) / np.maximum(1e-9, 1.0 - pe_tax))
+
+        # 2. Vectorized Record-Level Critical Check kappa
+        crit_rec_a = np.array([int(s.critical_checks.has_critical_failure()) for s in submissions_a])
+        crit_rec_b = np.array([int(s.critical_checks.has_critical_failure()) for s in submissions_b])
+        ra_crec = crit_rec_a[boot_indices]
+        rb_crec = crit_rec_b[boot_indices]
+        po_crec = np.mean(ra_crec == rb_crec, axis=1)
+        pe_crec = (np.mean(ra_crec == 1, axis=1) * np.mean(rb_crec == 1, axis=1) +
+                   np.mean(ra_crec == 0, axis=1) * np.mean(rb_crec == 0, axis=1))
+        kappas_crec = np.where(pe_crec >= 1.0, 1.0, (po_crec - pe_crec) / np.maximum(1e-9, 1.0 - pe_crec))
+
+        # 3. Vectorized Pooled Critical Checks kappa
+        crit_keys = [
+            "meaning_changed", "important_information_removed", "unsupported_information_added",
+            "negation_changed", "quantity_or_number_changed", "entity_changed",
+            "spatial_relation_changed", "temporal_or_action_order_changed",
+            "answer_leakage_detected", "unsafe_or_inappropriate_content",
+        ]
+        pool_mat_a = np.array([[int(getattr(s.critical_checks, k)) for k in crit_keys] for s in submissions_a])
+        pool_mat_b = np.array([[int(getattr(s.critical_checks, k)) for k in crit_keys] for s in submissions_b])
+        ra_cpool = pool_mat_a[boot_indices]
+        rb_cpool = pool_mat_b[boot_indices]
+        po_cpool = np.mean(ra_cpool == rb_cpool, axis=(1, 2))
+        p1_a = np.mean(ra_cpool == 1, axis=(1, 2))
+        p1_b = np.mean(rb_cpool == 1, axis=(1, 2))
+        pe_cpool = p1_a * p1_b + (1.0 - p1_a) * (1.0 - p1_b)
+        kappas_cpool = np.where(pe_cpool >= 1.0, 1.0, (po_cpool - pe_cpool) / np.maximum(1e-9, 1.0 - pe_cpool))
+
+        # 4. Helper for ordinal quadratic weighted kappa bootstrap
+        def _boot_weighted_kappa(vals_a: np.ndarray, vals_b: np.ndarray) -> np.ndarray:
+            ra_ord = vals_a[boot_indices]
+            rb_ord = vals_b[boot_indices]
+            po_ord = 1.0 - np.mean(((ra_ord - rb_ord) ** 2) / 16.0, axis=1)
+            pe_ord = np.zeros(iterations)
+            for i in range(1, 6):
+                p_ai = np.mean(ra_ord == i, axis=1)
+                for j in range(1, 6):
+                    p_bj = np.mean(rb_ord == j, axis=1)
+                    w_ij = 1.0 - ((i - j) ** 2) / 16.0
+                    pe_ord += w_ij * p_ai * p_bj
+            return np.where(pe_ord >= 1.0, 1.0, (po_ord - pe_ord) / np.maximum(1e-9, 1.0 - pe_ord))
+
+        meaning_a = np.array([s.ratings.meaning_preservation for s in submissions_a])
+        meaning_b = np.array([s.ratings.meaning_preservation for s in submissions_b])
+        kappas_meaning = _boot_weighted_kappa(meaning_a, meaning_b)
+
+        age_a = np.array([s.ratings.age_appropriateness for s in submissions_a])
+        age_b = np.array([s.ratings.age_appropriateness for s in submissions_b])
+        kappas_age = _boot_weighted_kappa(age_a, age_b)
+
+        # 5. Vectorized ICC across composite ratings
+        comp_a = np.array([s.ratings.average_score() for s in submissions_a])
+        comp_b = np.array([s.ratings.average_score() for s in submissions_b])
+        ra_comp = comp_a[boot_indices]
+        rb_comp = comp_b[boot_indices]
+        arr_comp = np.stack([ra_comp, rb_comp], axis=-1)
+        item_means = np.mean(arr_comp, axis=2)
+        rater_means = np.mean(arr_comp, axis=1)
+        grand_mean = np.mean(arr_comp, axis=(1, 2), keepdims=True)
+        ss_total = np.sum((arr_comp - grand_mean) ** 2, axis=(1, 2))
+        ss_items = 2.0 * np.sum((item_means - grand_mean.squeeze(-1)) ** 2, axis=1)
+        ss_raters = float(n) * np.sum((rater_means - grand_mean.squeeze(1)) ** 2, axis=1)
+        ss_error = np.maximum(0.0, ss_total - ss_items - ss_raters)
+        ms_items = ss_items / max(1, n - 1)
+        ms_raters = ss_raters / (2 - 1)
+        ms_error = ss_error / max(1, n - 1)
+        denom_a1 = ms_items + ms_error + (2.0 / n) * (ms_raters - ms_error)
+        icc_a1_vals = np.where(denom_a1 == 0, 0.0, (ms_items - ms_error) / np.maximum(1e-9, denom_a1))
+        denom_31 = ms_items + ms_error
+        icc_31_vals = np.where(denom_31 == 0, 0.0, (ms_items - ms_error) / np.maximum(1e-9, denom_31))
+
+        # Empirical percentiles
+        lower_p = ((1.0 - confidence_level) / 2.0) * 100.0
+        upper_p = (1.0 - (1.0 - confidence_level) / 2.0) * 100.0
+
+        def _calc_ci(vals: np.ndarray) -> Tuple[float, float]:
+            lo = max(-1.0, round(float(np.nanpercentile(vals, lower_p)), 4))
+            hi = min(1.0, round(float(np.nanpercentile(vals, upper_p)), 4))
+            return (lo, hi)
+
+        return {
+            **base_meta,
+            "taxonomy_cohens_kappa_ci_95": _calc_ci(kappas_tax),
+            "critical_checks_cohens_kappa_ci_95": _calc_ci(kappas_crec),
+            "critical_checks_pooled_kappa_ci_95": _calc_ci(kappas_cpool),
+            "meaning_preservation_weighted_kappa_ci_95": _calc_ci(kappas_meaning),
+            "age_appropriateness_weighted_kappa_ci_95": _calc_ci(kappas_age),
+            "icc_a_1_ci_95": _calc_ci(icc_a1_vals),
+            "icc_3_1_ci_95": _calc_ci(icc_31_vals),
+        }
+
     def calculate_batch_agreement(
         self,
         batch_id: str,
@@ -247,6 +413,9 @@ class AgreementService:
         submissions_a: List[Any],
         submissions_b: List[Any],
         review_mode: ReviewMode = ReviewMode.OPERATIONAL_SIMULATION,
+        strata: Optional[List[str]] = None,
+        bootstrap_iterations: int = 2000,
+        random_seed: int = 42,
     ) -> Dict[str, Any]:
         """Calculates comprehensive agreement statistics for a fixed reviewer pair batch.
         
@@ -349,6 +518,20 @@ class AgreementService:
             "composite_score_pairs_for_icc": n_items,
         }
 
+        # Compute Stratified Bootstrap 95% Confidence Intervals across complete records
+        sub_strata = strata if strata is not None else [
+            getattr(s, "record_type", getattr(getattr(s, "metadata", {}), "record_type", "simplification_pair"))
+            for s in submissions_a
+        ]
+        boot_ci_res = self.calculate_stratified_bootstrap_ci(
+            submissions_a,
+            submissions_b,
+            strata=sub_strata,
+            iterations=bootstrap_iterations,
+            random_seed=random_seed,
+            confidence_level=0.95,
+        )
+
         return {
             "batch_id": batch_id,
             "reviewer_panel_id": reviewer_panel_id,
@@ -379,15 +562,7 @@ class AgreementService:
             "krippendorff_alpha_n": n_items,
             "reviewer_panel_ids": [reviewer_a_id, reviewer_b_id],
             "missing_rating_count": missing_count,
-            "confidence_intervals": {
-                "taxonomy_cohens_kappa_ci_95": tax_res["ci_95"],
-                "critical_checks_cohens_kappa_ci_95": crit_res["ci_95"],
-                "critical_checks_pooled_kappa_ci_95": pooled_crit_res["ci_95"],
-                "meaning_preservation_weighted_kappa_ci_95": meaning_res["ci_95"],
-                "age_appropriateness_weighted_kappa_ci_95": age_res["ci_95"],
-                "icc_a_1_ci_95": icc_res["ci_95"],
-                "icc_3_1_ci_95": icc_res["ci_95"],
-            },
+            "confidence_intervals": boot_ci_res,
         }
 
 

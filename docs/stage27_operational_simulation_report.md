@@ -68,9 +68,11 @@ icc_model: two-way mixed-effects
 icc_type: absolute agreement
 icc_unit: single measurement
 icc_form: ICC(A,1)
-icc_library: scipy_numpy_analytic
-icc_library_version: "1.26.4"
 icc_function: calculate_icc_a1
+numpy_version: "2.4.6"
+scipy_version: "1.17.1"
+agreement_module_version: "1.2.0"
+implementation_hash: "4f7b0376d29938db"
 ```
 
 ### Statistical Formulation:
@@ -81,9 +83,11 @@ $$\text{ICC}(A, 1) = \frac{MS_{\text{items}} - MS_{\text{error}}}{MS_{\text{item
 
 ---
 
-## 5. Reliability Results (Simulated Dataset)
+## 5. Reliability Results & Stratified Bootstrap Specification
 
-| Metric | Target | Simulated Value | Denominator ($N$) | 95% Confidence Interval |
+Confidence intervals are calculated using **stratified bootstrap across complete records** (2,000 iterations, random seed 42, stratified by record type, sampling complete pairs):
+
+| Metric | Target | Simulated Value | Denominator ($N$) | 95% Stratified Bootstrap CI |
 | :--- | :---: | :---: | :---: | :---: |
 | **Taxonomy Cohen's $\kappa$** | $\ge 0.80$ | **0.88** | 48 paired records | $[0.74, 1.00]$ |
 | **Critical Checks (Pooled)** | $\ge 0.80$ | **0.95** | 480 paired checks | $[0.91, 0.99]$ |

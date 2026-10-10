@@ -285,18 +285,20 @@ class AdjudicationRecord(BaseModel):
 
 
 class CalibrationReference(BaseModel):
-    calibration_manifest_hash: str
-    reference_created_by_role: str = "Lead Adjudicator / Pediatric Language Consultant"
-    reference_creation_date: str = "2026-10-10"
-    reference_rationale: str = (
-        "Standardized reference annotations established prior to reviewer onboarding by authorized lead "
-        "expert panel. Establishes ground truth rubric baselines without consulting locked test splits."
-    )
-    historical_locked_overlap: int = 0
+    reference_status: str = "template_pending_human_creation"
+    calibration_manifest_hash: Optional[str] = None
+    reference_created_by_reviewer_id: Optional[str] = None
+    reference_created_by_role_required: str = "authorized_lead_adjudicator"
+    reference_creation_date: Optional[str] = None
+    historical_locked_overlap_required: int = 0
+    eligible_for_human_calibration: bool = False
+    reference_rationale: Optional[str] = None
     concordance_rule_definition: str = (
-        "Composite pilot_calibration_eligibility_threshold: >= 0.80 composite concordance "
-        "(0.35 * taxonomy Cohen's kappa + 0.35 * critical check concordance + 0.30 * quadratic weighted kappa). "
-        "Requires 100% agreement on critical safety/leakage flags and >= 8/10 taxonomy agreement."
+        "Multi-criterion pilot_calibration_eligibility_threshold: "
+        "(1) taxonomy_exact_agreement >= 0.80 (at least 8/10 exact taxonomy matches; Cohen's kappa reported descriptively); "
+        "(2) 100% agreement on predefined critical safety cases; "
+        "(3) weighted ordinal agreement target met (quadratic weighted kappa >= 0.75, mean absolute difference <= 0.50); "
+        "(4) all serious disagreements discussed with the lead adjudicator."
     )
     items: List[Dict[str, Any]] = Field(default_factory=list)
 

@@ -161,7 +161,10 @@ def test_icc_a1_absolute_agreement_penalizes_systematic_shift(calc):
     assert res_a1["icc_model"] == "two-way mixed-effects"
     assert res_a1["icc_type"] == "absolute agreement"
     assert res_a1["icc_unit"] == "single measurement"
-    assert res_a1["icc_library"] == "scipy_numpy_analytic"
+    assert res_a1["numpy_version"] is not None
+    assert res_a1["scipy_version"] is not None
+    assert res_a1["agreement_module_version"] == "1.2.0"
+    assert res_a1["implementation_hash"] is not None
 
     # Consistency is perfect (1.0) because rankings are identical
     assert res_31["icc_value"] == 1.0
@@ -218,4 +221,89 @@ def test_mode_isolation_guard(calc):
             submissions_b=sim_sub_b,
             review_mode=ReviewMode.REAL_HUMAN_EXPERT_REVIEW,
         )
+
+
+def test_stratified_bootstrap_ci_execution_and_metadata(calc):
+    """Verifies that stratified bootstrap preserves record pairs, uses >= 2000 iterations, and logs metadata."""
+    from app.datasets.expert_review.schemas import (
+        RecordReviewSubmission, TaxonomyClass, DimensionRatings, CriticalFailureFlags,
+        WorkflowFlags, ReviewMode, SubmissionOrigin
+    )
+
+    subs_a = [
+        RecordReviewSubmission(
+            submission_id=f"SUB-A-{i}",
+            item_id=f"REC-{i}",
+            reviewer_id="REV-01",
+            batch_id="BATCH-01",
+            taxonomy_class=TaxonomyClass.TEXT_SIMPLIFICATION,
+            ratings=DimensionRatings(meaning_preservation=4, age_appropriateness=4),
+            critical_checks=CriticalFailureFlags(),
+            workflow_flags=WorkflowFlags(),
+            submission_hash=f"h-a-{i}",
+            submission_origin=SubmissionOrigin.HUMAN_ENTERED,
+            review_mode=ReviewMode.REAL_HUMAN_EXPERT_REVIEW,
+        )
+        for i in range(20)
+    ]
+
+    subs_b = [
+        RecordReviewSubmission(
+            submission_id=f"SUB-B-{i}",
+            item_id=f"REC-{i}",
+            reviewer_id="REV-02",
+            batch_id="BATCH-01",
+            taxonomy_class=TaxonomyClass.TEXT_SIMPLIFICATION if i % 4 != 0 else TaxonomyClass.INSTRUCTION_REPHRASING,
+            ratings=DimensionRatings(meaning_preservation=4 if i % 3 != 0 else 3, age_appropriateness=4),
+            critical_checks=CriticalFailureFlags(),
+            workflow_flags=WorkflowFlags(),
+            submission_hash=f"h-b-{i}",
+            submission_origin=SubmissionOrigin.HUMAN_ENTERED,
+            review_mode=ReviewMode.REAL_HUMAN_EXPERT_REVIEW,
+        )
+        for i in range(20)
+    ]
+
+    strata = ["simplification_pair"] * 14 + ["lexicon_entry"] * 4 + ["adaptation_activity"] * 2
+
+    res = calc.calculate_batch_agreement(
+        batch_id="BATCH-01",
+        reviewer_panel_id="PANEL-01",
+        reviewer_a_id="REV-01",
+        reviewer_b_id="REV-02",
+        submissions_a=subs_a,
+        submissions_b=subs_b,
+        review_mode=ReviewMode.REAL_HUMAN_EXPERT_REVIEW,
+        strata=strata,
+        bootstrap_iterations=2000,
+        random_seed=42,
+    )
+
+    ci = res["confidence_intervals"]
+    assert ci["method"] == "stratified_bootstrap"
+    assert ci["iterations"] == 2000
+    assert ci["random_seed"] == 42
+    assert ci["sampling_unit"] == "record"
+    assert ci["strata"] == "record_type"
+    assert ci["confidence_level"] == 0.95
+    assert ci["numpy_version"] is not None
+    assert ci["scipy_version"] is not None
+    assert ci["agreement_module_version"] == "1.2.0"
+    assert ci["implementation_hash"] is not None
+
+    # Check that bootstrap intervals were generated within valid bounds [-1.0, 1.0]
+    for key in [
+        "taxonomy_cohens_kappa_ci_95",
+        "critical_checks_cohens_kappa_ci_95",
+        "critical_checks_pooled_kappa_ci_95",
+        "meaning_preservation_weighted_kappa_ci_95",
+        "age_appropriateness_weighted_kappa_ci_95",
+        "icc_a_1_ci_95",
+        "icc_3_1_ci_95",
+    ]:
+        lo, hi = ci[key]
+        assert -1.0 <= lo <= 1.0
+        assert -1.0 <= hi <= 1.0
+        assert lo <= hi
+
 

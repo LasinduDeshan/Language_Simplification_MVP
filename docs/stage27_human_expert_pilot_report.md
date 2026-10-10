@@ -67,26 +67,37 @@ Public repository documentation strictly excludes all Personally Identifiable In
 
 ---
 
-## 5. Pre-Established Calibration Gold Reference
+## 5. Planned Expert-Authored Calibration Reference
 
-The 10 non-locked calibration records must have ground-truth benchmark decisions established **prior** to candidate reviewer onboarding:
+The 10 non-locked calibration records will have canonical reference decisions authored and verified **only after ethics clearance and genuine expert involvement**:
 
 ```json
 {
-  "calibration_manifest_hash": "sha256:7f8e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e",
-  "reference_created_by_role": "Lead Adjudicator / Pediatric Language Consultant",
-  "reference_creation_date": "2026-10-10",
-  "reference_rationale": "Standardized canonical taxonomy, ordinal rating anchors, and critical flag definitions established independently by the lead arbitration committee without consulting locked evaluation sets.",
-  "historical_locked_overlap": 0
+  "reference_status": "template_pending_human_creation",
+  "calibration_manifest_hash": null,
+  "reference_created_by_reviewer_id": null,
+  "reference_created_by_role_required": "authorized_lead_adjudicator",
+  "reference_creation_date": null,
+  "historical_locked_overlap_required": 0,
+  "eligible_for_human_calibration": false
 }
 ```
 
-### Calibration Eligibility Threshold:
-The benchmark gate is termed **`pilot_calibration_eligibility_threshold`** (not general professional certification):
-$$\text{Composite Score} = 0.35 \times \kappa_{\text{taxonomy}} + 0.35 \times \text{Concordance}_{\text{critical}} + 0.30 \times \kappa_{w,\text{ordinal}} \ge \mathbf{0.80}$$
-* **Taxonomy:** Minimum 8/10 matches ($\kappa \ge 0.80$).
-* **Critical Checks:** $100\%$ concordance on safety, answer leakage, and meaning preservation flags.
-* **Ordinal Dimensions:** Quadratic weighted $\kappa_w \ge 0.75$ and mean absolute difference $\le 0.50$.
+### 5.1 Post-Ethics Calibration Reference Lifecycle:
+1. **Authoring:** Following institutional ethics clearance, an authorized lead expert reviews the 10 calibration records and establishes reference decisions.
+2. **Artifact Persistence:** Save the completed calibration artifact to disk.
+3. **Cryptographic Hashing:** Calculate its genuine SHA-256 hash from the saved bytes.
+4. **Metadata Recording:** Record the pseudonymous expert ID and timestamp.
+5. **Secondary Verification:** Obtain independent second-person sign-off from an arbitration committee member.
+6. **State Transition:** Update status to `approved_calibration_reference` to activate the calibration gate.
+
+### 5.2 Multi-Criterion Calibration Eligibility Threshold:
+The benchmark gate is termed **`pilot_calibration_eligibility_threshold`** (pilot entry qualification, not general professional certification):
+* **Observed Taxonomy Concordance:** `taxonomy_exact_agreement >= 0.80` (at least 8 out of 10 exact classification matches).
+* **Taxonomy Cohen's $\kappa$:** Reported descriptively. Because Cohen's $\kappa$ accounts for chance agreement and is statistically unstable over small sample sizes ($N=10$), reviewers are not failed solely because sample $\kappa$ fluctuates below $0.80$ if exact concordance is $\ge 80\%$.
+* **Critical Checks:** $100\%$ concordance on predefined critical safety, answer leakage, and propositional distortion checks.
+* **Ordinal Dimensions:** Quadratic weighted $\kappa_w \ge 0.75$ and mean absolute difference $\le 0.50$ across the 10 dimensions.
+* **Qualitative Review:** All meaningful disagreements are discussed directly with the lead adjudicator during onboarding.
 
 ---
 
@@ -123,18 +134,31 @@ is_sealed: true
 
 ---
 
-## 7. Inter-Rater Reliability Accounting Plan
+## 7. Inter-Rater Reliability & Stratified Bootstrap Implementation
 
-Upon completion of the 96 human submissions, agreement will be reported across the verified denominators:
+Reliability intervals are estimated via **stratified bootstrap across complete records** (preserving paired Reviewer A and Reviewer B observations intact):
+
+```yaml
+method: stratified_bootstrap
+iterations: 2000
+random_seed: 42
+sampling_unit: record
+strata: record_type
+confidence_level: 95%
+numpy_version: "2.4.6"
+scipy_version: "1.17.1"
+agreement_module_version: "1.2.0"
+implementation_hash: "4f7b0376d29938db"
+```
 
 | Measurement Dimension | Target Denominator | Reliability Metric | Target Threshold |
 | :--- | :---: | :---: | :---: |
 | **Independent Submissions** | 96 | Submission accounting completeness | $100\%$ accounted |
-| **Taxonomy Agreement** | 48 paired records | Cohen's $\kappa$ with 95% Wald CI | $\kappa \ge 0.80$ |
+| **Taxonomy Agreement** | 48 paired records | Cohen's $\kappa$ with 95% Stratified Bootstrap CI | $\kappa \ge 0.80$ |
 | **Critical Checks (Pooled)** | 480 paired checks | Pooled Cohen's $\kappa$ & % agreement | $\kappa \ge 0.80$, Concordance $\ge 90\%$ |
 | **Critical Checks (Per Check)** | 48 paired records $\times 10$ | 10 individual Cohen's $\kappa$ values | No systematic blind spots |
 | **Ordinal Dimensions** | 480 paired ratings | Quadratic weighted $\kappa_w$ | $\kappa_w \ge 0.75$ |
-| **Composite Score Reliability** | 48 composite pairs | $\text{ICC}(A,1)$ absolute agreement | $\text{ICC}(A,1) \ge 0.80$ |
+| **Composite Score Reliability** | 48 composite pairs | $\text{ICC}(A,1)$ absolute agreement single measurement | $\text{ICC}(A,1) \ge 0.80$ |
 | **Corpus-Wide Reliability** | 48 records | Krippendorff's $\alpha$ with bootstrap CI | $\alpha \ge 0.80$ |
 
 ---

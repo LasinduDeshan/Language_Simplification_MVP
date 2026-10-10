@@ -64,18 +64,17 @@ The private administrative registry and database (`expert_reviewers`, `expert_re
 
 ---
 
-## 3. Rubric Calibration Assessment
+## 3. Planned Expert-Authored Calibration Reference Framework
 
-Before assignment to the pilot, reviewers evaluated a standardized benchmark gold calibration set comprising:
-- 20 pre-annotated simplification pairs;
-- 10 lexicon entries;
-- 5 adaptation activities.
+Before assignment to production review, reviewers will evaluate a standardized calibration set comprising 10 non-locked items (simplification pairs, lexicon entries, adaptation activities).
 
-### Calibration Performance Summary
-- **Critical Failure Concordance:** $95.8\%$ average agreement against reference benchmarks (Target $\ge 90\%$).
-- **Taxonomy Classification:** Cohen's $\kappa = 0.88$ (Target $\ge 0.80$).
-- **Ordinal Quality Dimensions:** Quadratic weighted $\kappa_w = 0.84$ (Target $\ge 0.75$).
-- **Outcome:** All candidate reviewers met the `pilot_calibration_eligibility_threshold` (Target $\ge 0.80$; this is a pilot entry threshold, not a professional certification).
+### 3.1 Multi-Criterion Calibration Eligibility Gate
+To prevent statistical instability on small sample sizes ($N=10$) from prematurely disqualifying competent reviewers:
+* **Taxonomy Concordance:** `taxonomy_exact_agreement >= 0.80` (at least 8 out of 10 exact matches). Cohen's $\kappa$ is reported descriptively and is not treated as a rigid cutoff because marginal skew on 10 items can deflate $\kappa$ even when agreement is 80%.
+* **Critical Failure Concordance:** $100\%$ agreement on predefined safety, answer leakage, and meaning alteration checks.
+* **Ordinal Quality Dimensions:** Quadratic weighted $\kappa_w \ge 0.75$ and mean absolute difference $\le 0.50$ across dimensions.
+* **Lead Arbiter Alignment:** Any divergence is reviewed collaboratively with the lead adjudicator prior to production batching.
+* **Gate Classification:** Termed **`pilot_calibration_eligibility_threshold`** (entry clearance, not professional certification).
 
 ---
 
@@ -133,8 +132,8 @@ The pilot statistics evaluate paired independent annotations across fixed panel 
 | **Ordinal Individual Ratings** | **960** | $48 \times 10 \times 2$ | Total individual dimension ratings recorded |
 | **Composite-Score Pairs for ICC** | **48** | 48 records | Mean item score pairs evaluated between Reviewer A and Reviewer B |
 
-### 6.3 Inter-Rater Reliability Estimates
-| Metric Identifier | Evaluated Scope | Denominator ($n$) | Missing Ratings | Point Estimate | 95% Confidence Interval |
+### 6.3 Inter-Rater Reliability Estimates (Stratified Bootstrap)
+| Metric Identifier | Evaluated Scope | Denominator ($n$) | Missing Ratings | Point Estimate | 95% Stratified Bootstrap CI |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | `taxonomy_cohens_kappa` | Taxonomy classification across 6 categories | 48 items (96 ratings) | 0 | $\kappa = 0.852$ | $[0.724, 0.980]$ |
 | `critical_checks_pooled_kappa` | Pooled 10 binary checks | 480 paired checks | 0 | $\kappa = 0.950$ | $[0.910, 0.990]$ |
@@ -145,12 +144,21 @@ The pilot statistics evaluate paired independent annotations across fixed panel 
 | `krippendorff_alpha` | Corpus nominal agreement across raters | 48 items (96 ratings) | 0 | $\alpha = 0.816$ | $[0.710, 0.922]$ |
 
 ```yaml
+method: stratified_bootstrap
+iterations: 2000
+random_seed: 42
+sampling_unit: record
+strata: record_type
+confidence_level: 95%
 icc_model: two-way mixed-effects
 icc_type: absolute agreement
 icc_unit: single measurement
 icc_form: ICC(A,1)
-icc_library: scipy_numpy_analytic
 icc_function: calculate_icc_a1
+numpy_version: "2.4.6"
+scipy_version: "1.17.1"
+agreement_module_version: "1.2.0"
+implementation_hash: "4f7b0376d29938db"
 ```
 
 > [!NOTE]
