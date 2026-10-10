@@ -26,6 +26,7 @@ from app.datasets.expert_review.schemas import (
     ReviewManifestItem,
     SupportLevel,
     SubmissionOrigin,
+    ReviewMode,
 )
 from app.datasets.expert_review.manifest_repository import ManifestRepository
 from app.datasets.expert_review.assignment_service import AssignmentService
@@ -310,6 +311,7 @@ class PilotRunner:
                 workflow_flags=WorkflowFlags(requires_revision=has_divergence),
                 reviewer_notes="High quality child language simplification." if not has_critical_flag else "Potential propositional distortion.",
                 submission_origin=SubmissionOrigin.SCRIPT_GENERATED,
+                review_mode=ReviewMode.OPERATIONAL_SIMULATION,
             )
             subs_a.append(sub_a)
 
@@ -323,6 +325,7 @@ class PilotRunner:
                 workflow_flags=WorkflowFlags(),
                 reviewer_notes="Evaluated for young learner comprehension.",
                 submission_origin=SubmissionOrigin.SCRIPT_GENERATED,
+                review_mode=ReviewMode.OPERATIONAL_SIMULATION,
             )
             subs_b.append(sub_b)
 
@@ -339,6 +342,7 @@ class PilotRunner:
             reviewer_b_id=reviewer_b,
             submissions_a=subs_a,
             submissions_b=subs_b,
+            review_mode=ReviewMode.OPERATIONAL_SIMULATION,
         )
 
         # Adjudicate all detected conflicts

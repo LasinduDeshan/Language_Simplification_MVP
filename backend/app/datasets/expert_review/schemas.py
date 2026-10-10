@@ -24,9 +24,13 @@ class SubmissionOrigin(str, Enum):
     UNKNOWN_ORIGIN = "unknown_origin"
 
 
-class PilotReviewMode(str, Enum):
+class ReviewMode(str, Enum):
     OPERATIONAL_SIMULATION = "operational_simulation"
     REAL_HUMAN_EXPERT_REVIEW = "real_human_expert_review"
+
+
+# Backward compatibility alias
+PilotReviewMode = ReviewMode
 
 
 class SupportLevel(str, Enum):
@@ -65,8 +69,10 @@ class LexiconDisposition(str, Enum):
 
 
 class ICCForm(str, Enum):
-    ICC_3_1 = "ICC(3,1)"  # Two-way mixed effects, single rater, absolute agreement (fixed panel)
+    ICC_A_1 = "ICC(A,1)"  # Two-way mixed effects, single rater, absolute agreement (fixed panel)
+    ICC_3_1 = "ICC(3,1)"  # Two-way mixed effects, single rater, consistency (fixed panel)
     ICC_2_1 = "ICC(2,1)"  # Two-way random effects, single rater, absolute agreement (random panel)
+
 
 
 class ReviewerProfile(BaseModel):
@@ -216,6 +222,7 @@ class ReviewBatch(BaseModel):
     reviewer_b_id: str
     item_ids: List[str]
     status: str = "assigned"  # "assigned", "in_progress", "completed", "revoked"
+    review_mode: ReviewMode = ReviewMode.OPERATIONAL_SIMULATION
     created_at: datetime = Field(default_factory=datetime.utcnow)
     completed_at: Optional[datetime] = None
 
@@ -235,6 +242,7 @@ class RecordReviewSubmission(BaseModel):
     submitted_at: datetime = Field(default_factory=datetime.utcnow)
     submission_hash: str
     submission_origin: SubmissionOrigin = SubmissionOrigin.SCRIPT_GENERATED
+    review_mode: ReviewMode = ReviewMode.OPERATIONAL_SIMULATION
 
     def determine_provisional_disposition(self) -> FinalDisposition:
         if self.critical_checks.unsafe_or_inappropriate_content or self.critical_checks.answer_leakage_detected:
@@ -272,7 +280,25 @@ class AdjudicationRecord(BaseModel):
     adjudicated_ratings: Optional[DimensionRatings] = None
     decision_rationale: str
     revision_required: bool = False
+    review_mode: ReviewMode = ReviewMode.OPERATIONAL_SIMULATION
     adjudicated_at: datetime = Field(default_factory=datetime.utcnow)
+
+
+class CalibrationReference(BaseModel):
+    calibration_manifest_hash: str
+    reference_created_by_role: str = "Lead Adjudicator / Pediatric Language Consultant"
+    reference_creation_date: str = "2026-10-10"
+    reference_rationale: str = (
+        "Standardized reference annotations established prior to reviewer onboarding by authorized lead "
+        "expert panel. Establishes ground truth rubric baselines without consulting locked test splits."
+    )
+    historical_locked_overlap: int = 0
+    concordance_rule_definition: str = (
+        "Composite pilot_calibration_eligibility_threshold: >= 0.80 composite concordance "
+        "(0.35 * taxonomy Cohen's kappa + 0.35 * critical check concordance + 0.30 * quadratic weighted kappa). "
+        "Requires 100% agreement on critical safety/leakage flags and >= 8/10 taxonomy agreement."
+    )
+    items: List[Dict[str, Any]] = Field(default_factory=list)
 
 
 class RevisionRecord(BaseModel):

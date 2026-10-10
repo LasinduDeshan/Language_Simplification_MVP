@@ -124,7 +124,98 @@ def test_batch_agreement_denominators_and_confidence_intervals(calc):
     assert "confidence_intervals" in res
     assert "taxonomy_cohens_kappa_ci_95" in res["confidence_intervals"]
     assert "critical_checks_cohens_kappa_ci_95" in res["confidence_intervals"]
+    assert "critical_checks_pooled_kappa_ci_95" in res["confidence_intervals"]
     assert "meaning_preservation_weighted_kappa_ci_95" in res["confidence_intervals"]
     assert "age_appropriateness_weighted_kappa_ci_95" in res["confidence_intervals"]
+    assert "icc_a_1_ci_95" in res["confidence_intervals"]
     assert "icc_3_1_ci_95" in res["confidence_intervals"]
     assert -1.0 <= res["krippendorff_alpha"] <= 1.0
+
+    # Verify accounting
+    acc = res["accounting"]
+    assert acc["independent_submissions"] == 20
+    assert acc["taxonomy_paired_observations"] == 10
+    assert acc["critical_check_paired_observations"] == 100
+    assert acc["critical_check_individual_decisions"] == 200
+    assert acc["ordinal_paired_dimension_ratings"] == 100
+    assert acc["ordinal_individual_ratings"] == 200
+    assert acc["composite_score_pairs_for_icc"] == 10
+
+
+def test_icc_a1_absolute_agreement_penalizes_systematic_shift(calc):
+    """ICC(A,1) absolute agreement must penalize systematic scoring shifts between raters."""
+    # Rater B scores every item exactly 1 point higher than Rater A
+    # Consistency ICC(3,1) is 1.0 (perfect correlation), but Absolute Agreement ICC(A,1) is lower
+    shifted_matrix = [
+        [1.0, 2.0],
+        [2.0, 3.0],
+        [3.0, 4.0],
+        [4.0, 5.0],
+        [2.0, 3.0],
+        [3.0, 4.0],
+    ]
+    res_a1 = calc.calculate_icc(shifted_matrix, form="ICC(A,1)")
+    res_31 = calc.calculate_icc(shifted_matrix, form="ICC(3,1)")
+
+    assert res_a1["icc_form"] == "ICC(A,1)"
+    assert res_a1["icc_model"] == "two-way mixed-effects"
+    assert res_a1["icc_type"] == "absolute agreement"
+    assert res_a1["icc_unit"] == "single measurement"
+    assert res_a1["icc_library"] == "scipy_numpy_analytic"
+
+    # Consistency is perfect (1.0) because rankings are identical
+    assert res_31["icc_value"] == 1.0
+    # Absolute agreement is penalized (< 1.0) because rater B gave systematically higher scores
+    assert res_a1["icc_value"] < 0.90
+
+
+def test_mode_isolation_guard(calc):
+    """Enforces strict isolation: simulated reviews cannot enter human evaluation."""
+    from app.datasets.expert_review.schemas import (
+        RecordReviewSubmission, TaxonomyClass, DimensionRatings, CriticalFailureFlags,
+        WorkflowFlags, ReviewMode, SubmissionOrigin
+    )
+
+    sim_sub_a = [
+        RecordReviewSubmission(
+            submission_id="SUB-SIM-A",
+            item_id="REC-1",
+            reviewer_id="REV-01",
+            batch_id="BATCH-01",
+            taxonomy_class=TaxonomyClass.TEXT_SIMPLIFICATION,
+            ratings=DimensionRatings(),
+            critical_checks=CriticalFailureFlags(),
+            workflow_flags=WorkflowFlags(),
+            submission_hash="hash-1",
+            submission_origin=SubmissionOrigin.SCRIPT_GENERATED,
+            review_mode=ReviewMode.OPERATIONAL_SIMULATION,
+        )
+    ]
+    sim_sub_b = [
+        RecordReviewSubmission(
+            submission_id="SUB-SIM-B",
+            item_id="REC-1",
+            reviewer_id="REV-02",
+            batch_id="BATCH-01",
+            taxonomy_class=TaxonomyClass.TEXT_SIMPLIFICATION,
+            ratings=DimensionRatings(),
+            critical_checks=CriticalFailureFlags(),
+            workflow_flags=WorkflowFlags(),
+            submission_hash="hash-2",
+            submission_origin=SubmissionOrigin.SCRIPT_GENERATED,
+            review_mode=ReviewMode.OPERATIONAL_SIMULATION,
+        )
+    ]
+
+    # Passing simulated submissions into REAL_HUMAN_EXPERT_REVIEW must raise AssertionError
+    with pytest.raises(AssertionError, match="Contamination detected"):
+        calc.calculate_batch_agreement(
+            batch_id="BATCH-01",
+            reviewer_panel_id="PANEL-01",
+            reviewer_a_id="REV-01",
+            reviewer_b_id="REV-02",
+            submissions_a=sim_sub_a,
+            submissions_b=sim_sub_b,
+            review_mode=ReviewMode.REAL_HUMAN_EXPERT_REVIEW,
+        )
+

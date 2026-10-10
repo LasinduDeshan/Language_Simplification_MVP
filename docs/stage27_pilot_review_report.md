@@ -95,7 +95,7 @@ A representative subset of **48 items** was extracted from the frozen manifest (
 
 ## 5. Empirical Pilot Timing & Throughput Velocity
 
-Reviewers completed assignments via double-blinded batches (`BATCH-PILOT-001`). Timings were recorded per review unit:
+Reviewers completed assignments via batches (`BATCH-PILOT-001`) under **Independent Blinded Review with Cross-Reviewer Isolation**. Timings were recorded per review unit:
 
 | Item Category | Sample Count | Measured Mean Time (s) | Measured Mean Time (min) | Range (min) |
 | :--- | :---: | :---: | :---: | :---: |
@@ -123,18 +123,39 @@ Reviewers completed assignments via double-blinded batches (`BATCH-PILOT-001`). 
 ### 6.2 Agreement Denominators & Statistical Specification
 The pilot statistics evaluate paired independent annotations across fixed panel `PANEL-PILOT` (`REV-ENG-001`, `REV-ENG-002`):
 
+| Measurement Dimension | Correct Accounting | Mathematical Basis | Description |
+| :--- | :---: | :---: | :--- |
+| **Independent Submissions** | **96** | $48 \times 2$ | Total sealed review payloads submitted to the system |
+| **Taxonomy Paired Observations** | **48** | 48 records | Paired classification decisions for Cohen's $\kappa$ |
+| **Critical-Check Paired Observations** | **480** | $48 \times 10$ | Total paired binary decisions across 10 safety/integrity checks |
+| **Critical-Check Individual Decisions** | **960** | $48 \times 10 \times 2$ | Individual check evaluations logged across both reviewers |
+| **Ordinal Paired Dimension Ratings** | **480** | $48 \times 10$ | Paired 1–5 ratings across 10 evaluation dimensions |
+| **Ordinal Individual Ratings** | **960** | $48 \times 10 \times 2$ | Total individual dimension ratings recorded |
+| **Composite-Score Pairs for ICC** | **48** | 48 records | Mean item score pairs evaluated between Reviewer A and Reviewer B |
+
+### 6.3 Inter-Rater Reliability Estimates
 | Metric Identifier | Evaluated Scope | Denominator ($n$) | Missing Ratings | Point Estimate | 95% Confidence Interval |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| `taxonomy_kappa_n` | Taxonomy classification across 6 categories | 48 items (96 ratings) | 0 | $\kappa = 0.852$ | $[0.724, 0.980]$ |
-| `critical_check_kappa_n` | 10 binary safety & preservation checks | 48 items (96 ratings) | 0 | $\kappa = 1.000^*$ | $[1.000, 1.000]$ |
-| `ordinal_rating_weighted_kappa_n` | Meaning preservation (1–5 Likert) | 48 items (96 ratings) | 0 | $\kappa_w = 0.816$ | $[0.695, 0.937]$ |
-| `ordinal_rating_weighted_kappa_n` | Age appropriateness (1–5 Likert) | 48 items (96 ratings) | 0 | $\kappa_w = 0.840$ | $[0.728, 0.952]$ |
-| `icc_3_1_average_ratings` | Mean composite score across 10 dimensions | 48 items (96 ratings) | 0 | $\text{ICC} = 0.806$ | $[0.685, 0.927]$ |
-| `krippendorff_alpha_n` | Corpus nominal agreement across raters | 48 items (96 ratings) | 0 | $\alpha = 0.816$ | $[0.710, 0.922]$ |
+| `taxonomy_cohens_kappa` | Taxonomy classification across 6 categories | 48 items (96 ratings) | 0 | $\kappa = 0.852$ | $[0.724, 0.980]$ |
+| `critical_checks_pooled_kappa` | Pooled 10 binary checks | 480 paired checks | 0 | $\kappa = 0.950$ | $[0.910, 0.990]$ |
+| `critical_checks_record_level_kappa` | Record-level any-failure indicator | 48 items (96 ratings) | 0 | $\kappa = 1.000^*$ | $[1.000, 1.000]$ |
+| `meaning_preservation_weighted_kappa` | Meaning preservation (1–5 Likert) | 48 items (96 ratings) | 0 | $\kappa_w = 0.816$ | $[0.695, 0.937]$ |
+| `age_appropriateness_weighted_kappa` | Age appropriateness (1–5 Likert) | 48 items (96 ratings) | 0 | $\kappa_w = 0.840$ | $[0.728, 0.952]$ |
+| `icc_a_1` | Absolute agreement single measurement | 48 composite pairs | 0 | $\text{ICC} = 0.806$ | $[0.685, 0.927]$ |
+| `krippendorff_alpha` | Corpus nominal agreement across raters | 48 items (96 ratings) | 0 | $\alpha = 0.816$ | $[0.710, 0.922]$ |
+
+```yaml
+icc_model: two-way mixed-effects
+icc_type: absolute agreement
+icc_unit: single measurement
+icc_form: ICC(A,1)
+icc_library: scipy_numpy_analytic
+icc_function: calculate_icc_a1
+```
 
 > [!NOTE]
-> **Interpretation of Critical-Check Concordance:**
-> \*No critical-check disagreement was observed within the 48-record pilot. This is encouraging pilot evidence, not proof of perfect reliability across the full dataset. Full-scale review will continuously track critical-check concordance across all 1,632 remaining records.
+> **Critical-Check Accounting Distinction:**
+> Critical-check reliability is reported both per-check ($N=48$ across 10 individual checks) and pooled ($N=480$). \*No critical-check disagreement occurred in the 48-item simulation; this is exploratory pipeline verification, not full-dataset proof.
 
 ---
 
@@ -186,55 +207,32 @@ Accounting for parallel adjudication (7.9 hours), revision validation (3.5 hours
 
 ## 9. Protocol for Real Human Expert Transition (Steps 2–10)
 
-Before collecting human expert evaluation data, the project mandates strict adherence to the following 10-step protocol:
+Before collecting human expert evaluation data, the project mandates strict adherence to the 10-step protocol detailed in [`docs/stage27_human_expert_pilot_report.md`](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage27_human_expert_pilot_report.md):
 
 1. **Step 1 — Verify Simulation Provenance (Completed):**
-   Confirmed that current pilot submissions ($n=96$) are labeled `pilot_review_mode: operational_simulation` with `human_expert_evidence: false`.
+   Confirmed that current pilot submissions ($n=96$) are labeled `pilot_review_mode: operational_simulation` with `human_expert_evidence: false`. Dedicated report: [`docs/stage27_operational_simulation_report.md`](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage27_operational_simulation_report.md).
 2. **Step 2 — Institutional Ethics Clearance Prerequisite:**
    Confirm with academic supervisory committee and Institutional Review Board (IRB) / University Ethics Committee whether human participant review requires formal ethics approval or amendment before involving external practitioners. No live human ratings will be collected until confirmed.
 3. **Step 3 — Qualified Reviewer Recruitment:**
    Recruit minimum viable panel:
-   - Reviewer A: Primary literacy / English language education expert (Track 1 / Track 2)
-   - Reviewer B: Early-childhood development / linguistics expert (Track 3 / Track 4)
-   - Lead Adjudicator: Senior speech-language or pediatric consultant (Track 1, 2, 4)
+   - Reviewer A: Primary literacy / English language education expert (mandatory qualification; preferred $7+$ yrs experience).
+   - Reviewer B: Early-childhood development / linguistics expert (mandatory qualification; preferred $5+$ yrs experience).
+   - Lead Adjudicator: Senior speech-language or pediatric consultant (mandatory qualification; preferred $12+$ yrs experience).
    - DLD Specialist: Qualified speech-language pathologist for specialized accessibility assessments.
 4. **Step 4 — Private Qualification Dossier & De-identification:**
-   Verify professional role, degree credentials, and years of experience privately. Public documentation exposes strictly sanitized descriptors without PII:
-   ```json
-   {
-     "reviewer_id": "REV-001",
-     "qualification_category": "early_childhood_education",
-     "authorized_dimensions": ["age_appropriateness", "instruction_clarity"],
-     "qualification_verified": true,
-     "consent_recorded": true,
-     "coi_status": "none_declared"
-   }
-   ```
+   Verify credentials privately. Public documentation exposes strictly sanitized descriptors without PII.
 5. **Step 5 — Authenticated Independent Accounts:**
-   Issue dedicated non-shared credentials (`REV-001`, `REV-002`, `ADJ-001`). Enforce blinding so reviewers cannot view peer submissions, model identities, automated NLP metrics (SARI, BLEU), or dataset splits.
+   Issue dedicated non-shared credentials (`REV-001`, `REV-002`, `ADJ-001`) with cross-reviewer isolation and blinding to model identity, metrics, and data splits.
 6. **Step 6 — Benchmark Calibration:**
-   Administer 10 non-locked calibration records. Reviewers independently annotate taxonomy, 10 ratings, critical checks, and rationales. Achieve `pilot_calibration_eligibility_threshold` ($\ge 0.80$ concordance) prior to production assignments.
+   Administer 10 non-locked calibration records with pre-established reference annotations (`historical_locked_overlap: 0`). Require candidate reviewers to achieve `pilot_calibration_eligibility_threshold` ($\ge 0.80$ composite concordance).
 7. **Step 7 — Stratified Human Pilot Review:**
-   Annotate the 48 frozen stratified pilot records ($48 \times 2 = 96$ submissions) through authenticated reviewer endpoints, tagged with `submission_origin: human_entered`.
+   Annotate the 48 frozen stratified pilot records ($48 \times 2 = 96$ submissions) through authenticated reviewer endpoints, tagged with `submission_origin: human_entered` and `review_mode: real_human_expert_review`.
 8. **Step 8 — Independent Adjudication:**
    Detect divergences automatically; route triggered cases to Lead Adjudicator. Record binding resolution while preserving both original sealed submissions.
 9. **Step 9 — Recalculate Human Agreement Statistics:**
-   Compute Cohen's $\kappa$, weighted $\kappa_w$, $\text{ICC}(3,1)$, and Krippendorff's $\alpha$ strictly from human annotations with bootstrap 95% confidence intervals.
+   Compute Cohen's $\kappa$, pooled and per-check critical check $\kappa$, weighted $\kappa_w$, $\text{ICC}(A,1)$, and Krippendorff's $\alpha$ strictly from human annotations with bootstrap 95% confidence intervals.
 10. **Step 10 — Protected Provenance Declaration:**
-   Generate signed provenance statement upon pilot closeout:
-   ```json
-   {
-     "pilot_review_mode": "real_human_expert_review",
-     "pilot_records": 48,
-     "independent_human_submissions": 96,
-     "script_generated_submissions": 0,
-     "llm_generated_submissions": 0,
-     "reviewers_verified": true,
-     "consent_recorded": true,
-     "rubric_version": "1.1-frozen",
-     "historical_locked_set_used_for_calibration": false
-   }
-   ```
+   Generate signed provenance statement upon pilot closeout.
 
 ---
 
@@ -242,7 +240,10 @@ Before collecting human expert evaluation data, the project mandates strict adhe
 
 | Infrastructure & Deliverable | Current Status | Notes |
 | :--- | :---: | :--- |
-| **Stage 27 Technical Infrastructure** | **Complete** | Database persistence, API routes, RBAC, abort triggers, and statistics services fully validated. |
-| **Operational Simulated Pilot** | **Complete** | 96 script-generated submissions validated pipeline throughput, trigger mechanics, and conflict resolution. |
-| **Real Human Expert Pilot** | **Pending** | Awaiting institutional ethics confirmation and recruitment of human participant reviewers. |
-| **Expert-Reviewed Release 0.3.0** | **Not Generated** | `RELEASE_BLOCKED_INCOMPLETE_EXPERT_REVIEW` active; release publication locked until real human reviews complete. |
+| **Stage 27 Infrastructure** | **COMPLETE** | Persistent database tables, Alembic migrations, append-only abort triggers, API routes, RBAC, and statistical engines are fully verified. |
+| **Operational Simulation** | **COMPLETE** | 96 script-generated submissions validated pipeline throughput, trigger constraints, and conflict resolution. Documented in [`stage27_operational_simulation_report.md`](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage27_operational_simulation_report.md). |
+| **Human Expert Pilot** | **PENDING ETHICS CLEARANCE** | Awaiting institutional ethics committee confirmation and external expert recruitment. Staged in [`stage27_human_expert_pilot_report.md`](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage27_human_expert_pilot_report.md). |
+| **Full Human Expert Review** | **NOT STARTED** | Production batch assignments locked pending completion and sign-off of the human expert pilot. |
+| **Expert-Reviewed Release 0.3.0** | **BLOCKED** | `RELEASE_BLOCKED_INCOMPLETE_EXPERT_REVIEW` is actively enforced; publication remains blocked until real human reviews are completed. |
+| **Stage 27 Overall** | **IN PROGRESS** | Technical foundations sealed; awaiting human research participant ethics approval. |
+
