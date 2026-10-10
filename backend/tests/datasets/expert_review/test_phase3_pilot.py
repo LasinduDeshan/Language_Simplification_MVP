@@ -58,7 +58,16 @@ def test_pilot_execution_and_metrics(runner):
     assert results["disagreement_rate_pct"] > 0.0
     assert results["unresolved_adjudications"] == 0
 
+    assert results["pilot_review_mode"] == "operational_simulation"
+    assert results["human_expert_evidence"] is False
+    assert results["submission_origins"]["script_generated"] == 96
+    assert results["submission_origins"]["human_entered"] == 0
+    assert results["submission_origins"]["llm_generated"] == 0
+
     stats = results["agreement_statistics"]
+    assert stats["taxonomy_kappa_n"] == 48
+    assert stats["critical_check_kappa_n"] == 48
+    assert stats["missing_rating_count"] == 0
     assert stats["taxonomy_cohens_kappa"] >= 0.70
     assert stats["taxonomy_percent_agreement"] >= 80.0
     assert stats["icc_3_1_average_ratings"] >= 0.70

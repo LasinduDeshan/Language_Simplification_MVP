@@ -16,6 +16,19 @@ class ReviewRecordType(str, Enum):
     ADAPTATION_ACTIVITY = "adaptation_activity"
 
 
+class SubmissionOrigin(str, Enum):
+    HUMAN_ENTERED = "human_entered"
+    SCRIPT_GENERATED = "script_generated"
+    FIXTURE_GENERATED = "fixture_generated"
+    LLM_GENERATED = "llm_generated"
+    UNKNOWN_ORIGIN = "unknown_origin"
+
+
+class PilotReviewMode(str, Enum):
+    OPERATIONAL_SIMULATION = "operational_simulation"
+    REAL_HUMAN_EXPERT_REVIEW = "real_human_expert_review"
+
+
 class SupportLevel(str, Enum):
     MILD = "mild"
     MODERATE = "moderate"
@@ -221,6 +234,7 @@ class RecordReviewSubmission(BaseModel):
     reviewer_notes: Optional[str] = None
     submitted_at: datetime = Field(default_factory=datetime.utcnow)
     submission_hash: str
+    submission_origin: SubmissionOrigin = SubmissionOrigin.SCRIPT_GENERATED
 
     def determine_provisional_disposition(self) -> FinalDisposition:
         if self.critical_checks.unsafe_or_inappropriate_content or self.critical_checks.answer_leakage_detected:

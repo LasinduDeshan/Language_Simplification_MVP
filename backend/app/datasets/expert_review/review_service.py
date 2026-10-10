@@ -16,6 +16,7 @@ from .schemas import (
     FinalDisposition,
     RecordReviewSubmission,
     SubmissionAccounting,
+    SubmissionOrigin,
     TaxonomyClass,
     WorkflowFlags,
 )
@@ -54,6 +55,7 @@ class ReviewService:
         reviewer_notes: Optional[str] = None,
         support_tier_review: Optional[Any] = None,
         lexicon_disposition: Optional[Any] = None,
+        submission_origin: SubmissionOrigin = SubmissionOrigin.HUMAN_ENTERED,
     ) -> RecordReviewSubmission:
         """Processes an independent review submission with idempotency protection."""
         key = (item_id, reviewer_id)
@@ -77,6 +79,7 @@ class ReviewService:
             "critical_checks": critical_checks.model_dump(),
             "workflow_flags": workflow_flags.model_dump(),
             "reviewer_notes": reviewer_notes or "",
+            "submission_origin": submission_origin.value,
         }
         sub_hash = self.compute_submission_hash(payload_dict)
 
@@ -94,6 +97,7 @@ class ReviewService:
             reviewer_notes=reviewer_notes,
             submitted_at=datetime.utcnow(),
             submission_hash=sub_hash,
+            submission_origin=submission_origin,
         )
 
         self._submissions[sub_id] = submission

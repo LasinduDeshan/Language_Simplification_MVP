@@ -25,6 +25,7 @@ from app.datasets.expert_review.schemas import (
     ReviewRecordType,
     ReviewManifestItem,
     SupportLevel,
+    SubmissionOrigin,
 )
 from app.datasets.expert_review.manifest_repository import ManifestRepository
 from app.datasets.expert_review.assignment_service import AssignmentService
@@ -308,6 +309,7 @@ class PilotRunner:
                 critical_checks=crit_a,
                 workflow_flags=WorkflowFlags(requires_revision=has_divergence),
                 reviewer_notes="High quality child language simplification." if not has_critical_flag else "Potential propositional distortion.",
+                submission_origin=SubmissionOrigin.SCRIPT_GENERATED,
             )
             subs_a.append(sub_a)
 
@@ -320,6 +322,7 @@ class PilotRunner:
                 critical_checks=crit_b,
                 workflow_flags=WorkflowFlags(),
                 reviewer_notes="Evaluated for young learner comprehension.",
+                submission_origin=SubmissionOrigin.SCRIPT_GENERATED,
             )
             subs_b.append(sub_b)
 
@@ -357,6 +360,15 @@ class PilotRunner:
         disagreement_rate = (len(conflicts) / len(pilot_items)) * 100.0
 
         return {
+            "pilot_review_mode": "operational_simulation",
+            "human_expert_evidence": False,
+            "submission_origins": {
+                "human_entered": 0,
+                "script_generated": len(subs_a) + len(subs_b),
+                "fixture_generated": 0,
+                "llm_generated": 0,
+                "unknown_origin": 0,
+            },
             "pilot_items_count": len(pilot_items),
             "total_independent_reviews": len(subs_a) + len(subs_b),
             "average_review_time_sec": round(avg_time_sec, 1),
