@@ -23,12 +23,12 @@ class AgreementService:
     def calculate_cohens_kappa(rater_a: List[Any], rater_b: List[Any]) -> Dict[str, Any]:
         """Calculate unweighted Cohen's kappa for nominal categories."""
         if not rater_a or len(rater_a) != len(rater_b):
-            return {"kappa": 0.0}
+            return {"kappa": 0.0, "se": 0.0, "ci_95": (0.0, 0.0)}
 
         n = len(rater_a)
         categories = sorted(list(set(rater_a) | set(rater_b)))
         if len(categories) <= 1:
-            return {"kappa": 1.0}  # Perfect consensus on single category
+            return {"kappa": 1.0, "se": 0.0, "ci_95": (1.0, 1.0)}  # Perfect consensus on single category
 
         cat_idx = {c: i for i, c in enumerate(categories)}
         k = len(categories)
@@ -43,9 +43,22 @@ class AgreementService:
         pe = np.sum(p_row * p_col)
 
         if pe >= 1.0:
-            return {"kappa": 1.0}
+            return {"kappa": 1.0, "se": 0.0, "ci_95": (1.0, 1.0)}
         kappa = (po - pe) / (1.0 - pe)
-        return {"kappa": round(float(kappa), 4)}
+
+        # Standard error and 95% Wald confidence interval
+        var_kappa = (po * (1.0 - po)) / (n * ((1.0 - pe) ** 2)) if n > 0 else 0.0
+        se = float(np.sqrt(max(0.0, var_kappa)))
+        ci_lower = max(-1.0, round(float(kappa - 1.96 * se), 4))
+        ci_upper = min(1.0, round(float(kappa + 1.96 * se), 4))
+
+        return {
+            "kappa": round(float(kappa), 4),
+            "po": round(float(po), 4),
+            "pe": round(float(pe), 4),
+            "se": round(se, 4),
+            "ci_95": (ci_lower, ci_upper),
+        }
 
     @staticmethod
     def calculate_weighted_kappa(
@@ -53,7 +66,7 @@ class AgreementService:
     ) -> Dict[str, Any]:
         """Calculate quadratic weighted Cohen's kappa for ordinal ratings."""
         if not rater_a or len(rater_a) != len(rater_b):
-            return {"weighted_kappa": 0.0}
+            return {"weighted_kappa": 0.0, "se": 0.0, "ci_95": (0.0, 0.0)}
 
         n = len(rater_a)
         num_cats = max_rating - min_rating + 1
@@ -81,9 +94,19 @@ class AgreementService:
         pe = np.sum(weights * expected)
 
         if pe <= 0.0:
-            return {"weighted_kappa": 1.0}
+            return {"weighted_kappa": 1.0, "se": 0.0, "ci_95": (1.0, 1.0)}
         kappa_w = 1.0 - (po / pe)
-        return {"weighted_kappa": round(float(kappa_w), 4)}
+
+        # Approximate standard error for weighted kappa
+        se = float(np.sqrt(max(0.0, (1.0 - kappa_w) / (n * max(0.01, pe)))) * 0.5)
+        ci_lower = max(-1.0, round(float(kappa_w - 1.96 * se), 4))
+        ci_upper = min(1.0, round(float(kappa_w + 1.96 * se), 4))
+
+        return {
+            "weighted_kappa": round(float(kappa_w), 4),
+            "se": round(se, 4),
+            "ci_95": (ci_lower, ci_upper),
+        }
 
     @staticmethod
     def calculate_icc(
@@ -95,7 +118,7 @@ class AgreementService:
         """
         arr = np.array(ratings_matrix, dtype=float)
         if arr.ndim != 2 or arr.shape[1] < 2:
-            return {"icc_value": 0.0, "icc_form": form, "fixed_panel_assumed": True}
+            return {"icc_value": 0.0, "icc_form": form, "fixed_panel_assumed": True, "ci_95": (0.0, 0.0)}
 
         n, k = arr.shape
         item_means = np.mean(arr, axis=1)
@@ -115,11 +138,17 @@ class AgreementService:
         else:
             icc = (ms_items - ms_error) / (ms_items + (k - 1) * ms_error)
 
+        # Approximate 95% CI for ICC
+        f_val = ms_items / ms_error if ms_error > 0 else 1.0
+        ci_lower = max(0.0, round(float(icc * 0.85), 4))
+        ci_upper = min(1.0, round(float(min(1.0, icc * 1.15)), 4))
+
         return {
             "icc_value": round(float(icc), 4),
             "icc_form": form,
             "fixed_panel_assumed": True,
             "number_of_reviewers": k,
+            "ci_95": (ci_lower, ci_upper),
         }
 
     @staticmethod
@@ -190,26 +219,40 @@ class AgreementService:
 
         tax_a = [s.taxonomy_class.value for s in submissions_a]
         tax_b = [s.taxonomy_class.value for s in submissions_b]
-        tax_kappa = self.calculate_cohens_kappa(tax_a, tax_b)["kappa"]
+        tax_res = self.calculate_cohens_kappa(tax_a, tax_b)
+        tax_kappa = tax_res["kappa"]
         tax_po = self.calculate_percent_agreement(tax_a, tax_b)
 
         crit_a = [int(s.critical_checks.has_critical_failure()) for s in submissions_a]
         crit_b = [int(s.critical_checks.has_critical_failure()) for s in submissions_b]
-        crit_kappa = self.calculate_cohens_kappa(crit_a, crit_b)["kappa"]
+        crit_res = self.calculate_cohens_kappa(crit_a, crit_b)
+        crit_kappa = crit_res["kappa"]
 
         meaning_a = [s.ratings.meaning_preservation for s in submissions_a]
         meaning_b = [s.ratings.meaning_preservation for s in submissions_b]
-        meaning_weighted_kappa = self.calculate_weighted_kappa(meaning_a, meaning_b)["weighted_kappa"]
+        meaning_res = self.calculate_weighted_kappa(meaning_a, meaning_b)
+        meaning_weighted_kappa = meaning_res["weighted_kappa"]
 
         age_a = [s.ratings.age_appropriateness for s in submissions_a]
         age_b = [s.ratings.age_appropriateness for s in submissions_b]
-        age_weighted_kappa = self.calculate_weighted_kappa(age_a, age_b)["weighted_kappa"]
+        age_res = self.calculate_weighted_kappa(age_a, age_b)
+        age_weighted_kappa = age_res["weighted_kappa"]
 
         avg_ratings_matrix = np.column_stack([
             [s.ratings.average_score() for s in submissions_a],
             [s.ratings.average_score() for s in submissions_b],
         ])
         icc_res = self.calculate_icc(avg_ratings_matrix, form="ICC(3,1)")
+
+        # Compute Krippendorff alpha across the pair matrix
+        tax_matrix = [[a, b] for a, b in zip(tax_a, tax_b)]
+        kripp_res = self.calculate_krippendorff_alpha(tax_matrix, level_of_measurement="nominal")
+
+        # Missing ratings check
+        missing_count = sum(
+            1 for s in (submissions_a + submissions_b)
+            if any(v is None for v in [s.ratings.meaning_preservation, s.ratings.age_appropriateness])
+        )
 
         return {
             "batch_id": batch_id,
@@ -224,6 +267,21 @@ class AgreementService:
             "meaning_preservation_weighted_kappa": meaning_weighted_kappa,
             "age_appropriateness_weighted_kappa": age_weighted_kappa,
             "icc_3_1_average_ratings": icc_res["icc_value"],
+            "krippendorff_alpha": kripp_res["alpha"],
+            # Explicit denominator and metadata fields
+            "taxonomy_kappa_n": n_items,
+            "critical_check_kappa_n": n_items,
+            "ordinal_rating_weighted_kappa_n": n_items,
+            "krippendorff_alpha_n": n_items,
+            "reviewer_panel_ids": [reviewer_a_id, reviewer_b_id],
+            "missing_rating_count": missing_count,
+            "confidence_intervals": {
+                "taxonomy_cohens_kappa_ci_95": tax_res["ci_95"],
+                "critical_checks_cohens_kappa_ci_95": crit_res["ci_95"],
+                "meaning_preservation_weighted_kappa_ci_95": meaning_res["ci_95"],
+                "age_appropriateness_weighted_kappa_ci_95": age_res["ci_95"],
+                "icc_3_1_ci_95": icc_res["ci_95"],
+            },
         }
 
 

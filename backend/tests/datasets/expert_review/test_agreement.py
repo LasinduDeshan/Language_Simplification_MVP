@@ -68,3 +68,63 @@ def test_krippendorff_alpha_nominal(calc):
     ]
     res = calc.calculate_krippendorff_alpha(data, level_of_measurement="nominal")
     assert res["alpha"] == 1.0
+
+
+def test_batch_agreement_denominators_and_confidence_intervals(calc):
+    """Verifies explicit agreement denominators, panel IDs, and 95% confidence intervals."""
+    from app.datasets.expert_review.schemas import (
+        RecordReviewSubmission, TaxonomyClass, DimensionRatings, CriticalFailureFlags, WorkflowFlags
+    )
+
+    subs_a = [
+        RecordReviewSubmission(
+            submission_id=f"SUB-A-{i}",
+            item_id=f"REC-{i}",
+            reviewer_id="REV-01",
+            batch_id="BATCH-01",
+            taxonomy_class=TaxonomyClass.TEXT_SIMPLIFICATION,
+            ratings=DimensionRatings(meaning_preservation=4, age_appropriateness=4),
+            critical_checks=CriticalFailureFlags(),
+            workflow_flags=WorkflowFlags(),
+            submission_hash=f"h-a-{i}",
+        )
+        for i in range(10)
+    ]
+
+    subs_b = [
+        RecordReviewSubmission(
+            submission_id=f"SUB-B-{i}",
+            item_id=f"REC-{i}",
+            reviewer_id="REV-02",
+            batch_id="BATCH-01",
+            taxonomy_class=TaxonomyClass.TEXT_SIMPLIFICATION if i != 0 else TaxonomyClass.INSTRUCTION_REPHRASING,
+            ratings=DimensionRatings(meaning_preservation=4 if i != 1 else 3, age_appropriateness=4),
+            critical_checks=CriticalFailureFlags(),
+            workflow_flags=WorkflowFlags(),
+            submission_hash=f"h-b-{i}",
+        )
+        for i in range(10)
+    ]
+
+    res = calc.calculate_batch_agreement(
+        batch_id="BATCH-01",
+        reviewer_panel_id="PANEL-01",
+        reviewer_a_id="REV-01",
+        reviewer_b_id="REV-02",
+        submissions_a=subs_a,
+        submissions_b=subs_b,
+    )
+
+    assert res["taxonomy_kappa_n"] == 10
+    assert res["critical_check_kappa_n"] == 10
+    assert res["ordinal_rating_weighted_kappa_n"] == 10
+    assert res["krippendorff_alpha_n"] == 10
+    assert res["reviewer_panel_ids"] == ["REV-01", "REV-02"]
+    assert res["missing_rating_count"] == 0
+    assert "confidence_intervals" in res
+    assert "taxonomy_cohens_kappa_ci_95" in res["confidence_intervals"]
+    assert "critical_checks_cohens_kappa_ci_95" in res["confidence_intervals"]
+    assert "meaning_preservation_weighted_kappa_ci_95" in res["confidence_intervals"]
+    assert "age_appropriateness_weighted_kappa_ci_95" in res["confidence_intervals"]
+    assert "icc_3_1_ci_95" in res["confidence_intervals"]
+    assert -1.0 <= res["krippendorff_alpha"] <= 1.0

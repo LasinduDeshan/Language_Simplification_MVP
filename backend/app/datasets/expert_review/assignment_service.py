@@ -65,6 +65,10 @@ class AssignmentService:
 
         for idx, chunk in enumerate(batch_chunks):
             panel_id, rev_a, rev_b = reviewer_pairs[idx % num_pairs]
+            if rev_a == rev_b:
+                raise ValueError(
+                    f"Reviewer A and Reviewer B must be different people (panel: {panel_id}, reviewer: {rev_a})."
+                )
             batch_id = f"BATCH-ENG-{idx + 1:03d}"
 
             batch = ReviewBatch(
