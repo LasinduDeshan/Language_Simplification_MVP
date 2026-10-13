@@ -1,0 +1,31 @@
+{
+  "record_id": "STAGE28A-REPRODUCIBILITY-RECORD-01",
+  "generated_at": "2026-10-13T17:14:42.857738+00:00",
+  "stage": "28A",
+  "environment": {
+    "python_version": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+    "platform": "win32",
+    "random_seed": 42
+  },
+  "dynamic_provider_metadata": {
+    "requested_model": "gemini-3.5-flash-lite",
+    "resolved_model": "gemini-3.5-flash-lite",
+    "provider_model_version": "3.5-flash-lite-07-2026",
+    "discovery_timestamp": "2026-10-13T17:14:42.857738+00:00"
+  },
+  "pricing_snapshot": {
+    "billing_surface": "Google AI Studio / Gemini Developer API Public Pricing",
+    "source_url": "https://ai.google.dev/pricing",
+    "currency": "USD",
+    "units": "per_million_tokens",
+    "rates": {
+      "input_1m": 0.075,
+      "output_1m": 0.3
+    }
+  },
+  "manifest_checksums": {
+    "stage28a_internal_locked_comparison_csv": "ddce5c632a901de43ae7a7cf009b45f66efce81c866ee440c5474581e923d69c",
+    "stage28a_clean_subset_comparison_csv": "626ed59c49af70847d7a04f1f889dd1fef56b6e1f8c24100c34d32531a97bfc3",
+    "stage28a_asset_comparison_csv": "141868ab50d09f828b6939d1604b64beee75728292efcb73666a889f13113902"
+  }
+}

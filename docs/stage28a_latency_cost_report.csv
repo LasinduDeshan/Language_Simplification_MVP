@@ -1,0 +1,17 @@
+system_id,name,dataset,p95_latency_ms,estimated_cost_per_1k_usd,native_delivery_rate_pct
+B1,Lexical Substitution Baseline,internal_locked_clean,7.6,0.0,100.0
+B1,Lexical Substitution Baseline,asset_test_generic,12.4,0.0,100.0
+B2,Sentence Splitting Baseline,internal_locked_clean,15.7,0.0,100.0
+B2,Sentence Splitting Baseline,asset_test_generic,27.5,0.0,100.0
+B3,Syntactic Rules Baseline,internal_locked_clean,7.3,0.0,100.0
+B3,Syntactic Rules Baseline,asset_test_generic,12.5,0.0,100.0
+B4,Combined Deterministic Baseline,internal_locked_clean,64.4,0.0,100.0
+B4,Combined Deterministic Baseline,asset_test_generic,179.9,0.0,100.0
+B5,Offline Deterministic Fallback,internal_locked_clean,0.0,0.0,100.0
+B5,Offline Deterministic Fallback,asset_test_generic,0.0,0.0,100.0
+C1,Stage 25 Controlled Engine,internal_locked_clean,74.2,0.0,100.0
+C1,Stage 25 Controlled Engine,asset_test_generic,117.9,0.0,100.0
+G1,Gemini Native Simplification,internal_locked_clean,14569.7,0.0049,74.4
+G1,Gemini Native Simplification,asset_test_generic,0.0,0.0,0.0
+H1,Stage 26 Governed Hybrid Pipeline,internal_locked_clean,14569.7,0.0049,71.8
+H1,Stage 26 Governed Hybrid Pipeline,asset_test_generic,0.0,0.0,0.0

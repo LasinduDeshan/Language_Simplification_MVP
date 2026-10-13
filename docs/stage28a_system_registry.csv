@@ -1,0 +1,12 @@
+system_id,name,execution_category,evaluation_status,model_identifier,is_active,notes
+B0,Identity Baseline,deterministic_reference,REGISTERED_AND_EVALUATED,identity,True,Unmodified source text used as lower-bound baseline
+B1,Lexical Substitution Baseline,deterministic_baseline,REGISTERED_AND_EVALUATED,stage24_lexical_substitution,True,Frozen Stage 24 lexical substitution rules
+B2,Sentence Splitting Baseline,deterministic_baseline,REGISTERED_AND_EVALUATED,stage24_sentence_splitting,True,Frozen Stage 24 sentence splitting heuristic
+B3,Syntactic Rules Baseline,deterministic_baseline,REGISTERED_AND_EVALUATED,stage24_syntactic_rules,True,Frozen Stage 24 syntax simplification transformations
+B4,Combined Deterministic Baseline,deterministic_baseline,REGISTERED_AND_EVALUATED,stage24_combined_baseline,True,Frozen Stage 24 multi-heuristic baseline (lexical + split + syntax)
+B5,Offline Deterministic Fallback,deterministic_fallback,REGISTERED_AND_EVALUATED,stage25_deterministic_fallback,True,Stage 25 offline fallback pipeline evaluated under independent attribution
+C1,Stage 25 Controlled Engine,controlled_rules,REGISTERED_AND_EVALUATED,stage25_controlled_engine,True,Controlled simplification engine from stage-25-complete-v2
+G1,Gemini Native Simplification,live_external_llm,REGISTERED_AND_EVALUATED,gemini-3.5-flash-lite,True,Live Gemini generation; evaluated on native outputs only (no fallback substitution)
+H1,Stage 26 Governed Hybrid Pipeline,governed_hybrid,REGISTERED_AND_EVALUATED,gemini_plus_stage25_hybrid,True,Gemini native + Stage 25 deterministic repair & fallback safety governance
+T1,mT5 Native Simplification,local_transformer,NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS,google/mt5-small,False,Local transformer; registered but not evaluated if local checkpoint produces 0 native outputs
+T2,mBART Native Simplification,local_transformer,NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS,facebook/mbart-large-50,False,Local transformer; registered but not evaluated if local checkpoint produces 0 native outputs

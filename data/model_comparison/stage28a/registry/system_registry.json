@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-10-13T15:14:56.874989+00:00",
+  "stage": "28A",
+  "systems": [
+    {
+      "system_id": "B0",
+      "name": "Identity Baseline",
+      "execution_category": "deterministic_reference",
+      "evaluation_status": "REGISTERED_AND_EVALUATED",
+      "model_identifier": "identity",
+      "is_active_candidate": true,
+      "notes": "Unmodified source text used as lower-bound baseline"
+    },
+    {
+      "system_id": "B1",
+      "name": "Lexical Substitution Baseline",
+      "execution_category": "deterministic_baseline",
+      "evaluation_status": "REGISTERED_AND_EVALUATED",
+      "model_identifier": "stage24_lexical_substitution",
+      "is_active_candidate": true,
+      "notes": "Frozen Stage 24 lexical substitution rules"
+    },
+    {
+      "system_id": "B2",
+      "name": "Sentence Splitting Baseline",
+      "execution_category": "deterministic_baseline",
+      "evaluation_status": "REGISTERED_AND_EVALUATED",
+      "model_identifier": "stage24_sentence_splitting",
+      "is_active_candidate": true,
+      "notes": "Frozen Stage 24 sentence splitting heuristic"
+    },
+    {
+      "system_id": "B3",
+      "name": "Syntactic Rules Baseline",
+      "execution_category": "deterministic_baseline",
+      "evaluation_status": "REGISTERED_AND_EVALUATED",
+      "model_identifier": "stage24_syntactic_rules",
+      "is_active_candidate": true,
+      "notes": "Frozen Stage 24 syntax simplification transformations"
+    },
+    {
+      "system_id": "B4",
+      "name": "Combined Deterministic Baseline",
+      "execution_category": "deterministic_baseline",
+      "evaluation_status": "REGISTERED_AND_EVALUATED",
+      "model_identifier": "stage24_combined_baseline",
+      "is_active_candidate": true,
+      "notes": "Frozen Stage 24 multi-heuristic baseline (lexical + split + syntax)"
+    },
+    {
+      "system_id": "B5",
+      "name": "Offline Deterministic Fallback",
+      "execution_category": "deterministic_fallback",
+      "evaluation_status": "REGISTERED_AND_EVALUATED",
+      "model_identifier": "stage25_deterministic_fallback",
+      "is_active_candidate": true,
+      "notes": "Stage 25 offline fallback pipeline evaluated under independent attribution"
+    },
+    {
+      "system_id": "C1",
+      "name": "Stage 25 Controlled Engine",
+      "execution_category": "controlled_rules",
+      "evaluation_status": "REGISTERED_AND_EVALUATED",
+      "model_identifier": "stage25_controlled_engine",
+      "is_active_candidate": true,
+      "notes": "Controlled simplification engine from stage-25-complete-v2"
+    },
+    {
+      "system_id": "G1",
+      "name": "Gemini Native Simplification",
+      "execution_category": "live_external_llm",
+      "evaluation_status": "REGISTERED_AND_EVALUATED",
+      "model_identifier": "gemini-3.5-flash-lite",
+      "is_active_candidate": true,
+      "notes": "Live Gemini generation; evaluated on native outputs only (no fallback substitution)"
+    },
+    {
+      "system_id": "H1",
+      "name": "Stage 26 Governed Hybrid Pipeline",
+      "execution_category": "governed_hybrid",
+      "evaluation_status": "REGISTERED_AND_EVALUATED",
+      "model_identifier": "gemini_plus_stage25_hybrid",
+      "is_active_candidate": true,
+      "notes": "Gemini native + Stage 25 deterministic repair & fallback safety governance"
+    },
+    {
+      "system_id": "T1",
+      "name": "mT5 Native Simplification",
+      "execution_category": "local_transformer",
+      "evaluation_status": "NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS",
+      "model_identifier": "google/mt5-small",
+      "is_active_candidate": false,
+      "notes": "Local transformer; registered but not evaluated if local checkpoint produces 0 native outputs"
+    },
+    {
+      "system_id": "T2",
+      "name": "mBART Native Simplification",
+      "execution_category": "local_transformer",
+      "evaluation_status": "NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS",
+      "model_identifier": "facebook/mbart-large-50",
+      "is_active_candidate": false,
+      "notes": "Local transformer; registered but not evaluated if local checkpoint produces 0 native outputs"
+    }
+  ]
+}
