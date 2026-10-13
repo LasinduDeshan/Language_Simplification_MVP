@@ -514,3 +514,17 @@ class TaskResult(Base):
     session = relationship("ActivitySession")
     task = relationship("Task")
 
+
+# Stage 27 Expert Review Persistent Models
+from app.datasets.expert_review.models import (
+    ExpertReviewer,
+    ReviewerConsent,
+    ExpertReviewBatch,
+    ExpertReviewAssignment,
+    ExpertReviewSubmission,
+    ExpertAdjudicationCase,
+    ExpertRevision,
+    ExpertReviewAuditLog,
+    ExpertReleaseApproval,
+)
+
