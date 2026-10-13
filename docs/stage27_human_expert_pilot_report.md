@@ -93,17 +93,18 @@ The 10 non-locked calibration records will have canonical reference decisions au
 
 ### 5.2 Multi-Criterion Calibration Eligibility Threshold:
 The benchmark gate is termed **`pilot_calibration_eligibility_threshold`** (pilot entry qualification, not general professional certification):
-* **Observed Taxonomy Concordance:** `taxonomy_exact_agreement >= 0.80` (at least 8 out of 10 exact classification matches).
-* **Taxonomy Cohen's $\kappa$:** Reported descriptively. Because Cohen's $\kappa$ accounts for chance agreement and is statistically unstable over small sample sizes ($N=10$), reviewers are not failed solely because sample $\kappa$ fluctuates below $0.80$ if exact concordance is $\ge 80\%$.
+* **Observed Taxonomy Concordance:** `taxonomy_exact_agreement >= 8/10` ($\ge 80\%$ exact classification matches; unweighted $\kappa$ reported descriptively).
 * **Critical Checks:** $100\%$ concordance on predefined critical safety, answer leakage, and propositional distortion checks.
-* **Ordinal Dimensions:** Quadratic weighted $\kappa_w \ge 0.75$ and mean absolute difference $\le 0.50$ across the 10 dimensions.
-* **Qualitative Review:** All meaningful disagreements are discussed directly with the lead adjudicator during onboarding.
+* **Ordinal Mean Absolute Difference:** Mean absolute difference $\le 0.50$ across dimensions.
+* **Ordinal Ratings Within One Point:** $\ge 90\%$ of ratings within one point of reference ratings.
+* **Qualitative Review:** Qualitative adjudicator approval required prior to production batching.
+* **Descriptive Metric:** Quadratic weighted $\kappa_w$ is reported descriptively rather than used as an automatic rejection rule ($\kappa_w \ge 0.75$).
 
 ---
 
 ## 6. Real Human Pilot Execution (48 Records $\times$ 2 = 96 Submissions)
 
-The frozen stratified pilot sample comprises:
+The frozen stratified pilot sample comprises **48 complete records**:
 * **32 text simplification pairs**
 * **10 lexicon entries**
 * **6 adaptation activities**
@@ -140,26 +141,29 @@ Reliability intervals are estimated via **stratified bootstrap across complete r
 
 ```yaml
 method: stratified_bootstrap
-iterations: 2000
+requested_iterations: 2000
+minimum_valid_iterations: 1000
 random_seed: 42
-sampling_unit: record
+sampling_unit: complete_record
+sample_description: "48 complete records"
 strata: record_type
 confidence_level: 95%
 numpy_version: "2.4.6"
 scipy_version: "1.17.1"
 agreement_module_version: "1.2.0"
-implementation_hash: "4f7b0376d29938db"
+algorithm: "SHA-256"
+implementation_hash: "4d768ca130f94bb9e66b6a4740473df02065d22d48915af1fe99e312e405e851"
 ```
 
 | Measurement Dimension | Target Denominator | Reliability Metric | Target Threshold |
 | :--- | :---: | :---: | :---: |
 | **Independent Submissions** | 96 | Submission accounting completeness | $100\%$ accounted |
-| **Taxonomy Agreement** | 48 paired records | Cohen's $\kappa$ with 95% Stratified Bootstrap CI | $\kappa \ge 0.80$ |
+| **Taxonomy Agreement** | 48 complete records | Cohen's $\kappa$ with 95% Stratified Bootstrap CI | $\kappa \ge 0.80$ |
 | **Critical Checks (Pooled)** | 480 paired checks | Pooled Cohen's $\kappa$ & % agreement | $\kappa \ge 0.80$, Concordance $\ge 90\%$ |
-| **Critical Checks (Per Check)** | 48 paired records $\times 10$ | 10 individual Cohen's $\kappa$ values | No systematic blind spots |
-| **Ordinal Dimensions** | 480 paired ratings | Quadratic weighted $\kappa_w$ | $\kappa_w \ge 0.75$ |
+| **Critical Checks (Per Check)** | 48 complete records $\times 10$ | 10 individual Cohen's $\kappa$ values | No systematic blind spots |
+| **Ordinal Dimensions** | 480 paired ratings | Quadratic weighted $\kappa_w$ | Reported descriptively |
 | **Composite Score Reliability** | 48 composite pairs | $\text{ICC}(A,1)$ absolute agreement single measurement | $\text{ICC}(A,1) \ge 0.80$ |
-| **Corpus-Wide Reliability** | 48 records | Krippendorff's $\alpha$ with bootstrap CI | $\alpha \ge 0.80$ |
+| **Corpus-Wide Reliability** | 48 complete records | Krippendorff's $\alpha$ with bootstrap CI | $\alpha \ge 0.80$ |
 
 ---
 

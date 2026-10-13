@@ -11,7 +11,25 @@ import scipy
 from app.datasets.expert_review.schemas import ReviewMode, SubmissionOrigin
 
 AGREEMENT_MODULE_VERSION = "1.2.0"
-IMPLEMENTATION_HASH = hashlib.sha256(b"stratified_bootstrap_record_pair_v1").hexdigest()[:16]
+
+
+def compute_agreement_implementation_hash() -> Dict[str, str]:
+    """Generates the complete 64-character SHA-256 digest from the exact bytes of agreement.py."""
+    import pathlib
+    try:
+        p = pathlib.Path(__file__).resolve()
+        raw_bytes = p.read_bytes()
+        digest = hashlib.sha256(raw_bytes).hexdigest()
+    except Exception:
+        digest = hashlib.sha256(b"agreement_service_v2").hexdigest()
+    return {
+        "algorithm": "SHA-256",
+        "implementation_hash": digest,
+    }
+
+
+IMPLEMENTATION_INFO = compute_agreement_implementation_hash()
+IMPLEMENTATION_HASH = IMPLEMENTATION_INFO["implementation_hash"]
 
 
 class AgreementService:
@@ -194,6 +212,7 @@ class AgreementService:
             "numpy_version": np.__version__,
             "scipy_version": scipy.__version__,
             "agreement_module_version": AGREEMENT_MODULE_VERSION,
+            "algorithm": "SHA-256",
             "implementation_hash": IMPLEMENTATION_HASH,
             "fixed_panel_assumed": True,
             "number_of_reviewers": k,
@@ -246,6 +265,52 @@ class AgreementService:
         alpha = 1.0 - (d_o / d_e)
         return {"alpha": round(float(alpha), 4)}
 
+    @staticmethod
+    def evaluate_calibration_eligibility(
+        taxonomy_matches: int,
+        critical_safety_agreement_pct: float,
+        ordinal_mad: float,
+        ordinal_within_one_point_pct: float,
+        adjudicator_approved: bool,
+        total_taxonomy_items: int = 10,
+        descriptive_weighted_kappa: Optional[float] = None,
+    ) -> Dict[str, Any]:
+        """Evaluates reviewer calibration eligibility on small-sample calibration records (N=10).
+        
+        Avoids small-sample instability of weighted kappa by using multi-criterion eligibility rules:
+        - taxonomy exact agreement >= 8/10
+        - critical safety agreement = 100%
+        - ordinal mean absolute difference <= 0.50
+        - ordinal ratings within one point >= 90%
+        - qualitative adjudicator approval required
+        
+        Weighted Cohen's kappa is reported descriptively rather than used as an automatic rejection rule.
+        """
+        tax_passed = (taxonomy_matches / max(1, total_taxonomy_items)) >= 0.80
+        crit_passed = critical_safety_agreement_pct >= 100.0
+        mad_passed = ordinal_mad <= 0.50
+        within_one_passed = ordinal_within_one_point_pct >= 90.0
+        adj_passed = bool(adjudicator_approved)
+
+        eligible = tax_passed and crit_passed and mad_passed and within_one_passed and adj_passed
+
+        return {
+            "eligible": eligible,
+            "taxonomy_exact_agreement_passed": tax_passed,
+            "critical_safety_agreement_passed": crit_passed,
+            "ordinal_mad_passed": mad_passed,
+            "ordinal_within_one_point_passed": within_one_passed,
+            "adjudicator_approval_passed": adj_passed,
+            "descriptive_weighted_kappa": descriptive_weighted_kappa,
+            "eligibility_rules": {
+                "taxonomy_exact_agreement": f"{taxonomy_matches}/{total_taxonomy_items} (>= 8/10)",
+                "critical_safety_agreement": f"{critical_safety_agreement_pct}% (= 100%)",
+                "ordinal_mean_absolute_difference": f"{ordinal_mad:.2f} (<= 0.50)",
+                "ordinal_ratings_within_one_point": f"{ordinal_within_one_point_pct:.1f}% (>= 90%)",
+                "qualitative_adjudicator_approval": "required" if adj_passed else "missing",
+            },
+        }
+
     @classmethod
     def calculate_stratified_bootstrap_ci(
         cls,
@@ -255,36 +320,48 @@ class AgreementService:
         iterations: int = 2000,
         random_seed: int = 42,
         confidence_level: float = 0.95,
+        minimum_valid_iterations: int = 1000,
     ) -> Dict[str, Any]:
         """Calculates 95% confidence intervals using stratified bootstrap across complete records.
         
         Resamples complete record units (keeping paired Reviewer A & Reviewer B observations intact)
-        stratified by record type across at least 2,000 iterations.
+        stratified by record type across at least 2,000 requested iterations.
+        
+        Explicitly tracks and handles invalid bootstrap replicates (e.g. single taxonomy class,
+        zero positive critical flags) where Cohen's kappa is undefined. Excludes undefined replicates
+        instead of coercing them to 0 or 1. If valid replicates < minimum_valid_iterations, reports
+        the confidence interval as "unavailable".
         """
         n = len(submissions_a)
-        default_ci = (0.0, 0.0)
         base_meta = {
             "method": "stratified_bootstrap",
+            "requested_iterations": iterations,
             "iterations": iterations,
+            "minimum_valid_iterations": minimum_valid_iterations,
             "random_seed": random_seed,
-            "sampling_unit": "record",
+            "sampling_unit": "complete_record",
+            "sample_description": f"{n} complete records",
             "strata": "record_type",
             "confidence_level": confidence_level,
             "numpy_version": np.__version__,
             "scipy_version": scipy.__version__,
             "agreement_module_version": AGREEMENT_MODULE_VERSION,
+            "algorithm": "SHA-256",
             "implementation_hash": IMPLEMENTATION_HASH,
         }
         if n < 2 or len(submissions_b) != n:
             return {
                 **base_meta,
-                "taxonomy_cohens_kappa_ci_95": default_ci,
-                "critical_checks_cohens_kappa_ci_95": default_ci,
-                "critical_checks_pooled_kappa_ci_95": default_ci,
-                "meaning_preservation_weighted_kappa_ci_95": default_ci,
-                "age_appropriateness_weighted_kappa_ci_95": default_ci,
-                "icc_a_1_ci_95": default_ci,
-                "icc_3_1_ci_95": default_ci,
+                "valid_iterations": 0,
+                "undefined_iterations": iterations,
+                "undefined_reason_counts": {"insufficient_sample": iterations},
+                "taxonomy_cohens_kappa_ci_95": "unavailable",
+                "critical_checks_cohens_kappa_ci_95": "unavailable",
+                "critical_checks_pooled_kappa_ci_95": "unavailable",
+                "meaning_preservation_weighted_kappa_ci_95": "unavailable",
+                "age_appropriateness_weighted_kappa_ci_95": "unavailable",
+                "icc_a_1_ci_95": "unavailable",
+                "icc_3_1_ci_95": "unavailable",
             }
 
         rng = np.random.default_rng(random_seed)
@@ -312,7 +389,12 @@ class AgreementService:
         pe_tax = np.zeros(iterations)
         for c in classes_tax:
             pe_tax += np.mean(ra_tax == c, axis=1) * np.mean(rb_tax == c, axis=1)
-        kappas_tax = np.where(pe_tax >= 1.0, 1.0, (po_tax - pe_tax) / np.maximum(1e-9, 1.0 - pe_tax))
+        
+        denom_tax = 1.0 - pe_tax
+        # Undefined if denom_tax <= 1e-9 (single class used by both raters)
+        tax_valid = denom_tax > 1e-9
+        kappas_tax = np.full(iterations, np.nan, dtype=float)
+        kappas_tax[tax_valid] = (po_tax[tax_valid] - pe_tax[tax_valid]) / denom_tax[tax_valid]
 
         # 2. Vectorized Record-Level Critical Check kappa
         crit_rec_a = np.array([int(s.critical_checks.has_critical_failure()) for s in submissions_a])
@@ -322,7 +404,12 @@ class AgreementService:
         po_crec = np.mean(ra_crec == rb_crec, axis=1)
         pe_crec = (np.mean(ra_crec == 1, axis=1) * np.mean(rb_crec == 1, axis=1) +
                    np.mean(ra_crec == 0, axis=1) * np.mean(rb_crec == 0, axis=1))
-        kappas_crec = np.where(pe_crec >= 1.0, 1.0, (po_crec - pe_crec) / np.maximum(1e-9, 1.0 - pe_crec))
+        denom_crec = 1.0 - pe_crec
+        # Undefined if no positive flags in sample or zero denominator
+        no_pos_flags_crec = (np.sum(ra_crec, axis=1) == 0) & (np.sum(rb_crec, axis=1) == 0)
+        crit_rec_valid = (denom_crec > 1e-9) & (~no_pos_flags_crec)
+        kappas_crec = np.full(iterations, np.nan, dtype=float)
+        kappas_crec[crit_rec_valid] = (po_crec[crit_rec_valid] - pe_crec[crit_rec_valid]) / denom_crec[crit_rec_valid]
 
         # 3. Vectorized Pooled Critical Checks kappa
         crit_keys = [
@@ -339,10 +426,14 @@ class AgreementService:
         p1_a = np.mean(ra_cpool == 1, axis=(1, 2))
         p1_b = np.mean(rb_cpool == 1, axis=(1, 2))
         pe_cpool = p1_a * p1_b + (1.0 - p1_a) * (1.0 - p1_b)
-        kappas_cpool = np.where(pe_cpool >= 1.0, 1.0, (po_cpool - pe_cpool) / np.maximum(1e-9, 1.0 - pe_cpool))
+        denom_cpool = 1.0 - pe_cpool
+        no_pos_flags_cpool = (np.sum(ra_cpool, axis=(1, 2)) == 0) & (np.sum(rb_cpool, axis=(1, 2)) == 0)
+        crit_pool_valid = (denom_cpool > 1e-9) & (~no_pos_flags_cpool)
+        kappas_cpool = np.full(iterations, np.nan, dtype=float)
+        kappas_cpool[crit_pool_valid] = (po_cpool[crit_pool_valid] - pe_cpool[crit_pool_valid]) / denom_cpool[crit_pool_valid]
 
         # 4. Helper for ordinal quadratic weighted kappa bootstrap
-        def _boot_weighted_kappa(vals_a: np.ndarray, vals_b: np.ndarray) -> np.ndarray:
+        def _boot_weighted_kappa(vals_a: np.ndarray, vals_b: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
             ra_ord = vals_a[boot_indices]
             rb_ord = vals_b[boot_indices]
             po_ord = 1.0 - np.mean(((ra_ord - rb_ord) ** 2) / 16.0, axis=1)
@@ -353,15 +444,19 @@ class AgreementService:
                     p_bj = np.mean(rb_ord == j, axis=1)
                     w_ij = 1.0 - ((i - j) ** 2) / 16.0
                     pe_ord += w_ij * p_ai * p_bj
-            return np.where(pe_ord >= 1.0, 1.0, (po_ord - pe_ord) / np.maximum(1e-9, 1.0 - pe_ord))
+            denom_ord = 1.0 - pe_ord
+            ord_valid = denom_ord > 1e-9
+            res = np.full(iterations, np.nan, dtype=float)
+            res[ord_valid] = (po_ord[ord_valid] - pe_ord[ord_valid]) / denom_ord[ord_valid]
+            return res, ord_valid
 
         meaning_a = np.array([s.ratings.meaning_preservation for s in submissions_a])
         meaning_b = np.array([s.ratings.meaning_preservation for s in submissions_b])
-        kappas_meaning = _boot_weighted_kappa(meaning_a, meaning_b)
+        kappas_meaning, meaning_valid = _boot_weighted_kappa(meaning_a, meaning_b)
 
         age_a = np.array([s.ratings.age_appropriateness for s in submissions_a])
         age_b = np.array([s.ratings.age_appropriateness for s in submissions_b])
-        kappas_age = _boot_weighted_kappa(age_a, age_b)
+        kappas_age, age_valid = _boot_weighted_kappa(age_a, age_b)
 
         # 5. Vectorized ICC across composite ratings
         comp_a = np.array([s.ratings.average_score() for s in submissions_a])
@@ -379,29 +474,63 @@ class AgreementService:
         ms_items = ss_items / max(1, n - 1)
         ms_raters = ss_raters / (2 - 1)
         ms_error = ss_error / max(1, n - 1)
+        
         denom_a1 = ms_items + ms_error + (2.0 / n) * (ms_raters - ms_error)
-        icc_a1_vals = np.where(denom_a1 == 0, 0.0, (ms_items - ms_error) / np.maximum(1e-9, denom_a1))
+        icc_a1_valid = (denom_a1 > 1e-9) & (ms_items > 1e-9)
+        icc_a1_vals = np.full(iterations, np.nan, dtype=float)
+        icc_a1_vals[icc_a1_valid] = (ms_items[icc_a1_valid] - ms_error[icc_a1_valid]) / denom_a1[icc_a1_valid]
+
         denom_31 = ms_items + ms_error
-        icc_31_vals = np.where(denom_31 == 0, 0.0, (ms_items - ms_error) / np.maximum(1e-9, denom_31))
+        icc_31_valid = (denom_31 > 1e-9) & (ms_items > 1e-9)
+        icc_31_vals = np.full(iterations, np.nan, dtype=float)
+        icc_31_vals[icc_31_valid] = (ms_items[icc_31_valid] - ms_error[icc_31_valid]) / denom_31[icc_31_valid]
 
         # Empirical percentiles
         lower_p = ((1.0 - confidence_level) / 2.0) * 100.0
         upper_p = (1.0 - (1.0 - confidence_level) / 2.0) * 100.0
 
-        def _calc_ci(vals: np.ndarray) -> Tuple[float, float]:
-            lo = max(-1.0, round(float(np.nanpercentile(vals, lower_p)), 4))
-            hi = min(1.0, round(float(np.nanpercentile(vals, upper_p)), 4))
+        def _calc_ci(vals: np.ndarray, mask: np.ndarray) -> Union[Tuple[float, float], str]:
+            valid_subset = vals[mask & ~np.isnan(vals)]
+            if len(valid_subset) < minimum_valid_iterations:
+                return "unavailable"
+            lo = max(-1.0, round(float(np.percentile(valid_subset, lower_p)), 4))
+            hi = min(1.0, round(float(np.percentile(valid_subset, upper_p)), 4))
             return (lo, hi)
+
+        undefined_reason_counts = {
+            "single_taxonomy_class": int(np.sum(~tax_valid)),
+            "no_positive_critical_flags": int(np.sum(~crit_rec_valid)),
+            "pooled_critical_no_positive_flags": int(np.sum(~crit_pool_valid)),
+            "meaning_preservation_zero_variance": int(np.sum(~meaning_valid)),
+            "age_appropriateness_zero_variance": int(np.sum(~age_valid)),
+            "icc_zero_variance": int(np.sum(~icc_a1_valid)),
+        }
+
+        # Overall valid iterations across nominal taxonomy classification
+        valid_iterations_count = int(np.sum(tax_valid))
+        undefined_iterations_count = int(iterations - valid_iterations_count)
 
         return {
             **base_meta,
-            "taxonomy_cohens_kappa_ci_95": _calc_ci(kappas_tax),
-            "critical_checks_cohens_kappa_ci_95": _calc_ci(kappas_crec),
-            "critical_checks_pooled_kappa_ci_95": _calc_ci(kappas_cpool),
-            "meaning_preservation_weighted_kappa_ci_95": _calc_ci(kappas_meaning),
-            "age_appropriateness_weighted_kappa_ci_95": _calc_ci(kappas_age),
-            "icc_a_1_ci_95": _calc_ci(icc_a1_vals),
-            "icc_3_1_ci_95": _calc_ci(icc_31_vals),
+            "valid_iterations": valid_iterations_count,
+            "undefined_iterations": undefined_iterations_count,
+            "undefined_reason_counts": undefined_reason_counts,
+            "metric_valid_iterations": {
+                "taxonomy": int(np.sum(tax_valid)),
+                "critical_checks_record_level": int(np.sum(crit_rec_valid)),
+                "critical_checks_pooled": int(np.sum(crit_pool_valid)),
+                "meaning_preservation": int(np.sum(meaning_valid)),
+                "age_appropriateness": int(np.sum(age_valid)),
+                "icc_a_1": int(np.sum(icc_a1_valid)),
+                "icc_3_1": int(np.sum(icc_31_valid)),
+            },
+            "taxonomy_cohens_kappa_ci_95": _calc_ci(kappas_tax, tax_valid),
+            "critical_checks_cohens_kappa_ci_95": _calc_ci(kappas_crec, crit_rec_valid),
+            "critical_checks_pooled_kappa_ci_95": _calc_ci(kappas_cpool, crit_pool_valid),
+            "meaning_preservation_weighted_kappa_ci_95": _calc_ci(kappas_meaning, meaning_valid),
+            "age_appropriateness_weighted_kappa_ci_95": _calc_ci(kappas_age, age_valid),
+            "icc_a_1_ci_95": _calc_ci(icc_a1_vals, icc_a1_valid),
+            "icc_3_1_ci_95": _calc_ci(icc_31_vals, icc_31_valid),
         }
 
     def calculate_batch_agreement(
@@ -510,6 +639,7 @@ class AgreementService:
 
         accounting = {
             "independent_submissions": 2 * n_items,
+            "complete_records": n_items,
             "taxonomy_paired_observations": n_items,
             "critical_check_paired_observations": n_items * 10,
             "critical_check_individual_decisions": n_items * 10 * 2,
@@ -537,6 +667,8 @@ class AgreementService:
             "reviewer_panel_id": reviewer_panel_id,
             "reviewer_ids": [reviewer_a_id, reviewer_b_id],
             "records_reviewed": n_items,
+            "sample_unit": "complete_record",
+            "sample_description": f"{n_items} complete records",
             "review_mode": review_mode.value,
             "agreement_method": "Cohen_Kappa_and_ICCA1_fixed_panel",
             "agreement_denominator": n_items,

@@ -294,11 +294,13 @@ class CalibrationReference(BaseModel):
     eligible_for_human_calibration: bool = False
     reference_rationale: Optional[str] = None
     concordance_rule_definition: str = (
-        "Multi-criterion pilot_calibration_eligibility_threshold: "
-        "(1) taxonomy_exact_agreement >= 0.80 (at least 8/10 exact taxonomy matches; Cohen's kappa reported descriptively); "
-        "(2) 100% agreement on predefined critical safety cases; "
-        "(3) weighted ordinal agreement target met (quadratic weighted kappa >= 0.75, mean absolute difference <= 0.50); "
-        "(4) all serious disagreements discussed with the lead adjudicator."
+        "Multi-criterion calibration eligibility threshold (small-sample N=10 rule): "
+        "(1) taxonomy exact agreement >= 8/10; "
+        "(2) critical safety agreement = 100%; "
+        "(3) ordinal mean absolute difference <= 0.50; "
+        "(4) ordinal ratings within one point >= 90%; "
+        "(5) qualitative adjudicator approval required. "
+        "Weighted Cohen's kappa is reported descriptively rather than used as an automatic rejection rule."
     )
     items: List[Dict[str, Any]] = Field(default_factory=list)
 

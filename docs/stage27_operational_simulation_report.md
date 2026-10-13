@@ -39,13 +39,14 @@ For 48 pilot records, two independent reviewer pathways, and 10 evaluation dimen
 
 | Measurement Dimension | Correct Accounting | Mathematical Basis | Description |
 | :--- | :---: | :---: | :--- |
+| **Complete Records** | **48** | Base sample units | Evaluated records (32 pairs, 10 lexicon, 6 activities) |
 | **Independent Submissions** | **96** | $48 \times 2$ | Total sealed review payloads submitted to the system |
-| **Taxonomy Paired Observations** | **48** | 48 records | Paired classification decisions for Cohen's $\kappa$ |
+| **Taxonomy Paired Observations** | **48** | 48 complete records | Paired classification decisions for Cohen's $\kappa$ |
 | **Critical-Check Paired Observations** | **480** | $48 \times 10$ | Total paired binary decisions across 10 safety/integrity checks |
 | **Critical-Check Individual Decisions** | **960** | $48 \times 10 \times 2$ | Individual check evaluations logged across both reviewers |
 | **Ordinal Paired Dimension Ratings** | **480** | $48 \times 10$ | Paired 1–5 ratings across 10 evaluation dimensions |
 | **Ordinal Individual Ratings** | **960** | $48 \times 10 \times 2$ | Total individual dimension ratings recorded |
-| **Composite-Score Pairs for ICC** | **48** | 48 records | Mean item score pairs evaluated between Reviewer A and Reviewer B |
+| **Composite-Score Pairs for ICC** | **48** | 48 complete records | Mean item score pairs evaluated between Reviewer A and Reviewer B |
 
 ---
 
@@ -72,7 +73,8 @@ icc_function: calculate_icc_a1
 numpy_version: "2.4.6"
 scipy_version: "1.17.1"
 agreement_module_version: "1.2.0"
-implementation_hash: "4f7b0376d29938db"
+algorithm: "SHA-256"
+implementation_hash: "4d768ca130f94bb9e66b6a4740473df02065d22d48915af1fe99e312e405e851"
 ```
 
 ### Statistical Formulation:
@@ -85,17 +87,17 @@ $$\text{ICC}(A, 1) = \frac{MS_{\text{items}} - MS_{\text{error}}}{MS_{\text{item
 
 ## 5. Reliability Results & Stratified Bootstrap Specification
 
-Confidence intervals are calculated using **stratified bootstrap across complete records** (2,000 iterations, random seed 42, stratified by record type, sampling complete pairs):
+Confidence intervals are calculated using **stratified bootstrap across complete records** (requested iterations: 2,000, minimum valid iterations: 1,000, random seed 42, stratified by record type, sampling complete records):
 
 | Metric | Target | Simulated Value | Denominator ($N$) | 95% Stratified Bootstrap CI |
 | :--- | :---: | :---: | :---: | :---: |
-| **Taxonomy Cohen's $\kappa$** | $\ge 0.80$ | **0.88** | 48 paired records | $[0.74, 1.00]$ |
+| **Taxonomy Cohen's $\kappa$** | $\ge 0.80$ | **0.88** | 48 complete records | $[0.74, 1.00]$ |
 | **Critical Checks (Pooled)** | $\ge 0.80$ | **0.95** | 480 paired checks | $[0.91, 0.99]$ |
-| **Critical Checks (Record-Level Any-Failure)** | $\ge 0.80$ | **0.91** | 48 paired records | $[0.78, 1.00]$ |
-| **Meaning Preservation Quadratic $\kappa_w$** | $\ge 0.75$ | **0.84** | 48 paired ratings | $[0.71, 0.97]$ |
-| **Age Appropriateness Quadratic $\kappa_w$** | $\ge 0.75$ | **0.82** | 48 paired ratings | $[0.68, 0.96]$ |
+| **Critical Checks (Record-Level Any-Failure)** | $\ge 0.80$ | **0.91** | 48 complete records | $[0.78, 1.00]$ |
+| **Meaning Preservation Quadratic $\kappa_w$** | $\ge 0.75$ | **0.84** | 48 complete records | $[0.71, 0.97]$ |
+| **Age Appropriateness Quadratic $\kappa_w$** | $\ge 0.75$ | **0.82** | 48 complete records | $[0.68, 0.96]$ |
 | **Ordinal Quality $\text{ICC}(A,1)$** | $\ge 0.80$ | **0.83** | 48 composite pairs | $[0.71, 0.95]$ |
-| **Krippendorff's $\alpha$ (Nominal)** | $\ge 0.80$ | **0.87** | 48 items | $[0.75, 0.99]$ |
+| **Krippendorff's $\alpha$ (Nominal)** | $\ge 0.80$ | **0.87** | 48 complete records | $[0.75, 0.99]$ |
 
 ### 5.1 Per-Check Critical Flag Kappas ($N=48$ each)
 Each of the 10 critical failure flags was evaluated independently:

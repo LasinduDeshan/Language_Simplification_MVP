@@ -237,7 +237,7 @@ def test_stratified_bootstrap_ci_execution_and_metadata(calc):
             reviewer_id="REV-01",
             batch_id="BATCH-01",
             taxonomy_class=TaxonomyClass.TEXT_SIMPLIFICATION,
-            ratings=DimensionRatings(meaning_preservation=4, age_appropriateness=4),
+            ratings=DimensionRatings(meaning_preservation=4, age_appropriateness=4 if i % 2 == 0 else 5),
             critical_checks=CriticalFailureFlags(),
             workflow_flags=WorkflowFlags(),
             submission_hash=f"h-a-{i}",
@@ -254,7 +254,10 @@ def test_stratified_bootstrap_ci_execution_and_metadata(calc):
             reviewer_id="REV-02",
             batch_id="BATCH-01",
             taxonomy_class=TaxonomyClass.TEXT_SIMPLIFICATION if i % 4 != 0 else TaxonomyClass.INSTRUCTION_REPHRASING,
-            ratings=DimensionRatings(meaning_preservation=4 if i % 3 != 0 else 3, age_appropriateness=4),
+            ratings=DimensionRatings(
+                meaning_preservation=4 if i % 3 != 0 else 3,
+                age_appropriateness=4 if i % 2 == 0 else 5,
+            ),
             critical_checks=CriticalFailureFlags(),
             workflow_flags=WorkflowFlags(),
             submission_hash=f"h-b-{i}",
@@ -281,21 +284,31 @@ def test_stratified_bootstrap_ci_execution_and_metadata(calc):
 
     ci = res["confidence_intervals"]
     assert ci["method"] == "stratified_bootstrap"
+    assert ci["requested_iterations"] == 2000
+    assert ci["minimum_valid_iterations"] == 1000
     assert ci["iterations"] == 2000
     assert ci["random_seed"] == 42
-    assert ci["sampling_unit"] == "record"
+    assert ci["sampling_unit"] == "complete_record"
     assert ci["strata"] == "record_type"
     assert ci["confidence_level"] == 0.95
     assert ci["numpy_version"] is not None
     assert ci["scipy_version"] is not None
     assert ci["agreement_module_version"] == "1.2.0"
-    assert ci["implementation_hash"] is not None
+    assert ci["algorithm"] == "SHA-256"
+    assert len(ci["implementation_hash"]) == 64
 
-    # Check that bootstrap intervals were generated within valid bounds [-1.0, 1.0]
+    # Undefined replicates tracking
+    assert "valid_iterations" in ci
+    assert "undefined_iterations" in ci
+    assert "undefined_reason_counts" in ci
+    assert ci["undefined_reason_counts"]["no_positive_critical_flags"] == 2000
+
+    # In this dataset with zero critical failures, critical checks kappa is undefined / unavailable
+    assert ci["critical_checks_cohens_kappa_ci_95"] == "unavailable"
+
+    # Other metrics with variance produce valid confidence intervals
     for key in [
         "taxonomy_cohens_kappa_ci_95",
-        "critical_checks_cohens_kappa_ci_95",
-        "critical_checks_pooled_kappa_ci_95",
         "meaning_preservation_weighted_kappa_ci_95",
         "age_appropriateness_weighted_kappa_ci_95",
         "icc_a_1_ci_95",
@@ -305,5 +318,125 @@ def test_stratified_bootstrap_ci_execution_and_metadata(calc):
         assert -1.0 <= lo <= 1.0
         assert -1.0 <= hi <= 1.0
         assert lo <= hi
+
+
+def test_sha256_implementation_hash_is_64_hex_chars(calc):
+    """Verifies that the implementation hash is exactly 64 hexadecimal characters computed from SHA-256."""
+    from app.datasets.expert_review.agreement import IMPLEMENTATION_HASH, IMPLEMENTATION_INFO
+    assert IMPLEMENTATION_INFO["algorithm"] == "SHA-256"
+    assert len(IMPLEMENTATION_INFO["implementation_hash"]) == 64
+    assert len(IMPLEMENTATION_HASH) == 64
+    assert all(c in "0123456789abcdef" for c in IMPLEMENTATION_HASH)
+
+
+def test_bootstrap_handles_undefined_replicates_without_zero_or_one_coercion(calc):
+    """Verifies that undefined replicates are not converted to 0 or 1, and report 'unavailable' if insufficient."""
+    from app.datasets.expert_review.schemas import (
+        RecordReviewSubmission, TaxonomyClass, DimensionRatings, CriticalFailureFlags,
+        WorkflowFlags, ReviewMode, SubmissionOrigin
+    )
+
+    # All items identical: single taxonomy class, no positive critical flags
+    subs_a = [
+        RecordReviewSubmission(
+            submission_id=f"SUB-A-{i}",
+            item_id=f"REC-{i}",
+            reviewer_id="REV-01",
+            batch_id="BATCH-01",
+            taxonomy_class=TaxonomyClass.TEXT_SIMPLIFICATION,
+            ratings=DimensionRatings(meaning_preservation=4, age_appropriateness=4),
+            critical_checks=CriticalFailureFlags(),
+            workflow_flags=WorkflowFlags(),
+            submission_hash=f"h-a-{i}",
+            submission_origin=SubmissionOrigin.HUMAN_ENTERED,
+            review_mode=ReviewMode.REAL_HUMAN_EXPERT_REVIEW,
+        )
+        for i in range(10)
+    ]
+    subs_b = [
+        RecordReviewSubmission(
+            submission_id=f"SUB-B-{i}",
+            item_id=f"REC-{i}",
+            reviewer_id="REV-02",
+            batch_id="BATCH-01",
+            taxonomy_class=TaxonomyClass.TEXT_SIMPLIFICATION,
+            ratings=DimensionRatings(meaning_preservation=4, age_appropriateness=4),
+            critical_checks=CriticalFailureFlags(),
+            workflow_flags=WorkflowFlags(),
+            submission_hash=f"h-b-{i}",
+            submission_origin=SubmissionOrigin.HUMAN_ENTERED,
+            review_mode=ReviewMode.REAL_HUMAN_EXPERT_REVIEW,
+        )
+        for i in range(10)
+    ]
+
+    boot_res = calc.calculate_stratified_bootstrap_ci(
+        subs_a,
+        subs_b,
+        iterations=500,
+        minimum_valid_iterations=250,
+    )
+
+    assert boot_res["requested_iterations"] == 500
+    assert boot_res["minimum_valid_iterations"] == 250
+    # Because there is only 1 class, every replicate is undefined (not coerced to 1.0 or 0.0)
+    assert boot_res["undefined_reason_counts"]["single_taxonomy_class"] == 500
+    assert boot_res["undefined_reason_counts"]["no_positive_critical_flags"] == 500
+    assert boot_res["taxonomy_cohens_kappa_ci_95"] == "unavailable"
+    assert boot_res["critical_checks_cohens_kappa_ci_95"] == "unavailable"
+
+
+def test_calibration_eligibility_multi_criterion_rule(calc):
+    """Verifies that small-sample calibration uses multi-criterion rule and descriptive weighted kappa."""
+    # Case 1: Meets all 5 criteria
+    res_pass = calc.evaluate_calibration_eligibility(
+        taxonomy_matches=9,
+        critical_safety_agreement_pct=100.0,
+        ordinal_mad=0.30,
+        ordinal_within_one_point_pct=95.0,
+        adjudicator_approved=True,
+        total_taxonomy_items=10,
+        descriptive_weighted_kappa=0.68,  # Below 0.75, but passed because kw is descriptive!
+    )
+    assert res_pass["eligible"] is True
+    assert res_pass["taxonomy_exact_agreement_passed"] is True
+    assert res_pass["critical_safety_agreement_passed"] is True
+    assert res_pass["ordinal_mad_passed"] is True
+    assert res_pass["ordinal_within_one_point_passed"] is True
+    assert res_pass["adjudicator_approval_passed"] is True
+    assert res_pass["descriptive_weighted_kappa"] == 0.68
+
+    # Case 2: Fails taxonomy match (< 8/10)
+    res_fail_tax = calc.evaluate_calibration_eligibility(
+        taxonomy_matches=7,
+        critical_safety_agreement_pct=100.0,
+        ordinal_mad=0.20,
+        ordinal_within_one_point_pct=100.0,
+        adjudicator_approved=True,
+    )
+    assert res_fail_tax["eligible"] is False
+    assert res_fail_tax["taxonomy_exact_agreement_passed"] is False
+
+    # Case 3: Fails critical safety (not 100%)
+    res_fail_crit = calc.evaluate_calibration_eligibility(
+        taxonomy_matches=9,
+        critical_safety_agreement_pct=90.0,
+        ordinal_mad=0.20,
+        ordinal_within_one_point_pct=100.0,
+        adjudicator_approved=True,
+    )
+    assert res_fail_crit["eligible"] is False
+    assert res_fail_crit["critical_safety_agreement_passed"] is False
+
+    # Case 4: Fails adjudicator approval
+    res_fail_adj = calc.evaluate_calibration_eligibility(
+        taxonomy_matches=10,
+        critical_safety_agreement_pct=100.0,
+        ordinal_mad=0.10,
+        ordinal_within_one_point_pct=100.0,
+        adjudicator_approved=False,
+    )
+    assert res_fail_adj["eligible"] is False
+    assert res_fail_adj["adjudicator_approval_passed"] is False
 
 

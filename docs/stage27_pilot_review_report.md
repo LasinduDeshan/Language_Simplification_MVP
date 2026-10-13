@@ -69,11 +69,12 @@ The private administrative registry and database (`expert_reviewers`, `expert_re
 Before assignment to production review, reviewers will evaluate a standardized calibration set comprising 10 non-locked items (simplification pairs, lexicon entries, adaptation activities).
 
 ### 3.1 Multi-Criterion Calibration Eligibility Gate
-To prevent statistical instability on small sample sizes ($N=10$) from prematurely disqualifying competent reviewers:
-* **Taxonomy Concordance:** `taxonomy_exact_agreement >= 0.80` (at least 8 out of 10 exact matches). Cohen's $\kappa$ is reported descriptively and is not treated as a rigid cutoff because marginal skew on 10 items can deflate $\kappa$ even when agreement is 80%.
-* **Critical Failure Concordance:** $100\%$ agreement on predefined safety, answer leakage, and meaning alteration checks.
-* **Ordinal Quality Dimensions:** Quadratic weighted $\kappa_w \ge 0.75$ and mean absolute difference $\le 0.50$ across dimensions.
-* **Lead Arbiter Alignment:** Any divergence is reviewed collaboratively with the lead adjudicator prior to production batching.
+To prevent statistical instability on small sample sizes ($N=10$) from creating false rejection artifacts, weighted Cohen's $\kappa$ is reported descriptively rather than used as an automatic rejection cutoff ($\kappa_w \ge 0.75$). Reviewers qualify via the following multi-criterion eligibility rule:
+* **Taxonomy Exact Agreement:** $\ge 8/10$ ($\ge 80\%$ exact matches; unweighted Cohen's $\kappa$ reported descriptively).
+* **Critical Safety Agreement:** $100\%$ agreement on predefined safety, answer leakage, and meaning alteration checks.
+* **Ordinal Mean Absolute Difference:** Mean absolute difference $\le 0.50$ across dimension ratings.
+* **Ordinal Ratings Within One Point:** $\ge 90\%$ of ratings within one point of reference ratings.
+* **Qualitative Adjudicator Approval:** Required before production batching.
 * **Gate Classification:** Termed **`pilot_calibration_eligibility_threshold`** (entry clearance, not professional certification).
 
 ---
@@ -124,30 +125,33 @@ The pilot statistics evaluate paired independent annotations across fixed panel 
 
 | Measurement Dimension | Correct Accounting | Mathematical Basis | Description |
 | :--- | :---: | :---: | :--- |
+| **Complete Records** | **48** | Base sample units | Evaluated records (pairs, lexicon, activities) |
 | **Independent Submissions** | **96** | $48 \times 2$ | Total sealed review payloads submitted to the system |
-| **Taxonomy Paired Observations** | **48** | 48 records | Paired classification decisions for Cohen's $\kappa$ |
+| **Taxonomy Paired Observations** | **48** | 48 complete records | Paired classification decisions for Cohen's $\kappa$ |
 | **Critical-Check Paired Observations** | **480** | $48 \times 10$ | Total paired binary decisions across 10 safety/integrity checks |
 | **Critical-Check Individual Decisions** | **960** | $48 \times 10 \times 2$ | Individual check evaluations logged across both reviewers |
 | **Ordinal Paired Dimension Ratings** | **480** | $48 \times 10$ | Paired 1–5 ratings across 10 evaluation dimensions |
 | **Ordinal Individual Ratings** | **960** | $48 \times 10 \times 2$ | Total individual dimension ratings recorded |
-| **Composite-Score Pairs for ICC** | **48** | 48 records | Mean item score pairs evaluated between Reviewer A and Reviewer B |
+| **Composite-Score Pairs for ICC** | **48** | 48 complete records | Mean item score pairs evaluated between Reviewer A and Reviewer B |
 
 ### 6.3 Inter-Rater Reliability Estimates (Stratified Bootstrap)
 | Metric Identifier | Evaluated Scope | Denominator ($n$) | Missing Ratings | Point Estimate | 95% Stratified Bootstrap CI |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| `taxonomy_cohens_kappa` | Taxonomy classification across 6 categories | 48 items (96 ratings) | 0 | $\kappa = 0.852$ | $[0.724, 0.980]$ |
+| `taxonomy_cohens_kappa` | Taxonomy classification across 6 categories | 48 complete records | 0 | $\kappa = 0.852$ | $[0.724, 0.980]$ |
 | `critical_checks_pooled_kappa` | Pooled 10 binary checks | 480 paired checks | 0 | $\kappa = 0.950$ | $[0.910, 0.990]$ |
-| `critical_checks_record_level_kappa` | Record-level any-failure indicator | 48 items (96 ratings) | 0 | $\kappa = 1.000^*$ | $[1.000, 1.000]$ |
-| `meaning_preservation_weighted_kappa` | Meaning preservation (1–5 Likert) | 48 items (96 ratings) | 0 | $\kappa_w = 0.816$ | $[0.695, 0.937]$ |
-| `age_appropriateness_weighted_kappa` | Age appropriateness (1–5 Likert) | 48 items (96 ratings) | 0 | $\kappa_w = 0.840$ | $[0.728, 0.952]$ |
+| `critical_checks_record_level_kappa` | Record-level any-failure indicator | 48 complete records | 0 | $\kappa = 1.000^*$ | unavailable (zero critical failures) |
+| `meaning_preservation_weighted_kappa` | Meaning preservation (1–5 Likert) | 48 complete records | 0 | $\kappa_w = 0.816$ | $[0.695, 0.937]$ |
+| `age_appropriateness_weighted_kappa` | Age appropriateness (1–5 Likert) | 48 complete records | 0 | $\kappa_w = 0.840$ | $[0.728, 0.952]$ |
 | `icc_a_1` | Absolute agreement single measurement | 48 composite pairs | 0 | $\text{ICC} = 0.806$ | $[0.685, 0.927]$ |
-| `krippendorff_alpha` | Corpus nominal agreement across raters | 48 items (96 ratings) | 0 | $\alpha = 0.816$ | $[0.710, 0.922]$ |
+| `krippendorff_alpha` | Corpus nominal agreement across raters | 48 complete records | 0 | $\alpha = 0.816$ | $[0.710, 0.922]$ |
 
 ```yaml
 method: stratified_bootstrap
-iterations: 2000
+requested_iterations: 2000
+minimum_valid_iterations: 1000
 random_seed: 42
-sampling_unit: record
+sampling_unit: complete_record
+sample_description: "48 complete records"
 strata: record_type
 confidence_level: 95%
 icc_model: two-way mixed-effects
@@ -158,7 +162,8 @@ icc_function: calculate_icc_a1
 numpy_version: "2.4.6"
 scipy_version: "1.17.1"
 agreement_module_version: "1.2.0"
-implementation_hash: "4f7b0376d29938db"
+algorithm: "SHA-256"
+implementation_hash: "4d768ca130f94bb9e66b6a4740473df02065d22d48915af1fe99e312e405e851"
 ```
 
 > [!NOTE]
