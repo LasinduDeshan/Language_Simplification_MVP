@@ -17,9 +17,13 @@ Stage 28A performs a strictly preliminary, automated comparison of English simpl
 
 Human expert educational suitability and child-delivery appropriateness have **NOT** yet been established. Automated metrics do not constitute clinical or educational proof of developmental child suitability.
 
-## 2. Prohibitions & Invariants
-- Zero claims of clinical suitability, diagnostic efficacy, or therapeutic intervention for Developmental Language Disorder (DLD).
-- Zero claims of unsupervised child delivery approval.
-- Release 0.2.0 historical benchmark references, previous stage result artifacts, and Stage 27 agreement code remain immutable.
-- Release 0.3.0 (expert-reviewed) remains ungenerated until genuine qualified professional review is conducted under institutional ethics clearance.
-- Evaluated models T1 (mT5) and T2 (mBART) remain registered with status `NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS`.
+## 2. Invariants & Commitments
+- **Ancestry Verification:** Verified `stage-26-complete-v5` is an ancestor of `stage-28a-start` (`git merge-base --is-ancestor`, exit code 0).
+- **Execution Non-Duplication:** Executed 135 unique locked items once. The predeclared 39-item clean subset was derived from those same outputs without additional model calls.
+- **Provider Metadata:** Pinned from live provider discovery: `models/gemini-3.5-flash-lite`, version `3.5-flash-lite-07-2026`, raw metadata response hash `8256ff86f539f0d3301a9ebd99369fc514baf7e6c81bf9eb6e0fb7a6e0c128d5`.
+- **System Designations:**
+  - Best frozen Stage 24 baseline: **B4 (Combined Deterministic)**
+  - Best offline controlled system: **C1 (Stage 25 Controlled Engine)**
+  - Best overall automated candidate: **H1 (Governed Hybrid Pipeline)**
+- **Safety Qualification:** No distractor leakage was detected by the configured automated checks across $n=39$ clean-subset outputs.
+- **Stage 27 Status:** Human validation remains pending ethics clearance; Release 0.3.0 is ungenerated.

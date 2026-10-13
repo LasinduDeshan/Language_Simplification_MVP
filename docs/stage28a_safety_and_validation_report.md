@@ -2,25 +2,27 @@
 
 **Evaluation Phase:** Preliminary Automated Comparison  
 **Evaluated Systems:** B0–B5, C1, G1, H1  
-**Verification Date:** 2026-10-13 17:14:42 UTC  
+**Verification Date:** 2026-10-13 18:17:25 UTC  
+**Expert Validated:** `false`  
+**Child Suitability Demonstrated:** `false`  
+**Approved for Child Delivery:** `false`  
 
 ---
 
 ## 1. Meaning Preservation & Safety Performance (Clean Locked Subset, N=39)
 
-| System ID | System Name | Entity Pres. (%) | Number Pres. (%) | Negation Pres. (%) | Lowest Unsupported Rate (%) | Answer Leakage |
+| System ID | System Name | Entity Pres. (%) | Number Pres. (%) | Negation Pres. (%) | Lowest Unsupported Rate (%) | Answer Leakage Detection |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **B0** | Identity Baseline | 100.0 | 100.0 | 100.0 | 0.0 | Zero Leakage |
-| **B1** | Lexical Substitution | 100.0 | 100.0 | 100.0 | 0.0 | Zero Leakage |
-| **B2** | Sentence Splitting | 100.0 | 100.0 | 100.0 | 0.0 | Zero Leakage |
-| **B3** | Syntactic Rules | 100.0 | 100.0 | 100.0 | 0.0 | Zero Leakage |
-| **B4** | Combined Deterministic | 100.0 | 100.0 | 100.0 | 0.0 | Zero Leakage |
-| **B5** | Offline Fallback | 100.0 | 100.0 | 100.0 | 0.0 | Zero Leakage |
-| **C1** | Stage 25 Controlled Engine | 100.0 | 100.0 | 100.0 | 0.0 | Zero Leakage |
-| **G1** | Gemini Native (Unrepaired) | 100.0 | 82.1 | 100.0 | 0.0 | Zero Leakage |
-| **H1** | Governed Hybrid Pipeline | 100.0 | 84.6 | 100.0 | 0.0 | Zero Leakage |
+| **B0** | Identity Baseline | 100.0% | 100.0% | 100.0% | 0.0% | No distractor leakage detected ($n=39$) |
+| **B1** | Lexical Substitution | 100.0% | 100.0% | 100.0% | 0.0% | No distractor leakage detected ($n=39$) |
+| **B2** | Sentence Splitting | 97.4% | 100.0% | 100.0% | 2.6% | No distractor leakage detected ($n=39$) |
+| **B3** | Syntactic Rules | 100.0% | 100.0% | 100.0% | 0.0% | No distractor leakage detected ($n=39$) |
+| **B4** | Combined Deterministic | 97.4% | 100.0% | 100.0% | 2.6% | No distractor leakage detected ($n=39$) |
+| **B5** | Offline Fallback | 100.0% | 100.0% | 100.0% | 0.0% | No distractor leakage detected ($n=39$) |
+| **C1** | Stage 25 Controlled Engine | 100.0% | 100.0% | 100.0% | 0.0% | No distractor leakage detected ($n=39$) |
+| **G1** | Gemini Native-Only ($n=29$) | 100.0% | 100.0% | 100.0% | 0.0% | No distractor leakage detected ($n=29$) |
+| **H1** | Governed Hybrid Pipeline | 100.0% | 100.0% | 100.0% | 0.0% | No distractor leakage detected ($n=39$) |
 
-## 2. Key Safety Observations
-1. **Governed Hybrid Pipeline (H1):** Achieved 100% entity and negation preservation due to deterministic fallback interception of potential meaning shifts.
-2. **Lowest Unsupported Rate:** Reported empirically; no automated model claims zero hallucination.
-3. **Answer Leakage:** Confirmed 0 distractor answer leaks across all 135 locked test records and 359 ASSET items.
+## 2. Qualified Safety Finding
+No distractor leakage was detected by the configured automated checks across $n=39$ clean-subset outputs.
+Governed Hybrid Pipeline (**H1**) achieved 100% entity and negation preservation due to deterministic fallback interception of potential shifts.

@@ -7969,7 +7969,7 @@
     "fallback_reason": null,
     "http_status": null,
     "attempt_count": 1,
-    "latency_ms": 0.01,
+    "latency_ms": 0.0,
     "input_tokens": 0,
     "output_tokens": 0,
     "currency": "USD",

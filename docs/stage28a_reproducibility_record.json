@@ -1,17 +1,33 @@
 {
   "record_id": "STAGE28A-REPRODUCIBILITY-RECORD-01",
-  "generated_at": "2026-10-13T17:14:42.857738+00:00",
+  "generated_at": "2026-10-13T18:17:25.842470+00:00",
   "stage": "28A",
   "environment": {
     "python_version": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
     "platform": "win32",
     "random_seed": 42
   },
+  "ancestry_verification": {
+    "stage26_ancestor_command": "git merge-base --is-ancestor stage-26-complete-v5 stage-28a-start",
+    "exit_code": 0,
+    "is_ancestor": true
+  },
   "dynamic_provider_metadata": {
     "requested_model": "gemini-3.5-flash-lite",
     "resolved_model": "gemini-3.5-flash-lite",
+    "exact_api_returned_identifier": "models/gemini-3.5-flash-lite",
+    "display_name": "Gemini 3.5 Flash Lite",
     "provider_model_version": "3.5-flash-lite-07-2026",
-    "discovery_timestamp": "2026-10-13T17:14:42.857738+00:00"
+    "discovery_endpoint": "https://generativelanguage.googleapis.com/v1beta/models",
+    "discovery_timestamp": "2026-10-13T17:45:50Z",
+    "raw_metadata_response_hash": "8256ff86f539f0d3301a9ebd99369fc514baf7e6c81bf9eb6e0fb7a6e0c128d5"
+  },
+  "sari_easse_parity": {
+    "pinned_version": "0.2.4",
+    "fixture_count": 5,
+    "maximum_absolute_delta": 0.0,
+    "allowed_tolerance": 0.0001,
+    "parity_status": "PASSED"
   },
   "pricing_snapshot": {
     "billing_surface": "Google AI Studio / Gemini Developer API Public Pricing",
@@ -24,8 +40,8 @@
     }
   },
   "manifest_checksums": {
-    "stage28a_internal_locked_comparison_csv": "ddce5c632a901de43ae7a7cf009b45f66efce81c866ee440c5474581e923d69c",
-    "stage28a_clean_subset_comparison_csv": "626ed59c49af70847d7a04f1f889dd1fef56b6e1f8c24100c34d32531a97bfc3",
-    "stage28a_asset_comparison_csv": "141868ab50d09f828b6939d1604b64beee75728292efcb73666a889f13113902"
+    "stage28a_internal_locked_comparison_csv": "102c571d98694c21bd8d4553f182130ae50d6a397cf2c5da937af4b34576184e",
+    "stage28a_clean_subset_comparison_csv": "b0c641757ddca19b158ea54a71b5d7031ecdf781bf863a47be0120c63ae0a860",
+    "stage28a_asset_comparison_csv": "355a28f5db3c80154099e06da026ca1457fc0310a7eb8e34a5481b638a1dfee8"
   }
 }

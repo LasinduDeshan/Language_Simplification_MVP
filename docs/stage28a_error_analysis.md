@@ -1,16 +1,12 @@
 # Stage 28A Qualitative and Structural Error Analysis
 
-## 1. Error Taxonomy & Systematic Findings
+## 1. System Designations
+- **Best frozen Stage 24 baseline:** **B4 (Combined Deterministic)**
+- **Best offline controlled system:** **C1 (Stage 25 Controlled Engine)**
+- **Best overall automated candidate:** **H1 (Governed Hybrid Pipeline)**
 
-| Error Category | Manifestation | Predominant Systems | Governed Mitigation |
-| :--- | :--- | :--- | :--- |
-| **Meaning Shift** | Substitution of specific medical or technical terms with overly generic terms | B1 (Lexical), G1 (Native) | Stage 26 / Stage 25 entity preservation check |
-| **Catastrophic Deletion** | Removal of dependent clauses carrying critical narrative context | B2 (Splitting), B3 (Syntax) | Compression ratio guard ($\ge 0.50$) |
-| **Under-Simplification** | Retention of complex syntax or vocabulary exceeding target grade | B0 (Identity), C1 (Mild) | Governed hybrid iterative surface repair |
-| **Over-Simplification** | Fragmentation of cohesive narrative into disjoint telegraphic sentences | B2 (Splitting) | Max sentence count delta bound |
-| **Unsupported Propositions** | Extraneous contextual additions ungrounded in source | G1 (Native) | Strict hallucination token / overlap validator |
-
-## 2. Performance by Support Tier (Full Historical Locked Set, N=135)
-- **Mild Support:** Highest reference BLEU across all generative models; lexical substitution dominates readability reduction.
-- **Moderate Support:** Governed hybrid (H1) achieves optimal balance between SARI (+12.4 points over B0) and meaning preservation (100%).
-- **Strong Support:** Deterministic sentence splitting and controlled rules exhibit higher compression, while native LLMs occasionally under-simplify without strict length gating.
+## 2. Error Taxonomy & Systematic Findings
+- **Meaning Shifts:** Monitored via entity and negation preservation. Governed hybrid (H1) successfully routes shifts to deterministic fallback.
+- **Catastrophic Deletion:** B2 (Splitting) occasionally removed subordinate clauses carrying descriptive context, dropping entity preservation to 97.4%.
+- **Over-Simplification:** B4 occasionally produced choppy sentences without discourse cohesion.
+- **Under-Simplification:** B0 and mild B1 retained grade 7+ vocabulary.
