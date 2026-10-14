@@ -1,0 +1,71 @@
+{
+  "stage": "Stage 29 WP0 Prerequisite Snapshot",
+  "timestamp_utc": "2026-10-14T10:18:57.361459+00:00",
+  "git": {
+    "branch": "feature/stage29-sinhala-foundation",
+    "head_commit": "0e83898a1272ecd8af2fc93f607e694ca07954cf",
+    "stage_29_start_commit": "0e83898a1272ecd8af2fc93f607e694ca07954cf",
+    "stage_28a_complete_v4_commit": "0e83898a1272ecd8af2fc93f607e694ca07954cf",
+    "ancestry_verification": {
+      "stage_28a_ancestor": true,
+      "stage_26_ancestor": true,
+      "stage_27_ancestor": true
+    }
+  },
+  "environment": {
+    "python_version": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "node_version": "v22.19.0"
+  },
+  "governed_dataset_releases": {
+    "0.1.0": {
+      "simplification_corpus.json": "45df6c344d3724b2f646fcdef2de770ead78af459c5f6940001ba9a024a52ade"
+    },
+    "0.2.0": {
+      "dataset_issue_register.json": "088c32298b2f8457b8181a7604114ff52cc0a6ea5aae80c25127c8a89417ac3c",
+      "simplification_corpus.json": "2e45b69158ccca5a490926c98ff49d5e4f7255b0e2476ca951206a1ab546e22c",
+      "splits/development_candidate_test.json": "9cb505c7ee94f6d427c74869764f917066fa155d9819830cb7362e4d4a4623c8",
+      "splits/development_candidate_train.json": "a514423d9c2c2ac468b4cc2b605d05da0bb7affb13582986cffffbf02ad7ef84",
+      "splits/development_candidate_validation.json": "8f6d228ad916ef1bf046b68358a58c6ecf2929da5be609f2ef8798f0ec77e1d9",
+      "splits/locked_test_manifest.json": "eac99f97ada351e1f3c53a0021d4b9ece9720e6efaf6a13e51a582d9a588bb9b"
+    }
+  },
+  "stage28a_manifest_sha256": "00e63657212e785f34ae6beaa9625b13861b47a0bf64150d99c23803bdf479f7",
+  "database_baseline": {
+    "exists": true,
+    "path": "backend/adaptive_learning.db",
+    "size_bytes": 36306944,
+    "tables": {
+      "activity_assets": 4,
+      "activity_questions": 5,
+      "activity_sessions": 169,
+      "adaptations": 303,
+      "alembic_version": 1,
+      "attempts": 400,
+      "dataset_manual_review_queue": 1168,
+      "dataset_quality_rule_results": 72124,
+      "dataset_record_quality_summaries": 5092,
+      "dataset_record_revisions": 0,
+      "dataset_validation_runs": 20,
+      "experiment_runs": 203,
+      "expert_adjudications": 0,
+      "expert_evaluations": 30,
+      "expert_release_approvals": 0,
+      "expert_review_assignments": 0,
+      "expert_review_audit_log": 0,
+      "expert_review_batches": 0,
+      "expert_review_submissions": 0,
+      "expert_reviewer_consents": 0,
+      "expert_reviewers": 0,
+      "expert_revisions": 0,
+      "integration_events": 456,
+      "language_observations": 155,
+      "learner_profiles": 5,
+      "performance_patterns": 23,
+      "question_responses": 0,
+      "task_results": 12,
+      "tasks": 40,
+      "validation_results": 384
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "registry_version": "1.0.0",
+  "default_locale": "en-LK",
+  "locales": {
+    "si-LK": {
+      "language": "si",
+      "locale": "si-LK",
+      "script": "Sinh",
+      "direction": "ltr",
+      "display_name_native": "සිංහල",
+      "display_name_en": "Sinhala (Sri Lanka)",
+      "is_active": true
+    },
+    "en-LK": {
+      "language": "en",
+      "locale": "en-LK",
+      "script": "Latn",
+      "direction": "ltr",
+      "display_name_native": "English",
+      "display_name_en": "English (Sri Lanka)",
+      "is_active": true
+    }
+  },
+  "aliases": {
+    "en": "en-LK",
+    "si": "si-LK"
+  }
+}

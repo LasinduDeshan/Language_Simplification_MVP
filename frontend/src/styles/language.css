@@ -1,0 +1,25 @@
+/*
+Stage 29 Language and Typography Styles
+*/
+:lang(si), :lang(si-LK) {
+  font-family: 'Noto Sans Sinhala', 'Nirmala UI', sans-serif;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+
+:lang(en), :lang(en-LK) {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+}
+
+/* Ensure Sinhala input fields have appropriate font and line height */
+.sinhala-input, [lang="si"] input, [lang="si"] textarea {
+  font-family: 'Noto Sans Sinhala', 'Nirmala UI', sans-serif;
+  line-height: 1.6;
+}
+
+/* Directionality */
+[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}

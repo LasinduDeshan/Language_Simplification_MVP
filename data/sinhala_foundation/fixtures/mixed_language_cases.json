@@ -1,0 +1,38 @@
+[
+  {
+    "fixture_id": "FX-MIX-001",
+    "category": "mixed_script",
+    "input_text": "Level 1: සිංහල කියවීම (Reading)",
+    "expected_code_points": ["U+004C", "U+0065", "U+0076", "U+0065", "U+006C"],
+    "intended_test": "mixed_english_sinhala_preservation",
+    "source_type": "technical_fixture",
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  },
+  {
+    "fixture_id": "FX-MIX-002",
+    "category": "mixed_numerics",
+    "input_text": "පිටුව 45 (අංක: 123)",
+    "expected_code_points": ["U+0DC4", "U+0DD2", "U+0034", "U+0035"],
+    "intended_test": "mixed_arabic_numerics_preservation",
+    "source_type": "technical_fixture",
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  },
+  {
+    "fixture_id": "FX-MIX-003",
+    "category": "mixed_emoji",
+    "input_text": "සිංහල 🌟",
+    "expected_code_points": ["U+0DC3", "U+0DD2", "U+0D82", "U+0DC4", "U+0DBD", "U+0020", "U+1F31F"],
+    "intended_test": "mixed_emoji_and_sinhala_preservation",
+    "source_type": "technical_fixture",
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  }
+]

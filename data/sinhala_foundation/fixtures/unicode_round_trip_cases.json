@@ -1,0 +1,62 @@
+[
+  {
+    "fixture_id": "FX-SI-001",
+    "category": "basic_sinhala",
+    "input_text": "ආයුබෝවන්",
+    "expected_code_points": ["U+0D86", "U+0DF2", "U+0DD4", "U+0DB6", "U+0DDD", "U+0DC0", "U+0DB8\u0DCA"],
+    "intended_test": "basic_unicode_round_trip",
+    "source_type": "technical_fixture",
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  },
+  {
+    "fixture_id": "FX-SI-002",
+    "category": "combining_sequences",
+    "input_text": "ක්‍රමය",
+    "expected_code_points": ["U+0D9A", "U+0DCA", "U+200D", "U+0DBB", "U+0DB8", "U+0DBThread"],
+    "intended_test": "rakaransaya_ligature_preservation",
+    "source_type": "technical_fixture",
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  },
+  {
+    "fixture_id": "FX-SI-003",
+    "category": "combining_sequences",
+    "input_text": "ව්‍යවස්ථාව",
+    "expected_code_points": ["U+0DC0", "U+0DCA", "U+200D", "U+0DBThread"],
+    "intended_test": "yansaya_ligature_preservation",
+    "source_type": "technical_fixture",
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  },
+  {
+    "fixture_id": "FX-SI-004",
+    "category": "combining_sequences",
+    "input_text": "ක්‍ෂීරපායී",
+    "expected_code_points": ["U+0D9A", "U+0DCA", "U+200D", "U+0DC2", "U+0DD3", "U+0DBB", "U+0DB4", "U+0DCF", "U+0DBThread"],
+    "intended_test": "bandi_akuru_ksha_preservation",
+    "source_type": "technical_fixture",
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  },
+  {
+    "fixture_id": "FX-SI-005",
+    "category": "replacement_character_guard",
+    "input_text": "සතුටුයි",
+    "expected_code_points": ["U+0DC3", "U+0DAD", "U+0DD4", "U+0DA7", "U+0DD4", "U+0DBThread"],
+    "intended_test": "no_replacement_character_introduced",
+    "source_type": "technical_fixture",
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  }
+]

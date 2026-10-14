@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="si" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 29 Real-Browser Verification Harness</title>
+  <style>
+    @font-face {
+      font-family: 'Noto Sans Sinhala';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/NotoSansSinhala-Regular.ttf') format('truetype');
+    }
+    :lang(si), :lang(si-LK) {
+      font-family: 'Noto Sans Sinhala', 'Nirmala UI', sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+    }
+    body {
+      font-family: 'Noto Sans Sinhala', 'Nirmala UI', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      margin: 0;
+      padding: 24px;
+    }
+    .probe-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      max-width: 600px;
+    }
+    .probe-title {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+    .probe-content {
+      font-size: 20px;
+    }
+    .sinhala-input {
+      font-family: 'Noto Sans Sinhala', 'Nirmala UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 8px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .counter {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stage 29 Sinhala Technical Verification Gate</h1>
+  
+  <div class="probe-card" id="probe-card-1">
+    <div class="probe-title">Probe 1: Basic Sinhala Greeting</div>
+    <div class="probe-content" id="probe-1" lang="si">ආයුබෝවන්</div>
+  </div>
+
+  <div class="probe-card" id="probe-card-2">
+    <div class="probe-title">Probe 2: Bandi Akuru (ksha) and Yansaya (vya) Complex Ligatures</div>
+    <div class="probe-content" id="probe-2" lang="si">ක්‍ෂීරපායී සතුන්ගේ ව්‍යුහය</div>
+  </div>
+
+  <div class="probe-card" id="probe-card-3">
+    <div class="probe-title">Probe 3: Rakaransaya and Long Official Compound</div>
+    <div class="probe-content" id="probe-3" lang="si">ශ්‍රී ලංකා ප්‍රජාතාන්ත්‍රික සමාජවාදී ජනරජය</div>
+  </div>
+
+  <div class="probe-card" id="probe-card-4">
+    <div class="probe-title">Probe 4: Mixed Script (Sinhala + English)</div>
+    <div class="probe-content" id="probe-4" lang="si">Grade 1: සිංහල කියවීම (Reading - Level 1)</div>
+  </div>
+
+  <div class="probe-card" id="probe-card-5">
+    <div class="probe-title">Probe 5: Numerics and Punctuation</div>
+    <div class="probe-content" id="probe-5" lang="si">පිටුව 123 (අංක: 45)</div>
+  </div>
+
+  <div class="probe-card" id="probe-card-input">
+    <div class="probe-title">Probe 6: Interactive Input and Character Counter</div>
+    <input type="text" id="sinhala-input" class="sinhala-input" lang="si" value="අම්මා සහ තාත්තා" />
+    <div id="counter" class="counter">ගණන: 15 / උපරිම 50</div>
+  </div>
+
+  <script>
+    window.__harnessReady = true;
+  </script>
+</body>
+</html>

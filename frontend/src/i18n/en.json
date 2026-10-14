@@ -1,0 +1,30 @@
+{
+  "app": {
+    "title": "Language Simplification Platform",
+    "subtitle": "Accessible English and Sinhala reading support for children"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "reading": "Reading Tasks",
+    "settings": "Settings",
+    "language": "Language"
+  },
+  "language_selector": {
+    "label": "Select Language",
+    "english": "English",
+    "sinhala": "සිංහල",
+    "aria_announcement": "Language changed to English"
+  },
+  "probe": {
+    "title": "Sinhala Technical Input Probe",
+    "input_placeholder": "Type or paste Sinhala or mixed text here...",
+    "char_count": "Visual Characters",
+    "raw_length": "Code Units (UTF-16)",
+    "submit": "Verify Round Trip",
+    "result_title": "Verification Outcome"
+  },
+  "governance": {
+    "technical_draft_notice": "Sinhala UI labels are in technical draft status for infrastructure verification.",
+    "child_delivery_status": "Child delivery approval: Not established"
+  }
+}

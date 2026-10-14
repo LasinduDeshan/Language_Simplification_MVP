@@ -1,0 +1,28 @@
+{
+  "registry_version": "1.0.0",
+  "fonts": [
+    {
+      "font_family": "Noto Sans Sinhala",
+      "font_style": "normal",
+      "font_weight": "400",
+      "source_url": "https://raw.githubusercontent.com/googlefonts/noto-fonts/main/hinted/ttf/NotoSansSinhala/NotoSansSinhala-Regular.ttf",
+      "upstream_filename": "NotoSansSinhala-Regular.ttf",
+      "local_path": "frontend/public/fonts/NotoSansSinhala-Regular.ttf",
+      "retrieved_timestamp": "2026-10-14T10:45:00Z",
+      "licence_identifier": "OFL-1.1",
+      "licence_source_url": "https://raw.githubusercontent.com/googlefonts/noto-fonts/main/LICENSE",
+      "licence_local_path": "frontend/public/fonts/OFL.txt",
+      "licence_file_sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+      "font_binary_sha256": "a966549310b2d3046ba25bbeef11985428ff9356fa656fd6118bc90fb82df031",
+      "redistribution_allowed": true,
+      "is_original_binary": true,
+      "subsetting_tool": null,
+      "fallback_stack": [
+        "Noto Sans Sinhala",
+        "Nirmala UI",
+        "sans-serif"
+      ],
+      "verified_by": "infrastructure_team"
+    }
+  ]
+}
