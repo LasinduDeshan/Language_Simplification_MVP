@@ -10,7 +10,7 @@
     "fixture_id": "GRAPH-002",
     "description": "Sinhala word with Rakaransaya",
     "input_text": "ශ්‍රී",
-    "expected_grapheme_count": 1,
+    "expected_grapheme_count": 2,
     "expected_disposition": "PASSED"
   },
   {

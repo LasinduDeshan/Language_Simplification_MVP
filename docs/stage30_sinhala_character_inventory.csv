@@ -77,16 +77,16 @@ U+0DDC,SINHALA VOWEL SIGN KOMBUVA HAA AELA-PILLA,Mc,Sinhala,SINHALA_WORD,depende
 U+0DDD,SINHALA VOWEL SIGN KOMBUVA HAA DIGA AELA-PILLA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
 U+0DDE,SINHALA VOWEL SIGN KOMBUVA HAA GAYANUKITTA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
 U+0DDF,SINHALA VOWEL SIGN GAYANUKITTA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
-U+0DE6,SINHALA LITH DIGIT ZERO,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
-U+0DE7,SINHALA LITH DIGIT ONE,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
-U+0DE8,SINHALA LITH DIGIT TWO,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
-U+0DE9,SINHALA LITH DIGIT THREE,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
-U+0DEA,SINHALA LITH DIGIT FOUR,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
-U+0DEB,SINHALA LITH DIGIT FIVE,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
-U+0DEC,SINHALA LITH DIGIT SIX,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
-U+0DED,SINHALA LITH DIGIT SEVEN,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
-U+0DEE,SINHALA LITH DIGIT EIGHT,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
-U+0DEF,SINHALA LITH DIGIT NINE,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DE6,SINHALA LITH DIGIT ZERO,Nd,Sinhala,SINHALA_NUMBER,sinhala_lith_digit,preserved_nfc,standard_processing,14.0.0
+U+0DE7,SINHALA LITH DIGIT ONE,Nd,Sinhala,SINHALA_NUMBER,sinhala_lith_digit,preserved_nfc,standard_processing,14.0.0
+U+0DE8,SINHALA LITH DIGIT TWO,Nd,Sinhala,SINHALA_NUMBER,sinhala_lith_digit,preserved_nfc,standard_processing,14.0.0
+U+0DE9,SINHALA LITH DIGIT THREE,Nd,Sinhala,SINHALA_NUMBER,sinhala_lith_digit,preserved_nfc,standard_processing,14.0.0
+U+0DEA,SINHALA LITH DIGIT FOUR,Nd,Sinhala,SINHALA_NUMBER,sinhala_lith_digit,preserved_nfc,standard_processing,14.0.0
+U+0DEB,SINHALA LITH DIGIT FIVE,Nd,Sinhala,SINHALA_NUMBER,sinhala_lith_digit,preserved_nfc,standard_processing,14.0.0
+U+0DEC,SINHALA LITH DIGIT SIX,Nd,Sinhala,SINHALA_NUMBER,sinhala_lith_digit,preserved_nfc,standard_processing,14.0.0
+U+0DED,SINHALA LITH DIGIT SEVEN,Nd,Sinhala,SINHALA_NUMBER,sinhala_lith_digit,preserved_nfc,standard_processing,14.0.0
+U+0DEE,SINHALA LITH DIGIT EIGHT,Nd,Sinhala,SINHALA_NUMBER,sinhala_lith_digit,preserved_nfc,standard_processing,14.0.0
+U+0DEF,SINHALA LITH DIGIT NINE,Nd,Sinhala,SINHALA_NUMBER,sinhala_lith_digit,preserved_nfc,standard_processing,14.0.0
 U+0DF2,SINHALA VOWEL SIGN DIGA GAETTA-PILLA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
 U+0DF3,SINHALA VOWEL SIGN DIGA GAYANUKITTA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
 U+0DF4,SINHALA PUNCTUATION KUNDDALIYA,Po,Sinhala,PUNCTUATION,sinhala_punctuation_kunddaliya,preserved_nfc,standard_processing,14.0.0

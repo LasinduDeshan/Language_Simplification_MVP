@@ -162,12 +162,19 @@ def validate_unicode_text(text: str) -> ValidationResult:
                     flags.append(QualityFlag.UNEXPECTED_JOINER_CONTEXT)
 
     # If flags require manual review, report so
-    if QualityFlag.COMBINING_SEQUENCE_REVIEW in flags or QualityFlag.UNEXPECTED_JOINER_CONTEXT in flags:
+    if QualityFlag.UNEXPECTED_JOINER_CONTEXT in flags:
         return ValidationResult(
             is_valid=True,
             flags=flags,
             disposition=TerminalDisposition.MANUAL_REVIEW_REQUIRED,
-            reason_code="SUSPICIOUS_ORTHOGRAPHIC_SEQUENCE"
+            reason_code="UNEXPECTED_JOINER_CONTEXT"
+        )
+    if QualityFlag.COMBINING_SEQUENCE_REVIEW in flags:
+        return ValidationResult(
+            is_valid=True,
+            flags=flags,
+            disposition=TerminalDisposition.MANUAL_REVIEW_REQUIRED,
+            reason_code="COMBINING_SEQUENCE_REVIEW"
         )
 
     return ValidationResult(

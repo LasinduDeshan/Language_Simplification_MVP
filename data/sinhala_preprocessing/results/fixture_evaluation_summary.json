@@ -15,11 +15,12 @@
   "total_sentences": 32,
   "total_tokens": 111,
   "tokens_by_type": {
-    "SINHALA_WORD": 73,
+    "SINHALA_WORD": 72,
     "PUNCTUATION": 23,
     "UNKNOWN": 2,
     "ARABIC_NUMBER": 3,
     "LATIN_WORD": 9,
+    "MIXED_SCRIPT_TOKEN": 1,
     "SINHALA_NUMBER": 1
   },
   "offset_failures": 0,
@@ -470,7 +471,7 @@
       "expected_disposition": "MANUAL_REVIEW_REQUIRED",
       "actual_disposition": "MANUAL_REVIEW_REQUIRED",
       "disposition_match": true,
-      "reason_code": "SUSPICIOUS_ORTHOGRAPHIC_SEQUENCE",
+      "reason_code": "COMBINING_SEQUENCE_REVIEW",
       "quality_flags": [
         "COMBINING_SEQUENCE_REVIEW"
       ],
@@ -487,7 +488,7 @@
       "expected_disposition": "MANUAL_REVIEW_REQUIRED",
       "actual_disposition": "MANUAL_REVIEW_REQUIRED",
       "disposition_match": true,
-      "reason_code": "SUSPICIOUS_ORTHOGRAPHIC_SEQUENCE",
+      "reason_code": "COMBINING_SEQUENCE_REVIEW",
       "quality_flags": [
         "COMBINING_SEQUENCE_REVIEW"
       ],
@@ -504,7 +505,7 @@
       "expected_disposition": "MANUAL_REVIEW_REQUIRED",
       "actual_disposition": "MANUAL_REVIEW_REQUIRED",
       "disposition_match": true,
-      "reason_code": "SUSPICIOUS_ORTHOGRAPHIC_SEQUENCE",
+      "reason_code": "UNEXPECTED_JOINER_CONTEXT",
       "quality_flags": [
         "JOINER_PRESENT",
         "UNEXPECTED_JOINER_CONTEXT"

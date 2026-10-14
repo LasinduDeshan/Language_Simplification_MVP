@@ -57,6 +57,11 @@ def classify_character(cp: int) -> dict:
             allowed_context = "virama_al_lakuna"
             norm_behavior = "preserved_nfc"
             review_behavior = "standard_processing"
+        elif 0x0DE6 <= cp <= 0x0DEF:
+            token_category = "SINHALA_NUMBER"
+            allowed_context = "sinhala_lith_digit"
+            norm_behavior = "preserved_nfc"
+            review_behavior = "standard_processing"
         elif 0x0DCF <= cp <= 0x0DF3:
             token_category = "SINHALA_WORD"
             allowed_context = "dependent_vowel_sign"
@@ -65,11 +70,6 @@ def classify_character(cp: int) -> dict:
         elif cp == 0x0DF4:
             token_category = "PUNCTUATION"
             allowed_context = "sinhala_punctuation_kunddaliya"
-            norm_behavior = "preserved_nfc"
-            review_behavior = "standard_processing"
-        elif 0x0DE6 <= cp <= 0x0DEF:
-            token_category = "SINHALA_NUMBER"
-            allowed_context = "sinhala_lith_digit"
             norm_behavior = "preserved_nfc"
             review_behavior = "standard_processing"
         else:

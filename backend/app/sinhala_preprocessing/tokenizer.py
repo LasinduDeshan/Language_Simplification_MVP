@@ -53,7 +53,7 @@ def classify_token_type(surface: str) -> Tuple[TokenType, Dict[str, float]]:
         "Digit": round((arabic_num + sinhala_num) / total, 4)
     }
 
-    if sinhala > 0 and latin > 0:
+    if (sinhala > 0 and latin > 0) or ((sinhala > 0 or latin > 0) and (arabic_num > 0 or sinhala_num > 0)):
         return TokenType.MIXED_SCRIPT_TOKEN, profile
     elif sinhala > 0 and (sinhala + punct == total or sinhala == total):
         return TokenType.SINHALA_WORD, profile

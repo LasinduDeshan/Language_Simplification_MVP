@@ -1,0 +1,57 @@
+{
+  "stage": 30,
+  "stage_name": "Sinhala Unicode Normalization and Preprocessing",
+  "component": "Component 3 — AI/NLP-Based Language Simplification",
+  "scope": {
+    "language": "si",
+    "locale": "si-LK",
+    "script": "Sinh",
+    "target_population": "Children aged 4–8"
+  },
+  "git": {
+    "prerequisite_tag": "stage-29-complete-v2",
+    "prerequisite_commit": "89a253c452ea85664f988f31d357d6d9ee72b464",
+    "start_tag": "stage-30-start",
+    "branch": "feature/stage30-sinhala-preprocessing"
+  },
+  "runtime_environment": {
+    "os": "Windows",
+    "python_version": "3.11.9",
+    "unicodedata_version": "14.0.0",
+    "regex_engine": "regex 2025.11.3",
+    "conformance_scope": "governed_fixtures_verified"
+  },
+  "technical_invariants": {
+    "raw_text_immutability": "100.0%",
+    "nfc_idempotence": "100.0%",
+    "repeated_run_determinism": "100.0%",
+    "fixture_disposition_accuracy": "100.0% (32/32)",
+    "pipeline_introduced_replacement_characters": 0,
+    "offset_failures": 0,
+    "reconstruction_failures": 0,
+    "unaccounted_records": 0
+  },
+  "disposition_accounting": {
+    "total_inputs": 32,
+    "passed": 20,
+    "passed_with_normalization": 2,
+    "manual_review_required": 5,
+    "rejected_invalid_unicode": 4,
+    "excluded_non_sinhala": 1,
+    "unaccounted": 0
+  },
+  "linguistic_units_accounting": {
+    "total_operations": 3,
+    "total_sentences": 32,
+    "total_tokens": 111,
+    "records_with_joiners": 7,
+    "records_with_mixed_scripts": 3,
+    "records_routed_to_review": 5
+  },
+  "governance_status": {
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  }
+}
