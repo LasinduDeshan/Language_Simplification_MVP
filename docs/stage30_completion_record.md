@@ -5,10 +5,10 @@ Stage 30: SINHALA UNICODE NORMALIZATION AND PREPROCESSING
 Prerequisite tag:                           stage-29-complete-v2
 Prerequisite commit:                        89a253c452ea85664f988f31d357d6d9ee72b464
 Start tag:                                  stage-30-start
-Historical completion tag:                  stage-30-complete
+Historical completion tag:                  stage-30-complete (155008bbe460386bcaa7042aa7694718fccc08d8)
 Historical completion commit:               155008bbe460386bcaa7042aa7694718fccc08d8
 Authoritative completion tag:               stage-30-complete-v2
-Final commit:                               PENDING_COMMIT
+Reconciled base commit:                     c395bfe3f9059f756640118635e31fd26bfc9341
 
 Ancestry and start checkpoint:              PASSED
 Raw-text immutability:                      PASSED
