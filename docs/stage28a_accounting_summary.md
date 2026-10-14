@@ -31,7 +31,25 @@ $$\text{Duplicates} = 0, \quad \text{MissingItems} = 0, \quad \text{Unaccounted}
 
 ---
 
-## 2. Accounting Breakdown: External ASSET Benchmark (N=359, Fixed Generic Mode)
+## 2. Disaggregated Provider Outcome Accounting (Gemini G1 Dispatches)
+
+| Provider Outcome Category | Clean Subset Count ($N=39$) | Clean Subset Rate (%) | Full Benchmark Count ($N=135$) | Full Benchmark Rate (%) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Native Success (HTTP 200)** | 29 | 74.4% | 84 | 62.2% |
+| **Daily-quota exhaustion (`DAILY_QUOTA_FAILED`, HTTP 429)** | 6 | 15.4% | 39 | 28.9% |
+| **Transient rate limit after retries (`RATE_LIMIT_FAILED`, HTTP 429)** | 4 | 10.3% | 12 | 8.9% |
+| **HTTP 503 after retries** | 0 | 0.0% | 0 | 0.0% |
+| **Timeout / network exhaustion** | 0 | 0.0% | 0 | 0.0% |
+| **Other provider failure** | 0 | 0.0% | 0 | 0.0% |
+| **Total Provider Fallbacks Delivered** | **10** | **25.6%** | **51** | **37.8%** |
+
+### HTTP Attempt Population Accounting
+- **Clean Subset ($N=39$):** 29 single-attempt successes + 6 single-attempt daily quota stops + 16 retry attempts (4 rate-limit items $\times$ 4 jittered retries) = **51 HTTP calls** across 39 logical requests (average 1.31 calls/request).
+- **Full Benchmark ($N=135$):** 84 single-attempt successes + 39 single-attempt daily quota stops + 48 retry attempts (12 rate-limit items $\times$ 4 retries) = **171 HTTP calls** across 135 logical requests (average 1.27 calls/request).
+
+---
+
+## 3. Accounting Breakdown: External ASSET Benchmark (N=359, Fixed Generic Mode)
 
 | System ID | System Name | Native Unmod. | Native Repaired | Safety Fallback | Provider Fallback | Failed | Not Attempted | Total Accounted | Conservation Status |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |

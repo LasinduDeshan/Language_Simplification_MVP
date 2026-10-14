@@ -320,6 +320,12 @@ def main():
             "system_id": s,
             "system_name": SYSTEM_REGISTRY[s].name,
             "denominator": 39,
+            "paired_items_n": w_b0["paired_items_n"],
+            "zero_difference_n": w_b0["zero_difference_n"],
+            "effective_wilcoxon_n": w_b0["effective_wilcoxon_n"],
+            "zero_method": w_b0["zero_method"],
+            "alternative": w_b0["alternative"],
+            "p_method": w_b0["p_method"],
             "mean_diff": round(mean_diff, 2),
             "median_diff": round(med_diff, 2),
             "w_stat": w_b0["statistic"],
@@ -340,6 +346,12 @@ def main():
         "system_id": "G1_native",
         "system_name": "G1 Native-Only (Partial, n=29/39 matched)",
         "denominator": 29,
+        "paired_items_n": w_g1_mat["paired_items_n"],
+        "zero_difference_n": w_g1_mat["zero_difference_n"],
+        "effective_wilcoxon_n": w_g1_mat["effective_wilcoxon_n"],
+        "zero_method": w_g1_mat["zero_method"],
+        "alternative": w_g1_mat["alternative"],
+        "p_method": w_g1_mat["p_method"],
         "mean_diff": round(float(sum(diffs_g1)/len(diffs_g1)), 2),
         "median_diff": round(float(diffs_g1_sorted[len(diffs_g1_sorted)//2]), 2),
         "w_stat": w_g1_mat["statistic"],
@@ -350,6 +362,9 @@ def main():
 
     fdr_fam1 = benjamini_hochberg_fdr(p_values_fam1)
     for res_dict, fdr_info in zip(fam1_stat_results, fdr_fam1):
+        res_dict["rank"] = fdr_info["rank"]
+        res_dict["family_size_m"] = fdr_info["family_size_m"]
+        res_dict["preliminary_adj"] = fdr_info["preliminary_adj"]
         res_dict["adj_q"] = fdr_info["adjusted_p_value"]
         res_dict["significant"] = fdr_info["significant_at_alpha"]
 
@@ -365,6 +380,12 @@ def main():
             "system_id": s,
             "system_name": SYSTEM_REGISTRY[s].name,
             "denominator": 39,
+            "paired_items_n": w_c1["paired_items_n"],
+            "zero_difference_n": w_c1["zero_difference_n"],
+            "effective_wilcoxon_n": w_c1["effective_wilcoxon_n"],
+            "zero_method": w_c1["zero_method"],
+            "alternative": w_c1["alternative"],
+            "p_method": w_c1["p_method"],
             "mean_diff": round(float(sum(diffs)/len(diffs)), 2),
             "median_diff": round(float(diffs_sorted[len(diffs_sorted)//2]), 2),
             "w_stat": w_c1["statistic"],
@@ -382,6 +403,12 @@ def main():
         "system_id": "G1_native",
         "system_name": "G1 Native-Only (Partial, n=29/39 matched)",
         "denominator": 29,
+        "paired_items_n": w_g1_c1["paired_items_n"],
+        "zero_difference_n": w_g1_c1["zero_difference_n"],
+        "effective_wilcoxon_n": w_g1_c1["effective_wilcoxon_n"],
+        "zero_method": w_g1_c1["zero_method"],
+        "alternative": w_g1_c1["alternative"],
+        "p_method": w_g1_c1["p_method"],
         "mean_diff": round(float(sum(diffs_gc)/len(diffs_gc)), 2),
         "median_diff": round(float(diffs_gc_sorted[len(diffs_gc_sorted)//2]), 2),
         "w_stat": w_g1_c1["statistic"],
@@ -392,6 +419,9 @@ def main():
 
     fdr_fam2 = benjamini_hochberg_fdr(p_values_fam2)
     for res_dict, fdr_info in zip(fam2_stat_results, fdr_fam2):
+        res_dict["rank"] = fdr_info["rank"]
+        res_dict["family_size_m"] = fdr_info["family_size_m"]
+        res_dict["preliminary_adj"] = fdr_info["preliminary_adj"]
         res_dict["adj_q"] = fdr_info["adjusted_p_value"]
         res_dict["significant"] = fdr_info["significant_at_alpha"]
 
@@ -620,22 +650,48 @@ Governed Hybrid Pipeline (**H1**) achieved 100% entity and negation preservation
 
 ## 1. Hypothesis Family 1: SARI Differences vs B0 (Identity Baseline)
 
-| System ID | Evaluated System Name | Denominator ($N$) | Mean SARI Diff | Median SARI Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\\text{rb}}$ Effect Size | Significant ($\\alpha=0.05$) |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+### Primary Paired Wilcoxon Signed-Rank Test Results
+
+| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Zero Method | Alternative | p-Method | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\\text{rb}}$ Effect Size | Significant ($\\alpha=0.05$) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 """)
         for r in fam1_stat_results:
-            f.write(f"| **{r['system_id']}** | {r['system_name']} | {r['denominator']} | {r['mean_diff']:+.2f} | {r['median_diff']:+.2f} | {r['w_stat']} | {r['raw_p']:.4e} | {r['adj_q']:.4e} | {r['r_rb']:.3f} | **{r['significant']}** |\n")
+            f.write(f"| **{r['system_id']}** | {r['system_name']} | {r['paired_items_n']} | {r['zero_difference_n']} | {r['effective_wilcoxon_n']} | `{r['zero_method']}` | `{r['alternative']}` | `{r['p_method']}` | {r['mean_diff']:+.2f} | {r['median_diff']:+.2f} | {r['w_stat']} | {r['raw_p']:.4e} | {r['adj_q']:.4e} | {r['r_rb']:.3f} | **{r['significant']}** |\n")
+
+        f.write("""
+### Benjamini-Hochberg Step-Up Procedure (Family 1, m=8)
+
+| Rank ($k$) | System ID | Raw $p$-value | Step-Up Multiplier ($m/k$) | Preliminary Adj. | Monotonic $q$-value | Significant ($\\alpha=0.05$) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+""")
+        for r in sorted(fam1_stat_results, key=lambda x: x["rank"]):
+            m = r["family_size_m"]
+            k = r["rank"]
+            f.write(f"| {k} | **{r['system_id']}** | {r['raw_p']:.4e} | {m}/{k} ({m/k:.2f}x) | {r['preliminary_adj']:.4e} | **{r['adj_q']:.4e}** | **{r['significant']}** |\n")
 
         f.write("""
 ---
 
 ## 2. Hypothesis Family 2: SARI Differences vs C1 (Stage 25 Controlled Engine)
 
-| System ID | Evaluated System Name | Denominator ($N$) | Mean SARI Diff | Median SARI Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\\text{rb}}$ Effect Size | Significant ($\\alpha=0.05$) |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+### Primary Paired Wilcoxon Signed-Rank Test Results
+
+| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Zero Method | Alternative | p-Method | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\\text{rb}}$ Effect Size | Significant ($\\alpha=0.05$) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 """)
         for r in fam2_stat_results:
-            f.write(f"| **{r['system_id']}** | {r['system_name']} | {r['denominator']} | {r['mean_diff']:+.2f} | {r['median_diff']:+.2f} | {r['w_stat']} | {r['raw_p']:.4e} | {r['adj_q']:.4e} | {r['r_rb']:.3f} | **{r['significant']}** |\n")
+            f.write(f"| **{r['system_id']}** | {r['system_name']} | {r['paired_items_n']} | {r['zero_difference_n']} | {r['effective_wilcoxon_n']} | `{r['zero_method']}` | `{r['alternative']}` | `{r['p_method']}` | {r['mean_diff']:+.2f} | {r['median_diff']:+.2f} | {r['w_stat']} | {r['raw_p']:.4e} | {r['adj_q']:.4e} | {r['r_rb']:.3f} | **{r['significant']}** |\n")
+
+        f.write("""
+### Benjamini-Hochberg Step-Up Procedure (Family 2, m=3)
+
+| Rank ($k$) | System ID | Raw $p$-value | Step-Up Multiplier ($m/k$) | Preliminary Adj. | Monotonic $q$-value | Significant ($\\alpha=0.05$) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+""")
+        for r in sorted(fam2_stat_results, key=lambda x: x["rank"]):
+            m = r["family_size_m"]
+            k = r["rank"]
+            f.write(f"| {k} | **{r['system_id']}** | {r['raw_p']:.4e} | {m}/{k} ({m/k:.2f}x) | {r['preliminary_adj']:.4e} | **{r['adj_q']:.4e}** | **{r['significant']}** |\n")
 
         f.write("""
 ---
@@ -656,10 +712,11 @@ Governed Hybrid Pipeline (**H1**) achieved 100% entity and negation preservation
     with open(docs_dir / "stage28a_error_analysis.md", "w", encoding="utf-8") as f:
         f.write("""# Stage 28A Qualitative and Structural Error Analysis
 
-## 1. System Designations
-- **Best frozen Stage 24 baseline:** **B4 (Combined Deterministic)**
-- **Best offline controlled system:** **C1 (Stage 25 Controlled Engine)**
-- **Best overall automated candidate:** **H1 (Governed Hybrid Pipeline)**
+## 1. Candidate Performance Profiles
+- **Best frozen Stage 24 baseline:** **B4 (Combined Deterministic Baseline)** — Canonical Stage 28A SARI: **24.11**. *(Stage 24 historical baseline was 36.84 under earlier non-EASSE tokenization).*
+- **Best offline controlled system:** **C1 (Stage 25 Controlled Engine)** — Canonical Stage 28A SARI: **25.44**, 100% entity and negation preservation.
+- **Best request-level governed automated pipeline:** **H1 (Governed Hybrid Pipeline)** — Canonical Stage 28A SARI: **39.48**, evaluated across all 39 requests, including 28 native Gemini deliveries, 1 safety fallback, and 10 provider fallbacks.
+- **Diagnostic native LLM evaluation:** **G1 Native-Only (Partial, $n=29/39$)** — Canonical Stage 28A SARI: **40.65**, evaluating strictly the 29 items receiving native LLM responses without fallback imputation.
 
 ## 2. Error Taxonomy & Systematic Findings
 - **Meaning Shifts:** Monitored via entity and negation preservation. Governed hybrid (H1) successfully routes shifts to deterministic fallback.
@@ -698,7 +755,25 @@ $$\\text{Duplicates} = 0, \\quad \\text{MissingItems} = 0, \\quad \\text{Unaccou
         f.write("""
 ---
 
-## 2. Accounting Breakdown: External ASSET Benchmark (N=359, Fixed Generic Mode)
+## 2. Disaggregated Provider Outcome Accounting (Gemini G1 Dispatches)
+
+| Provider Outcome Category | Clean Subset Count ($N=39$) | Clean Subset Rate (%) | Full Benchmark Count ($N=135$) | Full Benchmark Rate (%) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Native Success (HTTP 200)** | 29 | 74.4% | 84 | 62.2% |
+| **Daily-quota exhaustion (`DAILY_QUOTA_FAILED`, HTTP 429)** | 6 | 15.4% | 39 | 28.9% |
+| **Transient rate limit after retries (`RATE_LIMIT_FAILED`, HTTP 429)** | 4 | 10.3% | 12 | 8.9% |
+| **HTTP 503 after retries** | 0 | 0.0% | 0 | 0.0% |
+| **Timeout / network exhaustion** | 0 | 0.0% | 0 | 0.0% |
+| **Other provider failure** | 0 | 0.0% | 0 | 0.0% |
+| **Total Provider Fallbacks Delivered** | **10** | **25.6%** | **51** | **37.8%** |
+
+### HTTP Attempt Population Accounting
+- **Clean Subset ($N=39$):** 29 single-attempt successes + 6 single-attempt daily quota stops + 16 retry attempts (4 rate-limit items $\\times$ 4 jittered retries) = **51 HTTP calls** across 39 logical requests (average 1.31 calls/request).
+- **Full Benchmark ($N=135$):** 84 single-attempt successes + 39 single-attempt daily quota stops + 48 retry attempts (12 rate-limit items $\\times$ 4 retries) = **171 HTTP calls** across 135 logical requests (average 1.27 calls/request).
+
+---
+
+## 3. Accounting Breakdown: External ASSET Benchmark (N=359, Fixed Generic Mode)
 
 | System ID | System Name | Native Unmod. | Native Repaired | Safety Fallback | Provider Fallback | Failed | Not Attempted | Total Accounted | Conservation Status |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -728,10 +803,25 @@ $$\\text{Duplicates} = 0, \\quad \\text{MissingItems} = 0, \\quad \\text{Unaccou
             "resolved_model": "gemini-3.5-flash-lite",
             "exact_api_returned_identifier": "models/gemini-3.5-flash-lite",
             "display_name": "Gemini 3.5 Flash Lite",
-            "provider_model_version": "3.5-flash-lite-07-2026",
+            "internal_configuration_version": "stage28a-gemini-3.5-flash-lite-07-2026",
+            "internal_version_note": "Local configuration identifier; not an API-returned provider model version.",
             "discovery_endpoint": "https://generativelanguage.googleapis.com/v1beta/models",
             "discovery_timestamp": "2026-10-13T17:45:50Z",
             "raw_metadata_response_hash": "8256ff86f539f0d3301a9ebd99369fc514baf7e6c81bf9eb6e0fb7a6e0c128d5",
+        },
+        "provider_dispatches": {
+            "unique_locked_inputs": 135,
+            "clean_subset_membership": 39,
+            "clean_subset_http_attempts": 51,
+            "full_locked_http_attempts": 171,
+            "provider_failures_clean_subset": {
+                "daily_quota_exhaustion": 6,
+                "transient_429_rate_limit_after_retries": 4,
+                "http_503_after_retries": 0,
+                "timeout_network_exhaustion": 0,
+                "other_provider_failure": 0,
+                "total_provider_fallbacks": 10,
+            },
         },
         "sari_easse_parity": {
             "pinned_version": "0.2.4",
@@ -758,24 +848,35 @@ $$\\text{Duplicates} = 0, \\quad \\text{MissingItems} = 0, \\quad \\text{Unaccou
 
     # 16. Write Completion Record Markdown
     with open(docs_dir / "stage28a_completion_record.md", "w", encoding="utf-8") as f:
-        f.write(f"""# Stage 28A Milestone Completion Record (v2 Sealed)
+        f.write(f"""# Stage 28A Milestone Completion Record (v3 Reconciled)
 
 **Milestone:** Stage 28A — Preliminary English Model and Simplification Comparison  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Completion Date:** {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")}  
 **Initial Completion Tag:** `stage-28a-complete` (preserved historical checkpoint)  
-**Supplementary Completion Tag:** `stage-28a-complete-v2`  
+**First Supplementary Tag:** `stage-28a-complete-v2` (preserved intermediate checkpoint)  
+**Authoritative Supplementary Tag:** `stage-28a-complete-v3`  
 **Prerequisite Tag:** `stage-27-infrastructure-complete-v3` (resolving to commit `22eb001`)  
 **Start Tag:** `stage-28a-start` (at prerequisite baseline commit `22eb001`)  
 
 ---
 
-## 1. Candidate Profile Designations
-- **Best frozen Stage 24 baseline:** **B4 (Combined Deterministic)** — Highest Stage 24 SARI (24.11) with sub-3ms execution.
-- **Best offline controlled system:** **C1 (Stage 25 Controlled Engine)** — SARI (25.44), 100% entity and negation preservation, $0.00 billable cost.
-- **Best overall automated candidate:** **H1 (Governed Hybrid Pipeline)** — Highest multi-reference SARI (39.48), 100% entity/negation preservation, with 28 native unmodified, 1 safety fallback, and 10 provider fallback outputs properly disaggregated.
+## 1. Canonical Candidate Profile Designations
+- **Best frozen Stage 24 baseline:** **B4 (Combined Deterministic Baseline)** — Canonical Stage 28A SARI: **24.11** (post-FKGL: 2.82, BLEU-4: 54.55, p95 latency: 71.7 ms, $0.00 billable cost). *(Note: Stage 24 historical baseline reported 36.84 under an earlier non-EASSE tokenization/reference aggregation protocol).*
+- **Best offline controlled system:** **C1 (Stage 25 Controlled Engine)** — Canonical Stage 28A SARI: **25.44** (post-FKGL: 3.44, BLEU-4: 59.92, 100% entity and negation preservation, $0.00 billable cost). *(Note: Stage 25 historical report evaluated under an earlier non-EASSE reference protocol).*
+- **Best request-level governed automated pipeline:** **H1 (Governed Hybrid Pipeline)** — Canonical Stage 28A SARI: **39.48**, evaluated across all 39 requests, including 28 native Gemini deliveries, 1 safety fallback, and 10 provider fallbacks.
+- **Diagnostic native LLM evaluation:** **G1 Native-Only (Partial, $n=29/39$)** — Canonical Stage 28A SARI: **40.65** (post-FKGL: 1.90, BLEU-4: 38.94), evaluating strictly the 29 items receiving native LLM responses without fallback imputation.
 
-## 2. Qualified Safety & Governance Statement
+## 2. SARI Numerical Reconciliation
+All Stage 28A SARI values derive from one canonical results artifact (`stage28a_clean_subset_comparison.csv` under pinned EASSE 0.2.4 protocol). Statistical differences match identically:
+$$\\text{{B0 Identity Baseline}} = 14.38$$
+$$\\text{{B4}} - \\text{{B0}} = 24.11 - 14.38 = +9.73$$
+$$\\text{{C1}} - \\text{{B0}} = 25.44 - 14.38 = +11.07$$
+$$\\text{{H1}} - \\text{{B0}} = 39.48 - 14.38 = +25.10$$
+$$\\text{{G1 (matched)}} - \\text{{B0 (matched)}} = 40.65 - 14.06 = +26.59$$
+$$\\text{{H1}} - \\text{{C1}} = 39.48 - 25.44 = +14.04$$
+
+## 3. Qualified Safety & Governance Statement
 - No distractor leakage was detected by the configured automated checks across $n=39$ clean-subset outputs.
 - Expert validated: `false`
 - Child suitability demonstrated: `false`

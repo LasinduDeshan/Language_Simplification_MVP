@@ -58,8 +58,11 @@ class GovernanceMetadata(BaseModel):
 class DynamicProviderMetadata(BaseModel):
     requested_model: str
     resolved_model: str
-    provider_model_version: str
+    exact_api_returned_identifier: str = "models/gemini-3.5-flash-lite"
+    internal_configuration_version: str = "stage28a-gemini-3.5-flash-lite-07-2026"
+    discovery_endpoint: str = "https://generativelanguage.googleapis.com/v1beta/models"
     discovery_timestamp: str
+    raw_metadata_response_hash: str
 
 
 class PricingSnapshot(BaseModel):
@@ -102,6 +105,7 @@ class ItemExecutionLedgerRecord(BaseModel):
     requested_model: Optional[str] = None
     resolved_model: Optional[str] = None
     provider_model_version: Optional[str] = None
+    internal_configuration_version: Optional[str] = "stage28a-gemini-3.5-flash-lite-07-2026"
     discovery_timestamp: Optional[str] = None
     generator_attribution: str
     final_disposition: DeliveryDisposition

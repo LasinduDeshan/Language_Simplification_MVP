@@ -35,6 +35,12 @@ def paired_wilcoxon_test(
         return {
             "n_total": n_total,
             "n_zero_diff": n_zero_diff,
+            "paired_items_n": n_total,
+            "zero_difference_n": n_zero_diff,
+            "effective_wilcoxon_n": 0,
+            "zero_method": "wilcox",
+            "alternative": "two-sided",
+            "p_method": "exact",
             "statistic": 0.0,
             "p_value": 1.0,
             "rank_biserial_r": 0.0,
@@ -57,6 +63,12 @@ def paired_wilcoxon_test(
         return {
             "n_total": n_total,
             "n_zero_diff": n_zero_diff,
+            "paired_items_n": n_total,
+            "zero_difference_n": n_zero_diff,
+            "effective_wilcoxon_n": int(len(non_zero_diffs)),
+            "zero_method": "wilcox",
+            "alternative": "two-sided",
+            "p_method": "exact" if len(non_zero_diffs) <= 50 else "approx",
             "statistic": stat,
             "p_value": p_val,
             "rank_biserial_r": round(r_rb, 4),
@@ -65,6 +77,12 @@ def paired_wilcoxon_test(
         return {
             "n_total": n_total,
             "n_zero_diff": n_zero_diff,
+            "paired_items_n": n_total,
+            "zero_difference_n": n_zero_diff,
+            "effective_wilcoxon_n": int(len(non_zero_diffs)),
+            "zero_method": "wilcox",
+            "alternative": "two-sided",
+            "p_method": "exact",
             "statistic": None,
             "p_value": None,
             "rank_biserial_r": None,
@@ -173,6 +191,7 @@ def paired_bootstrap_sacrebleu_difference(
 def benjamini_hochberg_fdr(p_values: List[float], alpha: float = 0.05) -> List[Dict[str, Any]]:
     """
     Applies Benjamini-Hochberg procedure to control False Discovery Rate.
+    Calculates exact rank, preliminary adjusted value, and monotonic adjusted q-value.
     """
     m = len(p_values)
     if m == 0:
@@ -181,24 +200,36 @@ def benjamini_hochberg_fdr(p_values: List[float], alpha: float = 0.05) -> List[D
     sorted_indices = np.argsort(p_values)
     sorted_p = np.array(p_values)[sorted_indices]
 
-    adjusted_p = np.zeros(m)
-    # Step-up adjustment
-    min_adj = 1.0
-    for i in range(m - 1, -1, -1):
+    preliminary_adj = np.zeros(m)
+    for i in range(m):
         rank = i + 1
-        adj = (sorted_p[i] * m) / rank
-        min_adj = min(min_adj, adj)
-        adjusted_p[i] = min(1.0, min_adj)
+        preliminary_adj[i] = (sorted_p[i] * m) / rank
+
+    # Step-up monotonic correction: q_i = min_{j >= i} prelim_j
+    monotonic_adj = np.zeros(m)
+    min_val = 1.0
+    for i in range(m - 1, -1, -1):
+        min_val = min(min_val, preliminary_adj[i])
+        monotonic_adj[i] = min(1.0, min_val)
 
     # Restore original ordering
     final_adj = np.zeros(m)
-    final_adj[sorted_indices] = adjusted_p
+    final_adj[sorted_indices] = monotonic_adj
+
+    ranks = np.zeros(m, dtype=int)
+    ranks[sorted_indices] = np.arange(1, m + 1)
+
+    prelim_ordered = np.zeros(m)
+    prelim_ordered[sorted_indices] = preliminary_adj
 
     results = []
-    for orig_p, adj_p in zip(p_values, final_adj):
+    for orig_p, rk, prelim, adj_p in zip(p_values, ranks, prelim_ordered, final_adj):
         results.append({
             "raw_p_value": float(orig_p),
-            "adjusted_p_value": round(float(adj_p), 5),
+            "rank": int(rk),
+            "family_size_m": int(m),
+            "preliminary_adj": float(prelim),
+            "adjusted_p_value": float(adj_p),
             "significant_at_alpha": bool(adj_p <= alpha),
         })
     return results

@@ -6,26 +6,51 @@
 
 ## 1. Hypothesis Family 1: SARI Differences vs B0 (Identity Baseline)
 
-| System ID | Evaluated System Name | Denominator ($N$) | Mean SARI Diff | Median SARI Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\text{rb}}$ Effect Size | Significant ($\alpha=0.05$) |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **B1** | Lexical Substitution Baseline | 39 | +0.00 | +0.00 | 0.0 | 1.0000e+00 | 1.0000e+00 | 0.000 | **False** |
-| **B2** | Sentence Splitting Baseline | 39 | +9.73 | +0.00 | 0.0 | 1.4718e-04 | 2.9000e-04 | 1.000 | **True** |
-| **B3** | Syntactic Rules Baseline | 39 | +0.00 | +0.00 | 0.0 | 1.0000e+00 | 1.0000e+00 | 0.000 | **False** |
-| **B4** | Combined Deterministic Baseline | 39 | +9.73 | +0.00 | 0.0 | 1.4718e-04 | 2.9000e-04 | 1.000 | **True** |
-| **B5** | Offline Deterministic Fallback | 39 | +8.15 | +0.00 | 0.0 | 4.3231e-04 | 6.9000e-04 | 1.000 | **True** |
-| **C1** | Stage 25 Controlled Engine | 39 | +11.07 | +0.00 | 0.0 | 2.0811e-03 | 2.7700e-03 | 1.000 | **True** |
-| **H1** | Stage 26 Governed Hybrid Pipeline | 39 | +25.10 | +30.27 | 0.0 | 5.3581e-07 | 0.0000e+00 | 1.000 | **True** |
-| **G1_native** | G1 Native-Only (Partial, n=29/39 matched) | 29 | +26.59 | +25.54 | 0.0 | 5.5931e-06 | 2.0000e-05 | 1.000 | **True** |
+### Primary Paired Wilcoxon Signed-Rank Test Results
+
+| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Zero Method | Alternative | p-Method | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\text{rb}}$ Effect Size | Significant ($\alpha=0.05$) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **B1** | Lexical Substitution Baseline | 39 | 39 | 0 | `wilcox` | `two-sided` | `exact` | +0.00 | +0.00 | 0.0 | 1.0000e+00 | 1.0000e+00 | 0.000 | **False** |
+| **B2** | Sentence Splitting Baseline | 39 | 21 | 18 | `wilcox` | `two-sided` | `exact` | +9.73 | +0.00 | 0.0 | 1.4718e-04 | 2.9435e-04 | 1.000 | **True** |
+| **B3** | Syntactic Rules Baseline | 39 | 39 | 0 | `wilcox` | `two-sided` | `exact` | +0.00 | +0.00 | 0.0 | 1.0000e+00 | 1.0000e+00 | 0.000 | **False** |
+| **B4** | Combined Deterministic Baseline | 39 | 21 | 18 | `wilcox` | `two-sided` | `exact` | +9.73 | +0.00 | 0.0 | 1.4718e-04 | 2.9435e-04 | 1.000 | **True** |
+| **B5** | Offline Deterministic Fallback | 39 | 24 | 15 | `wilcox` | `two-sided` | `exact` | +8.15 | +0.00 | 0.0 | 4.3231e-04 | 6.9170e-04 | 1.000 | **True** |
+| **C1** | Stage 25 Controlled Engine | 39 | 27 | 12 | `wilcox` | `two-sided` | `exact` | +11.07 | +0.00 | 0.0 | 2.0811e-03 | 2.7747e-03 | 1.000 | **True** |
+| **H1** | Stage 26 Governed Hybrid Pipeline | 39 | 6 | 33 | `wilcox` | `two-sided` | `exact` | +25.10 | +30.27 | 0.0 | 5.3581e-07 | 4.2864e-06 | 1.000 | **True** |
+| **G1_native** | G1 Native-Only (Partial, n=29/39 matched) | 29 | 2 | 27 | `wilcox` | `two-sided` | `exact` | +26.59 | +25.54 | 0.0 | 5.5931e-06 | 2.2372e-05 | 1.000 | **True** |
+
+### Benjamini-Hochberg Step-Up Procedure (Family 1, m=8)
+
+| Rank ($k$) | System ID | Raw $p$-value | Step-Up Multiplier ($m/k$) | Preliminary Adj. | Monotonic $q$-value | Significant ($\alpha=0.05$) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | **H1** | 5.3581e-07 | 8/1 (8.00x) | 4.2864e-06 | **4.2864e-06** | **True** |
+| 2 | **G1_native** | 5.5931e-06 | 8/2 (4.00x) | 2.2372e-05 | **2.2372e-05** | **True** |
+| 3 | **B2** | 1.4718e-04 | 8/3 (2.67x) | 3.9247e-04 | **2.9435e-04** | **True** |
+| 4 | **B4** | 1.4718e-04 | 8/4 (2.00x) | 2.9435e-04 | **2.9435e-04** | **True** |
+| 5 | **B5** | 4.3231e-04 | 8/5 (1.60x) | 6.9170e-04 | **6.9170e-04** | **True** |
+| 6 | **C1** | 2.0811e-03 | 8/6 (1.33x) | 2.7747e-03 | **2.7747e-03** | **True** |
+| 7 | **B3** | 1.0000e+00 | 8/7 (1.14x) | 1.1429e+00 | **1.0000e+00** | **False** |
+| 8 | **B1** | 1.0000e+00 | 8/8 (1.00x) | 1.0000e+00 | **1.0000e+00** | **False** |
 
 ---
 
 ## 2. Hypothesis Family 2: SARI Differences vs C1 (Stage 25 Controlled Engine)
 
-| System ID | Evaluated System Name | Denominator ($N$) | Mean SARI Diff | Median SARI Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\text{rb}}$ Effect Size | Significant ($\alpha=0.05$) |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **B4** | Combined Deterministic Baseline | 39 | -1.33 | +0.00 | 105.0 | 7.1231e-01 | 7.1231e-01 | 0.091 | **False** |
-| **H1** | Stage 26 Governed Hybrid Pipeline | 39 | +14.04 | +11.49 | 15.0 | 7.2082e-05 | 1.4000e-04 | 0.908 | **True** |
-| **G1_native** | G1 Native-Only (Partial, n=29/39 matched) | 29 | +18.42 | +23.99 | 22.0 | 9.6566e-05 | 1.4000e-04 | 0.875 | **True** |
+### Primary Paired Wilcoxon Signed-Rank Test Results
+
+| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Zero Method | Alternative | p-Method | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\text{rb}}$ Effect Size | Significant ($\alpha=0.05$) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **B4** | Combined Deterministic Baseline | 39 | 18 | 21 | `wilcox` | `two-sided` | `exact` | -1.33 | +0.00 | 105.0 | 7.1231e-01 | 7.1231e-01 | 0.091 | **False** |
+| **H1** | Stage 26 Governed Hybrid Pipeline | 39 | 14 | 25 | `wilcox` | `two-sided` | `exact` | +14.04 | +11.49 | 15.0 | 7.2082e-05 | 1.4485e-04 | 0.908 | **True** |
+| **G1_native** | G1 Native-Only (Partial, n=29/39 matched) | 29 | 3 | 26 | `wilcox` | `two-sided` | `exact` | +18.42 | +23.99 | 22.0 | 9.6566e-05 | 1.4485e-04 | 0.875 | **True** |
+
+### Benjamini-Hochberg Step-Up Procedure (Family 2, m=3)
+
+| Rank ($k$) | System ID | Raw $p$-value | Step-Up Multiplier ($m/k$) | Preliminary Adj. | Monotonic $q$-value | Significant ($\alpha=0.05$) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | **H1** | 7.2082e-05 | 3/1 (3.00x) | 2.1624e-04 | **1.4485e-04** | **True** |
+| 2 | **G1_native** | 9.6566e-05 | 3/2 (1.50x) | 1.4485e-04 | **1.4485e-04** | **True** |
+| 3 | **B4** | 7.1231e-01 | 3/3 (1.00x) | 7.1231e-01 | **7.1231e-01** | **False** |
 
 ---
 

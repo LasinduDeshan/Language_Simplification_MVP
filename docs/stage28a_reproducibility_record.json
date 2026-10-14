@@ -1,6 +1,6 @@
 {
   "record_id": "STAGE28A-REPRODUCIBILITY-RECORD-01",
-  "generated_at": "2026-10-13T18:17:25.842470+00:00",
+  "generated_at": "2026-10-14T04:50:57.250807+00:00",
   "stage": "28A",
   "environment": {
     "python_version": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
@@ -17,10 +17,25 @@
     "resolved_model": "gemini-3.5-flash-lite",
     "exact_api_returned_identifier": "models/gemini-3.5-flash-lite",
     "display_name": "Gemini 3.5 Flash Lite",
-    "provider_model_version": "3.5-flash-lite-07-2026",
+    "internal_configuration_version": "stage28a-gemini-3.5-flash-lite-07-2026",
+    "internal_version_note": "Local configuration identifier; not an API-returned provider model version.",
     "discovery_endpoint": "https://generativelanguage.googleapis.com/v1beta/models",
     "discovery_timestamp": "2026-10-13T17:45:50Z",
     "raw_metadata_response_hash": "8256ff86f539f0d3301a9ebd99369fc514baf7e6c81bf9eb6e0fb7a6e0c128d5"
+  },
+  "provider_dispatches": {
+    "unique_locked_inputs": 135,
+    "clean_subset_membership": 39,
+    "clean_subset_http_attempts": 51,
+    "full_locked_http_attempts": 171,
+    "provider_failures_clean_subset": {
+      "daily_quota_exhaustion": 6,
+      "transient_429_rate_limit_after_retries": 4,
+      "http_503_after_retries": 0,
+      "timeout_network_exhaustion": 0,
+      "other_provider_failure": 0,
+      "total_provider_fallbacks": 10
+    }
   },
   "sari_easse_parity": {
     "pinned_version": "0.2.4",
