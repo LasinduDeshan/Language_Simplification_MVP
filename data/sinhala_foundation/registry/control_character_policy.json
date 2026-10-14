@@ -1,0 +1,25 @@
+{
+  "policy_version": "1.0.0",
+  "description": "Versioned denylist of invisible and bidirectional control characters rejected in identifiers, usernames, language codes, and file names.",
+  "reject_in_identifiers": [
+    "U+200B",
+    "U+200C",
+    "U+200D",
+    "U+200E",
+    "U+200F",
+    "U+202A",
+    "U+202B",
+    "U+202C",
+    "U+202D",
+    "U+202E",
+    "U+2066",
+    "U+2067",
+    "U+2068",
+    "U+2069"
+  ],
+  "allowlist_in_educational_text": [
+    "U+200D",
+    "U+200C"
+  ],
+  "educational_text_policy": "Preserve legitimate ZWJ (U+200D) and ZWNJ (U+200C) in allowlisted fixture sequences while flagging them for Stage 30 review; reject unexpected bidirectional embeddings or overrides."
+}

@@ -3,6 +3,7 @@ import {
   Sparkles, PlayCircle, ShieldCheck, Award, Layers, Clock,
   ChevronDown, BookOpen, Users, Activity, Sliders, Cpu, Check
 } from "lucide-react";
+import LanguageSelector from "./language/LanguageSelector";
 
 export default function Navbar({
   activeTab,
@@ -141,8 +142,9 @@ export default function Navbar({
         </div>
       </nav>
 
-      {/* Right-Hand Controls: View Mode Switcher + Backend Status */}
-      <div className="navbar-actions">
+      {/* Right-Hand Controls: Language Selector + View Mode Switcher + Backend Status */}
+      <div className="navbar-actions" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+        <LanguageSelector id="navbar-language-selector" />
         {/* Simple vs Researcher View Mode Toggle */}
         <div className="view-mode-toggle">
           <button

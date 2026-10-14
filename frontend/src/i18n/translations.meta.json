@@ -1,0 +1,27 @@
+{
+  "governance_version": "1.0.0",
+  "resources": [
+    {
+      "resource_file": "en.json",
+      "authoring_method": "team_authored",
+      "authored_by_actor_id": "infrastructure_team",
+      "reviewed_by": null,
+      "translation_status": "technical_draft",
+      "review_status": "unreviewed_by_linguist",
+      "approved_for_infrastructure_testing": true,
+      "approved_for_child_delivery": false,
+      "sha256": "03ee35a472ba801721ddf28bb936e0a1c6f366a1dcdd90de5fa2cfa096550d13"
+    },
+    {
+      "resource_file": "si.json",
+      "authoring_method": "technical_translation",
+      "authored_by_actor_id": "infrastructure_team",
+      "reviewed_by": null,
+      "translation_status": "technical_draft",
+      "review_status": "unreviewed_by_linguist",
+      "approved_for_infrastructure_testing": true,
+      "approved_for_child_delivery": false,
+      "sha256": "05814a45c4e78b4d90d1b7a9e2557b74c32229b694b4e8cb8be89a162c8e1121"
+    }
+  ]
+}

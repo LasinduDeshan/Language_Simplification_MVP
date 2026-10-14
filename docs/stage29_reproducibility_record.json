@@ -1,0 +1,52 @@
+{
+  "fixture_accounting": {
+    "submitted_fixtures": 8,
+    "passed_round_trip": 8,
+    "failed_round_trip": 0,
+    "manual_review": 0,
+    "excluded": 0,
+    "unaccounted_fixtures": 0
+  },
+  "boundary_accounting": {
+    "total_investigated_boundaries": 6,
+    "verified_clean": 6,
+    "unaccounted_boundaries": 0,
+    "boundaries": [
+      {
+        "boundary": "Database UTF-8 Storage Layer",
+        "status": "VERIFIED_CLEAN"
+      },
+      {
+        "boundary": "FastAPI Request DTO Validation",
+        "status": "VERIFIED_CLEAN"
+      },
+      {
+        "boundary": "FastAPI Response UTF-8 Serialization",
+        "status": "VERIFIED_CLEAN"
+      },
+      {
+        "boundary": "JSON / CSV File Export Serialization",
+        "status": "VERIFIED_CLEAN"
+      },
+      {
+        "boundary": "Font Network Delivery (TTF 200)",
+        "status": "VERIFIED_CLEAN"
+      },
+      {
+        "boundary": "DOM Grapheme & UI Rendering Engine",
+        "status": "VERIFIED_CLEAN"
+      }
+    ]
+  },
+  "immutability_verification": {
+    "english_releases_all_match": true,
+    "english_releases": [],
+    "stage28a_all_match": true,
+    "stage28a_artifacts": []
+  },
+  "schema_decision": {
+    "decision": "NO_SCHEMA_CHANGE_REQUIRED",
+    "justification": "Existing SQLite text columns natively store arbitrary UTF-8 without truncation or character loss",
+    "evidence_hash": "d5ffd9c38a9b4cd89b2371bccca2820876853f2fd9e7876996212b452de92cc6"
+  }
+}
