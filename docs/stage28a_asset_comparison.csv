@@ -1,0 +1,12 @@
+system_id,system_name,execution_status,evaluation_denominator,sari_easse_style_overall,sari_add,sari_keep,sari_delete_precision,sentence_bleu_4,corpus_sacrebleu,fkgl_post,delta_fkgl,compression_ratio,entity_preservation_pct,number_preservation_pct,negation_preservation_pct,lowest_unsupported_rate_pct,native_unmodified_delivered_count,native_unmodified_delivered_pct,native_repaired_delivered_count,native_repaired_delivered_pct,safety_fallback_delivered_count,safety_fallback_delivered_pct,provider_fallback_delivered_count,provider_fallback_delivered_pct,failed_count,failed_pct,p95_latency_ms,estimated_cost_per_1k_usd
+B0,Identity Baseline,REGISTERED_AND_EVALUATED,359,17.77,0.0,0.0,53.3,0.0,0.0,0.0,11.13,0.0,100.0,63.2,92.2,0.0,359,100.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+B1,Lexical Substitution Baseline,REGISTERED_AND_EVALUATED,359,17.77,0.0,0.0,53.3,0.0,0.0,0.0,11.13,0.0,100.0,63.2,92.2,0.0,359,100.0,0,0.0,0,0.0,0,0.0,0,0.0,14.0,0.0
+B2,Sentence Splitting Baseline,REGISTERED_AND_EVALUATED,359,17.77,0.0,0.0,53.3,0.0,0.0,0.0,11.13,0.0,100.0,63.2,92.2,0.0,359,100.0,0,0.0,0,0.0,0,0.0,0,0.0,30.0,0.0
+B3,Syntactic Rules Baseline,REGISTERED_AND_EVALUATED,359,17.77,0.0,0.0,53.3,0.0,0.0,0.0,11.13,0.0,100.0,63.2,92.2,0.0,359,100.0,0,0.0,0,0.0,0,0.0,0,0.0,14.0,0.0
+B4,Combined Deterministic Baseline,REGISTERED_AND_EVALUATED,359,17.77,0.0,0.0,53.3,0.0,0.0,0.0,11.13,0.0,100.0,63.2,92.2,0.0,359,100.0,0,0.0,0,0.0,0,0.0,0,0.0,144.7,0.0
+B5,Offline Deterministic Fallback,REGISTERED_AND_EVALUATED,359,17.77,0.0,0.0,53.3,0.0,0.0,0.0,11.13,0.0,100.0,63.2,92.2,0.0,359,100.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+C1,Stage 25 Controlled Engine,REGISTERED_AND_EVALUATED,359,17.77,0.0,0.0,53.3,0.0,0.0,0.0,11.13,0.0,100.0,63.2,92.2,0.0,359,100.0,0,0.0,0,0.0,0,0.0,0,0.0,119.6,0.0
+G1,Gemini Native Simplification,REGISTERED_AND_EVALUATED,359,17.77,0.0,0.0,53.3,0.0,0.0,0.0,11.13,0.0,100.0,63.2,92.2,0.0,0,0.0,0,0.0,0,0.0,359,100.0,0,0.0,0.0,0.0
+H1,Stage 26 Governed Hybrid Pipeline,REGISTERED_AND_EVALUATED,359,17.77,0.0,0.0,53.3,0.0,0.0,0.0,11.13,0.0,100.0,63.2,92.2,0.0,0,0.0,0,0.0,0,0.0,359,100.0,0,0.0,0.0,0.0
+T1,mT5 Native Simplification,NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS,0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,N/A,N/A
+T2,mBART Native Simplification,NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS,0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,N/A,N/A

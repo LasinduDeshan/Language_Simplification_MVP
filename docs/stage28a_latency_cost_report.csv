@@ -1,0 +1,8 @@
+system_id,name,dataset,denominator,p95_latency_ms,estimated_cost_per_1k_usd,native_unmodified_pct,native_repaired_pct,fallback_pct
+B1,Lexical Substitution Baseline,internal_locked_clean,39,7.4,0.0,100.0,0.0,0.0
+B2,Sentence Splitting Baseline,internal_locked_clean,39,33.5,0.0,100.0,0.0,0.0
+B3,Syntactic Rules Baseline,internal_locked_clean,39,9.8,0.0,100.0,0.0,0.0
+B4,Combined Deterministic Baseline,internal_locked_clean,39,71.7,0.0,100.0,0.0,0.0
+B5,Offline Deterministic Fallback,internal_locked_clean,39,0.0,0.0,100.0,0.0,0.0
+C1,Stage 25 Controlled Engine,internal_locked_clean,39,51.9,0.0,100.0,0.0,0.0
+H1,Stage 26 Governed Hybrid Pipeline,internal_locked_clean,39,14569.7,0.0049,71.8,0.0,28.200000000000003

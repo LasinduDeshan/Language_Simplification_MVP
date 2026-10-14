@@ -1,0 +1,13 @@
+system_id,system_name,execution_status,evaluation_denominator,sari_easse_style_overall,sari_add,sari_keep,sari_delete_precision,sentence_bleu_4,corpus_sacrebleu,fkgl_post,delta_fkgl,compression_ratio,entity_preservation_pct,number_preservation_pct,negation_preservation_pct,lowest_unsupported_rate_pct,native_unmodified_delivered_count,native_unmodified_delivered_pct,native_repaired_delivered_count,native_repaired_delivered_pct,safety_fallback_delivered_count,safety_fallback_delivered_pct,provider_fallback_delivered_count,provider_fallback_delivered_pct,failed_count,failed_pct,p95_latency_ms,estimated_cost_per_1k_usd
+B0,Identity Baseline,REGISTERED_AND_EVALUATED,39,14.38,0.0,43.13,0.0,60.18,61.96,4.17,0.0,1.0,100.0,100.0,100.0,0.0,39,100.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+B1,Lexical Substitution Baseline,REGISTERED_AND_EVALUATED,39,14.38,0.0,43.13,0.0,60.18,61.96,4.17,0.0,1.0,100.0,100.0,100.0,0.0,39,100.0,0,0.0,0,0.0,0,0.0,0,0.0,7.4,0.0
+B2,Sentence Splitting Baseline,REGISTERED_AND_EVALUATED,39,24.11,0.0,41.13,31.2,54.55,52.99,2.82,1.34,0.977,100.0,100.0,100.0,0.0,39,100.0,0,0.0,0,0.0,0,0.0,0,0.0,33.5,0.0
+B3,Syntactic Rules Baseline,REGISTERED_AND_EVALUATED,39,14.38,0.0,43.13,0.0,60.18,61.96,4.17,0.0,1.0,100.0,100.0,100.0,0.0,39,100.0,0,0.0,0,0.0,0,0.0,0,0.0,9.8,0.0
+B4,Combined Deterministic Baseline,REGISTERED_AND_EVALUATED,39,24.11,0.0,41.13,31.2,54.55,52.99,2.82,1.34,0.977,100.0,100.0,100.0,0.0,39,100.0,0,0.0,0,0.0,0,0.0,0,0.0,71.7,0.0
+B5,Offline Deterministic Fallback,REGISTERED_AND_EVALUATED,39,22.53,0.0,42.58,25.0,60.25,60.77,4.07,0.1,0.977,100.0,100.0,100.0,0.0,39,100.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+C1,Stage 25 Controlled Engine,REGISTERED_AND_EVALUATED,39,25.44,5.34,44.12,26.87,59.92,60.41,3.44,0.73,0.991,100.0,100.0,100.0,0.0,39,100.0,0,0.0,0,0.0,0,0.0,0,0.0,51.9,0.0
+G1,Gemini Native Simplification,REGISTERED_AND_EVALUATED,39,39.14,11.12,40.82,65.47,45.01,42.97,1.87,2.3,1.192,100.0,82.1,100.0,0.0,29,74.4,0,0.0,0,0.0,10,25.6,0,0.0,14569.7,0.0049
+G1_NATIVE_ONLY,Gemini Native-Only (Partial),PARTIAL_NATIVE_EVALUATION,29,40.65,12.48,38.59,70.87,38.94,37.2,1.9,2.52,1.266,100.0,75.9,100.0,0.0,29,100.0,0,0.0,0,0.0,0,0.0,0,0.0,14569.7,0.0066
+H1,Stage 26 Governed Hybrid Pipeline,REGISTERED_AND_EVALUATED,39,39.48,11.22,41.49,65.74,46.24,44.27,1.91,2.26,1.185,100.0,84.6,100.0,0.0,28,71.8,0,0.0,1,2.6,10,25.6,0,0.0,14569.7,0.0049
+T1,mT5 Native Simplification,NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS,0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,N/A,N/A
+T2,mBART Native Simplification,NOT_EVALUATED_0_VALID_NATIVE_OUTPUTS,0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,N/A,N/A

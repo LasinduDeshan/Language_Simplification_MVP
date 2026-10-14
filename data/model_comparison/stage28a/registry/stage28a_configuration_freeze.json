@@ -1,0 +1,72 @@
+{
+  "freeze_timestamp": "2026-10-13T15:14:57.824923+00:00",
+  "governance_metadata": {
+    "evaluation_phase": "stage_28a_preliminary_automated_comparison",
+    "expert_validated": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true,
+    "stage27_human_validation_status": "pending",
+    "release_0_3_0_used": false
+  },
+  "dynamic_provider_metadata": {
+    "requested_model": "gemini-3.5-flash-lite",
+    "resolved_model": "gemini-3.5-flash-lite",
+    "provider_model_version": "3.5-flash-lite-07-2026",
+    "discovery_timestamp": "2026-10-13T15:14:57.824923+00:00",
+    "discovery_success": true
+  },
+  "pricing_snapshot": {
+    "billing_surface": "Google AI Studio / Gemini Developer API Public Pricing",
+    "source_url": "https://ai.google.dev/pricing",
+    "retrieval_timestamp": "2026-10-13T15:14:57.824923+00:00",
+    "currency": "USD",
+    "units": "per_million_tokens",
+    "rates": {
+      "input_price_per_million_tokens": 0.075,
+      "output_price_per_million_tokens": 0.3
+    },
+    "free_tier_limits": "15 RPM, 1M TPM, 1,500 RPD free usage accounted",
+    "pricing_snapshot_sha256": "c2ef8954828fd603031ec24e9e8fcf0037c74ad752b5ee6227b66b1862402430"
+  },
+  "generation_parameters": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_output_tokens": 256,
+    "decoding_strategy": "greedy_sampling",
+    "random_seed": 42
+  },
+  "metric_specifications": {
+    "sari": {
+      "reference_implementation": "Xu et al. (TACL 2016) / EASSE standard reference",
+      "pinned_target_version": "0.2.4",
+      "tokenization": "lowercase_word_regex_b_w_b",
+      "max_ngram": 4,
+      "components": [
+        "Add_F1",
+        "Keep_F1",
+        "Delete_Precision"
+      ],
+      "allowed_tolerance": 0.0001
+    },
+    "bleu": {
+      "sentence_bleu": "smoothed_bleu_4_add_1",
+      "corpus_sacrebleu": "sacrebleu_corpus_bleu_standard"
+    },
+    "readability": "flesch_kincaid_grade_level"
+  },
+  "asset_operating_mode": {
+    "mode": "generic",
+    "tier_mixing_allowed": false,
+    "redistribution_allowed": false,
+    "public_export_raw_text": false
+  },
+  "prompt_registry": {
+    "version": "2.1.0",
+    "sha256": "b297946882a970357917121b6a23bcc7b68a08a97643ac57ff1b724117f76b7b"
+  },
+  "manifest_hashes": {
+    "system_registry_sha256": "8605693acf01aa7b3a2938cc6051e52e5b234e254642aab0f6188ee0f143ea11",
+    "input_manifest_sha256": "04835cd4149b1709619bdc2bb1cfb76cf825e7728909d28335901bb7055a14f8"
+  },
+  "configuration_freeze_sha256": "6938dd3fd0c7bb07f7b8c7e9504a5865593984de7cbd70d4c783e72ab8df25e0"
+}

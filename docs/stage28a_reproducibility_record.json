@@ -1,0 +1,62 @@
+{
+  "record_id": "STAGE28A-REPRODUCIBILITY-RECORD-01",
+  "generated_at": "2026-10-14T08:45:18.274602+00:00",
+  "stage": "28A",
+  "environment": {
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "platform": "win32",
+    "random_seed": 42
+  },
+  "ancestry_verification": {
+    "stage26_ancestor_command": "git merge-base --is-ancestor stage-26-complete-v5 stage-28a-start",
+    "exit_code": 0,
+    "is_ancestor": true
+  },
+  "dynamic_provider_metadata": {
+    "requested_model": "gemini-3.5-flash-lite",
+    "resolved_model": "gemini-3.5-flash-lite",
+    "exact_api_returned_identifier": "models/gemini-3.5-flash-lite",
+    "display_name": "Gemini 3.5 Flash Lite",
+    "internal_configuration_version": "stage28a-gemini-3.5-flash-lite-07-2026",
+    "internal_version_note": "Local configuration identifier; not an API-returned provider model version.",
+    "discovery_endpoint": "https://generativelanguage.googleapis.com/v1beta/models",
+    "discovery_timestamp": "2026-10-13T17:45:50Z",
+    "raw_metadata_response_hash": "8256ff86f539f0d3301a9ebd99369fc514baf7e6c81bf9eb6e0fb7a6e0c128d5"
+  },
+  "provider_dispatches": {
+    "unique_locked_inputs": 135,
+    "clean_subset_membership": 39,
+    "clean_subset_http_attempts": 51,
+    "full_locked_http_attempts": 171,
+    "provider_failures_clean_subset": {
+      "daily_quota_exhaustion": 6,
+      "transient_429_rate_limit_after_retries": 4,
+      "http_503_after_retries": 0,
+      "timeout_network_exhaustion": 0,
+      "other_provider_failure": 0,
+      "total_provider_fallbacks": 10
+    }
+  },
+  "sari_easse_parity": {
+    "pinned_version": "0.2.4",
+    "fixture_count": 5,
+    "maximum_absolute_delta": 0.0,
+    "allowed_tolerance": 0.0001,
+    "parity_status": "PASSED"
+  },
+  "pricing_snapshot": {
+    "billing_surface": "Google AI Studio / Gemini Developer API Public Pricing",
+    "source_url": "https://ai.google.dev/pricing",
+    "currency": "USD",
+    "units": "per_million_tokens",
+    "rates": {
+      "input_1m": 0.075,
+      "output_1m": 0.3
+    }
+  },
+  "manifest_checksums": {
+    "stage28a_internal_locked_comparison_csv": "102c571d98694c21bd8d4553f182130ae50d6a397cf2c5da937af4b34576184e",
+    "stage28a_clean_subset_comparison_csv": "b0c641757ddca19b158ea54a71b5d7031ecdf781bf863a47be0120c63ae0a860",
+    "stage28a_asset_comparison_csv": "355a28f5db3c80154099e06da026ca1457fc0310a7eb8e34a5481b638a1dfee8"
+  }
+}
