@@ -40,10 +40,13 @@ def paired_wilcoxon_test(
             "effective_wilcoxon_n": 0,
             "zero_method": "wilcox",
             "alternative": "two-sided",
-            "p_method": "exact",
+            "p_method": "none",
+            "continuity_correction": False,
+            "test_status": "NOT_APPLICABLE_ALL_DIFFERENCES_ZERO",
             "statistic": 0.0,
-            "p_value": 1.0,
+            "p_value": 1.0,  # 1.0 by defined reporting convention
             "rank_biserial_r": 0.0,
+            "effect_size": 0.0,
             "interpretation": "identical_scores",
         }
 
@@ -68,10 +71,13 @@ def paired_wilcoxon_test(
             "effective_wilcoxon_n": int(len(non_zero_diffs)),
             "zero_method": "wilcox",
             "alternative": "two-sided",
-            "p_method": "exact" if len(non_zero_diffs) <= 50 else "approx",
+            "p_method": "asymptotic_normal",
+            "continuity_correction": True,
+            "test_status": "COMPUTED",
             "statistic": stat,
             "p_value": p_val,
             "rank_biserial_r": round(r_rb, 4),
+            "effect_size": round(r_rb, 4),
         }
     except Exception as e:
         return {
@@ -82,10 +88,13 @@ def paired_wilcoxon_test(
             "effective_wilcoxon_n": int(len(non_zero_diffs)),
             "zero_method": "wilcox",
             "alternative": "two-sided",
-            "p_method": "exact",
+            "p_method": "asymptotic_normal",
+            "continuity_correction": True,
+            "test_status": "ERROR",
             "statistic": None,
             "p_value": None,
             "rank_biserial_r": None,
+            "effect_size": None,
             "error": str(e),
         }
 

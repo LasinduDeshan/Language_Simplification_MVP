@@ -44,8 +44,8 @@ $$\text{Duplicates} = 0, \quad \text{MissingItems} = 0, \quad \text{Unaccounted}
 | **Total Provider Fallbacks Delivered** | **10** | **25.6%** | **51** | **37.8%** |
 
 ### HTTP Attempt Population Accounting
-- **Clean Subset ($N=39$):** 29 single-attempt successes + 6 single-attempt daily quota stops + 16 retry attempts (4 rate-limit items $\times$ 4 jittered retries) = **51 HTTP calls** across 39 logical requests (average 1.31 calls/request).
-- **Full Benchmark ($N=135$):** 84 single-attempt successes + 39 single-attempt daily quota stops + 48 retry attempts (12 rate-limit items $\times$ 4 retries) = **171 HTTP calls** across 135 logical requests (average 1.27 calls/request).
+- **Clean Subset ($N=39$):** 29 single-attempt successes (29 initial attempts, 0 retries) + 6 single-attempt daily quota stops (6 initial attempts, 0 retries) + 16 total provider attempts attributable to rate-limited items (4 initial attempts + 12 retry attempts across 4 rate-limited items with 4 maximum attempts per item) = **51 total HTTP attempts** across 39 logical requests (average 1.31 attempts/request).
+- **Full Benchmark ($N=135$):** 84 single-attempt successes (84 initial attempts, 0 retries) + 39 single-attempt daily quota stops (39 initial attempts, 0 retries) + 48 total provider attempts attributable to rate-limited items (12 initial attempts + 36 retry attempts across 12 rate-limited items with 4 maximum attempts per item) = **171 total HTTP attempts** across 135 logical requests (average 1.27 attempts/request).
 
 ---
 

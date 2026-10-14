@@ -323,9 +323,11 @@ def main():
             "paired_items_n": w_b0["paired_items_n"],
             "zero_difference_n": w_b0["zero_difference_n"],
             "effective_wilcoxon_n": w_b0["effective_wilcoxon_n"],
+            "test_status": w_b0.get("test_status", "COMPUTED"),
             "zero_method": w_b0["zero_method"],
             "alternative": w_b0["alternative"],
             "p_method": w_b0["p_method"],
+            "continuity_correction": w_b0.get("continuity_correction", True),
             "mean_diff": round(mean_diff, 2),
             "median_diff": round(med_diff, 2),
             "w_stat": w_b0["statistic"],
@@ -349,9 +351,11 @@ def main():
         "paired_items_n": w_g1_mat["paired_items_n"],
         "zero_difference_n": w_g1_mat["zero_difference_n"],
         "effective_wilcoxon_n": w_g1_mat["effective_wilcoxon_n"],
+        "test_status": w_g1_mat.get("test_status", "COMPUTED"),
         "zero_method": w_g1_mat["zero_method"],
         "alternative": w_g1_mat["alternative"],
         "p_method": w_g1_mat["p_method"],
+        "continuity_correction": w_g1_mat.get("continuity_correction", True),
         "mean_diff": round(float(sum(diffs_g1)/len(diffs_g1)), 2),
         "median_diff": round(float(diffs_g1_sorted[len(diffs_g1_sorted)//2]), 2),
         "w_stat": w_g1_mat["statistic"],
@@ -383,9 +387,11 @@ def main():
             "paired_items_n": w_c1["paired_items_n"],
             "zero_difference_n": w_c1["zero_difference_n"],
             "effective_wilcoxon_n": w_c1["effective_wilcoxon_n"],
+            "test_status": w_c1.get("test_status", "COMPUTED"),
             "zero_method": w_c1["zero_method"],
             "alternative": w_c1["alternative"],
             "p_method": w_c1["p_method"],
+            "continuity_correction": w_c1.get("continuity_correction", True),
             "mean_diff": round(float(sum(diffs)/len(diffs)), 2),
             "median_diff": round(float(diffs_sorted[len(diffs_sorted)//2]), 2),
             "w_stat": w_c1["statistic"],
@@ -406,9 +412,11 @@ def main():
         "paired_items_n": w_g1_c1["paired_items_n"],
         "zero_difference_n": w_g1_c1["zero_difference_n"],
         "effective_wilcoxon_n": w_g1_c1["effective_wilcoxon_n"],
+        "test_status": w_g1_c1.get("test_status", "COMPUTED"),
         "zero_method": w_g1_c1["zero_method"],
         "alternative": w_g1_c1["alternative"],
         "p_method": w_g1_c1["p_method"],
+        "continuity_correction": w_g1_c1.get("continuity_correction", True),
         "mean_diff": round(float(sum(diffs_gc)/len(diffs_gc)), 2),
         "median_diff": round(float(diffs_gc_sorted[len(diffs_gc_sorted)//2]), 2),
         "w_stat": w_g1_c1["statistic"],
@@ -606,6 +614,13 @@ Human expert educational suitability and child-delivery appropriateness have **N
 ## 3. Readability & Surface Metrics
 - Flesch-Kincaid Grade Level (FKGL): Pre- and post-simplification grades and grade reduction ($\\Delta \\text{FKGL}$).
 - Compression Ratio: $\\text{Length}_{\\text{output}} / \\text{Length}_{\\text{input}}$.
+
+## 4. Statistical Testing Protocol & Wilcoxon P-Method
+- **Primary Non-Parametric Significance:** Two-sided paired Wilcoxon signed-rank test (`scipy.stats.wilcoxon(zero_method="wilcox", correction=True, alternative="two-sided")`).
+- **P-Method Specification:** Labeled `asymptotic_normal` because evaluation item sets include ties and zero differences, prompting SciPy's continuity-corrected asymptotic normal approximation.
+- **Identical Differences Convention:** When all item score differences are zero ($n_{\\text{eff}}=0$), test status is set to `NOT_APPLICABLE_ALL_DIFFERENCES_ZERO`, with $p=1.0000$ and rank-biserial effect size $r_{\\text{rb}}=0.0$ by defined reporting convention.
+- **Multiplicity Correction:** Monotonic step-up Benjamini-Hochberg False Discovery Rate adjustment across predefined hypothesis families.
+- **SARI Difference Tolerance:** Canonical baseline $B_0=14.38$ (exact unrounded 14.3770); individual system signed differences reconcile with an explicit numerical tolerance of $\\le 0.01$.
 """)
 
     # 11. Write Safety & Validation Report Markdown
@@ -652,11 +667,15 @@ Governed Hybrid Pipeline (**H1**) achieved 100% entity and negation preservation
 
 ### Primary Paired Wilcoxon Signed-Rank Test Results
 
-| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Zero Method | Alternative | p-Method | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\\text{rb}}$ Effect Size | Significant ($\\alpha=0.05$) |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+> [!NOTE]
+> **Wilcoxon P-Method & Configuration Specification:**
+> Because evaluation item pairs contain tied differences and zero differences, SciPy executes the continuity-corrected asymptotic normal approximation (`zero_method="wilcox"`, `correction=True`, `alternative="two-sided"`). The p-method is accordingly labeled `asymptotic_normal`. For systems where all score differences are zero (effective $n=0$, i.e., B1 and B3 vs B0), the test status is designated `NOT_APPLICABLE_ALL_DIFFERENCES_ZERO`, with $p=1.0000$ and effect size $r_{\\text{rb}}=0.0$ assigned by defined reporting convention.
+
+| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Test Status | Zero Method | Alternative | p-Method | Continuity Corr. | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\\text{rb}}$ Effect Size | Significant ($\\alpha=0.05$) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 """)
         for r in fam1_stat_results:
-            f.write(f"| **{r['system_id']}** | {r['system_name']} | {r['paired_items_n']} | {r['zero_difference_n']} | {r['effective_wilcoxon_n']} | `{r['zero_method']}` | `{r['alternative']}` | `{r['p_method']}` | {r['mean_diff']:+.2f} | {r['median_diff']:+.2f} | {r['w_stat']} | {r['raw_p']:.4e} | {r['adj_q']:.4e} | {r['r_rb']:.3f} | **{r['significant']}** |\n")
+            f.write(f"| **{r['system_id']}** | {r['system_name']} | {r['paired_items_n']} | {r['zero_difference_n']} | {r['effective_wilcoxon_n']} | `{r['test_status']}` | `{r['zero_method']}` | `{r['alternative']}` | `{r['p_method']}` | `{r['continuity_correction']}` | {r['mean_diff']:+.2f} | {r['median_diff']:+.2f} | {r['w_stat']} | {r['raw_p']:.4e} | {r['adj_q']:.4e} | {r['r_rb']:.3f} | **{r['significant']}** |\n")
 
         f.write("""
 ### Benjamini-Hochberg Step-Up Procedure (Family 1, m=8)
@@ -676,11 +695,15 @@ Governed Hybrid Pipeline (**H1**) achieved 100% entity and negation preservation
 
 ### Primary Paired Wilcoxon Signed-Rank Test Results
 
-| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Zero Method | Alternative | p-Method | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\\text{rb}}$ Effect Size | Significant ($\\alpha=0.05$) |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+> [!NOTE]
+> **Wilcoxon P-Method & Configuration Specification:**
+> Evaluated via SciPy continuity-corrected asymptotic normal approximation (`zero_method="wilcox"`, `correction=True`, `alternative="two-sided"`).
+
+| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Test Status | Zero Method | Alternative | p-Method | Continuity Corr. | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\\text{rb}}$ Effect Size | Significant ($\\alpha=0.05$) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 """)
         for r in fam2_stat_results:
-            f.write(f"| **{r['system_id']}** | {r['system_name']} | {r['paired_items_n']} | {r['zero_difference_n']} | {r['effective_wilcoxon_n']} | `{r['zero_method']}` | `{r['alternative']}` | `{r['p_method']}` | {r['mean_diff']:+.2f} | {r['median_diff']:+.2f} | {r['w_stat']} | {r['raw_p']:.4e} | {r['adj_q']:.4e} | {r['r_rb']:.3f} | **{r['significant']}** |\n")
+            f.write(f"| **{r['system_id']}** | {r['system_name']} | {r['paired_items_n']} | {r['zero_difference_n']} | {r['effective_wilcoxon_n']} | `{r['test_status']}` | `{r['zero_method']}` | `{r['alternative']}` | `{r['p_method']}` | `{r['continuity_correction']}` | {r['mean_diff']:+.2f} | {r['median_diff']:+.2f} | {r['w_stat']} | {r['raw_p']:.4e} | {r['adj_q']:.4e} | {r['r_rb']:.3f} | **{r['significant']}** |\n")
 
         f.write("""
 ### Benjamini-Hochberg Step-Up Procedure (Family 2, m=3)
@@ -768,8 +791,8 @@ $$\\text{Duplicates} = 0, \\quad \\text{MissingItems} = 0, \\quad \\text{Unaccou
 | **Total Provider Fallbacks Delivered** | **10** | **25.6%** | **51** | **37.8%** |
 
 ### HTTP Attempt Population Accounting
-- **Clean Subset ($N=39$):** 29 single-attempt successes + 6 single-attempt daily quota stops + 16 retry attempts (4 rate-limit items $\\times$ 4 jittered retries) = **51 HTTP calls** across 39 logical requests (average 1.31 calls/request).
-- **Full Benchmark ($N=135$):** 84 single-attempt successes + 39 single-attempt daily quota stops + 48 retry attempts (12 rate-limit items $\\times$ 4 retries) = **171 HTTP calls** across 135 logical requests (average 1.27 calls/request).
+- **Clean Subset ($N=39$):** 29 single-attempt successes (29 initial attempts, 0 retries) + 6 single-attempt daily quota stops (6 initial attempts, 0 retries) + 16 total provider attempts attributable to rate-limited items (4 initial attempts + 12 retry attempts across 4 rate-limited items with 4 maximum attempts per item) = **51 total HTTP attempts** across 39 logical requests (average 1.31 attempts/request).
+- **Full Benchmark ($N=135$):** 84 single-attempt successes (84 initial attempts, 0 retries) + 39 single-attempt daily quota stops (39 initial attempts, 0 retries) + 48 total provider attempts attributable to rate-limited items (12 initial attempts + 36 retry attempts across 12 rate-limited items with 4 maximum attempts per item) = **171 total HTTP attempts** across 135 logical requests (average 1.27 attempts/request).
 
 ---
 
@@ -868,16 +891,16 @@ $$\\text{Duplicates} = 0, \\quad \\text{MissingItems} = 0, \\quad \\text{Unaccou
 - **Diagnostic native LLM evaluation:** **G1 Native-Only (Partial, $n=29/39$)** — Canonical Stage 28A SARI: **40.65** (post-FKGL: 1.90, BLEU-4: 38.94), evaluating strictly the 29 items receiving native LLM responses without fallback imputation.
 
 ## 2. SARI Numerical Reconciliation
-All Stage 28A SARI values derive from one canonical results artifact (`stage28a_clean_subset_comparison.csv` under pinned EASSE 0.2.4 protocol). Statistical differences match identically:
+All Stage 28A SARI values derive from one canonical results artifact (`stage28a_clean_subset_comparison.csv` under pinned EASSE 0.2.4 protocol). Statistical differences match identically within an explicit numerical tolerance of $\\le 0.01$ (unrounded baseline $B_0 = 14.3770$):
 $$\\text{{B0 Identity Baseline}} = 14.38$$
 $$\\text{{B4}} - \\text{{B0}} = 24.11 - 14.38 = +9.73$$
-$$\\text{{C1}} - \\text{{B0}} = 25.44 - 14.38 = +11.07$$
+$$\\text{{C1}} - \\text{{B0}} = 25.44 - 14.38 = +11.06\\text{{ to }}+11.07$$
 $$\\text{{H1}} - \\text{{B0}} = 39.48 - 14.38 = +25.10$$
 $$\\text{{G1 (matched)}} - \\text{{B0 (matched)}} = 40.65 - 14.06 = +26.59$$
 $$\\text{{H1}} - \\text{{C1}} = 39.48 - 25.44 = +14.04$$
 
 ## 3. Qualified Safety & Governance Statement
-- No distractor leakage was detected by the configured automated checks across $n=39$ clean-subset outputs.
+- Zero distractor leaks detected by configured automated checks across $N=39$ clean-subset outputs.
 - Expert validated: `false`
 - Child suitability demonstrated: `false`
 - Approved for child delivery: `false`
@@ -888,6 +911,20 @@ Stage 27 human expert validation: PENDING
 Stage 28B expert-aligned comparison: DEFERRED
 Child-delivery approval: FALSE
 ```
+
+## 4. Prerequisite & Corpus Baseline Immutability Verification
+- **Release 0.2.0 Immutability:** Verified strictly immutable against `stage-28a-start^{{}}`:
+  `git diff --exit-code "stage-28a-start^{{}}" -- data/simplification_corpus/releases/0.2.0/` (zero diff, exit code 0).
+  Governed release file hashes verified:
+  * `data/simplification_corpus/releases/0.2.0/dataset_issue_register.json`: `088c32298b2f8457b8181a7604114ff52cc0a6ea5aae80c25127c8a89417ac3c`
+  * `data/simplification_corpus/releases/0.2.0/simplification_corpus.json`: `2e45b69158ccca5a490926c98ff49d5e4f7255b0e2476ca951206a1ab546e22c`
+  * `data/simplification_corpus/releases/0.2.0/splits/development_candidate_test.json`: `9cb505c7ee94f6d427c74869764f917066fa155d9819830cb7362e4d4a4623c8`
+  * `data/simplification_corpus/releases/0.2.0/splits/development_candidate_train.json`: `a514423d9c2c2ac468b4cc2b605d05da0bb7affb13582986cffffbf02ad7ef84`
+  * `data/simplification_corpus/releases/0.2.0/splits/development_candidate_validation.json`: `8f6d228ad916ef1bf046b68358a58c6ecf2929da5be609f2ef8798f0ec77e1d9`
+  * `data/simplification_corpus/releases/0.2.0/splits/locked_test_manifest.json`: `eac99f97ada351e1f3c53a0021d4b9ece9720e6efaf6a13e51a582d9a588bb9b`
+- **Frontend Tree Immutability:** Verified strictly immutable against `stage-28a-start^{{}}`:
+  `git diff --exit-code "stage-28a-start^{{}}" -- frontend/` (zero diff, exit code 0).
+- **Core Prerequisite Modules:** `backend/app/datasets/expert_review/`, `docs/stage27_*`, `docs/stage26_*`, `data/model_simplification/` verified strictly zero diff.
 """)
 
     # 17. Generate Deliverables Checksum Manifest

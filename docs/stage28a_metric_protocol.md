@@ -17,3 +17,10 @@
 ## 3. Readability & Surface Metrics
 - Flesch-Kincaid Grade Level (FKGL): Pre- and post-simplification grades and grade reduction ($\Delta \text{FKGL}$).
 - Compression Ratio: $\text{Length}_{\text{output}} / \text{Length}_{\text{input}}$.
+
+## 4. Statistical Testing Protocol & Wilcoxon P-Method
+- **Primary Non-Parametric Significance:** Two-sided paired Wilcoxon signed-rank test (`scipy.stats.wilcoxon(zero_method="wilcox", correction=True, alternative="two-sided")`).
+- **P-Method Specification:** Labeled `asymptotic_normal` because evaluation item sets include ties and zero differences, prompting SciPy's continuity-corrected asymptotic normal approximation.
+- **Identical Differences Convention:** When all item score differences are zero ($n_{\text{eff}}=0$), test status is set to `NOT_APPLICABLE_ALL_DIFFERENCES_ZERO`, with $p=1.0000$ and rank-biserial effect size $r_{\text{rb}}=0.0$ by defined reporting convention.
+- **Multiplicity Correction:** Monotonic step-up Benjamini-Hochberg False Discovery Rate adjustment across predefined hypothesis families.
+- **SARI Difference Tolerance:** Canonical baseline $B_0=14.38$ (exact unrounded 14.3770); individual system signed differences reconcile with an explicit numerical tolerance of $\le 0.01$.

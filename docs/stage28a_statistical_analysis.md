@@ -8,16 +8,20 @@
 
 ### Primary Paired Wilcoxon Signed-Rank Test Results
 
-| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Zero Method | Alternative | p-Method | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\text{rb}}$ Effect Size | Significant ($\alpha=0.05$) |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **B1** | Lexical Substitution Baseline | 39 | 39 | 0 | `wilcox` | `two-sided` | `exact` | +0.00 | +0.00 | 0.0 | 1.0000e+00 | 1.0000e+00 | 0.000 | **False** |
-| **B2** | Sentence Splitting Baseline | 39 | 21 | 18 | `wilcox` | `two-sided` | `exact` | +9.73 | +0.00 | 0.0 | 1.4718e-04 | 2.9435e-04 | 1.000 | **True** |
-| **B3** | Syntactic Rules Baseline | 39 | 39 | 0 | `wilcox` | `two-sided` | `exact` | +0.00 | +0.00 | 0.0 | 1.0000e+00 | 1.0000e+00 | 0.000 | **False** |
-| **B4** | Combined Deterministic Baseline | 39 | 21 | 18 | `wilcox` | `two-sided` | `exact` | +9.73 | +0.00 | 0.0 | 1.4718e-04 | 2.9435e-04 | 1.000 | **True** |
-| **B5** | Offline Deterministic Fallback | 39 | 24 | 15 | `wilcox` | `two-sided` | `exact` | +8.15 | +0.00 | 0.0 | 4.3231e-04 | 6.9170e-04 | 1.000 | **True** |
-| **C1** | Stage 25 Controlled Engine | 39 | 27 | 12 | `wilcox` | `two-sided` | `exact` | +11.07 | +0.00 | 0.0 | 2.0811e-03 | 2.7747e-03 | 1.000 | **True** |
-| **H1** | Stage 26 Governed Hybrid Pipeline | 39 | 6 | 33 | `wilcox` | `two-sided` | `exact` | +25.10 | +30.27 | 0.0 | 5.3581e-07 | 4.2864e-06 | 1.000 | **True** |
-| **G1_native** | G1 Native-Only (Partial, n=29/39 matched) | 29 | 2 | 27 | `wilcox` | `two-sided` | `exact` | +26.59 | +25.54 | 0.0 | 5.5931e-06 | 2.2372e-05 | 1.000 | **True** |
+> [!NOTE]
+> **Wilcoxon P-Method & Configuration Specification:**
+> Because evaluation item pairs contain tied differences and zero differences, SciPy executes the continuity-corrected asymptotic normal approximation (`zero_method="wilcox"`, `correction=True`, `alternative="two-sided"`). The p-method is accordingly labeled `asymptotic_normal`. For systems where all score differences are zero (effective $n=0$, i.e., B1 and B3 vs B0), the test status is designated `NOT_APPLICABLE_ALL_DIFFERENCES_ZERO`, with $p=1.0000$ and effect size $r_{\text{rb}}=0.0$ assigned by defined reporting convention.
+
+| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Test Status | Zero Method | Alternative | p-Method | Continuity Corr. | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\text{rb}}$ Effect Size | Significant ($\alpha=0.05$) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **B1** | Lexical Substitution Baseline | 39 | 39 | 0 | `NOT_APPLICABLE_ALL_DIFFERENCES_ZERO` | `wilcox` | `two-sided` | `none` | `False` | +0.00 | +0.00 | 0.0 | 1.0000e+00 | 1.0000e+00 | 0.000 | **False** |
+| **B2** | Sentence Splitting Baseline | 39 | 21 | 18 | `COMPUTED` | `wilcox` | `two-sided` | `asymptotic_normal` | `True` | +9.73 | +0.00 | 0.0 | 1.4718e-04 | 2.9435e-04 | 1.000 | **True** |
+| **B3** | Syntactic Rules Baseline | 39 | 39 | 0 | `NOT_APPLICABLE_ALL_DIFFERENCES_ZERO` | `wilcox` | `two-sided` | `none` | `False` | +0.00 | +0.00 | 0.0 | 1.0000e+00 | 1.0000e+00 | 0.000 | **False** |
+| **B4** | Combined Deterministic Baseline | 39 | 21 | 18 | `COMPUTED` | `wilcox` | `two-sided` | `asymptotic_normal` | `True` | +9.73 | +0.00 | 0.0 | 1.4718e-04 | 2.9435e-04 | 1.000 | **True** |
+| **B5** | Offline Deterministic Fallback | 39 | 24 | 15 | `COMPUTED` | `wilcox` | `two-sided` | `asymptotic_normal` | `True` | +8.15 | +0.00 | 0.0 | 4.3231e-04 | 6.9170e-04 | 1.000 | **True** |
+| **C1** | Stage 25 Controlled Engine | 39 | 27 | 12 | `COMPUTED` | `wilcox` | `two-sided` | `asymptotic_normal` | `True` | +11.07 | +0.00 | 0.0 | 2.0811e-03 | 2.7747e-03 | 1.000 | **True** |
+| **H1** | Stage 26 Governed Hybrid Pipeline | 39 | 6 | 33 | `COMPUTED` | `wilcox` | `two-sided` | `asymptotic_normal` | `True` | +25.10 | +30.27 | 0.0 | 5.3581e-07 | 4.2864e-06 | 1.000 | **True** |
+| **G1_native** | G1 Native-Only (Partial, n=29/39 matched) | 29 | 2 | 27 | `COMPUTED` | `wilcox` | `two-sided` | `asymptotic_normal` | `True` | +26.59 | +25.54 | 0.0 | 5.5931e-06 | 2.2372e-05 | 1.000 | **True** |
 
 ### Benjamini-Hochberg Step-Up Procedure (Family 1, m=8)
 
@@ -29,8 +33,8 @@
 | 4 | **B4** | 1.4718e-04 | 8/4 (2.00x) | 2.9435e-04 | **2.9435e-04** | **True** |
 | 5 | **B5** | 4.3231e-04 | 8/5 (1.60x) | 6.9170e-04 | **6.9170e-04** | **True** |
 | 6 | **C1** | 2.0811e-03 | 8/6 (1.33x) | 2.7747e-03 | **2.7747e-03** | **True** |
-| 7 | **B3** | 1.0000e+00 | 8/7 (1.14x) | 1.1429e+00 | **1.0000e+00** | **False** |
-| 8 | **B1** | 1.0000e+00 | 8/8 (1.00x) | 1.0000e+00 | **1.0000e+00** | **False** |
+| 7 | **B1** | 1.0000e+00 | 8/7 (1.14x) | 1.1429e+00 | **1.0000e+00** | **False** |
+| 8 | **B3** | 1.0000e+00 | 8/8 (1.00x) | 1.0000e+00 | **1.0000e+00** | **False** |
 
 ---
 
@@ -38,11 +42,15 @@
 
 ### Primary Paired Wilcoxon Signed-Rank Test Results
 
-| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Zero Method | Alternative | p-Method | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\text{rb}}$ Effect Size | Significant ($\alpha=0.05$) |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **B4** | Combined Deterministic Baseline | 39 | 18 | 21 | `wilcox` | `two-sided` | `exact` | -1.33 | +0.00 | 105.0 | 7.1231e-01 | 7.1231e-01 | 0.091 | **False** |
-| **H1** | Stage 26 Governed Hybrid Pipeline | 39 | 14 | 25 | `wilcox` | `two-sided` | `exact` | +14.04 | +11.49 | 15.0 | 7.2082e-05 | 1.4485e-04 | 0.908 | **True** |
-| **G1_native** | G1 Native-Only (Partial, n=29/39 matched) | 29 | 3 | 26 | `wilcox` | `two-sided` | `exact` | +18.42 | +23.99 | 22.0 | 9.6566e-05 | 1.4485e-04 | 0.875 | **True** |
+> [!NOTE]
+> **Wilcoxon P-Method & Configuration Specification:**
+> Evaluated via SciPy continuity-corrected asymptotic normal approximation (`zero_method="wilcox"`, `correction=True`, `alternative="two-sided"`).
+
+| System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Test Status | Zero Method | Alternative | p-Method | Continuity Corr. | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\text{rb}}$ Effect Size | Significant ($\alpha=0.05$) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **B4** | Combined Deterministic Baseline | 39 | 18 | 21 | `COMPUTED` | `wilcox` | `two-sided` | `asymptotic_normal` | `True` | -1.33 | +0.00 | 105.0 | 7.1231e-01 | 7.1231e-01 | 0.091 | **False** |
+| **H1** | Stage 26 Governed Hybrid Pipeline | 39 | 14 | 25 | `COMPUTED` | `wilcox` | `two-sided` | `asymptotic_normal` | `True` | +14.04 | +11.49 | 15.0 | 7.2082e-05 | 1.4485e-04 | 0.908 | **True** |
+| **G1_native** | G1 Native-Only (Partial, n=29/39 matched) | 29 | 3 | 26 | `COMPUTED` | `wilcox` | `two-sided` | `asymptotic_normal` | `True` | +18.42 | +23.99 | 22.0 | 9.6566e-05 | 1.4485e-04 | 0.875 | **True** |
 
 ### Benjamini-Hochberg Step-Up Procedure (Family 2, m=3)
 
