@@ -42,13 +42,14 @@ The checksum manifest does not recursively hash itself; its integrity is validat
 |---|---|---|
 | Frontend Primary Engine | `Intl.Segmenter` (ECMA-402, granularity: `"grapheme"`) | ACTIVE |
 | Frontend Fallback Engine | Pinned Unicode UAX #29 implementation (`frontend/src/i18n/graphemeSegmenter.js`) | VERIFIED |
-| Backend Engine | `unicodedata` UAX #29 cluster counter (`backend/app/localization/unicode_guards.py`) | VERIFIED |
+| Backend Engine | Project-defined counter using Python `unicodedata` properties (`backend/app/localization/unicode_guards.py`) | VERIFIED |
 | Governed Grapheme Fixtures | 11 fixtures (Unicode cases, mixed language, canonical probes) | 11 |
 | Frontend / Backend Equal Counts | Evaluated across native segmenter, fallback, and backend | 11 / 11 |
 | Mismatches Observed | `frontend_grapheme_count == backend_grapheme_count` | 0 |
 | Fallback Activation Test | Force fallback execution vs native segmenter | PASSED |
 | Visible Limit Guard | Use of JavaScript `string.length` for visible limits | FALSE (STRICTLY PROHIBITED) |
 | Automated Cross-Layer Parity Test | `backend/tests/localization/test_cross_layer_grapheme_parity.py` | PASSED |
+| Full Unicode UAX #29 Conformance | Rigorous full Unicode conformance specification | NOT ESTABLISHED |
 
 ---
 

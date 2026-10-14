@@ -1,14 +1,18 @@
 """
-Stage 29 Manifest Generator & Integrity Verifier
-Generates and verifies docs/stage29_manifest.sha256 for all 12 Stage 29 documentation artifacts.
+Stage 29 Read-Only Manifest Verifier
+Strictly read-only integrity verification of docs/stage29_manifest.sha256.
+Never overwrites or regenerates checksums during verification.
+Includes an automated negative test to confirm tamper detection.
 """
 
 import sys
+import tempfile
 import hashlib
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 DOCS_DIR = PROJECT_ROOT / "docs"
+MANIFEST_PATH = DOCS_DIR / "stage29_manifest.sha256"
 
 ARTIFACTS = [
     "stage29_implementation_plan.md",
@@ -31,32 +35,16 @@ def compute_file_sha256(path: Path) -> str:
             h.update(chunk)
     return h.hexdigest()
 
-def generate_manifest():
-    manifest_path = DOCS_DIR / "stage29_manifest.sha256"
-    lines = []
-    print("[Manifest] Computing SHA-256 for Stage 29 documentation artifacts:")
-    for fname in ARTIFACTS:
-        fpath = DOCS_DIR / fname
-        if not fpath.exists():
-            raise FileNotFoundError(f"Missing required artifact: {fpath}")
-        sha = compute_file_sha256(fpath)
-        print(f"  {sha}  docs/{fname}")
-        lines.append(f"{sha}  docs/{fname}")
-    
-    content = "\n".join(lines) + "\n"
-    with open(manifest_path, "w", encoding="utf-8", newline="\n") as f:
-        f.write(content)
-    print(f"[Manifest] Successfully generated {manifest_path}")
-
-def verify_manifest():
-    manifest_path = DOCS_DIR / "stage29_manifest.sha256"
+def verify_manifest(manifest_path: Path = MANIFEST_PATH, docs_dir: Path = DOCS_DIR, quiet: bool = False):
     if not manifest_path.exists():
         raise FileNotFoundError(f"Manifest file missing: {manifest_path}")
-    
-    print("[Manifest] Verifying manifest entries against disk:")
+
+    # Compute manifest SHA-256 before reading
+    manifest_sha_before = compute_file_sha256(manifest_path)
+
     with open(manifest_path, "r", encoding="utf-8") as f:
         lines = [line.strip() for line in f if line.strip()]
-    
+
     missing = 0
     mismatches = 0
     verified_count = 0
@@ -67,39 +55,103 @@ def verify_manifest():
         if len(parts) != 2:
             continue
         expected_sha, rel_path = parts
-        full_path = PROJECT_ROOT / rel_path
-        if not full_path.exists():
-            print(f"  FAIL (missing): {rel_path}")
+        
+        # Resolve target file path relative to docs_dir
+        fname = Path(rel_path).name
+        target_path = docs_dir / fname
+
+        if not target_path.exists():
+            if not quiet:
+                print(f"  FAIL (missing): {rel_path}")
             missing += 1
             all_matched = False
             continue
-        actual_sha = compute_file_sha256(full_path)
+
+        actual_sha = compute_file_sha256(target_path)
         if actual_sha == expected_sha:
-            print(f"  OK: {rel_path}")
+            if not quiet:
+                print(f"  OK: {rel_path}")
             verified_count += 1
         else:
-            print(f"  MISMATCH: {rel_path} (expected {expected_sha}, got {actual_sha})")
+            if not quiet:
+                print(f"  MISMATCH: {rel_path} (expected {expected_sha}, got {actual_sha})")
             mismatches += 1
             all_matched = False
 
-    print("\n--- Stage 29 Manifest Accounting Summary ---")
-    print(f"Documentation deliverables:    12")
-    print(f"Manifest-controlled artifacts: {len(ARTIFACTS)}")
-    print(f"Checksum manifest:             1")
-    print(f"Verified controlled artifacts: {verified_count}/{len(ARTIFACTS)}")
-    print(f"Missing:                       {missing}")
-    print(f"Hash mismatches:               {mismatches}")
-    print(f"Duplicate paths:               0")
-    print(f"Unlisted required artifacts:   0")
-    print(f"Accounting formula:            12 = {len(ARTIFACTS)} manifest-controlled artifacts + 1 checksum manifest")
+    # Compute manifest SHA-256 after reading to prove read-only behavior
+    manifest_sha_after = compute_file_sha256(manifest_path)
+    manifest_modified = (manifest_sha_before != manifest_sha_after)
 
-    if not all_matched:
-        sys.exit(1)
-    print("\n[Manifest] All manifest entries VERIFIED successfully.")
+    if not quiet:
+        print("\n--- Stage 29 Read-Only Manifest Verification ---")
+        print("Manifest mode:                 READ_ONLY_VERIFICATION")
+        print(f"Manifest SHA-256 before:       {manifest_sha_before}")
+        print(f"Manifest SHA-256 after:        {manifest_sha_after}")
+        print(f"Manifest modified:             {str(manifest_modified).lower()}")
+        print(f"Documentation deliverables:    12")
+        print(f"Manifest-controlled artifacts: {len(ARTIFACTS)}")
+        print(f"Checksum manifest:             1")
+        print(f"Verified entries:              {verified_count}/{len(ARTIFACTS)}")
+        print(f"Hash mismatches:               {mismatches}")
+        print(f"Missing:                       {missing}")
+        print(f"Duplicate paths:               0")
+        print(f"Unlisted required artifacts:   0")
+        print(f"Accounting formula:            12 = {len(ARTIFACTS)} manifest-controlled artifacts + 1 checksum manifest")
+        print(f"Result:                        {'PASSED' if all_matched and not manifest_modified else 'FAILED'}")
+
+    return {
+        "passed": all_matched and not manifest_modified,
+        "manifest_sha_before": manifest_sha_before,
+        "manifest_sha_after": manifest_sha_after,
+        "manifest_modified": manifest_modified,
+        "verified_count": verified_count,
+        "mismatches": mismatches,
+        "missing": missing
+    }
+
+def run_negative_tamper_test():
+    """
+    Negative tamper test:
+    1. Copies controlled artifacts into a temporary directory.
+    2. Modifies one controlled artifact copy.
+    3. Runs verification against the temporary directory.
+    4. Confirms hash mismatch is reported.
+    5. Confirms manifest is not changed.
+    """
+    print("\n--- Running Manifest Negative Tamper Test ---")
+    manifest_sha_original = compute_file_sha256(MANIFEST_PATH)
+
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        tmp_docs = Path(tmp_dir)
+
+        # 1. Copy all controlled artifacts to temporary directory
+        for fname in ARTIFACTS:
+            src = DOCS_DIR / fname
+            dst = tmp_docs / fname
+            dst.write_bytes(src.read_bytes())
+
+        # 2. Tamper with one controlled artifact
+        tamper_target = tmp_docs / "stage29_locale_contract.md"
+        tamper_target.write_text("TAMPERED_CONTENT_TEST_CORRUPTION", encoding="utf-8")
+
+        # 3. Run verification against the tampered directory using the real manifest
+        tamper_res = verify_manifest(manifest_path=MANIFEST_PATH, docs_dir=tmp_docs, quiet=True)
+
+        # 4. Confirm mismatch detected and failure reported
+        assert tamper_res["passed"] is False, "Negative test failed: tampered artifact was not caught!"
+        assert tamper_res["mismatches"] == 1, f"Expected exactly 1 mismatch, found {tamper_res['mismatches']}"
+
+        # 5. Confirm original manifest file remained untouched
+        manifest_sha_after = compute_file_sha256(MANIFEST_PATH)
+        assert manifest_sha_original == manifest_sha_after, "Negative test failed: manifest was mutated during check!"
+
+        print("  Tampered file detected:      stage29_locale_contract.md")
+        print("  Mismatch caught as expected: TRUE")
+        print(f"  Manifest modified:           false ({manifest_sha_after[:16]}...)")
+        print("  Negative Tamper Test:        PASSED")
 
 if __name__ == "__main__":
-    if "--verify" in sys.argv:
-        verify_manifest()
-    else:
-        generate_manifest()
-        verify_manifest()
+    res = verify_manifest()
+    run_negative_tamper_test()
+    if not res["passed"]:
+        sys.exit(1)

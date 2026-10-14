@@ -29,8 +29,9 @@ def has_replacement_character(text: str) -> bool:
 
 def count_grapheme_clusters(text: str) -> int:
     """
-    Calculate extended grapheme cluster count according to Unicode UAX #29
-    (matching browser native Intl.Segmenter behavior).
+    Project-defined grapheme counter using Python unicodedata properties.
+    Verified scope: 11/11 governed Stage 29 fixtures matched frontend Intl.Segmenter.
+    Full Unicode UAX #29 conformance: NOT ESTABLISHED.
     Combining characters, vowel signs, viramas, and ZWJ attach to previous base characters.
     """
     if not text:

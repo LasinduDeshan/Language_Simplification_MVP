@@ -138,13 +138,14 @@ def verify_accounting():
         "grapheme_parity_evidence": {
             "frontend_primary": "Intl.Segmenter (ECMA-402)",
             "frontend_fallback": "pinned UAX #29 extended grapheme cluster implementation (graphemeSegmenter.js)",
-            "backend_implementation": "unicodedata UAX #29 cluster counter (unicode_guards.py)",
+            "backend_implementation": "Project-defined grapheme counter using Python unicodedata properties (unicode_guards.py)",
             "governed_grapheme_fixtures": 11,
             "frontend_backend_equal_counts": "11/11",
             "mismatches": 0,
             "fallback_activation_test": "PASSED",
             "string_length_used_for_visible_limits": False,
-            "cross_layer_parity_test": "PASSED (test_cross_layer_grapheme_parity.py)"
+            "cross_layer_parity_test": "PASSED (test_cross_layer_grapheme_parity.py)",
+            "full_unicode_uax29_conformance": "NOT ESTABLISHED"
         },
         "fixture_accounting": {
             "submitted_fixtures": total_submitted,
@@ -220,13 +221,14 @@ The checksum manifest does not recursively hash itself; its integrity is validat
 |---|---|---|
 | Frontend Primary Engine | `Intl.Segmenter` (ECMA-402, granularity: `"grapheme"`) | ACTIVE |
 | Frontend Fallback Engine | Pinned Unicode UAX #29 implementation (`frontend/src/i18n/graphemeSegmenter.js`) | VERIFIED |
-| Backend Engine | `unicodedata` UAX #29 cluster counter (`backend/app/localization/unicode_guards.py`) | VERIFIED |
+| Backend Engine | Project-defined counter using Python `unicodedata` properties (`backend/app/localization/unicode_guards.py`) | VERIFIED |
 | Governed Grapheme Fixtures | 11 fixtures (Unicode cases, mixed language, canonical probes) | 11 |
 | Frontend / Backend Equal Counts | Evaluated across native segmenter, fallback, and backend | 11 / 11 |
 | Mismatches Observed | `frontend_grapheme_count == backend_grapheme_count` | 0 |
 | Fallback Activation Test | Force fallback execution vs native segmenter | PASSED |
 | Visible Limit Guard | Use of JavaScript `string.length` for visible limits | FALSE (STRICTLY PROHIBITED) |
 | Automated Cross-Layer Parity Test | `backend/tests/localization/test_cross_layer_grapheme_parity.py` | PASSED |
+| Full Unicode UAX #29 Conformance | Rigorous full Unicode conformance specification | NOT ESTABLISHED |
 
 ---
 

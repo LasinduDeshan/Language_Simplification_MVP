@@ -77,3 +77,17 @@ Captured visual screenshots have been archived in `docs/screenshots/stage29/`:
 - **Child Delivery Exclusions:** None of these probes are approved for child delivery (`approved_for_child_delivery: false`).
 - **Linguistic Processing:** Pure rendering verification only. No Stage 30 text normalization or simplification was applied.
 - **Verification Disposition:** Real-browser rendering gate is **PASSED**.
+
+---
+
+## 6. Rendering Validation Scope & Distinctions
+
+| Validation Dimension | Execution Method | Status |
+|---|---|---|
+| Automated Rendering Regression Checks | Playwright 12-test suite on Chromium desktop/mobile, zoom 100/200/400%, offline fallback | PASSED |
+| Manual Visual Inspection | Developer visual verification of archived screenshots (`docs/screenshots/stage29/`) | PASSED |
+| Expert Sinhala Typography Validation | Independent linguist / typographer review of complex ligatures & shaping | NOT ESTABLISHED |
+
+> [!NOTE]
+> Automated browser checks confirm the technical absence of missing glyphs (tofu boxes, replacement character `\uFFFD`), font delivery, and DOM layout metrics, but cannot independently prove that every Sinhala ligature is typographically or linguistically optimal without human expert review.
+

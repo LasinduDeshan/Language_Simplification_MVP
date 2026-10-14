@@ -4,8 +4,9 @@ Stage 29: SINHALA DATABASE, UI AND FONT SUPPORT
 
 Prerequisite commit:                         0e83898a1272ecd8af2fc93f607e694ca07954cf
 Start tag:                                  stage-29-start
-Final commit:                               41308bb51a62cb39eceaa7ba122d44b121c1c711
-Completion tag:                             stage-29-complete
+Historical completion tag:                  stage-29-complete (f86c414a9416ae222bd257b2cc69ff346e5971cf)
+Authoritative completion tag:               stage-29-complete-v2
+Final commit:                               37b6270ae31d239f3c349aff5985bc11ba655266
 
 Ancestry verification:                      PASSED
 Start commit verification:                  PASSED (0e83898a1272ecd8af2fc93f607e694ca07954cf)
@@ -19,7 +20,7 @@ Evidence SHA-256:                           d5ffd9c38a9b4cd89b2371bccca282087685
 API Unicode round trip:                     PASSED (Decoded Unicode-sequence equality)
 JSON/CSV export integrity:                  PASSED (Exact UTF-8 byte equality & SHA-256)
 Font licence & provenance verification:     PASSED (OFL-1.1, unmodified full binary)
-Playwright real-browser rendering gate:     PASSED (12/12 passed)
+Automated rendering regression checks:      PASSED (12/12 Playwright tests)
   - Chromium desktop:                       PASSED
   - Chromium mobile:                        PASSED
   - Zoom 100%:                              PASSED
@@ -29,9 +30,12 @@ Playwright real-browser rendering gate:     PASSED (12/12 passed)
   - document.fonts.ready:                   PASSED
   - document.fonts.check():                 PASSED
   - Offline/system fallback:                PASSED
+Manual visual inspection:                   PASSED (Screenshot inspection in docs/screenshots/stage29/)
+Expert Sinhala typography validation:       NOT ESTABLISHED
 Visual glyph shaping & tofu check:          PASSED (Zero U+FFFD, ligatures intact)
 Resilient grapheme limits & native editing: PASSED (Intl.Segmenter + UAX #29 fallback)
 Cross-layer grapheme parity:                PASSED (11/11 fixtures equal, 0 mismatches)
+Full Unicode UAX #29 conformance:           NOT ESTABLISHED (Project-defined unicodedata heuristic)
 Language selector & storage policy:         PASSED (en-LK default, no learner data)
 Translation resource governance:            PASSED (translations.meta.json validated)
 Accessibility verification:                 PASSED (WCAG 2.1 AA, lang=si, dir=ltr, 1.65 line-height)

@@ -13,13 +13,14 @@
   "grapheme_parity_evidence": {
     "frontend_primary": "Intl.Segmenter (ECMA-402)",
     "frontend_fallback": "pinned UAX #29 extended grapheme cluster implementation (graphemeSegmenter.js)",
-    "backend_implementation": "unicodedata UAX #29 cluster counter (unicode_guards.py)",
+    "backend_implementation": "Project-defined grapheme counter using Python unicodedata properties (unicode_guards.py)",
     "governed_grapheme_fixtures": 11,
     "frontend_backend_equal_counts": "11/11",
     "mismatches": 0,
     "fallback_activation_test": "PASSED",
     "string_length_used_for_visible_limits": false,
-    "cross_layer_parity_test": "PASSED (test_cross_layer_grapheme_parity.py)"
+    "cross_layer_parity_test": "PASSED (test_cross_layer_grapheme_parity.py)",
+    "full_unicode_uax29_conformance": "NOT ESTABLISHED"
   },
   "fixture_accounting": {
     "submitted_fixtures": 8,
