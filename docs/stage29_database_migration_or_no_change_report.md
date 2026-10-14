@@ -28,13 +28,19 @@
 
 ## 2. Decision Rationale & Technical Evidence
 
-1. **Native UTF-8 Storage:**
-   The database audit (`scripts/stage29/verify_database_encoding.py`) established that `PRAGMA encoding` is `UTF-8`. SQLite text columns store arbitrary multi-byte UTF-8 sequences natively without character conversion.
-2. **Lossless Round-Trip Verification:**
-   Seven test probes spanning complex Sinhala sequences (combining diacritics, ZWJ Yansaya/Rakaransaya ligatures, mixed-script English-Sinhala, and numbers) demonstrated 100% exact code-point equality upon retrieval.
-3. **No Redundant Table Proliferation:**
+1. **Lossless Unicode-Sequence Persistence:**
+   The configured SQLite/Python stack demonstrated lossless Unicode-sequence persistence and retrieval for all governed fixtures.
+2. **Evidence Artifact Reference:**
+   - **NO_SCHEMA_CHANGE_REQUIRED evidence artifact:** `docs/stage29_unicode_storage_audit.md`
+   - **Evidence SHA-256:** `d5ffd9c38a9b4cd89b2371bccca2820876853f2fd9e7876996212b452de92cc6`
+3. **Lossless Round-Trip Verification:**
+   Seven test probes spanning complex Sinhala sequences (combining diacritics, ZWJ Yansaya/Rakaransaya ligatures, mixed-script English-Sinhala, and numbers) demonstrated 100% exact decoded Unicode code-point equality upon retrieval.
+4. **Distinction Between API/Database and Export Serialization:**
+   - **API & Database Layer:** Evaluated based on exact decoded Unicode-sequence equality.
+   - **Governed Export Artifacts (JSON/CSV):** Evaluated based on exact UTF-8 byte equality and SHA-256 integrity.
+5. **No Redundant Table Proliferation:**
    Existing models and repository structures in `backend/app/` already allow language-tagged content storage. Adding ad-hoc tables like `localized_content` at this stage without existing domain consumer requirements would add unnecessary schema debt.
-4. **Immutability of Pre-Existing Data:**
+6. **Immutability of Pre-Existing Data:**
    By avoiding unnecessary schema modifications, all existing learner data, assessment sessions, and Stage 28A model comparison artifacts remain strictly undisturbed.
 
 ---

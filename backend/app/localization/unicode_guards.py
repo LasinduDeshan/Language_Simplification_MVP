@@ -29,37 +29,34 @@ def has_replacement_character(text: str) -> bool:
 
 def count_grapheme_clusters(text: str) -> int:
     """
-    Calculate extended grapheme cluster count according to Unicode UAX #29.
-    Consonant + combining diacritics / virama + ZWJ + consonant form clusters.
+    Calculate extended grapheme cluster count according to Unicode UAX #29
+    (matching browser native Intl.Segmenter behavior).
+    Combining characters, vowel signs, viramas, and ZWJ attach to previous base characters.
     """
     if not text:
         return 0
-    
-    # A standard Python implementation of extended grapheme clusters:
-    # Combining characters (General Category starting with 'M') and ZWJ (U+200D)
-    # attach to previous base characters.
+
     count = 0
-    prev_was_zwj = False
+    in_cluster = False
 
     for char in text:
+        cp = ord(char)
         category = unicodedata.category(char)
         is_mark = category.startswith("M")
         is_zwj = (char == "\u200D")
         is_zwnj = (char == "\u200C")
+        is_sinhala_mark = (0x0DCA <= cp <= 0x0DF3) or (cp in (0x0D82, 0x0D83))
+        is_combining = is_mark or is_sinhala_mark or is_zwj or is_zwnj
 
-        if is_zwj:
-            prev_was_zwj = True
-        elif is_mark or is_zwnj:
-            # Combining mark (diacritic or vowel sign) attaches to current base
-            prev_was_zwj = False
-        elif prev_was_zwj:
-            # Ligature / touching consonant following ZWJ
-            prev_was_zwj = False
+        if is_combining:
+            if not in_cluster:
+                count += 1
+                in_cluster = True
         else:
             count += 1
-            prev_was_zwj = False
-            
-    return count if count > 0 else (1 if text else 0)
+            in_cluster = True
+
+    return count
 
 def validate_grapheme_length(text: str, max_graphemes: int) -> Tuple[bool, int]:
     """

@@ -6,11 +6,11 @@ from app.localization.unicode_guards import count_grapheme_clusters, validate_gr
 def test_grapheme_count_vs_code_units():
     # 'ක්‍ෂ' (Bandi akuru ksha):
     # Consists of 4 code points: U+0D9A (ක) + U+0DCA (al) + U+200D (ZWJ) + U+0DC2 (ෂ)
-    # len("ක්‍ෂ") is 4, but visually it is 1 grapheme cluster!
+    # len("ක්‍ෂ") is 4, but under Unicode UAX #29 / Intl.Segmenter it is 2 grapheme clusters (ක+al+ZWJ, ෂ)
     ksha = "ක්‍ෂ"
     assert len(ksha) == 4
     graphemes = count_grapheme_clusters(ksha)
-    assert graphemes == 1
+    assert graphemes == 2
 
 def test_multi_grapheme_sinhala_word():
     # 'අම්මා' (am-ma)

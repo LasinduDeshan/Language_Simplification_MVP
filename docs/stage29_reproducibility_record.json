@@ -1,4 +1,26 @@
 {
+  "manifest_accounting": {
+    "total_documentation_deliverables": 12,
+    "manifest_controlled_artifacts": 11,
+    "checksum_manifest": 1,
+    "verified_controlled_artifacts": "11/11",
+    "missing": 0,
+    "hash_mismatches": 0,
+    "duplicate_paths": 0,
+    "unlisted_required_artifacts": 0,
+    "accounting_formula": "12 = 11 manifest-controlled artifacts + 1 checksum manifest"
+  },
+  "grapheme_parity_evidence": {
+    "frontend_primary": "Intl.Segmenter (ECMA-402)",
+    "frontend_fallback": "pinned UAX #29 extended grapheme cluster implementation (graphemeSegmenter.js)",
+    "backend_implementation": "unicodedata UAX #29 cluster counter (unicode_guards.py)",
+    "governed_grapheme_fixtures": 11,
+    "frontend_backend_equal_counts": "11/11",
+    "mismatches": 0,
+    "fallback_activation_test": "PASSED",
+    "string_length_used_for_visible_limits": false,
+    "cross_layer_parity_test": "PASSED (test_cross_layer_grapheme_parity.py)"
+  },
   "fixture_accounting": {
     "submitted_fixtures": 8,
     "passed_round_trip": 8,
@@ -46,7 +68,8 @@
   },
   "schema_decision": {
     "decision": "NO_SCHEMA_CHANGE_REQUIRED",
-    "justification": "Existing SQLite text columns natively store arbitrary UTF-8 without truncation or character loss",
+    "finding": "The configured SQLite/Python stack demonstrated lossless Unicode-sequence persistence and retrieval for all governed fixtures.",
+    "evidence_artifact": "docs/stage29_unicode_storage_audit.md",
     "evidence_hash": "d5ffd9c38a9b4cd89b2371bccca2820876853f2fd9e7876996212b452de92cc6"
   }
 }

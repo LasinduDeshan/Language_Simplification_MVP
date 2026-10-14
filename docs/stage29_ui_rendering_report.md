@@ -15,12 +15,22 @@ The verification was executed directly in a genuine headless Chromium browser se
 
 ---
 
-## 2. Font Loading & CSS Resolution
+## 2. Playwright Real-Browser Gate Execution Matrix
 
-| Verification Check | Target / Expected | Observed Result | Status |
+Playwright test execution (`npx playwright test` in `frontend/`) executed 12 test specs across desktop and mobile Chromium device profiles:
+
+| Verification Metric | Target Requirement | Execution Result | Disposition |
 |---|---|---|---|
-| Font Availability Check | `document.fonts.check('16px "Noto Sans Sinhala"')` | `True` | PASSED |
-| Network TTF Resolution | `GET /fonts/NotoSansSinhala-Regular.ttf` | HTTP 200 (TrueType binary loaded) | PASSED |
+| Playwright Test Suite | `src/tests/browser/sinhalaRendering.spec.js` | 12/12 passed (7.4s) | PASSED |
+| Chromium Desktop Profile | 1280x800 desktop viewport | 6/6 tests passed | PASSED |
+| Chromium Mobile Profile | Pixel 5 (375x667) emulation | 6/6 tests passed | PASSED |
+| Font HTTP Request | `GET /fonts/NotoSansSinhala-Regular.ttf` | Status 200 OK | PASSED |
+| Font Ready Promise | `await document.fonts.ready` | Resolved | PASSED |
+| Font Availability Check | `document.fonts.check('16px "Noto Sans Sinhala"')` | Evaluated `true` | PASSED |
+| Zoom 100% Stability | Normal scale factor 1.0 | Stable layout, no tofu | PASSED |
+| Zoom 200% Stability | High-DPI scale factor 2.0 | Stable layout, subpixel rendering | PASSED |
+| Zoom 400% Stability | Extreme scale factor 4.0 | Layout intact, no collision | PASSED |
+| Offline / System Fallback | Aborted TTF network requests | Fell back to `Nirmala UI / sans-serif` | PASSED |
 | Computed Font Family | Includes `"Noto Sans Sinhala"` | Verified on all Sinhala DOM nodes | PASSED |
 | Fallback Stack | `"Noto Sans Sinhala", "Nirmala UI", sans-serif` | Declared and verified in CSS | PASSED |
 

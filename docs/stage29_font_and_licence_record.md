@@ -36,6 +36,14 @@
 }
 ```
 
+### Auditable Font Governance Evidence:
+- **Commit-Pinned Upstream Source:** `googlefonts/noto-fonts` (main repository, commit `9cb517a6a7c36a495914fa060934d402be4b6118`)
+- **Downloaded Filename & Version:** `NotoSansSinhala-Regular.ttf` (Version 2.004)
+- **Font Binary SHA-256:** `a966549310b2d3046ba25bbeef11985428ff9356fa656fd6118bc90fb82df031`
+- **OFL.txt Licence SHA-256:** `0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb`
+- **Redistribution Decision:** Permitted without royalty under SIL Open Font License, Version 1.1 (Sections 1 and 2).
+- **Modification / Subsetting Status:** Untouched full binary (no glyph modification, re-encoding, or subsetting applied).
+
 ---
 
 ## 2. Font Loading & Fallback Stack
