@@ -1,0 +1,139 @@
+code_point,unicode_name,unicode_category,script_or_block,token_category,allowed_context,normalization_behavior,review_behavior,unicode_version
+U+0D81,SINHALA SIGN CANDRABINDU,Mn,Sinhala,SINHALA_WORD,sinhala_other,preserved_nfc,context_check,14.0.0
+U+0D82,SINHALA SIGN ANUSVARAYA,Mc,Sinhala,SINHALA_WORD,anusvara_visarga,preserved_nfc,standard_processing,14.0.0
+U+0D83,SINHALA SIGN VISARGAYA,Mc,Sinhala,SINHALA_WORD,anusvara_visarga,preserved_nfc,standard_processing,14.0.0
+U+0D85,SINHALA LETTER AYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D86,SINHALA LETTER AAYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D87,SINHALA LETTER AEYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D88,SINHALA LETTER AEEYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D89,SINHALA LETTER IYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D8A,SINHALA LETTER IIYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D8B,SINHALA LETTER UYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D8C,SINHALA LETTER UUYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D8D,SINHALA LETTER IRUYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D8E,SINHALA LETTER IRUUYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D8F,SINHALA LETTER ILUYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D90,SINHALA LETTER ILUUYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D91,SINHALA LETTER EYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D92,SINHALA LETTER EEYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D93,SINHALA LETTER AIYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D94,SINHALA LETTER OYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D95,SINHALA LETTER OOYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D96,SINHALA LETTER AUYANNA,Lo,Sinhala,SINHALA_WORD,independent_vowel,preserved_nfc,standard_processing,14.0.0
+U+0D9A,SINHALA LETTER ALPAPRAANA KAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0D9B,SINHALA LETTER MAHAAPRAANA KAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0D9C,SINHALA LETTER ALPAPRAANA GAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0D9D,SINHALA LETTER MAHAAPRAANA GAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0D9E,SINHALA LETTER KANTAJA NAASIKYAYA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0D9F,SINHALA LETTER SANYAKA GAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DA0,SINHALA LETTER ALPAPRAANA CAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DA1,SINHALA LETTER MAHAAPRAANA CAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DA2,SINHALA LETTER ALPAPRAANA JAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DA3,SINHALA LETTER MAHAAPRAANA JAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DA4,SINHALA LETTER TAALUJA NAASIKYAYA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DA5,SINHALA LETTER TAALUJA SANYOOGA NAAKSIKYAYA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DA6,SINHALA LETTER SANYAKA JAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DA7,SINHALA LETTER ALPAPRAANA TTAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DA8,SINHALA LETTER MAHAAPRAANA TTAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DA9,SINHALA LETTER ALPAPRAANA DDAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DAA,SINHALA LETTER MAHAAPRAANA DDAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DAB,SINHALA LETTER MUURDHAJA NAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DAC,SINHALA LETTER SANYAKA DDAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DAD,SINHALA LETTER ALPAPRAANA TAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DAE,SINHALA LETTER MAHAAPRAANA TAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DAF,SINHALA LETTER ALPAPRAANA DAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DB0,SINHALA LETTER MAHAAPRAANA DAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DB1,SINHALA LETTER DANTAJA NAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DB3,SINHALA LETTER SANYAKA DAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DB4,SINHALA LETTER ALPAPRAANA PAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DB5,SINHALA LETTER MAHAAPRAANA PAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DB6,SINHALA LETTER ALPAPRAANA BAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DB7,SINHALA LETTER MAHAAPRAANA BAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DB8,SINHALA LETTER MAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DB9,SINHALA LETTER AMBA BAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DBA,SINHALA LETTER YAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DBB,SINHALA LETTER RAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DBD,SINHALA LETTER DANTAJA LAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DC0,SINHALA LETTER VAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DC1,SINHALA LETTER TAALUJA SAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DC2,SINHALA LETTER MUURDHAJA SAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DC3,SINHALA LETTER DANTAJA SAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DC4,SINHALA LETTER HAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DC5,SINHALA LETTER MUURDHAJA LAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DC6,SINHALA LETTER FAYANNA,Lo,Sinhala,SINHALA_WORD,consonant,preserved_nfc,standard_processing,14.0.0
+U+0DCA,SINHALA SIGN AL-LAKUNA,Mn,Sinhala,SINHALA_WORD,virama_al_lakuna,preserved_nfc,standard_processing,14.0.0
+U+0DCF,SINHALA VOWEL SIGN AELA-PILLA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DD0,SINHALA VOWEL SIGN KETTI AEDA-PILLA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DD1,SINHALA VOWEL SIGN DIGA AEDA-PILLA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DD2,SINHALA VOWEL SIGN KETTI IS-PILLA,Mn,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DD3,SINHALA VOWEL SIGN DIGA IS-PILLA,Mn,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DD4,SINHALA VOWEL SIGN KETTI PAA-PILLA,Mn,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DD6,SINHALA VOWEL SIGN DIGA PAA-PILLA,Mn,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DD8,SINHALA VOWEL SIGN GAETTA-PILLA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DD9,SINHALA VOWEL SIGN KOMBUVA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DDA,SINHALA VOWEL SIGN DIGA KOMBUVA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DDB,SINHALA VOWEL SIGN KOMBU DEKA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DDC,SINHALA VOWEL SIGN KOMBUVA HAA AELA-PILLA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DDD,SINHALA VOWEL SIGN KOMBUVA HAA DIGA AELA-PILLA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DDE,SINHALA VOWEL SIGN KOMBUVA HAA GAYANUKITTA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DDF,SINHALA VOWEL SIGN GAYANUKITTA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DE6,SINHALA LITH DIGIT ZERO,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DE7,SINHALA LITH DIGIT ONE,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DE8,SINHALA LITH DIGIT TWO,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DE9,SINHALA LITH DIGIT THREE,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DEA,SINHALA LITH DIGIT FOUR,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DEB,SINHALA LITH DIGIT FIVE,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DEC,SINHALA LITH DIGIT SIX,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DED,SINHALA LITH DIGIT SEVEN,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DEE,SINHALA LITH DIGIT EIGHT,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DEF,SINHALA LITH DIGIT NINE,Nd,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DF2,SINHALA VOWEL SIGN DIGA GAETTA-PILLA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DF3,SINHALA VOWEL SIGN DIGA GAYANUKITTA,Mc,Sinhala,SINHALA_WORD,dependent_vowel_sign,composite_composed,standard_processing,14.0.0
+U+0DF4,SINHALA PUNCTUATION KUNDDALIYA,Po,Sinhala,PUNCTUATION,sinhala_punctuation_kunddaliya,preserved_nfc,standard_processing,14.0.0
+U+111E1,SINHALA ARCHAIC DIGIT ONE,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111E2,SINHALA ARCHAIC DIGIT TWO,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111E3,SINHALA ARCHAIC DIGIT THREE,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111E4,SINHALA ARCHAIC DIGIT FOUR,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111E5,SINHALA ARCHAIC DIGIT FIVE,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111E6,SINHALA ARCHAIC DIGIT SIX,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111E7,SINHALA ARCHAIC DIGIT SEVEN,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111E8,SINHALA ARCHAIC DIGIT EIGHT,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111E9,SINHALA ARCHAIC DIGIT NINE,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111EA,SINHALA ARCHAIC NUMBER TEN,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111EB,SINHALA ARCHAIC NUMBER TWENTY,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111EC,SINHALA ARCHAIC NUMBER THIRTY,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111ED,SINHALA ARCHAIC NUMBER FORTY,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111EE,SINHALA ARCHAIC NUMBER FIFTY,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111EF,SINHALA ARCHAIC NUMBER SIXTY,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111F0,SINHALA ARCHAIC NUMBER SEVENTY,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111F1,SINHALA ARCHAIC NUMBER EIGHTY,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111F2,SINHALA ARCHAIC NUMBER NINETY,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111F3,SINHALA ARCHAIC NUMBER ONE HUNDRED,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+111F4,SINHALA ARCHAIC NUMBER ONE THOUSAND,No,Sinhala Archaic Numbers,SINHALA_NUMBER,archaic_number,preserved_nfc,context_check,14.0.0
+U+0030,DIGIT ZERO,Nd,Basic Latin,ARABIC_NUMBER,standard_digit,preserved_nfc,standard_processing,14.0.0
+U+0031,DIGIT ONE,Nd,Basic Latin,ARABIC_NUMBER,standard_digit,preserved_nfc,standard_processing,14.0.0
+U+0032,DIGIT TWO,Nd,Basic Latin,ARABIC_NUMBER,standard_digit,preserved_nfc,standard_processing,14.0.0
+U+0033,DIGIT THREE,Nd,Basic Latin,ARABIC_NUMBER,standard_digit,preserved_nfc,standard_processing,14.0.0
+U+0034,DIGIT FOUR,Nd,Basic Latin,ARABIC_NUMBER,standard_digit,preserved_nfc,standard_processing,14.0.0
+U+0035,DIGIT FIVE,Nd,Basic Latin,ARABIC_NUMBER,standard_digit,preserved_nfc,standard_processing,14.0.0
+U+0036,DIGIT SIX,Nd,Basic Latin,ARABIC_NUMBER,standard_digit,preserved_nfc,standard_processing,14.0.0
+U+0037,DIGIT SEVEN,Nd,Basic Latin,ARABIC_NUMBER,standard_digit,preserved_nfc,standard_processing,14.0.0
+U+0038,DIGIT EIGHT,Nd,Basic Latin,ARABIC_NUMBER,standard_digit,preserved_nfc,standard_processing,14.0.0
+U+0039,DIGIT NINE,Nd,Basic Latin,ARABIC_NUMBER,standard_digit,preserved_nfc,standard_processing,14.0.0
+U+200D,ZERO WIDTH JOINER,Cf,General Punctuation,FORMAT_CONTROL,allowlisted_joiner,preserved_nfc,context_check,14.0.0
+U+200C,ZERO WIDTH NON-JOINER,Cf,General Punctuation,FORMAT_CONTROL,allowlisted_non_joiner,preserved_nfc,context_check,14.0.0
+U+0020,SPACE,Zs,Whitespace / Controls,WHITESPACE,governed_whitespace,normalized_space_or_lf,standard_processing,14.0.0
+U+00A0,NO-BREAK SPACE,Zs,Whitespace / Controls,WHITESPACE,governed_whitespace,normalized_space_or_lf,standard_processing,14.0.0
+U+002E,FULL STOP,Po,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+003F,QUESTION MARK,Po,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+0021,EXCLAMATION MARK,Po,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+002C,COMMA,Po,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+003B,SEMICOLON,Po,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+003A,COLON,Po,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+0028,LEFT PARENTHESIS,Ps,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+0029,RIGHT PARENTHESIS,Pe,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+005B,LEFT SQUARE BRACKET,Ps,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+005D,RIGHT SQUARE BRACKET,Pe,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+0022,QUOTATION MARK,Po,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+0027,APOSTROPHE,Po,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
+U+002D,HYPHEN-MINUS,Pd,Basic Latin,PUNCTUATION,sentence_or_token_delimiter,preserved_nfc,standard_processing,14.0.0
