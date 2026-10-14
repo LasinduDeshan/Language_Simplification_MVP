@@ -14,7 +14,7 @@ This policy defines the deterministic, fail-closed, and auditable Unicode normal
 
 ### Core Principles
 1. **Raw Text Immutability:** Raw input is captured exactly as received and hashed via SHA-256. Normalization writes exclusively to a separate derived representation `normalized_text`.
-2. **Reversible Operation Provenance:** Every transformation (NFC composition, whitespace collapse, control handling) is captured in a structured `operations: []` trace with half-open code-point offset mappings.
+2. **Auditable Operation Traces:** Every transformation (NFC composition, whitespace collapse, control handling) is captured in auditable operation traces and explicit raw-to-normalized span mappings; original text remains recoverable from the immutable raw_text field.
 3. **No Silent Corrections:** Unknown, ambiguous, or suspicious orthographic sequences are flagged and routed to manual review rather than silently rewritten or stripped.
 4. **Non-Authoritative Scope:** Technical normalization correctness does not imply linguistic correctness, child suitability, or clinical approval (`approved_for_child_delivery: false`).
 
@@ -44,7 +44,7 @@ A second pass through the normalizer must produce zero changes (`operations: []`
 
 ## 3. Character Inventory and Number Systems
 
-The character inventory covers all valid Unicode blocks and numerical systems associated with Sinhala:
+The 138-entry character inventory is a **governed selected inventory** calibrated for early-grade educational Sinhala text preprocessing; it is not an exhaustive enumeration of all assigned and unassigned code points across all referenced Unicode blocks. The selected inventory covers:
 
 ### 3.1 Sinhala Block (`U+0D80–U+0DFF`)
 - **Independent Vowels:** `U+0D85` (අ) through `U+0D96` (ඖ)
@@ -85,9 +85,30 @@ Stage 30 does not possess authoritative linguistic knowledge to determine genera
 
 ## 5. Security Controls, U+FFFD, and Validation Policy
 
+Null bytes, prohibited C0/C1 controls, bidi overrides, and other denylisted security controls are rejected. Explicitly allowlisted structural whitespace characters are preserved or normalized according to the frozen field policy.
+
+### 5.1 Control Characters vs. Allowlisted Whitespace Classification
+
+| Code Point | Character Name | Category | Status | Disposition / Handling |
+|---|---|---|---|---|
+| `U+0000` | NULL | `Cc` (C0) | Prohibited Control | `REJECTED_INVALID_UNICODE` (`PROHIBITED_CONTROL_CHARACTER`) |
+| `U+0001–U+0008` | C0 Controls (SOH, STX, ETX, EOT, ENQ, ACK, BEL, BS) | `Cc` (C0) | Prohibited Control | `REJECTED_INVALID_UNICODE` (`PROHIBITED_CONTROL_CHARACTER`) |
+| `U+0009` | CHARACTER TABULATION (TAB) | `Cc` (C0) | Allowlisted Whitespace | Preserved in raw text; collapsed to ASCII space (`U+0020`) in normalized text |
+| `U+000A` | LINE FEED (LF) | `Cc` (C0) | Allowlisted Whitespace | Preserved in raw text; preserved as structural line break in normalized text |
+| `U+000B–U+000C` | LINE TABULATION (VT), FORM FEED (FF) | `Cc` (C0) | Prohibited Control | `REJECTED_INVALID_UNICODE` (`PROHIBITED_CONTROL_CHARACTER`) |
+| `U+000D` | CARRIAGE RETURN (CR) | `Cc` (C0) | Allowlisted Whitespace | Preserved in raw text; converted to `U+000A` (LF) in normalized text |
+| `U+000E–U+001F` | C0 Controls (SO, SI, DLE, DC1–DC4, NAK, SYN, ETB, CAN, EM, SUB, ESC, FS, GS, RS, US) | `Cc` (C0) | Prohibited Control | `REJECTED_INVALID_UNICODE` (`PROHIBITED_CONTROL_CHARACTER`) |
+| `U+007F` | DELETE (DEL) | `Cc` (C0) | Prohibited Control | `REJECTED_INVALID_UNICODE` (`PROHIBITED_CONTROL_CHARACTER`) |
+| `U+0085` | NEXT LINE (NEL) | `Cc` (C1) | Prohibited Control | `REJECTED_INVALID_UNICODE` (`PROHIBITED_CONTROL_CHARACTER`). If encountered, rejected under security control policy. |
+| `U+0080–U+0084`, `U+0086–U+009F` | C1 Controls | `Cc` (C1) | Prohibited Control | `REJECTED_INVALID_UNICODE` (`PROHIBITED_CONTROL_CHARACTER`) |
+| `U+0020` | SPACE | `Zs` | Allowlisted Whitespace | Standard inter-word whitespace |
+| `U+00A0` | NO-BREAK SPACE (NBSP) | `Zs` | Allowlisted Whitespace | Preserved in raw text; collapsed to `U+0020` in normalized text |
+
+### 5.2 Disposition and Validation Rules
+
 | Sequence / Condition | Technical Disposition | Reason Code | Explanation |
 |---|---|---|---|
-| Null bytes (`\0`), C0/C1 control characters | `REJECTED_INVALID_UNICODE` | `PROHIBITED_CONTROL_CHARACTER` | Security risk; prohibited in educational text |
+| Null bytes (`\0`), prohibited C0/C1 control characters | `REJECTED_INVALID_UNICODE` | `PROHIBITED_CONTROL_CHARACTER` | Security risk; prohibited in educational text |
 | Bidirectional overrides / isolates (`U+202A–U+202E`, `U+2066–U+2069`) | `REJECTED_INVALID_UNICODE` | `PROHIBITED_BIDI_CONTROL` | Spoofing and formatting injection risk |
 | Unpaired surrogates (`U+D800–U+DFFF`) | `REJECTED_INVALID_UNICODE` | `UNPAIRED_SURROGATE` | Malformed UTF sequence |
 | Replacement character `U+FFFD` in raw input | `REJECTED_INVALID_UNICODE` | `PREEXISTING_REPLACEMENT_CHARACTER` | Source fidelity compromised prior to pipeline ingestion |

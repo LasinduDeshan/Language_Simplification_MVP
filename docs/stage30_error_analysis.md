@@ -19,7 +19,7 @@ Across the 32 governed test fixtures, 0 unaccounted records, 0 offset failures, 
 ## 2. Detailed Edge-Case Analysis
 
 ### 2.1 Security Controls and Invalid Unicode
-- **Prohibited Controls:** Inputs containing null bytes (`\0`), C0 controls (`\x07`), or bidirectional overrides (`U+202E`) are immediately routed to `REJECTED_INVALID_UNICODE` with reason `PROHIBITED_CONTROL_CHARACTER`.
+- **Prohibited Controls:** Inputs containing null bytes (`\0`), prohibited C0/C1 controls (e.g. `\x07`, `U+0085` NEL), or bidirectional overrides (`U+202E`) are immediately routed to `REJECTED_INVALID_UNICODE` with reason `PROHIBITED_CONTROL_CHARACTER`. Explicitly allowlisted structural whitespace characters (TAB `U+0009`, LF `U+000A`, CR `U+000D`, NBSP `U+00A0`) are preserved or normalized according to the frozen field policy.
 - **Pre-Existing Replacement Characters:** When an input text already contains `U+FFFD`, it is rejected under `REJECTED_INVALID_UNICODE` with reason code `PREEXISTING_REPLACEMENT_CHARACTER`.
   > *Governance Distinction:* The record is rejected because source-text fidelity cannot be established, not because `U+FFFD` itself is an invalid Unicode scalar.
 - **Pipeline Replacement Character Invariant:** In no case did the pipeline introduce `U+FFFD` into valid text. The count of `REPLACEMENT_CHARACTER_INTRODUCED_BY_PIPELINE` was verified to be strictly `0`.
@@ -52,6 +52,6 @@ Across the 32 governed test fixtures, 0 unaccounted records, 0 offset failures, 
 | Unaccounted records | 0 | 0 | PASSED |
 | Pipeline-introduced `U+FFFD` | 0 | 0 | PASSED |
 | Offset mapping failures | 0 | 0 | PASSED |
-| Token reconstruction failures | 0 | 0 | PASSED |
+| Exact normalized-text reconstruction failures (spans + gaps) | 0 | 0 | PASSED |
 | Raw-text mutations | 0 | 0 | PASSED |
 | Disposition mismatch rate | 0.0% | 0.0% | PASSED |

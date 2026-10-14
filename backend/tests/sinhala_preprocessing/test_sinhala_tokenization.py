@@ -29,9 +29,21 @@ def test_lossless_token_reconstruction():
     text = "මම පාසල් යමි. ගුරුවරයා උගන්වයි."
     tokens = tokenize_text(text)
 
+    # 1. Exact slice verification per token
     for t in tokens:
         extracted = text[t.start_code_point:t.end_code_point]
         assert extracted == t.surface, f"Token slice mismatch for {t.surface}"
+
+    # 2. Exact normalized-text reconstruction using ordered token spans and preserved inter-token gaps
+    reconstructed_parts = []
+    last_idx = 0
+    for t in tokens:
+        reconstructed_parts.append(text[last_idx:t.start_code_point])
+        reconstructed_parts.append(t.surface)
+        last_idx = t.end_code_point
+    reconstructed_parts.append(text[last_idx:])
+    reconstructed_text = "".join(reconstructed_parts)
+    assert reconstructed_text == text, "Exact normalized-text reconstruction failed"
 
 def test_grapheme_integrity_in_tokens():
     text = "ශ්‍රී ලංකාව"

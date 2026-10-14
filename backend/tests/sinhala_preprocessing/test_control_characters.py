@@ -22,9 +22,15 @@ def test_prohibited_controls_rejection():
     assert rec_bidi.final_disposition == TerminalDisposition.REJECTED_INVALID_UNICODE
     assert rec_bidi.disposition_reason_code == "PROHIBITED_CONTROL_CHARACTER"
 
+    # C1 control character U+0085 (NEXT LINE)
+    rec_nel = preprocess_sinhala_text("ගෙදර\u0085යමු.")
+    assert rec_nel.final_disposition == TerminalDisposition.REJECTED_INVALID_UNICODE
+    assert rec_nel.disposition_reason_code == "PROHIBITED_CONTROL_CHARACTER"
+    assert QualityFlag.PROHIBITED_CONTROL_PRESENT in rec_nel.quality_flags
+
 def test_governed_whitespace_allowed():
-    # Ordinary spaces, tabs, newlines, and NBSP are allowed
-    text = "මම\tපාසල්\nයමි.\u00A0හොඳයි."
+    # Ordinary spaces, tabs, newlines, carriage returns, and NBSP are allowed
+    text = "මම\tපාසල්\r\nයමි.\u00A0හොඳයි."
     rec = preprocess_sinhala_text(text)
     assert rec.final_disposition != TerminalDisposition.REJECTED_INVALID_UNICODE
     assert QualityFlag.PROHIBITED_CONTROL_PRESENT not in rec.quality_flags

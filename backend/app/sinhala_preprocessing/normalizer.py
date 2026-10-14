@@ -3,7 +3,7 @@ Unicode and whitespace normalization module for Stage 30 Sinhala Preprocessing.
 Provides:
 - Governed NFC derivation and idempotence verification
 - Role-aware whitespace normalization
-- Reversible operation audit traces with zero-based half-open offset spans [start, end)
+- Auditable operation traces and explicit raw-to-normalized span mappings; original text remains recoverable from the immutable raw_text field
 - Absolute raw-text immutability preservation
 """
 

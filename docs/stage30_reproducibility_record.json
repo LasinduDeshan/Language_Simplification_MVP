@@ -12,14 +12,33 @@
     "prerequisite_tag": "stage-29-complete-v2",
     "prerequisite_commit": "89a253c452ea85664f988f31d357d6d9ee72b464",
     "start_tag": "stage-30-start",
-    "branch": "feature/stage30-sinhala-preprocessing"
+    "branch": "feature/stage30-sinhala-preprocessing",
+    "historical_completion_tag": "stage-30-complete",
+    "historical_completion_commit": "155008bbe460386bcaa7042aa7694718fccc08d8",
+    "authoritative_completion_tag": "stage-30-complete-v2"
   },
   "runtime_environment": {
     "os": "Windows",
     "python_version": "3.11.9",
     "unicodedata_version": "14.0.0",
     "regex_engine": "regex 2025.11.3",
-    "conformance_scope": "governed_fixtures_verified"
+    "conformance_scope": "governed_32_fixtures_verified_uax29_general_not_established"
+  },
+  "character_inventory": {
+    "inventory_type": "governed_selected_inventory",
+    "inventory_count": 138,
+    "exhaustiveness_claim": "non_exhaustive_selected_educational_inventory"
+  },
+  "test_suite": {
+    "test_modules_count": 16,
+    "test_cases_count": 43,
+    "test_modules_passed": 16,
+    "test_cases_passed": 43
+  },
+  "verified_contracts": {
+    "control_characters": "Null bytes, prohibited C0/C1 controls, bidi overrides, and other denylisted security controls are rejected. Explicitly allowlisted structural whitespace characters are preserved or normalized according to the frozen field policy.",
+    "operation_provenance": "Auditable operation traces and explicit raw-to-normalized span mappings; original text remains recoverable from the immutable raw_text field.",
+    "normalized_text_reconstruction": "Exact normalized-text reconstruction is verified using ordered token spans and preserved inter-token gaps; token-text concatenation alone is not claimed unless separators are represented explicitly."
   },
   "technical_invariants": {
     "raw_text_immutability": "100.0%",

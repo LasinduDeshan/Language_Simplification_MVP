@@ -22,7 +22,7 @@ $$\text{REJECTED\_INVALID\_UNICODE} \longrightarrow \text{MANUAL\_REVIEW\_REQUIR
 
 | Precedence | Terminal Disposition | Mandatory Condition |
 |---|---|---|
-| **1 (Highest)** | `REJECTED_INVALID_UNICODE` | Prohibited control character (null byte, C0/C1, bidi overrides) or pre-existing `U+FFFD` replacement character in raw text. |
+| **1 (Highest)** | `REJECTED_INVALID_UNICODE` | Prohibited security control (null byte, prohibited C0/C1 control, bidi override) or pre-existing `U+FFFD` replacement character in raw text. Explicitly allowlisted structural whitespace characters (TAB, LF, CR) are preserved or normalized according to policy. |
 | **2** | `MANUAL_REVIEW_REQUIRED` | Suspicious orthographic sequences, unattached combining marks, unexpected joiner contexts, unsupported foreign scripts, or empty text. |
 | **3** | `EXCLUDED_NON_SINHALA` | Input lacking trusted Sinhala provenance AND showing zero Sinhala script content. |
 | **4** | `PASSED_WITH_NORMALIZATION` | Valid Sinhala text requiring Unicode NFC composition or whitespace adjustments to attain canonical form. |
@@ -36,7 +36,7 @@ Every processed record receives **exactly one** terminal disposition.
 
 | Quality Flag | Trigger Condition | Disposition Impact |
 |---|---|---|
-| `PROHIBITED_CONTROL_PRESENT` | Null bytes, C0/C1 controls, bidi overrides | Forces `REJECTED_INVALID_UNICODE` |
+| `PROHIBITED_CONTROL_PRESENT` | Null bytes, prohibited C0/C1 controls (e.g. U+0085 NEL, non-whitespace C0), bidi overrides | Forces `REJECTED_INVALID_UNICODE` |
 | `REPLACEMENT_CHARACTER_PRESENT` | Raw text contains `U+FFFD` | Forces `REJECTED_INVALID_UNICODE` |
 | `COMBINING_SEQUENCE_REVIEW` | Combining mark without base character or $> 3$ consecutive marks | Forces `MANUAL_REVIEW_REQUIRED` |
 | `UNEXPECTED_JOINER_CONTEXT` | ZWJ/ZWNJ outside allowlisted Yansaya/Rakaransaya/Conjunct/Repaya contexts | Forces `MANUAL_REVIEW_REQUIRED` |

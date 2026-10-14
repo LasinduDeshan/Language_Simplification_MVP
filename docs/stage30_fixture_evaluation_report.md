@@ -17,8 +17,7 @@ This report documents the empirical evaluation of the Stage 30 Sinhala Unicode n
 - **NFC Normalization Idempotence:** `100.0%` ($NFC(NFC(x)) = NFC(x)$ across all inputs).
 - **Fixture Disposition Accuracy:** `32/32 (100.0%)`.
 - **Pipeline-Introduced Replacement Characters (`U+FFFD`):** `0` (Zero tolerance confirmed).
-- **Offset Boundary Violations:** `0`.
-- **Lossless Sentence Reconstruction Failures:** `0`.
+- **Exact Normalized-Text Reconstruction Failures:** `0` (Exact normalized-text reconstruction verified using ordered token spans and preserved inter-token gaps; token-text concatenation alone is not claimed unless separators are represented explicitly).
 - **Unaccounted Records:** `0` (Exact mathematical reconciliation achieved).
 
 ---
@@ -52,6 +51,11 @@ $$\text{REJECTED\_INVALID\_UNICODE} \longrightarrow \text{MANUAL\_REVIEW\_REQUIR
 - **Unaccounted Records:** `0`
 
 ### Accounting Formula Verification
+
+$$
+32 = 20 + 2 + 5 + 4 + 1 + 0
+$$
+
 \[
 \text{Total Inputs (32)} = 20 (\text{PASSED}) + 2 (\text{PASSED\_WITH\_NORMALIZATION}) + 5 (\text{MANUAL\_REVIEW}) + 4 (\text{REJECTED}) + 1 (\text{EXCLUDED}) + 0 (\text{UNACCOUNTED})
 \]
@@ -88,4 +92,10 @@ All evaluated fixtures and derived records retain the governance metadata:
   "requires_expert_review": true
 }
 ```
-Technical fixture evaluation results do not constitute population-level linguistic accuracy or approval for unsupervised child delivery.
+
+### Governing Boundaries
+1. **Governed Selected Inventory:** The 138-entry inventory is a governed selected inventory for educational text preprocessing; it is not an exhaustive enumeration of all code points.
+2. **Defined-Fixture Grapheme Scope:** `regex` `\X` fixture testing establishes 32-fixture/defined-fixture correctness, not general Sinhala linguistic validity or complete UAX #29 conformance.
+3. **Test Scope Distinction:** Stage 30 verification comprises **16 test modules / files** with **43 individual test cases/functions** (43/43 passed).
+4. **Non-Authoritative Delivery:** Technical fixture evaluation results do not constitute population-level linguistic accuracy or approval for unsupervised child delivery.
+5. **Git Tag Immutability:** Historical tag `stage-30-complete` remains immutable at checkpoint `155008bbe460386bcaa7042aa7694718fccc08d8`. Reconciled authoritative tag `stage-30-complete-v2` seals this release.

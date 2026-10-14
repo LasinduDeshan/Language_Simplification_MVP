@@ -69,10 +69,15 @@ Each token produces an immutable `TokenRecord`:
 
 ---
 
-## 5. Lossless Reconstruction
+## 5. Normalized-Text Reconstruction Contract
 
-Joining tokens with their intervening whitespace and punctuation reproduces the normalized sentence string exactly without character loss or insertion:
-\[
-\text{SentenceText} \equiv \sum_{i} (\text{Token}_i + \text{InterveningWhitespace}_i)
-\]
-Reconstruction equivalence is verified in unit and property test suites.
+Exact normalized-text reconstruction is verified using ordered token spans and preserved inter-token gaps; token-text concatenation alone is not claimed unless separators are represented explicitly.
+
+$$
+\text{NormalizedText} = \sum_{i=0}^{n} \left( \text{Gap}_i + \text{Token}_i \right) + \text{Gap}_{n+1}
+$$
+
+where:
+- $\text{Token}_i$ is the exact slice $\text{normalized\_text}[\text{start}_i:\text{end}_i]$.
+- $\text{Gap}_i$ is the untouched intervening substring $\text{normalized\_text}[\text{end}_{i-1}:\text{start}_i]$ (covering spaces, tabs, and unparsed separators).
+- Reconstruction equivalence is verified in unit and property test suites (`test_tokenization.py`).
