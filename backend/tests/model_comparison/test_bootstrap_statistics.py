@@ -28,6 +28,38 @@ def test_wilcoxon_identical_scores():
     assert res["n_zero_diff"] == 4
     assert res["p_value"] == 1.0
     assert res["rank_biserial_r"] == 0.0
+    assert res["test_status"] == "NOT_APPLICABLE_ALL_DIFFERENCES_ZERO"
+    assert res["p_method"] == "none"
+    assert res["continuity_correction"] is False
+
+
+def test_wilcoxon_explicit_scipy_approx_arguments(monkeypatch):
+    """
+    Stage 28A explicitly uses SciPy's continuity-corrected asymptotic normal approximation
+    with zero_method="wilcox", correction=True, alternative="two-sided" and method="approx".
+    """
+    import scipy.stats as stats
+
+    captured_kwargs = {}
+    orig_wilcoxon = stats.wilcoxon
+
+    def mock_wilcoxon(*args, **kwargs):
+        captured_kwargs.update(kwargs)
+        return orig_wilcoxon(*args, **kwargs)
+
+    monkeypatch.setattr(stats, "wilcoxon", mock_wilcoxon)
+
+    scores_a = [55.0, 60.0, 58.0, 62.0]
+    scores_b = [45.0, 48.0, 50.0, 51.0]
+    res = paired_wilcoxon_test(scores_a, scores_b)
+
+    assert captured_kwargs["zero_method"] == "wilcox"
+    assert captured_kwargs["correction"] is True
+    assert captured_kwargs["alternative"] == "two-sided"
+    assert captured_kwargs["method"] == "approx"
+    assert res["p_method"] == "asymptotic_normal"
+    assert res["continuity_correction"] is True
+    assert res["test_status"] == "COMPUTED"
 
 
 def test_parametric_sensitivity_ttest():

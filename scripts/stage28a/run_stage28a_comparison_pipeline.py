@@ -616,8 +616,8 @@ Human expert educational suitability and child-delivery appropriateness have **N
 - Compression Ratio: $\\text{Length}_{\\text{output}} / \\text{Length}_{\\text{input}}$.
 
 ## 4. Statistical Testing Protocol & Wilcoxon P-Method
-- **Primary Non-Parametric Significance:** Two-sided paired Wilcoxon signed-rank test (`scipy.stats.wilcoxon(zero_method="wilcox", correction=True, alternative="two-sided")`).
-- **P-Method Specification:** Labeled `asymptotic_normal` because evaluation item sets include ties and zero differences, prompting SciPy's continuity-corrected asymptotic normal approximation.
+- **Primary Non-Parametric Significance:** Two-sided paired Wilcoxon signed-rank test. Stage 28A explicitly uses SciPy's continuity-corrected asymptotic normal approximation with `zero_method="wilcox"`, `correction=True`, `alternative="two-sided"`, and `method="approx"`.
+- **P-Method Specification:** Labeled `asymptotic_normal` reflecting the explicit `method="approx"` and `correction=True` parameters.
 - **Identical Differences Convention:** When all item score differences are zero ($n_{\\text{eff}}=0$), test status is set to `NOT_APPLICABLE_ALL_DIFFERENCES_ZERO`, with $p=1.0000$ and rank-biserial effect size $r_{\\text{rb}}=0.0$ by defined reporting convention.
 - **Multiplicity Correction:** Monotonic step-up Benjamini-Hochberg False Discovery Rate adjustment across predefined hypothesis families.
 - **SARI Difference Tolerance:** Canonical baseline $B_0=14.38$ (exact unrounded 14.3770); individual system signed differences reconcile with an explicit numerical tolerance of $\\le 0.01$.
@@ -669,7 +669,7 @@ Governed Hybrid Pipeline (**H1**) achieved 100% entity and negation preservation
 
 > [!NOTE]
 > **Wilcoxon P-Method & Configuration Specification:**
-> Because evaluation item pairs contain tied differences and zero differences, SciPy executes the continuity-corrected asymptotic normal approximation (`zero_method="wilcox"`, `correction=True`, `alternative="two-sided"`). The p-method is accordingly labeled `asymptotic_normal`. For systems where all score differences are zero (effective $n=0$, i.e., B1 and B3 vs B0), the test status is designated `NOT_APPLICABLE_ALL_DIFFERENCES_ZERO`, with $p=1.0000$ and effect size $r_{\\text{rb}}=0.0$ assigned by defined reporting convention.
+> Stage 28A explicitly uses SciPy's continuity-corrected asymptotic normal approximation with `zero_method="wilcox"`, `correction=True`, `alternative="two-sided"` and `method="approx"`. The p-method is accordingly labeled `asymptotic_normal`. For systems where all score differences are zero (effective $n=0$, i.e., B1 and B3 vs B0), the test status is designated `NOT_APPLICABLE_ALL_DIFFERENCES_ZERO`, with $p=1.0000$ and effect size $r_{\\text{rb}}=0.0$ assigned by defined reporting convention.
 
 | System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Test Status | Zero Method | Alternative | p-Method | Continuity Corr. | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\\text{rb}}$ Effect Size | Significant ($\\alpha=0.05$) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -697,7 +697,7 @@ Governed Hybrid Pipeline (**H1**) achieved 100% entity and negation preservation
 
 > [!NOTE]
 > **Wilcoxon P-Method & Configuration Specification:**
-> Evaluated via SciPy continuity-corrected asymptotic normal approximation (`zero_method="wilcox"`, `correction=True`, `alternative="two-sided"`).
+> Stage 28A explicitly uses SciPy's continuity-corrected asymptotic normal approximation with `zero_method="wilcox"`, `correction=True`, `alternative="two-sided"` and `method="approx"`.
 
 | System ID | Evaluated System Name | Paired $N$ | Zero Diffs ($n_0$) | Effective Wilcoxon $n$ | Test Status | Zero Method | Alternative | p-Method | Continuity Corr. | Mean Diff | Median Diff | Wilcoxon $W$ | Raw $p$-value | B-H Adj. $q$-value | $r_{\\text{rb}}$ Effect Size | Significant ($\\alpha=0.05$) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -871,14 +871,15 @@ $$\\text{Duplicates} = 0, \\quad \\text{MissingItems} = 0, \\quad \\text{Unaccou
 
     # 16. Write Completion Record Markdown
     with open(docs_dir / "stage28a_completion_record.md", "w", encoding="utf-8") as f:
-        f.write(f"""# Stage 28A Milestone Completion Record (v3 Reconciled)
+        f.write(f"""# Stage 28A Milestone Completion Record (v4 Final Reconciliation)
 
 **Milestone:** Stage 28A — Preliminary English Model and Simplification Comparison  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Completion Date:** {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")}  
 **Initial Completion Tag:** `stage-28a-complete` (preserved historical checkpoint)  
 **First Supplementary Tag:** `stage-28a-complete-v2` (preserved intermediate checkpoint)  
-**Authoritative Supplementary Tag:** `stage-28a-complete-v3`  
+**Second Supplementary Tag:** `stage-28a-complete-v3` (preserved historical checkpoint at commit `f74a30c`)  
+**Authoritative Final Tag:** `stage-28a-complete-v4` (authoritative final statistical reconciliation)  
 **Prerequisite Tag:** `stage-27-infrastructure-complete-v3` (resolving to commit `22eb001`)  
 **Start Tag:** `stage-28a-start` (at prerequisite baseline commit `22eb001`)  
 
@@ -925,6 +926,13 @@ Child-delivery approval: FALSE
 - **Frontend Tree Immutability:** Verified strictly immutable against `stage-28a-start^{{}}`:
   `git diff --exit-code "stage-28a-start^{{}}" -- frontend/` (zero diff, exit code 0).
 - **Core Prerequisite Modules:** `backend/app/datasets/expert_review/`, `docs/stage27_*`, `docs/stage26_*`, `data/model_simplification/` verified strictly zero diff.
+
+## 5. Tag Lineage & Immutability Preservation
+- `stage-28a-start`: Prerequisite baseline (`22eb001eaed9a3dd8bcf09a1a14e4d99a840221f`).
+- `stage-28a-complete`: Initial completion checkpoint (`7f6ddb6d7c5af1db6768cf8636b8b368500fe706`).
+- `stage-28a-complete-v2`: Intermediate reconciliation checkpoint (`54202288dca1d5a9e6218fe827372f29b9c47ce0`).
+- `stage-28a-complete-v3`: Preserved historical checkpoint (`f74a30c18112f48f0706244e29fcc4f982f3f119`).
+- `stage-28a-complete-v4`: Authoritative final statistical reconciliation including explicit SciPy arguments and test gate verification.
 """)
 
     # 17. Generate Deliverables Checksum Manifest

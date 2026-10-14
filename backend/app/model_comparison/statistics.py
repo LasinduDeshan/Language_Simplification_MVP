@@ -51,7 +51,13 @@ def paired_wilcoxon_test(
         }
 
     try:
-        res = stats.wilcoxon(a, b, zero_method="wilcox", alternative="two-sided")
+        res = stats.wilcoxon(
+            diffs,
+            zero_method="wilcox",
+            correction=True,
+            alternative="two-sided",
+            method="approx",
+        )
         stat = float(res.statistic)
         p_val = float(res.pvalue)
 

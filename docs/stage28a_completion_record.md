@@ -1,11 +1,12 @@
-# Stage 28A Milestone Completion Record (v3 Reconciled)
+# Stage 28A Milestone Completion Record (v4 Final Reconciliation)
 
 **Milestone:** Stage 28A — Preliminary English Model and Simplification Comparison  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
-**Completion Date:** 2026-10-14 07:41:38 UTC  
+**Completion Date:** 2026-10-14 08:45:18 UTC  
 **Initial Completion Tag:** `stage-28a-complete` (preserved historical checkpoint)  
 **First Supplementary Tag:** `stage-28a-complete-v2` (preserved intermediate checkpoint)  
-**Authoritative Supplementary Tag:** `stage-28a-complete-v3`  
+**Second Supplementary Tag:** `stage-28a-complete-v3` (preserved historical checkpoint at commit `f74a30c`)  
+**Authoritative Final Tag:** `stage-28a-complete-v4` (authoritative final statistical reconciliation)  
 **Prerequisite Tag:** `stage-27-infrastructure-complete-v3` (resolving to commit `22eb001`)  
 **Start Tag:** `stage-28a-start` (at prerequisite baseline commit `22eb001`)  
 
@@ -52,3 +53,10 @@ Child-delivery approval: FALSE
 - **Frontend Tree Immutability:** Verified strictly immutable against `stage-28a-start^{}`:
   `git diff --exit-code "stage-28a-start^{}" -- frontend/` (zero diff, exit code 0).
 - **Core Prerequisite Modules:** `backend/app/datasets/expert_review/`, `docs/stage27_*`, `docs/stage26_*`, `data/model_simplification/` verified strictly zero diff.
+
+## 5. Tag Lineage & Immutability Preservation
+- `stage-28a-start`: Prerequisite baseline (`22eb001eaed9a3dd8bcf09a1a14e4d99a840221f`).
+- `stage-28a-complete`: Initial completion checkpoint (`7f6ddb6d7c5af1db6768cf8636b8b368500fe706`).
+- `stage-28a-complete-v2`: Intermediate reconciliation checkpoint (`54202288dca1d5a9e6218fe827372f29b9c47ce0`).
+- `stage-28a-complete-v3`: Preserved historical checkpoint (`f74a30c18112f48f0706244e29fcc4f982f3f119`).
+- `stage-28a-complete-v4`: Authoritative final statistical reconciliation including explicit SciPy arguments and test gate verification.
