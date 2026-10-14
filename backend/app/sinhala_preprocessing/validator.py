@@ -41,8 +41,7 @@ def is_prohibited_control(char: str) -> bool:
 def is_unattached_combining_mark(text: str, idx: int) -> bool:
     char = text[idx]
     category = unicodedata.category(char)
-    is_mark = category.startswith("M") or (0x0DCA <= ord(char) <= 0x0DF3) or (ord(char) in (0x0D82, 0x0D83))
-    if not is_mark:
+    if not category.startswith("M"):
         return False
     if idx == 0:
         return True
@@ -141,7 +140,7 @@ def validate_unicode_text(text: str) -> ValidationResult:
     combining_run = 0
     for idx, char in enumerate(text):
         cat = unicodedata.category(char)
-        is_mark = cat.startswith("M") or (0x0DCA <= ord(char) <= 0x0DF3) or (ord(char) in (0x0D82, 0x0D83))
+        is_mark = cat.startswith("M")
         if is_mark:
             combining_run += 1
             if is_unattached_combining_mark(text, idx):

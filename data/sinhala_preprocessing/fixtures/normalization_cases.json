@@ -1,0 +1,37 @@
+[
+  {
+    "fixture_id": "NORM-001",
+    "description": "Clean canonical NFC Sinhala sentence (already canonical)",
+    "input_text": "අම්මා මට ආදරෙයි.",
+    "expected_changed": false,
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "NORM-002",
+    "description": "Canonical sentence with Sinhala conjuncts",
+    "input_text": "ශ්‍රී ලංකාව අපේ රටයි.",
+    "expected_changed": false,
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "NORM-003",
+    "description": "Decomposed / non-canonical sequence requiring NFC normalization",
+    "input_text": "ක\u0DCA\u200Dරමය",
+    "expected_changed": false,
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "NORM-004",
+    "description": "Text with CRLF and irregular horizontal whitespace requiring normalization",
+    "input_text": "ළමයා   පාසල්  යයි.\r\nගුරුවරයා   උගන්වයි.",
+    "expected_changed": true,
+    "expected_disposition": "PASSED_WITH_NORMALIZATION"
+  },
+  {
+    "fixture_id": "NORM-005",
+    "description": "Leading and trailing whitespace requiring trimming",
+    "input_text": "   පොත කියවන්න.   ",
+    "expected_changed": true,
+    "expected_disposition": "PASSED_WITH_NORMALIZATION"
+  }
+]

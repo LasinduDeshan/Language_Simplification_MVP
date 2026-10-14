@@ -1,0 +1,24 @@
+[
+  {
+    "fixture_id": "MIX-001",
+    "description": "Educational Sinhala sentence with English label",
+    "input_text": "අද Lesson 1 ඉගෙන ගනිමු.",
+    "expected_flag": "MIXED_SCRIPT_PRESENT",
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "MIX-002",
+    "description": "Pure English text declared as English (should be excluded as non-Sinhala)",
+    "input_text": "This is a clean English sentence.",
+    "language": "en",
+    "locale": "en-US",
+    "expected_disposition": "EXCLUDED_NON_SINHALA"
+  },
+  {
+    "fixture_id": "MIX-003",
+    "description": "Short Sinhala label with English word",
+    "input_text": "Maths පාඩම",
+    "expected_flag": "MIXED_SCRIPT_PRESENT",
+    "expected_disposition": "PASSED"
+  }
+]

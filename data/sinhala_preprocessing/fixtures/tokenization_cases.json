@@ -1,0 +1,37 @@
+[
+  {
+    "fixture_id": "TOK-001",
+    "description": "Standard Sinhala sentence tokenization",
+    "input_text": "මම බත් කනවා.",
+    "expected_token_types": ["SINHALA_WORD", "SINHALA_WORD", "SINHALA_WORD", "PUNCTUATION"],
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "TOK-002",
+    "description": "Sentence containing Arabic numbers and punctuation",
+    "input_text": "පොත් 10 ක් ඇත.",
+    "expected_token_types": ["SINHALA_WORD", "ARABIC_NUMBER", "SINHALA_WORD", "SINHALA_WORD", "PUNCTUATION"],
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "TOK-003",
+    "description": "Sentence containing English words alongside Sinhala",
+    "input_text": "Grade 2 සිසුන්.",
+    "expected_token_types": ["LATIN_WORD", "ARABIC_NUMBER", "SINHALA_WORD", "PUNCTUATION"],
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "TOK-004",
+    "description": "Sentence containing mixed script token",
+    "input_text": "මෙය 1වන පාඩමයි.",
+    "expected_token_types": ["SINHALA_WORD", "MIXED_SCRIPT_TOKEN", "SINHALA_WORD", "PUNCTUATION"],
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "TOK-005",
+    "description": "Sentence containing Sinhala Lith digits",
+    "input_text": "අංකය ෧ වේ.",
+    "expected_token_types": ["SINHALA_WORD", "SINHALA_NUMBER", "SINHALA_WORD", "PUNCTUATION"],
+    "expected_disposition": "PASSED"
+  }
+]
