@@ -27,14 +27,15 @@ DOC_FILES = [
     "docs/stage31_reproducibility_record.json",
 ]
 
-# 18 Additional Governed Implementation / Data Artifacts
+# 20 Additional Governed Implementation / Data Artifacts
 DATA_FILES = [
-    # Registry & Licence Snapshots (11 files)
+    # Registry & Licence Snapshots (12 files)
     "data/sinhala_external/registry/candidate_sources.json",
     "data/sinhala_external/registry/approved_sources.json",
     "data/sinhala_external/registry/method_development_predeclaration.json",
     "data/sinhala_external/registry/stage31_configuration.json",
     "data/sinhala_external/registry/licence_snapshots/CC-BY-4.0.txt",
+    "data/sinhala_external/registry/licence_snapshots/CC-BY-NC-SA-4.0.txt",
     "data/sinhala_external/registry/licence_snapshots/CC-BY-SA-3.0.txt",
     "data/sinhala_external/registry/licence_snapshots/CC-BY-SA-4.0.txt",
     "data/sinhala_external/registry/licence_snapshots/CommonCrawl-Terms-2020.txt",
@@ -47,12 +48,13 @@ DATA_FILES = [
     "data/sinhala_external/receipts/RET-SI-003-001.json",
     "data/sinhala_external/receipts/RET-SI-004-001.json",
     "data/sinhala_external/receipts/RET-SI-008-001.json",
-    # Raw manifest & Corpus Metadata (2 files)
+    # Raw manifest, Corpus Metadata, and Canonical Analytical View (3 files)
     "data/sinhala_external/manifests/raw_source_manifest.sha256",
-    "data/sinhala_external/corpus/corpus_metadata.json"
+    "data/sinhala_external/corpus/corpus_metadata.json",
+    "data/sinhala_external/corpus/canonical_analytical_corpus.jsonl"
 ]
 
-ALL_FILES_29 = DOC_FILES + DATA_FILES
+ALL_FILES_31 = DOC_FILES + DATA_FILES
 
 def generate_manifests():
     # 1. Generate docs/stage31_manifest.sha256
@@ -70,10 +72,10 @@ def generate_manifests():
     DOCS_MANIFEST_FILE.write_bytes("\n".join(doc_lines).encode("utf-8") + b"\n")
     print(f"Documentation manifest successfully written to: {DOCS_MANIFEST_FILE}\n")
 
-    # 2. Generate data/sinhala_external/manifests/stage31_manifest.sha256 (29 files)
-    print(f"Generating expanded implementation manifest for {len(ALL_FILES_29)} artifacts...")
+    # 2. Generate data/sinhala_external/manifests/stage31_manifest.sha256 (31 files)
+    print(f"Generating expanded implementation manifest for {len(ALL_FILES_31)} artifacts...")
     all_lines = []
-    for rel_path in sorted(ALL_FILES_29):
+    for rel_path in sorted(ALL_FILES_31):
         p = PROJECT_ROOT / rel_path
         if not p.exists():
             raise FileNotFoundError(f"Missing artifact: {p}")

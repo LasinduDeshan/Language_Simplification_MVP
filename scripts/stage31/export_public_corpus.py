@@ -43,7 +43,7 @@ def run():
             if exp["export_redistribution_status"] == "LITERAL_TEXT_SUPPRESSED_PROTECTED_INTERNAL_ONLY":
                 suppressed_ltrl_count += 1
                 assert "SRC-SI-004" in exp["all_contributing_sources"], f"Unexpected LTRL suppression: {exp['record_id']}"
-            elif exp["export_redistribution_status"] == "REVIEW_REQUIRED_ARTIFACT_LICENCE_MISMATCH":
+            elif exp["export_redistribution_status"] == "SUPPRESSED_BY_PROJECT_POLICY":
                 suppressed_indiccorp_count += 1
                 assert "SRC-SI-002" in exp["all_contributing_sources"], f"Unexpected IndicCorp suppression: {exp['record_id']}"
             else:

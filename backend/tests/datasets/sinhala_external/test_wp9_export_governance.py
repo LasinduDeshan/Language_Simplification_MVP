@@ -61,7 +61,7 @@ def test_protected_internal_only_suppresses_literal_text():
     assert exported["public_record_digest"] == "a"*64
 
 def test_indiccorp_licence_mismatch_suppression():
-    """Validates that SRC-SI-002 records have literal text suppressed pending licence verification."""
+    """Validates that SRC-SI-002 records have literal text suppressed by project policy."""
     rec = create_sample_record(
         source_id="SRC-SI-002",
         export_policy="PUBLIC_PERMITTED_CC_BY",
@@ -70,7 +70,7 @@ def test_indiccorp_licence_mismatch_suppression():
     exported = build_public_export_record(rec, "ඉන්දියානු භාෂා සඳහා වූ වාර්තාවකි.")
     assert exported is not None
     assert exported["text"] is None
-    assert exported["export_redistribution_status"] == "REVIEW_REQUIRED_ARTIFACT_LICENCE_MISMATCH"
+    assert exported["export_redistribution_status"] == "SUPPRESSED_BY_PROJECT_POLICY"
 
 def test_public_permitted_includes_literal_text():
     """Validates that verified CC-BY or CC-BY-SA records include literal text."""

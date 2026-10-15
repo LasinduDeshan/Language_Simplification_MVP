@@ -3,11 +3,12 @@ Read-Only Manifest Verifier and Negative Tamper Test for Stage 31.
 Strictly read-only with respect to repository deliverables: does not write, overwrite, or modify any deliverable files.
 Verifies both:
 1. docs/stage31_manifest.sha256 (11 planned documentation files)
-2. data/sinhala_external/manifests/stage31_manifest.sha256 (29 expanded governed artifacts)
-Performs rigorous temporary artifact copy tampering verification.
+2. data/sinhala_external/manifests/stage31_manifest.sha256 (31 expanded governed artifacts)
+Performs rigorous temporary artifact copy tampering verification and canonical analytical ledger verification.
 """
 
 import hashlib
+import json
 import sys
 import tempfile
 from pathlib import Path
@@ -92,15 +93,50 @@ def verify_manifest_file(manifest_path: Path, expected_count: int, manifest_labe
 
     return (len(mismatches) == 0 and len(missing) == 0)
 
+def verify_canonical_analytical_corpus() -> bool:
+    print("\n--- Verifying Canonical Analytical Corpus Ledger ---")
+    canonical_file = PROJECT_ROOT / "data" / "sinhala_external" / "corpus" / "canonical_analytical_corpus.jsonl"
+    provenance_file = PROJECT_ROOT / "data" / "sinhala_external" / "corpus" / "pilot_corpus.jsonl"
+
+    manifest_text = IMPLEMENTATION_MANIFEST.read_text(encoding="utf-8")
+    in_manifest = "data/sinhala_external/corpus/canonical_analytical_corpus.jsonl" in manifest_text
+    print(f"  Canonical analytical corpus present in manifest: {str(in_manifest).lower()}")
+
+    canonical_records = [json.loads(l) for l in canonical_file.read_text(encoding="utf-8").splitlines()]
+    noncanonical_exact_duplicates = len([r for r in canonical_records if not r.get("is_canonical_exact_record", False)])
+    print(f"  Canonical records: {len(canonical_records)}")
+    print(f"  Noncanonical exact duplicates: {noncanonical_exact_duplicates}")
+
+    provenance_records = [json.loads(l) for l in provenance_file.read_text(encoding="utf-8").splitlines()]
+    provenance_ids = {r["record_id"] for r in provenance_records}
+    mapping_failures = len([
+        r["record_id"] for r in provenance_records
+        if r.get("canonical_record_id") not in provenance_ids
+    ])
+    print(f"  Canonical-to-provenance mapping failures: {mapping_failures}")
+
+    sum_weights = sum(r.get("exact_duplicate_weight", 0.0) for r in provenance_records)
+    print(f"  Sum of provenance weights: {sum_weights:.1f}")
+
+    passed = (
+        in_manifest and
+        len(canonical_records) == 150 and
+        noncanonical_exact_duplicates == 0 and
+        mapping_failures == 0 and
+        abs(sum_weights - 150.0) < 1e-4
+    )
+    return passed
+
 def verify_all():
     print("=== Stage 31 Read-Only Manifest Verification Suite ===")
     ok_docs = verify_manifest_file(DOCS_MANIFEST, 11, "Planned Documentation Manifest")
-    ok_impl = verify_manifest_file(IMPLEMENTATION_MANIFEST, 29, "Expanded Governed Implementation Manifest")
+    ok_impl = verify_manifest_file(IMPLEMENTATION_MANIFEST, 31, "Expanded Governed Implementation Manifest")
+    ok_canon = verify_canonical_analytical_corpus()
 
-    overall = ok_docs and ok_impl
+    overall = ok_docs and ok_impl and ok_canon
     print("\n=== Overall Stage 31 Manifest Verification Result ===")
     if overall:
-        print("ALL STAGE 31 MANIFESTS VERIFIED OK (11/11 Docs + 29/29 Implementation Artifacts, 0 Mismatches, Tamper Tests Passed)")
+        print("ALL STAGE 31 MANIFESTS VERIFIED OK (11/11 Docs + 31/31 Implementation Artifacts, 0 Mismatches, Tamper & Canonical Tests Passed)")
     else:
         print("STAGE 31 MANIFEST VERIFICATION FAILED!")
     return overall

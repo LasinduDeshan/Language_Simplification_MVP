@@ -106,3 +106,45 @@ def test_transitive_split_grouping_and_dev_component_isolation():
     assert grp_4 == grp_5
     assert grp_4 != grp_1
     assert group_types[grp_4] == "UNTOUCHED_EVAL_ELIGIBLE_COMPONENT"
+
+def test_canonical_analytical_corpus_ledger():
+    """
+    Validates canonical analytical corpus properties:
+    - Canonical analytical corpus present in manifest: true
+    - Canonical records: 150
+    - Noncanonical exact duplicates: 0
+    - Canonical-to-provenance mapping failures: 0
+    - Sum of provenance weights: 150.0
+    """
+    import json
+    from pathlib import Path
+
+    project_root = Path(__file__).resolve().parent.parent.parent.parent.parent
+    canonical_file = project_root / "data" / "sinhala_external" / "corpus" / "canonical_analytical_corpus.jsonl"
+    provenance_file = project_root / "data" / "sinhala_external" / "corpus" / "pilot_corpus.jsonl"
+    manifest_file = project_root / "data" / "sinhala_external" / "manifests" / "stage31_manifest.sha256"
+
+    # 1. Canonical analytical corpus present in manifest
+    manifest_text = manifest_file.read_text(encoding="utf-8")
+    assert "data/sinhala_external/corpus/canonical_analytical_corpus.jsonl" in manifest_text
+
+    # 2. Canonical records count: 150
+    canonical_records = [json.loads(l) for l in canonical_file.read_text(encoding="utf-8").splitlines()]
+    assert len(canonical_records) == 150
+
+    # 3. Noncanonical exact duplicates: 0
+    noncanonical_in_canonical_view = [r for r in canonical_records if not r.get("is_canonical_exact_record", False)]
+    assert len(noncanonical_in_canonical_view) == 0
+
+    # 4. Canonical-to-provenance mapping failures: 0
+    provenance_records = [json.loads(l) for l in provenance_file.read_text(encoding="utf-8").splitlines()]
+    provenance_ids = {r["record_id"] for r in provenance_records}
+    canonical_mapping_failures = [
+        r["record_id"] for r in provenance_records
+        if r.get("canonical_record_id") not in provenance_ids
+    ]
+    assert len(canonical_mapping_failures) == 0
+
+    # 5. Sum of provenance weights: 150.0
+    total_weight = sum(r.get("exact_duplicate_weight", 0.0) for r in provenance_records)
+    assert abs(total_weight - 150.0) < 1e-4

@@ -59,9 +59,9 @@ def build_public_export_record(record: PilotCorpusRecord, text: str) -> Optional
         export_dict["text"] = None
         export_dict["export_redistribution_status"] = "LITERAL_TEXT_SUPPRESSED_PROTECTED_INTERNAL_ONLY"
     elif is_licence_mismatch:
-        # Literal text suppressed pending artifact-specific licence verification
+        # Literal text suppressed by project policy for non-commercial research source (SRC-SI-002 CC BY-NC-SA 4.0)
         export_dict["text"] = None
-        export_dict["export_redistribution_status"] = "REVIEW_REQUIRED_ARTIFACT_LICENCE_MISMATCH"
+        export_dict["export_redistribution_status"] = "SUPPRESSED_BY_PROJECT_POLICY"
     else:
         export_dict["text"] = text
         export_dict["export_redistribution_status"] = "PUBLIC_TEXT_PERMITTED_WITH_ATTRIBUTION"

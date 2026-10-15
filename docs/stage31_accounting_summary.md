@@ -4,9 +4,14 @@
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_accounting_summary.md`  
 **Governing Standard:** Section 18, `docs/stage31_implementation_plan.md`  
-**Status:** Frozen — Authoritative Conservation Ledger (Reconciled v3)  
+**Status:** Frozen — Authoritative Conservation Ledger (Reconciled v5)  
 **Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
-**Sealed Timestamp:** `2026-10-15T19:50:00+05:30` (UTC: `2026-10-15T14:20:00Z`)  
+**Historical Initial Tag:** `stage-31-complete` (`975989e701561d8530781b57c9cd82f8db7ee72d`, preserved)  
+**Historical Reconciled Tag v2:** `stage-31-complete-v2` (`181e8608364649466ba8bf55fed52bf1a977a0f9`, preserved)  
+**Historical Reconciled Tag v3:** `stage-31-complete-v3` (`060be30fd6bddc6bc62495d6425cbb9215da5292`, preserved)  
+**Historical Reconciled Tag v4:** `stage-31-complete-v4` (`c07a520438941fb047720176c4ef153131dc4716`, preserved)  
+**Final Checkpoint Tag:** `stage-31-complete-v5`  
+**Sealed Timestamp:** `2026-10-15T20:30:00+05:30` (UTC: `2026-10-15T15:00:00Z`)  
 **Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
 **Internal Technical Governance Concurrence:** RECORDED  
 **Independent Governance Signoff:** NOT ESTABLISHED  
@@ -24,7 +29,7 @@ Every accounting balance equation has been reconciled with **zero unaccounted it
 
 ## 2. Equation 1: Candidate-Source Accounting (Section 18.1)
 
-Every candidate source discovered in WP1 belongs to exactly one mutually exclusive status category:
+Every candidate source belongs to exactly one mutually exclusive status category:
 
 $$
 \text{TotalCandidates (8)} = \text{Approved (5)} + \text{MetadataOnly (1)} + \text{ReviewRequired (1)} + \text{Blocked (1)} + \text{SourceUnavailable (0)} + \text{Unaccounted (0)}
@@ -33,7 +38,7 @@ $$
 | Source ID | Source Name | Primary Decision | Reconciliation Category |
 |---|---|---|---|
 | `SRC-SI-001` | Sinhala Wikipedia Official Dump | `APPROVED` | Approved |
-| `SRC-SI-002` | AI4Bharat IndicCorp Sinhala Corpus | `APPROVED` | Approved |
+| `SRC-SI-002` | AI4Bharat IndicCorp Sinhala Corpus | `APPROVED_INTERNAL_NONCOMMERCIAL_ONLY` | Approved |
 | `SRC-SI-003` | FLORES-200 Sinhala Benchmark Split | `APPROVED` | Approved |
 | `SRC-SI-004` | UCSC LTRL Sinhala News / POS Corpus | `APPROVED` | Approved |
 | `SRC-SI-005` | CC-100 Sinhala Monolingual Web Corpus | `REVIEW_REQUIRED` | ReviewRequired |
@@ -82,9 +87,7 @@ $$
 
 ---
 
-## 5. Equation 4: Terminal-Disposition Accounting & Model C Reconciliation (Section 18.4)
-
-Every preprocessed record was evaluated against privacy, quality, rights, and scope criteria:
+## 5. Equation 4: Terminal-Disposition Accounting & Model C Dual-View Reconciliation (Section 18.4)
 
 $$
 \text{CandidateRecords (180)} = \text{Accepted (180)} + \text{ManualReview (0)} + \text{Rejected (0)} + \text{Excluded (0)} + \text{Quarantined (0)} + \text{Unaccounted (0)}
@@ -99,107 +102,80 @@ $$
 - `REJECTED_INVALID_UNICODE`: **0**
 - `REJECTED_QUALITY`: **0**
 - `EXCLUDED_NON_SINHALA`: **0**
-- `EXCLUDED_DUPLICATE`: **0** (Model C Retained)
+- `EXCLUDED_DUPLICATE`: **0** (Model C Retained with provenance view)
 - `EXCLUDED_OUT_OF_SCOPE`: **0**
 - `QUARANTINED_SOURCE_ERROR`: **0**
 - **Unaccounted:** **0**
 
-### Exact-Duplicate Accounting & Model C Formal Protocol Deviation
-Under the approved baseline plan, exact duplicates were eligible for `EXCLUDED_DUPLICATE` with one canonical representative retained. In Stage 31, **Model C (Duplicates Intentionally Retained)** was applied:
-- **Total Candidate Records:** 180
-- **Total Exact Clusters Formed:** 150
-- **Single-Member Clusters:** 145 (145 records)
-- **Multi-Member Clusters:** 5 clusters (`DUP-SI-000146` through `DUP-SI-000150`, 7 records each = 35 records)
-- **Canonical Representatives:** 150
-- **Retained Exact-Duplicate Records:** **30** (surplus across 5 clusters)
-- **`EXCLUDED_DUPLICATE` Count:** 0
-- **Protocol Deviation Justification:** In early-grade educational reader series (StoryWeaver), natural narrative refrains, recurring character dialogues, and story progressions intentionally repeat across difficulty tiers. All 30 duplicate records were intentionally retained to evaluate simplification model behavior on repetitive early-grade text.
-- **Leakage Prevention Enforcement:** Every duplicate member across all 5 multi-member clusters was bound into the exact same `split_group_id` (`SPLIT-GRP-SI-000146` to `SPLIT-GRP-SI-000150`) and assigned exclusively to `train`.
-- **Duplicate Cross-Split Leakage:** **0 (PASSED)**
+### Dual Corpus Views & Analytical Population Ledger
+- **Stored Record Instances:** **180** (Provenance-preserving corpus: `pilot_corpus.jsonl`)
+- **Unique Exact-Text Canonical Records:** **150** (Canonical analytical corpus: `canonical_analytical_corpus.jsonl`)
+- **Surplus Retained Duplicate Instances:** **30** (across 5 multi-member clusters)
+- **Effective Unweighted Analytical Population:** **150**
+- **Sum of Provenance Weights:** **150.0** ($145 \times 1.0 + 5 \times [7 \times \frac{1}{7}] = 150.0$)
+- **Canonical-to-Provenance Mapping Failures:** **0**
+- **Noncanonical Exact Duplicates in Canonical View:** **0**
+- **Retention Justification:** Retained to preserve source-level and reading-tier provenance for future governed analysis. Stage 31 performs no simplification-model evaluation.
+- **Zero Leakage Invariant:** All duplicate members share the exact same `split_group_id` (`SPLIT-GRP-SI-000146` to `SPLIT-GRP-SI-000150`) in `train`.
 
 ---
 
-## 6. Equation 5: Near-Duplicate Candidate Reconciliation
+## 6. Public Export Policy Enforcement Ledger
 
-Across all 180 records, all candidate pairs with token/char Jaccard similarity $\ge 0.80$ were reconciled prior to split assignment:
+In accordance with strict rights-containment governance:
 
-$$
-\text{NearDuplicateCandidates (108)} = \text{ConfirmedDuplicateRelation (105)} + \text{ConservativelyUnioned (3)} + \text{RejectedAsDistinct (0)} + \text{UnresolvedAtSealing (0)}
-$$
-
-- **Confirmed as duplicate relation ($\ge 0.90$):** 105 pairs
-- **Conservatively unioned into split groups ($0.80 \le \text{sim} < 0.90$):** 3 pairs
-- **Rejected as distinct:** 0 pairs
-- **Unresolved at split sealing:** **0 pairs (100% resolved)**
-
----
-
-## 7. Equation 6: Pilot Corpus Split Accounting (Section 18.5)
-
-### Explanation of Split-Ratio Allocation
-The planned 70/15/15 allocation was applied **only to the 90 untouched evaluation-eligible records**. The 90 method-development records were mandatorily assigned to `train` (in accordance with Invariants 18 & 19), producing an overall 85.6% / 7.2% / 7.2% corpus distribution:
-
-$$
-\text{Untouched Records (90)} = \text{Untouched Train (64, 71.1\%)} + \text{Validation (13, 14.4\%)} + \text{Locked-Test (13, 14.4\%)}
-$$
-
-$$
-\text{TotalCorpus (180)} = \text{Train (154, 85.6\%)} + \text{Validation (13, 7.2\%)} + \text{Locked-Test (13, 7.2\%)} + \text{Unaccounted (0)}
-$$
-
-| Split Partition | Overall Count | Overall Ratio | Method-Dev Units | Untouched Units | Untouched Ratio |
-|---|---|---|---|---|---|
-| **`train`** | **154** | 85.6% | **90** (100% dev pool) | 64 | 71.1% |
-| **`validation`** | **13** | 7.2% | **0** | 13 | 14.4% |
-| **`locked_test`** | **13** | 7.2% | **0** | 13 | 14.4% |
-| **Total** | **180** | 100.0% | **90** | **90** | **100.0%** |
-
----
-
-## 8. Redistribution and Licence Compatibility Framework
-
-For the four sources whose literal text is exported in `public_export_corpus.jsonl`:
-
-| Source ID | Source Name | Pinned Licence Version | Share-Alike Obligation | Attribution Mandate |
+| Source ID | Primary Source Name | Pinned Licence | Literal Export Policy | Public Export Count |
 |---|---|---|---|---|
-| `SRC-SI-001` | Sinhala Wikipedia | CC BY-SA 3.0 / 4.0 Dual | **YES (CC BY-SA)** | Credit "Contributors to Sinhala Wikipedia" + URL |
-| `SRC-SI-002` | IndicCorp Sinhala | CC BY 4.0 | No (Permissive) | Cite AI4Bharat IndicCorp (Kakwani et al., 2020) |
-| `SRC-SI-003` | FLORES-200 | CC BY-SA 4.0 | **YES (CC BY-SA)** | Cite NLLB Team, Meta AI (2022) |
-| `SRC-SI-008` | StoryWeaver | CC BY 4.0 | No (Permissive) | Credit Pratham Books StoryWeaver + Authors/Illustrators |
+| `SRC-SI-001` | Sinhala Wikipedia | CC BY-SA 4.0 | Permitted with Attribution | **40** (text included) |
+| `SRC-SI-002` | IndicCorp Sinhala | CC BY-NC-SA 4.0 | `SUPPRESSED_BY_PROJECT_POLICY` | **40** (`text: null`) |
+| `SRC-SI-003` | FLORES-200 | CC BY-SA 4.0 | Permitted with Attribution | **35** (text included) |
+| `SRC-SI-004` | UCSC LTRL Corpus | Academic Research | `PROTECTED_INTERNAL_ONLY` | **30** (`text: null`) |
+| `SRC-SI-008` | StoryWeaver (Books only) | CC BY 4.0 | Permitted with Attribution | **35** (text included) |
+| **Total** | | | | **180 Records** |
 
-### Corpus-Level Licence Compatibility Decision
-1. **Per-Record Attribution:** In `public_export_corpus.jsonl`, each record retains its granular source ID, licence tag, and attribution metadata.
-2. **Derivative Adaptation Licence Inheritance:** Any integrated derivative adaptation combining CC BY-SA records (`SRC-SI-001`, `SRC-SI-003`) with CC BY records inherits the **CC BY-SA 4.0** share-alike licence for the composite derivative.
-3. **Protected Academic Corpus Isolation:** All 30 records originating from `SRC-SI-004` (UCSC LTRL) have literal text **100% suppressed** (`text: null`), completely preventing any public redistribution of restricted academic text.
+- **Public Permitted Records (with text):** **110**
+- **Literal Text Suppressed Records (`text: null`):** **70** (`SRC-SI-002` 40 + `SRC-SI-004` 30)
+- **Literal restricted text detected in configured public-export fields:** **0 (PASSED)**
 
 ---
 
-## 9. Manifest Scope and Location Reconciliation
+## 7. Manifest Scope and Verification Framework
 
 1. **Planned Documentation Manifest (`docs/stage31_manifest.sha256`):**
-   - Required documentation deliverables: **12**
    - Manifest-controlled documentation files: **11**
    - Checksum manifest: **1** (excludes itself)
-   - Balance formula:
-     $$12 = 11 \text{ manifest-controlled documentation files} + 1 \text{ checksum manifest}$$
+   - Balance formula: $12 = 11 + 1$
 2. **Expanded Governed Implementation Manifest (`data/sinhala_external/manifests/stage31_manifest.sha256`):**
-   - Controls **29 distinct implementation and documentation artifacts** across `docs/`, `data/sinhala_external/registry/`, `data/sinhala_external/receipts/`, and `data/sinhala_external/corpus/`.
+   - Controls **31 distinct artifacts**:
+     - 11 Documentation files
+     - 8 Licence snapshots (including `CC-BY-NC-SA-4.0.txt`)
+     - 4 Registry JSON files (candidate_sources, approved_sources, method_dev, config)
+     - 5 Receipts (`RET-SI-001-001` through `RET-SI-008-001`)
+     - 1 Raw source manifest (`raw_source_manifest.sha256`)
+     - 1 Corpus metadata (`corpus_metadata.json`)
+     - 1 Canonical analytical corpus view (`canonical_analytical_corpus.jsonl`)
    - The checksum manifest does not claim to hash itself.
 
 ---
 
-## 10. Governance and Signoff
+## 8. Governance and Signoff
 
 ```text
-Accounting Ledger:                         100% RECONCILED
-Total Unaccounted Items:                   0
-Technical Governance Reviewer:             REV-GOV-01
-Reviewer Identity Verified:                false (internal technical reviewer)
-Internal Technical Governance Concurrence: RECORDED
-Independent Governance Signoff:            NOT ESTABLISHED
-Independent Legal Review:                  NOT ESTABLISHED
-Sinhala Linguistic Review:                 NOT ESTABLISHED
-Child-Development Review:                  NOT ESTABLISHED
-Sealed Timestamp:                          2026-10-15T19:50:00+05:30 (UTC: 2026-10-15T14:20:00Z)
-Authoritative Status:                      SEALED_RECONCILED_V3
+Accounting Ledger:                                     100% RECONCILED
+Total Unaccounted Items:                               0
+Canonical Analytical Corpus Present in Manifest:       true
+Canonical Records:                                     150
+Noncanonical Exact Duplicates:                         0
+Canonical-to-Provenance Mapping Failures:              0
+Sum of Provenance Weights:                             150.0
+Literal Restricted Text in Public-Export Fields:       0
+Technical Governance Reviewer:                         REV-GOV-01
+Reviewer Identity Verified:                            false (internal technical reviewer)
+Internal Technical Governance Concurrence:             RECORDED
+Independent Governance Signoff:                        NOT ESTABLISHED
+Independent Legal Review:                              NOT ESTABLISHED
+Sinhala Linguistic Review:                             NOT ESTABLISHED
+Child-Development Review:                              NOT ESTABLISHED
+Sealed Timestamp:                                      2026-10-15T20:30:00+05:30 (UTC: 2026-10-15T15:00:00Z)
+Authoritative Status:                                  SEALED_RECONCILED_V5
 ```

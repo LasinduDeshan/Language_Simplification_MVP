@@ -14,7 +14,11 @@
     "historical_initial_commit": "975989e701561d8530781b57c9cd82f8db7ee72d",
     "historical_reconciled_tag_v2": "stage-31-complete-v2",
     "historical_reconciled_commit_v2": "181e8608364649466ba8bf55fed52bf1a977a0f9",
-    "final_reconciled_tag": "stage-31-complete-v3"
+    "historical_reconciled_tag_v3": "stage-31-complete-v3",
+    "historical_reconciled_commit_v3": "060be30fd6bddc6bc62495d6425cbb9215da5292",
+    "historical_reconciled_tag_v4": "stage-31-complete-v4",
+    "historical_reconciled_commit_v4": "c07a520438941fb047720176c4ef153131dc4716",
+    "final_reconciled_tag": "stage-31-complete-v5"
   },
   "configurations": {
     "stage30_configuration_sha256": "1a18da3a3a5f8e6b360b97cb1135ceba8903c5354929cff4e1834f3b7cb7a610",
@@ -38,44 +42,22 @@
       "EXCLUDED_OUT_OF_SCOPE": 0,
       "QUARANTINED_SOURCE_ERROR": 0
     },
-    "exact_duplicate_accounting": {
-      "protocol_model": "Model C — Duplicates Intentionally Retained",
-      "total_candidates": 180,
-      "total_exact_clusters": 150,
-      "single_member_clusters": 145,
-      "multi_member_clusters": 5,
-      "retained_exact_duplicate_records": 30,
-      "excluded_duplicate_records": 0,
-      "split_group_confinement": "PASSED (All duplicate members share one split_group_id in train)"
+    "canonical_analytical_corpus_ledger": {
+      "canonical_analytical_corpus_present_in_manifest": true,
+      "canonical_records": 150,
+      "noncanonical_exact_duplicates": 0,
+      "canonical_to_provenance_mapping_failures": 0,
+      "sum_of_provenance_weights": 150.0,
+      "surplus_retained_duplicate_instances": 30,
+      "retention_reason": "Retained to preserve source-level and reading-tier provenance for future governed analysis. Stage 31 performs no simplification-model evaluation."
     },
-    "near_duplicate_reconciliation": {
-      "candidate_pairs_detected": 108,
-      "confirmed_duplicate_relation": 105,
-      "conservatively_unioned": 3,
-      "rejected_as_distinct": 0,
-      "unresolved_at_sealing": 0
-    },
-    "corpus_split_reconciliation": {
-      "total_records": 180,
-      "overall_distribution": {
-        "train": 154,
-        "validation": 13,
-        "locked_test": 13
-      },
-      "untouched_eval_eligible_distribution": {
-        "total_untouched": 90,
-        "train": 64,
-        "validation": 13,
-        "locked_test": 13,
-        "proportions": "71.1% Train / 14.4% Val / 14.4% Test (target ~70/15/15)"
-      },
-      "method_development_pool_distribution": {
-        "total_dev_records": 90,
-        "train": 90,
-        "validation": 0,
-        "locked_test": 0,
-        "note": "Mandatorily assigned to train in accordance with Invariants 18 & 19"
-      }
+    "public_export_policy_enforcement": {
+      "total_exported_records": 180,
+      "public_permitted_records_with_text": 110,
+      "protected_academic_records_text_null": 30,
+      "project_policy_suppressed_records_text_null": 40,
+      "total_literal_text_suppressed_records": 70,
+      "literal_restricted_text_detected_in_configured_fields": 0
     },
     "four_dimensional_leakage": {
       "split_group_leakage": 0,
@@ -89,7 +71,7 @@
     "planned_docs_manifest": "docs/stage31_manifest.sha256",
     "planned_docs_formula": "12 = 11 manifest-controlled documentation files + 1 checksum manifest",
     "governed_implementation_manifest": "data/sinhala_external/manifests/stage31_manifest.sha256",
-    "governed_artifacts_controlled": 29,
+    "governed_artifacts_controlled": 31,
     "self_inclusion": false,
     "tamper_test_evidence": {
       "original_manifest_modified": false,
@@ -98,57 +80,45 @@
       "verifier_returned_failure_for_tampered_copy": true
     }
   },
-  "privacy_screening_status": {
-    "automated_privacy_flags_detected": 0,
-    "manual_protected_sample_review": "NOT_PERFORMED",
-    "absence_of_all_personal_information": "NOT_ESTABLISHED"
-  },
-  "licence_compatibility_framework": {
+  "licence_verification_framework": {
     "SRC-SI-001": {
-      "licence": "CC BY-SA 3.0 / 4.0 Dual",
-      "share_alike": true,
-      "attribution": "Contributors to Sinhala Wikipedia"
+      "licence": "CC BY-SA 4.0",
+      "evidence_file": "data/sinhala_external/registry/licence_snapshots/CC-BY-SA-4.0.txt",
+      "redistribution": "PUBLIC_TEXT_PERMITTED_WITH_ATTRIBUTION"
     },
     "SRC-SI-002": {
-      "licence": "CC BY 4.0",
-      "share_alike": false,
-      "attribution": "AI4Bharat IndicCorp (Kakwani et al., 2020)"
+      "licence": "CC BY-NC-SA 4.0",
+      "evidence_file": "data/sinhala_external/registry/licence_snapshots/CC-BY-NC-SA-4.0.txt",
+      "evidence_sha256": "dc95bad5386871bab6b5b62daa4d2ae2eb4aa5244e37dff11ff233514761cbef",
+      "primary_decision": "APPROVED_INTERNAL_NONCOMMERCIAL_ONLY",
+      "public_literal_export_enabled": false,
+      "redistribution": "SUPPRESSED_BY_PROJECT_POLICY"
     },
     "SRC-SI-003": {
       "licence": "CC BY-SA 4.0",
-      "share_alike": true,
-      "attribution": "NLLB Team, Meta AI (2022)"
+      "evidence_file": "data/sinhala_external/registry/licence_snapshots/CC-BY-SA-4.0.txt",
+      "redistribution": "PUBLIC_TEXT_PERMITTED_WITH_ATTRIBUTION"
+    },
+    "SRC-SI-004": {
+      "licence": "Academic Research Use Agreement",
+      "evidence_file": "data/sinhala_external/registry/licence_snapshots/UCSC-LTRL-Academic-Research-Terms.txt",
+      "redistribution": "PROTECTED_INTERNAL_ONLY"
     },
     "SRC-SI-008": {
       "licence": "CC BY 4.0",
-      "share_alike": false,
-      "attribution": "Pratham Books StoryWeaver"
-    },
-    "composite_derivative_licence": "CC BY-SA 4.0",
-    "restricted_source_isolation": "SRC-SI-004 literal text 100% suppressed in public export"
-  },
-  "test_verification_summary": {
-    "stage30_tests_passed": 44,
-    "stage31_tests_passed": 23,
-    "full_backend_tests_passed": 568,
-    "frontend_localization_tests_passed": 17,
-    "frontend_production_build_status": "PASSED"
-  },
-  "governance_status": {
-    "validation_status": "draft",
-    "research_eligible": false,
-    "approved_for_child_delivery": false,
-    "approved_for_unsupervised_child_delivery": false,
-    "requires_expert_review": true
+      "asset_scope": "Book narrative text only",
+      "evidence_file": "data/sinhala_external/registry/licence_snapshots/CC-BY-4.0.txt",
+      "redistribution": "PUBLIC_TEXT_PERMITTED_WITH_ATTRIBUTION"
+    }
   },
   "governance_review_scope": {
     "technical_governance_reviewer": "REV-GOV-01",
     "reviewer_identity_verified": false,
     "internal_technical_governance_concurrence": "RECORDED",
-    "independent_governance_signoff": "NOT_ESTABLISHED",
-    "independent_legal_review": "NOT_ESTABLISHED",
-    "sinhala_linguistic_review": "NOT_ESTABLISHED",
-    "child_development_review": "NOT_ESTABLISHED"
+    "independent_governance_signoff": "NOT ESTABLISHED",
+    "independent_legal_review": "NOT ESTABLISHED",
+    "sinhala_linguistic_review": "NOT ESTABLISHED",
+    "child_development_review": "NOT ESTABLISHED"
   },
-  "sealed_at": "2026-10-15T19:50:00+05:30"
+  "sealed_at": "2026-10-15T20:30:00+05:30"
 }

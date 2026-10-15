@@ -3,9 +3,9 @@
 **Stage:** Stage 31 — Sinhala External Dataset Ingestion and Pilot Corpus Creation  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_licence_and_rights_report.md`  
-**Status:** Frozen — Reconciled Rights and Specific Licence Verification Sealed (v3)  
+**Status:** Frozen — Conclusive Non-Commercial Rights Verification Sealed (v5)  
 **Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
-**Sealed Timestamp:** `2026-10-15T19:57:00+05:30` (UTC: `2026-10-15T14:27:00Z`)  
+**Sealed Timestamp:** `2026-10-15T20:30:00+05:30` (UTC: `2026-10-15T15:00:00Z`)  
 **Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
 **Internal Technical Governance Concurrence:** RECORDED  
 **Independent Governance Signoff:** NOT ESTABLISHED  
@@ -35,16 +35,18 @@ This report establishes the intellectual property, licensing, and usage rights f
 - **Attribution Method:** Article URL and revision/history reference; credited to "Contributors to Sinhala Wikipedia".
 - **Redistribution Status:** `PUBLIC_TEXT_PERMITTED_WITH_ATTRIBUTION`.
 
-### 2.2 `SRC-SI-002`: AI4Bharat IndicCorp Sinhala
-- **IndicCorp Version:** IndicCorp v1 (Kakwani et al., 2020)
-- **Repository / Release URL:** `https://github.com/AI4Bharat/indicnlp_corpus`
-- **Archive Filename:** `si.txt.gz`
-- **Archive SHA-256:** `712baa1f226626a9b407769a60787d19c364d99c4aa02eeef447ff7a988d87b1`
-- **Dataset Licence File:** `data/sinhala_external/registry/licence_snapshots/CC-BY-4.0.txt`
-- **Licence File SHA-256:** `584de4c9f788c0f06f5647a9ecf2f35d21469e7f8fbcfbb3231e33de3a738dfc`
-- **Licence Ambiguity Finding:** Official AI4Bharat IndicBERT documentation designates certain datasets as CC0, whereas the IndicNLP Corpus repository specifies CC BY-NC-SA 4.0. Because commercial vs non-commercial permissions differ materially between these notices:
-- **Redistribution Status:** **`REVIEW_REQUIRED_ARTIFACT_LICENCE_MISMATCH`**
-- **Public Export Constraint:** **Literal text is 100% suppressed from public export** (`text: null`) pending upstream artifact-specific licence verification.
+### 2.2 `SRC-SI-002`: AI4Bharat IndicCorp Sinhala (Conclusive Upstream Verification — Option A)
+- **Source Identifier:** `SRC-SI-002`
+- **Artifact:** IndicCorp v1 Sinhala / `si.txt.gz`
+- **Applicable Licence:** **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**
+- **Rights Evidence Source:** `https://raw.githubusercontent.com/AI4Bharat/indicnlp_corpus/master/LICENSE`
+- **Rights Evidence SHA-256:** `dc95bad5386871bab6b5b62daa4d2ae2eb4aa5244e37dff11ff233514761cbef` (`CC-BY-NC-SA-4.0.txt`)
+- **Internal Non-Commercial Research Allowed:** `true`
+- **Commercial Use Allowed:** `false`
+- **Public Literal Export Enabled:** `false`
+- **Public Export Policy:** `SUPPRESSED_BY_PROJECT_POLICY`
+- **Primary Decision:** `APPROVED_INTERNAL_NONCOMMERCIAL_ONLY`
+- **Redistribution Status:** **`SUPPRESSED_BY_PROJECT_POLICY`** (Literal text is 100% suppressed: `text: null`).
 
 ### 2.3 `SRC-SI-003`: FLORES-200 Sinhala Benchmark
 - **Release Version:** FLORES-200 Dev/Devtest Split (`nllb-200`)
@@ -89,7 +91,7 @@ $$
 | Source ID | Source Name | Primary Licence | Decision | Export Policy |
 |---|---|---|---|---|
 | `SRC-SI-001` | Sinhala Wikipedia Dump | CC BY-SA 4.0 | `APPROVED` | `PUBLIC_PERMITTED_CC_BY_SA` |
-| `SRC-SI-002` | IndicCorp Sinhala | Mismatch Review | `APPROVED` | `REVIEW_REQUIRED_ARTIFACT_LICENCE_MISMATCH` |
+| `SRC-SI-002` | IndicCorp Sinhala | CC BY-NC-SA 4.0 | `APPROVED_INTERNAL_NONCOMMERCIAL_ONLY` | `SUPPRESSED_BY_PROJECT_POLICY` |
 | `SRC-SI-003` | FLORES-200 Benchmark | CC BY-SA 4.0 | `APPROVED` | `PUBLIC_PERMITTED_CC_BY_SA` |
 | `SRC-SI-004` | UCSC LTRL Corpus | Academic Research | `APPROVED` | `PROTECTED_INTERNAL_ONLY` |
 | `SRC-SI-005` | CC-100 Sinhala | Web Scraped Terms | `REVIEW_REQUIRED` | `BLOCKED_REVIEW_REQUIRED` |
@@ -103,12 +105,12 @@ $$
 ## 5. Reviewer Signoff
 
 ```text
-Technical Governance Reviewer:             REV-GOV-01
-Reviewer Identity Verified:                false (pseudonymous internal technical reviewer)
-Internal Technical Governance Concurrence: RECORDED
-Independent Governance Signoff:            NOT ESTABLISHED
-Independent Legal Review:                  NOT ESTABLISHED
-Sinhala Linguistic Review:                 NOT ESTABLISHED
-Child-Development Review:                  NOT ESTABLISHED
-Sealed Timestamp:                          2026-10-15T19:57:00+05:30 (UTC: 2026-10-15T14:27:00Z)
+Technical Governance Reviewer:                         REV-GOV-01
+Reviewer Identity Verified:                            false (pseudonymous internal technical reviewer)
+Internal Technical Governance Concurrence:             RECORDED
+Independent Governance Signoff:                        NOT ESTABLISHED
+Independent Legal Review:                              NOT ESTABLISHED
+Sinhala Linguistic Review:                             NOT ESTABLISHED
+Child-Development Review:                              NOT ESTABLISHED
+Sealed Timestamp:                                      2026-10-15T20:30:00+05:30 (UTC: 2026-10-15T15:00:00Z)
 ```
