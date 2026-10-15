@@ -39,13 +39,21 @@ This report establishes the intellectual property, licensing, and usage rights f
 - **Source Identifier:** `SRC-SI-002`
 - **Artifact:** IndicCorp v1 Sinhala / `si.txt.gz`
 - **Applicable Licence:** **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**
-- **Rights Evidence Source:** `https://raw.githubusercontent.com/AI4Bharat/indicnlp_corpus/master/LICENSE`
-- **Rights Evidence SHA-256:** `dc95bad5386871bab6b5b62daa4d2ae2eb4aa5244e37dff11ff233514761cbef` (`CC-BY-NC-SA-4.0.txt`)
-- **Internal Non-Commercial Research Allowed:** `true`
-- **Commercial Use Allowed:** `false`
-- **Public Literal Export Enabled:** `false`
-- **Public Export Policy:** `SUPPRESSED_BY_PROJECT_POLICY`
-- **Primary Decision:** `APPROVED_INTERNAL_NONCOMMERCIAL_ONLY`
+- **Primary Decision:** `APPROVED`
+- **Rights Scope:** `APPROVED_INTERNAL_NONCOMMERCIAL_ONLY` (descriptive rights scope; primary decision enum is strictly `APPROVED`)
+- **Rights Profile ID:** `RP-SRC-SI-002` (version 2)
+- **Permissions:**
+  - `internal_research_use_allowed`: `true`
+  - `commercial_use_allowed`: `false`
+  - `public_literal_export_enabled`: `false`
+- **Effective Export Policy:** `SUPPRESSED_BY_PROJECT_POLICY`
+- **Rights Evidence Repository:** `AI4Bharat/indicnlp_corpus`
+- **Rights Evidence Commit:** `7afab312dea591eca37abfa329999b1da3675b5b`
+- **Rights Evidence Path:** `README.md` (Upstream CC BY-NC-SA 4.0 grant defined in `README.md#license`)
+- **Rights Evidence URL:** `https://raw.githubusercontent.com/AI4Bharat/indicnlp_corpus/7afab312dea591eca37abfa329999b1da3675b5b/README.md`
+- **Source Rights Evidence SHA-256:** `1ee3150c67dfc4e793c9e510c06305f093fc5678f63e45bcdc3ed912b340fd3a` (hash of pinned upstream `README.md` containing licence declaration)
+- **Canonical Licence Text Path:** `data/sinhala_external/registry/licence_snapshots/CC-BY-NC-SA-4.0.txt`
+- **Canonical Licence Text SHA-256:** `dc95bad5386871bab6b5b62daa4d2ae2eb4aa5244e37dff11ff233514761cbef` (hash of local canonical CC BY-NC-SA 4.0 legal code)
 - **Redistribution Status:** **`SUPPRESSED_BY_PROJECT_POLICY`** (Literal text is 100% suppressed: `text: null`).
 
 ### 2.3 `SRC-SI-003`: FLORES-200 Sinhala Benchmark
@@ -91,7 +99,7 @@ $$
 | Source ID | Source Name | Primary Licence | Decision | Export Policy |
 |---|---|---|---|---|
 | `SRC-SI-001` | Sinhala Wikipedia Dump | CC BY-SA 4.0 | `APPROVED` | `PUBLIC_PERMITTED_CC_BY_SA` |
-| `SRC-SI-002` | IndicCorp Sinhala | CC BY-NC-SA 4.0 | `APPROVED_INTERNAL_NONCOMMERCIAL_ONLY` | `SUPPRESSED_BY_PROJECT_POLICY` |
+| `SRC-SI-002` | IndicCorp Sinhala | CC BY-NC-SA 4.0 | `APPROVED` (Internal Noncommercial) | `SUPPRESSED_BY_PROJECT_POLICY` |
 | `SRC-SI-003` | FLORES-200 Benchmark | CC BY-SA 4.0 | `APPROVED` | `PUBLIC_PERMITTED_CC_BY_SA` |
 | `SRC-SI-004` | UCSC LTRL Corpus | Academic Research | `APPROVED` | `PROTECTED_INTERNAL_ONLY` |
 | `SRC-SI-005` | CC-100 Sinhala | Web Scraped Terms | `REVIEW_REQUIRED` | `BLOCKED_REVIEW_REQUIRED` |
@@ -112,5 +120,6 @@ Independent Governance Signoff:                        NOT ESTABLISHED
 Independent Legal Review:                              NOT ESTABLISHED
 Sinhala Linguistic Review:                             NOT ESTABLISHED
 Child-Development Review:                              NOT ESTABLISHED
-Sealed Timestamp:                                      2026-10-15T20:30:00+05:30 (UTC: 2026-10-15T15:00:00Z)
+Documentation Finalized:                               2026-10-15T20:55:00+05:30 (UTC: 2026-10-15T15:25:00Z)
+Authoritative Tag Sealed:                              2026-10-15T20:58:00+05:30
 ```

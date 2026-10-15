@@ -1,16 +1,18 @@
-# Stage 31 — Completion Record (Reconciled v5)
+# Stage 31 — Completion Record (Reconciled v6)
 
 **Stage:** Stage 31 — Sinhala External Dataset Ingestion and Pilot Corpus Creation  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_completion_record.md`  
-**Status:** Complete — Final Authoritative Checkpoint Sealed (v5)  
+**Status:** Complete — Final Authoritative Checkpoint Sealed (v6)  
 **Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
 **Historical Initial Tag:** `stage-31-complete` (`975989e701561d8530781b57c9cd82f8db7ee72d`, preserved immutable)  
 **Historical Reconciled Tag v2:** `stage-31-complete-v2` (`181e8608364649466ba8bf55fed52bf1a977a0f9`, preserved immutable)  
 **Historical Reconciled Tag v3:** `stage-31-complete-v3` (`060be30fd6bddc6bc62495d6425cbb9215da5292`, preserved immutable)  
 **Historical Reconciled Tag v4:** `stage-31-complete-v4` (`c07a520438941fb047720176c4ef153131dc4716`, preserved immutable)  
-**Final Checkpoint Tag:** `stage-31-complete-v5`  
-**Sealed Timestamp:** `2026-10-15T20:30:00+05:30` (UTC: `2026-10-15T15:00:00Z`)  
+**Historical Reconciled Tag v5:** `stage-31-complete-v5` (`7c224f12c4b303aa0178fb488810f4134a7f0eae`, preserved immutable)  
+**Final Checkpoint Tag:** `stage-31-complete-v6`  
+**Documentation Finalized:** `2026-10-15T20:55:00+05:30` (UTC: `2026-10-15T15:25:00Z`)  
+**Authoritative Tag Sealed:** `2026-10-15T20:58:00+05:30`  
 **Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
 **Internal Technical Governance Concurrence:** RECORDED  
 **Independent Governance Signoff:** NOT ESTABLISHED  
@@ -51,13 +53,21 @@ Following conclusive verification against the upstream `AI4Bharat/indicnlp_corpu
 - **Source Identifier:** `SRC-SI-002`
 - **Artifact:** IndicCorp v1 Sinhala / `si.txt.gz`
 - **Applicable Licence:** **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**
-- **Rights Evidence Source:** `https://raw.githubusercontent.com/AI4Bharat/indicnlp_corpus/master/LICENSE`
-- **Rights Evidence SHA-256:** `dc95bad5386871bab6b5b62daa4d2ae2eb4aa5244e37dff11ff233514761cbef` (`CC-BY-NC-SA-4.0.txt`)
-- **Internal Non-Commercial Research Allowed:** `true`
-- **Commercial Use Allowed:** `false`
-- **Public Literal Export Enabled:** `false`
-- **Public Export Policy:** `SUPPRESSED_BY_PROJECT_POLICY`
-- **Primary Decision:** `APPROVED_INTERNAL_NONCOMMERCIAL_ONLY`
+- **Primary Decision:** `APPROVED`
+- **Rights Scope:** `APPROVED_INTERNAL_NONCOMMERCIAL_ONLY` (descriptive rights scope; primary decision enum is strictly `APPROVED`)
+- **Rights Profile ID:** `RP-SRC-SI-002` (version 2)
+- **Permissions:**
+  - `internal_research_use_allowed`: `true`
+  - `commercial_use_allowed`: `false`
+  - `public_literal_export_enabled`: `false`
+- **Effective Export Policy:** `SUPPRESSED_BY_PROJECT_POLICY`
+- **Rights Evidence Repository:** `AI4Bharat/indicnlp_corpus`
+- **Rights Evidence Commit:** `7afab312dea591eca37abfa329999b1da3675b5b`
+- **Rights Evidence Path:** `README.md` (Upstream CC BY-NC-SA 4.0 grant defined in `README.md#license`)
+- **Rights Evidence URL:** `https://raw.githubusercontent.com/AI4Bharat/indicnlp_corpus/7afab312dea591eca37abfa329999b1da3675b5b/README.md`
+- **Source Rights Evidence SHA-256:** `1ee3150c67dfc4e793c9e510c06305f093fc5678f63e45bcdc3ed912b340fd3a` (hash of pinned upstream `README.md` containing licence declaration)
+- **Canonical Licence Text Path:** `data/sinhala_external/registry/licence_snapshots/CC-BY-NC-SA-4.0.txt`
+- **Canonical Licence Text SHA-256:** `dc95bad5386871bab6b5b62daa4d2ae2eb4aa5244e37dff11ff233514761cbef` (hash of local canonical CC BY-NC-SA 4.0 legal code)
 - **Public Export Status:** Literal text is **100% suppressed** (`text: null`) with `export_redistribution_status: "SUPPRESSED_BY_PROJECT_POLICY"`.
 
 ---
@@ -117,7 +127,8 @@ Historical Initial Checkpoint:             stage-31-complete    (975989e701561d8
 Historical Reconciled Checkpoint v2:       stage-31-complete-v2 (181e8608364649466ba8bf55fed52bf1a977a0f9, preserved)
 Historical Reconciled Checkpoint v3:       stage-31-complete-v3 (060be30fd6bddc6bc62495d6425cbb9215da5292, preserved)
 Historical Reconciled Checkpoint v4:       stage-31-complete-v4 (c07a520438941fb047720176c4ef153131dc4716, preserved)
-Final Reconciled Checkpoint:               stage-31-complete-v5
+Historical Reconciled Checkpoint v5:       stage-31-complete-v5 (7c224f12c4b303aa0178fb488810f4134a7f0eae, preserved)
+Final Reconciled Checkpoint:               stage-31-complete-v6
 Prerequisite Checkpoint:                   stage-30-complete-v3 (ef95667b53dddfb032e71fc51d6c524aff7a22a2)
 Technical Governance Reviewer:             REV-GOV-01
 Reviewer Identity Verified:                false (pseudonymous internal technical reviewer)
@@ -126,6 +137,7 @@ Independent Governance Signoff:            NOT ESTABLISHED
 Independent Legal Review:                  NOT ESTABLISHED
 Sinhala Linguistic Review:                 NOT ESTABLISHED
 Child-Development Review:                  NOT ESTABLISHED
-Sealed Timestamp:                          2026-10-15T20:30:00+05:30 (UTC: 2026-10-15T15:00:00Z)
-Status:                                    SEALED_RECONCILED_V5
+Documentation Finalized:                   2026-10-15T20:55:00+05:30 (UTC: 2026-10-15T15:25:00Z)
+Authoritative Tag Sealed:                  2026-10-15T20:58:00+05:30
+Status:                                    SEALED_RECONCILED_V6
 ```

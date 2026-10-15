@@ -4,14 +4,16 @@
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_accounting_summary.md`  
 **Governing Standard:** Section 18, `docs/stage31_implementation_plan.md`  
-**Status:** Frozen — Authoritative Conservation Ledger (Reconciled v5)  
+**Status:** Frozen — Authoritative Conservation Ledger (Reconciled v6)  
 **Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
 **Historical Initial Tag:** `stage-31-complete` (`975989e701561d8530781b57c9cd82f8db7ee72d`, preserved)  
 **Historical Reconciled Tag v2:** `stage-31-complete-v2` (`181e8608364649466ba8bf55fed52bf1a977a0f9`, preserved)  
 **Historical Reconciled Tag v3:** `stage-31-complete-v3` (`060be30fd6bddc6bc62495d6425cbb9215da5292`, preserved)  
 **Historical Reconciled Tag v4:** `stage-31-complete-v4` (`c07a520438941fb047720176c4ef153131dc4716`, preserved)  
-**Final Checkpoint Tag:** `stage-31-complete-v5`  
-**Sealed Timestamp:** `2026-10-15T20:30:00+05:30` (UTC: `2026-10-15T15:00:00Z`)  
+**Historical Reconciled Tag v5:** `stage-31-complete-v5` (`7c224f12c4b303aa0178fb488810f4134a7f0eae`, preserved)  
+**Final Checkpoint Tag:** `stage-31-complete-v6`  
+**Documentation Finalized:** `2026-10-15T20:55:00+05:30` (UTC: `2026-10-15T15:25:00Z`)  
+**Authoritative Tag Sealed:** `2026-10-15T20:58:00+05:30`  
 **Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
 **Internal Technical Governance Concurrence:** RECORDED  
 **Independent Governance Signoff:** NOT ESTABLISHED  
@@ -38,7 +40,7 @@ $$
 | Source ID | Source Name | Primary Decision | Reconciliation Category |
 |---|---|---|---|
 | `SRC-SI-001` | Sinhala Wikipedia Official Dump | `APPROVED` | Approved |
-| `SRC-SI-002` | AI4Bharat IndicCorp Sinhala Corpus | `APPROVED_INTERNAL_NONCOMMERCIAL_ONLY` | Approved |
+| `SRC-SI-002` | AI4Bharat IndicCorp Sinhala Corpus | `APPROVED` | Approved (Internal Noncommercial) |
 | `SRC-SI-003` | FLORES-200 Sinhala Benchmark Split | `APPROVED` | Approved |
 | `SRC-SI-004` | UCSC LTRL Sinhala News / POS Corpus | `APPROVED` | Approved |
 | `SRC-SI-005` | CC-100 Sinhala Monolingual Web Corpus | `REVIEW_REQUIRED` | ReviewRequired |
@@ -176,6 +178,7 @@ Independent Governance Signoff:                        NOT ESTABLISHED
 Independent Legal Review:                              NOT ESTABLISHED
 Sinhala Linguistic Review:                             NOT ESTABLISHED
 Child-Development Review:                              NOT ESTABLISHED
-Sealed Timestamp:                                      2026-10-15T20:30:00+05:30 (UTC: 2026-10-15T15:00:00Z)
-Authoritative Status:                                  SEALED_RECONCILED_V5
+Documentation Finalized:                               2026-10-15T20:55:00+05:30 (UTC: 2026-10-15T15:25:00Z)
+Authoritative Tag Sealed:                              2026-10-15T20:58:00+05:30
+Authoritative Status:                                  SEALED_RECONCILED_V6
 ```

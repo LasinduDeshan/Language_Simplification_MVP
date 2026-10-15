@@ -60,7 +60,7 @@
       "primary_decision": "REVIEW_REQUIRED",
       "licence_name": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
       "licence_version": "CC-BY-NC-SA-4.0",
-      "licence_url_sanitized": "https://raw.githubusercontent.com/AI4Bharat/indicnlp_corpus/master/LICENSE",
+      "licence_url_sanitized": "https://raw.githubusercontent.com/AI4Bharat/indicnlp_corpus/7afab312dea591eca37abfa329999b1da3675b5b/README.md",
       "terms_url_sanitized": "https://ai4bharat.iitm.ac.in/terms",
       "rights_profile_id": "RP-SRC-SI-002",
       "rights_profile_version": 1,
@@ -83,7 +83,7 @@
         "derived_text_redistribution_allowed": false,
         "commercial_use_allowed": false,
         "attribution_required": true,
-        "share_alike_required": false
+        "share_alike_required": true
       },
       "reviewed_by": null,
       "reviewed_at": null,

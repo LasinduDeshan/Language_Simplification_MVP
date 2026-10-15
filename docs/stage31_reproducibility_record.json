@@ -18,7 +18,9 @@
     "historical_reconciled_commit_v3": "060be30fd6bddc6bc62495d6425cbb9215da5292",
     "historical_reconciled_tag_v4": "stage-31-complete-v4",
     "historical_reconciled_commit_v4": "c07a520438941fb047720176c4ef153131dc4716",
-    "final_reconciled_tag": "stage-31-complete-v5"
+    "historical_reconciled_tag_v5": "stage-31-complete-v5",
+    "historical_reconciled_commit_v5": "7c224f12c4b303aa0178fb488810f4134a7f0eae",
+    "final_reconciled_tag": "stage-31-complete-v6"
   },
   "configurations": {
     "stage30_configuration_sha256": "1a18da3a3a5f8e6b360b97cb1135ceba8903c5354929cff4e1834f3b7cb7a610",
@@ -88,10 +90,23 @@
     },
     "SRC-SI-002": {
       "licence": "CC BY-NC-SA 4.0",
-      "evidence_file": "data/sinhala_external/registry/licence_snapshots/CC-BY-NC-SA-4.0.txt",
-      "evidence_sha256": "dc95bad5386871bab6b5b62daa4d2ae2eb4aa5244e37dff11ff233514761cbef",
-      "primary_decision": "APPROVED_INTERNAL_NONCOMMERCIAL_ONLY",
-      "public_literal_export_enabled": false,
+      "primary_decision": "APPROVED",
+      "rights_scope": "APPROVED_INTERNAL_NONCOMMERCIAL_ONLY",
+      "rights_profile_id": "RP-SRC-SI-002",
+      "rights_profile_version": 2,
+      "permissions": {
+        "internal_research_use_allowed": true,
+        "commercial_use_allowed": false,
+        "public_literal_export_enabled": false
+      },
+      "effective_export_policy": "SUPPRESSED_BY_PROJECT_POLICY",
+      "rights_evidence_repository": "AI4Bharat/indicnlp_corpus",
+      "rights_evidence_commit": "7afab312dea591eca37abfa329999b1da3675b5b",
+      "rights_evidence_path": "README.md",
+      "rights_evidence_url": "https://raw.githubusercontent.com/AI4Bharat/indicnlp_corpus/7afab312dea591eca37abfa329999b1da3675b5b/README.md",
+      "source_rights_evidence_sha256": "1ee3150c67dfc4e793c9e510c06305f093fc5678f63e45bcdc3ed912b340fd3a",
+      "canonical_licence_text_path": "data/sinhala_external/registry/licence_snapshots/CC-BY-NC-SA-4.0.txt",
+      "canonical_licence_text_sha256": "dc95bad5386871bab6b5b62daa4d2ae2eb4aa5244e37dff11ff233514761cbef",
       "redistribution": "SUPPRESSED_BY_PROJECT_POLICY"
     },
     "SRC-SI-003": {
@@ -120,5 +135,6 @@
     "sinhala_linguistic_review": "NOT ESTABLISHED",
     "child_development_review": "NOT ESTABLISHED"
   },
-  "sealed_at": "2026-10-15T20:30:00+05:30"
+  "documentation_finalized_at": "2026-10-15T20:55:00+05:30",
+  "sealed_at": "2026-10-15T20:58:00+05:30"
 }
