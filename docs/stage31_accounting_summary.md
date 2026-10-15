@@ -12,9 +12,10 @@
 **Historical Reconciled Tag v4:** `stage-31-complete-v4` (`c07a520438941fb047720176c4ef153131dc4716`, preserved)  
 **Historical Reconciled Tag v5:** `stage-31-complete-v5` (`7c224f12c4b303aa0178fb488810f4134a7f0eae`, preserved)  
 **Historical Reconciled Tag v6:** `stage-31-complete-v6` (`abfda0a7d66fa2a6c4f88d6853af55ed188eb224`, preserved)  
-**Final Checkpoint Tag:** `stage-31-complete-v7`  
-**Documentation Finalized:** `2026-10-15T21:40:00+05:30` (UTC: `2026-10-15T16:10:00Z`)  
-**Authoritative Tag Sealed:** `2026-10-15T21:42:00+05:30`  
+**Historical Reconciled Tag v7:** `stage-31-complete-v7` (`724be7005542989dc2de65cabf157bb49ce53925`, preserved)  
+**Final Checkpoint Tag:** `stage-31-complete-v8`  
+**Documentation Finalized:** `2026-10-15T22:15:00+05:30` (UTC: `2026-10-15T16:45:00Z`)  
+**Authoritative Tag Sealed:** `2026-10-15T22:20:00+05:30`  
 **Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
 **Internal Technical Governance Concurrence:** RECORDED  
 **Independent Governance Signoff:** NOT ESTABLISHED  
@@ -179,7 +180,7 @@ Independent Governance Signoff:                        NOT ESTABLISHED
 Independent Legal Review:                              NOT ESTABLISHED
 Sinhala Linguistic Review:                             NOT ESTABLISHED
 Child-Development Review:                              NOT ESTABLISHED
-Documentation Finalized:                               2026-10-15T21:40:00+05:30 (UTC: 2026-10-15T16:10:00Z)
-Authoritative Tag Sealed:                              2026-10-15T21:42:00+05:30
-Authoritative Status:                                  SEALED_RECONCILED_V7
+Documentation Finalized:                               2026-10-15T22:15:00+05:30 (UTC: 2026-10-15T16:45:00Z)
+Authoritative Tag Sealed:                              2026-10-15T22:20:00+05:30
+Authoritative Status:                                  SEALED_RECONCILED_V8
 ```

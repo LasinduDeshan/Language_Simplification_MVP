@@ -1,9 +1,9 @@
-# Stage 31 — Completion Record (Reconciled v7)
+# Stage 31 — Completion Record (Reconciled v8)
 
 **Stage:** Stage 31 — Sinhala External Dataset Ingestion and Pilot Corpus Creation  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_completion_record.md`  
-**Status:** Complete — Final Authoritative Checkpoint Sealed (v7)  
+**Status:** Complete — Final Authoritative Checkpoint Sealed (v8)  
 **Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
 **Historical Initial Tag:** `stage-31-complete` (`975989e701561d8530781b57c9cd82f8db7ee72d`, preserved immutable)  
 **Historical Reconciled Tag v2:** `stage-31-complete-v2` (`181e8608364649466ba8bf55fed52bf1a977a0f9`, preserved immutable)  
@@ -11,9 +11,10 @@
 **Historical Reconciled Tag v4:** `stage-31-complete-v4` (`c07a520438941fb047720176c4ef153131dc4716`, preserved immutable)  
 **Historical Reconciled Tag v5:** `stage-31-complete-v5` (`7c224f12c4b303aa0178fb488810f4134a7f0eae`, preserved immutable)  
 **Historical Reconciled Tag v6:** `stage-31-complete-v6` (`abfda0a7d66fa2a6c4f88d6853af55ed188eb224`, preserved immutable)  
-**Final Checkpoint Tag:** `stage-31-complete-v7`  
-**Documentation Finalized:** `2026-10-15T21:40:00+05:30` (UTC: `2026-10-15T16:10:00Z`)  
-**Authoritative Tag Sealed:** `2026-10-15T21:42:00+05:30`  
+**Historical Reconciled Tag v7:** `stage-31-complete-v7` (`724be7005542989dc2de65cabf157bb49ce53925`, preserved immutable)  
+**Final Checkpoint Tag:** `stage-31-complete-v8`  
+**Documentation Finalized:** `2026-10-15T22:15:00+05:30` (UTC: `2026-10-15T16:45:00Z`)  
+**Authoritative Tag Sealed:** `2026-10-15T22:20:00+05:30`  
 **Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
 **Internal Technical Governance Concurrence:** RECORDED  
 **Independent Governance Signoff:** NOT ESTABLISHED  
@@ -130,7 +131,8 @@ Historical Reconciled Checkpoint v3:       stage-31-complete-v3 (060be30fd6bddc6
 Historical Reconciled Checkpoint v4:       stage-31-complete-v4 (c07a520438941fb047720176c4ef153131dc4716, preserved)
 Historical Reconciled Checkpoint v5:       stage-31-complete-v5 (7c224f12c4b303aa0178fb488810f4134a7f0eae, preserved)
 Historical Reconciled Checkpoint v6:       stage-31-complete-v6 (abfda0a7d66fa2a6c4f88d6853af55ed188eb224, preserved)
-Final Reconciled Checkpoint:               stage-31-complete-v7
+Historical Reconciled Checkpoint v7:       stage-31-complete-v7 (724be7005542989dc2de65cabf157bb49ce53925, preserved)
+Final Reconciled Checkpoint:               stage-31-complete-v8
 Prerequisite Checkpoint:                   stage-30-complete-v3 (ef95667b53dddfb032e71fc51d6c524aff7a22a2)
 Technical Governance Reviewer:             REV-GOV-01
 Reviewer Identity Verified:                false (pseudonymous internal technical reviewer)
@@ -139,7 +141,7 @@ Independent Governance Signoff:            NOT ESTABLISHED
 Independent Legal Review:                  NOT ESTABLISHED
 Sinhala Linguistic Review:                 NOT ESTABLISHED
 Child-Development Review:                  NOT ESTABLISHED
-Documentation Finalized:                   2026-10-15T21:40:00+05:30 (UTC: 2026-10-15T16:10:00Z)
-Authoritative Tag Sealed:                  2026-10-15T21:42:00+05:30
-Status:                                    SEALED_RECONCILED_V7
+Documentation Finalized:                   2026-10-15T22:15:00+05:30 (UTC: 2026-10-15T16:45:00Z)
+Authoritative Tag Sealed:                  2026-10-15T22:20:00+05:30
+Status:                                    SEALED_RECONCILED_V8
 ```

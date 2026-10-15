@@ -18,7 +18,7 @@
 
 In Work Package 8 (WP8), full-corpus deduplication, multi-source provenance aggregation, and transitive connected component clustering were executed across all 180 accepted pilot candidate records.
 
-- **Zero-Leakage Guarantee:** Proven across four independent dimensions (split group boundaries, document groups, exact duplicate clusters, and confirmed near-duplicates).
+- **Zero-Leakage Finding:** Zero cross-split leakage detected under the frozen document, exact-duplicate, and near-duplicate relations.
 - **Development Pool Isolation:** Exactly 90 method-development records were isolated in `TRAIN_ONLY_DEVELOPMENT_COMPONENT` groups and assigned strictly to `train`.
 - **Evaluation Split Integrity:** Exactly 0 method-development records exist in `validation` or `locked_test`.
 - **Multi-Source Rights Resolution:** Multi-source duplicates aggregate all contributing source IDs and inherit the most restrictive export policy.
@@ -108,7 +108,7 @@ When duplicate records were identified, the contributing source list and export 
 
 ```text
 Total Pilot Corpus Records:                180 (Exceeds >= 150 requirement)
-Zero-Leakage Status:                       MATHEMATICALLY_PROVEN
+Zero-Leakage Finding:                      Zero cross-split leakage detected under the frozen document, exact-duplicate, and near-duplicate relations
 Method-Development Isolation:              100% IN TRAIN (0 in Val/Test)
 Split Allocations:                         Train 154 (85.6%), Val 13 (7.2%), Test 13 (7.2%)
 Untouched Allocations:                     Train 64 (71.1%), Val 13 (14.4%), Test 13 (14.4%)

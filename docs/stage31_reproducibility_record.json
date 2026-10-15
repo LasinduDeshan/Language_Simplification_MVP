@@ -22,7 +22,9 @@
     "historical_reconciled_commit_v5": "7c224f12c4b303aa0178fb488810f4134a7f0eae",
     "historical_reconciled_tag_v6": "stage-31-complete-v6",
     "historical_reconciled_commit_v6": "abfda0a7d66fa2a6c4f88d6853af55ed188eb224",
-    "final_reconciled_tag": "stage-31-complete-v7"
+    "historical_reconciled_tag_v7": "stage-31-complete-v7",
+    "historical_reconciled_commit_v7": "724be7005542989dc2de65cabf157bb49ce53925",
+    "final_reconciled_tag": "stage-31-complete-v8"
   },
   "configurations": {
     "stage30_configuration_sha256": "1a18da3a3a5f8e6b360b97cb1135ceba8903c5354929cff4e1834f3b7cb7a610",
@@ -137,6 +139,6 @@
     "sinhala_linguistic_review": "NOT ESTABLISHED",
     "child_development_review": "NOT ESTABLISHED"
   },
-  "documentation_finalized_at": "2026-10-15T21:40:00+05:30",
-  "sealed_at": "2026-10-15T21:42:00+05:30"
+  "documentation_finalized_at": "2026-10-15T22:15:00+05:30",
+  "sealed_at": "2026-10-15T22:20:00+05:30"
 }
