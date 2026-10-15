@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "stage": "stage31",
+  "configuration_version": "1.0.0",
+  "frozen_at": "2026-10-15T16:35:00Z",
+  "frozen_by": "REV-GOV-01",
+  "governance_status": {
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "approved_for_unsupervised_child_delivery": false,
+    "requires_expert_review": true
+  },
+  "stage30_reference": {
+    "tag": "stage-30-complete-v3",
+    "commit": "ef95667b53dddfb032e71fc51d6c524aff7a22a2",
+    "configuration_sha256": "1a18da3a3a5f8e6b360b97cb1135ceba8903c5354929cff4e1834f3b7cb7a610"
+  },
+  "hmac_scheme": {
+    "key_id": "HMAC-2026-V1",
+    "key_version": 1,
+    "digest_input_schema": "sinhala-pilot-record:v1"
+  },
+  "quality_screening_parameters": {
+    "min_token_count": 3,
+    "max_token_count": 400,
+    "min_sinhala_script_ratio": 0.50,
+    "max_consecutive_word_repetition": 5
+  },
+  "deduplication_parameters": {
+    "candidate_similarity_threshold": 0.80,
+    "confirmed_similarity_threshold": 0.90,
+    "shingle_type": "char",
+    "shingle_size": 5,
+    "export_policy_precedence": [
+      "BLOCKED_PROPRIETARY",
+      "BLOCKED_REVIEW_REQUIRED",
+      "METADATA_CATALOGUE_ONLY",
+      "PROTECTED_INTERNAL_ONLY",
+      "PUBLIC_PERMITTED_CC_BY_SA",
+      "PUBLIC_PERMITTED_CC_BY"
+    ]
+  },
+  "split_budget": {
+    "train_ratio": 0.70,
+    "validation_ratio": 0.15,
+    "test_ratio": 0.15,
+    "method_development_pool_handling": "TRAIN_ONLY_DEVELOPMENT_COMPONENT"
+  }
+}

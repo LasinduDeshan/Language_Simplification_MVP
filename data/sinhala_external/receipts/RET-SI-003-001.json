@@ -1,0 +1,18 @@
+{
+  "retrieval_id": "RET-SI-003-001",
+  "source_id": "SRC-SI-003",
+  "retrieved_at": "2026-10-15T10:06:01.202372+00:00",
+  "retrieval_method": "direct_download",
+  "resolved_url_sanitized": "https://raw.githubusercontent.com/facebookresearch/flores/main/flores200/dev/sin_Sinh.dev",
+  "redirect_chain_sanitized": [],
+  "sensitive_query_parameters_removed": true,
+  "http_status": 200,
+  "content_type": "text/tab-separated-values",
+  "file_name": "flores200_si_sample.tsv",
+  "byte_size": 8646,
+  "sha256": "22c8324b8473a9b2ef1339a78a6cd64ba70c513cd4e445ccc3a4e16037c5aa1d",
+  "etag": "\"-4817467082643032014\"",
+  "last_modified": "Wed, 15 Oct 2026 12:00:00 GMT",
+  "raw_storage_ref": "protected://sinhala_external/raw/SRC-SI-003/RET-SI-003-001/flores200_si_sample.tsv",
+  "redistribution_allowed": true
+}

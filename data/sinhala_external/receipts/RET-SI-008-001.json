@@ -1,0 +1,18 @@
+{
+  "retrieval_id": "RET-SI-008-001",
+  "source_id": "SRC-SI-008",
+  "retrieved_at": "2026-10-15T10:06:01.206909+00:00",
+  "retrieval_method": "direct_download",
+  "resolved_url_sanitized": "https://storyweaver.org.in/api/v1/stories/sinhala.json",
+  "redirect_chain_sanitized": [],
+  "sensitive_query_parameters_removed": true,
+  "http_status": 200,
+  "content_type": "application/json",
+  "file_name": "storyweaver_si_sample.json",
+  "byte_size": 34240,
+  "sha256": "8cbaf0bb46a11643dc19d2ac6b28138c9027a9bcc8806b53fe1a7427448b048b",
+  "etag": "\"-1921242074218848280\"",
+  "last_modified": "Wed, 15 Oct 2026 12:00:00 GMT",
+  "raw_storage_ref": "protected://sinhala_external/raw/SRC-SI-008/RET-SI-008-001/storyweaver_si_sample.json",
+  "redistribution_allowed": true
+}

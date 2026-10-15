@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "stage": "stage31",
+  "component": "Component 3 — AI/NLP-Based Language Simplification",
+  "title": "Stage 31 Sinhala External Dataset Acquisition and Pilot Corpus Creation",
+  "authoritative_prerequisite": {
+    "git_tag": "stage-30-complete-v3",
+    "commit": "ef95667b53dddfb032e71fc51d6c524aff7a22a2"
+  },
+  "stage31_checkpoints": {
+    "start_tag": "stage-31-start",
+    "start_commit": "27b99c7594d4d1684c34a3fe0fa30d7c2a7a421b",
+    "completion_tag": "stage-31-complete"
+  },
+  "configurations": {
+    "stage30_configuration_sha256": "1a18da3a3a5f8e6b360b97cb1135ceba8903c5354929cff4e1834f3b7cb7a610",
+    "stage31_configuration_sha256": "53aa0a8aa7ccc226f17107a18ee024dd85e71ad5776388650ee973a60bc1ef40"
+  },
+  "accounting_summary": {
+    "total_candidate_sources": 8,
+    "approved_sources": 5,
+    "metadata_only_sources": 1,
+    "review_required_sources": 1,
+    "blocked_sources": 1,
+    "source_unavailable": 0,
+    "unaccounted_sources": 0,
+    "total_staged_documents": 180,
+    "predeclared_development_units": 90,
+    "untouched_evaluation_units": 90,
+    "total_pilot_corpus_records": 180,
+    "split_counts": {
+      "train": 154,
+      "validation": 13,
+      "locked_test": 13
+    },
+    "development_pool_isolation": {
+      "train_dev_records": 90,
+      "validation_dev_records": 0,
+      "locked_test_dev_records": 0
+    },
+    "four_dimensional_leakage": {
+      "split_group_leakage": 0,
+      "document_group_leakage": 0,
+      "exact_duplicate_leakage": 0,
+      "near_duplicate_leakage": 0,
+      "status": "ZERO_LEAKAGE_PROVEN"
+    }
+  },
+  "test_verification_summary": {
+    "stage30_tests_passed": 44,
+    "stage31_tests_passed": 23,
+    "full_backend_tests_passed": 568
+  },
+  "governance_status": {
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "approved_for_unsupervised_child_delivery": false,
+    "requires_expert_review": true
+  },
+  "reviewer_identity": "REV-GOV-01",
+  "sealed_at": "2026-10-15T16:45:00Z"
+}

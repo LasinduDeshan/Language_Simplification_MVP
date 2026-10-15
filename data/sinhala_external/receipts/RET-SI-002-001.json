@@ -1,0 +1,18 @@
+{
+  "retrieval_id": "RET-SI-002-001",
+  "source_id": "SRC-SI-002",
+  "retrieved_at": "2026-10-15T10:06:01.200370+00:00",
+  "retrieval_method": "direct_download",
+  "resolved_url_sanitized": "https://ai4bharat.iitm.ac.in/indiccorp/downloads/si.jsonl",
+  "redirect_chain_sanitized": [],
+  "sensitive_query_parameters_removed": true,
+  "http_status": 200,
+  "content_type": "application/jsonlines",
+  "file_name": "indiccorp_si_sample.jsonl",
+  "byte_size": 12365,
+  "sha256": "712baa1f226626a924a9422e4efbf5700601f7fb0a22c215bbc5ee346a43b030",
+  "etag": "\"-1211909187276539462\"",
+  "last_modified": "Wed, 15 Oct 2026 12:00:00 GMT",
+  "raw_storage_ref": "protected://sinhala_external/raw/SRC-SI-002/RET-SI-002-001/indiccorp_si_sample.jsonl",
+  "redistribution_allowed": true
+}

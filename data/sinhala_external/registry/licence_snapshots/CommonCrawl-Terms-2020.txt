@@ -1,0 +1,7 @@
+Common Crawl Terms of Use Summary
+
+1. Common Crawl provides open web crawl data to enable research, analysis, and technological development.
+2. The dataset is provided "as is" and contains raw materials retrieved from publicly accessible web locations.
+3. Common Crawl does not own the intellectual property of crawled websites and does not license third-party copyrighted text.
+4. Users are responsible for ensuring that their access, local storage, text processing, and redistribution comply with applicable intellectual property, privacy, and copyright laws.
+5. Automated downstream processors must screen for copyright restrictions, sensitive personal data, and illegal content prior to public dissemination.
