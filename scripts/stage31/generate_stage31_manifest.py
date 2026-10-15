@@ -12,7 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 DOCS_MANIFEST_FILE = PROJECT_ROOT / "docs" / "stage31_manifest.sha256"
 IMPLEMENTATION_MANIFEST_FILE = PROJECT_ROOT / "data" / "sinhala_external" / "manifests" / "stage31_manifest.sha256"
 
-# 11 Planned Documentation Files (excl. checksum manifest itself)
+# 12 Planned Documentation Files (excl. checksum manifest itself)
 DOC_FILES = [
     "docs/stage31_accounting_summary.md",
     "docs/stage31_acquisition_and_provenance_report.md",
@@ -22,6 +22,7 @@ DOC_FILES = [
     "docs/stage31_governance_report.md",
     "docs/stage31_implementation_plan.md",
     "docs/stage31_licence_and_rights_report.md",
+    "docs/stage31_pilot_corpus_report.md",
     "docs/stage31_preprocessing_integration_report.md",
     "docs/stage31_quality_and_exclusion_report.md",
     "docs/stage31_reproducibility_record.json",

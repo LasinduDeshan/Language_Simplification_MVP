@@ -182,3 +182,21 @@ def test_metadata_only_source_is_strictly_blocked(tmp_path):
             raw_bytes=b"dummy"
         )
     assert "METADATA_ONLY source SRC-SI-006 is barred" in str(exc.value)
+
+def test_indiccorp_approved_source_schema_and_permissions():
+    """Validates that SRC-SI-002 strictly conforms to the required governance schema:
+    primary_decision == 'APPROVED' (valid PrimarySourceDecision enum)
+    rights_scope == 'APPROVED_INTERNAL_NONCOMMERCIAL_ONLY'
+    commercial_use_allowed == False
+    public_literal_export_enabled == False
+    """
+    import json
+    approved_path = Path(__file__).resolve().parents[4] / "data" / "sinhala_external" / "registry" / "approved_sources.json"
+    data = json.loads(approved_path.read_text(encoding="utf-8"))
+    src_si_002 = next((s for s in data["sources"] if s["source_id"] == "SRC-SI-002"), None)
+    assert src_si_002 is not None
+    assert src_si_002["primary_decision"] == PrimarySourceDecision.APPROVED.value
+    assert src_si_002["rights_scope"] == "APPROVED_INTERNAL_NONCOMMERCIAL_ONLY"
+    assert src_si_002["permissions"]["commercial_use_allowed"] is False
+    assert src_si_002["permissions"]["public_literal_export_enabled"] is False
+

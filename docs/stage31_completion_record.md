@@ -1,18 +1,19 @@
-# Stage 31 — Completion Record (Reconciled v6)
+# Stage 31 — Completion Record (Reconciled v7)
 
 **Stage:** Stage 31 — Sinhala External Dataset Ingestion and Pilot Corpus Creation  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_completion_record.md`  
-**Status:** Complete — Final Authoritative Checkpoint Sealed (v6)  
+**Status:** Complete — Final Authoritative Checkpoint Sealed (v7)  
 **Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
 **Historical Initial Tag:** `stage-31-complete` (`975989e701561d8530781b57c9cd82f8db7ee72d`, preserved immutable)  
 **Historical Reconciled Tag v2:** `stage-31-complete-v2` (`181e8608364649466ba8bf55fed52bf1a977a0f9`, preserved immutable)  
 **Historical Reconciled Tag v3:** `stage-31-complete-v3` (`060be30fd6bddc6bc62495d6425cbb9215da5292`, preserved immutable)  
 **Historical Reconciled Tag v4:** `stage-31-complete-v4` (`c07a520438941fb047720176c4ef153131dc4716`, preserved immutable)  
 **Historical Reconciled Tag v5:** `stage-31-complete-v5` (`7c224f12c4b303aa0178fb488810f4134a7f0eae`, preserved immutable)  
-**Final Checkpoint Tag:** `stage-31-complete-v6`  
-**Documentation Finalized:** `2026-10-15T20:55:00+05:30` (UTC: `2026-10-15T15:25:00Z`)  
-**Authoritative Tag Sealed:** `2026-10-15T20:58:00+05:30`  
+**Historical Reconciled Tag v6:** `stage-31-complete-v6` (`abfda0a7d66fa2a6c4f88d6853af55ed188eb224`, preserved immutable)  
+**Final Checkpoint Tag:** `stage-31-complete-v7`  
+**Documentation Finalized:** `2026-10-15T21:40:00+05:30` (UTC: `2026-10-15T16:10:00Z`)  
+**Authoritative Tag Sealed:** `2026-10-15T21:42:00+05:30`  
 **Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
 **Internal Technical Governance Concurrence:** RECORDED  
 **Independent Governance Signoff:** NOT ESTABLISHED  
@@ -113,9 +114,9 @@ Public Export Policy Enforcement Ledger:
 ## 5. Manifest Scope and Verification
 
 1. **Planned Documentation Manifest (`docs/stage31_manifest.sha256`):**
-   - Controls **11 documentation deliverables** (excludes itself; $12 = 11 + 1$).
+   - Controls **12 documentation deliverables** (excludes itself; $13 = 12 + 1$), restoring `docs/stage31_pilot_corpus_report.md` alongside `docs/stage31_governance_report.md`.
 2. **Expanded Governed Implementation Manifest (`data/sinhala_external/manifests/stage31_manifest.sha256`):**
-   - Controls **31 distinct implementation and documentation artifacts** (11 docs + 20 data/registry/corpus artifacts, including `CC-BY-NC-SA-4.0.txt` and `canonical_analytical_corpus.jsonl`).
+   - Controls **32 distinct implementation and documentation artifacts** (12 docs + 20 data/registry/corpus artifacts, including `CC-BY-NC-SA-4.0.txt` and `canonical_analytical_corpus.jsonl`).
    - The checksum manifest does not claim to hash itself.
 
 ---
@@ -128,7 +129,8 @@ Historical Reconciled Checkpoint v2:       stage-31-complete-v2 (181e86083646494
 Historical Reconciled Checkpoint v3:       stage-31-complete-v3 (060be30fd6bddc6bc62495d6425cbb9215da5292, preserved)
 Historical Reconciled Checkpoint v4:       stage-31-complete-v4 (c07a520438941fb047720176c4ef153131dc4716, preserved)
 Historical Reconciled Checkpoint v5:       stage-31-complete-v5 (7c224f12c4b303aa0178fb488810f4134a7f0eae, preserved)
-Final Reconciled Checkpoint:               stage-31-complete-v6
+Historical Reconciled Checkpoint v6:       stage-31-complete-v6 (abfda0a7d66fa2a6c4f88d6853af55ed188eb224, preserved)
+Final Reconciled Checkpoint:               stage-31-complete-v7
 Prerequisite Checkpoint:                   stage-30-complete-v3 (ef95667b53dddfb032e71fc51d6c524aff7a22a2)
 Technical Governance Reviewer:             REV-GOV-01
 Reviewer Identity Verified:                false (pseudonymous internal technical reviewer)
@@ -137,7 +139,7 @@ Independent Governance Signoff:            NOT ESTABLISHED
 Independent Legal Review:                  NOT ESTABLISHED
 Sinhala Linguistic Review:                 NOT ESTABLISHED
 Child-Development Review:                  NOT ESTABLISHED
-Documentation Finalized:                   2026-10-15T20:55:00+05:30 (UTC: 2026-10-15T15:25:00Z)
-Authoritative Tag Sealed:                  2026-10-15T20:58:00+05:30
-Status:                                    SEALED_RECONCILED_V6
+Documentation Finalized:                   2026-10-15T21:40:00+05:30 (UTC: 2026-10-15T16:10:00Z)
+Authoritative Tag Sealed:                  2026-10-15T21:42:00+05:30
+Status:                                    SEALED_RECONCILED_V7
 ```

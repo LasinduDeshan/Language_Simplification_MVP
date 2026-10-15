@@ -2,8 +2,8 @@
 Read-Only Manifest Verifier and Negative Tamper Test for Stage 31.
 Strictly read-only with respect to repository deliverables: does not write, overwrite, or modify any deliverable files.
 Verifies both:
-1. docs/stage31_manifest.sha256 (11 planned documentation files)
-2. data/sinhala_external/manifests/stage31_manifest.sha256 (31 expanded governed artifacts)
+1. docs/stage31_manifest.sha256 (12 planned documentation files)
+2. data/sinhala_external/manifests/stage31_manifest.sha256 (32 expanded governed artifacts)
 Performs rigorous temporary artifact copy tampering verification and canonical analytical ledger verification.
 """
 
@@ -129,14 +129,14 @@ def verify_canonical_analytical_corpus() -> bool:
 
 def verify_all():
     print("=== Stage 31 Read-Only Manifest Verification Suite ===")
-    ok_docs = verify_manifest_file(DOCS_MANIFEST, 11, "Planned Documentation Manifest")
-    ok_impl = verify_manifest_file(IMPLEMENTATION_MANIFEST, 31, "Expanded Governed Implementation Manifest")
+    ok_docs = verify_manifest_file(DOCS_MANIFEST, 12, "Planned Documentation Manifest")
+    ok_impl = verify_manifest_file(IMPLEMENTATION_MANIFEST, 32, "Expanded Governed Implementation Manifest")
     ok_canon = verify_canonical_analytical_corpus()
 
     overall = ok_docs and ok_impl and ok_canon
     print("\n=== Overall Stage 31 Manifest Verification Result ===")
     if overall:
-        print("ALL STAGE 31 MANIFESTS VERIFIED OK (11/11 Docs + 31/31 Implementation Artifacts, 0 Mismatches, Tamper & Canonical Tests Passed)")
+        print("ALL STAGE 31 MANIFESTS VERIFIED OK (12/12 Docs + 32/32 Implementation Artifacts, 0 Mismatches, Tamper & Canonical Tests Passed)")
     else:
         print("STAGE 31 MANIFEST VERIFICATION FAILED!")
     return overall

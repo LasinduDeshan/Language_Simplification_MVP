@@ -4,16 +4,17 @@
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_accounting_summary.md`  
 **Governing Standard:** Section 18, `docs/stage31_implementation_plan.md`  
-**Status:** Frozen — Authoritative Conservation Ledger (Reconciled v6)  
+**Status:** Frozen — Authoritative Conservation Ledger (Reconciled v7)  
 **Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
 **Historical Initial Tag:** `stage-31-complete` (`975989e701561d8530781b57c9cd82f8db7ee72d`, preserved)  
 **Historical Reconciled Tag v2:** `stage-31-complete-v2` (`181e8608364649466ba8bf55fed52bf1a977a0f9`, preserved)  
 **Historical Reconciled Tag v3:** `stage-31-complete-v3` (`060be30fd6bddc6bc62495d6425cbb9215da5292`, preserved)  
 **Historical Reconciled Tag v4:** `stage-31-complete-v4` (`c07a520438941fb047720176c4ef153131dc4716`, preserved)  
 **Historical Reconciled Tag v5:** `stage-31-complete-v5` (`7c224f12c4b303aa0178fb488810f4134a7f0eae`, preserved)  
-**Final Checkpoint Tag:** `stage-31-complete-v6`  
-**Documentation Finalized:** `2026-10-15T20:55:00+05:30` (UTC: `2026-10-15T15:25:00Z`)  
-**Authoritative Tag Sealed:** `2026-10-15T20:58:00+05:30`  
+**Historical Reconciled Tag v6:** `stage-31-complete-v6` (`abfda0a7d66fa2a6c4f88d6853af55ed188eb224`, preserved)  
+**Final Checkpoint Tag:** `stage-31-complete-v7`  
+**Documentation Finalized:** `2026-10-15T21:40:00+05:30` (UTC: `2026-10-15T16:10:00Z`)  
+**Authoritative Tag Sealed:** `2026-10-15T21:42:00+05:30`  
 **Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
 **Internal Technical Governance Concurrence:** RECORDED  
 **Independent Governance Signoff:** NOT ESTABLISHED  
@@ -144,12 +145,12 @@ In accordance with strict rights-containment governance:
 ## 7. Manifest Scope and Verification Framework
 
 1. **Planned Documentation Manifest (`docs/stage31_manifest.sha256`):**
-   - Manifest-controlled documentation files: **11**
+   - Manifest-controlled documentation files: **12** (including restored `docs/stage31_pilot_corpus_report.md` alongside `docs/stage31_governance_report.md`)
    - Checksum manifest: **1** (excludes itself)
-   - Balance formula: $12 = 11 + 1$
+   - Balance formula: $13 = 12 + 1$
 2. **Expanded Governed Implementation Manifest (`data/sinhala_external/manifests/stage31_manifest.sha256`):**
-   - Controls **31 distinct artifacts**:
-     - 11 Documentation files
+   - Controls **32 distinct artifacts**:
+     - 12 Documentation files
      - 8 Licence snapshots (including `CC-BY-NC-SA-4.0.txt`)
      - 4 Registry JSON files (candidate_sources, approved_sources, method_dev, config)
      - 5 Receipts (`RET-SI-001-001` through `RET-SI-008-001`)
@@ -178,7 +179,7 @@ Independent Governance Signoff:                        NOT ESTABLISHED
 Independent Legal Review:                              NOT ESTABLISHED
 Sinhala Linguistic Review:                             NOT ESTABLISHED
 Child-Development Review:                              NOT ESTABLISHED
-Documentation Finalized:                               2026-10-15T20:55:00+05:30 (UTC: 2026-10-15T15:25:00Z)
-Authoritative Tag Sealed:                              2026-10-15T20:58:00+05:30
-Authoritative Status:                                  SEALED_RECONCILED_V6
+Documentation Finalized:                               2026-10-15T21:40:00+05:30 (UTC: 2026-10-15T16:10:00Z)
+Authoritative Tag Sealed:                              2026-10-15T21:42:00+05:30
+Authoritative Status:                                  SEALED_RECONCILED_V7
 ```
