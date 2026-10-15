@@ -1,0 +1,42 @@
+[
+  {
+    "fixture_id": "SENT-001",
+    "description": "Two sentences with Western full stops",
+    "input_text": "මම පාසල් යමි. මගේ මල්ලී ගෙදර ඉඳියි.",
+    "expected_sentence_count": 2,
+    "expected_boundary_rules": ["FULL_STOP", "FULL_STOP"],
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "SENT-002",
+    "description": "Sentence with protected decimal number",
+    "input_text": "පොතේ මිල රු. 12.50 කි. එය ඉතා හොඳයි.",
+    "expected_sentence_count": 2,
+    "expected_boundary_rules": ["FULL_STOP", "FULL_STOP"],
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "SENT-003",
+    "description": "Sentence with protected abbreviation",
+    "input_text": "වෛ. පෙරේරා මහතා රෝහලට ගියේය. ඔහු ලෙඩුන් බැලීය.",
+    "expected_sentence_count": 2,
+    "expected_boundary_rules": ["FULL_STOP", "FULL_STOP"],
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "SENT-004",
+    "description": "Sentences with question mark and exclamation mark",
+    "input_text": "ඔබට කොහොමද? ඉතා හොඳයි!",
+    "expected_sentence_count": 2,
+    "expected_boundary_rules": ["QUESTION_MARK", "EXCLAMATION_MARK"],
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "SENT-005",
+    "description": "Traditional Kunddaliya boundary",
+    "input_text": "සිංහල පාඩම මෙතෙකින් නිමයි෴",
+    "expected_sentence_count": 1,
+    "expected_boundary_rules": ["KUNDDALIYA"],
+    "expected_disposition": "PASSED"
+  }
+]

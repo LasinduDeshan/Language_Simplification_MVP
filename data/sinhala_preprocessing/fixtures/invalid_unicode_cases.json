@@ -1,0 +1,65 @@
+[
+  {
+    "fixture_id": "INV-001",
+    "description": "Text with pre-existing replacement character U+FFFD",
+    "input_text": "මම \uFFFD යමි.",
+    "expected_disposition": "REJECTED_INVALID_UNICODE",
+    "expected_reason_code": "PREEXISTING_REPLACEMENT_CHARACTER"
+  },
+  {
+    "fixture_id": "INV-002",
+    "description": "Text with prohibited null byte",
+    "input_text": "මම\u0000පාසල් යමි.",
+    "expected_disposition": "REJECTED_INVALID_UNICODE",
+    "expected_reason_code": "PROHIBITED_CONTROL_CHARACTER"
+  },
+  {
+    "fixture_id": "INV-003",
+    "description": "Text with prohibited C0 bell control character",
+    "input_text": "අම්මා\u0007ආදරෙයි.",
+    "expected_disposition": "REJECTED_INVALID_UNICODE",
+    "expected_reason_code": "PROHIBITED_CONTROL_CHARACTER"
+  },
+  {
+    "fixture_id": "INV-004",
+    "description": "Text with prohibited bidi override character U+202E",
+    "input_text": "පොත \u202Eකියවන්න.",
+    "expected_disposition": "REJECTED_INVALID_UNICODE",
+    "expected_reason_code": "PROHIBITED_CONTROL_CHARACTER"
+  },
+  {
+    "fixture_id": "INV-005",
+    "description": "Unattached combining mark at string beginning",
+    "input_text": "\u0DCFම්මා",
+    "expected_disposition": "MANUAL_REVIEW_REQUIRED",
+    "expected_reason_code": "COMBINING_SEQUENCE_REVIEW"
+  },
+  {
+    "fixture_id": "INV-006",
+    "description": "Excessive combining marks on a single consonant",
+    "input_text": "ක\u0DCA\u0DCF\u0DCA\u0DCF",
+    "expected_disposition": "MANUAL_REVIEW_REQUIRED",
+    "expected_reason_code": "COMBINING_SEQUENCE_REVIEW"
+  },
+  {
+    "fixture_id": "INV-007",
+    "description": "Isolated ZWJ at string end without consonant attachment",
+    "input_text": "පාසල\u200D",
+    "expected_disposition": "MANUAL_REVIEW_REQUIRED",
+    "expected_reason_code": "UNEXPECTED_JOINER_CONTEXT"
+  },
+  {
+    "fixture_id": "INV-008",
+    "description": "Unsupported foreign script (Tamil characters)",
+    "input_text": "සිංහල සහ தமிழ்.",
+    "expected_disposition": "MANUAL_REVIEW_REQUIRED",
+    "expected_reason_code": "UNSUPPORTED_SCRIPT_PRESENT"
+  },
+  {
+    "fixture_id": "INV-009",
+    "description": "Whitespace-only input",
+    "input_text": "   \n\t   ",
+    "expected_disposition": "MANUAL_REVIEW_REQUIRED",
+    "expected_reason_code": "EMPTY_OR_WHITESPACE_ONLY"
+  }
+]

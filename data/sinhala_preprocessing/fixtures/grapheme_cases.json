@@ -1,0 +1,37 @@
+[
+  {
+    "fixture_id": "GRAPH-001",
+    "description": "Base vowel and consonants with virama",
+    "input_text": "අම්මා",
+    "expected_grapheme_count": 3,
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "GRAPH-002",
+    "description": "Sinhala word with Rakaransaya",
+    "input_text": "ශ්‍රී",
+    "expected_grapheme_count": 2,
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "GRAPH-003",
+    "description": "Sinhala phrase with spaces and conjuncts",
+    "input_text": "ශ්‍රී ලංකා",
+    "expected_grapheme_count": 5,
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "GRAPH-004",
+    "description": "Sinhala word with Yansaya",
+    "input_text": "ව්‍යාපාරය",
+    "expected_grapheme_count": 4,
+    "expected_disposition": "PASSED"
+  },
+  {
+    "fixture_id": "GRAPH-005",
+    "description": "Sinhala word with Repaya",
+    "input_text": "ධර්‍මය",
+    "expected_grapheme_count": 3,
+    "expected_disposition": "PASSED"
+  }
+]

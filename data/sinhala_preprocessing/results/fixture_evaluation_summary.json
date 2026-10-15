@@ -1,0 +1,556 @@
+{
+  "evaluation_id": "STAGE30-FIXTURE-EVALUATION-V1",
+  "total_fixtures": 32,
+  "passed_fixtures": 32,
+  "accuracy_pct": 100.0,
+  "disposition_counts": {
+    "PASSED": 20,
+    "PASSED_WITH_NORMALIZATION": 2,
+    "MANUAL_REVIEW_REQUIRED": 5,
+    "REJECTED_INVALID_UNICODE": 4,
+    "EXCLUDED_NON_SINHALA": 1
+  },
+  "unaccounted_records": 0,
+  "total_operations": 3,
+  "total_sentences": 32,
+  "total_tokens": 111,
+  "tokens_by_type": {
+    "SINHALA_WORD": 72,
+    "PUNCTUATION": 23,
+    "UNKNOWN": 2,
+    "ARABIC_NUMBER": 3,
+    "LATIN_WORD": 9,
+    "MIXED_SCRIPT_TOKEN": 1,
+    "SINHALA_NUMBER": 1
+  },
+  "offset_failures": 0,
+  "reconstruction_failures": 0,
+  "pipeline_introduced_replacement_characters": 0,
+  "records_with_joiners": 7,
+  "records_with_mixed_scripts": 3,
+  "records_routed_to_review": 5,
+  "results": [
+    {
+      "fixture_id": "NORM-001",
+      "file": "normalization_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 16,
+      "normalized_code_points": 16,
+      "grapheme_count": 12,
+      "sentence_count": 1,
+      "token_count": 4,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "NORM-002",
+      "file": "normalization_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [
+        "JOINER_PRESENT"
+      ],
+      "raw_code_points": 21,
+      "normalized_code_points": 21,
+      "grapheme_count": 14,
+      "sentence_count": 1,
+      "token_count": 5,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "NORM-003",
+      "file": "normalization_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [
+        "JOINER_PRESENT"
+      ],
+      "raw_code_points": 6,
+      "normalized_code_points": 6,
+      "grapheme_count": 4,
+      "sentence_count": 1,
+      "token_count": 1,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "NORM-004",
+      "file": "normalization_cases.json",
+      "expected_disposition": "PASSED_WITH_NORMALIZATION",
+      "actual_disposition": "PASSED_WITH_NORMALIZATION",
+      "disposition_match": true,
+      "reason_code": "NORMALIZATION_APPLIED",
+      "quality_flags": [
+        "NORMALIZATION_CHANGED"
+      ],
+      "raw_code_points": 39,
+      "normalized_code_points": 33,
+      "grapheme_count": 24,
+      "sentence_count": 2,
+      "token_count": 7,
+      "operation_count": 1
+    },
+    {
+      "fixture_id": "NORM-005",
+      "file": "normalization_cases.json",
+      "expected_disposition": "PASSED_WITH_NORMALIZATION",
+      "actual_disposition": "PASSED_WITH_NORMALIZATION",
+      "disposition_match": true,
+      "reason_code": "NORMALIZATION_APPLIED",
+      "quality_flags": [
+        "NORMALIZATION_CHANGED"
+      ],
+      "raw_code_points": 18,
+      "normalized_code_points": 12,
+      "grapheme_count": 9,
+      "sentence_count": 1,
+      "token_count": 3,
+      "operation_count": 1
+    },
+    {
+      "fixture_id": "GRAPH-001",
+      "file": "grapheme_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 5,
+      "normalized_code_points": 5,
+      "grapheme_count": 3,
+      "sentence_count": 1,
+      "token_count": 1,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "GRAPH-002",
+      "file": "grapheme_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [
+        "JOINER_PRESENT"
+      ],
+      "raw_code_points": 5,
+      "normalized_code_points": 5,
+      "grapheme_count": 2,
+      "sentence_count": 1,
+      "token_count": 1,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "GRAPH-003",
+      "file": "grapheme_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [
+        "JOINER_PRESENT"
+      ],
+      "raw_code_points": 10,
+      "normalized_code_points": 10,
+      "grapheme_count": 5,
+      "sentence_count": 1,
+      "token_count": 2,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "GRAPH-004",
+      "file": "grapheme_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [
+        "JOINER_PRESENT"
+      ],
+      "raw_code_points": 9,
+      "normalized_code_points": 9,
+      "grapheme_count": 5,
+      "sentence_count": 1,
+      "token_count": 1,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "GRAPH-005",
+      "file": "grapheme_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [
+        "JOINER_PRESENT"
+      ],
+      "raw_code_points": 6,
+      "normalized_code_points": 6,
+      "grapheme_count": 4,
+      "sentence_count": 1,
+      "token_count": 1,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "SENT-001",
+      "file": "sentence_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 35,
+      "normalized_code_points": 35,
+      "grapheme_count": 26,
+      "sentence_count": 2,
+      "token_count": 9,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "SENT-002",
+      "file": "sentence_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 36,
+      "normalized_code_points": 36,
+      "grapheme_count": 28,
+      "sentence_count": 2,
+      "token_count": 11,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "SENT-003",
+      "file": "sentence_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 46,
+      "normalized_code_points": 46,
+      "grapheme_count": 32,
+      "sentence_count": 2,
+      "token_count": 11,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "SENT-004",
+      "file": "sentence_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 22,
+      "normalized_code_points": 22,
+      "grapheme_count": 17,
+      "sentence_count": 2,
+      "token_count": 6,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "SENT-005",
+      "file": "sentence_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 26,
+      "normalized_code_points": 26,
+      "grapheme_count": 17,
+      "sentence_count": 1,
+      "token_count": 5,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "TOK-001",
+      "file": "tokenization_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 12,
+      "normalized_code_points": 12,
+      "grapheme_count": 10,
+      "sentence_count": 1,
+      "token_count": 4,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "TOK-002",
+      "file": "tokenization_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 14,
+      "normalized_code_points": 14,
+      "grapheme_count": 11,
+      "sentence_count": 1,
+      "token_count": 5,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "TOK-003",
+      "file": "tokenization_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [
+        "MIXED_SCRIPT_PRESENT"
+      ],
+      "raw_code_points": 15,
+      "normalized_code_points": 15,
+      "grapheme_count": 12,
+      "sentence_count": 1,
+      "token_count": 4,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "TOK-004",
+      "file": "tokenization_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 15,
+      "normalized_code_points": 15,
+      "grapheme_count": 12,
+      "sentence_count": 1,
+      "token_count": 4,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "TOK-005",
+      "file": "tokenization_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [],
+      "raw_code_points": 10,
+      "normalized_code_points": 10,
+      "grapheme_count": 8,
+      "sentence_count": 1,
+      "token_count": 4,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "MIX-001",
+      "file": "mixed_script_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [
+        "MIXED_SCRIPT_PRESENT"
+      ],
+      "raw_code_points": 23,
+      "normalized_code_points": 23,
+      "grapheme_count": 20,
+      "sentence_count": 1,
+      "token_count": 6,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "MIX-002",
+      "file": "mixed_script_cases.json",
+      "expected_disposition": "EXCLUDED_NON_SINHALA",
+      "actual_disposition": "EXCLUDED_NON_SINHALA",
+      "disposition_match": true,
+      "reason_code": "NO_SINHALA_CONTENT",
+      "quality_flags": [],
+      "raw_code_points": 33,
+      "normalized_code_points": 33,
+      "grapheme_count": 33,
+      "sentence_count": 1,
+      "token_count": 7,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "MIX-003",
+      "file": "mixed_script_cases.json",
+      "expected_disposition": "PASSED",
+      "actual_disposition": "PASSED",
+      "disposition_match": true,
+      "reason_code": "CANONICAL_NFC",
+      "quality_flags": [
+        "MIXED_SCRIPT_PRESENT"
+      ],
+      "raw_code_points": 10,
+      "normalized_code_points": 10,
+      "grapheme_count": 9,
+      "sentence_count": 1,
+      "token_count": 2,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "INV-001",
+      "file": "invalid_unicode_cases.json",
+      "expected_disposition": "REJECTED_INVALID_UNICODE",
+      "actual_disposition": "REJECTED_INVALID_UNICODE",
+      "disposition_match": true,
+      "reason_code": "PREEXISTING_REPLACEMENT_CHARACTER",
+      "quality_flags": [
+        "REPLACEMENT_CHARACTER_PRESENT"
+      ],
+      "raw_code_points": 9,
+      "normalized_code_points": 9,
+      "grapheme_count": 8,
+      "sentence_count": 0,
+      "token_count": 0,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "INV-002",
+      "file": "invalid_unicode_cases.json",
+      "expected_disposition": "REJECTED_INVALID_UNICODE",
+      "actual_disposition": "REJECTED_INVALID_UNICODE",
+      "disposition_match": true,
+      "reason_code": "PROHIBITED_CONTROL_CHARACTER",
+      "quality_flags": [
+        "PROHIBITED_CONTROL_PRESENT"
+      ],
+      "raw_code_points": 13,
+      "normalized_code_points": 13,
+      "grapheme_count": 10,
+      "sentence_count": 0,
+      "token_count": 0,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "INV-003",
+      "file": "invalid_unicode_cases.json",
+      "expected_disposition": "REJECTED_INVALID_UNICODE",
+      "actual_disposition": "REJECTED_INVALID_UNICODE",
+      "disposition_match": true,
+      "reason_code": "PROHIBITED_CONTROL_CHARACTER",
+      "quality_flags": [
+        "PROHIBITED_CONTROL_PRESENT"
+      ],
+      "raw_code_points": 13,
+      "normalized_code_points": 13,
+      "grapheme_count": 9,
+      "sentence_count": 0,
+      "token_count": 0,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "INV-004",
+      "file": "invalid_unicode_cases.json",
+      "expected_disposition": "REJECTED_INVALID_UNICODE",
+      "actual_disposition": "REJECTED_INVALID_UNICODE",
+      "disposition_match": true,
+      "reason_code": "PROHIBITED_CONTROL_CHARACTER",
+      "quality_flags": [
+        "PROHIBITED_CONTROL_PRESENT"
+      ],
+      "raw_code_points": 13,
+      "normalized_code_points": 13,
+      "grapheme_count": 10,
+      "sentence_count": 0,
+      "token_count": 0,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "INV-005",
+      "file": "invalid_unicode_cases.json",
+      "expected_disposition": "MANUAL_REVIEW_REQUIRED",
+      "actual_disposition": "MANUAL_REVIEW_REQUIRED",
+      "disposition_match": true,
+      "reason_code": "COMBINING_SEQUENCE_REVIEW",
+      "quality_flags": [
+        "COMBINING_SEQUENCE_REVIEW"
+      ],
+      "raw_code_points": 5,
+      "normalized_code_points": 5,
+      "grapheme_count": 3,
+      "sentence_count": 1,
+      "token_count": 1,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "INV-006",
+      "file": "invalid_unicode_cases.json",
+      "expected_disposition": "MANUAL_REVIEW_REQUIRED",
+      "actual_disposition": "MANUAL_REVIEW_REQUIRED",
+      "disposition_match": true,
+      "reason_code": "COMBINING_SEQUENCE_REVIEW",
+      "quality_flags": [
+        "COMBINING_SEQUENCE_REVIEW"
+      ],
+      "raw_code_points": 5,
+      "normalized_code_points": 5,
+      "grapheme_count": 1,
+      "sentence_count": 1,
+      "token_count": 1,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "INV-007",
+      "file": "invalid_unicode_cases.json",
+      "expected_disposition": "MANUAL_REVIEW_REQUIRED",
+      "actual_disposition": "MANUAL_REVIEW_REQUIRED",
+      "disposition_match": true,
+      "reason_code": "UNEXPECTED_JOINER_CONTEXT",
+      "quality_flags": [
+        "JOINER_PRESENT",
+        "UNEXPECTED_JOINER_CONTEXT"
+      ],
+      "raw_code_points": 5,
+      "normalized_code_points": 5,
+      "grapheme_count": 3,
+      "sentence_count": 1,
+      "token_count": 1,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "INV-008",
+      "file": "invalid_unicode_cases.json",
+      "expected_disposition": "MANUAL_REVIEW_REQUIRED",
+      "actual_disposition": "MANUAL_REVIEW_REQUIRED",
+      "disposition_match": true,
+      "reason_code": "UNSUPPORTED_SCRIPT_PRESENT",
+      "quality_flags": [
+        "UNSUPPORTED_SCRIPT_PRESENT"
+      ],
+      "raw_code_points": 15,
+      "normalized_code_points": 15,
+      "grapheme_count": 11,
+      "sentence_count": 1,
+      "token_count": 4,
+      "operation_count": 0
+    },
+    {
+      "fixture_id": "INV-009",
+      "file": "invalid_unicode_cases.json",
+      "expected_disposition": "MANUAL_REVIEW_REQUIRED",
+      "actual_disposition": "MANUAL_REVIEW_REQUIRED",
+      "disposition_match": true,
+      "reason_code": "EMPTY_OR_WHITESPACE_ONLY",
+      "quality_flags": [
+        "EMPTY_AFTER_DERIVED_WHITESPACE",
+        "NORMALIZATION_CHANGED"
+      ],
+      "raw_code_points": 8,
+      "normalized_code_points": 0,
+      "grapheme_count": 0,
+      "sentence_count": 0,
+      "token_count": 0,
+      "operation_count": 1
+    }
+  ]
+}

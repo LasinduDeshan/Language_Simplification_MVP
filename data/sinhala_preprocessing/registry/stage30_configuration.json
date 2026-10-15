@@ -1,0 +1,56 @@
+{
+  "configuration_version": "1.0.0",
+  "description": "Governed Stage 30 Preprocessing Configuration",
+  "configuration_sha256": "00d89c260f75de67ed92b4c1dcc6d8b69be401104bf09452ba23ba667a30c454",
+  "config": {
+    "configuration_version": "1.0.0",
+    "disposition_precedence": [
+      "REJECTED_INVALID_UNICODE",
+      "MANUAL_REVIEW_REQUIRED",
+      "EXCLUDED_NON_SINHALA",
+      "PASSED_WITH_NORMALIZATION",
+      "PASSED"
+    ],
+    "grapheme_engine": {
+      "conformance_scope": "governed_fixtures_verified",
+      "engine": "regex_X",
+      "pinned_package": "regex",
+      "pinned_version": "2025.11.3",
+      "unicode_version": "14.0.0"
+    },
+    "joiner_allowlist": [
+      "yansaya",
+      "rakaransaya",
+      "bandi_akuru",
+      "repaya"
+    ],
+    "limits": {
+      "max_combining_marks_sequence": 3,
+      "max_input_code_points": 25000
+    },
+    "normalization_form": "NFC",
+    "protected_abbreviations": [
+      "වෛ.",
+      "මහා.",
+      "පෙ.ව.",
+      "ප.ව.",
+      "පිටු.",
+      "රු.",
+      "ඩො.",
+      "e.g.",
+      "i.e.",
+      "etc.",
+      "Dr.",
+      "Mr.",
+      "Mrs.",
+      "Prof.",
+      "No."
+    ],
+    "whitespace_policy": {
+      "collapse_horizontal_space": true,
+      "convert_crlf_to_lf": true,
+      "preserve_paragraph_break": true,
+      "trim_leading_trailing": true
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "stage": 30,
+  "stage_name": "Sinhala Unicode Normalization and Preprocessing",
+  "component": "Component 3 — AI/NLP-Based Language Simplification",
+  "scope": {
+    "language": "si",
+    "locale": "si-LK",
+    "script": "Sinh",
+    "target_population": "Children aged 4–8"
+  },
+  "git": {
+    "prerequisite_tag": "stage-29-complete-v2",
+    "prerequisite_commit": "89a253c452ea85664f988f31d357d6d9ee72b464",
+    "start_tag": "stage-30-start",
+    "branch": "feature/stage30-sinhala-preprocessing",
+    "historical_completion_tag": "stage-30-complete",
+    "historical_completion_commit": "c395bfe3f9059f756640118635e31fd26bfc9341",
+    "reconciled_v2_completion_tag": "stage-30-complete-v2",
+    "reconciled_v2_completion_commit": "2441c4f73d8c5b62732943a21307428a0034801a",
+    "authoritative_completion_tag": "stage-30-complete-v3"
+  },
+  "runtime_environment": {
+    "os": "Windows",
+    "python_version": "3.11.9",
+    "unicodedata_version": "14.0.0",
+    "regex_engine": "regex 2025.11.3",
+    "conformance_scope": "governed_32_fixtures_verified_uax29_general_not_established"
+  },
+  "character_inventory": {
+    "inventory_type": "governed_selected_inventory",
+    "inventory_count": 138,
+    "exhaustiveness_claim": "non_exhaustive_selected_for_anticipated_early_grade_content"
+  },
+  "test_suite": {
+    "test_modules_count": 16,
+    "test_cases_count": 44,
+    "test_modules_passed": 16,
+    "test_cases_passed": 44
+  },
+  "verified_contracts": {
+    "control_characters": "Null bytes, prohibited C0/C1 controls, bidi overrides, and other denylisted security controls are rejected. Explicitly allowlisted structural whitespace characters are preserved or normalized according to the frozen field policy.",
+    "crlf_normalization": "CRLF (U+000D U+000A) collapses strictly to a single canonical LF (U+000A) rather than duplicate line feeds; lone CR normalizes to single LF; lone LF is preserved.",
+    "stage29_immutability_scope": "Selected Stage 29 immutability scope (13 checked items: 11 manifest-controlled documentation deliverables plus 2 runtime registry artifacts; excludes stage29_manifest.sha256 and other runtime artifacts).",
+    "operation_provenance": "Auditable operation traces and explicit raw-to-normalized span mappings; original text remains recoverable from the immutable raw_text field.",
+    "normalized_text_reconstruction": "Exact normalized-text reconstruction is verified using ordered token spans and preserved inter-token gaps: NormalizedText = G_0 + sum(T_i + G_{i+1})."
+  },
+  "technical_invariants": {
+    "raw_text_immutability": "100.0%",
+    "nfc_idempotence": "100.0%",
+    "repeated_run_determinism": "100.0%",
+    "fixture_disposition_accuracy": "100.0% (32/32)",
+    "pipeline_introduced_replacement_characters": 0,
+    "offset_failures": 0,
+    "reconstruction_failures": 0,
+    "unaccounted_records": 0
+  },
+  "disposition_accounting": {
+    "total_inputs": 32,
+    "passed": 20,
+    "passed_with_normalization": 2,
+    "manual_review_required": 5,
+    "rejected_invalid_unicode": 4,
+    "excluded_non_sinhala": 1,
+    "unaccounted": 0
+  },
+  "linguistic_units_accounting": {
+    "total_operations": 3,
+    "total_sentences": 32,
+    "total_tokens": 111,
+    "records_with_joiners": 7,
+    "records_with_mixed_scripts": 3,
+    "records_routed_to_review": 5
+  },
+  "governance_status": {
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  }
+}
