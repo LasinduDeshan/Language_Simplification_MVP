@@ -72,8 +72,11 @@ $$
 
 ## 5. Governance Scope and Contract Clarifications
 
-1. **Character Inventory:** The 138-entry inventory is a **governed selected inventory** for early-grade educational preprocessing; it is not an exhaustive enumeration of all assigned and unassigned code points across all referenced Unicode blocks.
+1. **Character Inventory:** The 138-entry inventory is a **governed selected inventory** selected for technical preprocessing of anticipated early-grade content; it is not an exhaustive enumeration of all assigned and unassigned code points across all referenced Unicode blocks.
 2. **Security Controls vs Whitespace:** Null bytes, prohibited C0/C1 controls, bidi overrides, and other denylisted security controls are rejected. Explicitly allowlisted structural whitespace characters (TAB `U+0009`, LF `U+000A`, CR `U+000D`, NBSP `U+00A0`) are preserved or normalized according to policy. Prohibited C1 controls like `U+0085` (NEXT LINE / NEL) are rejected with `REJECTED_INVALID_UNICODE` / `PROHIBITED_CONTROL_CHARACTER`.
-3. **Grapheme Conformance Boundary:** `regex` `\X` fixture testing establishes 32-fixture/defined-fixture correctness, not general Sinhala linguistic validity or complete UAX #29 conformance.
-4. **Test Suite Scope:** Stage 30 verification comprises **16 test modules / files** containing **43 individual test cases/functions** (43/43 passed).
-5. **Git Tag Immutability:** Historical tag `stage-30-complete` remains immutable at checkpoint `155008bbe460386bcaa7042aa7694718fccc08d8`. Reconciled authoritative tag `stage-30-complete-v2` seals this reconciled release.
+3. **CRLF Line Ending Normalization:** CRLF (`U+000D U+000A`) collapses strictly to a single canonical LF (`U+000A`) rather than duplicate line feeds; lone CR (`U+000D`) normalizes to single LF; lone LF is preserved.
+4. **Grapheme Conformance Boundary:** `regex` `\X` fixture testing establishes 32-fixture/defined-fixture correctness, not general Sinhala linguistic validity or complete UAX #29 conformance.
+5. **Test Suite Scope:** Stage 30 verification comprises **16 test modules / files** containing **44 individual test cases/functions** (44/44 passed).
+6. **Stage 29 Immutability Scope (13 Items):** The 13 verified items comprise the 11 manifest-controlled documentation deliverables from Stage 29 plus the 2 governed runtime registry artifacts: `data/sinhala_foundation/registry/font_registry.json` and `data/sinhala_foundation/registry/control_character_policy.json`.
+7. **Git Tag Immutability:** Historical tag `stage-30-complete` remains immutable at checkpoint `155008bbe460386bcaa7042aa7694718fccc08d8`. Reconciled authoritative tag `stage-30-complete-v2` seals this reconciled release.
+

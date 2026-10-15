@@ -94,8 +94,9 @@ All evaluated fixtures and derived records retain the governance metadata:
 ```
 
 ### Governing Boundaries
-1. **Governed Selected Inventory:** The 138-entry inventory is a governed selected inventory for educational text preprocessing; it is not an exhaustive enumeration of all code points.
+1. **Governed Selected Inventory:** The 138-entry inventory is a governed selected inventory selected for technical preprocessing of anticipated early-grade content; it is not an exhaustive enumeration of all code points.
 2. **Defined-Fixture Grapheme Scope:** `regex` `\X` fixture testing establishes 32-fixture/defined-fixture correctness, not general Sinhala linguistic validity or complete UAX #29 conformance.
-3. **Test Scope Distinction:** Stage 30 verification comprises **16 test modules / files** with **43 individual test cases/functions** (43/43 passed).
-4. **Non-Authoritative Delivery:** Technical fixture evaluation results do not constitute population-level linguistic accuracy or approval for unsupervised child delivery.
-5. **Git Tag Immutability:** Historical tag `stage-30-complete` remains immutable at checkpoint `155008bbe460386bcaa7042aa7694718fccc08d8`. Reconciled authoritative tag `stage-30-complete-v2` seals this release.
+3. **Test Scope Distinction:** Stage 30 verification comprises **16 test modules / files** with **44 individual test cases/functions** (44/44 passed).
+4. **Stage 29 Immutability Scope (13 Items):** The 13 checked items comprise the 11 manifest-controlled documentation deliverables plus 2 runtime registry artifacts (`font_registry.json`, `control_character_policy.json`).
+5. **Non-Authoritative Delivery:** Technical fixture evaluation results do not constitute population-level linguistic accuracy or approval for unsupervised child delivery.
+6. **Git Tag Immutability:** Historical tag `stage-30-complete` remains immutable at checkpoint `155008bbe460386bcaa7042aa7694718fccc08d8`. Reconciled authoritative tag `stage-30-complete-v2` seals this release.

@@ -73,11 +73,27 @@ Each token produces an immutable `TokenRecord`:
 
 Exact normalized-text reconstruction is verified using ordered token spans and preserved inter-token gaps; token-text concatenation alone is not claimed unless separators are represented explicitly.
 
+For $N$ ordered tokens, reconstruction is rigorously formulated as:
+
 $$
-\text{NormalizedText} = \sum_{i=0}^{n} \left( \text{Gap}_i + \text{Token}_i \right) + \text{Gap}_{n+1}
+\text{NormalizedText} = G_0 + \sum_{i=0}^{N-1} \left(T_i + G_{i+1}\right)
 $$
 
 where:
-- $\text{Token}_i$ is the exact slice $\text{normalized\_text}[\text{start}_i:\text{end}_i]$.
-- $\text{Gap}_i$ is the untouched intervening substring $\text{normalized\_text}[\text{end}_{i-1}:\text{start}_i]$ (covering spaces, tabs, and unparsed separators).
-- Reconstruction equivalence is verified in unit and property test suites (`test_tokenization.py`).
+$$
+T_i = \text{normalized\_text}[\text{token}_i.\text{start} : \text{token}_i.\text{end}]
+$$
+and inter-token gaps are defined by:
+$$
+G_0 = \text{normalized\_text}[:\text{token}_0.\text{start}]
+$$
+$$
+G_{i+1} = \text{normalized\_text}[\text{token}_i.\text{end} : \text{token}_{i+1}.\text{start}] \quad (0 \le i < N-1)
+$$
+with the final gap closing the sequence:
+$$
+G_N = \text{normalized\_text}[\text{token}_{N-1}.\text{end}:]
+$$
+
+This cleanly proves exact reconstruction using tokens plus preserved inter-token gaps. Reconstruction equivalence is verified in unit and property test suites (`test_sinhala_tokenization.py`).
+

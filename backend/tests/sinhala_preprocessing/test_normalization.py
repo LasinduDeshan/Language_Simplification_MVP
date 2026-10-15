@@ -2,7 +2,11 @@
 Tests for Stage 30 Normalization (NFC and Whitespace).
 """
 
-from app.sinhala_preprocessing.normalizer import normalize_nfc, normalize_whitespace
+from app.sinhala_preprocessing.normalizer import (
+    normalize_nfc,
+    normalize_whitespace,
+    normalize_text
+)
 from app.sinhala_preprocessing.schemas import MappingStatus
 
 def test_canonical_nfc_no_change():
@@ -24,3 +28,9 @@ def test_whitespace_normalization():
     assert op.normalized_spans[0].start_code_point == 0
     assert op.normalized_spans[0].end_code_point == len(norm)
     assert op.mapping_status == MappingStatus.MANY_TO_ONE
+
+def test_crlf_normalizes_to_single_lf():
+    result = normalize_text("පළමු පේළිය\r\nදෙවන පේළිය")
+    assert result.normalized_text == "පළමු පේළිය\nදෙවන පේළිය"
+    assert "\n\n" not in result.normalized_text
+

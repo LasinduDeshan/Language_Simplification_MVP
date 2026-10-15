@@ -27,18 +27,20 @@
   "character_inventory": {
     "inventory_type": "governed_selected_inventory",
     "inventory_count": 138,
-    "exhaustiveness_claim": "non_exhaustive_selected_educational_inventory"
+    "exhaustiveness_claim": "non_exhaustive_selected_for_anticipated_early_grade_content"
   },
   "test_suite": {
     "test_modules_count": 16,
-    "test_cases_count": 43,
+    "test_cases_count": 44,
     "test_modules_passed": 16,
-    "test_cases_passed": 43
+    "test_cases_passed": 44
   },
   "verified_contracts": {
     "control_characters": "Null bytes, prohibited C0/C1 controls, bidi overrides, and other denylisted security controls are rejected. Explicitly allowlisted structural whitespace characters are preserved or normalized according to the frozen field policy.",
+    "crlf_normalization": "CRLF (U+000D U+000A) collapses strictly to a single canonical LF (U+000A) rather than duplicate line feeds; lone CR normalizes to single LF; lone LF is preserved.",
+    "stage29_immutability_scope": "13 checked items: 11 manifest-controlled documentation deliverables plus 2 runtime registry artifacts (font_registry.json, control_character_policy.json).",
     "operation_provenance": "Auditable operation traces and explicit raw-to-normalized span mappings; original text remains recoverable from the immutable raw_text field.",
-    "normalized_text_reconstruction": "Exact normalized-text reconstruction is verified using ordered token spans and preserved inter-token gaps; token-text concatenation alone is not claimed unless separators are represented explicitly."
+    "normalized_text_reconstruction": "Exact normalized-text reconstruction is verified using ordered token spans and preserved inter-token gaps: NormalizedText = G_0 + sum(T_i + G_{i+1})."
   },
   "technical_invariants": {
     "raw_text_immutability": "100.0%",

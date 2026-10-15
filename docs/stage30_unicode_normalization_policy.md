@@ -44,7 +44,7 @@ A second pass through the normalizer must produce zero changes (`operations: []`
 
 ## 3. Character Inventory and Number Systems
 
-The 138-entry character inventory is a **governed selected inventory** calibrated for early-grade educational Sinhala text preprocessing; it is not an exhaustive enumeration of all assigned and unassigned code points across all referenced Unicode blocks. The selected inventory covers:
+The 138-entry character inventory is a **governed selected inventory** selected for technical preprocessing of anticipated early-grade content; it is not an exhaustive enumeration of all assigned and unassigned code points across all referenced Unicode blocks. The selected inventory covers:
 
 ### 3.1 Sinhala Block (`U+0D80–U+0DFF`)
 - **Independent Vowels:** `U+0D85` (අ) through `U+0D96` (ඖ)
@@ -131,10 +131,21 @@ Any replacement character introduced by normalization, tokenization, or segmenta
 
 ## 6. Whitespace and Punctuation Policy
 
-1. **Line Ending Normalization:** CRLF (`\r\n`) and CR (`\r`) are converted to single Line Feed (`\n`, `U+000A`).
-2. **Horizontal Whitespace Collapsing:** Consecutive horizontal whitespace characters (spaces, tabs, NBSP `U+00A0`) are collapsed to a single ASCII space (`U+0020`).
-3. **Trimming:** Derived text is trimmed of leading and trailing whitespace.
-4. **Paragraph Preservation:** Dual line breaks (`\n\n`) representing paragraph boundaries are preserved when the text role requires multiline prose.
+### 6.1 Governed Line Ending Sequences
+
+| Raw Sequence | Normalized Sequence | Rule Explanation |
+|---|---|---|
+| CRLF (`U+000D U+000A`) | Single LF (`U+000A`) | Composite two-character Windows line ending collapses to a single canonical LF; never produces duplicate line feeds |
+| Lone CR (`U+000D`) | Single LF (`U+000A`) | Legacy Mac/isolated carriage return normalizes to single canonical LF |
+| Lone LF (`U+000A`) | Preserved as single LF (`U+000A`) | Unix line feed is canonical; preserved as single LF |
+| Paragraph Breaks (`\n\n`, `\r\n\r\n`) | Dual LF (`\n\n`) | Preserved where multiline prose text role requires paragraph boundaries |
+
+### 6.2 Horizontal Whitespace and Trimming
+
+1. **Horizontal Whitespace Collapsing:** Consecutive horizontal whitespace characters (spaces, tabs, NBSP `U+00A0`) are collapsed to a single ASCII space (`U+0020`).
+2. **Trimming:** Derived text is trimmed of leading and trailing whitespace.
+3. **Paragraph Preservation:** Dual line breaks (`\n\n`) representing paragraph boundaries are preserved when the text role requires multiline prose.
+
 
 ---
 
