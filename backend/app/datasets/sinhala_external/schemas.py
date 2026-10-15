@@ -178,6 +178,10 @@ class PilotCorpusRecord(BaseModel):
     quality_flags: List[str]
     effective_export_policy: str
     literal_text_redistributable: bool
+    canonical_record_id: str
+    is_canonical_exact_record: bool = True
+    exact_duplicate_weight: float = 1.0
+    retention_reason: str = "PRIMARY_CANONICAL_RECORD"
 
     @field_validator("normalized_text_storage_ref")
     @classmethod

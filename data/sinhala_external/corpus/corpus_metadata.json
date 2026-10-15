@@ -19,6 +19,14 @@
     "dev_records_in_validation": 0,
     "dev_records_in_locked_test": 0
   },
+  "exact_duplicate_analytical_view": {
+    "stored_record_instances": 180,
+    "unique_exact_text_canonical_records": 150,
+    "surplus_retained_duplicate_instances": 30,
+    "effective_unweighted_analytical_population": 150,
+    "protocol_deviation_model": "Model C — Duplicates Intentionally Retained",
+    "retention_reason": "Retained to preserve source-level and reading-tier provenance for future governed analysis. Stage 31 performs no simplification-model evaluation."
+  },
   "leakage_verification": {
     "split_group_leakage": 0,
     "document_group_leakage": 0,

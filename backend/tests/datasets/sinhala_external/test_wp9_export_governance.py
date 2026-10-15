@@ -40,7 +40,11 @@ def create_sample_record(source_id: str, export_policy: str, redistributable: bo
         grapheme_count=80,
         quality_flags=[],
         effective_export_policy=export_policy,
-        literal_text_redistributable=redistributable
+        literal_text_redistributable=redistributable,
+        canonical_record_id="SI-PILOT-000001",
+        is_canonical_exact_record=True,
+        exact_duplicate_weight=1.0,
+        retention_reason="PRIMARY_CANONICAL_RECORD"
     )
 
 def test_protected_internal_only_suppresses_literal_text():
@@ -56,8 +60,20 @@ def test_protected_internal_only_suppresses_literal_text():
     assert exported["export_redistribution_status"] == "LITERAL_TEXT_SUPPRESSED_PROTECTED_INTERNAL_ONLY"
     assert exported["public_record_digest"] == "a"*64
 
+def test_indiccorp_licence_mismatch_suppression():
+    """Validates that SRC-SI-002 records have literal text suppressed pending licence verification."""
+    rec = create_sample_record(
+        source_id="SRC-SI-002",
+        export_policy="PUBLIC_PERMITTED_CC_BY",
+        redistributable=True
+    )
+    exported = build_public_export_record(rec, "ඉන්දියානු භාෂා සඳහා වූ වාර්තාවකි.")
+    assert exported is not None
+    assert exported["text"] is None
+    assert exported["export_redistribution_status"] == "REVIEW_REQUIRED_ARTIFACT_LICENCE_MISMATCH"
+
 def test_public_permitted_includes_literal_text():
-    """Validates that CC-BY or CC-BY-SA records include literal text."""
+    """Validates that verified CC-BY or CC-BY-SA records include literal text."""
     rec = create_sample_record(
         source_id="SRC-SI-001",
         export_policy="PUBLIC_PERMITTED_CC_BY_SA",
@@ -75,9 +91,10 @@ def test_governance_child_delivery_invariants():
         export_policy="PUBLIC_PERMITTED_CC_BY",
         redistributable=True
     )
-    exported = build_public_export_record(rec, "චූටි හාවා කැලයේ ඇවිදින්න ගියා.")
+    exported = build_public_export_record(rec, "ළමා කතාවකි.")
+    assert exported is not None
     gov = exported["governance_status"]
-    assert gov["approved_for_child_delivery"] is False
-    assert gov["research_eligible"] is False
     assert gov["validation_status"] == "draft"
+    assert gov["research_eligible"] is False
+    assert gov["approved_for_child_delivery"] is False
     assert gov["requires_expert_review"] is True
