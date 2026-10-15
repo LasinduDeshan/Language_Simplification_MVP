@@ -105,12 +105,14 @@ For all candidate sources, independent permission attributes were determined and
 
 ## 6. Reviewer Signoff
 
-The second-person review confirms that all 8 candidate sources have been evaluated against verified licence terms and legal disclaimers. Accounting is verified with 0 unaccounted candidates. The approved sources registry is sealed for execution.
+The technical governance review confirms that all 8 candidate sources have been evaluated against verified licence terms and legal disclaimers. Accounting is verified with 0 unaccounted candidates. The approved sources registry is sealed for technical execution.
 
 ```text
-Reviewed By:       REV-GOV-01
-Decision:          CONCURRED_AND_SEALED
-Approved Sources:  5 (SRC-SI-001, SRC-SI-002, SRC-SI-003, SRC-SI-004, SRC-SI-008)
-Blocked/Excluded:  3 (SRC-SI-005 Review, SRC-SI-006 Metadata Only, SRC-SI-007 Blocked)
-Timestamp:         2026-10-15T15:20:00Z
+Technical Reviewer:         REV-GOV-01
+Reviewer Identity Verified: false (internal technical reviewer)
+Decision:                   CONCURRED_AND_SEALED_TECHNICAL
+Independent Legal Review:   NOT ESTABLISHED
+Approved Sources:           5 (SRC-SI-001, SRC-SI-002, SRC-SI-003, SRC-SI-004, SRC-SI-008)
+Blocked/Excluded:           3 (SRC-SI-005 Review, SRC-SI-006 Metadata Only, SRC-SI-007 Blocked)
+Timestamp:                  2026-10-15T17:15:00Z
 ```

@@ -3,8 +3,10 @@
 **Stage:** Stage 31 — Sinhala External Dataset Ingestion and Pilot Corpus Creation  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_quality_and_exclusion_report.md`  
-**Status:** Frozen — Privacy and Quality Screening Sealed  
-**Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)
+**Status:** Frozen — Reconciled Quality and Privacy Screening Report (v2)  
+**Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
+**Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
+**External Review Status:** Legal, Sinhala linguistic, and child-development expert reviews: **NOT ESTABLISHED**
 
 ---
 
@@ -12,7 +14,7 @@
 
 In Work Package 6 (WP6), all 180 preprocessed records were screened for privacy vulnerabilities, credentials, formatting corruption, and length anomalies.
 
-- **Privacy and Security Screening:** Regular expression scanning for emails, Sri Lankan telephone numbers, NIC identifiers, and private API keys.
+- **Privacy and Security Screening:** Regular expression scanning for emails, Sri Lankan telephone numbers, NIC identifiers, and private API keys detected zero automated flags.
 - **Quality Thresholds:** Evaluated against minimum length (3 tokens), maximum length (400 tokens), and consecutive word repetition.
 - **Terminal Disposition Order:** Strictly applied first-matching precedence order from Section 14.3.
 - **Quarantine Isolation:** Any flagged private or insecure content is stored strictly in external protected quarantine storage and omitted from repository records.
@@ -39,11 +41,23 @@ $$\text{Accounting Status: 0 Unaccounted (RECONCILED)}$$
 | `MANUAL_REVIEW_REQUIRED` | 0 | ManualReview | Questionable orthographic or script context |
 | `EXCLUDED_NON_SINHALA` | 0 | Excluded | Insufficient Sinhala script ratio |
 | `REJECTED_QUALITY` | 0 | Rejected | Extreme length or excessive repetition |
+| `QUARANTINED_SOURCE_ERROR` | 0 | Quarantined | Corrupt or invalid source payload |
 | **Unaccounted** | **0** | Reconciled | Zero lost or unclassified records |
 
 ---
 
-## 3. Development Pool Calibration Evidence
+## 3. Automated Privacy Screening Finding
+
+```text
+Automated privacy flags detected: 0
+Manual protected-sample review: NOT PERFORMED
+Absence of all personal information: NOT ESTABLISHED
+```
+*Note: Zero personal-data or privacy-risk flags were detected by the configured automated screening rules. Automated screening cannot prove the complete absence of all personal information.*
+
+---
+
+## 4. Development Pool Calibration Evidence
 
 The 90 predeclared method-development units (`is_method_development_record: true`) were analyzed to calibrate quality filters:
 - Sentence lengths in educational narratives (StoryWeaver) ranged between 10 and 45 tokens.
@@ -53,15 +67,18 @@ The 90 predeclared method-development units (`is_method_development_record: true
 
 ---
 
-## 4. Verification Signoff
+## 5. Verification Signoff
 
 ```text
 Total Evaluated Records:       180
-Accepted Pilot Candidates:      180 (Minimum viable required: 150)
+Accepted Pilot Candidates:     180 (Minimum viable required: 150)
 Zero-Loss Accounting:          PASSED (0 unaccounted)
 Quarantined Records:           0
-PII / Secret Leakage in Git:   0
-Timestamp:                     2026-10-15T16:26:00Z
-Verifier:                      REV-GOV-01
+Automated Privacy Flags:       0
+Technical Reviewer:            REV-GOV-01
+Reviewer Identity Verified:    false (internal technical reviewer)
+Independent Legal Review:      NOT ESTABLISHED
+Sinhala Linguistic Review:     NOT ESTABLISHED
+Child-Development Review:      NOT ESTABLISHED
+Timestamp:                     2026-10-15T17:15:00Z
 ```
-

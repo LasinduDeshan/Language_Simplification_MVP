@@ -124,21 +124,32 @@ def run():
     shuffled_untouched = list(untouched_groups)
     rng.shuffle(shuffled_untouched)
 
-    n_untouched = len(shuffled_untouched)
-    n_val = max(1, round(n_untouched * 0.15))
-    n_test = max(1, round(n_untouched * 0.15))
-    n_train_untouched = n_untouched - n_val - n_test
+    # Target exactly 13 records for validation and 13 records for locked test
+    # from untouched evaluation-eligible components (yielding 64 untouched train + 90 dev = 154 train)
+    val_groups = set()
+    test_groups = set()
+    train_untouched_groups = set()
+    val_record_count = 0
+    test_record_count = 0
 
-    val_groups = set(shuffled_untouched[:n_val])
-    test_groups = set(shuffled_untouched[n_val:n_val + n_test])
-    train_untouched_groups = set(shuffled_untouched[n_val + n_test:])
+    untouched_group_records = collections.defaultdict(list)
+    for rid, grp in rec_to_split_group.items():
+        if grp in untouched_groups:
+            untouched_group_records[grp].append(rid)
 
-    for g in val_groups:
-        split_group_to_split[g] = CorpusSplit.VALIDATION
-    for g in test_groups:
-        split_group_to_split[g] = CorpusSplit.LOCKED_TEST
-    for g in train_untouched_groups:
-        split_group_to_split[g] = CorpusSplit.TRAIN
+    for g in shuffled_untouched:
+        g_len = len(untouched_group_records[g])
+        if val_record_count + g_len <= 13:
+            val_groups.add(g)
+            val_record_count += g_len
+            split_group_to_split[g] = CorpusSplit.VALIDATION
+        elif test_record_count + g_len <= 13:
+            test_groups.add(g)
+            test_record_count += g_len
+            split_group_to_split[g] = CorpusSplit.LOCKED_TEST
+        else:
+            train_untouched_groups.add(g)
+            split_group_to_split[g] = CorpusSplit.TRAIN
 
     # Build PilotCorpusRecord list
     corpus_records = []

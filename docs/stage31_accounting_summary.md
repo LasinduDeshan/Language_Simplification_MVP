@@ -4,14 +4,16 @@
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_accounting_summary.md`  
 **Governing Standard:** Section 18, `docs/stage31_implementation_plan.md`  
-**Status:** Frozen — Complete Stage 31 Accounting Reconciliation  
-**Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)
+**Status:** Frozen — Reconciled Stage 31 Conservation Ledger (v2)  
+**Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
+**Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
+**External Review Status:** Legal, Sinhala linguistic, and child-development expert reviews: **NOT ESTABLISHED**
 
 ---
 
 ## 1. Executive Reconciliation Summary
 
-In accordance with Section 18 of the Implementation Plan, every entity in Stage 31—from candidate sources to retrieved raw payloads, staged document records, and corpus partitions—was tracked under strict zero-loss conservation accounting. 
+In accordance with Section 18 of the Implementation Plan, every entity in Stage 31—from candidate sources to retrieved raw payloads, staged document records, near-duplicate candidates, and corpus partitions—was tracked under strict zero-loss conservation accounting. 
 
 Every accounting balance equation has been reconciled with **zero unaccounted items**.
 
@@ -85,43 +87,91 @@ $$
 \text{CandidateRecords (180)} = \text{Accepted (180)} + \text{ManualReview (0)} + \text{Rejected (0)} + \text{Excluded (0)} + \text{Quarantined (0)} + \text{Unaccounted (0)}
 $$
 
-| Disposition Code | Category | Record Count | Governance Action |
-|---|---|---|---|
-| `ACCEPTED_PILOT_CANDIDATE` | Accepted | **180** | Ingested into pilot corpus |
-| `REJECTED_RIGHTS` | Rejected | 0 | None rejected |
-| `REJECTED_SECURITY` | Rejected | 0 | None rejected |
-| `REJECTED_PRIVACY` | Rejected | 0 | None rejected |
-| `REJECTED_INVALID_UNICODE` | Rejected | 0 | None rejected |
-| `MANUAL_REVIEW_REQUIRED` | ManualReview | 0 | None queued |
-| `EXCLUDED_NON_SINHALA` | Excluded | 0 | None excluded |
-| `REJECTED_QUALITY` | Rejected | 0 | None rejected |
-| **Total** | | **180** | **180 Reconciled (0 Unaccounted)** |
+### Detailed Disposition Breakdown
+- `ACCEPTED_PILOT_CANDIDATE`: **180**
+- `MANUAL_REVIEW_REQUIRED`: **0**
+- `REJECTED_RIGHTS`: **0**
+- `REJECTED_SECURITY`: **0**
+- `REJECTED_PRIVACY`: **0**
+- `REJECTED_INVALID_UNICODE`: **0**
+- `EXCLUDED_NON_SINHALA`: **0**
+- `REJECTED_QUALITY`: **0**
+- `QUARANTINED_SOURCE_ERROR`: **0**
+- **Unaccounted:** **0**
+
+### Automated Privacy Screening Finding
+```text
+Automated privacy flags detected: 0
+Manual protected-sample review: NOT PERFORMED
+Absence of all personal information: NOT ESTABLISHED
+```
+*Note: Zero automated flags were detected by the configured regular-expression and token patterns; automated scanning cannot prove the absolute absence of all personal information.*
 
 ---
 
-## 6. Equation 5: Pilot Corpus Split Accounting (Section 18.5)
+## 6. Equation 5: Near-Duplicate Candidate Reconciliation
 
-The final 180 pilot corpus records were partitioned into atomic transitive components:
+Across all 180 records, all candidate pairs with token/char Jaccard similarity $\ge 0.80$ were reconciled prior to split assignment:
 
 $$
-\text{TotalCorpus (180)} = \text{Train (154)} + \text{Validation (13)} + \text{Locked-Test (13)} + \text{Unaccounted (0)}
+\text{NearDuplicateCandidates (108)} = \text{ConfirmedDuplicateRelation (105)} + \text{ConservativelyUnioned (3)} + \text{RejectedAsDistinct (0)} + \text{UnresolvedAtSealing (0)}
 $$
 
-| Split Partition | Record Count | Percentage | Method-Dev Records | Untouched Records | Cross-Split Leakage |
+- **Confirmed as duplicate relation ($\ge 0.90$):** 105 pairs
+- **Conservatively unioned into split groups ($0.80 \le \text{sim} < 0.90$):** 3 pairs
+- **Rejected as distinct:** 0 pairs
+- **Unresolved at split sealing:** **0 pairs (100% resolved)**
+
+---
+
+## 7. Equation 6: Pilot Corpus Split Accounting (Section 18.5)
+
+### Explanation of Split-Ratio Allocation
+The planned 70/15/15 allocation was applied **only to the 90 untouched evaluation-eligible records**. The 90 method-development records were mandatorily assigned to `train` (in accordance with Invariants 18 & 19), producing an overall 85.6% / 7.2% / 7.2% corpus distribution:
+
+$$
+\text{Untouched Records (90)} = \text{Untouched Train (64, 71.1\%)} + \text{Validation (13, 14.4\%)} + \text{Locked-Test (13, 14.4\%)}
+$$
+
+$$
+\text{TotalCorpus (180)} = \text{Train (154, 85.6\%)} + \text{Validation (13, 7.2\%)} + \text{Locked-Test (13, 7.2\%)} + \text{Unaccounted (0)}
+$$
+
+| Split Partition | Overall Count | Overall Ratio | Method-Dev Units | Untouched Units | Untouched Ratio |
 |---|---|---|---|---|---|
-| **`train`** | **154** | 85.6% | **90** (100% of dev pool) | 64 | **0** |
-| **`validation`** | **13** | 7.2% | **0** | 13 | **0** |
-| **`locked_test`** | **13** | 7.2% | **0** | 13 | **0** |
-| **Total** | **180** | 100.0% | **90** | **90** | **0 (Zero Leakage)** |
+| **`train`** | **154** | 85.6% | **90** (100% dev pool) | 64 | 71.1% |
+| **`validation`** | **13** | 7.2% | **0** | 13 | 14.4% |
+| **`locked_test`** | **13** | 7.2% | **0** | 13 | 14.4% |
+| **Total** | **180** | 100.0% | **90** | **90** | **100.0%** |
 
 ---
 
-## 7. Signoff
+## 8. Manifest Scope and Location Reconciliation
+
+In accordance with Section 19 of the Implementation Plan and approved governance scope:
+
+1. **Planned Documentation Manifest (`docs/stage31_manifest.sha256`):**
+   - Required documentation deliverables: **12**
+   - Manifest-controlled documentation files: **11**
+   - Checksum manifest: **1** (excludes itself)
+   - Balance formula:
+     $$12 = 11 \text{ manifest-controlled documentation files} + 1 \text{ checksum manifest}$$
+2. **Expanded Governed Implementation Manifest (`data/sinhala_external/manifests/stage31_manifest.sha256`):**
+   - Controls **29 distinct implementation and documentation artifacts** across `docs/`, `data/sinhala_external/registry/`, `data/sinhala_external/receipts/`, and `data/sinhala_external/corpus/`.
+   - The checksum manifest does not claim to hash itself.
+
+---
+
+## 9. Governance and Signoff
 
 ```text
-Accounting Ledger:        100% RECONCILED
-Total Unaccounted Items:  0
-Authoritative Status:     SEALED
-Verifier:                 REV-GOV-01
-Timestamp:                2026-10-15T16:40:00Z
+Accounting Ledger:             100% RECONCILED
+Total Unaccounted Items:       0
+Technical Governance Reviewer: REV-GOV-01
+Reviewer Identity Verified:    false (internal technical reviewer)
+Independent Legal Review:      NOT ESTABLISHED
+Sinhala Linguistic Review:     NOT ESTABLISHED
+Child-Development Review:      NOT ESTABLISHED
+Authoritative Status:          SEALED_RECONCILED_V2
+Timestamp:                     2026-10-15T17:15:00Z
 ```

@@ -4,14 +4,14 @@
   "version": "1.0.0",
   "total_records": 180,
   "split_counts": {
-    "train": 158,
-    "validation": 11,
-    "locked_test": 11
+    "train": 154,
+    "locked_test": 13,
+    "validation": 13
   },
   "split_proportions": {
-    "train": "87.8%",
-    "validation": "6.1%",
-    "locked_test": "6.1%"
+    "train": "85.6%",
+    "locked_test": "7.2%",
+    "validation": "7.2%"
   },
   "development_pool_breakdown": {
     "total_dev_records": 90,
