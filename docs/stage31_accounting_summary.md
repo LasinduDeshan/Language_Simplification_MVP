@@ -4,16 +4,19 @@
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_accounting_summary.md`  
 **Governing Standard:** Section 18, `docs/stage31_implementation_plan.md`  
-**Status:** Frozen — Reconciled Stage 31 Conservation Ledger (v2)  
+**Status:** Frozen — Authoritative Conservation Ledger (Reconciled v3)  
 **Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
+**Sealed Timestamp:** `2026-10-15T19:50:00+05:30` (UTC: `2026-10-15T14:20:00Z`)  
 **Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
-**External Review Status:** Legal, Sinhala linguistic, and child-development expert reviews: **NOT ESTABLISHED**
+**Internal Technical Governance Concurrence:** RECORDED  
+**Independent Governance Signoff:** NOT ESTABLISHED  
+**Independent Legal / Linguistic / Child-Development Reviews:** NOT ESTABLISHED
 
 ---
 
 ## 1. Executive Reconciliation Summary
 
-In accordance with Section 18 of the Implementation Plan, every entity in Stage 31—from candidate sources to retrieved raw payloads, staged document records, near-duplicate candidates, and corpus partitions—was tracked under strict zero-loss conservation accounting. 
+In accordance with Section 18 of the Implementation Plan, every entity in Stage 31—from candidate sources to retrieved raw payloads, staged document records, near-duplicate candidates, exact-duplicate clusters, and corpus partitions—was tracked under strict zero-loss conservation accounting. 
 
 Every accounting balance equation has been reconciled with **zero unaccounted items**.
 
@@ -79,33 +82,40 @@ $$
 
 ---
 
-## 5. Equation 4: Terminal-Disposition Accounting (Section 18.4)
+## 5. Equation 4: Terminal-Disposition Accounting & Model C Reconciliation (Section 18.4)
 
-Every preprocessed record was evaluated against privacy, quality, and scope criteria:
+Every preprocessed record was evaluated against privacy, quality, rights, and scope criteria:
 
 $$
 \text{CandidateRecords (180)} = \text{Accepted (180)} + \text{ManualReview (0)} + \text{Rejected (0)} + \text{Excluded (0)} + \text{Quarantined (0)} + \text{Unaccounted (0)}
 $$
 
-### Detailed Disposition Breakdown
+### Explicit Terminal Disposition Subtypes
 - `ACCEPTED_PILOT_CANDIDATE`: **180**
 - `MANUAL_REVIEW_REQUIRED`: **0**
 - `REJECTED_RIGHTS`: **0**
 - `REJECTED_SECURITY`: **0**
 - `REJECTED_PRIVACY`: **0**
 - `REJECTED_INVALID_UNICODE`: **0**
-- `EXCLUDED_NON_SINHALA`: **0**
 - `REJECTED_QUALITY`: **0**
+- `EXCLUDED_NON_SINHALA`: **0**
+- `EXCLUDED_DUPLICATE`: **0** (Model C Retained)
+- `EXCLUDED_OUT_OF_SCOPE`: **0**
 - `QUARANTINED_SOURCE_ERROR`: **0**
 - **Unaccounted:** **0**
 
-### Automated Privacy Screening Finding
-```text
-Automated privacy flags detected: 0
-Manual protected-sample review: NOT PERFORMED
-Absence of all personal information: NOT ESTABLISHED
-```
-*Note: Zero automated flags were detected by the configured regular-expression and token patterns; automated scanning cannot prove the absolute absence of all personal information.*
+### Exact-Duplicate Accounting & Model C Formal Protocol Deviation
+Under the approved baseline plan, exact duplicates were eligible for `EXCLUDED_DUPLICATE` with one canonical representative retained. In Stage 31, **Model C (Duplicates Intentionally Retained)** was applied:
+- **Total Candidate Records:** 180
+- **Total Exact Clusters Formed:** 150
+- **Single-Member Clusters:** 145 (145 records)
+- **Multi-Member Clusters:** 5 clusters (`DUP-SI-000146` through `DUP-SI-000150`, 7 records each = 35 records)
+- **Canonical Representatives:** 150
+- **Retained Exact-Duplicate Records:** **30** (surplus across 5 clusters)
+- **`EXCLUDED_DUPLICATE` Count:** 0
+- **Protocol Deviation Justification:** In early-grade educational reader series (StoryWeaver), natural narrative refrains, recurring character dialogues, and story progressions intentionally repeat across difficulty tiers. All 30 duplicate records were intentionally retained to evaluate simplification model behavior on repetitive early-grade text.
+- **Leakage Prevention Enforcement:** Every duplicate member across all 5 multi-member clusters was bound into the exact same `split_group_id` (`SPLIT-GRP-SI-000146` to `SPLIT-GRP-SI-000150`) and assigned exclusively to `train`.
+- **Duplicate Cross-Split Leakage:** **0 (PASSED)**
 
 ---
 
@@ -146,9 +156,25 @@ $$
 
 ---
 
-## 8. Manifest Scope and Location Reconciliation
+## 8. Redistribution and Licence Compatibility Framework
 
-In accordance with Section 19 of the Implementation Plan and approved governance scope:
+For the four sources whose literal text is exported in `public_export_corpus.jsonl`:
+
+| Source ID | Source Name | Pinned Licence Version | Share-Alike Obligation | Attribution Mandate |
+|---|---|---|---|---|
+| `SRC-SI-001` | Sinhala Wikipedia | CC BY-SA 3.0 / 4.0 Dual | **YES (CC BY-SA)** | Credit "Contributors to Sinhala Wikipedia" + URL |
+| `SRC-SI-002` | IndicCorp Sinhala | CC BY 4.0 | No (Permissive) | Cite AI4Bharat IndicCorp (Kakwani et al., 2020) |
+| `SRC-SI-003` | FLORES-200 | CC BY-SA 4.0 | **YES (CC BY-SA)** | Cite NLLB Team, Meta AI (2022) |
+| `SRC-SI-008` | StoryWeaver | CC BY 4.0 | No (Permissive) | Credit Pratham Books StoryWeaver + Authors/Illustrators |
+
+### Corpus-Level Licence Compatibility Decision
+1. **Per-Record Attribution:** In `public_export_corpus.jsonl`, each record retains its granular source ID, licence tag, and attribution metadata.
+2. **Derivative Adaptation Licence Inheritance:** Any integrated derivative adaptation combining CC BY-SA records (`SRC-SI-001`, `SRC-SI-003`) with CC BY records inherits the **CC BY-SA 4.0** share-alike licence for the composite derivative.
+3. **Protected Academic Corpus Isolation:** All 30 records originating from `SRC-SI-004` (UCSC LTRL) have literal text **100% suppressed** (`text: null`), completely preventing any public redistribution of restricted academic text.
+
+---
+
+## 9. Manifest Scope and Location Reconciliation
 
 1. **Planned Documentation Manifest (`docs/stage31_manifest.sha256`):**
    - Required documentation deliverables: **12**
@@ -162,16 +188,18 @@ In accordance with Section 19 of the Implementation Plan and approved governance
 
 ---
 
-## 9. Governance and Signoff
+## 10. Governance and Signoff
 
 ```text
-Accounting Ledger:             100% RECONCILED
-Total Unaccounted Items:       0
-Technical Governance Reviewer: REV-GOV-01
-Reviewer Identity Verified:    false (internal technical reviewer)
-Independent Legal Review:      NOT ESTABLISHED
-Sinhala Linguistic Review:     NOT ESTABLISHED
-Child-Development Review:      NOT ESTABLISHED
-Authoritative Status:          SEALED_RECONCILED_V2
-Timestamp:                     2026-10-15T17:15:00Z
+Accounting Ledger:                         100% RECONCILED
+Total Unaccounted Items:                   0
+Technical Governance Reviewer:             REV-GOV-01
+Reviewer Identity Verified:                false (internal technical reviewer)
+Internal Technical Governance Concurrence: RECORDED
+Independent Governance Signoff:            NOT ESTABLISHED
+Independent Legal Review:                  NOT ESTABLISHED
+Sinhala Linguistic Review:                 NOT ESTABLISHED
+Child-Development Review:                  NOT ESTABLISHED
+Sealed Timestamp:                          2026-10-15T19:50:00+05:30 (UTC: 2026-10-15T14:20:00Z)
+Authoritative Status:                      SEALED_RECONCILED_V3
 ```

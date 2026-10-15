@@ -3,11 +3,14 @@
 **Stage:** Stage 31 — Sinhala External Dataset Ingestion and Pilot Corpus Creation  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Deliverable:** `docs/stage31_deduplication_and_contamination_report.md`  
-**Status:** Frozen — Reconciled Transitive Clustering and Zero Leakage Verified (v2)  
+**Status:** Frozen — Reconciled Transitive Clustering and Exact-Duplicate Model C Sealed (v3)  
 **Stage 31 Configuration Hash:** `53aa0a8aa7ccc226f17107a18ee024dd85e71ad5776388650ee973a60bc1ef40`  
 **Authoritative Prerequisite:** `stage-30-complete-v3` (`ef95667b53dddfb032e71fc51d6c524aff7a22a2`)  
+**Sealed Timestamp:** `2026-10-15T19:50:00+05:30` (UTC: `2026-10-15T14:20:00Z`)  
 **Technical Governance Reviewer:** `REV-GOV-01` (Internal technical reviewer; identity verified: false)  
-**External Review Status:** Legal, Sinhala linguistic, and child-development expert reviews: **NOT ESTABLISHED**
+**Internal Technical Governance Concurrence:** RECORDED  
+**Independent Governance Signoff:** NOT ESTABLISHED  
+**Independent Legal / Linguistic / Child-Development Reviews:** NOT ESTABLISHED
 
 ---
 
@@ -22,7 +25,23 @@ In Work Package 8 (WP8), full-corpus deduplication, multi-source provenance aggr
 
 ---
 
-## 2. Near-Duplicate Candidate Accounting & Reconciliation
+## 2. Exact-Duplicate Accounting & Model C Protocol Deviation
+
+In Stage 31, **Model C (Duplicates Intentionally Retained)** was adopted and formally documented:
+- **Total Candidate Records:** 180
+- **Total Exact Duplicate Clusters Formed:** 150
+- **Single-Member Clusters:** 145 (145 records)
+- **Multi-Member Clusters:** 5 clusters (`DUP-SI-000146` through `DUP-SI-000150`, 7 records each = 35 records)
+- **Canonical Representative Records:** 150
+- **Retained Exact-Duplicate Records:** **30** (surplus across 5 clusters)
+- **`EXCLUDED_DUPLICATE` Count:** 0
+- **Protocol Deviation Justification:** In early-grade educational reader series (StoryWeaver), natural narrative refrains, recurring character dialogues, and story progressions repeat intentionally across difficulty tiers. All 30 duplicate records were intentionally retained to evaluate simplification model behavior on repetitive early-grade text.
+- **Leakage Prevention Verification:** All duplicate members across all 5 multi-member clusters were bound into the exact same `split_group_id` (`SPLIT-GRP-SI-000146` to `SPLIT-GRP-SI-000150`) and assigned exclusively to `train`.
+- **All Duplicate Members Share One `split_group_id`:** **PASSED (Zero Leakage)**
+
+---
+
+## 3. Near-Duplicate Candidate Accounting & Reconciliation
 
 Across all 180 evaluated records, all candidate pairs with token/char Jaccard similarity $\ge 0.80$ were reconciled prior to split assignment:
 
@@ -38,7 +57,7 @@ $$
 
 ---
 
-## 3. Production Corpus Split Accounting
+## 4. Production Corpus Split Accounting
 
 In accordance with Section 18.5 of the Implementation Plan:
 
@@ -62,7 +81,7 @@ $$
 
 ---
 
-## 4. Four-Dimensional Leakage Proofs
+## 5. Four-Dimensional Leakage Proofs
 
 Every potential channel of data leakage between splits was audited and mathematically proven to be zero:
 
@@ -76,7 +95,7 @@ Every potential channel of data leakage between splits was audited and mathemati
 
 ---
 
-## 5. Multi-Source Duplicate Provenance Aggregation
+## 6. Multi-Source Duplicate Provenance Aggregation
 
 When duplicate records were identified, the contributing source list and export policy were resolved:
 - `all_contributing_sources`: Populated with complete list of origin sources.
@@ -85,20 +104,23 @@ When duplicate records were identified, the contributing source list and export 
 
 ---
 
-## 6. Verification Signoff
+## 7. Verification Signoff
 
 ```text
-Total Pilot Corpus Records:    180 (Exceeds >= 150 requirement)
-Zero-Leakage Status:           MATHEMATICALLY_PROVEN
-Method-Development Isolation:  100% IN TRAIN (0 in Val/Test)
-Split Allocations:             Train 154 (85.6%), Val 13 (7.2%), Test 13 (7.2%)
-Untouched Allocations:         Train 64 (71.1%), Val 13 (14.4%), Test 13 (14.4%)
-Unresolved Near-Duplicates:    0
-Configuration Sealed:          53aa0a8aa7ccc226f17107a18ee024dd85e71ad5776388650ee973a60bc1ef40
-Technical Governance Reviewer: REV-GOV-01
-Reviewer Identity Verified:    false (internal technical reviewer)
-Independent Legal Review:      NOT ESTABLISHED
-Sinhala Linguistic Review:     NOT ESTABLISHED
-Child-Development Review:      NOT ESTABLISHED
-Timestamp:                     2026-10-15T17:15:00Z
+Total Pilot Corpus Records:                180 (Exceeds >= 150 requirement)
+Zero-Leakage Status:                       MATHEMATICALLY_PROVEN
+Method-Development Isolation:              100% IN TRAIN (0 in Val/Test)
+Split Allocations:                         Train 154 (85.6%), Val 13 (7.2%), Test 13 (7.2%)
+Untouched Allocations:                     Train 64 (71.1%), Val 13 (14.4%), Test 13 (14.4%)
+Unresolved Near-Duplicates:                0
+Exact-Duplicate Accounting:                Model C (30 duplicates retained in 5 clusters in Train)
+Configuration Sealed:                      53aa0a8aa7ccc226f17107a18ee024dd85e71ad5776388650ee973a60bc1ef40
+Technical Governance Reviewer:             REV-GOV-01
+Reviewer Identity Verified:                false (internal technical reviewer)
+Internal Technical Governance Concurrence: RECORDED
+Independent Governance Signoff:            NOT ESTABLISHED
+Independent Legal Review:                  NOT ESTABLISHED
+Sinhala Linguistic Review:                 NOT ESTABLISHED
+Child-Development Review:                  NOT ESTABLISHED
+Sealed Timestamp:                          2026-10-15T19:50:00+05:30 (UTC: 2026-10-15T14:20:00Z)
 ```
