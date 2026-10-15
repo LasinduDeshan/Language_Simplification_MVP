@@ -1,0 +1,54 @@
+{
+  "snapshot_id": "STAGE30-PREREQUISITE-SNAPSHOT-V1",
+  "prerequisite_tag": "stage-30-complete-v3",
+  "prerequisite_commit": "ef95667b53dddfb032e71fc51d6c524aff7a22a2",
+  "start_tag": "stage-31-start",
+  "start_commit": "ef95667b53dddfb032e71fc51d6c524aff7a22a2",
+  "ancestry_verification": {
+    "stage_30_complete_v3_ancestor": true,
+    "stage_29_complete_v2_ancestor": true,
+    "stage_28a_complete_v4_ancestor": true,
+    "stage_27_infrastructure_complete_v3_ancestor": true,
+    "stage_26_complete_v5_ancestor": true
+  },
+  "external_protected_storage_validation": {
+    "configured_protected_root": "C:\\Users\\Lasindu\\.sinhala_external_protected_data",
+    "is_outside_repo": true,
+    "least_privilege_status": "VERIFIED_USER_OWNED"
+  },
+  "stage30_manifest_sha256": "74fc127df356ffc02929a184878bc6e4663998079233b3b670a92eb3916f8573",
+  "stage30_documentation_artifacts": {
+    "docs/stage30_implementation_plan.md": "8a677ab5f2d29acbb848b2a9a4c6b2aa35c7dd96ddc5b8b09ed137043fafce4e",
+    "docs/stage30_unicode_normalization_policy.md": "c1bd5041cae440783de2583261559be99ecfd41605b9b9d58d6ab0177788c3a1",
+    "docs/stage30_sinhala_character_inventory.csv": "25c4d5028e12edb2e2eeed504f3752c4cd2ff916abe17eb180bbe11a959cc4d0",
+    "docs/stage30_tokenization_specification.md": "3e61291de1a83020cd51e5c6a6f7f4b348539c6ac8d63195741dfbd65ede6ce3",
+    "docs/stage30_sentence_segmentation_specification.md": "0cd3030b8cb8c3eeb3ca74b9621f2a9a5283eab42e1cf8a09fec6c8eca1f78f5",
+    "docs/stage30_quality_and_review_policy.md": "f8a65c61eaf894494d8b1ceba7ddfa77f992d1052e57b104a33d2f6798848779",
+    "docs/stage30_fixture_evaluation_report.md": "cd4eb52e7679d38334c0a3c45682db9003a9d9fea07ef4ee4168864a104670ed",
+    "docs/stage30_error_analysis.md": "37ffa61d7da4e825d95e151284a571efc54b15048af7f781400df6e4b345993b",
+    "docs/stage30_accounting_summary.md": "9b038b7a59dc351ab13ded3ea544025116c49bb5f5132a21770a3143c079ec9c",
+    "docs/stage30_reproducibility_record.json": "9339809e80f6da1e090d2992f5f30e1ea99496644f5c4a984ea1173b08e3d90c",
+    "docs/stage30_completion_record.md": "8f5560de797a31189b5875ead06acd7cad95c0775cf899c4f090c857328bbb72"
+  },
+  "stage30_preprocessing_artifacts": {
+    "data/sinhala_preprocessing/registry/stage30_configuration.json": "bf506713aa96a2098dce77e590cb6d35adaa6aebc09323983987ba74bdb4a9f5",
+    "data/sinhala_preprocessing/registry/character_inventory.json": "0934cf8c4fc3bd4705c7b245a7cbefd05c09c1d5bc8fed41d810cc94af5f5030"
+  },
+  "stage29_registry_and_fonts": {
+    "data/sinhala_foundation/registry/font_registry.json": "db7a7178a7adeb0ee5e1680968706b2a34b07660995680fc90941f3714fe495c",
+    "data/sinhala_foundation/registry/control_character_policy.json": "3d40c9cecd501f6f8dfba0757ae3c9e8ffea97112402d5a4bf9a4e53ce72636f"
+  },
+  "stage30_baseline_test_counts": {
+    "backend_stage30_tests": 44,
+    "backend_full_suite": 545,
+    "frontend_localization_tests": 17,
+    "frontend_production_build": "PASSED"
+  },
+  "governance_status": {
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "approved_for_unsupervised_child_delivery": false,
+    "requires_expert_review": true
+  }
+}

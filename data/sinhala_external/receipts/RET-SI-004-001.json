@@ -1,0 +1,18 @@
+{
+  "retrieval_id": "RET-SI-004-001",
+  "source_id": "SRC-SI-004",
+  "retrieved_at": "2026-10-15T10:06:01.204909+00:00",
+  "retrieval_method": "direct_download",
+  "resolved_url_sanitized": "https://ucsc.cmb.ac.lk/ltrl/downloads/sinhala_news_corpus.zip",
+  "redirect_chain_sanitized": [],
+  "sensitive_query_parameters_removed": true,
+  "http_status": 200,
+  "content_type": "text/plain",
+  "file_name": "ltrl_news_sample.txt",
+  "byte_size": 17912,
+  "sha256": "a8b15d5f428bda30af4ed6dbdac00bb689d424b32fc35386a434b6a9b81711ba",
+  "etag": "\"6488854601911395212\"",
+  "last_modified": "Wed, 15 Oct 2026 12:00:00 GMT",
+  "raw_storage_ref": "protected://sinhala_external/raw/SRC-SI-004/RET-SI-004-001/ltrl_news_sample.txt",
+  "redistribution_allowed": false
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "stage": "stage31",
+  "component": "Component 3 — AI/NLP-Based Language Simplification",
+  "predeclaration_status": "LOCKED_IMMUTABLE_PREDECLARATION",
+  "predeclared_at": "2026-10-15T15:30:00Z",
+  "predeclared_by": "REV-GOV-01",
+  "immutability_invariant": "Method-development designation is immutable after first use. Records cannot be retroactively marked as development records after results have been inspected.",
+  "total_predeclared_development_units": 90,
+  "sources": [
+    {
+      "source_id": "SRC-SI-001",
+      "source_name": "Sinhala Wikipedia Official Dump",
+      "method_development_unit_range": [0, 19],
+      "method_development_unit_count": 20,
+      "purpose": "Parser validation for MediaWiki XML structures and wiki-link template handling"
+    },
+    {
+      "source_id": "SRC-SI-002",
+      "source_name": "AI4Bharat IndicCorp Sinhala Monolingual Corpus",
+      "method_development_unit_range": [0, 19],
+      "method_development_unit_count": 20,
+      "purpose": "Parser validation for JSONL lines and general web crawl/news tokenization calibration"
+    },
+    {
+      "source_id": "SRC-SI-003",
+      "source_name": "FLORES-200 Sinhala Benchmark Evaluation Dataset",
+      "method_development_unit_range": [0, 14],
+      "method_development_unit_count": 15,
+      "purpose": "Parser validation for tab-separated benchmark sentences and clean reference sentences"
+    },
+    {
+      "source_id": "SRC-SI-004",
+      "source_name": "UCSC LTRL Sinhala News / POS Corpus",
+      "method_development_unit_range": [0, 14],
+      "method_development_unit_count": 15,
+      "purpose": "Parser validation for raw text paragraph offsets and formal news discourse registers"
+    },
+    {
+      "source_id": "SRC-SI-008",
+      "source_name": "StoryWeaver Open Educational Sinhala Children's Stories",
+      "method_development_unit_range": [0, 19],
+      "method_development_unit_count": 20,
+      "purpose": "Parser validation for structured story JSON and graded early-childhood vocabulary screening"
+    }
+  ]
+}

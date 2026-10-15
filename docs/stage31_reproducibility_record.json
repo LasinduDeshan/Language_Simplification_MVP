@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "stage": "stage31",
+  "component": "Component 3 — AI/NLP-Based Language Simplification",
+  "title": "Stage 31 Sinhala External Dataset Acquisition and Pilot Corpus Creation",
+  "authoritative_prerequisite": {
+    "git_tag": "stage-30-complete-v3",
+    "commit": "ef95667b53dddfb032e71fc51d6c524aff7a22a2"
+  },
+  "stage31_checkpoints": {
+    "start_tag": "stage-31-start",
+    "start_commit": "ef95667b53dddfb032e71fc51d6c524aff7a22a2",
+    "historical_initial_tag": "stage-31-complete",
+    "historical_initial_commit": "975989e701561d8530781b57c9cd82f8db7ee72d",
+    "historical_reconciled_tag_v2": "stage-31-complete-v2",
+    "historical_reconciled_commit_v2": "181e8608364649466ba8bf55fed52bf1a977a0f9",
+    "historical_reconciled_tag_v3": "stage-31-complete-v3",
+    "historical_reconciled_commit_v3": "060be30fd6bddc6bc62495d6425cbb9215da5292",
+    "historical_reconciled_tag_v4": "stage-31-complete-v4",
+    "historical_reconciled_commit_v4": "c07a520438941fb047720176c4ef153131dc4716",
+    "historical_reconciled_tag_v5": "stage-31-complete-v5",
+    "historical_reconciled_commit_v5": "7c224f12c4b303aa0178fb488810f4134a7f0eae",
+    "historical_reconciled_tag_v6": "stage-31-complete-v6",
+    "historical_reconciled_commit_v6": "abfda0a7d66fa2a6c4f88d6853af55ed188eb224",
+    "historical_reconciled_tag_v7": "stage-31-complete-v7",
+    "historical_reconciled_commit_v7": "724be7005542989dc2de65cabf157bb49ce53925",
+    "final_reconciled_tag": "stage-31-complete-v8"
+  },
+  "configurations": {
+    "stage30_configuration_sha256": "1a18da3a3a5f8e6b360b97cb1135ceba8903c5354929cff4e1834f3b7cb7a610",
+    "stage31_configuration_sha256": "53aa0a8aa7ccc226f17107a18ee024dd85e71ad5776388650ee973a60bc1ef40"
+  },
+  "accounting_summary": {
+    "candidate_sources_equation": "8 = 5 (Approved) + 1 (MetadataOnly) + 1 (ReviewRequired) + 1 (Blocked) + 0 (Unavailable) + 0 (Unaccounted)",
+    "retrieved_files_equation": "5 = 5 (DownloadedVerified) + 0 + 0 + 0 + 0",
+    "parsed_units_equation": "180 = 180 (Parsed) + 0 + 0 + 0 + 0",
+    "terminal_dispositions_equation": "180 = 180 (Accepted) + 0 (ManualReview) + 0 (Rejected) + 0 (Excluded) + 0 (Quarantined) + 0 (Unaccounted)",
+    "terminal_disposition_subtypes": {
+      "ACCEPTED_PILOT_CANDIDATE": 180,
+      "MANUAL_REVIEW_REQUIRED": 0,
+      "REJECTED_RIGHTS": 0,
+      "REJECTED_SECURITY": 0,
+      "REJECTED_PRIVACY": 0,
+      "REJECTED_INVALID_UNICODE": 0,
+      "REJECTED_QUALITY": 0,
+      "EXCLUDED_NON_SINHALA": 0,
+      "EXCLUDED_DUPLICATE": 0,
+      "EXCLUDED_OUT_OF_SCOPE": 0,
+      "QUARANTINED_SOURCE_ERROR": 0
+    },
+    "canonical_analytical_corpus_ledger": {
+      "canonical_analytical_corpus_present_in_manifest": true,
+      "canonical_records": 150,
+      "noncanonical_exact_duplicates": 0,
+      "canonical_to_provenance_mapping_failures": 0,
+      "sum_of_provenance_weights": 150.0,
+      "surplus_retained_duplicate_instances": 30,
+      "retention_reason": "Retained to preserve source-level and reading-tier provenance for future governed analysis. Stage 31 performs no simplification-model evaluation."
+    },
+    "public_export_policy_enforcement": {
+      "total_exported_records": 180,
+      "public_permitted_records_with_text": 110,
+      "protected_academic_records_text_null": 30,
+      "project_policy_suppressed_records_text_null": 40,
+      "total_literal_text_suppressed_records": 70,
+      "literal_restricted_text_detected_in_configured_fields": 0
+    },
+    "four_dimensional_leakage": {
+      "split_group_leakage": 0,
+      "document_group_leakage": 0,
+      "exact_duplicate_leakage": 0,
+      "near_duplicate_leakage": 0,
+      "status": "ZERO_LEAKAGE_PROVEN"
+    }
+  },
+  "manifest_reconciliation": {
+    "planned_docs_manifest": "docs/stage31_manifest.sha256",
+    "planned_docs_formula": "12 = 11 manifest-controlled documentation files + 1 checksum manifest",
+    "governed_implementation_manifest": "data/sinhala_external/manifests/stage31_manifest.sha256",
+    "governed_artifacts_controlled": 31,
+    "self_inclusion": false,
+    "tamper_test_evidence": {
+      "original_manifest_modified": false,
+      "temporary_artifact_copy_modified": true,
+      "hash_mismatch_detected": true,
+      "verifier_returned_failure_for_tampered_copy": true
+    }
+  },
+  "licence_verification_framework": {
+    "SRC-SI-001": {
+      "licence": "CC BY-SA 4.0",
+      "evidence_file": "data/sinhala_external/registry/licence_snapshots/CC-BY-SA-4.0.txt",
+      "redistribution": "PUBLIC_TEXT_PERMITTED_WITH_ATTRIBUTION"
+    },
+    "SRC-SI-002": {
+      "licence": "CC BY-NC-SA 4.0",
+      "primary_decision": "APPROVED",
+      "rights_scope": "APPROVED_INTERNAL_NONCOMMERCIAL_ONLY",
+      "rights_profile_id": "RP-SRC-SI-002",
+      "rights_profile_version": 2,
+      "permissions": {
+        "internal_research_use_allowed": true,
+        "commercial_use_allowed": false,
+        "public_literal_export_enabled": false
+      },
+      "effective_export_policy": "SUPPRESSED_BY_PROJECT_POLICY",
+      "rights_evidence_repository": "AI4Bharat/indicnlp_corpus",
+      "rights_evidence_commit": "7afab312dea591eca37abfa329999b1da3675b5b",
+      "rights_evidence_path": "README.md",
+      "rights_evidence_url": "https://raw.githubusercontent.com/AI4Bharat/indicnlp_corpus/7afab312dea591eca37abfa329999b1da3675b5b/README.md",
+      "source_rights_evidence_sha256": "1ee3150c67dfc4e793c9e510c06305f093fc5678f63e45bcdc3ed912b340fd3a",
+      "canonical_licence_text_path": "data/sinhala_external/registry/licence_snapshots/CC-BY-NC-SA-4.0.txt",
+      "canonical_licence_text_sha256": "dc95bad5386871bab6b5b62daa4d2ae2eb4aa5244e37dff11ff233514761cbef",
+      "redistribution": "SUPPRESSED_BY_PROJECT_POLICY"
+    },
+    "SRC-SI-003": {
+      "licence": "CC BY-SA 4.0",
+      "evidence_file": "data/sinhala_external/registry/licence_snapshots/CC-BY-SA-4.0.txt",
+      "redistribution": "PUBLIC_TEXT_PERMITTED_WITH_ATTRIBUTION"
+    },
+    "SRC-SI-004": {
+      "licence": "Academic Research Use Agreement",
+      "evidence_file": "data/sinhala_external/registry/licence_snapshots/UCSC-LTRL-Academic-Research-Terms.txt",
+      "redistribution": "PROTECTED_INTERNAL_ONLY"
+    },
+    "SRC-SI-008": {
+      "licence": "CC BY 4.0",
+      "asset_scope": "Book narrative text only",
+      "evidence_file": "data/sinhala_external/registry/licence_snapshots/CC-BY-4.0.txt",
+      "redistribution": "PUBLIC_TEXT_PERMITTED_WITH_ATTRIBUTION"
+    }
+  },
+  "governance_review_scope": {
+    "technical_governance_reviewer": "REV-GOV-01",
+    "reviewer_identity_verified": false,
+    "internal_technical_governance_concurrence": "RECORDED",
+    "independent_governance_signoff": "NOT ESTABLISHED",
+    "independent_legal_review": "NOT ESTABLISHED",
+    "sinhala_linguistic_review": "NOT ESTABLISHED",
+    "child_development_review": "NOT ESTABLISHED"
+  },
+  "documentation_finalized_at": "2026-10-15T22:15:00+05:30",
+  "sealed_at": "2026-10-15T22:20:00+05:30"
+}

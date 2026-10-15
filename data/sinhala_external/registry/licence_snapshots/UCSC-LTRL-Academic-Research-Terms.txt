@@ -1,0 +1,8 @@
+University of Colombo School of Computing (UCSC) - Language Technology Research Laboratory (LTRL)
+Research Corpus Use Agreement
+
+Terms of Access and Utilization:
+1. The corpus resources provided by UCSC-LTRL are made available solely for non-commercial academic research and educational evaluation.
+2. Direct redistribution, public republishing, or commercial exploitation of raw corpus files is prohibited without written permission from UCSC-LTRL.
+3. Any research publication, tool, or derivative linguistic model utilizing these resources must appropriately cite the respective UCSC-LTRL publications and acknowledge the Language Technology Research Laboratory.
+4. Internal non-commercial text normalization, feature extraction, and benchmark evaluation are permitted provided raw texts are stored in access-controlled environments.

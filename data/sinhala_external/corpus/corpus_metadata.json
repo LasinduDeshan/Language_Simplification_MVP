@@ -1,0 +1,46 @@
+{
+  "corpus_name": "Sinhala Preprocessing and Language Simplification Pilot Corpus",
+  "stage": "stage31",
+  "version": "1.0.0",
+  "total_records": 180,
+  "split_counts": {
+    "train": 154,
+    "locked_test": 13,
+    "validation": 13
+  },
+  "split_proportions": {
+    "train": "85.6%",
+    "locked_test": "7.2%",
+    "validation": "7.2%"
+  },
+  "development_pool_breakdown": {
+    "total_dev_records": 90,
+    "dev_records_in_train": 90,
+    "dev_records_in_validation": 0,
+    "dev_records_in_locked_test": 0
+  },
+  "exact_duplicate_analytical_view": {
+    "stored_record_instances": 180,
+    "unique_exact_text_canonical_records": 150,
+    "surplus_retained_duplicate_instances": 30,
+    "effective_unweighted_analytical_population": 150,
+    "protocol_deviation_model": "Model C — Duplicates Intentionally Retained",
+    "retention_reason": "Retained to preserve source-level and reading-tier provenance for future governed analysis. Stage 31 performs no simplification-model evaluation."
+  },
+  "leakage_verification": {
+    "split_group_leakage": 0,
+    "document_group_leakage": 0,
+    "exact_duplicate_leakage": 0,
+    "near_duplicate_leakage": 0,
+    "development_evaluation_contamination": 0,
+    "status": "ZERO_LEAKAGE_PROVEN"
+  },
+  "stage31_configuration_sha256": "53aa0a8aa7ccc226f17107a18ee024dd85e71ad5776388650ee973a60bc1ef40",
+  "governance_status": {
+    "validation_status": "draft",
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "approved_for_unsupervised_child_delivery": false,
+    "requires_expert_review": true
+  }
+}

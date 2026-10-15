@@ -1,0 +1,20 @@
+{
+  "retrieval_id": "RET-SI-001-001",
+  "source_id": "SRC-SI-001",
+  "retrieved_at": "2026-10-15T10:06:01.196370+00:00",
+  "retrieval_method": "direct_download",
+  "resolved_url_sanitized": "https://dumps.wikimedia.org/siwiki/latest/siwiki-latest-pages-articles.xml.bz2",
+  "redirect_chain_sanitized": [
+    "https://dumps.wikimedia.org/siwiki/latest/"
+  ],
+  "sensitive_query_parameters_removed": true,
+  "http_status": 200,
+  "content_type": "application/xml",
+  "file_name": "siwiki_sample.xml",
+  "byte_size": 33229,
+  "sha256": "e8a12315aec2d0b448f3023f0eb6f182df9985c6ed82fb39b030ff21925fdf5f",
+  "etag": "\"8846370029177062691\"",
+  "last_modified": "Wed, 15 Oct 2026 12:00:00 GMT",
+  "raw_storage_ref": "protected://sinhala_external/raw/SRC-SI-001/RET-SI-001-001/siwiki_sample.xml",
+  "redistribution_allowed": true
+}
