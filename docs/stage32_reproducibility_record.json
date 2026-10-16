@@ -1,6 +1,6 @@
 {
   "stage": "stage32",
-  "timestamp": "2026-10-16T12:13:49.855391",
+  "timestamp": "2026-10-16T12:57:58.743710",
   "prerequisite_tag": "stage-31-complete-v8",
   "prerequisite_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
   "start_tag": "stage-32-start",
@@ -11,7 +11,9 @@
   "historical_reconciled_commit_v2": "26c029980730cb29883f3e79d9250ee66b83e528",
   "historical_reconciled_tag_v3": "stage-32-complete-v3",
   "historical_reconciled_commit_v3": "f8d5b168c6c1ba2bd1979e9e37a3183b547c5888",
-  "authoritative_reconciled_tag": "stage-32-complete-v4",
+  "historical_reconciled_tag_v4": "stage-32-complete-v4",
+  "historical_reconciled_commit_v4": "eda3e4e611c693901ed161c6d70c1e5fd66a8290",
+  "authoritative_reconciled_tag": "stage-32-complete-v5",
   "branch": "feature/stage32-sinhala-lexicon",
   "accounting": {
     "canonical_records": 150,
@@ -19,6 +21,8 @@
     "exact_rational_weight_total": 150,
     "float_diagnostic_delta": "1.421085e-13",
     "weight_accounting_status": "PASSED",
+    "stage31_immutability_status": "VERIFIED_UNTOUCHED",
+    "derived_weight_ledger": "data/sinhala_lexicon/ledgers/provenance_weight_ledger.jsonl",
     "total_token_occurrences": 4072,
     "included_candidate_occurrences": 3668,
     "excluded_token_class_occurrences": 400,

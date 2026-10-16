@@ -91,7 +91,7 @@ def verify_manifest(manifest_path: Path, expected_count: int, manifest_label: st
 def main():
     print("=== Stage 32 Read-Only Manifest Verification Suite ===")
     v_docs = verify_manifest(DOCS_MANIFEST, expected_count=12, manifest_label="Planned Documentation Manifest")
-    v_impl = verify_manifest(IMPLEMENTATION_MANIFEST, expected_count=26, manifest_label="Governed Implementation Manifest")
+    v_impl = verify_manifest(IMPLEMENTATION_MANIFEST, expected_count=27, manifest_label="Governed Implementation Manifest")
 
     if v_docs and v_impl:
         print("\n=== OVERALL RESULT: STAGE 32 MANIFEST VERIFICATION PASSED! ===")

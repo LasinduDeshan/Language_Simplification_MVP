@@ -68,7 +68,7 @@ class CandidateExtractor:
             # Calculate frequency metrics
             canonical_freq = len(occs)
             canonical_doc_freq = len(set(o.canonical_record_id for o in occs))
-            weighted_freq = sum(o.exact_duplicate_weight for o in occs)
+            weighted_freq = sum(getattr(o, "duplicate_weight_float", getattr(o, "exact_duplicate_weight", 1.0)) for o in occs)
 
             # Source distribution
             src_counts = collections.Counter(o.source_id for o in occs)

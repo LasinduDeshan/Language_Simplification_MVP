@@ -36,6 +36,7 @@ GOVERNED_IMPLEMENTATION_FILES = [
     "data/sinhala_lexicon/ledgers/token_occurrence_ledger.jsonl",
     "data/sinhala_lexicon/ledgers/candidate_entry_ledger.jsonl",
     "data/sinhala_lexicon/ledgers/surface_form_mapping.jsonl",
+    "data/sinhala_lexicon/ledgers/provenance_weight_ledger.jsonl",
     "data/sinhala_lexicon/ledgers/weighted_parity_diagnostic.json",
     "data/sinhala_lexicon/lexicon/draft_lexicon.jsonl",
     "data/sinhala_lexicon/lexicon/review_queue.jsonl",

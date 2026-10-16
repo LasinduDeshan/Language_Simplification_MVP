@@ -262,7 +262,9 @@ The 4 manual-review token occurrences and 9 review-required candidate entries op
         "historical_reconciled_commit_v2": "26c029980730cb29883f3e79d9250ee66b83e528",
         "historical_reconciled_tag_v3": "stage-32-complete-v3",
         "historical_reconciled_commit_v3": "f8d5b168c6c1ba2bd1979e9e37a3183b547c5888",
-        "authoritative_reconciled_tag": "stage-32-complete-v4",
+        "historical_reconciled_tag_v4": "stage-32-complete-v4",
+        "historical_reconciled_commit_v4": "eda3e4e611c693901ed161c6d70c1e5fd66a8290",
+        "authoritative_reconciled_tag": "stage-32-complete-v5",
         "branch": "feature/stage32-sinhala-lexicon",
         "accounting": {
             "canonical_records": 150,
@@ -270,6 +272,8 @@ The 4 manual-review token occurrences and 9 review-required candidate entries op
             "exact_rational_weight_total": 150,
             "float_diagnostic_delta": "1.421085e-13",
             "weight_accounting_status": "PASSED",
+            "stage31_immutability_status": "VERIFIED_UNTOUCHED",
+            "derived_weight_ledger": "data/sinhala_lexicon/ledgers/provenance_weight_ledger.jsonl",
             "total_token_occurrences": 4072,
             "included_candidate_occurrences": 3668,
             "excluded_token_class_occurrences": 400,
@@ -325,19 +329,24 @@ Start tag:                                  stage-32-start
 Historical initial checkpoint:              stage-32-complete (988fd9ce97ffaa049d9cc9003a0924817c7f7cde)
 Historical reconciled checkpoint v2:        stage-32-complete-v2 (26c029980730cb29883f3e79d9250ee66b83e528)
 Historical reconciled checkpoint v3:        stage-32-complete-v3 (f8d5b168c6c1ba2bd1979e9e37a3183b547c5888)
-Authoritative reconciled checkpoint:        stage-32-complete-v4
+Historical reconciled checkpoint v4:        stage-32-complete-v4 (eda3e4e611c693901ed161c6d70c1e5fd66a8290)
+Authoritative reconciled checkpoint:        stage-32-complete-v5
 Final commit:                               PENDING_FINAL_SEAL
-Completion tag:                             stage-32-complete-v4
+Completion tag:                             stage-32-complete-v5
 
 Working tree:                               clean
 Branch HEAD:                                PENDING_FINAL_SEAL
 stage-32-complete-v2^{{commit}}:               26c029980730cb29883f3e79d9250ee66b83e528
 stage-32-complete-v3^{{commit}}:               f8d5b168c6c1ba2bd1979e9e37a3183b547c5888
-stage-32-complete-v4^{{commit}}:               PENDING_FINAL_SEAL
+stage-32-complete-v4^{{commit}}:               eda3e4e611c693901ed161c6d70c1e5fd66a8290
+stage-32-complete-v5^{{commit}}:               PENDING_FINAL_SEAL
 Annotated tag object:                       verified
 Remote branch status:                       pushed (origin/feature/stage32-sinhala-lexicon)
-Remote tag status:                          pushed (origin/stage-32-complete-v4)
+Remote tag status:                          pushed (origin/stage-32-complete-v5)
 
+Stage 31 immutability:                      PASSED (0 modified files vs stage-31-complete-v8)
+Stage 31 manifest verification:             PASSED (12/12 docs + 32/32 implementation)
+Stage 32 rational duplicate weight ledger:  VERIFIED (data/sinhala_lexicon/ledgers/provenance_weight_ledger.jsonl)
 Ancestry verification:                      PASSED
 Stage 31 ledger reconciliation:             PASSED
 Canonical analytical records:               150
@@ -374,9 +383,9 @@ Human expert reviews completed:                 0 / NOT ESTABLISHED
 Stage 32 tests:                              40/40 passed
 Full backend tests:                          PASSED (611/611 passed)
 Frontend tests:                              17/17 passed
-Frontend production build:                  PASSED (Vite production build completed in 916ms)
+Frontend production build:                  PASSED (Vite production build completed in 618ms)
 Documentation manifest:                     12/12 verified
-Implementation manifest:                    26/26 verified
+Implementation manifest:                    27/27 verified
 Read-only manifest verification:             PASSED
 Negative tamper test:                        PASSED
 Unaccounted records:                            0

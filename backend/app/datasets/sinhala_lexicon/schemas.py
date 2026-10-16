@@ -65,8 +65,9 @@ class TokenOccurrenceRecord(BaseModel):
     protected_context_ref: Optional[str] = Field(default=None, description="Abstract protected URI alias for concordance context")
     duplicate_weight_numerator: int = Field(default=1, ge=1)
     duplicate_weight_denominator: int = Field(default=1, ge=1)
-    exact_duplicate_weight: float = Field(default=1.0, gt=0.0)
-    exact_duplicate_weight_display: str = Field(default="1.0")
+    duplicate_weight_float: float = Field(default=1.0, gt=0.0)
+    duplicate_weight_display: str = Field(default="1.0")
+    authoritative_weight_representation: str = Field(default="rational")
     rights_profile_id: str
     rights_profile_version: int = Field(default=1, ge=1)
     stage30_configuration_hash: str
@@ -90,6 +91,10 @@ class TokenOccurrenceRecord(BaseModel):
         if start is not None and v < start:
             raise ValueError(f"normalized_end_code_point ({v}) cannot be less than normalized_start_code_point ({start})")
         return v
+
+    @property
+    def exact_duplicate_weight(self) -> float:
+        return self.duplicate_weight_float
 
 class SurfaceFormMappingRecord(BaseModel):
     """Deterministic lookup mapping between observed surface variant and canonical candidate entry."""

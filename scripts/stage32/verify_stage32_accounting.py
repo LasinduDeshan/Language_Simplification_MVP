@@ -18,6 +18,7 @@ CANONICAL_PATH = PROJECT_ROOT / "data" / "sinhala_external" / "corpus" / "canoni
 PROVENANCE_PATH = PROJECT_ROOT / "data" / "sinhala_external" / "corpus" / "pilot_corpus.jsonl"
 OCCURRENCE_LEDGER = PROJECT_ROOT / "data" / "sinhala_lexicon" / "ledgers" / "token_occurrence_ledger.jsonl"
 CANDIDATE_LEDGER = PROJECT_ROOT / "data" / "sinhala_lexicon" / "ledgers" / "candidate_entry_ledger.jsonl"
+WEIGHT_LEDGER = PROJECT_ROOT / "data" / "sinhala_lexicon" / "ledgers" / "provenance_weight_ledger.jsonl"
 DRAFT_LEXICON_PATH = PROJECT_ROOT / "data" / "sinhala_lexicon" / "lexicon" / "draft_lexicon.jsonl"
 MAPPING_LEDGER = PROJECT_ROOT / "data" / "sinhala_lexicon" / "ledgers" / "surface_form_mapping.jsonl"
 
@@ -91,19 +92,23 @@ def verify_all_accounting():
     assert total_draft == 1010
     assert sum(band_counts.values()) == 1010
 
-    # Level 5: Duplicate Weight Reconciliation (Exact Rational & High-Precision Float)
+    # Level 5: Duplicate Weight Reconciliation (Stage 32 Derived Rational Weight Ledger)
     from fractions import Fraction
     rational_weights = []
     float_weights = []
-    with open(PROVENANCE_PATH, "r", encoding="utf-8") as f:
+    weight_records_count = 0
+    with open(WEIGHT_LEDGER, "r", encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 rec = json.loads(line)
+                weight_records_count += 1
                 num = rec.get("duplicate_weight_numerator", 1)
                 den = rec.get("duplicate_weight_denominator", 1)
                 rational_weights.append(Fraction(num, den))
-                float_weights.append(float(rec.get("exact_duplicate_weight", 1.0)))
+                float_weights.append(float(rec.get("duplicate_weight_float", 1.0)))
+                assert rec.get("authoritative_weight_representation") == "rational", "Representation must be rational"
 
+    assert weight_records_count == 180, f"Expected 180 weight records, got {weight_records_count}"
     sum_rational = sum(rational_weights)
     sum_float = sum(float_weights)
     float_delta = abs(sum_float - 150.0)
