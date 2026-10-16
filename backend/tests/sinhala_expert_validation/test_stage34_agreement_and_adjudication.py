@@ -6,6 +6,8 @@ Validates:
 3. Adjudication queue inspection triggers and Level 6 accounting reconciliation.
 """
 
+from typing import Any
+
 import pytest
 
 from app.datasets.sinhala_expert_validation.adjudication import AdjudicationService
