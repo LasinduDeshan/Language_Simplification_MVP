@@ -82,7 +82,7 @@ def compute_krippendorff_alpha_nominal(
 
 
 def compute_krippendorff_alpha_ordinal(
-    data_by_item: Dict[str, Dict[str, Optional[int]]],
+    data_by_item: Dict[str, Dict[str, Any]],
 ) -> Optional[float]:
     """Computes Krippendorff's alpha for ordinal 0-3 scales using squared rank differences."""
     valid_items = {}
