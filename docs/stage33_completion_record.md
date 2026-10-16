@@ -13,9 +13,9 @@ Approved for child delivery:                FALSE
 
 Prerequisite tag:                           stage-32-complete-v5
 Prerequisite commit:                        7c6bb81a744305c3a59100a2c2af8fc06deb01c8
-Start tag:                                  stage-33-start
-Final commit:                               7fdee1cdfe448f0fd9ec017ede0148e9f98faafc
-Completion tag target:                      7fdee1cdfe448f0fd9ec017ede0148e9f98faafc
+Historical start tag:                       stage-33-start
+Historical completion tag:                  stage-33-complete (at 7fdee1cdfe448f0fd9ec017ede0148e9f98faafc)
+Reconciled authoritative tag:               stage-33-complete-v2
 Completion tag object type:                 tag
 Remote completion tag:                      VERIFIED (pushed to origin)
 Working tree:                               CLEAN
@@ -223,7 +223,7 @@ Full Backend Regression Test Suite:
 
 Frontend Tests:                                      17/17 passed
 Frontend Production Build:                           PASSED
-Documentation Manifest:                              14/14 verified (Tamper test PASSED)
+Documentation Manifest:                              15 deliverables (14 manifest-controlled documents + 1 checksum manifest, Tamper test PASSED)
 Implementation Manifest:                             29/29 verified (Tamper test PASSED)
 
 ----------------------------------------------------------------
@@ -231,18 +231,24 @@ Implementation Manifest:                             29/29 verified (Tamper test
 ----------------------------------------------------------------
 
 $ git rev-parse HEAD
-7fdee1cdfe448f0fd9ec017ede0148e9f98faafc
+<HEAD>
 
 $ git rev-parse "stage-33-start^{commit}"
 7c6bb81a744305c3a59100a2c2af8fc06deb01c8
 
 $ git rev-parse "stage-33-complete^{commit}"
-7fdee1cdfe448f0fd9ec017ede0148e9f98faafc
+2d73e3ce5ddf8d2ef299f4391cbbc99caa400541
+
+$ git rev-parse "stage-33-complete-v2^{commit}"
+<stage-33-complete-v2 target commit>
 
 $ git cat-file -t stage-33-complete
 tag
 
-$ git merge-base --is-ancestor "stage-32-complete-v5^{commit}" "stage-33-complete^{commit}"
+$ git cat-file -t stage-33-complete-v2
+tag
+
+$ git merge-base --is-ancestor "stage-32-complete-v5^{commit}" "stage-33-complete-v2^{commit}"
 [exit code: 0]
 
 $ git status --short

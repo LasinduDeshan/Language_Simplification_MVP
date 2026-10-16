@@ -7,13 +7,16 @@
 **Document Nature:** Governance-Restored Pre-Execution Baseline Specification (Reconstructed Execution Contract)  
 **Authoritative prerequisite:** `stage-32-complete-v5` at commit `7c6bb81a744305c3a59100a2c2af8fc06deb01c8`  
 **Implementation branch:** `feature/stage33-sinhala-simplification-rules`  
-**Planned start tag:** `stage-33-start`  
-**Planned completion tag:** `stage-33-complete`  
-**Ready to create stage-33-start:** YES  
-**Ready to begin WP1:** YES  
+**Historical start tag:** `stage-33-start`  
+**Historical completion tag:** `stage-33-complete`  
+**Reconciled authoritative tag:** `stage-33-complete-v2`  
+**Historical implementation status:** EXECUTED  
+**Current document purpose:** GOVERNANCE RESTORATION ONLY  
+**Ready to create stage-33-start:** NOT APPLICABLE — TAG ALREADY EXISTS  
+**Ready to begin WP1:** NOT APPLICABLE — EXECUTION ALREADY COMPLETED  
 
 > [!NOTE]
-> **Historical Accuracy Notice:** This document reconstructs the approved pre-execution specification baseline and execution contract without embedding observed Stage 33 results, actual execution counts, locked-test timestamps, final commit hashes, or test execution outcomes. All retrospective empirical observations, locked-test execution logs, test outputs, and Git sealing evidence are strictly maintained in [docs/stage33_completion_record.md](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage33_completion_record.md) and [docs/stage33_reconciliation_report.md](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage33_reconciliation_report.md).
+> **Historical Accuracy Notice:** This document reconstructs the approved pre-execution specification baseline and execution contract without embedding observed Stage 33 results, actual execution counts, locked-test timestamps, final commit hashes, or test execution outcomes. All retrospective empirical observations, locked-test execution logs, test outputs, and Git sealing evidence are strictly maintained in `docs/stage33_completion_record.md` and `docs/stage33_reconciliation_report.md`.
 
 ---
 
@@ -293,10 +296,7 @@ Therefore:
 $$\text{TotalRuleAttempts} = N_{\text{inputs}} \times N_{\text{rules}} + \text{AdditionalMatchSiteEvaluations}$$
 
 Every additional attempt must evaluate a distinct, non-overlapping `source_span`.
-With 8 registered rules across the 150 canonical inputs:
-- **Base rule-input evaluations:** $150 \times 8 = 1,200$ (Train: $124 \times 8 = 992$; Validation: $13 \times 8 = 104$; Locked Test: $13 \times 8 = 104$)
-- **Additional match-site evaluations:** $10$ (Train: $+9$; Validation: $+1$; Locked Test: $+0$)
-- **Total rule attempts:** $1,210$ (Train: $1,001$; Validation: $105$; Locked Test: $104$)
+All observed partition-specific counts (registered rules, base evaluations, additional match sites, and observed total attempts) are empirical execution outcomes and are maintained strictly in `docs/stage33_accounting_summary.md` and `docs/stage33_completion_record.md`.
 
 Target `Unaccounted`: strictly **0**.
 
@@ -329,7 +329,10 @@ Each canonical input evaluates exactly 4 structured export decision slots (group
 3. **Output Storage Locator Slot:** groups `output_storage_ref` (ProtectedInternal — opaque external pointer)
 4. **Restricted Text Content Slot:** groups literal `source_text`, `candidate_text_internal`, `output_text` (SuppressedByPolicy — omitted from public export)
 
-Total evaluated export decision slots $= N_{\text{inputs}} \times 4 = 150 \times 4 = 600$ (Consolidated: $300 \text{ PublicPermitted} + 150 \text{ ProtectedInternal} + 150 \text{ SuppressedByPolicy} + 0 \text{ ReviewRequired} + 0 \text{ Unaccounted}$).  
+The baseline specifies the exact expected number of export decision slots across the evaluated input population:
+$$\text{ExpectedExportDecisionSlots} = N_{\text{inputs}} \times 4$$
+
+Observed partition-specific category breakdowns belong strictly in `docs/stage33_accounting_summary.md` and `docs/stage33_completion_record.md`.
 Target `Unaccounted`: strictly **0**.
 
 ---
@@ -448,9 +451,9 @@ The Stage 33 test suite comprises **18 test modules (32 test cases)** in `backen
 
 Stage 33 mandates a strict documentation and implementation delivery contract:
 
-### 16.1 Documentation Deliverables Contract (14 Deliverables)
+### 16.1 Documentation Deliverables Contract (15 Deliverables)
 
-The documentation deliverable package consists of **14 deliverables = 13 manifest-controlled documents + 1 self-excluding checksum manifest**:
+The documentation deliverable package consists of **15 deliverables = 14 manifest-controlled documents + 1 self-excluding checksum manifest**:
 
 1. `docs/stage33_implementation_plan.md`: Reconstructed pre-execution baseline specification.
 2. `docs/stage33_rule_governance_and_scope.md`: Rule governance, lifecycle, authoring standards, and authority boundaries.
@@ -465,7 +468,8 @@ The documentation deliverable package consists of **14 deliverables = 13 manifes
 11. `docs/stage33_accounting_summary.md`: Multi-partition master reconciliation table across all 6 levels.
 12. `docs/stage33_reproducibility_record.json`: Machine-readable execution parameters, environment state, and verification hashes.
 13. `docs/stage33_completion_record.md`: Final completion record with unabridged Git, tag, and test execution evidence.
-14. `docs/stage33_manifest.sha256`: Self-excluding SHA-256 checksum manifest over the 13 documentation deliverables above.
+14. `docs/stage33_reconciliation_report.md`: Authoritative governance reconciliation report resolving review audit inquiries.
+15. `docs/stage33_manifest.sha256`: Self-excluding SHA-256 checksum manifest over the 14 documentation deliverables above.
 
 ### 16.2 Governed Implementation Manifest
 
@@ -496,9 +500,9 @@ Stage 33 completion requires satisfying every item in this pass/fail checklist:
 - [ ] **Six-level accounting:** All six conservation equations hold with strictly zero unaccounted units across Train, Validation, Locked Test, and Consolidated partitions.
 - [ ] **No public text leakage:** Public ledgers expose opaque IDs and keyed HMACs; zero restricted raw Sinhala text or raw SHA-256 hashes exposed in git worktree.
 - [ ] **Test and build success:** 32/32 Stage 33 tests pass across 18 test modules; full backend test suite passes; frontend tests and production bundle pass.
-- [ ] **Manifest and tamper verification:** Read-only manifest verifier confirms all 13 documentation and 29 implementation files with passing negative tamper tests.
+- [ ] **Manifest and tamper verification:** Read-only manifest verifier confirms all 14 documentation and 29 implementation files with passing negative tamper tests.
 - [ ] **Clean working tree:** `git status --short` returns exit code 0 and empty output.
-- [ ] **Annotated tag and remote verification:** Immutable annotated tag `stage-33-complete` created, pointing to final commit, and verified on remote origin.
+- [ ] **Annotated tag and remote verification:** Historical tag `stage-33-complete` preserved; new immutable annotated tag `stage-33-complete-v2` created, pointing to final commit, and verified on remote origin.
 
 ---
 
@@ -509,14 +513,15 @@ The completion record requires complete, unabridged terminal command outputs:
 1. `git rev-parse HEAD`
 2. `git rev-parse "stage-33-start^{commit}"`
 3. `git rev-parse "stage-33-complete^{commit}"`
-4. `git cat-file -t stage-33-complete`
-5. `git merge-base --is-ancestor "stage-32-complete-v5^{commit}" "stage-33-complete^{commit}"`
-6. `git status --short`
-7. `git ls-remote --tags origin "stage-33-complete*"`
-8. `python scripts/stage33/verify_partition_isolation.py`
-9. `python scripts/stage33/verify_stage30_to_32_immutability.py`
-10. `python scripts/stage33/verify_stage33_accounting.py`
-11. `python scripts/stage33/verify_stage33_manifest.py`
+4. `git rev-parse "stage-33-complete-v2^{commit}"`
+5. `git cat-file -t stage-33-complete-v2`
+6. `git merge-base --is-ancestor "stage-32-complete-v5^{commit}" "stage-33-complete-v2^{commit}"`
+7. `git status --short`
+8. `git ls-remote --tags origin "stage-33-complete*"`
+9. `python scripts/stage33/verify_partition_isolation.py`
+10. `python scripts/stage33/verify_stage30_to_32_immutability.py`
+11. `python scripts/stage33/verify_stage33_accounting.py`
+12. `python scripts/stage33/verify_stage33_manifest.py`
 
 ---
 
@@ -537,7 +542,8 @@ Prerequisite tag:                           stage-32-complete-v5
 Prerequisite commit:                        7c6bb81a744305c3a59100a2c2af8fc06deb01c8
 Start tag:                                  stage-33-start
 Final commit:                               <full 40-character SHA>
-Completion tag:                             stage-33-complete
+Historical completion tag:                  stage-33-complete
+Reconciled authoritative tag:               stage-33-complete-v2
 
 Ancestry verification:                      <PASSED / FAILED>
 Stage 30–32 immutability:                   <PASSED / FAILED>

@@ -93,12 +93,12 @@ def verify_manifest(manifest_path: Path, label: str, expected_count: int) -> boo
 def verify_all_manifests():
     print("=== Stage 33 Read-Only Manifest Verification Suite ===")
 
-    docs_ok = verify_manifest(DOCS_MANIFEST, "Planned Documentation Manifest", 13)
+    docs_ok = verify_manifest(DOCS_MANIFEST, "Planned Documentation Manifest", 14)
     impl_ok = verify_manifest(IMPLEMENTATION_MANIFEST, "Governed Implementation Manifest", 29)
 
     if docs_ok and impl_ok:
         print("\n=== OVERALL RESULT: ALL STAGE 33 MANIFESTS VERIFIED OK ===")
-        print("13/13 Docs + 29/29 Implementation Artifacts, 0 Mismatches, Tamper Tests Passed.")
+        print("14/14 Docs + 29/29 Implementation Artifacts, 0 Mismatches, Tamper Tests Passed.")
         return True
     else:
         print("\n=== OVERALL RESULT: STAGE 33 MANIFEST VERIFICATION FAILED ===")

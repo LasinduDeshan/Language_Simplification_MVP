@@ -4,17 +4,19 @@
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Scope:** Final governance reconciliation across accounting, split evidence, configuration history, and test inventories  
 **Status:** Reconciled & Authoritatively Sealed  
+**Historical Completion Tag:** `stage-33-complete`  
+**Reconciled Authoritative Tag:** `stage-33-complete-v2`  
 
 ---
 
 ## 1. Overview of Audit Inquiries & Resolutions
 
-This report documents the resolution of the eight governance and evidence audit points raised during the Stage 33 completion review:
+This report documents the resolution of the governance and evidence audit points raised during the Stage 33 completion review:
 
 ### Resolution 1: Test-Module Count & Inventory Reconciliation
 - **Audit Point:** Clarify test inventory count; verify whether 17 or 18 test files exist.
 - **Resolution:** The Stage 33 test suite consists of **18 test files** (18 test modules) comprising **32 individual test cases** in `backend/tests/sinhala_simplification/`.
-- All 18 test files are now explicitly inventoried in [`docs/stage33_implementation_plan.md`](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage33_implementation_plan.md) and [`docs/stage33_completion_record.md`](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage33_completion_record.md):
+- All 18 test files are explicitly inventoried in `docs/stage33_implementation_plan.md` and `docs/stage33_completion_record.md`:
   1. `test_stage33_accounting.py` (6 tests)
   2. `test_stage33_composed_rule_safety.py` (2 tests)
   3. `test_stage33_constrained_subject_recovery.py` (1 test)
@@ -33,19 +35,19 @@ This report documents the resolution of the eight governance and evidence audit 
   16. `test_stage33_sentence_splitting.py` (1 test)
   17. `test_stage33_transformation_traces.py` (1 test)
   18. `test_stage33_two_stage_candidate_resolution.py` (1 test)
-  Total: **32 passed in 0.39s**.
+  Total: **32 passed in 0.33s**.
 
 ### Resolution 2: Strict Separation of Implementation Plan from Completion Evidence
 - **Audit Point:** Ensure the implementation plan contains only pre-execution specifications without retrospective results.
 - **Resolution:**
-  - [`docs/stage33_implementation_plan.md`](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage33_implementation_plan.md) and artifact [`stage33_implementation_plan.md`](file:///C:/Users/Lasindu/.gemini/antigravity-ide/brain/33e7f56a-a626-446d-b2ba-40a61e074c86/stage33_implementation_plan.md) are restored to the **Pre-Execution Approved Baseline**, containing only prospective specifications, architectural invariants, equations, test plans, and placeholder completion templates.
-  - All empirical execution results, timestamps, configuration hashes, and test metrics reside strictly in [`docs/stage33_completion_record.md`](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage33_completion_record.md) and [`docs/stage33_locked_evaluation_report.md`](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage33_locked_evaluation_report.md).
+  - `docs/stage33_implementation_plan.md` and artifact `stage33_implementation_plan.md` are restored to the **Governance-Restored Pre-Execution Baseline Specification**, containing only prospective specifications, architectural invariants, equations, test plans, and placeholder completion templates. All observed execution numbers have been removed from the baseline and retained in the completion record.
+  - All empirical execution results, timestamps, configuration hashes, and test metrics reside strictly in `docs/stage33_completion_record.md` and `docs/stage33_locked_evaluation_report.md`.
 
 ### Resolution 3: Unabridged Git Evidence & Sealing Records
 - **Audit Point:** Record full terminal command outputs for commit and tag verification.
-- **Resolution:** Full unabridged command outputs for `git rev-parse HEAD`, `git rev-parse stage-33-start`, `git rev-parse stage-33-complete`, `git cat-file -t stage-33-complete`, `git merge-base`, `git status --short`, and `git ls-remote` are recorded in [`docs/stage33_completion_record.md`](file:///c:/Users/Lasindu/Documents/GitHub/Language_Simplification_MVP/docs/stage33_completion_record.md).
-- Commit: `7fdee1cdfe448f0fd9ec017ede0148e9f98faafc`
-- Tag: `stage-33-complete` (pushed to origin).
+- **Resolution:** Full unabridged command outputs for `git rev-parse HEAD`, `git rev-parse stage-33-start`, `git rev-parse stage-33-complete`, `git rev-parse stage-33-complete-v2`, `git cat-file -t stage-33-complete-v2`, `git merge-base`, `git status --short`, and `git ls-remote` are recorded in `docs/stage33_completion_record.md`.
+- Historical Tag: `stage-33-complete` (preserved at initial completion commit).
+- Reconciled Authoritative Tag: `stage-33-complete-v2` (pointing to final reconciled sealing commit).
 
 ### Resolution 4: Explanation of the 1,210 Rule-Attempt Denominator
 - **Audit Point:** Explain why 150 inputs $\times$ 8 rules yielded 1,210 attempts instead of 1,200.
@@ -53,6 +55,8 @@ This report documents the resolution of the eight governance and evidence audit 
   - A rule attempt is created **per evaluated rule applicability site**.
   - When a rule pattern does not match an input, exactly 1 attempt (`NOT_APPLICABLE`) is recorded.
   - When a rule pattern matches multiple non-overlapping spans in an input, an attempt (`CANDIDATE_GENERATED`) is recorded for each discrete match location.
+  - Formula:
+    $$\text{TotalRuleAttempts} = N_{\text{inputs}} \times N_{\text{rules}} + \sum_{\text{input, rule}} \max(0, \text{MatchSiteCount} - 1)$$
   - **Accounting Breakdown:**
     - Base rule-input evaluations: $150 \times 8 = 1,200$
     - Additional match-site evaluations: $+10$ (Train: $+9$, Validation: $+1$, Locked Test: $+0$)
@@ -77,13 +81,13 @@ This report documents the resolution of the eight governance and evidence audit 
     - `data/sinhala_lexicon/ledgers/candidate_entry_ledger.jsonl`
   - Erroneous references to `sinhala_word_frequencies.json` have been replaced with the governed paths.
 
-### Resolution 7: Frozen Inventory of the 600 Export-Evaluated Fields
-- **Audit Point:** Identify the four evaluated export fields per input record that produce $150 \times 4 = 600$.
-- **Resolution:** Each of the 150 submitted input records evaluates exactly 4 field slots:
-  1. **Record Identifier Slot (PublicPermitted):** `request_id`, `record_id`, `output_id` (150 fields)
-  2. **Rule & Guard Metadata Slot (PublicPermitted):** `final_disposition`, `applied_rule_ids`, `guard_results`, `validation_status` (150 fields)
-  3. **Output Storage Locator Slot (ProtectedInternal):** `output_storage_ref` (150 fields)
-  4. **Restricted Text Content Slot (SuppressedByPolicy):** `source_text`, `candidate_text_internal`, `output_text` (150 fields)
+### Resolution 7: Frozen Inventory of the 600 Export-Evaluated Decision Slots
+- **Audit Point:** Identify the four evaluated export decision slots per input record that produce $150 \times 4 = 600$.
+- **Resolution:** Each of the 150 submitted input records evaluates exactly 4 decision slots:
+  1. **Record Identifier Slot (PublicPermitted):** `request_id`, `record_id`, `output_id` (150 slots)
+  2. **Rule & Guard Metadata Slot (PublicPermitted):** `final_disposition`, `applied_rule_ids`, `guard_results`, `validation_status` (150 slots)
+  3. **Output Storage Locator Slot (ProtectedInternal):** `output_storage_ref` (150 slots)
+  4. **Restricted Text Content Slot (SuppressedByPolicy):** `source_text`, `candidate_text_internal`, `output_text` (150 slots)
   - Total: $300 \text{ Public} + 150 \text{ Protected} + 150 \text{ Suppressed} = 600$ (0 unaccounted).
 
 ### Resolution 8: Configuration-History Evidence
@@ -97,3 +101,10 @@ This report documents the resolution of the eight governance and evidence audit 
   - Thresholds changed: `false`
   - Validation-specific patterns added: `false`
   - Final configuration SHA-256: `2d572d820f630fb6c15f5ebacebfce3ae84ab2e9c5f7102241f0d15579c71cc2`
+
+### Resolution 9: Explicit Governance of Reconciliation Report (Option A) & Reconciliation Tag
+- **Audit Point:** Formally govern `docs/stage33_reconciliation_report.md` within the documentation manifest contract and preserve historical tag `stage-33-complete`.
+- **Resolution:**
+  - **Option A Adopted:** `docs/stage33_reconciliation_report.md` is integrated as an authoritative manifest-controlled document.
+  - **Documentation Contract:** 15 documentation deliverables = 14 manifest-controlled documents + 1 self-excluding checksum manifest (`docs/stage33_manifest.sha256`).
+  - **Tag Preservation:** Historical tag `stage-33-complete` remains immutable and unmodified. The reconciled authoritative tag `stage-33-complete-v2` seals this reconciled baseline.
