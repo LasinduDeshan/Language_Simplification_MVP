@@ -1,0 +1,60 @@
+{
+  "stage": "stage33",
+  "workflow": "WP0_prerequisite_snapshot",
+  "prerequisite_tag": "stage-32-complete-v5",
+  "prerequisite_commit": "7c6bb81a744305c3a59100a2c2af8fc06deb01c8",
+  "start_tag": "stage-33-start",
+  "start_commit": "7c6bb81a744305c3a59100a2c2af8fc06deb01c8",
+  "verified_ancestors": {
+    "stage-32-complete-v5^{commit}": "7c6bb81a744305c3a59100a2c2af8fc06deb01c8",
+    "stage-31-complete-v8^{commit}": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
+    "stage-30-complete-v3^{commit}": "ef95667b53dddfb032e71fc51d6c524aff7a22a2",
+    "stage-29-complete-v2^{commit}": "89a253c452ea85664f988f31d357d6d9ee72b464",
+    "stage-28a-complete-v4^{commit}": "0e83898a1272ecd8af2fc93f607e694ca07954cf",
+    "stage-27-infrastructure-complete-v3^{commit}": "22eb001eaed9a3dd8bcf09a1a14e4d99a840221f",
+    "stage-26-complete-v5^{commit}": "1a67bd46700ffcc17bebef3ef31e9903ff57c620"
+  },
+  "protected_storage_root": "C:\\Users\\Lasindu\\.sinhala_simplification_protected_data",
+  "primary_evaluation_corpus_view": "canonical_analytical_150",
+  "stage31_counts": {
+    "canonical_analytical_records": 150,
+    "pilot_provenance_records": 180,
+    "surplus_duplicate_records": 30,
+    "splits": {
+      "train": 124,
+      "locked_test": 13,
+      "validation": 13
+    },
+    "method_development_split_distribution": {
+      "train_dev_True": 75,
+      "train_dev_False": 49,
+      "locked_test_dev_False": 13,
+      "validation_dev_False": 13
+    }
+  },
+  "stage32_counts": {
+    "distinct_candidate_entries": 1010,
+    "total_token_occurrences": 4072,
+    "provenance_weight_records": 180
+  },
+  "verified_stage31_corpus_artifacts": {
+    "data/sinhala_external/corpus/canonical_analytical_corpus.jsonl": "f862bf30bedc92dcbff24076c289c7a757a3962c59096bc3a40c3d985d9a0f7d",
+    "data/sinhala_external/corpus/pilot_corpus.jsonl": "e72fefb869675c61ff5266dbc71464ffd56a10eb3cd1731dcd787a3b8d233288",
+    "data/sinhala_external/corpus/corpus_metadata.json": "39ee316a7b3df502f188712c89be5c4d87ca6e856835bde9ef4961c3d778909a",
+    "data/sinhala_external/registry/stage31_configuration.json": "53aa0a8aa7ccc226f17107a18ee024dd85e71ad5776388650ee973a60bc1ef40",
+    "data/sinhala_external/registry/approved_sources.json": "01f2e8bee0abce29ea9311ffb76378e7d0bc6751cb58cce97b1a696dd37dda8d",
+    "data/sinhala_external/registry/method_development_predeclaration.json": "a0ca0752f8928ff9b938118fbedeee4c5d764864bd2e318fbd831b766fd959c6"
+  },
+  "verified_stage32_lexicon_artifacts": {
+    "data/sinhala_lexicon/lexicon/draft_lexicon.jsonl": "c6ac417202c8bffe088c66e6c571f279762185d510d40d2fcc97160e41b86461",
+    "data/sinhala_lexicon/lexicon/review_queue.jsonl": "d84bfacbb8c3ca0d6c995b01bc84455d74099f7947522d1f7e531435dabe4c99",
+    "data/sinhala_lexicon/lexicon/public_metadata_export.jsonl": "080b1614447609ce96ee7597c359bf4efbf76e060a3e8bbe5b18f8b82bf90148",
+    "data/sinhala_lexicon/ledgers/token_occurrence_ledger.jsonl": "46983d602272f9bbbd658df163f6ce62ee33c3d8e2c0f4ec4f526623f1a42102",
+    "data/sinhala_lexicon/ledgers/candidate_entry_ledger.jsonl": "134b3c516e35bdd3548357099e00719692e8f25f338d47d5d968076d6a3117ab",
+    "data/sinhala_lexicon/ledgers/surface_form_mapping.jsonl": "1232ebbc1ed284f66b89cb7715283a229f41cccd8ec154cc10182b8be918137a",
+    "data/sinhala_lexicon/ledgers/provenance_weight_ledger.jsonl": "7d279892ecb6712acd52c4cc59e2182b4522219f505fb9f4c154ae68d05996e6",
+    "data/sinhala_lexicon/ledgers/corpus_identity_ledger.json": "92a834fe3439ba562433c6bb23a70917292d3fd75fdfb90938d5663d2ee9a2d0",
+    "data/sinhala_lexicon/ledgers/weighted_parity_diagnostic.json": "b7718f53cb0c2b8cfccd46064482ab7f3a21afb2ea9d93fe35a37172efc66181",
+    "data/sinhala_lexicon/registry/stage32_configuration.json": "ca014903df9b7a026a8333f0a5e0d9029a4fa957dc2bf6a271592b69a3f2d336"
+  }
+}

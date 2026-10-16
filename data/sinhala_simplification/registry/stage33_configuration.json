@@ -1,0 +1,85 @@
+{
+  "configuration_version": 1,
+  "stage": "stage33",
+  "component": "Component 3 — AI/NLP-Based Language Simplification",
+  "prerequisite_tag": "stage-32-complete-v5",
+  "prerequisite_commit": "7c6bb81a744305c3a59100a2c2af8fc06deb01c8",
+  "start_tag": "stage-33-start",
+  "rule_count": 8,
+  "rules": [
+    {
+      "rule_id": "SI-PHR-SUB-0001",
+      "rule_type": "PHRASE_SUBSTITUTION",
+      "priority": 150
+    },
+    {
+      "rule_id": "SI-PHR-SUB-0002",
+      "rule_type": "PHRASE_SUBSTITUTION",
+      "priority": 140
+    },
+    {
+      "rule_id": "SI-LEX-SUB-0001",
+      "rule_type": "LEXICAL_SUBSTITUTION",
+      "priority": 100
+    },
+    {
+      "rule_id": "SI-LEX-SUB-0002",
+      "rule_type": "LEXICAL_SUBSTITUTION",
+      "priority": 90
+    },
+    {
+      "rule_id": "SI-LEX-SUB-0003",
+      "rule_type": "LEXICAL_SUBSTITUTION",
+      "priority": 80
+    },
+    {
+      "rule_id": "SI-SYN-CON-0001",
+      "rule_type": "CONSERVATIVE_SYNTACTIC",
+      "priority": 70
+    },
+    {
+      "rule_id": "SI-SNT-SPL-0002",
+      "rule_type": "SENTENCE_SPLIT",
+      "priority": 60
+    },
+    {
+      "rule_id": "SI-SNT-SPL-0001",
+      "rule_type": "SENTENCE_SPLIT",
+      "priority": 50
+    }
+  ],
+  "primary_evaluation_corpus_view": "canonical_analytical_150",
+  "protected_span_categories": [
+    "NAMED_ENTITY",
+    "NUMBER_NUMERIC",
+    "DATE_TIME",
+    "UNIT_MEASUREMENT",
+    "CURRENCY",
+    "NEGATION_MARKER",
+    "MODALITY_CONDITION",
+    "QUOTATION_DIRECT_SPEECH",
+    "IDENTIFIER_CODE_URL",
+    "PARENTHETICAL_REFERENCE",
+    "MIXED_SCRIPT_TERM",
+    "STAGE32_REVIEW_REQUIRED_VOCABULARY"
+  ],
+  "ranking_precedence": [
+    "LONGEST_APPROVED_PHRASE_MATCH",
+    "HIGHER_RULE_PRIORITY",
+    "FEWER_TRANSFORMATIONS",
+    "LOWER_EDIT_DISTANCE",
+    "STABLE_RULE_ID_ORDER"
+  ],
+  "fail_closed_dispositions": [
+    "REJECTED_SOURCE_INELIGIBLE",
+    "REJECTED_INVALID_PREPROCESSING_STATE",
+    "FAILED_INTERNAL_ERROR",
+    "MANUAL_REVIEW_REQUIRED",
+    "UNCHANGED_ALL_CANDIDATES_BLOCKED",
+    "UNCHANGED_NO_APPLICABLE_RULE"
+  ],
+  "status": "FROZEN_FOR_LOCKED_EVALUATION",
+  "frozen_at": "2026-10-16T14:00:00Z",
+  "sealed_by": "REV-GOV-01",
+  "configuration_sha256": "58b849ab8b911d3d5106c83f69a967031a7d5e9b1eb983cb23861274dac0b32c"
+}

@@ -1,0 +1,216 @@
+[
+  {
+    "rule_id": "SI-PHR-SUB-0001",
+    "rule_version": 1,
+    "rule_type": "PHRASE_SUBSTITUTION",
+    "status": "TECHNICAL_DRAFT",
+    "authoring_method": "technical_rule_authoring",
+    "author_id_or_team": "stage33_technical_team",
+    "evidence_type": "empirical_pilot_concordance",
+    "evidence_refs": [
+      "SI-LEX-000675",
+      "SI-LEX-000681"
+    ],
+    "rights_profile_refs": [
+      "SRC-SI-001-RP-01"
+    ],
+    "source_pattern_ref": "8ed22845d2bb7df985ba36abbdf2984d75e3a0200577bf15ed92af739c0070ae",
+    "target_template_ref": "ec69d539556e2e542cc21691c5815696311c04523f73a57293be48702fc0fec1",
+    "priority": 150,
+    "applicability_conditions": [],
+    "blocking_conditions": [],
+    "required_guards": [
+      "ENTITY_PRESERVATION",
+      "NEGATION_PRESERVATION"
+    ],
+    "expert_validated": false,
+    "approved_for_child_delivery": false
+  },
+  {
+    "rule_id": "SI-PHR-SUB-0002",
+    "rule_version": 1,
+    "rule_type": "PHRASE_SUBSTITUTION",
+    "status": "TECHNICAL_DRAFT",
+    "authoring_method": "technical_rule_authoring",
+    "author_id_or_team": "stage33_technical_team",
+    "evidence_type": "empirical_pilot_concordance",
+    "evidence_refs": [
+      "SI-LEX-000164",
+      "SI-LEX-000216"
+    ],
+    "rights_profile_refs": [
+      "SRC-SI-001-RP-01"
+    ],
+    "source_pattern_ref": "854d08956ab094424d437b561bd53b893f5078e84a2a2042a6c76e6feb0ce741",
+    "target_template_ref": "420da9978986a30d9cc1b865caec98ec3bc0fe7fd369a5403bd0192261f5980f",
+    "priority": 140,
+    "applicability_conditions": [],
+    "blocking_conditions": [],
+    "required_guards": [
+      "ENTITY_PRESERVATION",
+      "NEGATION_PRESERVATION"
+    ],
+    "expert_validated": false,
+    "approved_for_child_delivery": false
+  },
+  {
+    "rule_id": "SI-LEX-SUB-0001",
+    "rule_version": 1,
+    "rule_type": "LEXICAL_SUBSTITUTION",
+    "status": "TECHNICAL_DRAFT",
+    "authoring_method": "technical_rule_authoring",
+    "author_id_or_team": "stage33_technical_team",
+    "evidence_type": "empirical_pilot_concordance",
+    "evidence_refs": [
+      "SI-LEX-000550",
+      "SI-LEX-000185"
+    ],
+    "rights_profile_refs": [
+      "SRC-SI-001-RP-01"
+    ],
+    "source_pattern_ref": "5fbc6a05adc11f4bfdbe60b0f2e17c6c00f78feb6659be07dcde0ed518db9f79",
+    "target_template_ref": "9cb6be2a2c3e2db4a08715bf1eea610e2cc4c3068e9add46f5cab731db0a34f3",
+    "priority": 100,
+    "applicability_conditions": [],
+    "blocking_conditions": [],
+    "required_guards": [
+      "ENTITY_PRESERVATION",
+      "NEGATION_PRESERVATION"
+    ],
+    "expert_validated": false,
+    "approved_for_child_delivery": false
+  },
+  {
+    "rule_id": "SI-LEX-SUB-0002",
+    "rule_version": 1,
+    "rule_type": "LEXICAL_SUBSTITUTION",
+    "status": "TECHNICAL_DRAFT",
+    "authoring_method": "technical_rule_authoring",
+    "author_id_or_team": "stage33_technical_team",
+    "evidence_type": "empirical_pilot_concordance",
+    "evidence_refs": [
+      "SI-LEX-000326",
+      "SI-LEX-000325"
+    ],
+    "rights_profile_refs": [
+      "SRC-SI-001-RP-01"
+    ],
+    "source_pattern_ref": "963bff89c2c4eebfccda0192c6f302f8016cc1dba9fa845026d592979e3d3d83",
+    "target_template_ref": "5508a01876e2e6627e9bde79902117b6433bc056f0198100b659e1850484f477",
+    "priority": 90,
+    "applicability_conditions": [],
+    "blocking_conditions": [],
+    "required_guards": [
+      "ENTITY_PRESERVATION",
+      "NEGATION_PRESERVATION"
+    ],
+    "expert_validated": false,
+    "approved_for_child_delivery": false
+  },
+  {
+    "rule_id": "SI-LEX-SUB-0003",
+    "rule_version": 1,
+    "rule_type": "LEXICAL_SUBSTITUTION",
+    "status": "TECHNICAL_DRAFT",
+    "authoring_method": "technical_rule_authoring",
+    "author_id_or_team": "stage33_technical_team",
+    "evidence_type": "empirical_pilot_concordance",
+    "evidence_refs": [
+      "SI-LEX-000427"
+    ],
+    "rights_profile_refs": [
+      "SRC-SI-001-RP-01"
+    ],
+    "source_pattern_ref": "49c0235e295e879c89dd8346c840df300ecf243de9353fcd7cb1d9c23a7a0936",
+    "target_template_ref": "012a20b873a7b709292713a168db74ee4ea6461dee111c6a4c64704dcd1190d1",
+    "priority": 80,
+    "applicability_conditions": [],
+    "blocking_conditions": [],
+    "required_guards": [
+      "ENTITY_PRESERVATION",
+      "NEGATION_PRESERVATION"
+    ],
+    "expert_validated": false,
+    "approved_for_child_delivery": false
+  },
+  {
+    "rule_id": "SI-SYN-CON-0001",
+    "rule_version": 1,
+    "rule_type": "CONSERVATIVE_SYNTACTIC",
+    "status": "TECHNICAL_DRAFT",
+    "authoring_method": "technical_rule_authoring",
+    "author_id_or_team": "stage33_technical_team",
+    "evidence_type": "syntactic_discourse_filler_analysis",
+    "evidence_refs": [
+      "SI-SYN-FILLER-01"
+    ],
+    "rights_profile_refs": [
+      "SRC-SI-001-RP-01"
+    ],
+    "source_pattern_ref": "1d4bae4f9ff8a66320ada0c64311287d19a5f8be845befd58bcbc7a499603ffc",
+    "target_template_ref": "069a3690ed9d78cded7401ce0f296de392aeb2bc14e570103026c7012c362099",
+    "priority": 70,
+    "applicability_conditions": [],
+    "blocking_conditions": [],
+    "required_guards": [
+      "ENTITY_PRESERVATION",
+      "NEGATION_PRESERVATION"
+    ],
+    "expert_validated": false,
+    "approved_for_child_delivery": false
+  },
+  {
+    "rule_id": "SI-SNT-SPL-0002",
+    "rule_version": 1,
+    "rule_type": "SENTENCE_SPLIT",
+    "status": "TECHNICAL_DRAFT",
+    "authoring_method": "technical_rule_authoring",
+    "author_id_or_team": "stage33_technical_team",
+    "evidence_type": "syntactic_coordination_split_analysis",
+    "evidence_refs": [
+      "SI-SPLIT-MARKER-02"
+    ],
+    "rights_profile_refs": [
+      "SRC-SI-001-RP-01"
+    ],
+    "source_pattern_ref": "cef1adadce38204f879f1efe6bbe56c84549296a1d88cf702ca9d085e2b81a1f",
+    "target_template_ref": "a2ee7be1fccb5a0818d5e8f6765c691f6ba6c68147ed97690892411f0bb2eb7f",
+    "priority": 60,
+    "applicability_conditions": [],
+    "blocking_conditions": [],
+    "required_guards": [
+      "ENTITY_PRESERVATION",
+      "NEGATION_PRESERVATION",
+      "NUMBER_PRESERVATION"
+    ],
+    "expert_validated": false,
+    "approved_for_child_delivery": false
+  },
+  {
+    "rule_id": "SI-SNT-SPL-0001",
+    "rule_version": 1,
+    "rule_type": "SENTENCE_SPLIT",
+    "status": "TECHNICAL_DRAFT",
+    "authoring_method": "technical_rule_authoring",
+    "author_id_or_team": "stage33_technical_team",
+    "evidence_type": "syntactic_coordination_split_analysis",
+    "evidence_refs": [
+      "SI-LEX-000908"
+    ],
+    "rights_profile_refs": [
+      "SRC-SI-001-RP-01"
+    ],
+    "source_pattern_ref": "55e6510d97907eb6427407e82e076768a310cce16ce936cee67e42cd1990905c",
+    "target_template_ref": "a2ee7be1fccb5a0818d5e8f6765c691f6ba6c68147ed97690892411f0bb2eb7f",
+    "priority": 50,
+    "applicability_conditions": [],
+    "blocking_conditions": [],
+    "required_guards": [
+      "ENTITY_PRESERVATION",
+      "NEGATION_PRESERVATION",
+      "NUMBER_PRESERVATION"
+    ],
+    "expert_validated": false,
+    "approved_for_child_delivery": false
+  }
+]

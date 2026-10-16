@@ -1,0 +1,25 @@
+{
+  "evaluation_partition": "train",
+  "corpus_view": "canonical_analytical_150",
+  "total_inputs_submitted": 124,
+  "dispositions": {
+    "DRAFT_REWRITE_SELECTED": 54,
+    "UNCHANGED_NO_APPLICABLE_RULE": 70
+  },
+  "unaccounted_inputs": 0,
+  "total_rule_attempts": 1001,
+  "rule_attempts_by_status": {
+    "NOT_APPLICABLE": 922,
+    "CANDIDATE_GENERATED": 74,
+    "BLOCKED_MEANING_GUARD": 5
+  },
+  "unaccounted_attempts": 0,
+  "total_candidates_generated": 74,
+  "candidates_by_status": {
+    "SELECTED": 54,
+    "NOT_SELECTED_LOWER_RANK": 20
+  },
+  "unaccounted_candidates": 0,
+  "total_operations_recorded": 74,
+  "unaccounted_operations": 0
+}

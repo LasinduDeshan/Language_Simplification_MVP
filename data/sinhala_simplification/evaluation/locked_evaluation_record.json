@@ -1,0 +1,41 @@
+{
+  "evaluation_status": "LOCKED_TEST_COMPLETE",
+  "configuration_sha256": "58b849ab8b911d3d5106c83f69a967031a7d5e9b1eb983cb23861274dac0b32c",
+  "validation_summary": {
+    "split": "validation",
+    "input_count": 13,
+    "dispositions": {
+      "DRAFT_REWRITE_SELECTED": 8,
+      "UNCHANGED_NO_APPLICABLE_RULE": 5
+    },
+    "rule_attempts": {
+      "NOT_APPLICABLE": 90,
+      "CANDIDATE_GENERATED": 13,
+      "BLOCKED_MEANING_GUARD": 2
+    },
+    "candidates": {
+      "SELECTED": 8,
+      "NOT_SELECTED_LOWER_RANK": 5
+    },
+    "operation_count": 13,
+    "unaccounted": 0
+  },
+  "locked_test_summary": {
+    "split": "locked_test",
+    "input_count": 13,
+    "dispositions": {
+      "DRAFT_REWRITE_SELECTED": 9,
+      "UNCHANGED_NO_APPLICABLE_RULE": 4
+    },
+    "rule_attempts": {
+      "NOT_APPLICABLE": 92,
+      "CANDIDATE_GENERATED": 12
+    },
+    "candidates": {
+      "SELECTED": 9,
+      "NOT_SELECTED_LOWER_RANK": 3
+    },
+    "operation_count": 12,
+    "unaccounted": 0
+  }
+}
