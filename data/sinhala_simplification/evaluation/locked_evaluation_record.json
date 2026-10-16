@@ -1,0 +1,89 @@
+{
+  "locked_test_execution_id": "SI-LOCKED-EVAL-20261016-01",
+  "execution_started": "2026-10-16T10:17:06.807157+00:00",
+  "execution_completed": "2026-10-16T10:17:06.893852+00:00",
+  "locked_test_input_manifest_sha256": "96a44d0c6aaf86382482e25bd41c4df653326a41e7098d991efd2e4c4c5de7de",
+  "final_stage33_configuration_sha256": "2d572d820f630fb6c15f5ebacebfce3ae84ab2e9c5f7102241f0d15579c71cc2",
+  "configuration_loaded_by_execution": "2d572d820f630fb6c15f5ebacebfce3ae84ab2e9c5f7102241f0d15579c71cc2",
+  "configuration_bytes_verified_in_memory": true,
+  "locked_test_output_ledger_sha256": "6c04256bc43731b971e02ef2ef6041babd43898e02c7bca376fcf38927d1866c",
+  "records_expected": 13,
+  "records_processed": 13,
+  "execution_count": 1,
+  "execution_status": "LOCKED_TEST_COMPLETE",
+  "post_execution_configuration_changes": 0,
+  "validation_summary": {
+    "split": "validation",
+    "input_count": 13,
+    "dispositions": {
+      "DRAFT_REWRITE_SELECTED": 8,
+      "UNCHANGED_NO_APPLICABLE_RULE": 4,
+      "UNCHANGED_ALL_CANDIDATES_BLOCKED": 1
+    },
+    "rule_attempts": {
+      "NOT_APPLICABLE": 90,
+      "CANDIDATE_GENERATED": 15
+    },
+    "candidates": {
+      "SELECTED": 8,
+      "NOT_SELECTED_LOWER_RANK": 5,
+      "BLOCKED_MEANING_GUARD": 2
+    },
+    "operation_count": 15,
+    "operations_by_type": {
+      "REPLACE": 8,
+      "SPLIT": 7
+    },
+    "trace_elements": {
+      "total": 15,
+      "exactly_mapped": 8,
+      "qualified_non_exact": 7,
+      "unmapped_reviewed": 0,
+      "unaccounted": 0
+    },
+    "export_fields": {
+      "total": 52,
+      "public_permitted": 26,
+      "protected_internal": 13,
+      "suppressed_by_policy": 13,
+      "unaccounted": 0
+    },
+    "unaccounted": 0
+  },
+  "locked_test_summary": {
+    "split": "locked_test",
+    "input_count": 13,
+    "dispositions": {
+      "DRAFT_REWRITE_SELECTED": 9,
+      "UNCHANGED_NO_APPLICABLE_RULE": 4
+    },
+    "rule_attempts": {
+      "NOT_APPLICABLE": 92,
+      "CANDIDATE_GENERATED": 12
+    },
+    "candidates": {
+      "SELECTED": 9,
+      "NOT_SELECTED_LOWER_RANK": 3
+    },
+    "operation_count": 12,
+    "operations_by_type": {
+      "REPLACE": 9,
+      "SPLIT": 3
+    },
+    "trace_elements": {
+      "total": 12,
+      "exactly_mapped": 9,
+      "qualified_non_exact": 3,
+      "unmapped_reviewed": 0,
+      "unaccounted": 0
+    },
+    "export_fields": {
+      "total": 52,
+      "public_permitted": 26,
+      "protected_internal": 13,
+      "suppressed_by_policy": 13,
+      "unaccounted": 0
+    },
+    "unaccounted": 0
+  }
+}

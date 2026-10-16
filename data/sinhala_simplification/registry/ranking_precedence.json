@@ -1,0 +1,10 @@
+{
+  "precedence_order": [
+    "LONGEST_APPROVED_PHRASE_MATCH",
+    "HIGHER_RULE_PRIORITY",
+    "FEWER_TRANSFORMATIONS",
+    "LOWER_EDIT_DISTANCE",
+    "STABLE_RULE_ID_ORDER"
+  ],
+  "blocked_candidates_participate_in_ranking": false
+}

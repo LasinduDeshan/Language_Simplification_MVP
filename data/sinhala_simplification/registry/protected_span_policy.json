@@ -1,0 +1,20 @@
+{
+  "policy_id": "SI-PROT-POLICY-V1",
+  "stage": "stage33",
+  "description": "Governed protected span categories requiring inviolable preservation",
+  "categories": [
+    "NAMED_ENTITY",
+    "NUMBER_NUMERIC",
+    "DATE_TIME",
+    "UNIT_MEASUREMENT",
+    "CURRENCY",
+    "NEGATION_MARKER",
+    "MODALITY_CONDITION",
+    "QUOTATION_DIRECT_SPEECH",
+    "IDENTIFIER_CODE_URL",
+    "PARENTHETICAL_REFERENCE",
+    "MIXED_SCRIPT_TERM",
+    "STAGE32_REVIEW_REQUIRED_VOCABULARY"
+  ],
+  "incompleteness_acknowledgment": true
+}
