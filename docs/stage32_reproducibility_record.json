@@ -1,0 +1,93 @@
+{
+  "stage": "stage32",
+  "timestamp": "2026-10-16T12:57:58.743710",
+  "prerequisite_tag": "stage-31-complete-v8",
+  "prerequisite_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
+  "start_tag": "stage-32-start",
+  "start_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
+  "historical_initial_tag": "stage-32-complete",
+  "historical_initial_commit": "988fd9ce97ffaa049d9cc9003a0924817c7f7cde",
+  "historical_reconciled_tag_v2": "stage-32-complete-v2",
+  "historical_reconciled_commit_v2": "26c029980730cb29883f3e79d9250ee66b83e528",
+  "historical_reconciled_tag_v3": "stage-32-complete-v3",
+  "historical_reconciled_commit_v3": "f8d5b168c6c1ba2bd1979e9e37a3183b547c5888",
+  "historical_reconciled_tag_v4": "stage-32-complete-v4",
+  "historical_reconciled_commit_v4": "eda3e4e611c693901ed161c6d70c1e5fd66a8290",
+  "authoritative_reconciled_tag": "stage-32-complete-v5",
+  "branch": "feature/stage32-sinhala-lexicon",
+  "accounting": {
+    "canonical_records": 150,
+    "provenance_records": 180,
+    "exact_rational_weight_total": 150,
+    "float_diagnostic_delta": "1.421085e-13",
+    "weight_accounting_status": "PASSED",
+    "stage31_immutability_status": "VERIFIED_UNTOUCHED",
+    "derived_weight_ledger": "data/sinhala_lexicon/ledgers/provenance_weight_ledger.jsonl",
+    "total_token_occurrences": 4072,
+    "included_candidate_occurrences": 3668,
+    "excluded_token_class_occurrences": 400,
+    "manual_review_occurrences": 4,
+    "total_candidates": 1010,
+    "accepted_draft_entries": 1001,
+    "manual_review_entries": 9,
+    "manual_review_reasons": {
+      "potentially_sensitive_semantic_review": 3,
+      "complex_or_rare_form_review": 6,
+      "ocr_or_repetition_flag": 0,
+      "low_confidence_morphology": 0
+    },
+    "distinct_lexicon_entries": 1010,
+    "entry_source_memberships": 1194,
+    "multi_source_entries": 138,
+    "single_source_entries": 872,
+    "missing_rights_profile_references": 0,
+    "unregistered_contributing_sources": 0,
+    "unaccounted_tokens": 0,
+    "unaccounted_candidates": 0
+  },
+  "contributing_sources": {
+    "SRC-SI-001": {
+      "memberships": 448,
+      "tokens": 1450,
+      "rights_profile_id": "RP-SRC-SI-001",
+      "rights_profile_version": 1,
+      "export_posture": "PUBLIC_PERMITTED_STANDALONE"
+    },
+    "SRC-SI-002": {
+      "memberships": 207,
+      "tokens": 594,
+      "rights_profile_id": "RP-SRC-SI-002",
+      "rights_profile_version": 2,
+      "export_posture": "SUPPRESSED_BY_PROJECT_POLICY"
+    },
+    "SRC-SI-003": {
+      "memberships": 179,
+      "tokens": 448,
+      "rights_profile_id": "RP-SRC-SI-003",
+      "rights_profile_version": 1,
+      "export_posture": "PUBLIC_PERMITTED_STANDALONE"
+    },
+    "SRC-SI-004": {
+      "memberships": 215,
+      "tokens": 946,
+      "rights_profile_id": "RP-SRC-SI-004",
+      "rights_profile_version": 1,
+      "export_posture": "PROTECTED_INTERNAL_ONLY"
+    },
+    "SRC-SI-008": {
+      "memberships": 145,
+      "tokens": 230,
+      "rights_profile_id": "RP-SRC-SI-008",
+      "rights_profile_version": 1,
+      "export_posture": "PUBLIC_PERMITTED_STANDALONE"
+    }
+  },
+  "governance_status": {
+    "validation_status": "draft",
+    "expert_validated": false,
+    "research_eligible": false,
+    "approved_for_child_delivery": false,
+    "approved_for_unsupervised_child_delivery": false,
+    "requires_expert_review": true
+  }
+}

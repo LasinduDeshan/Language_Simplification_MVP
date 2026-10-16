@@ -1,0 +1,12 @@
+{
+  "parity_status": "VERIFIED_NO_INFLATION_DETECTED",
+  "provenance_records": 180,
+  "canonical_records": 150,
+  "cluster_count": 150,
+  "invalid_weights": 0,
+  "canonical_mapping_failures": 0,
+  "per_term_parity_failures": 0,
+  "maximum_absolute_delta": 0.0,
+  "numerical_tolerance": 1e-06,
+  "failing_terms": []
+}

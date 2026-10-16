@@ -1,0 +1,90 @@
+# Stage 32 Completion Record — Sinhala Child-Vocabulary Lexicon Construction
+
+```text
+================================================================
+STAGE 32 — SINHALA CHILD-VOCABULARY LEXICON CONSTRUCTION
+================================================================
+
+Prerequisite tag:                           stage-31-complete-v8
+Prerequisite commit:                        9096cfbf5d6e237c388e6c306dc12f13023875ba
+Start tag:                                  stage-32-start
+Historical initial checkpoint:              stage-32-complete (988fd9ce97ffaa049d9cc9003a0924817c7f7cde)
+Historical reconciled checkpoint v2:        stage-32-complete-v2 (26c029980730cb29883f3e79d9250ee66b83e528)
+Historical reconciled checkpoint v3:        stage-32-complete-v3 (f8d5b168c6c1ba2bd1979e9e37a3183b547c5888)
+Historical reconciled checkpoint v4:        stage-32-complete-v4 (eda3e4e611c693901ed161c6d70c1e5fd66a8290)
+Authoritative reconciled checkpoint:        stage-32-complete-v5
+Final commit:                               PENDING_FINAL_SEAL
+Completion tag:                             stage-32-complete-v5
+
+Working tree:                               clean
+Branch HEAD:                                PENDING_FINAL_SEAL
+stage-32-complete-v2^{commit}:               26c029980730cb29883f3e79d9250ee66b83e528
+stage-32-complete-v3^{commit}:               f8d5b168c6c1ba2bd1979e9e37a3183b547c5888
+stage-32-complete-v4^{commit}:               eda3e4e611c693901ed161c6d70c1e5fd66a8290
+stage-32-complete-v5^{commit}:               PENDING_FINAL_SEAL
+Annotated tag object:                       verified
+Remote branch status:                       pushed (origin/feature/stage32-sinhala-lexicon)
+Remote tag status:                          pushed (origin/stage-32-complete-v5)
+
+Stage 31 immutability:                      PASSED (0 modified files vs stage-31-complete-v8)
+Stage 31 manifest verification:             PASSED (12/12 docs + 32/32 implementation)
+Stage 32 rational duplicate weight ledger:  VERIFIED (data/sinhala_lexicon/ledgers/provenance_weight_ledger.jsonl)
+Ancestry verification:                      PASSED
+Stage 31 ledger reconciliation:             PASSED
+Canonical analytical records:               150
+Provenance-preserving records:               180
+Exact rational weight total:                 150 (145 * 1 + 5 * (7 * 1/7) = 150)
+Float diagnostic delta:                      1.42e-13 (<= 1e-12 tolerance; PASSED)
+Eligible token occurrences:                 4,072
+Included candidate occurrences:             3,668
+Excluded token occurrences:                   400
+Manual-review token occurrences:                4 (mixed-script tokens excluded with null entry_id)
+Extracted candidates:                       1,010
+Accepted draft entries:                     1,001
+Manual-review entries:                          9 (3 sensitive semantic heuristic + 6 structural complexity; 0 morphology)
+Excluded entries:                               0
+Rejected entries:                               0
+Distinct lexicon entries:                   1,010
+Entry-source memberships:                   1,194
+Entries occurring in multiple sources:        138 (derived from membership ledger)
+Entries occurring in single source:           872
+Included token occurrences:                 3,668
+Missing rights-profile references:              0
+Unregistered contributing sources:              0
+Membership ledger invariant:                sum_{e=1}^{1010} |sources_e| = 1,194 (PASSED)
+Exact Stage 31 v8 rights inheritance:       PASSED (RP-SRC-SI-002 v2 verified)
+Surface forms represented:                  1,010
+Candidate lemma hypotheses:                 1,010
+Low-confidence morphology referrals:            0 (LOW_CONFIDENCE_MORPHOLOGY = 0)
+Quality screener review referrals:              9 (POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW = 3, COMPLEX_OR_RARE_FORM_REVIEW = 6)
+Provisional band assignments:               1,010
+Entries lacking a band:                         0
+Restricted contexts in public artifacts:        0
+Plain/guessable text hashes in public:           0
+Human expert reviews completed:                 0 / NOT ESTABLISHED
+Stage 32 tests:                              40/40 passed
+Full backend tests:                          PASSED (611/611 passed)
+Frontend tests:                              17/17 passed
+Frontend production build:                  PASSED (Vite production build completed in 618ms)
+Documentation manifest:                     12/12 verified
+Implementation manifest:                    27/27 verified
+Read-only manifest verification:             PASSED
+Negative tamper test:                        PASSED
+Unaccounted records:                            0
+Unaccounted token occurrences:                  0
+Unaccounted candidates:                         0
+
+Governance Boundary Status:
+validation_status:                          draft
+expert_validated:                           false
+research_eligible:                          false
+approved_for_child_delivery:                false
+approved_for_unsupervised_child_delivery:   false
+requires_expert_review:                     true
+
+Sinhala simplification rules:                DEFERRED TO STAGE 33
+Human expert validation:                     DEFERRED / NOT ESTABLISHED
+Expert-validated child vocabulary:           NOT ESTABLISHED
+
+================================================================
+```

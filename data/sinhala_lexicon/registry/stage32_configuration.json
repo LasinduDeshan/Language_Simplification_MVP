@@ -1,0 +1,36 @@
+{
+  "configuration_version": "1.0.0",
+  "stage": "stage32",
+  "calibration_protocol": {
+    "predeclared_subset": "TRAIN_ONLY_SPLIT_GROUPS",
+    "random_seed": 42,
+    "forbidden_splits": [
+      "validation",
+      "locked_test"
+    ],
+    "group_selection_algorithm": "deterministic_train_hash_modulo_v1"
+  },
+  "banding_thresholds": {
+    "foundational": {
+      "min_canonical_frequency": 15,
+      "min_source_dispersion": 0.5,
+      "max_grapheme_count": 5
+    },
+    "early": {
+      "min_canonical_frequency": 8,
+      "max_canonical_frequency": 14,
+      "min_source_dispersion": 0.4,
+      "max_grapheme_count": 7
+    },
+    "developing": {
+      "min_canonical_frequency": 3,
+      "max_canonical_frequency": 7,
+      "max_grapheme_count": 10
+    },
+    "advanced": {
+      "max_canonical_frequency": 2,
+      "min_syllable_proxy": 4
+    }
+  },
+  "tie_break_policy": "ROUTE_TO_REVIEW_REQUIRED"
+}
