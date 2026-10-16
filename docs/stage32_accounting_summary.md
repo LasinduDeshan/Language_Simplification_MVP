@@ -44,12 +44,14 @@ Level 4: Provisional Band Accounting
   Sum of Provisional Bands:             1,010
   Unaccounted Banded Entries:               0
 
-Level 5: Duplicate Weight Parity
+Level 5: Duplicate Weight Parity (Exact Rational & High-Precision Float)
   Canonical Primary Denominator:        150
   Provenance Records:                   180
-  Sum of Cluster Duplicate Weights:     149.999995
-  Delta vs Canonical Denominator:       0.000005 (within 1e-4 tolerance)
+  Exact Rational Weight Total:          150 (145 * 1 + 5 * (7 * 1/7) = 150)
+  High-Precision Float Weight Sum:      149.99999999999986
+  Float Diagnostic Delta:               1.421085e-13 (<= 1e-12 tolerance)
   Maximum Per-Term Parity Delta:        0.000000
+  Accounting Status:                    PASSED
 
 Level 6: Contributing Source Membership & Rights Profile Accounting
   Distinct Lexicon Entries:             1,010

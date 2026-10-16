@@ -63,7 +63,10 @@ class TokenOccurrenceRecord(BaseModel):
     context_storage_ref: str = Field(..., description="Abstract protected URI for concordance sentence")
     token_text_storage_ref: str = Field(..., description="Abstract protected URI for isolated token text")
     protected_context_ref: Optional[str] = Field(default=None, description="Abstract protected URI alias for concordance context")
+    duplicate_weight_numerator: int = Field(default=1, ge=1)
+    duplicate_weight_denominator: int = Field(default=1, ge=1)
     exact_duplicate_weight: float = Field(default=1.0, gt=0.0)
+    exact_duplicate_weight_display: str = Field(default="1.0")
     rights_profile_id: str
     rights_profile_version: int = Field(default=1, ge=1)
     stage30_configuration_hash: str

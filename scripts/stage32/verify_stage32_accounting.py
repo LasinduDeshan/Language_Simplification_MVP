@@ -91,17 +91,26 @@ def verify_all_accounting():
     assert total_draft == 1010
     assert sum(band_counts.values()) == 1010
 
-    # Level 5: Duplicate Weight Reconciliation
-    weights = []
+    # Level 5: Duplicate Weight Reconciliation (Exact Rational & High-Precision Float)
+    from fractions import Fraction
+    rational_weights = []
+    float_weights = []
     with open(PROVENANCE_PATH, "r", encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 rec = json.loads(line)
-                weights.append(float(rec.get("exact_duplicate_weight", 1.0)))
+                num = rec.get("duplicate_weight_numerator", 1)
+                den = rec.get("duplicate_weight_denominator", 1)
+                rational_weights.append(Fraction(num, den))
+                float_weights.append(float(rec.get("exact_duplicate_weight", 1.0)))
 
-    sum_weights = sum(weights)
-    print(f"Level 5 (Duplicate Weights): Sum = {sum_weights:.6f} | Delta = {abs(sum_weights - 150.0):.8f}")
-    assert abs(sum_weights - 150.0) < 1e-4
+    sum_rational = sum(rational_weights)
+    sum_float = sum(float_weights)
+    float_delta = abs(sum_float - 150.0)
+    print(f"Level 5 (Duplicate Weights): Exact Rational Total = {sum_rational} (Expected: 150) | Float Sum = {sum_float:.14f} | Float Diagnostic Delta = {float_delta:.16e}")
+    assert sum_rational == 150, f"Exact rational weight total must be 150, got {sum_rational}"
+    assert float_delta <= 1e-12, f"Float diagnostic delta {float_delta} exceeds 1e-12 tolerance!"
+    print("  [OK] Exact rational weight total: 150 | Float diagnostic delta <= 1e-12 | Accounting status: PASSED")
 
     # Level 6: Entry-Source Membership and Rights Profile Accounting
     APPROVED_SOURCES_PATH = PROJECT_ROOT / "data" / "sinhala_external" / "registry" / "approved_sources.json"

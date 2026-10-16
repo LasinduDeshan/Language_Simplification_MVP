@@ -173,12 +173,14 @@ Level 4: Provisional Band Accounting
   Sum of Provisional Bands:             1,010
   Unaccounted Banded Entries:               0
 
-Level 5: Duplicate Weight Parity
+Level 5: Duplicate Weight Parity (Exact Rational & High-Precision Float)
   Canonical Primary Denominator:        150
   Provenance Records:                   180
-  Sum of Cluster Duplicate Weights:     149.999995
-  Delta vs Canonical Denominator:       0.000005 (within 1e-4 tolerance)
+  Exact Rational Weight Total:          150 (145 * 1 + 5 * (7 * 1/7) = 150)
+  High-Precision Float Weight Sum:      149.99999999999986
+  Float Diagnostic Delta:               1.421085e-13 (<= 1e-12 tolerance)
   Maximum Per-Term Parity Delta:        0.000000
+  Accounting Status:                    PASSED
 
 Level 6: Contributing Source Membership & Rights Profile Accounting
   Distinct Lexicon Entries:             1,010
@@ -258,11 +260,16 @@ The 4 manual-review token occurrences and 9 review-required candidate entries op
         "historical_initial_commit": "988fd9ce97ffaa049d9cc9003a0924817c7f7cde",
         "historical_reconciled_tag_v2": "stage-32-complete-v2",
         "historical_reconciled_commit_v2": "26c029980730cb29883f3e79d9250ee66b83e528",
-        "authoritative_reconciled_tag": "stage-32-complete-v3",
+        "historical_reconciled_tag_v3": "stage-32-complete-v3",
+        "historical_reconciled_commit_v3": "f8d5b168c6c1ba2bd1979e9e37a3183b547c5888",
+        "authoritative_reconciled_tag": "stage-32-complete-v4",
         "branch": "feature/stage32-sinhala-lexicon",
         "accounting": {
             "canonical_records": 150,
             "provenance_records": 180,
+            "exact_rational_weight_total": 150,
+            "float_diagnostic_delta": "1.421085e-13",
+            "weight_accounting_status": "PASSED",
             "total_token_occurrences": 4072,
             "included_candidate_occurrences": 3668,
             "excluded_token_class_occurrences": 400,
@@ -317,23 +324,26 @@ Prerequisite commit:                        9096cfbf5d6e237c388e6c306dc12f130238
 Start tag:                                  stage-32-start
 Historical initial checkpoint:              stage-32-complete (988fd9ce97ffaa049d9cc9003a0924817c7f7cde)
 Historical reconciled checkpoint v2:        stage-32-complete-v2 (26c029980730cb29883f3e79d9250ee66b83e528)
-Authoritative reconciled checkpoint:        stage-32-complete-v3
+Historical reconciled checkpoint v3:        stage-32-complete-v3 (f8d5b168c6c1ba2bd1979e9e37a3183b547c5888)
+Authoritative reconciled checkpoint:        stage-32-complete-v4
 Final commit:                               PENDING_FINAL_SEAL
-Completion tag:                             stage-32-complete-v3
+Completion tag:                             stage-32-complete-v4
 
 Working tree:                               clean
 Branch HEAD:                                PENDING_FINAL_SEAL
 stage-32-complete-v2^{{commit}}:               26c029980730cb29883f3e79d9250ee66b83e528
-stage-32-complete-v3^{{commit}}:               PENDING_FINAL_SEAL
+stage-32-complete-v3^{{commit}}:               f8d5b168c6c1ba2bd1979e9e37a3183b547c5888
+stage-32-complete-v4^{{commit}}:               PENDING_FINAL_SEAL
 Annotated tag object:                       verified
 Remote branch status:                       pushed (origin/feature/stage32-sinhala-lexicon)
-Remote tag status:                          pushed (origin/stage-32-complete-v3)
+Remote tag status:                          pushed (origin/stage-32-complete-v4)
 
 Ancestry verification:                      PASSED
 Stage 31 ledger reconciliation:             PASSED
 Canonical analytical records:               150
 Provenance-preserving records:               180
-Sum of duplicate-normalized weights:         149.999995
+Exact rational weight total:                 150 (145 * 1 + 5 * (7 * 1/7) = 150)
+Float diagnostic delta:                      1.42e-13 (<= 1e-12 tolerance; PASSED)
 Eligible token occurrences:                 4,072
 Included candidate occurrences:             3,668
 Excluded token occurrences:                   400

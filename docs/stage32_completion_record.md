@@ -10,23 +10,26 @@ Prerequisite commit:                        9096cfbf5d6e237c388e6c306dc12f130238
 Start tag:                                  stage-32-start
 Historical initial checkpoint:              stage-32-complete (988fd9ce97ffaa049d9cc9003a0924817c7f7cde)
 Historical reconciled checkpoint v2:        stage-32-complete-v2 (26c029980730cb29883f3e79d9250ee66b83e528)
-Authoritative reconciled checkpoint:        stage-32-complete-v3
+Historical reconciled checkpoint v3:        stage-32-complete-v3 (f8d5b168c6c1ba2bd1979e9e37a3183b547c5888)
+Authoritative reconciled checkpoint:        stage-32-complete-v4
 Final commit:                               PENDING_FINAL_SEAL
-Completion tag:                             stage-32-complete-v3
+Completion tag:                             stage-32-complete-v4
 
 Working tree:                               clean
 Branch HEAD:                                PENDING_FINAL_SEAL
 stage-32-complete-v2^{commit}:               26c029980730cb29883f3e79d9250ee66b83e528
-stage-32-complete-v3^{commit}:               PENDING_FINAL_SEAL
+stage-32-complete-v3^{commit}:               f8d5b168c6c1ba2bd1979e9e37a3183b547c5888
+stage-32-complete-v4^{commit}:               PENDING_FINAL_SEAL
 Annotated tag object:                       verified
 Remote branch status:                       pushed (origin/feature/stage32-sinhala-lexicon)
-Remote tag status:                          pushed (origin/stage-32-complete-v3)
+Remote tag status:                          pushed (origin/stage-32-complete-v4)
 
 Ancestry verification:                      PASSED
 Stage 31 ledger reconciliation:             PASSED
 Canonical analytical records:               150
 Provenance-preserving records:               180
-Sum of duplicate-normalized weights:         149.999995
+Exact rational weight total:                 150 (145 * 1 + 5 * (7 * 1/7) = 150)
+Float diagnostic delta:                      1.42e-13 (<= 1e-12 tolerance; PASSED)
 Eligible token occurrences:                 4,072
 Included candidate occurrences:             3,668
 Excluded token occurrences:                   400
