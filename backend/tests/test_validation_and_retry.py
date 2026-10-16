@@ -1,3 +1,5 @@
+from typing import Dict
+
 import pytest
 from fastapi.testclient import TestClient
 from app.main import app
@@ -9,7 +11,7 @@ from app.validation.validator import adaptation_validator
 from app.services.adaptation_service import adaptation_service
 from app.services.experiment_service import experiment_service
 from app.retry_controller.retry_manager import retry_manager
-from app.database.models import ExperimentRun, Attempt, Adaptation, ValidationResult, IntegrationEvent
+from app.database.models import ExperimentRun, Attempt, Adaptation, ValidationResult, IntegrationEvent, Task
 
 @pytest.fixture
 def client():
@@ -33,7 +35,7 @@ def test_relation_aware_answer_leakage_detection(db_session):
     4. Permits candidate options when policy allows candidate presentation
     5. Does not falsely flag allowed instruction terms
     """
-    task_map = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
+    task_map: Dict[str, Task] = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
     task_habitat = task_map["TASK-ENG-002"]  # Animal habitat
 
     # 1. Restricted phrase
