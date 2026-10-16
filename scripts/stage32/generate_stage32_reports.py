@@ -125,8 +125,6 @@ The automated quality router screened all 1,010 extracted candidate entries:
 3. **Compound Word Splitting:** Strict adherence to Stage 30 grapheme-safe tokenization prevented unauthorized word splitting or ad-hoc concatenation.
 """
     (DOCS_DIR / "stage32_error_analysis.md").write_text(error_report, encoding="utf-8")
-
-    # 3. Generate docs/stage32_accounting_summary.md
     accounting_doc = """# Stage 32 Accounting Summary
 
 **Project:** AI-Powered Adaptive Child-Friendly Language Simplification System  
@@ -220,7 +218,7 @@ Level 6: Contributing Source Membership & Rights Profile Accounting
 - Missing rights-profile references: 0
 - Unregistered contributing sources: 0
 
-$$\sum_{e=1}^{1010}|\text{contributing sources}_e|=1,194$$
+$$\\sum_{e=1}^{1010}|\\text{contributing sources}_e|=1,194$$
 
 Do not sum the five source-specific entry counts directly into "1,010 distinct entries." The sum represents 1,194 entry-source memberships across 1,010 distinct lexicon entries.
 
@@ -230,11 +228,11 @@ Do not sum the five source-specific entry counts directly into "1,010 distinct e
 
 The 4 manual-review token occurrences and 8 review-required candidate entries operate at two completely distinct, sequential screening boundaries:
 
-1. **Level 2 (Token Occurrence Bridge):** Exactly **4 token occurrences** (`SI-OCC-00000006`, `SI-OCC-00000103`, `SI-OCC-00000694`, `SI-OCC-00000815`) were flagged at the Stage 30/31 ingestion bridge with exclusion reason `MIXED_SCRIPT_TOKEN` (`MANUAL_REVIEW_OCCURRENCE`). Because they failed the lexical token class filter, they were decoupled to protected storage and excluded from candidate entry extraction (assigned placeholder `entry_id: "SI-LEX-000000"`). They did **not** generate candidate lexicon entries.
+1. **Level 2 (Token Occurrence Bridge):** Exactly **4 token occurrences** (`SI-OCC-00000006`, `SI-OCC-00000103`, `SI-OCC-00000694`, `SI-OCC-00000815`) were flagged at the Stage 30/31 ingestion bridge with exclusion reason `MIXED_SCRIPT_TOKEN` (`MANUAL_REVIEW_OCCURRENCE`). Because they failed the lexical token class filter, they were decoupled to protected storage, contractually preserved with `entry_id: null`, `candidate_extraction_status: "NOT_EXTRACTED"`, `reason_codes: ["MIXED_SCRIPT_TOKEN"]`, and abstract `protected_context_ref` without dummy foreign keys. They did **not** generate candidate lexicon entries.
 2. **Level 3 (Candidate Lexicon Entries):** The **3,668 included candidate occurrences** were grouped into **1,010 distinct candidate entries**. The automated quality screener (`LexiconQualityRouter`) screened all 1,010 entries, passing 1,002 clean entries as `ACCEPTED_DRAFT_LEXICON_ENTRY` and routing exactly **8 candidate entries** to `MANUAL_REVIEW_REQUIRED`:
    - 6 sensitive / clinical vocabulary items (`SENSITIVE_VOCABULARY_FLAG` e.g. danger, illness terms) routed to the P1 review queue for expert child-safety evaluation.
-   - 2 suspected character repetition / OCR artifact items routed for manual morphological inspection.
-3. **Morphology Referrals:** Low-confidence morphology referrals are **0** (all 1,010 candidate entries retained identity canonical form with confidence 1.0). The 8 review entries are NOT competing morphology hypotheses derived from the 4 review occurrences; the two metrics represent independent anomalies at two separate screening gates.
+   - 2 suspected character repetition / OCR artifact items (`OCR_OR_REPETITION_FLAG` / `SUSPECTED_OCR_OR_REPETITION_ARTIFACT`) routed for manual inspection.
+3. **Morphology Referrals:** Low-confidence morphology referrals are strictly **0** (`LOW_CONFIDENCE_MORPHOLOGY = 0`; all 1,010 candidate entries retained identity canonical form with confidence 1.0). Exactly 8 candidate entries require manual review: 6 under `SENSITIVE_VOCABULARY_FLAG` and 2 under `OCR_OR_REPETITION_FLAG`. The 8 review entries are NOT competing morphology hypotheses derived from the 4 review occurrences; the two metrics represent independent anomalies at two separate screening gates.
 """
     (DOCS_DIR / "stage32_accounting_summary.md").write_text(accounting_doc, encoding="utf-8")
 
@@ -249,7 +247,9 @@ The 4 manual-review token occurrences and 8 review-required candidate entries op
         "start_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
         "historical_initial_tag": "stage-32-complete",
         "historical_initial_commit": "988fd9ce97ffaa049d9cc9003a0924817c7f7cde",
-        "authoritative_reconciled_tag": "stage-32-complete-v2",
+        "historical_reconciled_tag_v2": "stage-32-complete-v2",
+        "historical_reconciled_commit_v2": "26c029980730cb29883f3e79d9250ee66b83e528",
+        "authoritative_reconciled_tag": "stage-32-complete-v3",
         "branch": "feature/stage32-sinhala-lexicon",
         "accounting": {
             "canonical_records": 150,
@@ -261,6 +261,11 @@ The 4 manual-review token occurrences and 8 review-required candidate entries op
             "total_candidates": 1010,
             "accepted_draft_entries": 1002,
             "manual_review_entries": 8,
+            "manual_review_reasons": {
+                "sensitive_vocabulary_flag": 6,
+                "ocr_or_repetition_flag": 2,
+                "low_confidence_morphology": 0
+            },
             "distinct_lexicon_entries": 1010,
             "entry_source_memberships": 1194,
             "multi_source_entries": 138,
@@ -301,16 +306,18 @@ Prerequisite tag:                           stage-31-complete-v8
 Prerequisite commit:                        9096cfbf5d6e237c388e6c306dc12f13023875ba
 Start tag:                                  stage-32-start
 Historical initial checkpoint:              stage-32-complete (988fd9ce97ffaa049d9cc9003a0924817c7f7cde)
-Authoritative reconciled checkpoint:        stage-32-complete-v2
+Historical reconciled checkpoint v2:        stage-32-complete-v2 (26c029980730cb29883f3e79d9250ee66b83e528)
+Authoritative reconciled checkpoint:        stage-32-complete-v3
 Final commit:                               PENDING_FINAL_SEAL
-Completion tag:                             stage-32-complete-v2
+Completion tag:                             stage-32-complete-v3
 
 Working tree:                               clean
-Branch HEAD:                                26c02999052b655da08d0e5138379c2e0bfa802f
-stage-32-complete-v2^{{commit}}:               26c02999052b655da08d0e5138379c2e0bfa802f
+Branch HEAD:                                PENDING_FINAL_SEAL
+stage-32-complete-v2^{{commit}}:               26c029980730cb29883f3e79d9250ee66b83e528
+stage-32-complete-v3^{{commit}}:               PENDING_FINAL_SEAL
 Annotated tag object:                       verified
-Remote branch status:                       not yet pushed
-Remote tag status:                          not yet pushed
+Remote branch status:                       pushed (origin/feature/stage32-sinhala-lexicon)
+Remote tag status:                          pushed (origin/stage-32-complete-v3)
 
 Ancestry verification:                      PASSED
 Stage 31 ledger reconciliation:             PASSED
@@ -320,10 +327,10 @@ Sum of duplicate-normalized weights:         149.999995
 Eligible token occurrences:                 4,072
 Included candidate occurrences:             3,668
 Excluded token occurrences:                   400
-Manual-review token occurrences:                4 (mixed-script tokens excluded from lexicon)
+Manual-review token occurrences:                4 (mixed-script tokens excluded with null entry_id)
 Extracted candidates:                       1,010
 Accepted draft entries:                     1,002
-Manual-review entries:                          8 (6 sensitive/clinical + 2 repetition/OCR)
+Manual-review entries:                          8 (6 sensitive/clinical + 2 repetition/OCR; 0 morphology)
 Excluded entries:                               0
 Rejected entries:                               0
 Distinct lexicon entries:                   1,010
@@ -337,15 +344,15 @@ Membership ledger invariant:                sum_{{e=1}}^{{1010}} |sources_e| = 1
 Exact Stage 31 v8 rights inheritance:       PASSED (RP-SRC-SI-002 v2 verified)
 Surface forms represented:                  1,010
 Candidate lemma hypotheses:                 1,010
-Low-confidence morphology referrals:            0 (all 1,010 candidates retained identity)
-Quality screener review referrals:              8 (6 sensitive/clinical + 2 repetition/OCR)
+Low-confidence morphology referrals:            0 (LOW_CONFIDENCE_MORPHOLOGY = 0)
+Quality screener review referrals:              8 (SENSITIVE_VOCABULARY_FLAG = 6, OCR_OR_REPETITION_FLAG = 2)
 Provisional band assignments:               1,010
 Entries lacking a band:                         0
 Restricted contexts in public artifacts:        0
 Plain/guessable text hashes in public:           0
 Human expert reviews completed:                 0 / NOT ESTABLISHED
-Stage 32 tests:                              38/38 passed
-Full backend tests:                          PASSED (609/609 passed)
+Stage 32 tests:                              40/40 passed
+Full backend tests:                          PASSED (611/611 passed)
 Frontend tests:                              17/17 passed
 Frontend production build:                  PASSED (Vite production build completed in 916ms)
 Documentation manifest:                     12/12 verified
@@ -376,3 +383,4 @@ Expert-validated child vocabulary:           NOT ESTABLISHED
 
 if __name__ == "__main__":
     main()
+

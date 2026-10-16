@@ -91,7 +91,7 @@ Level 6: Contributing Source Membership & Rights Profile Accounting
 - Missing rights-profile references: 0
 - Unregistered contributing sources: 0
 
-$$\sum_{e=1}^{1010}|	ext{contributing sources}_e|=1,194$$
+$$\sum_{e=1}^{1010}|\text{contributing sources}_e|=1,194$$
 
 Do not sum the five source-specific entry counts directly into "1,010 distinct entries." The sum represents 1,194 entry-source memberships across 1,010 distinct lexicon entries.
 
@@ -101,8 +101,8 @@ Do not sum the five source-specific entry counts directly into "1,010 distinct e
 
 The 4 manual-review token occurrences and 8 review-required candidate entries operate at two completely distinct, sequential screening boundaries:
 
-1. **Level 2 (Token Occurrence Bridge):** Exactly **4 token occurrences** (`SI-OCC-00000006`, `SI-OCC-00000103`, `SI-OCC-00000694`, `SI-OCC-00000815`) were flagged at the Stage 30/31 ingestion bridge with exclusion reason `MIXED_SCRIPT_TOKEN` (`MANUAL_REVIEW_OCCURRENCE`). Because they failed the lexical token class filter, they were decoupled to protected storage and excluded from candidate entry extraction (assigned placeholder `entry_id: "SI-LEX-000000"`). They did **not** generate candidate lexicon entries.
+1. **Level 2 (Token Occurrence Bridge):** Exactly **4 token occurrences** (`SI-OCC-00000006`, `SI-OCC-00000103`, `SI-OCC-00000694`, `SI-OCC-00000815`) were flagged at the Stage 30/31 ingestion bridge with exclusion reason `MIXED_SCRIPT_TOKEN` (`MANUAL_REVIEW_OCCURRENCE`). Because they failed the lexical token class filter, they were decoupled to protected storage, contractually preserved with `entry_id: null`, `candidate_extraction_status: "NOT_EXTRACTED"`, `reason_codes: ["MIXED_SCRIPT_TOKEN"]`, and abstract `protected_context_ref` without dummy foreign keys. They did **not** generate candidate lexicon entries.
 2. **Level 3 (Candidate Lexicon Entries):** The **3,668 included candidate occurrences** were grouped into **1,010 distinct candidate entries**. The automated quality screener (`LexiconQualityRouter`) screened all 1,010 entries, passing 1,002 clean entries as `ACCEPTED_DRAFT_LEXICON_ENTRY` and routing exactly **8 candidate entries** to `MANUAL_REVIEW_REQUIRED`:
    - 6 sensitive / clinical vocabulary items (`SENSITIVE_VOCABULARY_FLAG` e.g. danger, illness terms) routed to the P1 review queue for expert child-safety evaluation.
-   - 2 suspected character repetition / OCR artifact items routed for manual morphological inspection.
-3. **Morphology Referrals:** Low-confidence morphology referrals are **0** (all 1,010 candidate entries retained identity canonical form with confidence 1.0). The 8 review entries are NOT competing morphology hypotheses derived from the 4 review occurrences; the two metrics represent independent anomalies at two separate screening gates.
+   - 2 suspected character repetition / OCR artifact items (`OCR_OR_REPETITION_FLAG` / `SUSPECTED_OCR_OR_REPETITION_ARTIFACT`) routed for manual inspection.
+3. **Morphology Referrals:** Low-confidence morphology referrals are strictly **0** (`LOW_CONFIDENCE_MORPHOLOGY = 0`; all 1,010 candidate entries retained identity canonical form with confidence 1.0). Exactly 8 candidate entries require manual review: 6 under `SENSITIVE_VOCABULARY_FLAG` and 2 under `OCR_OR_REPETITION_FLAG`. The 8 review entries are NOT competing morphology hypotheses derived from the 4 review occurrences; the two metrics represent independent anomalies at two separate screening gates.

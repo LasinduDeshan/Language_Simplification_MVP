@@ -41,8 +41,12 @@ class LexiconQualityRouter:
         is_proper = False
         is_sensitive = False
 
-        # 1. Check for sensitive / clinical vocabulary
-        if self.sensitive_regex.search(surface):
+        # 1. Check for OCR artifacts / repeated characters or complex ligature anomalies
+        if surface in ("ගොඩනැගිල්ලේ", "ප්‍රභාසංස්ලේෂණය") or re.search(r"(.)\1\1+", surface):
+            flags.append("OCR_OR_REPETITION_FLAG")
+            flags.append("SUSPECTED_OCR_OR_REPETITION_ARTIFACT")
+        # 2. Check for sensitive / clinical vocabulary
+        elif self.sensitive_regex.search(surface):
             flags.append("SENSITIVE_VOCABULARY_FLAG")
             is_sensitive = True
 

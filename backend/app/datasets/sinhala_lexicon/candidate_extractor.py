@@ -98,7 +98,7 @@ class CandidateExtractor:
                 disp = TerminalEntryDisposition.MANUAL_REVIEW_REQUIRED
             elif is_sensitive:
                 disp = TerminalEntryDisposition.MANUAL_REVIEW_REQUIRED
-            elif "SUSPECTED_OCR_OR_REPETITION_ARTIFACT" in quality_flags:
+            elif "SUSPECTED_OCR_OR_REPETITION_ARTIFACT" in quality_flags or "OCR_OR_REPETITION_FLAG" in quality_flags:
                 disp = TerminalEntryDisposition.MANUAL_REVIEW_REQUIRED
             elif "LEADING_COMBINING_MARK_ERROR" in quality_flags:
                 disp = TerminalEntryDisposition.EXCLUDED_NON_LEXICAL

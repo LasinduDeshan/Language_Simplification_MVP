@@ -1,13 +1,15 @@
 {
   "stage": "stage32",
-  "timestamp": "2026-10-16T11:12:49.418045",
+  "timestamp": "2026-10-16T11:34:25.289205",
   "prerequisite_tag": "stage-31-complete-v8",
   "prerequisite_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
   "start_tag": "stage-32-start",
   "start_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
   "historical_initial_tag": "stage-32-complete",
   "historical_initial_commit": "988fd9ce97ffaa049d9cc9003a0924817c7f7cde",
-  "authoritative_reconciled_tag": "stage-32-complete-v2",
+  "historical_reconciled_tag_v2": "stage-32-complete-v2",
+  "historical_reconciled_commit_v2": "26c029980730cb29883f3e79d9250ee66b83e528",
+  "authoritative_reconciled_tag": "stage-32-complete-v3",
   "branch": "feature/stage32-sinhala-lexicon",
   "accounting": {
     "canonical_records": 150,
@@ -19,6 +21,11 @@
     "total_candidates": 1010,
     "accepted_draft_entries": 1002,
     "manual_review_entries": 8,
+    "manual_review_reasons": {
+      "sensitive_vocabulary_flag": 6,
+      "ocr_or_repetition_flag": 2,
+      "low_confidence_morphology": 0
+    },
     "distinct_lexicon_entries": 1010,
     "entry_source_memberships": 1194,
     "multi_source_entries": 138,

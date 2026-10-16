@@ -72,10 +72,22 @@ class OccurrenceLedgerBuilder:
         with open(self.ledger_file, "w", encoding="utf-8") as f:
             for occ in raw_occurrences:
                 surface = surface_map[occ.occurrence_id]
-                entry_id = surface_to_entry_id.get(surface, "SI-LEX-000000")
+                if occ.occurrence_disposition == OccurrenceDisposition.INCLUDED_CANDIDATE_OCCURRENCE:
+                    entry_id = surface_to_entry_id.get(surface)
+                    cand_status = "EXTRACTED"
+                    reasons = []
+                else:
+                    entry_id = None
+                    cand_status = "NOT_EXTRACTED"
+                    reasons = [occ.exclusion_reason_code] if occ.exclusion_reason_code else []
 
                 # Updated occurrence with assigned entry ID
-                resolved_occ = occ.model_copy(update={"entry_id": entry_id})
+                resolved_occ = occ.model_copy(update={
+                    "entry_id": entry_id,
+                    "candidate_extraction_status": cand_status,
+                    "reason_codes": reasons,
+                    "protected_context_ref": occ.context_storage_ref
+                })
                 final_occurrences.append(resolved_occ)
                 accounting[resolved_occ.occurrence_disposition.value] += 1
 

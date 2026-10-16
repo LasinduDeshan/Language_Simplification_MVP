@@ -39,7 +39,7 @@ def main():
             # Read token text from protected storage
             txt = lexicon_storage.read_file_text(rec.token_text_storage_ref)
             surface_texts[rec.occurrence_id] = txt
-            if rec.entry_id != "SI-LEX-000000":
+            if rec.entry_id is not None and rec.entry_id != "SI-LEX-000000":
                 surface_to_id[txt] = rec.entry_id
 
     extractor = CandidateExtractor()

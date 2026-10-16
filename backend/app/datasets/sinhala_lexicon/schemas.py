@@ -46,7 +46,8 @@ class TokenOccurrenceRecord(BaseModel):
     """Lossless occurrence ledger record tracking an individual token within a corpus record."""
     model_config = ConfigDict(extra="forbid")
     occurrence_id: str = Field(..., pattern=r"^SI-OCC-\d{8}$")
-    entry_id: str = Field(..., pattern=r"^SI-LEX-\d{6}$")
+    entry_id: Optional[str] = Field(default=None, pattern=r"^SI-LEX-\d{6}$")
+    candidate_extraction_status: str = Field(default="EXTRACTED", description="EXTRACTED or NOT_EXTRACTED")
     canonical_record_id: str = Field(..., description="Primary canonical analytical record ID, e.g. SI-PILOT-000001")
     provenance_record_id: str = Field(..., description="Provenance corpus record ID")
     source_id: str = Field(..., description="Contributing source ID")
@@ -61,6 +62,7 @@ class TokenOccurrenceRecord(BaseModel):
     hmac_domain: str = Field(default="sinhala-lexicon-surface-form")
     context_storage_ref: str = Field(..., description="Abstract protected URI for concordance sentence")
     token_text_storage_ref: str = Field(..., description="Abstract protected URI for isolated token text")
+    protected_context_ref: Optional[str] = Field(default=None, description="Abstract protected URI alias for concordance context")
     exact_duplicate_weight: float = Field(default=1.0, gt=0.0)
     rights_profile_id: str
     rights_profile_version: int = Field(default=1, ge=1)
@@ -69,6 +71,7 @@ class TokenOccurrenceRecord(BaseModel):
     corpus_artifact_sha256: str
     occurrence_disposition: OccurrenceDisposition
     exclusion_reason_code: Optional[str] = None
+    reason_codes: List[str] = Field(default_factory=list)
 
     @field_validator("context_storage_ref", "token_text_storage_ref")
     @classmethod

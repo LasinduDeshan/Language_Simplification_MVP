@@ -48,3 +48,87 @@ def test_canonical_frequencies_are_positive_integers():
             assert 1 <= entry.canonical_document_frequency <= 150
             assert entry.eligible_source_count >= 1
             assert 1 <= entry.observed_source_count <= entry.eligible_source_count
+
+
+def test_excluded_and_review_occurrences_have_null_entry_id():
+    """Verify non-extracted/review occurrences have entry_id is None and never appear in candidate memberships."""
+    occ_ledger = PROJECT_ROOT / "data" / "sinhala_lexicon" / "ledgers" / "token_occurrence_ledger.jsonl"
+    assert occ_ledger.exists()
+    assert CANDIDATE_LEDGER.exists()
+
+    candidate_entry_ids = set()
+    with open(CANDIDATE_LEDGER, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                c = json.loads(line)
+                candidate_entry_ids.add(c["entry_id"])
+
+    assert len(candidate_entry_ids) == 1010
+
+    included_count = 0
+    excluded_count = 0
+    review_count = 0
+
+    with open(occ_ledger, "r", encoding="utf-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            rec = json.loads(line)
+            disp = rec["occurrence_disposition"]
+            if disp in ("EXCLUDED_TOKEN_CLASS", "MANUAL_REVIEW_OCCURRENCE"):
+                if disp == "EXCLUDED_TOKEN_CLASS":
+                    excluded_count += 1
+                else:
+                    review_count += 1
+                    assert rec["reason_codes"] == ["MIXED_SCRIPT_TOKEN"]
+
+                assert rec["entry_id"] is None
+                assert rec["candidate_extraction_status"] == "NOT_EXTRACTED"
+                assert rec["protected_context_ref"].startswith("protected://")
+                assert rec["entry_id"] not in candidate_entry_ids
+            elif disp == "INCLUDED_CANDIDATE_OCCURRENCE":
+                included_count += 1
+                assert rec["entry_id"] is not None
+                assert rec["candidate_extraction_status"] == "EXTRACTED"
+                assert rec["entry_id"] in candidate_entry_ids
+
+    assert included_count == 3668
+    assert excluded_count == 400
+    assert review_count == 4
+    assert included_count + excluded_count + review_count == 4072
+
+
+def test_candidate_review_reason_consistency():
+    """Assert exact consistency across quality flags and review referral categories."""
+    assert CANDIDATE_LEDGER.exists()
+
+    manual_review_required = 0
+    sensitive_vocabulary_flag = 0
+    ocr_or_repetition_flag = 0
+    low_confidence_morphology = 0
+
+    with open(CANDIDATE_LEDGER, "r", encoding="utf-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            entry = json.loads(line)
+            disp = entry.get("terminal_entry_disposition")
+            flags = entry.get("quality_flags", [])
+
+            if disp == "MANUAL_REVIEW_REQUIRED":
+                manual_review_required += 1
+
+            if "SENSITIVE_VOCABULARY_FLAG" in flags:
+                sensitive_vocabulary_flag += 1
+
+            if "OCR_OR_REPETITION_FLAG" in flags or "SUSPECTED_OCR_OR_REPETITION_ARTIFACT" in flags:
+                ocr_or_repetition_flag += 1
+
+            if "LOW_CONFIDENCE_MORPHOLOGY" in flags or entry.get("lemma_confidence", 1.0) < 0.6:
+                low_confidence_morphology += 1
+
+    assert manual_review_required == 8
+    assert sensitive_vocabulary_flag == 6
+    assert ocr_or_repetition_flag == 2
+    assert low_confidence_morphology == 0
+

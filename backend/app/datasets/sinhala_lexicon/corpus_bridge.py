@@ -122,10 +122,14 @@ class Stage31CorpusBridge:
 
                 # Determine or assign preliminary entry ID
                 surface = token.surface
-                if entry_id_resolver:
-                    entry_id = entry_id_resolver(surface)
+                if disp == OccurrenceDisposition.INCLUDED_CANDIDATE_OCCURRENCE:
+                    entry_id = entry_id_resolver(surface) if entry_id_resolver else None
+                    cand_status = "EXTRACTED"
+                    reason_codes = []
                 else:
-                    entry_id = "SI-LEX-000000"
+                    entry_id = None
+                    cand_status = "NOT_EXTRACTED"
+                    reason_codes = [reason] if reason else []
 
                 # Extract context sentence/window
                 start_cp = token.start_code_point
@@ -152,6 +156,7 @@ class Stage31CorpusBridge:
                 occ_record = TokenOccurrenceRecord(
                     occurrence_id=occ_id,
                     entry_id=entry_id,
+                    candidate_extraction_status=cand_status,
                     canonical_record_id=record_id,
                     provenance_record_id=record_id,
                     source_id=source_id,
@@ -166,6 +171,7 @@ class Stage31CorpusBridge:
                     hmac_domain="sinhala-lexicon-surface-form",
                     context_storage_ref=context_ref,
                     token_text_storage_ref=token_ref,
+                    protected_context_ref=context_ref,
                     exact_duplicate_weight=1.0,
                     rights_profile_id=rights_profile_id,
                     rights_profile_version=rights_profile_version,
@@ -173,7 +179,8 @@ class Stage31CorpusBridge:
                     stage31_configuration_hash=self.stage31_config_hash,
                     corpus_artifact_sha256=record_sha,
                     occurrence_disposition=disp,
-                    exclusion_reason_code=reason
+                    exclusion_reason_code=reason,
+                    reason_codes=reason_codes
                 )
 
                 yield occ_record
