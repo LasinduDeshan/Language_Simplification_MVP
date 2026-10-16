@@ -1,0 +1,132 @@
+{
+  "rubric_version": "S34-RUBRIC-V1",
+  "contract_type": "status_score_object",
+  "dimensions": {
+    "meaning_preservation": {
+      "type": "ordinal",
+      "scale": [0, 1, 2, 3],
+      "mandatory": true,
+      "allowed_statuses": ["RATED", "CANNOT_ASSESS"],
+      "descriptions": {
+        "0": "Major contradiction or critical meaning loss",
+        "1": "Substantial semantic drift or alteration of key proposition",
+        "2": "Minor drift; core meaning remains intact",
+        "3": "Complete meaning preservation; no semantic loss or addition"
+      }
+    },
+    "grammatical_acceptability": {
+      "type": "ordinal",
+      "scale": [0, 1, 2, 3],
+      "mandatory": true,
+      "allowed_statuses": ["RATED", "CANNOT_ASSESS"],
+      "descriptions": {
+        "0": "Unacceptable grammar; severely broken Sinhala syntax",
+        "1": "Substantial grammatical errors affecting readability",
+        "2": "Minor grammatical awkwardness; structurally understandable",
+        "3": "Fully well-formed, natural, and standard Sinhala grammar"
+      }
+    },
+    "morphology_preservation": {
+      "type": "ordinal",
+      "scale": [0, 1, 2, 3],
+      "mandatory": true,
+      "allowed_statuses": ["RATED", "NOT_APPLICABLE", "CANNOT_ASSESS"],
+      "descriptions": {
+        "0": "Erroneous case, tense, or subject-verb agreement inflection",
+        "1": "Substantial morphological distortion",
+        "2": "Minor non-standard inflection that does not impede comprehension",
+        "3": "Accurate, natural morphological inflection and agreement"
+      }
+    },
+    "fluency_naturalness": {
+      "type": "ordinal",
+      "scale": [0, 1, 2, 3],
+      "mandatory": true,
+      "allowed_statuses": ["RATED", "CANNOT_ASSESS"],
+      "descriptions": {
+        "0": "Highly unnatural, mechanical, or incomprehensible Sinhala",
+        "1": "Stilted or awkward phrasing; clearly artificial",
+        "2": "Mostly fluent; minor colloquial or stylistic stiffness",
+        "3": "Completely natural, native-like Sinhala register"
+      }
+    },
+    "simplicity_improvement": {
+      "type": "categorical",
+      "scale": ["SIMPLER", "SAME", "MORE_COMPLEX", "UNCERTAIN"],
+      "mandatory": true,
+      "allowed_statuses": ["RATED", "CANNOT_ASSESS"],
+      "descriptions": {
+        "SIMPLER": "Candidate is noticeably simpler than the source sentence",
+        "SAME": "Candidate is approximately equal in complexity to the source",
+        "MORE_COMPLEX": "Candidate is more complex or difficult than the source",
+        "UNCERTAIN": "Relative complexity is ambiguous or mixed"
+      }
+    },
+    "vocabulary_suitability": {
+      "type": "ordinal",
+      "scale": [0, 1, 2, 3],
+      "mandatory": true,
+      "allowed_statuses": ["RATED", "CANNOT_ASSESS"],
+      "descriptions": {
+        "0": "Entirely inaccessible; high-register or archaic terms for ages 4-8",
+        "1": "Several words too advanced for 4-8 year olds",
+        "2": "Mostly accessible words; 1-2 words require guidance",
+        "3": "Fully accessible, everyday core vocabulary suitable for ages 4-8"
+      }
+    },
+    "sentence_structure_suitability": {
+      "type": "ordinal",
+      "scale": [0, 1, 2, 3],
+      "mandatory": true,
+      "allowed_statuses": ["RATED", "CANNOT_ASSESS"],
+      "descriptions": {
+        "0": "Excessive clause embedding, overwhelming memory load for ages 4-8",
+        "1": "Overly long or complex compound sentence structure",
+        "2": "Slightly long sentence but manageable comprehension burden",
+        "3": "Short, clear, direct single-clause or simple coordinate structure"
+      }
+    },
+    "developmental_suitability": {
+      "type": "ordinal",
+      "scale": [0, 1, 2, 3],
+      "mandatory": true,
+      "allowed_statuses": ["RATED", "CANNOT_ASSESS"],
+      "descriptions": {
+        "0": "Developmentally inappropriate concepts, themes, or structure",
+        "1": "Substantial developmental mismatch for ages 4-8",
+        "2": "Provisional developmental match with minor support needed",
+        "3": "Highly developmentally appropriate for children aged 4-8"
+      }
+    },
+    "safety": {
+      "type": "categorical",
+      "scale": ["NO_FLAG", "POTENTIAL_CONCERN", "UNSUITABLE", "UNCERTAIN"],
+      "mandatory": true,
+      "allowed_statuses": ["RATED", "CANNOT_ASSESS"],
+      "descriptions": {
+        "NO_FLAG": "Candidate text contains no harmful, distressing, or unsafe elements",
+        "POTENTIAL_CONCERN": "Contains ambiguous themes requiring caution",
+        "UNSUITABLE": "Explicitly inappropriate, frightening, or harmful content",
+        "UNCERTAIN": "Unable to determine safety without further contextual inquiry"
+      }
+    },
+    "overall_disposition": {
+      "type": "categorical",
+      "scale": ["ACCEPT_DRAFT", "ACCEPT_WITH_MINOR_EDIT", "REVISE", "REJECT", "ESCALATE"],
+      "mandatory": true,
+      "allowed_statuses": ["RATED"],
+      "descriptions": {
+        "ACCEPT_DRAFT": "Recommended as valid simplified draft candidate",
+        "ACCEPT_WITH_MINOR_EDIT": "Acceptable following trivial orthographic/grammatical fix",
+        "REVISE": "Requires significant rule adjustment or re-simplification",
+        "REJECT": "Unacceptable simplification; discard candidate",
+        "ESCALATE": "Requires senior governance or ethical adjudication"
+      }
+    }
+  },
+  "submission_policy": {
+    "reject_missing_status": true,
+    "cannot_assess_requires_null_score": true,
+    "rated_requires_valid_score": true
+  }
+}

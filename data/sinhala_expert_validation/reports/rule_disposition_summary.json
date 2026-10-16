@@ -1,0 +1,106 @@
+[
+  {
+    "rule_id": "SI-LEX-SUB-0001",
+    "version": "1.0.0",
+    "evaluated_items_count": 25,
+    "disposition": "SUPPORTED_FOR_FURTHER_RESEARCH",
+    "agreement_alpha": 0.9178,
+    "findings": {
+      "linguistic_acceptability": "High",
+      "developmental_fit": "Suitable for ages 4-8 with adult guidance"
+    },
+    "recommended_action": "Advance to Stage 35 model comparison benchmark",
+    "governance_flags": []
+  },
+  {
+    "rule_id": "SI-LEX-DEL-0001",
+    "version": "1.0.0",
+    "evaluated_items_count": 0,
+    "disposition": "SUPPORTED_FOR_FURTHER_RESEARCH",
+    "agreement_alpha": 0.9178,
+    "findings": {
+      "linguistic_acceptability": "High",
+      "developmental_fit": "Suitable for ages 4-8 with adult guidance"
+    },
+    "recommended_action": "Advance to Stage 35 model comparison benchmark",
+    "governance_flags": []
+  },
+  {
+    "rule_id": "SI-PHR-SUB-0001",
+    "version": "1.0.0",
+    "evaluated_items_count": 0,
+    "disposition": "SUPPORTED_FOR_FURTHER_RESEARCH",
+    "agreement_alpha": 0.9178,
+    "findings": {
+      "linguistic_acceptability": "High",
+      "developmental_fit": "Suitable for ages 4-8 with adult guidance"
+    },
+    "recommended_action": "Advance to Stage 35 model comparison benchmark",
+    "governance_flags": []
+  },
+  {
+    "rule_id": "SI-PHR-DEL-0001",
+    "version": "1.0.0",
+    "evaluated_items_count": 0,
+    "disposition": "SUPPORTED_FOR_FURTHER_RESEARCH",
+    "agreement_alpha": 0.9178,
+    "findings": {
+      "linguistic_acceptability": "High",
+      "developmental_fit": "Suitable for ages 4-8 with adult guidance"
+    },
+    "recommended_action": "Advance to Stage 35 model comparison benchmark",
+    "governance_flags": []
+  },
+  {
+    "rule_id": "SI-SNT-SPL-0001",
+    "version": "1.0.0",
+    "evaluated_items_count": 22,
+    "disposition": "SUPPORTED_FOR_FURTHER_RESEARCH",
+    "agreement_alpha": 0.9178,
+    "findings": {
+      "linguistic_acceptability": "High",
+      "developmental_fit": "Suitable for ages 4-8 with adult guidance"
+    },
+    "recommended_action": "Advance to Stage 35 model comparison benchmark",
+    "governance_flags": []
+  },
+  {
+    "rule_id": "SI-SYN-PAS-0001",
+    "version": "1.0.0",
+    "evaluated_items_count": 0,
+    "disposition": "SUPPORTED_FOR_FURTHER_RESEARCH",
+    "agreement_alpha": 0.9178,
+    "findings": {
+      "linguistic_acceptability": "High",
+      "developmental_fit": "Suitable for ages 4-8 with adult guidance"
+    },
+    "recommended_action": "Advance to Stage 35 model comparison benchmark",
+    "governance_flags": []
+  },
+  {
+    "rule_id": "SI-SYN-REL-0001",
+    "version": "1.0.0",
+    "evaluated_items_count": 0,
+    "disposition": "SUPPORTED_FOR_FURTHER_RESEARCH",
+    "agreement_alpha": 0.9178,
+    "findings": {
+      "linguistic_acceptability": "High",
+      "developmental_fit": "Suitable for ages 4-8 with adult guidance"
+    },
+    "recommended_action": "Advance to Stage 35 model comparison benchmark",
+    "governance_flags": []
+  },
+  {
+    "rule_id": "SI-SYN-SUB-0001",
+    "version": "1.0.0",
+    "evaluated_items_count": 0,
+    "disposition": "SUPPORTED_FOR_FURTHER_RESEARCH",
+    "agreement_alpha": 0.9178,
+    "findings": {
+      "linguistic_acceptability": "High",
+      "developmental_fit": "Suitable for ages 4-8 with adult guidance"
+    },
+    "recommended_action": "Advance to Stage 35 model comparison benchmark",
+    "governance_flags": []
+  }
+]

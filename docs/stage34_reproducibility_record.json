@@ -1,0 +1,140 @@
+{
+  "stage": "stage34",
+  "component": "Component 3 — AI/NLP-Based Language Simplification",
+  "title": "Sinhala Expert Linguistic and Child-Development Validation",
+  "prerequisite_tag": "stage-33-complete-v2",
+  "prerequisite_commit": "74481f4d09beeba42ccb9b9c32ff994e372af5bf",
+  "start_tag": "stage-34-start",
+  "start_commit": "74481f4d09beeba42ccb9b9c32ff994e372af5bf",
+  "terminal_tag": "stage-34-complete",
+  "branch": "feature/stage34-sinhala-expert-validation",
+  "random_seed": 42,
+  "assignment_seed": 1034,
+  "frozen_hashes": {
+    "rubric_hash": "80b60486002208f63df1b67caa82b7a90611907e11b617233595cb69b933de23",
+    "reason_codes_hash": "4cf69ba83554f0059170dd7a8c7ebbfad598c34e11cb9e59c6cde77837f0d703",
+    "analysis_plan_hash": "f8fe8a800340159d129b6e46e65fdb68fa219871afdb43ec3e3f36b1009ff3e6",
+    "configuration_hash": "b2f6b528b12239d67571db682613ad1104618e11a37c050c9557ec6e3612d341",
+    "assignment_ledger_hash": "e4b7bd76065819ccbdf413220a754e4d9511bc965df6b411626987f1e536de19"
+  },
+  "panel_summary": {
+    "unique_qualified_count": 6,
+    "roles": {
+      "sinhala_linguists": 2,
+      "early_childhood_educators": 2,
+      "child_development_specialists": 1,
+      "independent_adjudicators": 1
+    },
+    "project_team_evaluators_used": 0
+  },
+  "population_summary": {
+    "total_canonical_items": 150,
+    "train_items": 124,
+    "validation_items": 13,
+    "locked_test_items": 13,
+    "total_assignments": 600,
+    "assignments_per_item": 4,
+    "total_annotations_collected": 600,
+    "missing_annotations": 0
+  },
+  "primary_critical_endpoints": {
+    "meaning_preservation": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9178,
+      "bootstrap_95_ci": [0.8437, 0.971],
+      "exact_agreement": 0.9667,
+      "threshold": 0.667,
+      "passed": true
+    },
+    "grammatical_acceptability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.8302,
+      "bootstrap_95_ci": [0.6998, 0.9291],
+      "exact_agreement": 0.9428,
+      "threshold": 0.667,
+      "passed": true
+    },
+    "developmental_suitability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9385,
+      "bootstrap_95_ci": [0.8659, 1.0],
+      "exact_agreement": 0.9867,
+      "threshold": 0.667,
+      "passed": true
+    },
+    "overall_disposition": {
+      "metric": "krippendorff_alpha_nominal",
+      "point_estimate": 0.827,
+      "bootstrap_95_ci": [0.749, 0.8966],
+      "exact_agreement": 0.9333,
+      "threshold": 0.667,
+      "passed": true
+    }
+  },
+  "secondary_agreement_metrics": {
+    "morphology_preservation": 0.9537,
+    "fluency_naturalness": 0.9192,
+    "simplicity_improvement": 1.0,
+    "vocabulary_suitability": 0.906,
+    "sentence_structure_suitability": 0.9398,
+    "fleiss_kappa_overall_disposition": 0.8267
+  },
+  "seven_level_zero_loss_accounting": {
+    "level_1_evaluation_items": {
+      "total": 150,
+      "train": 124,
+      "validation": 13,
+      "locked_test": 13,
+      "unaccounted": 0
+    },
+    "level_2_reviewer_assignments": {
+      "total": 600,
+      "assignments_per_item": 4,
+      "unaccounted": 0
+    },
+    "level_3_annotation_submissions": {
+      "submitted": 600,
+      "missing": 0,
+      "unaccounted": 0
+    },
+    "level_4_dimension_ratings": {
+      "total_ratings": 6000,
+      "rated": 5140,
+      "cannot_assess": 544,
+      "not_applicable": 316,
+      "missing_in_submitted": 0,
+      "unaccounted": 0
+    },
+    "level_5_amendments": {
+      "total": 2,
+      "accepted": 2,
+      "rejected": 0,
+      "pending": 0,
+      "unaccounted": 0
+    },
+    "level_6_adjudications": {
+      "total_enqueued": 5,
+      "resolved": 5,
+      "unresolved": 0,
+      "pending": 0,
+      "unaccounted": 0
+    },
+    "level_7_rule_dispositions": {
+      "registered": 8,
+      "evaluated": 8,
+      "sealed_for_research": 8,
+      "unaccounted": 0
+    },
+    "all_levels_reconciled": true,
+    "total_unaccounted_across_all_levels": 0
+  },
+  "governance_and_compliance": {
+    "non_clinical_scope_confirmed": true,
+    "direct_child_testing_conducted": false,
+    "approved_for_child_delivery": false,
+    "approved_for_unsupervised_child_delivery": false,
+    "requires_expert_review": true,
+    "protected_pii_stored_outside_git": true,
+    "upstream_stage30_to_33_immutable": true
+  }
+}

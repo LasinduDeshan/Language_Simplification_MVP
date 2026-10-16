@@ -1,0 +1,105 @@
+{
+  "stage": "stage34",
+  "total_items_evaluated": 150,
+  "total_annotations_collected": 600,
+  "critical_threshold": 0.667,
+  "all_primary_critical_passed": true,
+  "primary_critical_endpoints": {
+    "meaning_preservation": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9178,
+      "ci_95": [
+        0.8437,
+        0.971
+      ],
+      "exact_agreement": 0.9667,
+      "passed": true
+    },
+    "grammatical_acceptability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.8302,
+      "ci_95": [
+        0.6998,
+        0.9291
+      ],
+      "exact_agreement": 0.9596,
+      "passed": true
+    },
+    "developmental_suitability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9385,
+      "ci_95": [
+        0.8659,
+        1.0
+      ],
+      "exact_agreement": 0.98,
+      "passed": true
+    },
+    "overall_disposition": {
+      "metric": "krippendorff_alpha_nominal",
+      "point_estimate": 0.827,
+      "ci_95": [
+        0.749,
+        0.8966
+      ],
+      "exact_agreement": 0.9333,
+      "passed": true
+    }
+  },
+  "secondary_agreement_diagnostics": {
+    "morphology_preservation": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9537,
+      "ci_95": [
+        0.8482,
+        1.0
+      ],
+      "exact_agreement": 0.9718,
+      "passed": true
+    },
+    "fluency_naturalness": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9192,
+      "ci_95": [
+        0.8494,
+        0.9708
+      ],
+      "exact_agreement": 0.97,
+      "passed": true
+    },
+    "simplicity_improvement": {
+      "metric": "krippendorff_alpha_nominal",
+      "point_estimate": 1.0,
+      "ci_95": [
+        1.0,
+        1.0
+      ],
+      "exact_agreement": 1.0,
+      "passed": true
+    },
+    "vocabulary_suitability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.906,
+      "ci_95": [
+        0.8193,
+        0.9659
+      ],
+      "exact_agreement": 0.9756,
+      "passed": true
+    },
+    "sentence_structure_suitability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9398,
+      "ci_95": [
+        0.8601,
+        0.9873
+      ],
+      "exact_agreement": 0.9867,
+      "passed": true
+    }
+  },
+  "secondary_fleiss_kappa": {
+    "metric": "fleiss_kappa",
+    "point_estimate": 0.8267
+  }
+}
