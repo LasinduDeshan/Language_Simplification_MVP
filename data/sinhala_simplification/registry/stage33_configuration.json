@@ -81,5 +81,5 @@
   "status": "FROZEN_FOR_LOCKED_EVALUATION",
   "frozen_at": "2026-10-16T14:00:00Z",
   "sealed_by": "REV-GOV-01",
-  "configuration_sha256": "2d572d820f630fb6c15f5ebacebfce3ae84ab2e9c5f7102241f0d15579c71cc2"
+  "configuration_sha256": "58b849ab8b911d3d5106c83f69a967031a7d5e9b1eb983cb23861274dac0b32c"
 }

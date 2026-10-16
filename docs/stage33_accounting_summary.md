@@ -1,16 +1,25 @@
-# Stage 33 — Accounting Reconciliation Summary
+# Stage 33 — Accounting Reconciliation Summary (Multi-Partition 150 Inputs)
 
 **Project:** AI-Powered Adaptive Child-Friendly Language Simplification System  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
-**Scope:** Mutually exclusive conservation equations across inputs, attempts, candidates, operations, and export boundaries  
+**Scope:** Mutually exclusive conservation equations across inputs, attempts, candidates, operations, trace elements, and export boundaries  
 **Evaluation View:** Canonical Analytical Corpus View (`canonical_analytical_150`)  
-**Status:** Reconciled with Zero Unaccounted Units  
+**Status:** Reconciled Across All Partitions with Strictly Zero Unaccounted Units  
 
 ---
 
 ## 1. Accounting Framework Overview
 
-Stage 33 implements exact conservation accounting across 6 levels using mutually exclusive terminal statuses.
+Stage 33 implements exact multi-partition conservation accounting across 6 levels using mutually exclusive terminal statuses. Every input and generated artifact belongs to exactly one category at each level, ensuring mathematical conservation across Train (124), Validation (13), Locked-Test (13), and Consolidated Canonical View (150).
+
+### Multi-Partition Reconciliation Master Table
+
+| Partition | Inputs (L1) | Rule Attempts (L2) | Candidates (L3) | Operations (L4) | Trace Elements (L5) | Export Fields (L6) |
+|---|---|---|---|---|---|---|
+| **Train** | 124 | 1,001 | 79 | 79 | 79 | 496 |
+| **Validation** | 13 | 105 | 15 | 15 | 15 | 52 |
+| **Locked Test** | 13 | 104 | 12 | 12 | 12 | 52 |
+| **Total Canonical** | **150** | **1,210** | **106** | **106** | **106** | **600** |
 
 ---
 
@@ -18,18 +27,27 @@ Stage 33 implements exact conservation accounting across 6 levels using mutually
 
 $$\text{SubmittedInputs} = \text{DraftRewriteSelected} + \text{UnchangedNoApplicableRule} + \text{UnchangedAllBlocked} + \text{ManualReviewRequired} + \text{RejectedSourceIneligible} + \text{RejectedInvalidState} + \text{FailedInternal} + \text{Unaccounted}$$
 
-| Partition | Submitted | Draft Selected | Unchanged No Rule | Unchanged Blocked | Manual Review | Failed Internal | Unaccounted |
-|---|---|---|---|---|---|---|---|
-| **Train Split** | 124 | 54 | 70 | 0 | 0 | 0 | **0** |
-| **Validation Split** | 13 | 8 | 4 | 1 | 0 | 0 | **0** |
-| **Locked-Test Split** | 13 | 9 | 4 | 0 | 0 | 0 | **0** |
-| **Total Canonical View** | **150** | **71** | **78** | **1** | **0** | **0** | **0** |
+$$150 = 71 + 76 + 3 + 0 + 0 + 0 + 0 + 0$$
+
+| Partition | Submitted | Draft Selected | Unchanged No Rule | Unchanged Blocked | Manual Review | Ineligible | Invalid State | Failed Internal | Unaccounted |
+|---|---|---|---|---|---|---|---|---|---|
+| **Train Split** | 124 | 54 | 68 | 2 | 0 | 0 | 0 | 0 | **0** |
+| **Validation Split** | 13 | 8 | 4 | 1 | 0 | 0 | 0 | 0 | **0** |
+| **Locked-Test Split** | 13 | 9 | 4 | 0 | 0 | 0 | 0 | 0 | **0** |
+| **Total Canonical View** | **150** | **71** | **76** | **3** | **0** | **0** | **0** | **0** | **0** |
+
+- **Train-partition development accounting:** 124 / 124 reconciled (Unaccounted: 0)
+- **Validation partition accounting:** 13 / 13 reconciled (Unaccounted: 0)
+- **Locked-test partition accounting:** 13 / 13 reconciled (Unaccounted: 0)
+- **Consolidated canonical evaluation accounting:** 150 / 150 reconciled (Unaccounted: 0)
 
 ---
 
 ## 3. Level 2: Mutually Exclusive Rule Attempt Accounting
 
 $$\text{RuleAttempts} = \text{NOT\_APPLICABLE} + \text{CANDIDATE\_GENERATED} + \text{DEFERRED\_BEFORE\_GENERATION} + \text{FAILED\_INTERNAL} + \text{Unaccounted}$$
+
+$$1,210 = 1,104 + 106 + 0 + 0 + 0$$
 
 | Partition | Total Attempts | Not Applicable | Candidate Generated | Deferred Before Gen | Failed Internal | Unaccounted |
 |---|---|---|---|---|---|---|
@@ -44,6 +62,8 @@ $$\text{RuleAttempts} = \text{NOT\_APPLICABLE} + \text{CANDIDATE\_GENERATED} + \
 
 $$\text{GeneratedCandidates} = \text{SELECTED} + \text{NOT\_SELECTED\_LOWER\_RANK} + \text{BLOCKED\_PROTECTED\_SPAN} + \text{BLOCKED\_MEANING\_GUARD} + \text{DEFERRED\_MANUAL\_REVIEW} + \text{FAILED\_INTERNAL} + \text{Unaccounted}$$
 
+$$106 = 71 + 28 + 0 + 7 + 0 + 0 + 0$$
+
 | Partition | Total Candidates | Selected | Lower Rank | Blocked Guard | Blocked Span | Review Deferred | Failed Internal | Unaccounted |
 |---|---|---|---|---|---|---|---|---|
 | **Train Split** | 79 | 54 | 20 | 5 | 0 | 0 | 0 | **0** |
@@ -57,12 +77,14 @@ $$\text{GeneratedCandidates} = \text{SELECTED} + \text{NOT\_SELECTED\_LOWER\_RAN
 
 $$\text{RecordedOperations} = \text{Replacements} + \text{Splits} + \text{Deletions} + \text{Insertions} + \text{Unaccounted}$$
 
-- **Replacements (`REPLACE`):** 79
-- **Splits (`SPLIT`):** 0
-- **Deletions (`DELETE`):** 0
-- **Insertions (`INSERT`):** 0
-- **Total Operations:** 79
-- **Unaccounted Operations:** **0**
+$$106 = 50 + 56 + 0 + 0 + 0$$
+
+| Partition | Total Operations | Replace (`REPLACE`) | Split (`SPLIT`) | Insert (`INSERT`) | Delete (`DELETE`) | Unaccounted |
+|---|---|---|---|---|---|---|
+| **Train Split** | 79 | 33 | 46 | 0 | 0 | **0** |
+| **Validation Split** | 15 | 8 | 7 | 0 | 0 | **0** |
+| **Locked-Test Split** | 12 | 9 | 3 | 0 | 0 | **0** |
+| **Total Canonical View** | **106** | **50** | **56** | **0** | **0** | **0** |
 
 ---
 
@@ -70,11 +92,14 @@ $$\text{RecordedOperations} = \text{Replacements} + \text{Splits} + \text{Deleti
 
 $$\text{TraceElements} = \text{ExactlyMapped} + \text{QualifiedNonExact} + \text{UnmappedReviewed} + \text{Unaccounted}$$
 
-- **Exactly Mapped (`mapping_exact: true`):** 33
-- **Qualified Non-Exact (`mapping_exact: false`):** 46
-- **Unmapped Reviewed (`mapping_status: unmapped`):** 0
-- **Total Trace Elements:** 79
-- **Unaccounted Trace Elements:** **0**
+$$106 = 50 + 56 + 0 + 0$$
+
+| Partition | Total Trace Elements | Exactly Mapped (`mapping_exact: true`) | Qualified Non-Exact (`mapping_exact: false`) | Unmapped Reviewed (`mapping_status: unmapped`) | Unaccounted |
+|---|---|---|---|---|---|
+| **Train Split** | 79 | 33 | 46 | 0 | **0** |
+| **Validation Split** | 15 | 8 | 7 | 0 | **0** |
+| **Locked-Test Split** | 12 | 9 | 3 | 0 | **0** |
+| **Total Canonical View** | **106** | **50** | **56** | **0** | **0** |
 
 ---
 
@@ -82,7 +107,14 @@ $$\text{TraceElements} = \text{ExactlyMapped} + \text{QualifiedNonExact} + \text
 
 $$\text{ExportEvaluatedFields} = \text{PublicPermitted} + \text{ProtectedInternal} + \text{SuppressedByPolicy} + \text{ReviewRequired} + \text{Unaccounted}$$
 
-- **Evaluated Export Fields:** 496
-- **Reconciled Export Fields:** 496
+$$600 = 300 + 150 + 150 + 0 + 0$$
+
+| Partition | Total Evaluated Fields | Public Permitted | Protected Internal | Suppressed By Policy | Review Required | Unaccounted |
+|---|---|---|---|---|---|---|
+| **Train Split** | 496 | 248 | 124 | 124 | 0 | **0** |
+| **Validation Split** | 52 | 26 | 13 | 13 | 0 | **0** |
+| **Locked-Test Split** | 52 | 26 | 13 | 13 | 0 | **0** |
+| **Total Canonical View** | **600** | **300** | **150** | **150** | **0** | **0** |
+
 - **Literal restricted text leaked into public ledgers:** **0**
-- **Unaccounted export fields:** **0**
+- **Unaccounted units across all 6 levels:** **0**

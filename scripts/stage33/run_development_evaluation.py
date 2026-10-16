@@ -72,10 +72,20 @@ def run_development_evaluation():
     candidates_file = LEDGER_DIR / "candidate_ledger.jsonl"
     traces_file = LEDGER_DIR / "transformation_trace_ledger.jsonl"
 
+    train_final_records_file = LEDGER_DIR / "train_final_disposition_ledger.jsonl"
+    train_attempts_file = LEDGER_DIR / "train_rule_attempt_ledger.jsonl"
+    train_candidates_file = LEDGER_DIR / "train_candidate_ledger.jsonl"
+    train_traces_file = LEDGER_DIR / "train_transformation_trace_ledger.jsonl"
+
     f_out = open(final_records_file, "w", encoding="utf-8")
     f_att = open(attempts_file, "w", encoding="utf-8")
     f_cand = open(candidates_file, "w", encoding="utf-8")
     f_op = open(traces_file, "w", encoding="utf-8")
+
+    f_train_out = open(train_final_records_file, "w", encoding="utf-8")
+    f_train_att = open(train_attempts_file, "w", encoding="utf-8")
+    f_train_cand = open(train_candidates_file, "w", encoding="utf-8")
+    f_train_op = open(train_traces_file, "w", encoding="utf-8")
 
     total_token_delta = 0
     total_grapheme_delta = 0
@@ -129,19 +139,31 @@ def run_development_evaluation():
                     total_grapheme_delta += (len(selected_cand.candidate_text_internal or "") - len(source_text))
 
             # Write to public ledgers
-            f_out.write(json.dumps(to_public_rewrite_record(final_rec), ensure_ascii=False) + "\n")
+            out_json = json.dumps(to_public_rewrite_record(final_rec), ensure_ascii=False) + "\n"
+            f_out.write(out_json)
+            f_train_out.write(out_json)
             for a in atts:
-                f_att.write(json.dumps(to_public_attempt_record(a), ensure_ascii=False) + "\n")
+                att_json = json.dumps(to_public_attempt_record(a), ensure_ascii=False) + "\n"
+                f_att.write(att_json)
+                f_train_att.write(att_json)
             for c in cands:
-                f_cand.write(json.dumps(to_public_candidate_record(c), ensure_ascii=False) + "\n")
+                cand_json = json.dumps(to_public_candidate_record(c), ensure_ascii=False) + "\n"
+                f_cand.write(cand_json)
+                f_train_cand.write(cand_json)
             for o in ops:
-                f_op.write(json.dumps(to_public_operation_record(o), ensure_ascii=False) + "\n")
+                op_json = json.dumps(to_public_operation_record(o), ensure_ascii=False) + "\n"
+                f_op.write(op_json)
+                f_train_op.write(op_json)
 
     finally:
         f_out.close()
         f_att.close()
         f_cand.close()
         f_op.close()
+        f_train_out.close()
+        f_train_att.close()
+        f_train_cand.close()
+        f_train_op.close()
 
     # Reconcile Accounting Levels
     total_inputs = len(train_records)
