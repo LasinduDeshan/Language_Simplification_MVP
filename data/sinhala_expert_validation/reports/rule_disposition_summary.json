@@ -10,7 +10,8 @@
       "developmental_fit": "Suitable for ages 4-8 with adult guidance"
     },
     "recommended_action": "Advance to Stage 35 model comparison benchmark",
-    "governance_flags": []
+    "governance_flags": [],
+    "sealed": true
   },
   {
     "rule_id": "SI-LEX-DEL-0001",
@@ -23,7 +24,8 @@
       "developmental_fit": "Suitable for ages 4-8 with adult guidance"
     },
     "recommended_action": "Advance to Stage 35 model comparison benchmark",
-    "governance_flags": []
+    "governance_flags": [],
+    "sealed": true
   },
   {
     "rule_id": "SI-PHR-SUB-0001",
@@ -36,7 +38,8 @@
       "developmental_fit": "Suitable for ages 4-8 with adult guidance"
     },
     "recommended_action": "Advance to Stage 35 model comparison benchmark",
-    "governance_flags": []
+    "governance_flags": [],
+    "sealed": true
   },
   {
     "rule_id": "SI-PHR-DEL-0001",
@@ -49,7 +52,8 @@
       "developmental_fit": "Suitable for ages 4-8 with adult guidance"
     },
     "recommended_action": "Advance to Stage 35 model comparison benchmark",
-    "governance_flags": []
+    "governance_flags": [],
+    "sealed": true
   },
   {
     "rule_id": "SI-SNT-SPL-0001",
@@ -62,7 +66,8 @@
       "developmental_fit": "Suitable for ages 4-8 with adult guidance"
     },
     "recommended_action": "Advance to Stage 35 model comparison benchmark",
-    "governance_flags": []
+    "governance_flags": [],
+    "sealed": true
   },
   {
     "rule_id": "SI-SYN-PAS-0001",
@@ -75,7 +80,8 @@
       "developmental_fit": "Suitable for ages 4-8 with adult guidance"
     },
     "recommended_action": "Advance to Stage 35 model comparison benchmark",
-    "governance_flags": []
+    "governance_flags": [],
+    "sealed": true
   },
   {
     "rule_id": "SI-SYN-REL-0001",
@@ -88,7 +94,8 @@
       "developmental_fit": "Suitable for ages 4-8 with adult guidance"
     },
     "recommended_action": "Advance to Stage 35 model comparison benchmark",
-    "governance_flags": []
+    "governance_flags": [],
+    "sealed": true
   },
   {
     "rule_id": "SI-SYN-SUB-0001",
@@ -101,6 +108,7 @@
       "developmental_fit": "Suitable for ages 4-8 with adult guidance"
     },
     "recommended_action": "Advance to Stage 35 model comparison benchmark",
-    "governance_flags": []
+    "governance_flags": [],
+    "sealed": true
   }
 ]

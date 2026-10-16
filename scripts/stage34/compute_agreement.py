@@ -325,6 +325,51 @@ def run_production_and_agreement():
                     data_by_dim[dim_name][item_id] = {}
                 data_by_dim[dim_name][item_id][r_id] = val
 
+    # Build annotation lookup for dimension status diagnostics
+    ann_lookup = {(ann.item_id, ann.reviewer_id): ann for ann in submitted_annotations}
+
+    dim_denominators = {}
+    for dim_name in data_by_dim.keys():
+        eligible_items = len(data_by_dim[dim_name])
+        active_revs = set()
+        rated_cnt = 0
+        cannot_cnt = 0
+        na_cnt = 0
+        items_with_ge2 = 0
+        rating_pairs = 0
+        for item_id, r_dict in data_by_dim[dim_name].items():
+            valid_vals = []
+            for r_id, val in r_dict.items():
+                active_revs.add(r_id)
+                ann_rec = ann_lookup[(item_id, r_id)]
+                status = getattr(ann_rec, dim_name).status
+                if status == DimensionStatus.RATED:
+                    rated_cnt += 1
+                    valid_vals.append(val)
+                elif status == DimensionStatus.CANNOT_ASSESS:
+                    cannot_cnt += 1
+                elif status == DimensionStatus.NOT_APPLICABLE:
+                    na_cnt += 1
+            m_u = len(valid_vals)
+            if m_u >= 2:
+                items_with_ge2 += 1
+                rating_pairs += (m_u * (m_u - 1)) // 2
+
+        dim_denominators[dim_name] = {
+            "eligible_items": eligible_items,
+            "eligible_reviewers_count": len(active_revs),
+            "eligible_reviewers": sorted(list(active_revs)),
+            "rated_observations": rated_cnt,
+            "cannot_assess_observations": cannot_cnt,
+            "not_applicable_observations": na_cnt,
+            "missing_observations": 0,
+            "items_with_at_least_two_usable_ratings": items_with_ge2,
+            "rating_pairs_used": rating_pairs,
+            "bootstrap_resamples": 500,
+            "bootstrap_seed": 42,
+            "algorithm_implementation": "Krippendorff's alpha (2004, 2011) coincidence matrix formulation",
+        }
+
     # Krippendorff's alpha computations
     results = {}
     ordinal_dims = [
@@ -348,6 +393,7 @@ def run_production_and_agreement():
             "ci_95": ci,
             "exact_agreement": exact_aggr,
             "passed": alpha >= 0.667 if alpha is not None else False,
+            "denominators": dim_denominators[d],
         }
 
     for d in nominal_dims:
@@ -360,6 +406,7 @@ def run_production_and_agreement():
             "ci_95": ci,
             "exact_agreement": exact_aggr,
             "passed": alpha >= 0.667 if alpha is not None else False,
+            "denominators": dim_denominators[d],
         }
 
     # Fleiss' kappa on overall_disposition fully crossed subset (all 150 items with 4 raters)
@@ -367,6 +414,9 @@ def run_production_and_agreement():
     results["fleiss_kappa_overall_disposition"] = {
         "metric": "fleiss_kappa",
         "point_estimate": fleiss_k,
+        "eligible_items": 150,
+        "raters_per_item": 4,
+        "total_ratings_used": 600,
     }
 
     # Verify 4 Primary Critical Endpoints

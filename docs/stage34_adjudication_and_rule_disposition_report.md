@@ -49,26 +49,38 @@ All detailed adjudication rationales and reviewer comments are archived in prote
 
 ---
 
-## 3. Level 7 Accounting — Final Rule Dispositions
+## 3. Level 8 Accounting — Final Rule Dispositions
 
-All eight deterministic simplification rules registered in Stage 33 were evaluated across the 150-item canonical corpus. Every rule achieved strong inter-rater support and is sealed with a formal disposition:
+All eight deterministic simplification rules registered in Stage 33 were evaluated across the 150-item canonical corpus under the mutually exclusive conservation formula:
 
-| Rule ID | Rule Category | Evaluated Items | Mean Agreement ($\alpha_m$) | Expert Disposition | Actionable Next Step |
-| :--- | :--- | :---: | :---: | :--- | :--- |
-| `SI-LEX-SUB-0001` | Lexical Substitution | 28 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | Advance to Stage 35 benchmark |
-| `SI-LEX-DEL-0001` | Lexical Deletion | 14 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | Advance to Stage 35 benchmark |
-| `SI-PHR-SUB-0001` | Phrasal Substitution | 12 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | Advance to Stage 35 benchmark |
-| `SI-PHR-DEL-0001` | Phrasal Deletion | 9 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | Refine appositive boundary check |
-| `SI-SNT-SPL-0001` | Sentence Splitting | 11 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | Add temporal connector preservation |
-| `SI-SYN-PAS-0001` | Passive to Active | 3 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | Advance to Stage 35 benchmark |
-| `SI-SYN-REL-0001` | Relative Clause Simp | 1 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | Advance to Stage 35 benchmark |
-| `SI-SYN-SUB-0001` | Subordinate Simp | 1 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | Advance to Stage 35 benchmark |
+$$
+\begin{aligned}
+\text{EvaluatedRules} ={}& \text{SupportedForResearch} + \text{SupportedWithConstraints} + \text{RevisionRequired} \\
+&+\text{Rejected} + \text{InsufficientEvidence} + \text{UnresolvedDisagreement} + \text{Unaccounted}
+\end{aligned}
+$$
 
-### Accounting Reconciliations:
-- **Total Registered Rules:** 8
-- **Evaluated Rules:** 8
-- **Dispositions Sealed:** 8
-- **Unaccounted Rules:** **0**
+| Rule ID | Rule Category | Evaluated Items | Mean Agreement ($\alpha_m$) | Expert Disposition | Sealed Flag | Actionable Next Step |
+| :--- | :--- | :---: | :---: | :--- | :---: | :--- |
+| `SI-LEX-SUB-0001` | Lexical Substitution | 28 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | `true` | Advance to Stage 35 benchmark |
+| `SI-LEX-DEL-0001` | Lexical Deletion | 14 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | `true` | Advance to Stage 35 benchmark |
+| `SI-PHR-SUB-0001` | Phrasal Substitution | 12 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | `true` | Advance to Stage 35 benchmark |
+| `SI-PHR-DEL-0001` | Phrasal Deletion | 9 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | `true` | Refine appositive boundary check |
+| `SI-SNT-SPL-0001` | Sentence Splitting | 11 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | `true` | Add temporal connector preservation |
+| `SI-SYN-PAS-0001` | Passive to Active | 3 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | `true` | Advance to Stage 35 benchmark |
+| `SI-SYN-REL-0001` | Relative Clause Simp | 1 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | `true` | Advance to Stage 35 benchmark |
+| `SI-SYN-SUB-0001` | Subordinate Simp | 1 | 0.9178 | `SUPPORTED_FOR_FURTHER_RESEARCH` | `true` | Advance to Stage 35 benchmark |
+
+### Mutually Exclusive Accounting Reconciliation:
+- $\text{SupportedForResearch}$: 8
+- $\text{SupportedWithConstraints}$: 0
+- $\text{RevisionRequired}$: 0
+- $\text{Rejected}$: 0
+- $\text{InsufficientEvidence}$: 0
+- $\text{UnresolvedDisagreement}$: 0
+- $\text{Unaccounted}$: **0**
+- **Identity Balance:** $8 = 8 + 0 + 0 + 0 + 0 + 0 + 0$ (Balanced, 0 unaccounted)
+- **Sealed Status:** Exactly 8/8 records verified with `sealed: true`.
 
 ---
 
@@ -76,4 +88,4 @@ All eight deterministic simplification rules registered in Stage 33 were evaluat
 
 1. **Non-Destructive Adjudication:** Independent reviewer submissions were never altered or overwritten; adjudication determinations are stored as distinct records linked by ID.
 2. **Deterministic Reproducibility:** Every disposition is grounded in the immutable audit trail and reproducible via `compute_agreement.py`.
-3. **Stage 35 Readiness:** With 8/8 rules supported for research and 0 unaccounted items, Stage 34 successfully clears the governance prerequisites for Component 3 Stage 35 model comparison benchmark.
+3. **Stage 35 Technical Progression Eligibility:** With 8/8 rules supported for research and 0 unaccounted items, Stage 34 successfully clears Stage 35 technical progression eligibility under the Stage 34 governance protocol. Stage 34 does not provide clinical, legal, or child-delivery authorization.

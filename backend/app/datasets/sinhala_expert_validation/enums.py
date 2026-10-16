@@ -18,6 +18,7 @@ class TrainingStatus(str, Enum):
     QUALIFIED = "QUALIFIED"
     RETRAINING_REQUIRED = "RETRAINING_REQUIRED"
     EXCLUDED = "EXCLUDED"
+    WITHDRAWN = "WITHDRAWN"
 
 
 class ExperienceBand(str, Enum):

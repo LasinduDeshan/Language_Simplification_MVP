@@ -162,3 +162,4 @@ class RuleDispositionRecord(BaseModel):
     findings: Dict[str, Any] = Field(default_factory=dict)
     recommended_action: str
     governance_flags: List[str] = Field(default_factory=list)
+    sealed: bool = True

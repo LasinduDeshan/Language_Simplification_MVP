@@ -25,11 +25,22 @@ def test_reviewer_panel_diversity_and_eligibility():
 
     # Panel must contain at least 6 unique qualified individuals
     assert panel_check["is_valid"] is True
-    assert panel_check["unique_qualified_count"] >= 6
-    assert panel_check["linguists_count"] >= 2
-    assert panel_check["educators_count"] >= 2
-    assert panel_check["child_dev_count"] >= 1
-    assert panel_check["adjudicator_count"] >= 1
+    assert panel_check["unique_qualified_count"] == 6
+    assert panel_check["linguists_count"] == 2
+    assert panel_check["educators_count"] == 2
+    assert panel_check["child_dev_count"] == 1
+    assert panel_check["adjudicator_count"] == 1
+
+    first_pass_count = panel_check["linguists_count"] + panel_check["educators_count"] + panel_check["child_dev_count"]
+    assert first_pass_count == 5
+    assert panel_check["adjudicator_count"] == 1
+    assert first_pass_count + panel_check["adjudicator_count"] == 6
+
+    # Verify project-team member is registered but isolated/excluded
+    all_revs = registry.list_reviewers(qualified_only=False)
+    team_members = [r for r in all_revs if r.is_project_team_member]
+    assert len(team_members) == 1
+    assert team_members[0].reviewer_id == "REV-S34-TEAM1"
 
 
 def test_assignment_ledger_dual_competency_coverage():

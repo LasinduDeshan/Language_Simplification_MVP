@@ -167,6 +167,29 @@ def setup_panel() -> ReviewerRegistry:
             consent_version_hash="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             training_status=TrainingStatus.QUALIFIED,
         ),
+        ReviewerEligibility(
+            reviewer_id="REV-S34-TEAM1",
+            roles=[ReviewerRole.SINHALA_LINGUIST],
+            qualification_evidence_ref="protected://stage34/reviewers/REV-S34-TEAM1/evidence.json",
+            years_relevant_experience_band=ExperienceBand.THREE_TO_4,
+            native_or_professional_sinhala_proficiency=True,
+            ages_4_to_8_experience=False,
+            competency_declarations=CompetencyDeclarations(
+                meaning_preservation=True,
+                grammatical_acceptability=True,
+                morphology_preservation=True,
+                fluency_naturalness=True,
+                simplicity_improvement=True,
+                vocabulary_suitability=False,
+                sentence_structure_suitability=False,
+                developmental_suitability=False,
+            ),
+            conflict_declaration_completed=True,
+            consent_version="S34-CONSENT-V1",
+            consent_version_hash="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            training_status=TrainingStatus.EXCLUDED,
+            is_project_team_member=True,
+        ),
     ]
 
     for rev in reviewers:

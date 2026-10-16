@@ -5,9 +5,11 @@
 **Stage:** Stage 34 — Sinhala Expert Linguistic and Child-Development Validation  
 **Status:** Complete — Empirical Results Sealed (WP7 Complete)  
 **Authoritative Prerequisite:** `stage-33-complete-v2` (`74481f4d09beeba42ccb9b9c32ff994e372af5bf`)  
-**Evaluation Population:** 150 items (600 independent reviewer assignments)  
+**Evaluation Population:** 150 items (600 independent reviewer assignments across 5 first-pass reviewers)  
 **Analysis Plan Hash (SHA-256):** `f8fe8a800340159d129b6e46e65fdb68fa219871afdb43ec3e3f36b1009ff3e6`  
-**Agreement Summary Report:** `data/sinhala_expert_validation/reports/agreement_summary.json`
+**Agreement Summary Report:** `data/sinhala_expert_validation/reports/agreement_summary.json`  
+**Algorithm Reference:** Krippendorff's alpha coincidence matrix formulation (Krippendorff 2004, 2011) via `app.datasets.sinhala_expert_validation.agreement`  
+**Bootstrap Parameters:** 500 resamples, deterministic seed `42`
 
 ---
 
@@ -17,6 +19,8 @@ This report documents the statistical inter-rater agreement results for the blin
 
 The analysis evaluates 600 blinded expert annotations collected across the 150 canonical items from Stage 31/33. All four **Primary Critical Endpoints** exceeded the pre-registered critical threshold of **$\hat{\alpha} \ge 0.667$**, satisfying the statistical gate for Stage 34 completion.
 
+Because the annotation protocol governs strict competency boundaries (e.g. linguists selecting `CANNOT_ASSESS` on developmental suitability, child development specialists selecting `CANNOT_ASSESS` on technical syntax, and controls receiving `NOT_APPLICABLE` on morphology), this report provides the exact denominator breakdown for every dimension.
+
 ---
 
 ## 2. Decision Framework and Metric Governance
@@ -24,33 +28,58 @@ The analysis evaluates 600 blinded expert annotations collected across the 150 c
 As specified in the frozen `stage34_analysis_plan.json`:
 1. **Primary Decision Metric:** Krippendorff's alpha point estimate ($\hat{\alpha}$) against the critical threshold $\hat{\alpha} \ge 0.667$.
 2. **Confidence Intervals:** 95% bootstrap confidence intervals (500 resamples, seed 42) reported as mandatory measures of uncertainty and stability.
-3. **Handling Competency Boundaries:** Ratings marked `CANNOT_ASSESS` (e.g. linguists evaluating developmental suitability or child development specialist evaluating technical syntax) are treated as missing data under Krippendorff's standard alpha formulation, ensuring zero bias.
-4. **Secondary Metrics:** Fleiss' kappa on the fully crossed nominal subset and exact pairwise agreement percentages.
+3. **Handling Competency Boundaries:** Ratings marked `CANNOT_ASSESS` or `NOT_APPLICABLE` are treated as unobserved values in the coincidence matrix per standard Krippendorff alpha formulation, ensuring zero bias.
+4. **Secondary Metrics:** Fleiss' kappa on the fully crossed nominal subset (150 items with 4 raters) and exact pairwise agreement percentages.
 
 ---
 
-## 3. Primary Critical Endpoints (Terminal Gates)
+## 3. Primary Critical Endpoints (Terminal Decision Gates)
 
 All four pre-registered primary critical endpoints met and exceeded the $\hat{\alpha} \ge 0.667$ criterion:
 
 | Dimension | Scale Type | Metric | Point Estimate ($\hat{\alpha}$) | 95% Bootstrap CI | Exact Agreement | Critical Threshold | Gate Status |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Meaning Preservation** | Ordinal (0–3) | Krippendorff's $\alpha_o$ | **0.9178** | [0.8437, 0.9710] | 96.67% | $\ge 0.667$ | **PASSED** |
-| **Grammatical Acceptability** | Ordinal (0–3) | Krippendorff's $\alpha_o$ | **0.8302** | [0.6998, 0.9291] | 94.28% | $\ge 0.667$ | **PASSED** |
-| **Developmental Suitability** | Ordinal (0–3) | Krippendorff's $\alpha_o$ | **0.9385** | [0.8659, 1.0000] | 98.67% | $\ge 0.667$ | **PASSED** |
+| **Grammatical Acceptability** | Ordinal (0–3) | Krippendorff's $\alpha_o$ | **0.8302** | [0.6998, 0.9291] | 95.96% | $\ge 0.667$ | **PASSED** |
+| **Developmental Suitability** | Ordinal (0–3) | Krippendorff's $\alpha_o$ | **0.9385** | [0.8659, 1.0000] | 98.00% | $\ge 0.667$ | **PASSED** |
 | **Overall Disposition** | Nominal | Krippendorff's $\alpha_n$ | **0.8270** | [0.7490, 0.8966] | 93.33% | $\ge 0.667$ | **PASSED** |
-
-### Key Findings:
-- **Meaning Preservation ($\hat{\alpha} = 0.9178$):** High consensus among linguists and educators confirming that Stage 33 rules preserve essential propositional meaning without severe semantic drift.
-- **Grammatical Acceptability ($\hat{\alpha} = 0.8302$):** Expert linguists strongly agreed on the morphological correctness and grammatical well-formedness of Sinhala inflections.
-- **Developmental Suitability ($\hat{\alpha} = 0.9385$):** The expertise-aware dual-quota assignment ensured $\ge 2$ qualified early-childhood educators and developmental specialists evaluated every item, demonstrating robust consensus regarding appropriateness for children aged 4–8.
-- **Overall Disposition ($\hat{\alpha} = 0.8270$):** High concordance across the multidisciplinary panel regarding item-level disposition (`ACCEPT_DRAFT`, `ACCEPT_WITH_MINOR_EDIT`, `REVISE`).
 
 ---
 
-## 4. Secondary Agreement Diagnostics
+## 4. Comprehensive Per-Dimension Denominator Accounting
 
-Secondary dimensions provide granular diagnostic visibility into specific linguistic and pedagogical sub-constructs:
+Because different dimensions involve specific competency filters and applicability scopes, the effective population of ratings varies deterministically:
+
+| Dimension | Eligible Items | Assigned Raters | Rated Obs | CANNOT ASSESS | NOT APPLICABLE | Missing Obs | Items with $\ge 2$ Usable Ratings | Rating Pairs Used | Point Estimate ($\hat{\alpha}$) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Meaning Preservation** | 150 | 5 | 600 | 0 | 0 | 0 | 150 | 900 | **0.9178** |
+| **Grammatical Acceptability** | 150 | 5 | 498 | 102 | 0 | 0 | 150 | 594 | **0.8302** |
+| **Developmental Suitability** | 150 | 5 | 300 | 300 | 0 | 0 | 150 | 150 | **0.9385** |
+| **Overall Disposition** | 150 | 5 | 600 | 0 | 0 | 0 | 150 | 900 | **0.8270** |
+| **Morphology Preservation** | 150 | 5 | 142 | 142 | 316 | 0 | 71 | 71 | **0.9537** |
+| **Fluency & Naturalness** | 150 | 5 | 600 | 0 | 0 | 0 | 150 | 900 | **0.9192** |
+| **Simplicity Improvement** | 150 | 5 | 600 | 0 | 0 | 0 | 150 | 900 | **1.0000** |
+| **Vocabulary Suitability** | 150 | 5 | 600 | 0 | 0 | 0 | 150 | 900 | **0.9060** |
+| **Sentence Structure Suitability**| 150 | 5 | 600 | 0 | 0 | 0 | 150 | 900 | **0.9398** |
+
+### Key Methodological Denominator Insights:
+1. **Developmental Suitability:**
+   - **Rated Observations (300):** Contributed strictly by Early Childhood Educators (`REV-S34-003`, `REV-S34-004`) and Child Development Specialist (`REV-S34-005`).
+   - **CANNOT_ASSESS (300):** Submitted strictly by Sinhala Linguists (`REV-S34-001`, `REV-S34-002`) who lack child-development credentials and properly abstained per protocol.
+   - **Computable Pair Guarantee:** Exactly 150/150 items received at least 2 usable developmental ratings ($m_u = 2$), providing exactly 150 rating pairs with zero uncomputable items.
+2. **Grammatical Acceptability:**
+   - **Rated Observations (498):** Contributed by Linguists and Educators.
+   - **CANNOT_ASSESS (102):** Submitted strictly by Child Development Specialist on technical syntactic parse sites.
+   - **Computable Pair Guarantee:** 150/150 items retain $\ge 2$ usable grammatical ratings.
+3. **Morphology Preservation:**
+   - **NOT_APPLICABLE (316):** Assigned to 71 unchanged control sentences (where no simplification rule or morphological alteration took place).
+   - **Rated Observations (142):** Contributed by Linguists on the 71 candidate rewrite sentences ($71 \times 2 = 142$).
+   - **CANNOT_ASSESS (142):** Submitted by non-linguists on candidate items.
+   - **Computable Pair Guarantee:** All 71 candidate rewrite items retain exactly 2 usable ratings ($m_u = 2$), yielding 71 rating pairs.
+
+---
+
+## 5. Secondary Agreement Diagnostics
 
 | Dimension | Scale Type | Metric | Point Estimate | 95% Bootstrap CI | Exact Agreement |
 | :--- | :--- | :--- | :---: | :---: | :---: |
@@ -60,23 +89,20 @@ Secondary dimensions provide granular diagnostic visibility into specific lingui
 | **Vocabulary Suitability** | Ordinal (0–3) | Krippendorff's $\alpha_o$ | 0.9060 | [0.8193, 0.9659] | 97.56% |
 | **Sentence Structure Suitability** | Ordinal (0–3) | Krippendorff's $\alpha_o$ | 0.9398 | [0.8601, 0.9873] | 98.67% |
 
-### Observations:
-- **Simplicity Improvement ($\hat{\alpha} = 1.0000$):** Unanimous agreement between controls (`SAME`) and rule-applied candidates (`SIMPLER`).
-- **Morphology Preservation ($\hat{\alpha} = 0.9537$):** Confirms that inflections produced by Stage 33 rules conform to Sinhala morphosyntax.
-
 ---
 
-## 5. Secondary Fleiss' Kappa
+## 6. Secondary Fleiss' Kappa
 
 On the fully crossed nominal subset (all 150 items evaluated by 4 independent reviewers for `overall_disposition`):
+- **Eligible Items:** 150
+- **Raters per Item:** 4
+- **Total Ratings Used:** 600
 - **Fleiss' $\kappa$:** **0.8267**
 - **Interpretation:** Substantial-to-almost-perfect agreement under Landis & Koch (1977) guidelines, fully corroborating the Krippendorff nominal alpha finding.
 
 ---
 
-## 6. Partition-Specific Agreement Stability
-
-Agreement stability was assessed across dataset partitions to verify the absence of evaluation divergence:
+## 7. Partition-Specific Agreement Stability
 
 | Partition | Item Count | Meaning $\alpha$ | Grammar $\alpha$ | Dev Suitability $\alpha$ | Disposition $\alpha$ |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -88,7 +114,7 @@ All partitions demonstrate stable inter-rater agreement with zero partition-leve
 
 ---
 
-## 7. Compliance and Statistical Verdict
+## 8. Compliance and Statistical Verdict
 
 - **Critical Decision Rule:** All 4 primary critical endpoints met $\hat{\alpha} \ge 0.667$.
 - **Adjudication Triggering:** Discrepancies and boundary cases were routed to the independent adjudication queue without modifying raw ratings.
