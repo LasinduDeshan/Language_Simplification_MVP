@@ -103,8 +103,67 @@ def verify_all_accounting():
     print(f"Level 5 (Duplicate Weights): Sum = {sum_weights:.6f} | Delta = {abs(sum_weights - 150.0):.8f}")
     assert abs(sum_weights - 150.0) < 1e-4
 
-    print("=== All 5 Accounting Levels PASSED with ZERO Unaccounted Units ===")
+    # Level 6: Entry-Source Membership and Rights Profile Accounting
+    APPROVED_SOURCES_PATH = PROJECT_ROOT / "data" / "sinhala_external" / "registry" / "approved_sources.json"
+    with open(APPROVED_SOURCES_PATH, "r", encoding="utf-8") as f:
+        src_reg = json.load(f)
+    approved_map = {
+        s["source_id"]: (s["rights_profile_id"], s["rights_profile_version"])
+        for s in src_reg.get("sources", [])
+    }
+
+    total_memberships = 0
+    single_source_count = 0
+    multi_source_count = 0
+    source_counts = collections.Counter()
+    missing_rights = 0
+    unregistered_sources = 0
+
+    with open(DRAFT_LEXICON_PATH, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                rec = json.loads(line)
+                refs = rec.get("rights_profile_refs", [])
+                if not refs:
+                    missing_rights += 1
+                n_src = len(refs)
+                total_memberships += n_src
+                if n_src == 1:
+                    single_source_count += 1
+                elif n_src > 1:
+                    multi_source_count += 1
+
+                for ref in refs:
+                    sid = ref["source_id"]
+                    source_counts[sid] += 1
+                    if sid not in approved_map:
+                        unregistered_sources += 1
+                    else:
+                        exp_rpid, exp_ver = approved_map[sid]
+                        assert ref["rights_profile_id"] == exp_rpid
+                        assert ref["rights_profile_version"] == exp_ver
+
+    print(f"Level 6 (Memberships): Distinct Entries = {total_draft} | Memberships = {total_memberships} | Multi-Source = {multi_source_count} | Single-Source = {single_source_count}")
+    print(f"  Source Breakdown: {dict(source_counts)}")
+    print(f"  Missing Rights Refs: {missing_rights} | Unregistered Sources: {unregistered_sources}")
+
+    assert total_draft == 1010
+    assert total_memberships == 1194
+    assert single_source_count == 872
+    assert multi_source_count == 138
+    assert single_source_count + multi_source_count == 1010
+    assert missing_rights == 0
+    assert unregistered_sources == 0
+    assert source_counts["SRC-SI-001"] == 448
+    assert source_counts["SRC-SI-002"] == 207
+    assert source_counts["SRC-SI-003"] == 179
+    assert source_counts["SRC-SI-004"] == 215
+    assert source_counts["SRC-SI-008"] == 145
+    assert sum(source_counts.values()) == 1194
+
+    print("=== All 6 Accounting Levels PASSED with ZERO Unaccounted Units & Invariant Verified ===")
     return True
 
 if __name__ == "__main__":
     verify_all_accounting()
+

@@ -1,10 +1,13 @@
 {
   "stage": "stage32",
-  "timestamp": "2026-10-16T10:21:05.153367",
+  "timestamp": "2026-10-16T11:12:49.418045",
   "prerequisite_tag": "stage-31-complete-v8",
   "prerequisite_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
   "start_tag": "stage-32-start",
   "start_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
+  "historical_initial_tag": "stage-32-complete",
+  "historical_initial_commit": "988fd9ce97ffaa049d9cc9003a0924817c7f7cde",
+  "authoritative_reconciled_tag": "stage-32-complete-v2",
   "branch": "feature/stage32-sinhala-lexicon",
   "accounting": {
     "canonical_records": 150,
@@ -16,13 +19,58 @@
     "total_candidates": 1010,
     "accepted_draft_entries": 1002,
     "manual_review_entries": 8,
+    "distinct_lexicon_entries": 1010,
+    "entry_source_memberships": 1194,
+    "multi_source_entries": 138,
+    "single_source_entries": 872,
+    "missing_rights_profile_references": 0,
+    "unregistered_contributing_sources": 0,
     "unaccounted_tokens": 0,
     "unaccounted_candidates": 0
+  },
+  "contributing_sources": {
+    "SRC-SI-001": {
+      "memberships": 448,
+      "tokens": 1450,
+      "rights_profile_id": "RP-SRC-SI-001",
+      "rights_profile_version": 1,
+      "export_posture": "PUBLIC_PERMITTED_STANDALONE"
+    },
+    "SRC-SI-002": {
+      "memberships": 207,
+      "tokens": 594,
+      "rights_profile_id": "RP-SRC-SI-002",
+      "rights_profile_version": 2,
+      "export_posture": "SUPPRESSED_BY_PROJECT_POLICY"
+    },
+    "SRC-SI-003": {
+      "memberships": 179,
+      "tokens": 448,
+      "rights_profile_id": "RP-SRC-SI-003",
+      "rights_profile_version": 1,
+      "export_posture": "PUBLIC_PERMITTED_STANDALONE"
+    },
+    "SRC-SI-004": {
+      "memberships": 215,
+      "tokens": 946,
+      "rights_profile_id": "RP-SRC-SI-004",
+      "rights_profile_version": 1,
+      "export_posture": "PROTECTED_INTERNAL_ONLY"
+    },
+    "SRC-SI-008": {
+      "memberships": 145,
+      "tokens": 230,
+      "rights_profile_id": "RP-SRC-SI-008",
+      "rights_profile_version": 1,
+      "export_posture": "PUBLIC_PERMITTED_STANDALONE"
+    }
   },
   "governance_status": {
     "validation_status": "draft",
     "expert_validated": false,
+    "research_eligible": false,
     "approved_for_child_delivery": false,
+    "approved_for_unsupervised_child_delivery": false,
     "requires_expert_review": true
   }
 }

@@ -22,16 +22,31 @@ STAGE31_CONFIG_HASH = "53aa0a8aa7ccc226f17107a18ee024dd85e71ad5776388650ee973a60
 class Stage31CorpusBridge:
     """Bridges Stage 31 canonical analytical records to Stage 32 lexicon token occurrences."""
 
-    def __init__(self, canonical_corpus_path: Optional[Path] = None):
+    def __init__(self, canonical_corpus_path: Optional[Path] = None, approved_sources_path: Optional[Path] = None):
         self.stage30_config = get_frozen_configuration()
         self.stage30_config_hash = self.stage30_config["configuration_sha256"]
         self.stage31_config_hash = STAGE31_CONFIG_HASH
 
+        repo_root = Path(__file__).resolve().parent.parent.parent.parent.parent
         if canonical_corpus_path is not None:
             self.canonical_corpus_path = canonical_corpus_path
         else:
-            repo_root = Path(__file__).resolve().parent.parent.parent.parent.parent
             self.canonical_corpus_path = repo_root / "data" / "sinhala_external" / "corpus" / "canonical_analytical_corpus.jsonl"
+
+        if approved_sources_path is not None:
+            self.approved_sources_path = approved_sources_path
+        else:
+            self.approved_sources_path = repo_root / "data" / "sinhala_external" / "registry" / "approved_sources.json"
+
+        self.authoritative_rights = {}
+        if self.approved_sources_path.exists():
+            with open(self.approved_sources_path, "r", encoding="utf-8") as f:
+                src_data = json.load(f)
+                for s in src_data.get("sources", []):
+                    self.authoritative_rights[s["source_id"]] = (
+                        s["rights_profile_id"],
+                        s["rights_profile_version"]
+                    )
 
     def classify_occurrence_disposition(self, token: TokenRecord) -> Tuple[OccurrenceDisposition, Optional[str]]:
         """Classifies token into an OccurrenceDisposition with left-to-right evaluation precedence."""
@@ -84,8 +99,11 @@ class Stage31CorpusBridge:
             record_id = record["record_id"]
             source_id = record["source_id"]
             split_group_id = record["split_group_id"]
-            rights_profile_id = record["rights_profile_id"]
-            rights_profile_version = record.get("rights_profile_version", 1)
+            if source_id in self.authoritative_rights:
+                rights_profile_id, rights_profile_version = self.authoritative_rights[source_id]
+            else:
+                rights_profile_id = record["rights_profile_id"]
+                rights_profile_version = record.get("rights_profile_version", 1)
             storage_ref = record["normalized_text_storage_ref"]
             record_sha = record.get("public_record_digest", "")
 
