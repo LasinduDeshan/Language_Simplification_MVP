@@ -39,7 +39,7 @@ def test_lossless_token_reconstruction():
     # T_i = text[token_i.start:token_i.end]
     # G_{i+1} = text[token_i.end:token_{i+1}.start]
     # G_N = text[token_{N-1}.end:]
-    reconstructed_parts = []
+    reconstructed_parts: list[str] = []
     last_idx = 0
     for t in tokens:
         # Appends G_i (where G_0 is initial gap)

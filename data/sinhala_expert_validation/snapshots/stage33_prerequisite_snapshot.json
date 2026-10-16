@@ -1,0 +1,77 @@
+{
+  "stage": "stage34",
+  "workflow": "WP0_prerequisite_snapshot",
+  "prerequisite_tag": "stage-33-complete-v2",
+  "prerequisite_commit": "74481f4d09beeba42ccb9b9c32ff994e372af5bf",
+  "start_tag": "stage-34-start",
+  "start_commit": "74481f4d09beeba42ccb9b9c32ff994e372af5bf",
+  "verified_ancestors": {
+    "stage-33-complete-v2^{commit}": "74481f4d09beeba42ccb9b9c32ff994e372af5bf",
+    "stage-32-complete-v5^{commit}": "7c6bb81a744305c3a59100a2c2af8fc06deb01c8",
+    "stage-31-complete-v8^{commit}": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
+    "stage-30-complete-v3^{commit}": "ef95667b53dddfb032e71fc51d6c524aff7a22a2",
+    "stage-29-complete-v2^{commit}": "89a253c452ea85664f988f31d357d6d9ee72b464",
+    "stage-28a-complete-v4^{commit}": "0e83898a1272ecd8af2fc93f607e694ca07954cf",
+    "stage-27-infrastructure-complete-v3^{commit}": "22eb001eaed9a3dd8bcf09a1a14e4d99a840221f",
+    "stage-26-complete-v5^{commit}": "1a67bd46700ffcc17bebef3ef31e9903ff57c620"
+  },
+  "protected_storage_root": "C:\\Users\\Lasindu\\.sinhala_expert_validation_protected_data",
+  "protected_storage_external_verified": true,
+  "stage33_partition_finding": "No partition leakage was detected under the frozen record, document-group, and method-development relations.",
+  "corpus_counts": {
+    "canonical_total": 150,
+    "train": 124,
+    "validation": 13,
+    "locked_test": 13
+  },
+  "stage33_ledgers": {
+    "candidate_count": 106,
+    "disposition_count": 150
+  },
+  "verified_hashes": {
+    "corpus": {
+      "data/sinhala_external/corpus/canonical_analytical_corpus.jsonl": "f862bf30bedc92dcbff24076c289c7a757a3962c59096bc3a40c3d985d9a0f7d",
+      "data/sinhala_external/corpus/pilot_corpus.jsonl": "e72fefb869675c61ff5266dbc71464ffd56a10eb3cd1731dcd787a3b8d233288",
+      "data/sinhala_external/corpus/corpus_metadata.json": "39ee316a7b3df502f188712c89be5c4d87ca6e856835bde9ef4961c3d778909a",
+      "data/sinhala_external/registry/stage31_configuration.json": "53aa0a8aa7ccc226f17107a18ee024dd85e71ad5776388650ee973a60bc1ef40",
+      "data/sinhala_external/registry/approved_sources.json": "01f2e8bee0abce29ea9311ffb76378e7d0bc6751cb58cce97b1a696dd37dda8d",
+      "data/sinhala_external/registry/method_development_predeclaration.json": "a0ca0752f8928ff9b938118fbedeee4c5d764864bd2e318fbd831b766fd959c6"
+    },
+    "lexicon": {
+      "data/sinhala_lexicon/lexicon/draft_lexicon.jsonl": "c6ac417202c8bffe088c66e6c571f279762185d510d40d2fcc97160e41b86461",
+      "data/sinhala_lexicon/lexicon/review_queue.jsonl": "d84bfacbb8c3ca0d6c995b01bc84455d74099f7947522d1f7e531435dabe4c99",
+      "data/sinhala_lexicon/lexicon/public_metadata_export.jsonl": "080b1614447609ce96ee7597c359bf4efbf76e060a3e8bbe5b18f8b82bf90148",
+      "data/sinhala_lexicon/ledgers/token_occurrence_ledger.jsonl": "46983d602272f9bbbd658df163f6ce62ee33c3d8e2c0f4ec4f526623f1a42102",
+      "data/sinhala_lexicon/ledgers/candidate_entry_ledger.jsonl": "134b3c516e35bdd3548357099e00719692e8f25f338d47d5d968076d6a3117ab",
+      "data/sinhala_lexicon/ledgers/surface_form_mapping.jsonl": "1232ebbc1ed284f66b89cb7715283a229f41cccd8ec154cc10182b8be918137a",
+      "data/sinhala_lexicon/ledgers/provenance_weight_ledger.jsonl": "7d279892ecb6712acd52c4cc59e2182b4522219f505fb9f4c154ae68d05996e6",
+      "data/sinhala_lexicon/ledgers/corpus_identity_ledger.json": "92a834fe3439ba562433c6bb23a70917292d3fd75fdfb90938d5663d2ee9a2d0",
+      "data/sinhala_lexicon/ledgers/weighted_parity_diagnostic.json": "b7718f53cb0c2b8cfccd46064482ab7f3a21afb2ea9d93fe35a37172efc66181",
+      "data/sinhala_lexicon/registry/stage32_configuration.json": "ca014903df9b7a026a8333f0a5e0d9029a4fa957dc2bf6a271592b69a3f2d336"
+    },
+    "simplification": {
+      "data/sinhala_simplification/registry/stage33_configuration.json": "2d572d820f630fb6c15f5ebacebfce3ae84ab2e9c5f7102241f0d15579c71cc2",
+      "data/sinhala_simplification/registry/rule_registry_public.json": "b855606a04275b6cb0680b5a5e525c46b1d6566709386a28028b1573e6749e74",
+      "data/sinhala_simplification/registry/ranking_precedence.json": "899519d02940ab42e8c14209b8009d6cff8b2bcf5d432798bd3309084839c51c",
+      "data/sinhala_simplification/registry/protected_span_policy.json": "74223fe56a95cb9f798635c5b6d4f621612098341d86592782c55cca41beacb7",
+      "data/sinhala_simplification/ledgers/candidate_ledger.jsonl": "7e63f5d93657625b3daea40575c49fcbd2dab480f40ec1d18ed4bfc53edc2e15",
+      "data/sinhala_simplification/ledgers/final_disposition_ledger.jsonl": "06abb5d93e3c6cc0263f1e9f99363680f9c69cacf1554fa6970122adbcf2f9f6",
+      "data/sinhala_simplification/ledgers/rule_attempt_ledger.jsonl": "8aaf475a39ebdc5612971899ed8580dc964c89586282067f5a974e718a4d0fa0",
+      "data/sinhala_simplification/ledgers/transformation_trace_ledger.jsonl": "35f448ea85dc1dc17252b0f498e8b135ae9895e6a5a412646550fccaf39569c5",
+      "data/sinhala_simplification/ledgers/train_candidate_ledger.jsonl": "5875a91070be713250bf039ad75e52df416374ffd3779694f7d15de3117a1935",
+      "data/sinhala_simplification/ledgers/train_final_disposition_ledger.jsonl": "0f5fabc6dc33a56ac620ae3f12646be7efd07d38d7eb090149818bf5f5e5b691",
+      "data/sinhala_simplification/ledgers/validation_candidate_ledger.jsonl": "4057f5fc1a0884236b5d459ae417beabff0a814e1eb1588748d1932657f666d6",
+      "data/sinhala_simplification/ledgers/validation_final_disposition_ledger.jsonl": "91030881acd010e15ea3fdd463b672ef8b842d940619bce34257ce1225647063",
+      "data/sinhala_simplification/ledgers/locked_test_candidate_ledger.jsonl": "83b89d1bd736872749ce793b0553e892bc4104db7ac9d3c1131ec6899962492e",
+      "data/sinhala_simplification/ledgers/locked_test_final_disposition_ledger.jsonl": "0e36de69f8948163b85902d8a799d225a30eda436d149217d74cf92b5d8846d2",
+      "data/sinhala_simplification/evaluation/public_summary.json": "a32d2a3e63d025c66cc52e1242bf96098973f16f776246b50e672b406dbe1a81",
+      "data/sinhala_simplification/manifests/stage33_implementation_manifest.sha256": "2efdebf142dace24acbcae6679ae31ba346dad247131b147f01e01027121ee83"
+    },
+    "manifests": {
+      "docs/stage30_manifest.sha256": "74fc127df356ffc02929a184878bc6e4663998079233b3b670a92eb3916f8573",
+      "docs/stage31_manifest.sha256": "7dafe5a43d6d27c8da7c32e02182b2df30ab34eab6da5322bcd99069c16826c3",
+      "docs/stage32_manifest.sha256": "cb15831e9839364623b67161b2822a9e5e8b60508ba1e2f7a9d6b58af2269941",
+      "docs/stage33_manifest.sha256": "faca7daffa7d4a8ac131bcdcd4844b56a961c892034220aca9162047e24aa249"
+    }
+  }
+}

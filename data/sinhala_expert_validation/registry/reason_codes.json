@@ -1,0 +1,24 @@
+{
+  "reason_codes_version": "S34-REASON-CODES-V1",
+  "codes": {
+    "SEMANTIC_OMISSION": "Loss of a crucial proposition or entity from the source sentence.",
+    "SEMANTIC_ADDITION": "Introduction of extraneous facts or claims not supported by the source.",
+    "SEMANTIC_CONTRADICTION": "Assertion of meaning directly opposing or distorting the source.",
+    "ENTITY_OR_NUMBER_CHANGED": "Named entity, pronoun referent, quantity, or number was altered.",
+    "NEGATION_OR_MODALITY_CHANGED": "Affirmative flipped to negative, or epistemic modality shifted.",
+    "TEMPORAL_OR_CAUSAL_RELATION_CHANGED": "Chronological order or causal link inverted or broken.",
+    "GRAMMAR_ERROR": "Violation of standard Sinhala word order, postposition, or case marking.",
+    "MORPHOLOGY_ERROR": "Erroneous verb stem conjugation, suffix attachment, or gender/number agreement.",
+    "UNNATURAL_SINHALA": "Unidiomatic or translation-calque phrasing foreign to native Sinhala.",
+    "REGISTER_MISMATCH": "Inappropriate mixing of formal literary and spoken colloquial registers.",
+    "NOT_SIMPLER": "Candidate is as complex as or more complex than the original source.",
+    "VOCABULARY_TOO_ADVANCED": "Contains lexical items outside the developmental grasp of ages 4-8.",
+    "SENTENCE_STRUCTURE_TOO_COMPLEX": "Embedded clauses or syntactic depth exceeds working memory limits.",
+    "DEVELOPMENTAL_CONCERN": "Concepts require cognitive abstraction beyond ages 4-8.",
+    "SAFETY_CONCERN": "Contains distressing, violent, or unsuitable themes for young children.",
+    "SOURCE_AMBIGUOUS": "Source sentence is itself unclear, preventing definitive comparison.",
+    "INSUFFICIENT_CONTEXT": "Sentence meaning cannot be evaluated without broader paragraph context.",
+    "ANNOTATION_INTERFACE_ERROR": "Rendering glitch, font misplacement, or technical defect.",
+    "OTHER_EXPLAINED": "Specific defect not captured above, detailed in structured comment reference."
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "plan_version": "S34-ANALYSIS-PLAN-V1",
+  "agreement_framework": {
+    "primary_metric": "krippendorff_alpha",
+    "secondary_metric": "fleiss_kappa",
+    "distance_functions": {
+      "nominal": "coincidence_matrix_delta_binary",
+      "ordinal": "squared_rank_density_delta"
+    },
+    "missingness_policy": {
+      "cannot_assess_handling": "pairwise_unobserved",
+      "not_applicable_handling": "pairwise_unobserved",
+      "coercion_to_numeric_allowed": false
+    },
+    "confidence_intervals": {
+      "method": "bootstrap_item_level",
+      "resamples": 1000,
+      "seed": 42,
+      "alpha_level": 0.05
+    }
+  },
+  "decision_rules": {
+    "terminal_decision_statistic": "point_estimate",
+    "ci_usage": "reported_as_uncertainty_evidence_only",
+    "critical_threshold": 0.667,
+    "strong_agreement_benchmark": 0.800,
+    "raw_agreement_substitution_allowed": false,
+    "minimum_computable_sample": {
+      "minimum_items": 30,
+      "minimum_rating_pairs_per_dimension": 60
+    }
+  },
+  "endpoints": {
+    "primary_critical": [
+      "meaning_preservation",
+      "grammatical_acceptability",
+      "developmental_suitability",
+      "overall_disposition"
+    ],
+    "secondary_diagnostics": [
+      "morphology_preservation",
+      "fluency_naturalness",
+      "simplicity_improvement",
+      "vocabulary_suitability",
+      "sentence_structure_suitability"
+    ]
+  },
+  "interpretation_bands": {
+    "strong_agreement": "alpha >= 0.800",
+    "acceptable_agreement": "0.667 <= alpha < 0.800",
+    "insufficient_agreement": "alpha < 0.667"
+  }
+}

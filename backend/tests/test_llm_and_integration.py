@@ -1,3 +1,5 @@
+from typing import Dict
+
 import pytest
 from fastapi.testclient import TestClient
 from app.main import app
@@ -10,7 +12,7 @@ from app.validation.validator import adaptation_validator
 from app.services.adaptation_service import adaptation_service
 from app.services.experiment_service import experiment_service
 from app.services.evaluation_service import evaluation_service
-from app.database.models import ExperimentRun, Attempt, Adaptation, ValidationResult, IntegrationEvent
+from app.database.models import ExperimentRun, Attempt, Adaptation, ValidationResult, IntegrationEvent, Task, LearnerProfile
 
 @pytest.fixture
 def client():
@@ -34,8 +36,8 @@ def test_llm_generator_offline_simulated(db_session):
     - Anti-leakage preserved
     - Warm child-safe encouragement present
     """
-    task_map = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
-    learner_map = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
+    task_map: Dict[str, Task] = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
+    learner_map: Dict[str, LearnerProfile] = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
     
     task = task_map["TASK-ENG-001"]
     learner = learner_map["CHILD-002"]
@@ -65,8 +67,8 @@ def test_llm_generation_attempt_progression(db_session):
     - Attempt 2: atomic sub-step
     - Attempt 3: binary choice
     """
-    task_map = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
-    learner_map = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
+    task_map: Dict[str, Task] = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
+    learner_map: Dict[str, LearnerProfile] = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
     task = task_map["TASK-ENG-002"]  # Habitat task
     learner = learner_map["CHILD-001"]
 
@@ -86,8 +88,8 @@ def test_hybrid_generator_safety_fallback(db_session, monkeypatch):
     1. Approved candidate passes through as hybrid mode.
     2. Candidate that leaks answer triggers fallback to safe rule template.
     """
-    task_map = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
-    learner_map = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
+    task_map: Dict[str, Task] = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
+    learner_map: Dict[str, LearnerProfile] = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
     task = task_map["TASK-ENG-002"]
     learner = learner_map["CHILD-001"]
 
@@ -127,8 +129,8 @@ def test_adaptation_service_hybrid_mode(db_session):
     Verifies that AdaptationService runs with generation_mode="hybrid",
     creates Adaptation and records metadata (provider, model_name, cost, processing_time_ms).
     """
-    task_map = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
-    learner_map = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
+    task_map: Dict[str, Task] = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
+    learner_map: Dict[str, LearnerProfile] = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
     task = task_map["TASK-ENG-003"]
     learner = learner_map["CHILD-003"]
 
@@ -169,8 +171,8 @@ def test_component_1_task_delivery_payload(db_session):
     - validation_status is approved
     - contains child instruction and cues
     """
-    task_map = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
-    learner_map = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
+    task_map: Dict[str, Task] = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
+    learner_map: Dict[str, LearnerProfile] = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
     task = task_map["TASK-ENG-004"]
     learner = learner_map["CHILD-002"]
 
@@ -193,8 +195,8 @@ def test_component_3_ar_payload(db_session):
     - language is "en"
     - includes spatial_anchors, object_labels, highlight_targets
     """
-    task_map = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
-    learner_map = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
+    task_map: Dict[str, Task] = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
+    learner_map: Dict[str, LearnerProfile] = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
     task = task_map["TASK-ENG-010"]  # Garden Plant Growth AR task
     learner = learner_map["CHILD-004"]
 
@@ -217,8 +219,8 @@ def test_component_4_analytics_payload(db_session):
     - observed_patterns list
     - clinician diagnostic_summary
     """
-    task_map = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
-    learner_map = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
+    task_map: Dict[str, Task] = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
+    learner_map: Dict[str, LearnerProfile] = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
     task = task_map["TASK-ENG-001"]
     learner = learner_map["CHILD-001"]
 
@@ -248,8 +250,8 @@ def test_generator_comparison_api(client, db_session):
     Tests GET /api/generate-comparison/{task_id}/{learner_id} returning
     side-by-side Rule vs LLM vs Hybrid adaptations.
     """
-    task_map = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
-    learner_map = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
+    task_map: Dict[str, Task] = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
+    learner_map: Dict[str, LearnerProfile] = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
     task = task_map["TASK-ENG-005"]
     learner = learner_map["CHILD-002"]
 
@@ -279,8 +281,8 @@ def test_integration_events_api(client, db_session):
     """
     Tests GET /api/integration-events/{experiment_id} returning chronological integration events.
     """
-    task_map = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
-    learner_map = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
+    task_map: Dict[str, Task] = {t.task_code: t for t in task_repository.get_all_tasks(db_session)}
+    learner_map: Dict[str, LearnerProfile] = {l.learner_code: l for l in task_repository.get_all_learners(db_session)}
     task = task_map["TASK-ENG-006"]
     learner = learner_map["CHILD-003"]
 

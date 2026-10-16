@@ -1,0 +1,288 @@
+{
+  "stage": "stage34",
+  "total_items_evaluated": 150,
+  "total_annotations_collected": 600,
+  "critical_threshold": 0.667,
+  "all_primary_critical_passed": true,
+  "primary_critical_endpoints": {
+    "meaning_preservation": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9178,
+      "ci_95": [
+        0.8437,
+        0.971
+      ],
+      "exact_agreement": 0.9667,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "eligible_reviewers": [
+          "REV-S34-001",
+          "REV-S34-002",
+          "REV-S34-003",
+          "REV-S34-004",
+          "REV-S34-005"
+        ],
+        "rated_observations": 600,
+        "cannot_assess_observations": 0,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 900,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42,
+        "algorithm_implementation": "Krippendorff's alpha (2004, 2011) coincidence matrix formulation"
+      }
+    },
+    "grammatical_acceptability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.8302,
+      "ci_95": [
+        0.6998,
+        0.9291
+      ],
+      "exact_agreement": 0.9596,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "eligible_reviewers": [
+          "REV-S34-001",
+          "REV-S34-002",
+          "REV-S34-003",
+          "REV-S34-004",
+          "REV-S34-005"
+        ],
+        "rated_observations": 498,
+        "cannot_assess_observations": 102,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 594,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42,
+        "algorithm_implementation": "Krippendorff's alpha (2004, 2011) coincidence matrix formulation"
+      }
+    },
+    "developmental_suitability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9385,
+      "ci_95": [
+        0.8659,
+        1.0
+      ],
+      "exact_agreement": 0.98,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "eligible_reviewers": [
+          "REV-S34-001",
+          "REV-S34-002",
+          "REV-S34-003",
+          "REV-S34-004",
+          "REV-S34-005"
+        ],
+        "rated_observations": 300,
+        "cannot_assess_observations": 300,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 150,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42,
+        "algorithm_implementation": "Krippendorff's alpha (2004, 2011) coincidence matrix formulation"
+      }
+    },
+    "overall_disposition": {
+      "metric": "krippendorff_alpha_nominal",
+      "point_estimate": 0.827,
+      "ci_95": [
+        0.749,
+        0.8966
+      ],
+      "exact_agreement": 0.9333,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "eligible_reviewers": [
+          "REV-S34-001",
+          "REV-S34-002",
+          "REV-S34-003",
+          "REV-S34-004",
+          "REV-S34-005"
+        ],
+        "rated_observations": 600,
+        "cannot_assess_observations": 0,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 900,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42,
+        "algorithm_implementation": "Krippendorff's alpha (2004, 2011) coincidence matrix formulation"
+      }
+    }
+  },
+  "secondary_agreement_diagnostics": {
+    "morphology_preservation": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9537,
+      "ci_95": [
+        0.8482,
+        1.0
+      ],
+      "exact_agreement": 0.9718,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "eligible_reviewers": [
+          "REV-S34-001",
+          "REV-S34-002",
+          "REV-S34-003",
+          "REV-S34-004",
+          "REV-S34-005"
+        ],
+        "rated_observations": 142,
+        "cannot_assess_observations": 142,
+        "not_applicable_observations": 316,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 71,
+        "rating_pairs_used": 71,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42,
+        "algorithm_implementation": "Krippendorff's alpha (2004, 2011) coincidence matrix formulation"
+      }
+    },
+    "fluency_naturalness": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9192,
+      "ci_95": [
+        0.8494,
+        0.9708
+      ],
+      "exact_agreement": 0.97,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "eligible_reviewers": [
+          "REV-S34-001",
+          "REV-S34-002",
+          "REV-S34-003",
+          "REV-S34-004",
+          "REV-S34-005"
+        ],
+        "rated_observations": 600,
+        "cannot_assess_observations": 0,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 900,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42,
+        "algorithm_implementation": "Krippendorff's alpha (2004, 2011) coincidence matrix formulation"
+      }
+    },
+    "simplicity_improvement": {
+      "metric": "krippendorff_alpha_nominal",
+      "point_estimate": 1.0,
+      "ci_95": [
+        1.0,
+        1.0
+      ],
+      "exact_agreement": 1.0,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "eligible_reviewers": [
+          "REV-S34-001",
+          "REV-S34-002",
+          "REV-S34-003",
+          "REV-S34-004",
+          "REV-S34-005"
+        ],
+        "rated_observations": 600,
+        "cannot_assess_observations": 0,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 900,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42,
+        "algorithm_implementation": "Krippendorff's alpha (2004, 2011) coincidence matrix formulation"
+      }
+    },
+    "vocabulary_suitability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.906,
+      "ci_95": [
+        0.8193,
+        0.9659
+      ],
+      "exact_agreement": 0.9756,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "eligible_reviewers": [
+          "REV-S34-001",
+          "REV-S34-002",
+          "REV-S34-003",
+          "REV-S34-004",
+          "REV-S34-005"
+        ],
+        "rated_observations": 600,
+        "cannot_assess_observations": 0,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 900,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42,
+        "algorithm_implementation": "Krippendorff's alpha (2004, 2011) coincidence matrix formulation"
+      }
+    },
+    "sentence_structure_suitability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9398,
+      "ci_95": [
+        0.8601,
+        0.9873
+      ],
+      "exact_agreement": 0.9867,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "eligible_reviewers": [
+          "REV-S34-001",
+          "REV-S34-002",
+          "REV-S34-003",
+          "REV-S34-004",
+          "REV-S34-005"
+        ],
+        "rated_observations": 600,
+        "cannot_assess_observations": 0,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 900,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42,
+        "algorithm_implementation": "Krippendorff's alpha (2004, 2011) coincidence matrix formulation"
+      }
+    }
+  },
+  "secondary_fleiss_kappa": {
+    "metric": "fleiss_kappa",
+    "point_estimate": 0.8267,
+    "eligible_items": 150,
+    "raters_per_item": 4,
+    "total_ratings_used": 600
+  }
+}

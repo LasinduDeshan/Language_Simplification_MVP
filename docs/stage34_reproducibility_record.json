@@ -1,0 +1,217 @@
+{
+  "stage": "stage34",
+  "component": "Component 3 — AI/NLP-Based Language Simplification",
+  "title": "Sinhala Expert Linguistic and Child-Development Validation",
+  "prerequisite_tag": "stage-33-complete-v2",
+  "prerequisite_commit": "74481f4d09beeba42ccb9b9c32ff994e372af5bf",
+  "start_tag": "stage-34-start",
+  "start_commit": "74481f4d09beeba42ccb9b9c32ff994e372af5bf",
+  "historical_terminal_tag": "stage-34-complete",
+  "historical_terminal_commit": "cc2fa836efd4b884cadd9a4cd82cae7ae8e601c7",
+  "terminal_tag": "stage-34-complete-v2",
+  "branch": "feature/stage34-sinhala-expert-validation",
+  "random_seed": 42,
+  "assignment_seed": 1034,
+  "panel_summary": {
+    "recruited_count": 7,
+    "unique_qualified_count": 6,
+    "first_pass_reviewers_count": 5,
+    "independent_adjudicators_count": 1,
+    "internal_project_team_evaluators_used": 0,
+    "internal_project_team_quarantined_count": 1,
+    "roles": {
+      "sinhala_linguists": 2,
+      "early_childhood_educators": 2,
+      "child_development_specialists": 1,
+      "independent_adjudicators": 1
+    }
+  },
+  "population_summary": {
+    "total_canonical_items": 150,
+    "train_items": 124,
+    "validation_items": 13,
+    "locked_test_items": 13,
+    "total_assignments": 600,
+    "assignments_per_item": 4,
+    "total_annotations_collected": 600,
+    "missing_annotations": 0
+  },
+  "primary_critical_endpoints": {
+    "meaning_preservation": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9178,
+      "bootstrap_95_ci": [0.8437, 0.971],
+      "exact_agreement": 0.9667,
+      "threshold": 0.667,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "rated_observations": 600,
+        "cannot_assess_observations": 0,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 900,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42
+      }
+    },
+    "grammatical_acceptability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.8302,
+      "bootstrap_95_ci": [0.6998, 0.9291],
+      "exact_agreement": 0.9596,
+      "threshold": 0.667,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "rated_observations": 498,
+        "cannot_assess_observations": 102,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 594,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42
+      }
+    },
+    "developmental_suitability": {
+      "metric": "krippendorff_alpha_ordinal",
+      "point_estimate": 0.9385,
+      "bootstrap_95_ci": [0.8659, 1.0],
+      "exact_agreement": 0.98,
+      "threshold": 0.667,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "rated_observations": 300,
+        "cannot_assess_observations": 300,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 150,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42
+      }
+    },
+    "overall_disposition": {
+      "metric": "krippendorff_alpha_nominal",
+      "point_estimate": 0.827,
+      "bootstrap_95_ci": [0.749, 0.8966],
+      "exact_agreement": 0.9333,
+      "threshold": 0.667,
+      "passed": true,
+      "denominators": {
+        "eligible_items": 150,
+        "eligible_reviewers_count": 5,
+        "rated_observations": 600,
+        "cannot_assess_observations": 0,
+        "not_applicable_observations": 0,
+        "missing_observations": 0,
+        "items_with_at_least_two_usable_ratings": 150,
+        "rating_pairs_used": 900,
+        "bootstrap_resamples": 500,
+        "bootstrap_seed": 42
+      }
+    }
+  },
+  "secondary_agreement_metrics": {
+    "morphology_preservation": {
+      "point_estimate": 0.9537,
+      "denominators": {
+        "eligible_items": 150,
+        "rated_observations": 142,
+        "cannot_assess_observations": 142,
+        "not_applicable_observations": 316,
+        "items_with_at_least_two_usable_ratings": 71,
+        "rating_pairs_used": 71
+      }
+    },
+    "fluency_naturalness": 0.9192,
+    "simplicity_improvement": 1.0,
+    "vocabulary_suitability": 0.906,
+    "sentence_structure_suitability": 0.9398,
+    "fleiss_kappa_overall_disposition": 0.8267
+  },
+  "eight_level_zero_loss_accounting": {
+    "level_1_reviewer_panel": {
+      "recruited": 7,
+      "qualified": 6,
+      "retraining_required": 0,
+      "excluded_quarantined": 1,
+      "withdrawn": 0,
+      "unaccounted": 0,
+      "panel_structure": {
+        "first_pass_reviewers": 5,
+        "independent_adjudicators": 1,
+        "total_unique_panel": 6
+      }
+    },
+    "level_2_evaluation_items": {
+      "total": 150,
+      "train": 124,
+      "validation": 13,
+      "locked_test": 13,
+      "unaccounted": 0
+    },
+    "level_3_reviewer_assignments": {
+      "total": 600,
+      "assignments_per_item": 4,
+      "unaccounted": 0
+    },
+    "level_4_annotation_submissions": {
+      "submitted": 600,
+      "missing": 0,
+      "unaccounted": 0
+    },
+    "level_5_dimension_ratings": {
+      "total_ratings": 6000,
+      "rated": 5140,
+      "cannot_assess": 544,
+      "not_applicable": 316,
+      "missing_in_submitted": 0,
+      "unaccounted": 0
+    },
+    "level_6_amendments": {
+      "total": 2,
+      "accepted": 2,
+      "rejected": 0,
+      "pending": 0,
+      "unaccounted": 0
+    },
+    "level_7_adjudications": {
+      "total_enqueued": 5,
+      "resolved": 5,
+      "unresolved": 0,
+      "pending": 0,
+      "excluded": 0,
+      "unaccounted": 0
+    },
+    "level_8_rule_dispositions": {
+      "total_evaluated": 8,
+      "supported_for_further_research": 8,
+      "supported_with_constraints": 0,
+      "revision_required": 0,
+      "rejected": 0,
+      "insufficient_expert_evidence": 0,
+      "unresolved_expert_disagreement": 0,
+      "unaccounted": 0,
+      "sealed_flag_verified_count": 8
+    },
+    "all_levels_reconciled": true,
+    "total_unaccounted_across_all_levels": 0
+  },
+  "governance_and_compliance": {
+    "non_clinical_scope_confirmed": true,
+    "direct_child_testing_conducted": false,
+    "approved_for_child_delivery": false,
+    "approved_for_unsupervised_child_delivery": false,
+    "requires_expert_review": true,
+    "data_storage_compliance": "stored under the configured external protected-storage root; repository exclusion and access-control checks passed.",
+    "progression_status": "Stage 35 technical progression eligibility under the Stage 34 governance protocol.",
+    "upstream_stage30_to_33_immutable": true
+  }
+}

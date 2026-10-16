@@ -1,3 +1,5 @@
+from typing import Dict
+
 import pytest
 from fastapi.testclient import TestClient
 from app.main import app
@@ -6,6 +8,7 @@ from app.tasks.repository import task_repository
 from app.personalization.controller import personalization_controller
 from app.generation.rule_generator import rule_generator
 from app.services.adaptation_service import adaptation_service
+from app.database.models import LearnerProfile
 
 @pytest.fixture
 def client():
@@ -28,7 +31,7 @@ def test_support_level_matrix_for_all_learners(db_session):
     - Low risk with high scores (>=65) -> Mild
     """
     learners = task_repository.get_all_learners(db_session)
-    learner_map = {l.learner_code: l for l in learners}
+    learner_map: Dict[str, LearnerProfile] = {l.learner_code: l for l in learners}
 
     # CHILD-003: low risk, vocab 78, grammar 74, developing -> Mild on Attempt 1
     c3 = learner_map["CHILD-003"]
