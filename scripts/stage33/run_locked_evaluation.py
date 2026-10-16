@@ -13,6 +13,12 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "backend"))
 
+# Ensure mandatory protected root is set
+if not os.environ.get("SINHALA_SIMPLIFICATION_PROTECTED_ROOT"):
+    default_root = Path.home() / ".sinhala_simplification_protected_data"
+    default_root.mkdir(parents=True, exist_ok=True)
+    os.environ["SINHALA_SIMPLIFICATION_PROTECTED_ROOT"] = str(default_root)
+
 from app.datasets.sinhala_external.storage import storage_manager as external_storage
 from app.sinhala_simplification.enums import (
     CandidateTerminalStatus,
@@ -63,7 +69,7 @@ def evaluate_split(split_name: str, records: list, pipeline: SimplificationPipel
                 rights_profile_ids_and_versions=[
                     RightsProfileBinding(
                         rights_profile_id=rec["rights_profile_id"],
-                        version=rec.get("rights_profile_version", 1)
+                        rights_profile_version=rec.get("rights_profile_version", 1)
                     )
                 ],
                 partition=Partition(split_name) if split_name in ("train", "val", "test") else (

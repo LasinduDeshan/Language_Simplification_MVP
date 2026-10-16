@@ -60,6 +60,25 @@ class RuleBlockingCondition(BaseModel):
     parameters: Dict[str, Any] = Field(default_factory=dict, description="Blocking parameter constraints")
 
 
+class KeyedHmacRef(BaseModel):
+    """Structured versioned domain-separated keyed HMAC metadata."""
+    model_config = ConfigDict(frozen=True)
+
+    hmac_key_id: str = Field(default="ST33-KEY-01")
+    hmac_scheme_version: int = Field(default=1)
+    domain_separator: str
+    canonical_message_schema: str = Field(default="utf8_nfc_string")
+    hmac_value: str
+
+
+class RightsProfileBinding(BaseModel):
+    """Binding of rights profile ID and its frozen version."""
+    model_config = ConfigDict(frozen=True)
+
+    rights_profile_id: str
+    rights_profile_version: int = 1
+
+
 class SimplificationRule(BaseModel):
     """Deterministic, versioned linguistic simplification rule definition."""
     model_config = ConfigDict(frozen=True)
@@ -72,23 +91,17 @@ class SimplificationRule(BaseModel):
     author_id_or_team: str = Field(..., description="Human technical author or engineering team identity")
     evidence_type: str = Field(..., description="Category of empirical evidence supporting the rule")
     evidence_refs: List[str] = Field(default_factory=list, description="Traceable Stage 31/32 evidence keys")
-    rights_profile_refs: List[str] = Field(default_factory=list, description="Associated rights profile references")
+    rights_profile_refs: List[RightsProfileBinding] = Field(default_factory=list, description="Associated structured rights profile references")
     source_pattern_ref: str = Field(..., description="Keyed HMAC or opaque identifier of source pattern")
     target_template_ref: str = Field(..., description="Keyed HMAC or opaque identifier of target template")
+    source_pattern_hmac: Optional[KeyedHmacRef] = Field(default=None, description="Structured keyed HMAC metadata")
+    target_template_hmac: Optional[KeyedHmacRef] = Field(default=None, description="Structured keyed HMAC metadata")
     priority: int = Field(100, ge=1, description="Precedence priority (higher number = higher priority)")
     applicability_conditions: List[RuleApplicabilityCondition] = Field(default_factory=list)
     blocking_conditions: List[RuleBlockingCondition] = Field(default_factory=list)
     required_guards: List[GuardType] = Field(default_factory=list)
     expert_validated: bool = Field(False, description="Must remain False in Stage 33")
     approved_for_child_delivery: bool = Field(False, description="Must remain False in Stage 33")
-
-
-class RightsProfileBinding(BaseModel):
-    """Binding of rights profile ID and its frozen version."""
-    model_config = ConfigDict(frozen=True)
-
-    rights_profile_id: str
-    version: int = 1
 
 
 class RewriteRequest(BaseModel):
@@ -162,6 +175,7 @@ class RewriteCandidate(BaseModel):
     candidate_text_internal: Optional[str] = Field(None, description="Protected candidate text")
     candidate_sha256_internal: str = Field(..., min_length=64, max_length=64)
     operations: List[TransformationOperation] = Field(default_factory=list)
+    applied_rule_ids: List[str] = Field(default_factory=list, description="Applied rule IDs; must have length 1 in Stage 33")
     guard_results: Dict[str, GuardResult] = Field(default_factory=dict)
     all_guards_passed: bool = Field(False)
     terminal_status: CandidateTerminalStatus = Field(
@@ -192,4 +206,5 @@ class FinalRewriteRecord(BaseModel):
     approved_for_unsupervised_child_delivery: bool = Field(False, description="Strictly False in Stage 33")
     requires_expert_review: bool = Field(True, description="Strictly True in Stage 33")
     corpus_view: CorpusView = Field(CorpusView.CANONICAL_ANALYTICAL_150)
-    rights_profile_refs: List[str] = Field(default_factory=list)
+    rights_profile_refs: List[RightsProfileBinding] = Field(default_factory=list)
+

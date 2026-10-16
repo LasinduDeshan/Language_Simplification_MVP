@@ -1,7 +1,7 @@
 """
 Stage 33 — Rule Registry & Policy Generator.
 Generates:
-1. data/sinhala_simplification/registry/rule_registry_public.json (opaque metadata)
+1. data/sinhala_simplification/registry/rule_registry_public.json (opaque metadata with versioned keyed HMACs)
 2. data/sinhala_simplification/registry/protected_span_policy.json
 3. data/sinhala_simplification/registry/ranking_precedence.json
 4. External protected payloads: $SINHALA_SIMPLIFICATION_PROTECTED_ROOT/rules/rule_payloads_protected.json
@@ -20,12 +20,19 @@ from app.sinhala_simplification.enums import (
     RuleStatus,
     RuleType,
 )
-from app.sinhala_simplification.schemas import SimplificationRule
+from app.sinhala_simplification.schemas import (
+    KeyedHmacRef,
+    RightsProfileBinding,
+    SimplificationRule,
+)
 from app.sinhala_simplification.serialization import compute_keyed_hmac
 from app.sinhala_simplification.storage import get_protected_storage_root
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 REGISTRY_DIR = PROJECT_ROOT / "data" / "sinhala_simplification" / "registry"
+
+STANDARD_RIGHTS_REFS = [
+    RightsProfileBinding(rights_profile_id="RP-SRC-SI-001", rights_profile_version=1)
+]
 
 RULES_DEFINITIONS = [
     {
@@ -37,7 +44,7 @@ RULES_DEFINITIONS = [
         "target_template": "මේ නිසා",
         "evidence_type": "empirical_pilot_concordance",
         "evidence_refs": ["SI-LEX-000675", "SI-LEX-000681"],
-        "rights_profile_refs": ["SRC-SI-001-RP-01"],
+        "rights_profile_refs": STANDARD_RIGHTS_REFS,
         "required_guards": [GuardType.ENTITY_PRESERVATION, GuardType.NEGATION_PRESERVATION]
     },
     {
@@ -49,7 +56,7 @@ RULES_DEFINITIONS = [
         "target_template": "කරයි",
         "evidence_type": "empirical_pilot_concordance",
         "evidence_refs": ["SI-LEX-000164", "SI-LEX-000216"],
-        "rights_profile_refs": ["SRC-SI-001-RP-01"],
+        "rights_profile_refs": STANDARD_RIGHTS_REFS,
         "required_guards": [GuardType.ENTITY_PRESERVATION, GuardType.NEGATION_PRESERVATION]
     },
     {
@@ -61,7 +68,7 @@ RULES_DEFINITIONS = [
         "target_template": "ගැන",
         "evidence_type": "empirical_pilot_concordance",
         "evidence_refs": ["SI-LEX-000550", "SI-LEX-000185"],
-        "rights_profile_refs": ["SRC-SI-001-RP-01"],
+        "rights_profile_refs": STANDARD_RIGHTS_REFS,
         "required_guards": [GuardType.ENTITY_PRESERVATION, GuardType.NEGATION_PRESERVATION]
     },
     {
@@ -73,7 +80,7 @@ RULES_DEFINITIONS = [
         "target_template": "තවත්",
         "evidence_type": "empirical_pilot_concordance",
         "evidence_refs": ["SI-LEX-000326", "SI-LEX-000325"],
-        "rights_profile_refs": ["SRC-SI-001-RP-01"],
+        "rights_profile_refs": STANDARD_RIGHTS_REFS,
         "required_guards": [GuardType.ENTITY_PRESERVATION, GuardType.NEGATION_PRESERVATION]
     },
     {
@@ -85,7 +92,7 @@ RULES_DEFINITIONS = [
         "target_template": "බැලීම",
         "evidence_type": "empirical_pilot_concordance",
         "evidence_refs": ["SI-LEX-000427"],
-        "rights_profile_refs": ["SRC-SI-001-RP-01"],
+        "rights_profile_refs": STANDARD_RIGHTS_REFS,
         "required_guards": [GuardType.ENTITY_PRESERVATION, GuardType.NEGATION_PRESERVATION]
     },
     {
@@ -97,7 +104,7 @@ RULES_DEFINITIONS = [
         "target_template": "",
         "evidence_type": "syntactic_discourse_filler_analysis",
         "evidence_refs": ["SI-SYN-FILLER-01"],
-        "rights_profile_refs": ["SRC-SI-001-RP-01"],
+        "rights_profile_refs": STANDARD_RIGHTS_REFS,
         "required_guards": [GuardType.ENTITY_PRESERVATION, GuardType.NEGATION_PRESERVATION]
     },
     {
@@ -109,7 +116,7 @@ RULES_DEFINITIONS = [
         "target_template": ". ",
         "evidence_type": "syntactic_coordination_split_analysis",
         "evidence_refs": ["SI-SPLIT-MARKER-02"],
-        "rights_profile_refs": ["SRC-SI-001-RP-01"],
+        "rights_profile_refs": STANDARD_RIGHTS_REFS,
         "required_guards": [GuardType.ENTITY_PRESERVATION, GuardType.NEGATION_PRESERVATION, GuardType.NUMBER_PRESERVATION]
     },
     {
@@ -121,7 +128,7 @@ RULES_DEFINITIONS = [
         "target_template": ". ",
         "evidence_type": "syntactic_coordination_split_analysis",
         "evidence_refs": ["SI-LEX-000908"],
-        "rights_profile_refs": ["SRC-SI-001-RP-01"],
+        "rights_profile_refs": STANDARD_RIGHTS_REFS,
         "required_guards": [GuardType.ENTITY_PRESERVATION, GuardType.NEGATION_PRESERVATION, GuardType.NUMBER_PRESERVATION]
     }
 ]
@@ -144,6 +151,21 @@ def generate_registries():
         src_hmac = compute_keyed_hmac(src, domain="stage33_rule_source")
         tgt_hmac = compute_keyed_hmac(tgt, domain="stage33_rule_target")
 
+        src_hmac_ref = KeyedHmacRef(
+            hmac_key_id="ST33-KEY-01",
+            hmac_scheme_version=1,
+            domain_separator="sinhala_simplification:rule_pattern:v1",
+            canonical_message_schema="utf8_nfc_string",
+            hmac_value=src_hmac
+        )
+        tgt_hmac_ref = KeyedHmacRef(
+            hmac_key_id="ST33-KEY-01",
+            hmac_scheme_version=1,
+            domain_separator="sinhala_simplification:rule_target:v1",
+            canonical_message_schema="utf8_nfc_string",
+            hmac_value=tgt_hmac
+        )
+
         rule_meta = SimplificationRule(
             rule_id=rid,
             rule_version=rd["rule_version"],
@@ -156,6 +178,8 @@ def generate_registries():
             rights_profile_refs=rd["rights_profile_refs"],
             source_pattern_ref=src_hmac,
             target_template_ref=tgt_hmac,
+            source_pattern_hmac=src_hmac_ref,
+            target_template_hmac=tgt_hmac_ref,
             priority=rd["priority"],
             applicability_conditions=[],
             blocking_conditions=[],

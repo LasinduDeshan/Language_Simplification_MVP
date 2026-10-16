@@ -73,44 +73,6 @@ class LexicalRuleEngine:
             start, end = m.start(), m.end()
             source_span = CodePointSpan(start_code_point=start, end_code_point=end, text=m.group())
 
-            # 1. Protected-span blocking check
-            overlapping_protected = [
-                ps for ps in protected_spans
-                if not (end <= ps.span.start_code_point or start >= ps.span.end_code_point)
-            ]
-            if overlapping_protected and not any(ps.allowlist_override for ps in overlapping_protected):
-                attempt = RuleAttempt(
-                    attempt_id=f"SI-RULE-ATTEMPT-{attempt_counter:06d}",
-                    request_id=request_id,
-                    rule_id=rule.rule_id,
-                    rule_version=rule.rule_version,
-                    terminal_status=RuleAttemptTerminalStatus.BLOCKED_PROTECTED_SPAN,
-                    reason_codes=[f"OVERLAPS_{ps.category.value}" for ps in overlapping_protected],
-                    source_spans=[source_span],
-                    candidate_id=None
-                )
-                attempt_counter += 1
-                results.append((attempt, None))
-                continue
-
-            # 2. Negation scope blocking check (e.g. 'තවදුරටත් නැත' idiom must not be simplified)
-            subsequent_text = text[end:end + 30]
-            if any(neg in subsequent_text for neg in NEGATION_MARKERS):
-                attempt = RuleAttempt(
-                    attempt_id=f"SI-RULE-ATTEMPT-{attempt_counter:06d}",
-                    request_id=request_id,
-                    rule_id=rule.rule_id,
-                    rule_version=rule.rule_version,
-                    terminal_status=RuleAttemptTerminalStatus.BLOCKED_MEANING_GUARD,
-                    reason_codes=["WITHIN_NEGATION_SCOPE"],
-                    source_spans=[source_span],
-                    candidate_id=None
-                )
-                attempt_counter += 1
-                results.append((attempt, None))
-                continue
-
-            # 3. Applicable: generate candidate rewrite
             candidate_id = f"SI-CAND-{candidate_counter:06d}"
             candidate_counter += 1
 
@@ -143,6 +105,7 @@ class LexicalRuleEngine:
                 candidate_text_internal=new_text,
                 candidate_sha256_internal=compute_sha256(new_text),
                 operations=[op],
+                applied_rule_ids=[rule.rule_id],
                 guard_results={},
                 all_guards_passed=False,
                 terminal_status=CandidateTerminalStatus.NOT_SELECTED_LOWER_RANK

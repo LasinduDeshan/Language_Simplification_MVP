@@ -84,7 +84,7 @@ class CandidateSelector:
                 approved_for_unsupervised_child_delivery=False,
                 requires_expert_review=True,
                 corpus_view=request.stage31_corpus_view,
-                rights_profile_refs=[b.rights_profile_id for b in request.rights_profile_ids_and_versions]
+                rights_profile_refs=request.rights_profile_ids_and_versions
             )
             return record, all_final_candidates
 
@@ -126,6 +126,6 @@ class CandidateSelector:
             approved_for_unsupervised_child_delivery=False,
             requires_expert_review=True,
             corpus_view=request.stage31_corpus_view,
-            rights_profile_refs=[b.rights_profile_id for b in request.rights_profile_ids_and_versions]
+            rights_profile_refs=request.rights_profile_ids_and_versions
         )
         return record, all_final_candidates

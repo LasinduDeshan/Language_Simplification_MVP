@@ -21,52 +21,68 @@ $$\text{SubmittedInputs} = \text{DraftRewriteSelected} + \text{UnchangedNoApplic
 | Partition | Submitted | Draft Selected | Unchanged No Rule | Unchanged Blocked | Manual Review | Failed Internal | Unaccounted |
 |---|---|---|---|---|---|---|---|
 | **Train Split** | 124 | 54 | 70 | 0 | 0 | 0 | **0** |
-| **Validation Split** | 13 | 8 | 5 | 0 | 0 | 0 | **0** |
+| **Validation Split** | 13 | 8 | 4 | 1 | 0 | 0 | **0** |
 | **Locked-Test Split** | 13 | 9 | 4 | 0 | 0 | 0 | **0** |
-| **Total Canonical View** | **150** | **71** | **79** | **0** | **0** | **0** | **0** |
+| **Total Canonical View** | **150** | **71** | **78** | **1** | **0** | **0** | **0** |
 
 ---
 
-## 3. Level 2: Rule Attempt Accounting
+## 3. Level 2: Mutually Exclusive Rule Attempt Accounting
 
-$$\text{RuleAttempts} = \text{CANDIDATE\_GENERATED} + \text{NOT\_APPLICABLE} + \text{BLOCKED\_PROTECTED\_SPAN} + \text{BLOCKED\_MEANING\_GUARD} + \text{DEFERRED\_MANUAL\_REVIEW} + \text{FAILED\_INTERNAL} + \text{Unaccounted}$$
+$$\text{RuleAttempts} = \text{NOT\_APPLICABLE} + \text{CANDIDATE\_GENERATED} + \text{DEFERRED\_BEFORE\_GENERATION} + \text{FAILED\_INTERNAL} + \text{Unaccounted}$$
 
-| Partition | Total Attempts | Candidate Generated | Not Applicable | Blocked Guard | Blocked Span | Review Deferred | Unaccounted |
-|---|---|---|---|---|---|---|---|
-| **Train Split** | 1,001 | 74 | 922 | 5 | 0 | 0 | **0** |
-| **Validation Split** | 105 | 13 | 90 | 2 | 0 | 0 | **0** |
-| **Locked-Test Split** | 104 | 12 | 92 | 0 | 0 | 0 | **0** |
-| **Total Canonical View** | **1,210** | **99** | **1,104** | **7** | **0** | **0** | **0** |
+| Partition | Total Attempts | Not Applicable | Candidate Generated | Deferred Before Gen | Failed Internal | Unaccounted |
+|---|---|---|---|---|---|---|
+| **Train Split** | 1,001 | 922 | 79 | 0 | 0 | **0** |
+| **Validation Split** | 105 | 90 | 15 | 0 | 0 | **0** |
+| **Locked-Test Split** | 104 | 92 | 12 | 0 | 0 | **0** |
+| **Total Canonical View** | **1,210** | **1,104** | **106** | **0** | **0** | **0** |
 
 ---
 
-## 4. Level 3: Candidate Accounting
+## 4. Level 3: Mutually Exclusive Candidate Accounting
 
 $$\text{GeneratedCandidates} = \text{SELECTED} + \text{NOT\_SELECTED\_LOWER\_RANK} + \text{BLOCKED\_PROTECTED\_SPAN} + \text{BLOCKED\_MEANING\_GUARD} + \text{DEFERRED\_MANUAL\_REVIEW} + \text{FAILED\_INTERNAL} + \text{Unaccounted}$$
 
-| Partition | Total Candidates | Selected | Lower Rank | Blocked Guard | Blocked Span | Review Deferred | Unaccounted |
-|---|---|---|---|---|---|---|---|
-| **Train Split** | 74 | 54 | 20 | 0 | 0 | 0 | **0** |
-| **Validation Split** | 13 | 8 | 5 | 0 | 0 | 0 | **0** |
-| **Locked-Test Split** | 12 | 9 | 3 | 0 | 0 | 0 | **0** |
-| **Total Canonical View** | **99** | **71** | **28** | **0** | **0** | **0** | **0** |
+| Partition | Total Candidates | Selected | Lower Rank | Blocked Guard | Blocked Span | Review Deferred | Failed Internal | Unaccounted |
+|---|---|---|---|---|---|---|---|---|
+| **Train Split** | 79 | 54 | 20 | 5 | 0 | 0 | 0 | **0** |
+| **Validation Split** | 15 | 8 | 5 | 2 | 0 | 0 | 0 | **0** |
+| **Locked-Test Split** | 12 | 9 | 3 | 0 | 0 | 0 | 0 | **0** |
+| **Total Canonical View** | **106** | **71** | **28** | **7** | **0** | **0** | **0** | **0** |
 
 ---
 
 ## 5. Level 4: Transformation Operation Accounting
 
-$$\text{RecordedOperations} = \text{Replacements} + \text{Splits} + \text{Deletions} + \text{Insertions} + \text{Reorders} + \text{Unaccounted}$$
+$$\text{RecordedOperations} = \text{Replacements} + \text{Splits} + \text{Deletions} + \text{Insertions} + \text{Unaccounted}$$
 
-- **Replacements (`REPLACE`):** 36
-- **Splits (`SPLIT`):** 36
-- **Deletions (`DELETE`):** 2
-- **Total Operations:** 74
+- **Replacements (`REPLACE`):** 79
+- **Splits (`SPLIT`):** 0
+- **Deletions (`DELETE`):** 0
+- **Insertions (`INSERT`):** 0
+- **Total Operations:** 79
 - **Unaccounted Operations:** **0**
 
 ---
 
-## 6. Level 5 & 6: Rights and Export Accounting
+## 6. Level 5: Mutually Exclusive Trace Element Accounting
 
-- **Evaluated Export Fields:** 100% compliant with public metadata contracts.
+$$\text{TraceElements} = \text{ExactlyMapped} + \text{QualifiedNonExact} + \text{UnmappedReviewed} + \text{Unaccounted}$$
+
+- **Exactly Mapped (`mapping_exact: true`):** 33
+- **Qualified Non-Exact (`mapping_exact: false`):** 46
+- **Unmapped Reviewed (`mapping_status: unmapped`):** 0
+- **Total Trace Elements:** 79
+- **Unaccounted Trace Elements:** **0**
+
+---
+
+## 7. Level 6: Rights and Export Accounting
+
+$$\text{ExportEvaluatedFields} = \text{PublicPermitted} + \text{ProtectedInternal} + \text{SuppressedByPolicy} + \text{ReviewRequired} + \text{Unaccounted}$$
+
+- **Evaluated Export Fields:** 496
+- **Reconciled Export Fields:** 496
 - **Literal restricted text leaked into public ledgers:** **0**
 - **Unaccounted export fields:** **0**

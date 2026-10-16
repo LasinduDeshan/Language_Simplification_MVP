@@ -12,18 +12,20 @@ Final commit:                               PENDING_FINAL_SEAL
 Completion tag:                             stage-33-complete
 
 Ancestry verification:                      PASSED (7 checkpoints)
-Stage 30–32 immutability:                   PASSED (0 differences)
+Stage 30–32 immutability:                   PASSED (All declared manifest paths, 0 mismatches)
 Corpus view evaluated:                      canonical_analytical_150
-External protected root:                    PASSED (Verified outside working tree)
+Verified canonical split counts:            Train: 124, Validation: 13, Locked Test: 13 (Total: 150)
+External protected root:                    PASSED (Verified outside worktree)
 Rule registry:                              8 rules, PASSED
 Protected rule payloads separated:          PASSED (Field-level rights isolation)
 Protected-span policy:                      PASSED (12 categories)
 Two-stage candidate resolution:             PASSED (Decoupled filtering & ranking)
 Constrained subject recovery:               PASSED (Strict non-invention)
-Transformation trace coverage:              100% qualified mapping
+Trace classification coverage:              100% of trace elements classified
+Selected rewrite unmapped traces:           0
 Deterministic rerun equality:                PASSED (100% byte identical)
 Training-only rule development:             PASSED
-Configuration frozen before locked test:    PASSED (SHA256: 58b849ab8b911d3d5106c83f69a967031a7d5e9b1eb983cb23861274dac0b32c)
+Configuration frozen before locked test:    PASSED (SHA256: 2d572d820f630fb6c15f5ebacebfce3ae84ab2e9c5f7102241f0d15579c71cc2)
 Locked-test executions:                     1
 
 Submitted inputs (Train split):             124
@@ -38,23 +40,26 @@ Protected-span violations:                  0
 Grapheme split violations:                  0
 Pipeline-introduced U+FFFD:                 0
 Restricted text in public artifacts:        0
+Configured invariant violations:            0
 
-Unaccounted inputs:                         0
+Unaccounted input dispositions:             0
 Unaccounted rule attempts:                  0
 Unaccounted candidates:                     0
-Unaccounted dispositions:                   0
-Unaccounted operations:                     0
+Unaccounted transformation operations:      0
+Unaccounted trace elements:                 0
 Unaccounted export fields:                  0
 
-Stage 33 tests:                             26/26 passed
+Stage 33 tests:                             32/32 passed
 Full backend tests:                         PASSED
 Frontend tests:                             17/17 passed
-Frontend production build:                 PASSED (644ms)
+Frontend production build:                 PASSED
 Documentation manifest:                     13/13 verified
 Implementation manifest:                    PASSED
 Read-only verification:                     PASSED
 Negative tamper tests:                      PASSED
 
+Complete semantic-equivalence validation:   NOT ESTABLISHED
+Expert semantic-drift assessment:           DEFERRED TO STAGE 34
 Sinhala expert linguistic validation:       DEFERRED TO STAGE 34
 Child-development validation:               DEFERRED TO STAGE 34
 Model comparison:                           DEFERRED TO STAGE 35

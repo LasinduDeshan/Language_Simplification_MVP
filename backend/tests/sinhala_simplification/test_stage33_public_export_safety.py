@@ -5,7 +5,7 @@ Verifies that public export serialization contains strictly zero literal or reco
 
 import pytest
 from app.sinhala_simplification.enums import CorpusView, FinalDisposition
-from app.sinhala_simplification.schemas import FinalRewriteRecord
+from app.sinhala_simplification.schemas import FinalRewriteRecord, RightsProfileBinding
 from app.sinhala_simplification.serialization import to_public_rewrite_record
 
 
@@ -29,7 +29,7 @@ def test_public_rewrite_record_has_no_text():
         approved_for_unsupervised_child_delivery=False,
         requires_expert_review=True,
         corpus_view=CorpusView.CANONICAL_ANALYTICAL_150,
-        rights_profile_refs=["SRC-SI-001-RP-01"]
+        rights_profile_refs=[RightsProfileBinding(rights_profile_id="RP-SRC-SI-001", rights_profile_version=1)]
     )
 
     pub_dict = to_public_rewrite_record(rec)

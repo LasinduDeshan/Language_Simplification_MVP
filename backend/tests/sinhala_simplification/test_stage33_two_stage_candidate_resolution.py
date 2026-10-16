@@ -14,6 +14,7 @@ from app.sinhala_simplification.schemas import (
     GuardResult,
     ProtectedSpan,
     RewriteCandidate,
+    RightsProfileBinding,
     SimplificationRule,
     TransformationOperation,
 )
@@ -70,7 +71,7 @@ def test_blocked_candidates_eliminated_before_ranking():
             author_id_or_team="stage33_technical_team",
             evidence_type="test",
             evidence_refs=["REF1"],
-            rights_profile_refs=["RP1"],
+            rights_profile_refs=[RightsProfileBinding(rights_profile_id="RP-SRC-SI-001", rights_profile_version=1)],
             source_pattern_ref="sref",
             target_template_ref="tref",
             priority=100

@@ -29,10 +29,8 @@ class AuthoringMethod(str, Enum):
 class RuleAttemptTerminalStatus(str, Enum):
     """Mutually exclusive terminal status for an evaluated rule attempt."""
     NOT_APPLICABLE = "NOT_APPLICABLE"
-    BLOCKED_PROTECTED_SPAN = "BLOCKED_PROTECTED_SPAN"
-    BLOCKED_MEANING_GUARD = "BLOCKED_MEANING_GUARD"
     CANDIDATE_GENERATED = "CANDIDATE_GENERATED"
-    DEFERRED_MANUAL_REVIEW = "DEFERRED_MANUAL_REVIEW"
+    DEFERRED_BEFORE_GENERATION = "DEFERRED_BEFORE_GENERATION"
     FAILED_INTERNAL = "FAILED_INTERNAL"
 
 
@@ -52,7 +50,6 @@ class OperationType(str, Enum):
     INSERT = "INSERT"
     DELETE = "DELETE"
     SPLIT = "SPLIT"
-    REORDER = "REORDER"
 
 
 class MappingStatus(str, Enum):
@@ -62,7 +59,6 @@ class MappingStatus(str, Enum):
     ONE_TO_MANY = "one_to_many"
     INSERTED = "inserted"
     DELETED = "deleted"
-    REORDERED = "reordered"
     NON_LOCAL = "non_local"
     UNMAPPED = "unmapped"
 

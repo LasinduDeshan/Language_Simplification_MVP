@@ -15,14 +15,23 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 def get_protected_storage_root() -> Path:
     """
     Resolves the external protected storage root directory.
-    Fails closed immediately if resolving within the project repository workspace.
+    Fails closed immediately if unset, nonexistent, not writable,
+    or resolving within the project repository workspace.
     """
     env_path = os.environ.get("SINHALA_SIMPLIFICATION_PROTECTED_ROOT")
-    if env_path:
-        root = Path(env_path).resolve()
-    else:
-        root = (Path.home() / ".sinhala_simplification_protected_data").resolve()
-
+    if not env_path or not env_path.strip():
+        raise RuntimeError(
+            "Security violation: SINHALA_SIMPLIFICATION_PROTECTED_ROOT is mandatory and unset."
+        )
+    root = Path(env_path).resolve()
+    if not root.exists():
+        raise RuntimeError(
+            f"Security violation: SINHALA_SIMPLIFICATION_PROTECTED_ROOT ({root}) does not exist."
+        )
+    if not os.access(root, os.W_OK):
+        raise RuntimeError(
+            f"Security violation: SINHALA_SIMPLIFICATION_PROTECTED_ROOT ({root}) is not writable."
+        )
     if root == PROJECT_ROOT or root.is_relative_to(PROJECT_ROOT):
         raise RuntimeError(
             f"Security violation: SINHALA_SIMPLIFICATION_PROTECTED_ROOT ({root}) "
@@ -30,10 +39,26 @@ def get_protected_storage_root() -> Path:
         )
 
     # Ensure required protected subdirectories exist
-    for sub in ["rules", "candidates", "outputs", "debug"]:
+    for sub in ["keys", "rules", "candidates", "outputs", "debug"]:
         (root / sub).mkdir(parents=True, exist_ok=True)
 
     return root
+
+
+def purge_protected_debug_directory() -> int:
+    """
+    Purges temporary diagnostic debug artifacts according to retention policy.
+    Returns count of removed debug files.
+    """
+    root = get_protected_storage_root()
+    debug_dir = root / "debug"
+    count = 0
+    if debug_dir.exists():
+        for item in debug_dir.iterdir():
+            if item.is_file():
+                item.unlink()
+                count += 1
+    return count
 
 
 def compute_sha256(text: str) -> str:

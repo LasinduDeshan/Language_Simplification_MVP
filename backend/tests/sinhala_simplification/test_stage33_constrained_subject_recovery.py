@@ -4,7 +4,8 @@ Verifies that ambiguous subject recovery is routed to manual review rather than 
 """
 
 import pytest
-from app.sinhala_simplification.enums import RuleAttemptTerminalStatus
+from app.sinhala_simplification.candidate_filter import CandidateEligibilityFilter
+from app.sinhala_simplification.enums import CandidateTerminalStatus, RuleAttemptTerminalStatus
 from app.sinhala_simplification.protected_spans import ProtectedSpanDetector
 from app.sinhala_simplification.rule_registry import RuleRegistry
 from app.sinhala_simplification.sentence_splitter import SentenceSplitterEngine
@@ -26,8 +27,15 @@ def test_ambiguous_subject_recovery_routes_to_review():
 
     assert len(results) == 1
     attempt, cand = results[0]
-    # Must fail or route to manual review or blocked clause
-    assert attempt.terminal_status in (
-        RuleAttemptTerminalStatus.DEFERRED_MANUAL_REVIEW,
-        RuleAttemptTerminalStatus.BLOCKED_MEANING_GUARD
+    assert attempt.terminal_status == RuleAttemptTerminalStatus.CANDIDATE_GENERATED
+    assert cand is not None
+
+    # Stage 1 filter routes to DEFERRED_MANUAL_REVIEW or BLOCKED_MEANING_GUARD
+    filter_engine = CandidateEligibilityFilter()
+    eligible, eliminated = filter_engine.filter_candidates([cand], text, spans)
+    assert len(eligible) == 0
+    assert len(eliminated) == 1
+    assert eliminated[0].terminal_status in (
+        CandidateTerminalStatus.DEFERRED_MANUAL_REVIEW,
+        CandidateTerminalStatus.BLOCKED_MEANING_GUARD
     )

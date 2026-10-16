@@ -3,7 +3,8 @@ Stage 33 — Unit Tests for Lexical Substitution Rules.
 """
 
 import pytest
-from app.sinhala_simplification.enums import RuleAttemptTerminalStatus
+from app.sinhala_simplification.candidate_filter import CandidateEligibilityFilter
+from app.sinhala_simplification.enums import CandidateTerminalStatus, RuleAttemptTerminalStatus
 from app.sinhala_simplification.lexical_rules import LexicalRuleEngine
 from app.sinhala_simplification.protected_spans import ProtectedSpanDetector
 from app.sinhala_simplification.rule_registry import RuleRegistry
@@ -45,6 +46,13 @@ def test_lexical_rule_negation_blocking():
 
     assert len(results) == 1
     attempt, cand = results[0]
-    assert attempt.terminal_status == RuleAttemptTerminalStatus.BLOCKED_MEANING_GUARD
-    assert cand is None
-    assert "WITHIN_NEGATION_SCOPE" in attempt.reason_codes
+    assert attempt.terminal_status == RuleAttemptTerminalStatus.CANDIDATE_GENERATED
+    assert cand is not None
+
+    # Stage 1 filter blocks the candidate under negation scope guard
+    filter_engine = CandidateEligibilityFilter()
+    eligible, eliminated = filter_engine.filter_candidates([cand], text, spans)
+    assert len(eligible) == 0
+    assert len(eliminated) == 1
+    assert eliminated[0].terminal_status == CandidateTerminalStatus.BLOCKED_MEANING_GUARD
+    assert "WITHIN_NEGATION_SCOPE" in eliminated[0].guard_results["NEGATION_PRESERVATION"].reason_codes
