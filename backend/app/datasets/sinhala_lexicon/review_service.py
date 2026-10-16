@@ -75,6 +75,8 @@ class LexiconReviewService:
                 "canonical_frequency": c.canonical_frequency,
                 "provisional_band": c.provisional_band.value,
                 "quality_flags": c.quality_flags,
+                "review_findings": [f.model_dump() for f in c.review_findings],
+                "review_finding": c.review_findings[0].model_dump() if c.review_findings else None,
                 "review_template": review_template.model_dump()
             }
             review_items.append(queue_item)

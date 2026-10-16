@@ -27,8 +27,8 @@ Key Findings:
 | `FOUNDATIONAL_CANDIDATE` | 12 | 1.19% | High priority review for core vocabulary |
 | `EARLY_CANDIDATE` | 14 | 1.39% | High priority review for developing readers |
 | `DEVELOPING_CANDIDATE` | 151 | 14.95% | Moderate frequency review |
-| `ADVANCED_CANDIDATE` | 678 | 67.13% | Low frequency or multi-syllable terms |
-| `REVIEW_REQUIRED` | 155 | 15.35% | Quality flags, sensitive terms, or rule ties |
+| `ADVANCED_CANDIDATE` | 677 | 67.03% | Low frequency or multi-syllable terms |
+| `REVIEW_REQUIRED` | 156 | 15.45% | Quality flags, sensitive terms, or rule ties |
 | `EXCLUDED_NON_LEXICAL` | 0 | 0.00% | Non-lexical symbols |
 | **Total Candidates** | **1010** | **100.00%** | **Complete Draft Lexicon Coverage** |
 

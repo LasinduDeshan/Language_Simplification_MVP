@@ -1,6 +1,6 @@
 {
   "stage": "stage32",
-  "timestamp": "2026-10-16T11:34:25.289205",
+  "timestamp": "2026-10-16T11:59:22.878123",
   "prerequisite_tag": "stage-31-complete-v8",
   "prerequisite_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
   "start_tag": "stage-32-start",
@@ -19,11 +19,12 @@
     "excluded_token_class_occurrences": 400,
     "manual_review_occurrences": 4,
     "total_candidates": 1010,
-    "accepted_draft_entries": 1002,
-    "manual_review_entries": 8,
+    "accepted_draft_entries": 1001,
+    "manual_review_entries": 9,
     "manual_review_reasons": {
-      "sensitive_vocabulary_flag": 6,
-      "ocr_or_repetition_flag": 2,
+      "potentially_sensitive_semantic_review": 3,
+      "complex_or_rare_form_review": 6,
+      "ocr_or_repetition_flag": 0,
       "low_confidence_morphology": 0
     },
     "distinct_lexicon_entries": 1010,

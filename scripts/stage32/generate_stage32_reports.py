@@ -106,15 +106,16 @@ Key Findings:
 
 ## 1. Quality Screener Findings
 
-The automated quality router screened all 1,010 extracted candidate entries:
+The automated quality router screened all 1,010 extracted candidate entries using evidence-based heuristic reason codes:
 
-| Quality Anomaly Category | Detected Entries | Routing Outcome | Mitigation |
+| Quality Anomaly Category | Detected Entries | Routing Outcome | Empirical Evidence & Mitigation |
 |---|---:|---|---|
-| Sensitive / Clinical Vocabulary | 6 | `MANUAL_REVIEW_REQUIRED` | Routed to P1 review queue for expert child-safety evaluation |
-| Suspected OCR / Character Repetition | 2 | `MANUAL_REVIEW_REQUIRED` | Flagged for manual inspection; prevented automatic band promotion |
-| Mixed-Script Presence | 0 | `EXCLUDED_TOKEN_CLASS` / Review | Isolated at occurrence bridge |
-| Leading Combining Mark Errors | 0 | `EXCLUDED_NON_LEXICAL` | Zero occurrences |
-| Clean Lexical Candidates | 1,002 | `ACCEPTED_DRAFT_LEXICON_ENTRY` | Eligible for provisional banding |
+| Potentially Sensitive Semantic Review (`POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW`) | 3 | `MANUAL_REVIEW_REQUIRED` | Automated heuristic flagged danger/clinical roots (`අනතුරු`, `නිරෝගී`, `රෝග`); explicitly marked as an automated screening heuristic, not a confirmed safety judgment. |
+| Complex or Rare Form Review (`COMPLEX_OR_RARE_FORM_REVIEW`) | 6 | `MANUAL_REVIEW_REQUIRED` | Flagged structurally complex polysyllabic / scientific words (`code_point_count >= 15`): `ක්‍රියාකාරිත්වය`, `කාබන්ඩයොක්සයිඩ්`, `ප්‍රජාතන්ත්‍රවාදී`, `ප්‍රතිශක්තිකරණයටද`, `ප්‍රභාසංස්ලේෂණය`, `සරච්චන්ද්‍රයන්ගේ`. |
+| Suspected OCR / Character Repetition (`OCR_OR_REPETITION_FLAG`) | 0 | `ACCEPTED_DRAFT_LEXICON_ENTRY` | Zero abnormal repeated code points or corruption anomalies detected in the 1,010 candidates. Legitimate words like `ගොඩනැගිල්ලේ` and `ප්‍රභාසංස්ලේෂණය` are not falsely flagged. |
+| Mixed-Script Presence (`MIXED_SCRIPT_PRESENT`) | 0 | `EXCLUDED_TOKEN_CLASS` / Review | Isolated at occurrence bridge (4 occurrences decoupled to protected storage with `entry_id: null`). |
+| Leading Combining Mark Errors | 0 | `EXCLUDED_NON_LEXICAL` | Zero occurrences. |
+| Clean Lexical Candidates | 1,001 | `ACCEPTED_DRAFT_LEXICON_ENTRY` | Passed quality screening; legitimate words (`කැලේ`, `පතුලේ`, `ලේකම්වරයා`, `ගොඩනැගිල්ලේ`) correctly classified without false flags. |
 
 ---
 
@@ -125,6 +126,7 @@ The automated quality router screened all 1,010 extracted candidate entries:
 3. **Compound Word Splitting:** Strict adherence to Stage 30 grapheme-safe tokenization prevented unauthorized word splitting or ad-hoc concatenation.
 """
     (DOCS_DIR / "stage32_error_analysis.md").write_text(error_report, encoding="utf-8")
+
     accounting_doc = """# Stage 32 Accounting Summary
 
 **Project:** AI-Powered Adaptive Child-Friendly Language Simplification System  
@@ -154,8 +156,8 @@ Level 2: Token Occurrence Accounting
 
 Level 3: Candidate Entry Accounting
   Total Extracted Candidates:           1,010
-  Accepted Draft Entries:               1,002
-  Manual Review Required Entries:           8
+  Accepted Draft Entries:               1,001
+  Manual Review Required Entries:           9
   Excluded Non-Lexical Entries:             0
   Excluded Non-Sinhala Entries:             0
   Rejected Entries:                         0
@@ -165,8 +167,8 @@ Level 4: Provisional Band Accounting
   Foundational Candidates:                 12
   Early Candidates:                        14
   Developing Candidates:                  151
-  Advanced Candidates:                    678
-  Review Required:                        155
+  Advanced Candidates:                    677
+  Review Required:                        156
   Excluded Non-Lexical:                     0
   Sum of Provisional Bands:             1,010
   Unaccounted Banded Entries:               0
@@ -224,15 +226,22 @@ Do not sum the five source-specific entry counts directly into "1,010 distinct e
 
 ---
 
-## 3. Reconciliation of Review Units (4 Token Occurrences vs. 8 Candidate Entries)
+## 3. Reconciliation of Review Units (4 Token Occurrences vs. 9 Candidate Entries)
 
-The 4 manual-review token occurrences and 8 review-required candidate entries operate at two completely distinct, sequential screening boundaries:
+The 4 manual-review token occurrences and 9 review-required candidate entries operate at two completely distinct, sequential screening boundaries:
 
 1. **Level 2 (Token Occurrence Bridge):** Exactly **4 token occurrences** (`SI-OCC-00000006`, `SI-OCC-00000103`, `SI-OCC-00000694`, `SI-OCC-00000815`) were flagged at the Stage 30/31 ingestion bridge with exclusion reason `MIXED_SCRIPT_TOKEN` (`MANUAL_REVIEW_OCCURRENCE`). Because they failed the lexical token class filter, they were decoupled to protected storage, contractually preserved with `entry_id: null`, `candidate_extraction_status: "NOT_EXTRACTED"`, `reason_codes: ["MIXED_SCRIPT_TOKEN"]`, and abstract `protected_context_ref` without dummy foreign keys. They did **not** generate candidate lexicon entries.
-2. **Level 3 (Candidate Lexicon Entries):** The **3,668 included candidate occurrences** were grouped into **1,010 distinct candidate entries**. The automated quality screener (`LexiconQualityRouter`) screened all 1,010 entries, passing 1,002 clean entries as `ACCEPTED_DRAFT_LEXICON_ENTRY` and routing exactly **8 candidate entries** to `MANUAL_REVIEW_REQUIRED`:
-   - 6 sensitive / clinical vocabulary items (`SENSITIVE_VOCABULARY_FLAG` e.g. danger, illness terms) routed to the P1 review queue for expert child-safety evaluation.
-   - 2 suspected character repetition / OCR artifact items (`OCR_OR_REPETITION_FLAG` / `SUSPECTED_OCR_OR_REPETITION_ARTIFACT`) routed for manual inspection.
-3. **Morphology Referrals:** Low-confidence morphology referrals are strictly **0** (`LOW_CONFIDENCE_MORPHOLOGY = 0`; all 1,010 candidate entries retained identity canonical form with confidence 1.0). Exactly 8 candidate entries require manual review: 6 under `SENSITIVE_VOCABULARY_FLAG` and 2 under `OCR_OR_REPETITION_FLAG`. The 8 review entries are NOT competing morphology hypotheses derived from the 4 review occurrences; the two metrics represent independent anomalies at two separate screening gates.
+2. **Level 3 (Candidate Lexicon Entries):** The **3,668 included candidate occurrences** were grouped into **1,010 distinct candidate entries**. The automated quality screener (`LexiconQualityRouter`) screened all 1,010 entries, passing 1,001 clean entries as `ACCEPTED_DRAFT_LEXICON_ENTRY` and routing exactly **9 candidate entries** to `MANUAL_REVIEW_REQUIRED`:
+   - 3 sensitive / clinical semantic heuristic items (`POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW`: `SI-LEX-000020` අනතුරු, `SI-LEX-000428` නිරෝගී, `SI-LEX-000723` රෝග) routed to the P1 review queue for expert child-safety evaluation.
+   - 6 structural complexity / rare form items (`COMPLEX_OR_RARE_FORM_REVIEW`: `SI-LEX-000193` ක්‍රියාකාරිත්වය, `SI-LEX-000199` කාබන්ඩයොක්සයිඩ්, `SI-LEX-000482` ප්‍රජාතන්ත්‍රවාදී, `SI-LEX-000487` ප්‍රතිශක්තිකරණයටද, `SI-LEX-000497` ප්‍රභාසංස්ලේෂණය, `SI-LEX-000905` සරච්චන්ද්‍රයන්ගේ) routed for morphological and developmental adjudication.
+   - 0 OCR anomalies (`OCR_OR_REPETITION_FLAG = 0`; legitimate words like `ගොඩනැගිල්ලේ` and `ප්‍රභාසංස්ලේෂණය` are verified free of code-point repetition).
+3. **Morphology Referrals:** Low-confidence morphology referrals are strictly **0** (`LOW_CONFIDENCE_MORPHOLOGY = 0`; all 1,010 candidate entries retained identity canonical form with confidence 1.0). Exactly 9 candidate entries require manual review: 3 under `POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW` and 6 under `COMPLEX_OR_RARE_FORM_REVIEW`.
+4. **Provisional Band vs. Entry Disposition Reconciliation:**
+   - Assigned proficiency bands: 12 (Foundational) + 14 (Early) + 151 (Developing) + 677 (Advanced) = **854 entries**
+   - Provisional band `REVIEW_REQUIRED`: **156 entries**
+     = 147 accepted-draft entries with unresolved threshold boundaries/ties
+     + 9 empirical review entries
+   - Total: 854 + 156 = **1,010 distinct entries**
 """
     (DOCS_DIR / "stage32_accounting_summary.md").write_text(accounting_doc, encoding="utf-8")
 
@@ -259,11 +268,12 @@ The 4 manual-review token occurrences and 8 review-required candidate entries op
             "excluded_token_class_occurrences": 400,
             "manual_review_occurrences": 4,
             "total_candidates": 1010,
-            "accepted_draft_entries": 1002,
-            "manual_review_entries": 8,
+            "accepted_draft_entries": 1001,
+            "manual_review_entries": 9,
             "manual_review_reasons": {
-                "sensitive_vocabulary_flag": 6,
-                "ocr_or_repetition_flag": 2,
+                "potentially_sensitive_semantic_review": 3,
+                "complex_or_rare_form_review": 6,
+                "ocr_or_repetition_flag": 0,
                 "low_confidence_morphology": 0
             },
             "distinct_lexicon_entries": 1010,
@@ -329,8 +339,8 @@ Included candidate occurrences:             3,668
 Excluded token occurrences:                   400
 Manual-review token occurrences:                4 (mixed-script tokens excluded with null entry_id)
 Extracted candidates:                       1,010
-Accepted draft entries:                     1,002
-Manual-review entries:                          8 (6 sensitive/clinical + 2 repetition/OCR; 0 morphology)
+Accepted draft entries:                     1,001
+Manual-review entries:                          9 (3 sensitive semantic heuristic + 6 structural complexity; 0 morphology)
 Excluded entries:                               0
 Rejected entries:                               0
 Distinct lexicon entries:                   1,010
@@ -345,7 +355,7 @@ Exact Stage 31 v8 rights inheritance:       PASSED (RP-SRC-SI-002 v2 verified)
 Surface forms represented:                  1,010
 Candidate lemma hypotheses:                 1,010
 Low-confidence morphology referrals:            0 (LOW_CONFIDENCE_MORPHOLOGY = 0)
-Quality screener review referrals:              8 (SENSITIVE_VOCABULARY_FLAG = 6, OCR_OR_REPETITION_FLAG = 2)
+Quality screener review referrals:              9 (POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW = 3, COMPLEX_OR_RARE_FORM_REVIEW = 6)
 Provisional band assignments:               1,010
 Entries lacking a band:                         0
 Restricted contexts in public artifacts:        0

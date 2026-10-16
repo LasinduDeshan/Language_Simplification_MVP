@@ -10,15 +10,16 @@
 
 ## 1. Quality Screener Findings
 
-The automated quality router screened all 1,010 extracted candidate entries:
+The automated quality router screened all 1,010 extracted candidate entries using evidence-based heuristic reason codes:
 
-| Quality Anomaly Category | Detected Entries | Routing Outcome | Mitigation |
+| Quality Anomaly Category | Detected Entries | Routing Outcome | Empirical Evidence & Mitigation |
 |---|---:|---|---|
-| Sensitive / Clinical Vocabulary | 6 | `MANUAL_REVIEW_REQUIRED` | Routed to P1 review queue for expert child-safety evaluation |
-| Suspected OCR / Character Repetition | 2 | `MANUAL_REVIEW_REQUIRED` | Flagged for manual inspection; prevented automatic band promotion |
-| Mixed-Script Presence | 0 | `EXCLUDED_TOKEN_CLASS` / Review | Isolated at occurrence bridge |
-| Leading Combining Mark Errors | 0 | `EXCLUDED_NON_LEXICAL` | Zero occurrences |
-| Clean Lexical Candidates | 1,002 | `ACCEPTED_DRAFT_LEXICON_ENTRY` | Eligible for provisional banding |
+| Potentially Sensitive Semantic Review (`POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW`) | 3 | `MANUAL_REVIEW_REQUIRED` | Automated heuristic flagged danger/clinical roots (`අනතුරු`, `නිරෝගී`, `රෝග`); explicitly marked as an automated screening heuristic, not a confirmed safety judgment. |
+| Complex or Rare Form Review (`COMPLEX_OR_RARE_FORM_REVIEW`) | 6 | `MANUAL_REVIEW_REQUIRED` | Flagged structurally complex polysyllabic / scientific words (`code_point_count >= 15`): `ක්‍රියාකාරිත්වය`, `කාබන්ඩයොක්සයිඩ්`, `ප්‍රජාතන්ත්‍රවාදී`, `ප්‍රතිශක්තිකරණයටද`, `ප්‍රභාසංස්ලේෂණය`, `සරච්චන්ද්‍රයන්ගේ`. |
+| Suspected OCR / Character Repetition (`OCR_OR_REPETITION_FLAG`) | 0 | `ACCEPTED_DRAFT_LEXICON_ENTRY` | Zero abnormal repeated code points or corruption anomalies detected in the 1,010 candidates. Legitimate words like `ගොඩනැගිල්ලේ` and `ප්‍රභාසංස්ලේෂණය` are not falsely flagged. |
+| Mixed-Script Presence (`MIXED_SCRIPT_PRESENT`) | 0 | `EXCLUDED_TOKEN_CLASS` / Review | Isolated at occurrence bridge (4 occurrences decoupled to protected storage with `entry_id: null`). |
+| Leading Combining Mark Errors | 0 | `EXCLUDED_NON_LEXICAL` | Zero occurrences. |
+| Clean Lexical Candidates | 1,001 | `ACCEPTED_DRAFT_LEXICON_ENTRY` | Passed quality screening; legitimate words (`කැලේ`, `පතුලේ`, `ලේකම්වරයා`, `ගොඩනැගිල්ලේ`) correctly classified without false flags. |
 
 ---
 

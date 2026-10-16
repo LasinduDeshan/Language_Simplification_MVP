@@ -99,13 +99,16 @@ def test_excluded_and_review_occurrences_have_null_entry_id():
 
 
 def test_candidate_review_reason_consistency():
-    """Assert exact consistency across quality flags and review referral categories."""
+    """Assert exact consistency across empirical quality flags, structured review findings, and review categories."""
     assert CANDIDATE_LEDGER.exists()
 
     manual_review_required = 0
-    sensitive_vocabulary_flag = 0
+    sensitive_semantic_review = 0
+    complex_or_rare_form_review = 0
     ocr_or_repetition_flag = 0
     low_confidence_morphology = 0
+
+    clean_words = {"කැලේ", "පතුලේ", "ලේකම්වරයා", "ගොඩනැගිල්ලේ"}
 
     with open(CANDIDATE_LEDGER, "r", encoding="utf-8") as f:
         for line in f:
@@ -114,12 +117,32 @@ def test_candidate_review_reason_consistency():
             entry = json.loads(line)
             disp = entry.get("terminal_entry_disposition")
             flags = entry.get("quality_flags", [])
+            findings = entry.get("review_findings", [])
+            canonical = entry.get("canonical_form")
+
+            # Verify legitimate Sinhala words are not misclassified
+            if canonical in clean_words:
+                assert disp == "ACCEPTED_DRAFT_LEXICON_ENTRY"
+                assert "OCR_OR_REPETITION_FLAG" not in flags
+                assert "POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW" not in flags
 
             if disp == "MANUAL_REVIEW_REQUIRED":
                 manual_review_required += 1
+                assert len(findings) >= 1
+                for finding in findings:
+                    assert finding["reason_code"] in ("POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW", "COMPLEX_OR_RARE_FORM_REVIEW")
+                    assert finding["rule_id"].startswith("STAGE32-RULE-")
+                    assert "observed_metric" in finding["trigger_evidence"]
+                    assert "threshold" in finding["trigger_evidence"]
+                    assert len(finding["trigger_evidence"]["source_record_ids"]) > 0
+                    assert finding["automated_finding_only"] is True
+                    assert finding["human_validated"] is False
 
-            if "SENSITIVE_VOCABULARY_FLAG" in flags:
-                sensitive_vocabulary_flag += 1
+            if "POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW" in flags:
+                sensitive_semantic_review += 1
+
+            if "COMPLEX_OR_RARE_FORM_REVIEW" in flags:
+                complex_or_rare_form_review += 1
 
             if "OCR_OR_REPETITION_FLAG" in flags or "SUSPECTED_OCR_OR_REPETITION_ARTIFACT" in flags:
                 ocr_or_repetition_flag += 1
@@ -127,8 +150,9 @@ def test_candidate_review_reason_consistency():
             if "LOW_CONFIDENCE_MORPHOLOGY" in flags or entry.get("lemma_confidence", 1.0) < 0.6:
                 low_confidence_morphology += 1
 
-    assert manual_review_required == 8
-    assert sensitive_vocabulary_flag == 6
-    assert ocr_or_repetition_flag == 2
+    assert manual_review_required == 9
+    assert sensitive_semantic_review == 3
+    assert complex_or_rare_form_review == 6
+    assert ocr_or_repetition_flag == 0
     assert low_confidence_morphology == 0
 

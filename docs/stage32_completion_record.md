@@ -32,8 +32,8 @@ Included candidate occurrences:             3,668
 Excluded token occurrences:                   400
 Manual-review token occurrences:                4 (mixed-script tokens excluded with null entry_id)
 Extracted candidates:                       1,010
-Accepted draft entries:                     1,002
-Manual-review entries:                          8 (6 sensitive/clinical + 2 repetition/OCR; 0 morphology)
+Accepted draft entries:                     1,001
+Manual-review entries:                          9 (3 sensitive semantic heuristic + 6 structural complexity; 0 morphology)
 Excluded entries:                               0
 Rejected entries:                               0
 Distinct lexicon entries:                   1,010
@@ -48,7 +48,7 @@ Exact Stage 31 v8 rights inheritance:       PASSED (RP-SRC-SI-002 v2 verified)
 Surface forms represented:                  1,010
 Candidate lemma hypotheses:                 1,010
 Low-confidence morphology referrals:            0 (LOW_CONFIDENCE_MORPHOLOGY = 0)
-Quality screener review referrals:              8 (SENSITIVE_VOCABULARY_FLAG = 6, OCR_OR_REPETITION_FLAG = 2)
+Quality screener review referrals:              9 (POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW = 3, COMPLEX_OR_RARE_FORM_REVIEW = 6)
 Provisional band assignments:               1,010
 Entries lacking a band:                         0
 Restricted contexts in public artifacts:        0

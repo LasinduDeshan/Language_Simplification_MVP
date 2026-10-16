@@ -74,9 +74,6 @@ class CandidateExtractor:
             src_counts = collections.Counter(o.source_id for o in occs)
             source_count = len(src_counts)
 
-            # Screen quality
-            quality_flags, is_proper, is_sensitive = self.router.screen_surface_form(canonical_form)
-
             # Compute grapheme and code-point counts
             graphemes = segment_graphemes(canonical_form)
             grapheme_count = len(graphemes)
@@ -86,6 +83,17 @@ class CandidateExtractor:
             # Each independent vowel or consonant without virama is a syllable proxy
             syllable_count = max(1, len([g for g in graphemes if "\u0DCA" not in g]))
 
+            # Source record ids contributing to this candidate
+            source_record_ids = sorted(list(set(o.provenance_record_id for o in occs)))
+
+            # Screen quality with evidence-based router
+            quality_flags, review_findings, is_proper, is_sensitive = self.router.screen_surface_form(
+                surface=canonical_form,
+                code_point_count=code_point_count,
+                grapheme_count=grapheme_count,
+                source_record_ids=source_record_ids
+            )
+
             # Rights references
             unique_rights = set((o.source_id, o.rights_profile_id, o.rights_profile_version) for o in occs)
             rights_refs = [
@@ -94,11 +102,7 @@ class CandidateExtractor:
             ]
 
             # Terminal disposition determination
-            if "MIXED_SCRIPT_PRESENT" in quality_flags:
-                disp = TerminalEntryDisposition.MANUAL_REVIEW_REQUIRED
-            elif is_sensitive:
-                disp = TerminalEntryDisposition.MANUAL_REVIEW_REQUIRED
-            elif "SUSPECTED_OCR_OR_REPETITION_ARTIFACT" in quality_flags or "OCR_OR_REPETITION_FLAG" in quality_flags:
+            if review_findings:
                 disp = TerminalEntryDisposition.MANUAL_REVIEW_REQUIRED
             elif "LEADING_COMBINING_MARK_ERROR" in quality_flags:
                 disp = TerminalEntryDisposition.EXCLUDED_NON_LEXICAL
@@ -147,6 +151,7 @@ class CandidateExtractor:
                 provisional_band=ProvisionalVocabularyBand.REVIEW_REQUIRED,  # Assigned in WP6
                 band_confidence=0.0,
                 quality_flags=quality_flags,
+                review_findings=review_findings,
                 rights_profile_refs=rights_refs,
                 field_export_policies=field_policies,
                 terminal_entry_disposition=disp,

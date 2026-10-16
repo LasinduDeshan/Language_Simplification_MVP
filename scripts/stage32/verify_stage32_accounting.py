@@ -74,8 +74,8 @@ def verify_all_accounting():
     print(f"Level 3 (Candidate Entries): Total = {total_entries} | Accepted = {accepted_entries} | Review = {review_entries} | Excluded = {excluded_entries} | Unaccounted = {unaccounted_entries}")
     assert unaccounted_entries == 0
     assert total_entries == 1010
-    assert accepted_entries == 1002
-    assert review_entries == 8
+    assert accepted_entries == 1001
+    assert review_entries == 9
 
     # Level 4: Provisional Band Accounting
     band_counts = collections.Counter()

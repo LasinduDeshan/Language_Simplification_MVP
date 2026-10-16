@@ -102,6 +102,15 @@ class SurfaceFormMappingRecord(BaseModel):
     canonical_document_frequency: int = Field(..., ge=0)
     weighted_provenance_frequency: float = Field(..., ge=0.0)
 
+class ReviewFindingRecord(BaseModel):
+    """Evidence-based trigger record explaining an automated review referral."""
+    model_config = ConfigDict(extra="forbid")
+    reason_code: str
+    rule_id: str
+    trigger_evidence: Dict[str, Any]
+    automated_finding_only: bool = True
+    human_validated: bool = False
+
 class CandidateLexiconEntry(BaseModel):
     """Authoritative candidate entry in the governed Sinhala child-vocabulary candidate lexicon."""
     model_config = ConfigDict(extra="forbid")
@@ -132,6 +141,7 @@ class CandidateLexiconEntry(BaseModel):
     band_confidence: float = Field(default=0.0, ge=0.0, le=1.0)
     band_evidence: List[str] = Field(default_factory=list)
     quality_flags: List[str] = Field(default_factory=list)
+    review_findings: List[ReviewFindingRecord] = Field(default_factory=list)
     rights_profile_refs: List[RightsProfileReference] = Field(default_factory=list)
     field_export_policies: Dict[str, FieldExportPolicy] = Field(default_factory=dict)
     terminal_entry_disposition: TerminalEntryDisposition = TerminalEntryDisposition.ACCEPTED_DRAFT_LEXICON_ENTRY

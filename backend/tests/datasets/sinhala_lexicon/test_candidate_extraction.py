@@ -49,18 +49,23 @@ def test_candidate_entry_accounting_reconciles():
 def test_sensitive_vocabulary_routing():
     """Verify sensitive or clinical vocabulary triggers quality flags and review routing."""
     router = LexiconQualityRouter()
-    flags, is_proper, is_sensitive = router.screen_surface_form("රෝගියා")
-    assert "SENSITIVE_VOCABULARY_FLAG" in flags
+    flags, findings, is_proper, is_sensitive = router.screen_surface_form("රෝගියා")
+    assert "POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW" in flags
     assert is_sensitive is True
+    assert len(findings) == 1
+    assert findings[0].reason_code == "POTENTIALLY_SENSITIVE_SEMANTIC_REVIEW"
+    assert findings[0].rule_id == "STAGE32-RULE-SEMANTIC-SENSITIVE-HEURISTIC-V1"
 
 def test_mixed_script_detection():
     """Verify mixed script surface forms trigger MIXED_SCRIPT_PRESENT flag."""
     router = LexiconQualityRouter()
-    flags, _, _ = router.screen_surface_form("COVID-19රෝගය")
+    flags, findings, _, _ = router.screen_surface_form("COVID-19රෝගය")
     assert "MIXED_SCRIPT_PRESENT" in flags
+    assert any(f.reason_code == "MIXED_SCRIPT_PRESENT" for f in findings)
 
 def test_ocr_artifact_detection():
     """Verify excessive character repetition triggers suspected OCR flag."""
     router = LexiconQualityRouter()
-    flags, _, _ = router.screen_surface_form("ගගගගස")
-    assert "SUSPECTED_OCR_OR_REPETITION_ARTIFACT" in flags
+    flags, findings, _, _ = router.screen_surface_form("ගගගගස")
+    assert "OCR_OR_REPETITION_FLAG" in flags
+    assert any(f.reason_code == "OCR_OR_REPETITION_FLAG" for f in findings)
