@@ -1,9 +1,9 @@
-# Stage 33 Implementation Plan — Sinhala Linguistic Simplification Rules and Controlled Rewrite Engine (Revised v5 — Authoritative Baseline)
+# Stage 33 Implementation Plan — Sinhala Linguistic Simplification Rules and Controlled Rewrite Engine (Pre-Execution Approved Baseline)
 
 **Project:** AI-Powered Adaptive Child-Friendly Language Simplification System  
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Scope:** Deterministic Sinhala linguistic simplification rules, guarded rewrite execution, qualified traceability, and multi-partition zero-loss accounting  
-**Status:** Approved Implementation Baseline (Revised v5 incorporating multi-partition 150-input accounting, dynamic split manifest verification, locked-test execution evidence, 12 protected categories, and regression metrics)  
+**Status:** Approved Pre-Execution Implementation Baseline  
 **Authoritative prerequisite:** `stage-32-complete-v5` at commit `7c6bb81a744305c3a59100a2c2af8fc06deb01c8`  
 **Implementation branch:** `feature/stage33-sinhala-simplification-rules`  
 **Planned start tag:** `stage-33-start`  
@@ -27,8 +27,8 @@ The stage is intended to prove that controlled lexical, phrase-level, sentence-s
 4. **Atomic Candidate Generation Policy:** Single transformation rule per candidate (`len(candidate.applied_rule_ids) == 1`) to prevent unsafe compositional interactions; candidate selection chooses the single best eligible rewrite.
 5. **Mandatory External Protected Storage:** Strict isolation of all restricted literal source text, candidate rewrites, and protected rule payloads under `SINHALA_SIMPLIFICATION_PROTECTED_ROOT`.
 6. **Sanitized Public Metadata:** Public metadata ledgers containing opaque IDs and versioned, domain-separated keyed HMACs, exposing zero raw restricted text.
-7. **Partition-Isolated Evaluation & Dynamic Manifest Enforcement:** Partition counts and memberships are dynamically loaded from the sealed Stage 31 v8 split manifest (`data/sinhala_external/corpus/corpus_metadata.json`) and verified against `canonical_analytical_corpus.jsonl`. Rule authoring and calibration are strictly restricted to canonical train records (124 records), defect detection to canonical validation records (13 records), and final evaluation to a single execution on canonical locked-test records (13 records).
-8. **Multi-Partition Zero-Loss Conservation Accounting:** Authoritative accounting across all four evaluation scopes (Train-partition development, Validation, Locked-Test, and Consolidated Canonical Evaluation over 150 inputs) across all six levels with strictly zero unaccounted units.
+7. **Partition-Isolated Evaluation & Dynamic Manifest Enforcement:** Partition counts and memberships are dynamically loaded from the sealed Stage 31 authoritative partition metadata artifact (`data/sinhala_external/corpus/corpus_metadata.json`) and verified against `canonical_analytical_corpus.jsonl`. Rule authoring and calibration are strictly restricted to canonical train records, defect detection to canonical validation records, and final evaluation to a single execution on canonical locked-test records.
+8. **Multi-Partition Zero-Loss Conservation Accounting:** Authoritative accounting across all four evaluation scopes (Train-partition development, Validation, Locked-Test, and Consolidated Canonical Evaluation over the 150 inputs) across all six levels with strictly zero unaccounted units.
 
 ---
 
@@ -89,23 +89,23 @@ The stage is intended to prove that controlled lexical, phrase-level, sentence-s
 13. **Rule payload rights separation:** Rule registry definitions derived from restricted sources are partitioned: public registries contain opaque IDs, types, and versioned keyed HMACs; literal source/target expressions, concordances, and evidence reside in protected storage.
 14. **Mandatory protected storage boundary:** All restricted text, candidate rewrites, and protected rule payloads reside in external storage specified by `SINHALA_SIMPLIFICATION_PROTECTED_ROOT`, failing closed if unset, nonexistent, unwritable, or resolving inside the repository worktree.
 15. **Expanded request provenance:** Every rewrite request cryptographically binds `stage30_configuration_hash`, `stage31_split_manifest_hash`, `stage31_corpus_view`, `stage32_configuration_hash`, `stage32_lexicon_manifest_hash`, `stage33_configuration_hash`, and structured `rights_profile_ids_and_versions`.
-16. **Partition isolation & dynamic manifest enforcement:** Partition counts and record memberships are dynamically loaded from the sealed Stage 31 v8 split manifest (`corpus_metadata.json`) and verified against `canonical_analytical_corpus.jsonl`. Stage 33 fails closed if observed counts or memberships differ from the sealed manifest. Rule discovery and calibration use canonical training records only (124); validation records (13) serve defect detection only; locked-test records (13) are evaluated exactly once.
-17. **Configuration freeze sequence:** Provisional configuration is frozen before validation; final immutable configuration (`2d572d820f630fb6c15f5ebacebfce3ae84ab2e9c5f7102241f0d15579c71cc2`) is frozen and sealed before locked-test execution. In-memory loaded configuration bytes are verified against disk hash prior to execution.
+16. **Partition isolation & dynamic manifest enforcement:** Partition counts and record memberships are dynamically loaded from the sealed Stage 31 authoritative partition metadata artifact (`data/sinhala_external/corpus/corpus_metadata.json`) and verified against `canonical_analytical_corpus.jsonl`. Stage 33 fails closed if observed counts or memberships differ from the sealed manifest. Rule discovery and calibration use canonical training records only; validation records serve defect detection only; locked-test records are evaluated exactly once.
+17. **Configuration freeze sequence:** Provisional configuration is frozen before validation; final immutable configuration is frozen and sealed before locked-test execution. In-memory loaded configuration bytes are verified against disk hash prior to execution.
 18. **Public export safety:** Public exports expose opaque IDs or versioned, domain-separated keyed HMACs; raw SHA-256 hashes of restricted literal text are never exposed in public artifacts.
 19. **No fabricated review:** Reviewer IDs, decisions, timestamps, and approval fields remain null.
 20. **Historical tag immutability:** Existing Stage 26–32 tags must not be moved. Prerequisite `stage-32-complete-v5` and start `stage-33-start` must resolve to `7c6bb81a744305c3a59100a2c2af8fc06deb01c8`.
-21. **Multi-partition zero-loss accounting:** All six accounting equations use mutually exclusive terminal categories with strictly zero unaccounted units across Train (124), Validation (13), Locked-Test (13), and Consolidated (150).
+21. **Multi-partition zero-loss accounting:** All six accounting equations use mutually exclusive terminal categories with strictly zero unaccounted units across Train, Validation, Locked-Test, and Consolidated partitions.
 
 ---
 
 ## 4. Evidence Hierarchy
 
-1. **Sealed Stage 31 v8 analytical corpus (`canonical_analytical_corpus.jsonl`):** Authoritative source for the 150 canonical inputs.
-2. **Sealed Stage 31 split manifest (`corpus_metadata.json`):** Authoritative source for split assignments (Train: 124, Validation: 13, Locked Test: 13).
-3. **Stage 32 frequency evidence (`sinhala_word_frequencies.json`):** Feature input for lexical rules; never an autonomous substitution license.
-4. **Stage 33 rule registry (`stage33_configuration.json`):** Governed, authored rules with priority, preconditions, and postconditions.
+1. **Sealed Stage 31 v8 analytical corpus (`data/sinhala_external/corpus/canonical_analytical_corpus.jsonl`):** Authoritative source for the 150 canonical inputs (record identity and `"split"` field).
+2. **Sealed Stage 31 partition metadata artifact (`data/sinhala_external/corpus/corpus_metadata.json`):** Authoritative Stage 31 split definition, hash-verified under Stage 31 implementation manifest (`39ee316a...`).
+3. **Governed Stage 32 frequency evidence (`data/sinhala_lexicon/lexicon/draft_lexicon.jsonl` & `data/sinhala_lexicon/ledgers/candidate_entry_ledger.jsonl`):** Governed lexicon ledgers controlled by Stage 32 v5 implementation manifest; used strictly as non-authoritative rule features.
+4. **Stage 33 rule registry (`data/sinhala_simplification/registry/stage33_configuration.json`):** Governed, authored rules with priority, preconditions, and postconditions.
 5. **Partition-specific ledgers:** Partition-isolated ledgers (`train_*`, `validation_*`, `locked_test_*`) ensuring strict traceability without cross-contamination.
-6. **Consolidated public ledgers (`final_disposition_ledger.jsonl`, etc.):** Audit trails recording all 150 evaluations.
+6. **Consolidated public ledgers (`final_disposition_ledger.jsonl`, etc.):** Audit trails recording all canonical evaluations.
 7. **Protected rewrite payloads (`$SINHALA_SIMPLIFICATION_PROTECTED_ROOT/`):** Full literal rewrites and traces held under restricted external storage.
 
 ---
@@ -230,138 +230,81 @@ Every transformation operation records:
 
 ## 11. Multi-Partition Accounting Framework
 
-Stage 33 implements **authoritative multi-partition zero-loss conservation accounting** covering all 150 canonical inputs:
-- **Train-partition development accounting:** 124 / 124 inputs.
-- **Validation partition accounting:** 13 / 13 inputs.
-- **Locked-test partition accounting:** 13 / 13 inputs.
-- **Consolidated canonical evaluation accounting:** 150 / 150 inputs.
+Stage 33 specifies **authoritative multi-partition zero-loss conservation accounting** covering all 150 canonical inputs:
+- **Train-partition development accounting:** Reconciled on canonical training inputs.
+- **Validation partition accounting:** Reconciled on canonical validation inputs.
+- **Locked-test partition accounting:** Reconciled on canonical locked-test inputs.
+- **Consolidated canonical evaluation accounting:** Reconciled across the complete 150-input population.
 
-### 11.1 Reconciled Multi-Partition Table Across All 6 Levels
-
-| Partition | Inputs (L1) | Rule Attempts (L2) | Candidates (L3) | Operations (L4) | Trace Elements (L5) | Export Fields (L6) |
-|---|---|---|---|---|---|---|
-| **Train** | 124 | 1,001 | 79 | 79 | 79 | 496 |
-| **Validation** | 13 | 105 | 15 | 15 | 15 | 52 |
-| **Locked Test** | 13 | 104 | 12 | 12 | 12 | 52 |
-| **Total Canonical** | **150** | **1,210** | **106** | **106** | **106** | **600** |
-
-### 11.2 The Six Conservation Equations
+### 11.1 The Six Conservation Equations
 
 #### Level 1: Authoritative Input Disposition Accounting
 
 $$\text{TotalInputs} = \text{DraftSelected} + \text{UnchangedNoRule} + \text{UnchangedBlocked} + \text{ManualReview} + \text{RejectedIneligible} + \text{RejectedInvalid} + \text{FailedInternal} + \text{Unaccounted}$$
 
-$$150 = 71 + 76 + 3 + 0 + 0 + 0 + 0 + 0$$
-
-- `DRAFT_REWRITE_SELECTED`: 71 (Train: 54, Validation: 8, Locked Test: 9)
-- `UNCHANGED_NO_APPLICABLE_RULE`: 76 (Train: 68, Validation: 4, Locked Test: 4)
-- `UNCHANGED_ALL_CANDIDATES_BLOCKED`: 3 (Train: 2, Validation: 1, Locked Test: 0)
-- `MANUAL_REVIEW_REQUIRED`: 0
-- `REJECTED_SOURCE_INELIGIBLE`: 0
-- `REJECTED_INVALID_PREPROCESSING_STATE`: 0
-- `FAILED_INTERNAL`: 0
-- `Unaccounted`: **0**
+Target `Unaccounted`: strictly **0**.
 
 #### Level 2: Mutually Exclusive Rule-Attempt Accounting
 
 $$\text{RuleAttempts} = \text{NOT\_APPLICABLE} + \text{CANDIDATE\_GENERATED} + \text{DEFERRED\_BEFORE\_GENERATION} + \text{FAILED\_INTERNAL} + \text{Unaccounted}$$
 
-$$1,210 = 1,104 + 106 + 0 + 0 + 0$$
-
-- `NOT_APPLICABLE`: 1,104 (Train: 922, Validation: 90, Locked Test: 92)
-- `CANDIDATE_GENERATED`: 106 (Train: 79, Validation: 15, Locked Test: 12)
-- `DEFERRED_BEFORE_GENERATION`: 0
-- `FAILED_INTERNAL`: 0
-- `Unaccounted`: **0**
+**Definition of Rule Attempt & Denominator Formulation:**
+A rule attempt is created per evaluated rule applicability site. A rule creates an attempt when tested against an input:
+- When the rule pattern does not match, exactly 1 attempt with terminal status `NOT_APPLICABLE` is recorded.
+- When the rule pattern matches one or more non-overlapping source spans, 1 attempt with terminal status `CANDIDATE_GENERATED` is recorded for each discrete match site.
+$$\text{TotalRuleAttempts} = \text{BaseRuleInputEvaluations} (N_{\text{inputs}} \times N_{\text{rules}}) + \text{AdditionalMatchSiteEvaluations}$$
+Target `Unaccounted`: strictly **0**.
 
 #### Level 3: Mutually Exclusive Candidate Accounting
 
 $$\text{GeneratedCandidates} = \text{SELECTED} + \text{NOT\_SELECTED\_LOWER\_RANK} + \text{BLOCKED\_PROTECTED\_SPAN} + \text{BLOCKED\_MEANING\_GUARD} + \text{DEFERRED\_MANUAL\_REVIEW} + \text{FAILED\_INTERNAL} + \text{Unaccounted}$$
 
-$$106 = 71 + 28 + 0 + 7 + 0 + 0 + 0$$
-
-- `SELECTED`: 71 (Train: 54, Validation: 8, Locked Test: 9)
-- `NOT_SELECTED_LOWER_RANK`: 28 (Train: 20, Validation: 5, Locked Test: 3)
-- `BLOCKED_PROTECTED_SPAN`: 0
-- `BLOCKED_MEANING_GUARD`: 7 (Train: 5, Validation: 2, Locked Test: 0)
-- `DEFERRED_MANUAL_REVIEW`: 0
-- `FAILED_INTERNAL`: 0
-- `Unaccounted`: **0**
+Target `Unaccounted`: strictly **0**.
 
 #### Level 4: Transformation Operation Accounting
 
 $$\text{RecordedOperations} = \text{Replacements} + \text{Splits} + \text{Insertions} + \text{Deletions} + \text{Unaccounted}$$
 
-$$106 = 50 + 56 + 0 + 0 + 0$$
-
-- `REPLACE`: 50 (Train: 33, Validation: 8, Locked Test: 9)
-- `SPLIT`: 56 (Train: 46, Validation: 7, Locked Test: 3)
-- `INSERT`: 0
-- `DELETE`: 0
-- `Unaccounted`: **0**
+Target `Unaccounted`: strictly **0**.
 
 #### Level 5: Mutually Exclusive Trace Element Accounting
 
 $$\text{TraceElements} = \text{ExactlyMapped} + \text{QualifiedNonExact} + \text{UnmappedReviewed} + \text{Unaccounted}$$
 
-$$106 = 50 + 56 + 0 + 0$$
-
-- `ExactlyMapped` (`mapping_exact: true`): 50 (Train: 33, Validation: 8, Locked Test: 9)
-- `QualifiedNonExact` (`mapping_exact: false`): 56 (Train: 46, Validation: 7, Locked Test: 3)
-- `UnmappedReviewed`: 0
-- `Unaccounted`: **0**
+Target `Unaccounted`: strictly **0**.
 
 #### Level 6: Rights and Export Accounting
 
 $$\text{ExportEvaluatedFields} = \text{PublicPermitted} + \text{ProtectedInternal} + \text{SuppressedByPolicy} + \text{ReviewRequired} + \text{Unaccounted}$$
 
-$$600 = 300 + 150 + 150 + 0 + 0$$
+**Frozen Inventory of the 4 Evaluated Field Slots Per Record:**
+1. **Record Identifier Slot:** `request_id`, `record_id`, `output_id` (PublicPermitted)
+2. **Rule and Guard Metadata Slot:** `final_disposition`, `applied_rule_ids`, `guard_results`, `validation_status` (PublicPermitted)
+3. **Output Storage Locator Slot:** `output_storage_ref` (ProtectedInternal — opaque external pointer)
+4. **Restricted Text Content Slot:** literal `source_text`, `candidate_text_internal`, `output_text` (SuppressedByPolicy — omitted from public export)
 
-- `PublicPermitted`: 300 (Train: 248, Validation: 26, Locked Test: 26)
-- `ProtectedInternal`: 150 (Train: 124, Validation: 13, Locked Test: 13)
-- `SuppressedByPolicy`: 150 (Train: 124, Validation: 13, Locked Test: 13)
-- `ReviewRequired`: 0
-- `Unaccounted`: **0**
-
----
-
-## 12. Dynamic Partition Evidence & Verification Result
-
-Partition evidence is dynamically loaded and verified against the sealed Stage 31 baseline:
-
-- **Stage 31 split manifest path:** `data/sinhala_external/corpus/corpus_metadata.json`
-- **Stage 31 split manifest SHA-256:** `39ee316a7b3df502f188712c89be5c4d87ca6e856835bde9ef4961c3d778909a`
-- **Canonical analytical corpus SHA-256:** `f862bf30bedc92dcbff24076c289c7a757a3962c59096bc3a40c3d985d9a0f7d`
-- **Train record count:** 124
-- **Validation record count:** 13
-- **Locked-test record count:** 13
-- **Total canonical records:** 150
-- **Duplicate record IDs:** 0
-- **Missing record IDs:** 0
-- **Cross-split record overlaps:** 0
-- **Cross-split document-group overlaps:** 0
-- **Method-dev exploratory records in eval splits:** 0
-- **Partition verification script result:** PASSED (`python scripts/stage33/verify_partition_isolation.py`)
+Total evaluated field instances $= N_{\text{inputs}} \times 4$.  
+Target `Unaccounted`: strictly **0**.
 
 ---
 
-## 13. Locked-Test Execution Evidence
+## 12. Dynamic Partition Contract & Isolation Requirements
 
-The one-time governed gate on held-out records is backed by complete cryptographic and execution evidence:
+Partition assignments are dynamically loaded from the sealed Stage 31 baseline:
+- Manifest path: `data/sinhala_external/corpus/corpus_metadata.json`
+- Analytical corpus: `data/sinhala_external/corpus/canonical_analytical_corpus.jsonl`
+- Partition verification script: `scripts/stage33/verify_partition_isolation.py`
+- Invariant: Zero cross-split record overlaps, zero cross-split document-group overlaps, zero leakage of evaluation records into training.
 
-- **Locked-test execution ID:** `SI-LOCKED-EVAL-20261016-01`
-- **Execution started:** `2026-10-16T10:17:05.187313+00:00`
-- **Execution completed:** `2026-10-16T10:17:05.655829+00:00`
-- **Locked-test input-manifest SHA-256:** `96a44d0c6aaf86382482e25bd41c4df653326a41e7098d991efd2e4c4c5de7de`
-- **Final Stage 33 configuration SHA-256:** `2d572d820f630fb6c15f5ebacebfce3ae84ab2e9c5f7102241f0d15579c71cc2`
-- **Configuration loaded by execution:** `2d572d820f630fb6c15f5ebacebfce3ae84ab2e9c5f7102241f0d15579c71cc2`
-- **In-memory byte hash verification:** Confirmed identical bit-for-bit to disk file hash before evaluation commenced.
-- **Locked-test output-ledger SHA-256:** `6c04256bc43731b971e02ef2ef6041babd43898e02c7bca376fcf38927d1866c`
-- **Records expected:** 13
-- **Records processed:** 13
-- **Execution count:** 1
-- **Execution status:** `LOCKED_TEST_COMPLETE`
-- **Post-execution configuration changes:** 0
+---
+
+## 13. Locked-Test Execution Protocol (One-Time Governed Gate)
+
+The locked-test evaluation represents a one-time irrevocable gate:
+1. Configuration is permanently frozen and sealed (`status: "FROZEN_FOR_LOCKED_EVALUATION"`).
+2. The locked-test runner (`scripts/stage33/run_locked_evaluation.py`) reads configuration bytes into memory and verifies that in-memory byte SHA-256 equals the on-disk file hash before reading any locked test record.
+3. Locked evaluation is executed **exactly once**.
+4. An immutable execution record is generated containing execution ID, start/end timestamps, input manifest SHA-256, loaded configuration SHA-256, output ledger SHA-256, records processed, execution status, and confirmation of 0 post-execution changes.
 
 ---
 
@@ -376,53 +319,41 @@ flowchart TD
     WP4 --> WP5["WP5: Sentence Splitting & Subject Recovery"]
     WP5 --> WP6["WP6: Decoupled Candidate Filtering & Ranking"]
     WP6 --> WP7["WP7: Trace Builder & Qualified Mapping"]
-    WP7 --> WP8["WP8: Train Development Evaluation (124)"]
-    WP8 --> WP9["WP9: Validation (13) & One-Time Locked-Test (13)"]
+    WP7 --> WP8["WP8: Train Development Evaluation"]
+    WP8 --> WP9["WP9: Validation & One-Time Locked-Test"]
     WP9 --> WP10["WP10: Accounting Reconciliation & Authoritative Sealing"]
 ```
 
 - **WP0:** Prerequisite verification (`stage-32-complete-v5` at `7c6bb81a...`), dynamic split manifest loading, immutability check, baseline snapshots.
 - **WP1–WP7:** Core rule engine, 12-category span detector, atomic candidate generator, decoupled ranker, and qualified trace builder.
-- **WP8:** Development evaluation on 124 training records, emitting `train_*_ledger.jsonl`.
-- **WP9:** Validation evaluation on 13 validation records (`validation_*_ledger.jsonl`), frozen configuration seal, and single-execution locked evaluation on 13 locked-test records (`locked_test_*_ledger.jsonl`), appending to consolidated ledgers.
+- **WP8:** Development evaluation on canonical training records, emitting `train_*_ledger.jsonl`.
+- **WP9:** Validation evaluation on canonical validation records (`validation_*_ledger.jsonl`), frozen configuration seal, and single-execution locked evaluation on canonical locked-test records (`locked_test_*_ledger.jsonl`), appending to consolidated ledgers.
 - **WP10:** Multi-partition accounting verification across all 6 levels, documentation/implementation manifest verification, tamper tests, commit, annotated tag `stage-33-complete`, and push.
 
 ---
 
-## 15. Automated Test Plan & Exact Regression Evidence
+## 15. Automated Test Plan
 
-### 15.1 Stage 33 Test Suite
+The Stage 33 test suite comprises **18 test modules (32 test cases)** in `backend/tests/sinhala_simplification/`:
 
-Stage 33 test verification comprises **32 test cases across 18 test files (17 Stage 33 test suites)** in `backend/tests/sinhala_simplification/`:
-
-- `test_stage33_rule_registry.py` (2 tests)
-- `test_stage33_lexical_rules.py` (2 tests)
-- `test_stage33_phrase_rules.py` (2 tests)
-- `test_stage33_sentence_splitting.py` (2 tests)
-- `test_stage33_constrained_subject_recovery.py` (2 tests)
-- `test_stage33_protected_spans.py` (2 tests)
-- `test_stage33_negation_and_modality.py` (2 tests)
-- `test_stage33_two_stage_candidate_resolution.py` (2 tests)
-- `test_stage33_composed_rule_safety.py` (2 tests)
-- `test_stage33_transformation_traces.py` (2 tests)
-- `test_stage33_determinism.py` (2 tests)
-- `test_stage33_partition_isolation.py` (2 tests)
-- `test_stage33_corpus_view_and_denominators.py` (2 tests)
-- `test_stage33_rights_and_protected_payloads.py` (2 tests)
-- `test_stage33_public_export_safety.py` (2 tests)
-- `test_stage33_accounting.py` (1 test)
-- `test_stage33_end_to_end.py` (1 test)
-- Total: **32 passed, 0 failed in 0.39s**.
-
-### 15.2 Full Backend Regression Evidence
-
-Full backend test suite execution:
-- **Full backend tests:** 643 / 643 passed
-- **Failures:** 0
-- **Errors:** 0
-- **Skipped:** 0
-- **Warnings:** 7 (deprecation warnings from third-party libraries: FastAPI, Starlette, scikit-learn, SQLAlchemy)
-- **Duration:** 172.55s (0:02:52)
+1. `test_stage33_rule_registry.py`: Validates unique rule IDs, human authorship fields, evidence refs, and public/protected separation.
+2. `test_stage33_lexical_rules.py`: Validates allowlisted lexical substitution, morphology preservation, and rejection of frequency-only swaps.
+3. `test_stage33_phrase_rules.py`: Validates longest-match-first behavior and prevents overlapping partial substitutions.
+4. `test_stage33_sentence_splitting.py`: Validates punctuation reconstruction, structural completeness, and boundary preservation.
+5. `test_stage33_constrained_subject_recovery.py`: Validates that subject insertion occurs only from unambiguous source spans; ambiguous recovery routes to review.
+6. `test_stage33_protected_spans.py`: Validates detection of entities, numbers, dates, units, currencies, parentheticals, and technical terms.
+7. `test_stage33_negation_and_modality.py`: Validates that negation markers and modal/conditional scopes are never altered or dropped.
+8. `test_stage33_two_stage_candidate_resolution.py`: Validates that blocked candidates are filtered out before ranking and never participate in ranking.
+9. `test_stage33_composed_rule_safety.py`: Validates atomic single-rule policy (`len(candidate.applied_rule_ids) == 1`) and verifies composite candidate rejection.
+10. `test_stage33_transformation_traces.py`: Validates trace mappings, mapping status enums, and `mapping_exact` flags.
+11. `test_stage33_determinism.py`: Validates byte-for-byte reproducibility across repeated pipeline runs.
+12. `test_stage33_partition_isolation.py`: Validates dynamic loading from Stage 31 manifest, fail-closed handling of count mismatches, and zero data leakage.
+13. `test_stage33_corpus_view_and_denominators.py`: Validates that the 150-record canonical analytical view governs evaluation metrics.
+14. `test_stage33_rights_and_protected_payloads.py`: Validates external protected storage boundary, source hash verification, and zero text leakage.
+15. `test_stage33_public_export_safety.py`: Validates versioned domain-separated keyed HMACs and confirms absence of raw text hashes.
+16. `test_stage33_accounting.py`: Validates that all six conservation equations hold with exactly 0 unaccounted items.
+17. `test_stage33_end_to_end.py`: Comprehensive pipeline tests from raw request to governed output and audit traces.
+18. `test_stage33_entity_number_preservation.py`: Dedicated adversarial regression suite for numeric precision, unit binding, and entity boundary preservation.
 
 ---
 
@@ -444,54 +375,55 @@ The completion record requires complete, unabridged terminal command outputs:
 
 ---
 
-## 17. Authoritative Completion Template & Final Verdict
+## 17. Authoritative Completion Template (Pre-Execution Specification)
 
 ```text
 ================================================================
 STAGE 33 — SINHALA CONTROLLED SIMPLIFICATION RULE ENGINE
 ================================================================
 
-Stage 33:                                   COMPLETE
-Governance accounting:                      RECONCILED (Multi-Partition 150/150)
-Locked-test execution:                      VERIFIED ONCE
-Authoritative completion tag:               SEALED
+Stage 33:                                   <COMPLETE / REVISION_REQUIRED>
+Governance accounting:                      <RECONCILED / UNRECONCILED>
+Locked-test execution:                      <VERIFIED ONCE / PENDING>
+Authoritative completion tag:               <SEALED / UNSEALED>
 Approved for child delivery:                FALSE
 
 Prerequisite tag:                           stage-32-complete-v5
 Prerequisite commit:                        7c6bb81a744305c3a59100a2c2af8fc06deb01c8
 Start tag:                                  stage-33-start
+Final commit:                               <full 40-character SHA>
 Completion tag:                             stage-33-complete
 
-Ancestry verification:                      PASSED (7 checkpoints)
-Stage 30–32 immutability:                   PASSED (All declared manifest paths, 0 mismatches)
+Ancestry verification:                      <PASSED / FAILED>
+Stage 30–32 immutability:                   <PASSED / FAILED>
 Corpus view evaluated:                      canonical_analytical_150
-Verified canonical split counts:            Train: 124, Validation: 13, Locked Test: 13 (Total: 150)
-External protected root:                    PASSED (Verified outside worktree)
-Rule registry:                              8 rules, PASSED
-Protected rule payloads separated:          PASSED (Field-level rights isolation)
-Protected-span policy:                      PASSED (12 categories explicitly enumerated)
-Two-stage candidate resolution:             PASSED (Decoupled filtering & ranking)
-Constrained subject recovery:               PASSED (Strict non-invention)
+Verified canonical split counts:            Train: <dyn_train>, Validation: <dyn_val>, Locked Test: <dyn_test> (Total: 150)
+External protected root:                    <verified outside worktree>
+Rule registry:                              <count> rules, <PASSED / FAILED>
+Protected rule payloads separated:          <PASSED / FAILED>
+Protected-span policy:                      <PASSED (12 categories) / FAILED>
+Two-stage candidate resolution:             <PASSED / FAILED>
+Constrained subject recovery:               <PASSED / FAILED>
 Trace classification coverage:              100% of trace elements classified
 Selected rewrite unmapped traces:           0
-Deterministic rerun equality:                PASSED (100% byte identical)
-Training-only rule development:             PASSED
-Configuration frozen before locked test:    PASSED (SHA256: 2d572d820f630fb6c15f5ebacebfce3ae84ab2e9c5f7102241f0d15579c71cc2)
+Deterministic rerun equality:                <PASSED / FAILED>
+Training-only rule development:             <PASSED / FAILED>
+Configuration frozen before locked test:    <PASSED / FAILED>
 Locked-test executions:                     1
 
 Multi-Partition Reconciled Totals (150 inputs):
-- Train-partition development accounting:   124 / 124
-- Validation partition accounting:          13 / 13
-- Locked-test partition accounting:         13 / 13
-- Consolidated canonical accounting:        150 / 150
+- Train-partition development accounting:   <count> / <count>
+- Validation partition accounting:          <count> / <count>
+- Locked-test partition accounting:         <count> / <count>
+- Consolidated canonical accounting:        <count> / <count>
 
 Terminal Dispositions:
-- Draft rewrites selected:                  71 (Train: 54, Val: 8, Test: 9)
-- Unchanged no applicable rule:             76 (Train: 68, Val: 4, Test: 4)
-- Unchanged all candidates blocked:         3  (Train: 2,  Val: 1, Test: 0)
-- Manual review required:                   0
-- Rejected source ineligible:               0
-- Rejected invalid preprocessing:           0
+- Draft rewrites selected:                  <count>
+- Unchanged no applicable rule:             <count>
+- Unchanged all candidates blocked:         <count>
+- Manual review required:                   <count>
+- Rejected source ineligible:               <count>
+- Rejected invalid preprocessing:           <count>
 - Failed internal error:                    0
 - Total reconciled inputs:                  150 / 150 (Unaccounted: 0)
 
@@ -504,14 +436,14 @@ Conservation Equation Parity (Unaccounted across all levels):
 - Level 6 (Export fields):                  0
 
 Automated Test Suites:
-- Stage 33 test cases:                      32/32 passed (18 files, 17 suites)
-- Full backend regression:                  643/643 passed (0 fail, 0 error, 7 warn, 172.55s)
-- Frontend test suite:                      17/17 passed
-- Frontend production bundle:               PASSED
+- Stage 33 test cases:                      <passed>/<collected> (18 test modules)
+- Full backend regression:                  <passed>/<collected>
+- Frontend test suite:                      <passed>/<collected>
+- Frontend production bundle:               <PASSED / FAILED>
 
 Manifest Verification:
-- Documentation manifest:                   13/13 verified (Tamper test PASSED)
-- Implementation manifest:                  29/29 verified (Tamper test PASSED)
+- Documentation manifest:                   <verified>/<expected>
+- Implementation manifest:                  <verified>/<expected>
 
 Governance Exclusions & Disclaimers:
 - Complete semantic-equivalence:            NOT ESTABLISHED
