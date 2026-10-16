@@ -1,0 +1,43 @@
+{
+  "stage": "stage32",
+  "workflow": "WP0_prerequisite_snapshot",
+  "prerequisite_tag": "stage-31-complete-v8",
+  "prerequisite_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
+  "start_tag": "stage-32-start",
+  "start_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
+  "verified_ancestors": {
+    "stage-31-complete-v8^{commit}": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
+    "stage-30-complete-v3^{commit}": "ef95667b53dddfb032e71fc51d6c524aff7a22a2",
+    "stage-29-complete-v2^{commit}": "89a253c452ea85664f988f31d357d6d9ee72b464",
+    "stage-28a-complete-v4^{commit}": "0e83898a1272ecd8af2fc93f607e694ca07954cf",
+    "stage-27-infrastructure-complete-v3^{commit}": "22eb001eaed9a3dd8bcf09a1a14e4d99a840221f",
+    "stage-26-complete-v5^{commit}": "1a67bd46700ffcc17bebef3ef31e9903ff57c620"
+  },
+  "protected_storage_root": "C:\\Users\\Lasindu\\.sinhala_lexicon_protected_data",
+  "canonical_analytical_records": 150,
+  "provenance_records": 180,
+  "surplus_duplicate_records": 30,
+  "verified_stage31_documentation": {
+    "docs/stage31_accounting_summary.md": "2adf43353de2a0dce3811cfba0a4005560c0981bbdc9c7900257d80a00585499",
+    "docs/stage31_acquisition_and_provenance_report.md": "7b8bf263bb625c57b0e89380fc7e9037b22a9b4f981b524b206ef84d706e7182",
+    "docs/stage31_candidate_source_register.csv": "0d39d002b29092d5f9bb4c2b9dce1838337738d32b4fd066fd92d2488ceb2ec4",
+    "docs/stage31_completion_record.md": "2cf9cdffa10d0f4368f441b9f0947e6b11d1a3f15e5ea701d897ea0c9ca42573",
+    "docs/stage31_deduplication_and_contamination_report.md": "d176b665691c1f54361e692f856411cb59c4f030dc72440ca57f8152c93de160",
+    "docs/stage31_governance_report.md": "21e215c91e4a635e628410b8b0439fbe160e95ee5cf9fd30765b6d3d4bc00d11",
+    "docs/stage31_implementation_plan.md": "801eb700b021833bb3f12cc05e9df6accfd4ec4b0f42f47c5980e6f3951822c3",
+    "docs/stage31_licence_and_rights_report.md": "514331ba09ab6a47610eef617276e1c5e99fae465637d6234bb6dcae90a4e3f5",
+    "docs/stage31_pilot_corpus_report.md": "52c4a740e78f63d3e2ed3f063713d904d83b1030cbd7f8cdf19bc6ea53eadabd",
+    "docs/stage31_preprocessing_integration_report.md": "ba678be0c35f78c1419f0d0fc08a33586be36781351bfe90f45ab8059ebc370d",
+    "docs/stage31_quality_and_exclusion_report.md": "6269acbadbf25df13e4dc346159221bfe7719796dfc75120c430a0166a057a94",
+    "docs/stage31_reproducibility_record.json": "68e5ab954fc270118f834182cde7dc890a547d8e3cd01ef6f1a731fbca251c6a"
+  },
+  "verified_stage31_corpus_artifacts": {
+    "data/sinhala_external/corpus/canonical_analytical_corpus.jsonl": "f862bf30bedc92dcbff24076c289c7a757a3962c59096bc3a40c3d985d9a0f7d",
+    "data/sinhala_external/corpus/pilot_corpus.jsonl": "e72fefb869675c61ff5266dbc71464ffd56a10eb3cd1731dcd787a3b8d233288",
+    "data/sinhala_external/corpus/corpus_metadata.json": "b54e498c2ab52ffc5e8d0f1f7b6f2a024a2c85ba98be56eecf2caa80fb467877",
+    "data/sinhala_external/registry/stage31_configuration.json": "53aa0a8aa7ccc226f17107a18ee024dd85e71ad5776388650ee973a60bc1ef40",
+    "data/sinhala_external/registry/approved_sources.json": "01f2e8bee0abce29ea9311ffb76378e7d0bc6751cb58cce97b1a696dd37dda8d",
+    "data/sinhala_external/registry/candidate_sources.json": "19413df1b57b488c74225afe23d46c81ac8fc7aa142b010f45333988fb72c739",
+    "data/sinhala_external/registry/method_development_predeclaration.json": "a0ca0752f8928ff9b938118fbedeee4c5d764864bd2e318fbd831b766fd959c6"
+  }
+}

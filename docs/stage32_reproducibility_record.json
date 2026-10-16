@@ -1,0 +1,28 @@
+{
+  "stage": "stage32",
+  "timestamp": "2026-10-16T10:21:05.153367",
+  "prerequisite_tag": "stage-31-complete-v8",
+  "prerequisite_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
+  "start_tag": "stage-32-start",
+  "start_commit": "9096cfbf5d6e237c388e6c306dc12f13023875ba",
+  "branch": "feature/stage32-sinhala-lexicon",
+  "accounting": {
+    "canonical_records": 150,
+    "provenance_records": 180,
+    "total_token_occurrences": 4072,
+    "included_candidate_occurrences": 3668,
+    "excluded_token_class_occurrences": 400,
+    "manual_review_occurrences": 4,
+    "total_candidates": 1010,
+    "accepted_draft_entries": 1002,
+    "manual_review_entries": 8,
+    "unaccounted_tokens": 0,
+    "unaccounted_candidates": 0
+  },
+  "governance_status": {
+    "validation_status": "draft",
+    "expert_validated": false,
+    "approved_for_child_delivery": false,
+    "requires_expert_review": true
+  }
+}
