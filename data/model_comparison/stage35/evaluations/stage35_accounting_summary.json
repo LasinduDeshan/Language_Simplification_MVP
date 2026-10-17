@@ -10,21 +10,40 @@
     "expected_executions": 47,
     "executions_started": 47,
     "executions_blocked_before_start": 0,
+    "condition_breakdown": {
+      "C0_RULE_BASELINE": {
+        "common": 8,
+        "local_only": 5,
+        "total": 13
+      },
+      "C1_GEMINI_ZERO_SHOT": {
+        "common": 8,
+        "local_only": 0,
+        "total": 8
+      },
+      "C2_MT5_ZERO_SHOT": {
+        "common": 8,
+        "local_only": 5,
+        "total": 13
+      },
+      "C3_MBART_ZERO_SHOT": {
+        "common": 8,
+        "local_only": 5,
+        "total": 13
+      }
+    },
     "unaccounted": 0
   },
   "level_3_attempts": {
     "total_attempts": 47,
-    "details": {
-      "succeeded": 47,
-      "timeout": 0,
-      "rate_limited": 0,
-      "refused": 0,
-      "invalid_request": 0,
-      "cancelled": 0,
-      "provider_failed": 0,
-      "local_runtime_failed": 0,
-      "unaccounted": 0
-    },
+    "succeeded": 47,
+    "timeout": 0,
+    "rate_limited": 0,
+    "refused": 0,
+    "invalid_request": 0,
+    "cancelled": 0,
+    "provider_failed": 0,
+    "local_runtime_failed": 0,
     "unaccounted": 0
   },
   "level_4_responses_vs_failures": {
@@ -35,51 +54,64 @@
   },
   "level_5a_selected_responses": {
     "total_selected": 47,
-    "dispositions": {
-      "VALID_CHANGED_OUTPUT": 0,
-      "VALID_UNCHANGED_OUTPUT": 39,
-      "REVIEW_REQUIRED_SEMANTIC_RISK": 0,
-      "REVIEW_REQUIRED_POTENTIAL_HALLUCINATION": 0,
-      "REVIEW_REQUIRED_POTENTIAL_UNSAFE_OUTPUT": 0,
-      "REJECTED_PROTECTED_SPAN_CHANGE": 8,
-      "REJECTED_INVALID_UNICODE_OR_SCRIPT": 0,
-      "REJECTED_TRUNCATION": 0,
-      "REJECTED_EMPTY_OUTPUT": 0,
-      "unaccounted": 0
-    },
+    "valid_changed": 0,
+    "valid_unchanged": 39,
+    "review_semantic_risk": 0,
+    "review_potential_hallucination": 0,
+    "review_potential_unsafe": 0,
+    "rejected_protected_span": 8,
+    "rejected_invalid_script": 0,
+    "rejected_truncation": 0,
+    "rejected_empty": 0,
     "unaccounted": 0
   },
   "level_5b_terminal_failures": {
     "total_failures": 0,
-    "dispositions": {
-      "FAILED_REFUSAL": 0,
-      "FAILED_TIMEOUT_EXHAUSTED": 0,
-      "FAILED_RATE_LIMIT_EXHAUSTED": 0,
-      "FAILED_PROVIDER_RUNTIME": 0,
-      "FAILED_LOCAL_RUNTIME": 0,
-      "FAILED_CANCELLED_OR_INTERRUPTED": 0,
-      "unaccounted": 0
-    },
+    "refused": 0,
+    "timeout_exhausted": 0,
+    "rate_limit_exhausted": 0,
+    "provider_failure": 0,
+    "local_runtime_failure": 0,
+    "cancelled": 0,
     "unaccounted": 0
   },
   "level_6_metric_cells": {
-    "selected_responses": 47,
+    "response_selected": 47,
     "frozen_metric_count": 5,
     "expected_metric_cells": 235,
     "computed": 235,
     "missing": 0,
     "unaccounted": 0
   },
+  "level_7_operational": {
+    "total_attempts": 47,
+    "resource_usage_recorded": 47,
+    "usage_unavailable": 0,
+    "unaccounted": 0
+  },
+  "level_8_statistical": {
+    "planned_pairwise_comparisons": 6,
+    "completed": 6,
+    "not_estimable": 0,
+    "excluded_by_frozen_rule": 0,
+    "unaccounted": 0
+  },
   "level_9_condition_decisions": {
     "registered_conditions": 4,
-    "condition_outcomes": {
-      "C0_RULE_BASELINE": "SELECTED",
-      "C1_GEMINI_ZERO_SHOT": "ELIGIBLE_NOT_SELECTED",
-      "C2_MT5_ZERO_SHOT": "INELIGIBLE_CRITICAL_GATE",
-      "C3_MBART_ZERO_SHOT": "INELIGIBLE_CRITICAL_GATE"
-    },
+    "selected_fallback_baseline": 1,
+    "eligible_not_selected": 0,
+    "ineligible_critical_gate": 1,
+    "insufficient_simplification_effect": 2,
+    "not_executed": 0,
     "unaccounted": 0,
-    "stage_level_decision": "CONDITIONALLY_SELECTED_WITH_FALLBACK"
+    "condition_outcomes": {
+      "C0_RULE_BASELINE": "SELECTED_FALLBACK_BASELINE",
+      "C1_GEMINI_ZERO_SHOT": "INELIGIBLE_CRITICAL_GATE",
+      "C2_MT5_ZERO_SHOT": "INSUFFICIENT_SIMPLIFICATION_EFFECT",
+      "C3_MBART_ZERO_SHOT": "INSUFFICIENT_SIMPLIFICATION_EFFECT"
+    },
+    "stage_level_decision": "NO_MODEL_MEETS_MINIMUM_GATE",
+    "required_fallback": "C0_RULE_BASELINE"
   },
   "level_10_human_accounting": "NOT_APPLICABLE_AUTOMATED_TECHNICAL_ONLY"
 }

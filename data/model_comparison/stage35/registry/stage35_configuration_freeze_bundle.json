@@ -1,0 +1,50 @@
+{
+  "bundle_version": "1.0.0",
+  "stage": "stage35",
+  "frozen_timestamp": "2026-10-17T07:51:52.172067+00:00",
+  "first_locked_request_timestamp": "2026-10-17T08:03:24Z",
+  "pre_run_freeze_established": true,
+  "master_configuration_sha256": "eeda27f29d648a2e8f25bbaae920ca82243ee575a029c41204f8c9dd506a3d3f",
+  "governed_run_authorization_id": "AUTH-S35-LOCKED-TEST-AUTHORIZED-RUN-001",
+  "file_digests": {
+    "adapters": {
+      "path": "backend/app/model_comparison/stage35/adapters.py",
+      "sha256": "da454d03378ab06526795c71627efc30e844a6cce140c281cb46af59abaf5ded"
+    },
+    "dataset_bridge": {
+      "path": "backend/app/model_comparison/stage35/dataset_bridge.py",
+      "sha256": "fc1f45afd0b295dbf9e663e9bad831ae1c1788725f7af5eb1f4a7ae321e5ed51"
+    },
+    "denominators": {
+      "path": "data/model_comparison/stage35/registry/stage35_locked_test_denominators.json",
+      "sha256": "84d20c3f9e20e8e6e3906847809f0c97fb44ce97664a4a1d31b2ff4764a6a66b"
+    },
+    "evaluator": {
+      "path": "backend/app/model_comparison/stage35/evaluator.py",
+      "sha256": "db5dcbea20ebe7f561d3f632e75d6553b2150b1f11fcc1ae7091b40a0fa5b8fe"
+    },
+    "model_registry": {
+      "path": "data/model_comparison/stage35/registry/stage35_model_registry.json",
+      "sha256": "a1ff6a091b8d7830e25c9997699e0aeb4f3797e3e98e32abccb3ba76d930544f"
+    },
+    "runner": {
+      "path": "backend/app/model_comparison/stage35/runner.py",
+      "sha256": "74b51d41f98f52e6bee916442b7bc5cb41a5d5d8073bffc6e77178a8e178d4af"
+    },
+    "schemas": {
+      "path": "backend/app/model_comparison/stage35/schemas.py",
+      "sha256": "3ed900d9df3b4a0d900f6c9c63b2be56bad846c5285f9b5ed5e35d2bdadf554e"
+    },
+    "storage": {
+      "path": "backend/app/model_comparison/stage35/storage.py",
+      "sha256": "f0aa23148594ae99358c237dc953d3ef5880c24425adecf227abbad7840cedd4"
+    }
+  },
+  "operational_policies": {
+    "random_seed": 42,
+    "repetition_count_per_condition": 1,
+    "adapted_conditions_executed": false,
+    "best_of_n_selection_used": false,
+    "gemini_execution_mode": "CONTROLLED_OFFLINE_SIMULATION_PIPELINE_VALIDATION"
+  }
+}
