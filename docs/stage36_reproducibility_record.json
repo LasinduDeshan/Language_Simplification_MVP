@@ -1,0 +1,36 @@
+{
+  "stage": "Stage 36 - Sinhala Output Validation and Fallback Pipeline",
+  "component": "Component 3 - AI/NLP-Based Language Simplification",
+  "prerequisite_tag": "stage-35-complete-v7",
+  "prerequisite_commit": "cd86a6b0aff2d07d7d0c4f8079f10e9833b5b3d0",
+  "start_tag": "stage-36-start",
+  "start_commit": "cd86a6b0aff2d07d7d0c4f8079f10e9833b5b3d0",
+  "freeze_tag": "stage-36-freeze-wp7b",
+  "freeze_commit": "98bc9c7cfe99eb25fd41c34d25bb036a62a73a41",
+  "frozen_configuration_hash": "7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6",
+  "frozen_configuration_timestamp_utc": "2026-10-17T14:30:00Z",
+  "database_baseline_sha256": "44ff4f07fca1ac92343875bb8c82957df5cc721017dd08d20e901689392bb701",
+  "test_metrics": {
+    "total_stage36_test_cases": 83,
+    "total_stage36_test_modules": 6,
+    "stage36_tests_passed": 83,
+    "stage36_tests_failed": 0,
+    "frontend_production_build": "PASSED"
+  },
+  "level7_accounting": {
+    "registered_requests": 16,
+    "primary_selected": 3,
+    "rule_fallback_selected": 7,
+    "unchanged_source_selected": 2,
+    "selected_outputs_total": 12,
+    "manual_review_no_output": 2,
+    "rejected_no_output": 2,
+    "failed_internal_no_output": 0,
+    "abstentions_no_output_total": 4,
+    "unaccounted": 0,
+    "child_delivery_approved": 0,
+    "unsupervised_child_delivery_approved": 0
+  },
+  "provenance_key_id": "stage36-public-provenance-v1",
+  "final_release_decision": "STAGE_36_VALIDATION_AND_FALLBACK_PIPELINE_OPERATIONAL_AND_SEALED"
+}
