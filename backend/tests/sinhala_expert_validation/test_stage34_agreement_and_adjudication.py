@@ -6,6 +6,8 @@ Validates:
 3. Adjudication queue inspection triggers and Level 6 accounting reconciliation.
 """
 
+from typing import Any
+
 import pytest
 
 from app.datasets.sinhala_expert_validation.adjudication import AdjudicationService
@@ -32,7 +34,7 @@ from app.datasets.sinhala_expert_validation.schemas import (
 
 def test_krippendorff_alpha_perfect_agreement():
     # If all raters agree on all items, alpha must be 1.0
-    data = {
+    data: dict[str, dict[str, Any]] = {
         "ITEM-1": {"R1": 3, "R2": 3, "R3": 3},
         "ITEM-2": {"R1": 2, "R2": 2, "R3": 2},
         "ITEM-3": {"R1": 1, "R2": 1, "R3": 1},
@@ -46,7 +48,7 @@ def test_krippendorff_alpha_perfect_agreement():
 
 def test_krippendorff_alpha_missingness_support():
     # Raters with None (CANNOT_ASSESS) should not break computation
-    data = {
+    data: dict[str, dict[str, Any]] = {
         "ITEM-1": {"R1": 3, "R2": 3, "R3": None},
         "ITEM-2": {"R1": 2, "R2": 2, "R3": None},
         "ITEM-3": {"R1": None, "R2": 1, "R3": 1},
@@ -56,7 +58,7 @@ def test_krippendorff_alpha_missingness_support():
 
 
 def test_bootstrap_ci():
-    data = {
+    data: dict[str, dict[str, Any]] = {
         "ITEM-1": {"R1": 3, "R2": 3},
         "ITEM-2": {"R1": 2, "R2": 2},
         "ITEM-3": {"R1": 1, "R2": 1},

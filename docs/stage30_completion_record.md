@@ -5,10 +5,11 @@ Stage 30: SINHALA UNICODE NORMALIZATION AND PREPROCESSING
 Prerequisite tag:                           stage-29-complete-v2
 Prerequisite commit:                        89a253c452ea85664f988f31d357d6d9ee72b464
 Start tag:                                  stage-30-start
-Historical completion tag:                  stage-30-complete (155008bbe460386bcaa7042aa7694718fccc08d8)
-Historical completion commit:               155008bbe460386bcaa7042aa7694718fccc08d8
-Authoritative completion tag:               stage-30-complete-v2
-Reconciled base commit:                     c395bfe3f9059f756640118635e31fd26bfc9341
+Historical completion tag:                  stage-30-complete (c395bfe3f9059f756640118635e31fd26bfc9341)
+Historical completion commit:               c395bfe3f9059f756640118635e31fd26bfc9341
+Reconciled completion tag v2:               stage-30-complete-v2 (2441c4f73d8c5b62732943a21307428a0034801a)
+Reconciled completion commit v2:            2441c4f73d8c5b62732943a21307428a0034801a
+Authoritative completion tag:               stage-30-complete-v3
 
 Ancestry and start checkpoint:              PASSED
 Raw-text immutability:                      PASSED
@@ -30,7 +31,7 @@ Feature extraction:                         PASSED
 Quality routing & precedence:               PASSED
 Zero pipeline-introduced U+FFFD:            PASSED
 Privacy-safe audit logging:                 PASSED
-Stage 29 immutability:                      PASSED (13 checked: 11 manifest-controlled documents + 2 registry artifacts)
+Selected Stage 29 immutability scope:       PASSED (13 checked: 11 manifest-controlled documents + 2 registry artifacts; excludes stage29_manifest.sha256 and other runtime artifacts)
 English release immutability:               PASSED
 
 Stage 30 test modules / files:              16/16 passed

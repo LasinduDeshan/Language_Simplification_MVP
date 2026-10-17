@@ -14,8 +14,10 @@
     "start_tag": "stage-30-start",
     "branch": "feature/stage30-sinhala-preprocessing",
     "historical_completion_tag": "stage-30-complete",
-    "historical_completion_commit": "155008bbe460386bcaa7042aa7694718fccc08d8",
-    "authoritative_completion_tag": "stage-30-complete-v2"
+    "historical_completion_commit": "c395bfe3f9059f756640118635e31fd26bfc9341",
+    "reconciled_v2_completion_tag": "stage-30-complete-v2",
+    "reconciled_v2_completion_commit": "2441c4f73d8c5b62732943a21307428a0034801a",
+    "authoritative_completion_tag": "stage-30-complete-v3"
   },
   "runtime_environment": {
     "os": "Windows",
@@ -38,7 +40,7 @@
   "verified_contracts": {
     "control_characters": "Null bytes, prohibited C0/C1 controls, bidi overrides, and other denylisted security controls are rejected. Explicitly allowlisted structural whitespace characters are preserved or normalized according to the frozen field policy.",
     "crlf_normalization": "CRLF (U+000D U+000A) collapses strictly to a single canonical LF (U+000A) rather than duplicate line feeds; lone CR normalizes to single LF; lone LF is preserved.",
-    "stage29_immutability_scope": "13 checked items: 11 manifest-controlled documentation deliverables plus 2 runtime registry artifacts (font_registry.json, control_character_policy.json).",
+    "stage29_immutability_scope": "Selected Stage 29 immutability scope (13 checked items: 11 manifest-controlled documentation deliverables plus 2 runtime registry artifacts; excludes stage29_manifest.sha256 and other runtime artifacts).",
     "operation_provenance": "Auditable operation traces and explicit raw-to-normalized span mappings; original text remains recoverable from the immutable raw_text field.",
     "normalized_text_reconstruction": "Exact normalized-text reconstruction is verified using ordered token spans and preserved inter-token gaps: NormalizedText = G_0 + sum(T_i + G_{i+1})."
   },
