@@ -1,0 +1,181 @@
+{
+  "configuration_version": "1.0.0",
+  "component": "Component 3 - AI/NLP-Based Language Simplification",
+  "stage": "Stage 36 - Sinhala Output Validation and Fallback Pipeline",
+  "frozen_at_utc": "2026-10-17T14:30:00Z",
+  "frozen_commit_base": "cd86a6b0aff2d07d7d0c4f8079f10e9833b5b3d0",
+  "provenance_signature_key_id": "stage36-public-provenance-v1",
+  "validators": [
+    {
+      "validator_id": "V0_ENVELOPE_PROVENANCE",
+      "version": "1.0.0",
+      "severity_on_failure": "CRITICAL",
+      "reason_code": "REJ_CONF_PROVENANCE_INVALID"
+    },
+    {
+      "validator_id": "V1_UNICODE_SCRIPT",
+      "version": "1.0.0",
+      "severity_on_failure": "CRITICAL",
+      "min_sinhala_ratio": 0.50,
+      "reason_code": "REJ_INVALID_UNICODE"
+    },
+    {
+      "validator_id": "V2_STRUCTURE_LENGTH",
+      "version": "1.0.0",
+      "severity_on_failure": "CRITICAL",
+      "min_length_ratio": 0.20,
+      "max_length_ratio": 3.0,
+      "reason_code": "REJ_CRITICAL_SEMANTIC_RISK"
+    },
+    {
+      "validator_id": "V3_PROTECTED_SPANS",
+      "version": "1.0.0",
+      "tiers": {
+        "DECLARED": { "severity": "CRITICAL", "reason_code": "REJ_PROTECTED_SPAN_VIOLATION" },
+        "DETERMINISTIC": { "severity": "CRITICAL", "reason_code": "REJ_PROTECTED_SPAN_VIOLATION" },
+        "INFERRED": { "severity": "REVIEW", "reason_code": "REV_INFERRED_SPAN_ALTERED" }
+      }
+    },
+    {
+      "validator_id": "V4_POLARITY_NUMERICAL",
+      "version": "1.0.0",
+      "severity_on_failure": "CRITICAL",
+      "reason_code": "REJ_NUMERICAL_OR_POLARITY_DRIFT"
+    },
+    {
+      "validator_id": "V5_OMISSION_INSERTION",
+      "version": "1.0.0",
+      "max_novel_token_ratio": 0.65,
+      "severity_on_failure": "CRITICAL",
+      "reason_code": "REJ_UNSUPPORTED_INSERTION"
+    },
+    {
+      "validator_id": "V6_SEMANTIC_PROXY",
+      "version": "1.0.0",
+      "min_similarity_threshold": 0.20,
+      "severity_on_failure": "CRITICAL",
+      "reason_code": "REJ_CRITICAL_SEMANTIC_RISK"
+    },
+    {
+      "validator_id": "V7_GRAMMATICALITY_PROXY",
+      "version": "1.0.0",
+      "severity_on_orthography": "CRITICAL",
+      "severity_on_delimiters": "REVIEW"
+    },
+    {
+      "validator_id": "V8_SIMPLIFICATION_GAIN",
+      "version": "1.0.0",
+      "severity": "DIAGNOSTIC",
+      "reason_code": "DIAG_SIMPLIFICATION_METRICS"
+    }
+  ],
+  "disposition_precedence": [
+    "REJECTED_CONFIGURATION_OR_PROVENANCE",
+    "REJECTED_INVALID_UNICODE",
+    "REJECTED_PROTECTED_SPAN_VIOLATION",
+    "REJECTED_NUMERICAL_OR_POLARITY_DRIFT",
+    "REJECTED_UNSUPPORTED_INSERTION",
+    "REJECTED_CRITICAL_SEMANTIC_RISK",
+    "MANUAL_REVIEW_REQUIRED",
+    "VALID_UNCHANGED_NO_SIMPLIFICATION",
+    "ACCEPTED_TECHNICAL_RESEARCH_CANDIDATE"
+  ],
+  "fallback_policy": {
+    "max_depth": 3,
+    "ladder": [
+      "PRIMARY_CANDIDATE",
+      "C0_RULE_BASELINE",
+      "UNCHANGED_SOURCE",
+      "SAFE_ABSTENTION_NO_OUTPUT"
+    ],
+    "retry_allowed": false,
+    "cyclic_transitions_allowed": false
+  },
+  "child_safety_defaults": {
+    "approved_for_child_delivery": false,
+    "approved_for_unsupervised_child_delivery": false,
+    "requires_expert_review": true
+  },
+  "governed_final_fixtures_manifest": [
+    {
+      "fixture_id": "EVAL_01_VALID_PRIMARY",
+      "category": "VALID_SIMPLIFICATION",
+      "expected_outcome": "PRIMARY_CANDIDATE_SELECTED"
+    },
+    {
+      "fixture_id": "EVAL_02_VALID_UNCHANGED",
+      "category": "UNCHANGED_PRIMARY",
+      "expected_outcome": "UNCHANGED_SOURCE_SELECTED_FOR_RESEARCH_ONLY"
+    },
+    {
+      "fixture_id": "EVAL_03_NUMERIC_VIOLATION_FALLBACK_C0",
+      "category": "FALLBACK_TO_C0",
+      "expected_outcome": "RULE_FALLBACK_SELECTED"
+    },
+    {
+      "fixture_id": "EVAL_04_DECLARED_SPAN_FALLBACK_C0",
+      "category": "FALLBACK_TO_C0",
+      "expected_outcome": "RULE_FALLBACK_SELECTED"
+    },
+    {
+      "fixture_id": "EVAL_05_POLARITY_INVERSION_FALLBACK_C0",
+      "category": "FALLBACK_TO_C0",
+      "expected_outcome": "RULE_FALLBACK_SELECTED"
+    },
+    {
+      "fixture_id": "EVAL_06_HALLUCINATION_FALLBACK_C0",
+      "category": "FALLBACK_TO_C0",
+      "expected_outcome": "RULE_FALLBACK_SELECTED"
+    },
+    {
+      "fixture_id": "EVAL_07_INFERRED_SPAN_MANUAL_REVIEW",
+      "category": "MANUAL_REVIEW_QUEUE",
+      "expected_outcome": "MANUAL_REVIEW_NO_OUTPUT"
+    },
+    {
+      "fixture_id": "EVAL_08_UNBALANCED_BRACKETS_MANUAL_REVIEW",
+      "category": "MANUAL_REVIEW_QUEUE",
+      "expected_outcome": "MANUAL_REVIEW_NO_OUTPUT"
+    },
+    {
+      "fixture_id": "EVAL_09_CORRUPT_UNICODE_TERMINAL_REJECT",
+      "category": "SAFE_ABSTENTION",
+      "expected_outcome": "REJECTED_NO_OUTPUT"
+    },
+    {
+      "fixture_id": "EVAL_10_DOUBLE_VIRAMA_FALLBACK_C0",
+      "category": "FALLBACK_TO_C0",
+      "expected_outcome": "RULE_FALLBACK_SELECTED"
+    },
+    {
+      "fixture_id": "EVAL_11_TRUNCATION_FALLBACK_C0",
+      "category": "FALLBACK_TO_C0",
+      "expected_outcome": "RULE_FALLBACK_SELECTED"
+    },
+    {
+      "fixture_id": "EVAL_12_C0_ALSO_FAILS_FALLBACK_UNCHANGED",
+      "category": "FALLBACK_TO_UNCHANGED",
+      "expected_outcome": "UNCHANGED_SOURCE_SELECTED_FOR_RESEARCH_ONLY"
+    },
+    {
+      "fixture_id": "EVAL_13_COMPLEX_HISTORICAL_PRIMARY",
+      "category": "VALID_SIMPLIFICATION",
+      "expected_outcome": "PRIMARY_CANDIDATE_SELECTED"
+    },
+    {
+      "fixture_id": "EVAL_14_SCIENCE_TEXT_NUMBERS_PRESERVED",
+      "category": "VALID_SIMPLIFICATION",
+      "expected_outcome": "PRIMARY_CANDIDATE_SELECTED"
+    },
+    {
+      "fixture_id": "EVAL_15_PROVENANCE_FAIL_FALLBACK_C0",
+      "category": "FALLBACK_TO_C0",
+      "expected_outcome": "RULE_FALLBACK_SELECTED"
+    },
+    {
+      "fixture_id": "EVAL_16_TOTAL_SOURCE_CORRUPTION_ABSTAIN",
+      "category": "SAFE_ABSTENTION",
+      "expected_outcome": "REJECTED_NO_OUTPUT"
+    }
+  ]
+}
