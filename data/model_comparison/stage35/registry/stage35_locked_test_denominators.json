@@ -1,8 +1,11 @@
 {
-  "ledger_version": "1.0.0",
+  "ledger_version": "2.0.0",
   "stage": "stage35",
   "split": "locked_test",
-  "total_locked_test_records": 13,
+  "split_classification": "DRY_RUN_DEVELOPMENT_CALIBRATION_SET",
+  "original_locked_test_independence": "COMPROMISED_BY_DRY_RUN_USE",
+  "empirical_evaluation_requirement": "RESERVED_UNTOUCHED_EMPIRICAL_TEST_SET required prior to authoritative live execution",
+  "total_records": 13,
   "primary_common_count": 8,
   "local_only_count": 5,
   "n_common": 8,

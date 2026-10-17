@@ -1,8 +1,13 @@
 {
   "stage": "stage35",
   "verdict": "INFRASTRUCTURE_DRY_RUN_VALIDATED_EMPIRICAL_EVALUATION_NOT_ESTABLISHED",
+  "freeze_bundle_classification": "RETROSPECTIVE_RECONCILIATION_BUNDLE",
+  "prospective_configuration_freeze": "NOT_YET_PROVEN",
+  "original_locked_test_independence": "COMPROMISED_BY_DRY_RUN_USE",
   "level_1_inputs": {
     "registered_inputs": 13,
+    "split_classification": "DRY_RUN_DEVELOPMENT_CALIBRATION_SET",
+    "empirical_evaluation_requirement": "RESERVED_UNTOUCHED_EMPIRICAL_TEST_SET required prior to authoritative live execution",
     "primary_common": 8,
     "local_only": 5,
     "unaccounted": 0

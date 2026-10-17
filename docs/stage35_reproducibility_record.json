@@ -1,7 +1,11 @@
 {
   "stage": "stage35",
   "reproducibility_status": "CONTROLLED_DRY_RUN_REPRODUCIBLE",
-  "master_configuration_sha256": "c440736e1de5f8960c133f8f8a800566e6809a22922b5bc0cf8deabbc67d2de8",
+  "bundle_classification": "RETROSPECTIVE_RECONCILIATION_BUNDLE",
+  "prospective_configuration_freeze": "NOT_YET_PROVEN",
+  "original_locked_test_independence": "COMPROMISED_BY_DRY_RUN_USE",
+  "split_classification": "DRY_RUN_DEVELOPMENT_CALIBRATION_SET",
+  "master_configuration_sha256": "2aeb6f4880c23db8d5b93443a08a653c614b9104f9aad0e1f24dcec682516f0a",
   "code_commit_anchor": "79c0f2619096869090615090b662e9ce9c8e2a7e",
   "random_seed": 42,
   "frozen_timestamp": "2026-10-17T07:51:52.172067+00:00",

@@ -71,12 +71,15 @@ def build_master_bundle():
     master_sha = hasher.hexdigest()
     
     bundle = {
-        "bundle_version": "3.0.0",
+        "bundle_version": "3.1.0",
         "stage": "stage35",
+        "bundle_classification": "RETROSPECTIVE_RECONCILIATION_BUNDLE",
+        "prospective_configuration_freeze": "NOT_YET_PROVEN",
+        "pre_run_freeze_established": False,
+        "qualification": "The 20-artifact bundle was generated retrospectively to reconcile and document configuration baselines across dry-run iterations. A prospective configuration freeze is NOT YET PROVEN and requires a pre-run commit strictly prior to future empirical execution.",
         "code_commit_anchor": "79c0f2619096869090615090b662e9ce9c8e2a7e",
-        "frozen_timestamp": "2026-10-17T07:51:52.172067+00:00",
+        "reconciliation_timestamp": "2026-10-17T09:15:00Z",
         "first_locked_request_timestamp": "2026-10-17T08:03:24Z",
-        "pre_run_freeze_established": True,
         "master_configuration_sha256": master_sha,
         "governed_run_authorization_id": "AUTH-S35-LOCKED-TEST-AUTHORIZED-RUN-001",
         "controlled_artifacts_count": len(entries),

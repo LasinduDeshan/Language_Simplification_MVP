@@ -4,29 +4,42 @@
 **Component:** Component 3 — AI/NLP-Based Language Simplification  
 **Scope:** Controlled technical comparison of Gemini, mT5, and mBART for Sinhala (`si`, `si-LK`, script `Sinh`) text simplification  
 **Governance Anchor:** `stage-34-complete-v2` at commit `79c0f2619096869090615090b662e9ce9c8e2a7e`  
-**Master Freeze Bundle SHA-256:** `c440736e1de5f8960c133f8f8a800566e6809a22922b5bc0cf8deabbc67d2de8`  
-**Completion Tag:** `stage-35-complete-v5`  
+**Authoritative Completion Tag:** `stage-35-complete-v6`  
 
 ---
 
-## 1. Authoritative Verdict
+## 1. Authoritative Final Status
 
-- **Stage 35 infrastructure and controlled dry-run:** `PASSED`
-- **Accounting implementation:** `PASSED after blocked-pair correction`
-- **Real Gemini execution:** `NOT EXECUTED`
-- **Real mT5 execution:** `NOT ESTABLISHED`
-- **Real mBART execution:** `NOT ESTABLISHED`
-- **Empirical cross-family comparison:** `NOT ESTABLISHED`
-- **Empirical model recommendation:** `NOT ISSUED`
-- **Temporary operational baseline:** `C0_RULE_BASELINE`
+- **Stage 35 infrastructure dry-run:** `PASSED`
+- **Dry-run accounting:** `PASSED`
+- **Documentation coverage:** `PASSED`
+- **Empirical comparison:** `NOT ESTABLISHED`
+- **Original locked-test independence:** `COMPROMISED BY DRY-RUN USE`
+- **Prospective configuration freeze:** `NOT YET PROVEN`
+- **Repository working tree:** `CLEAN`
+- **Authoritative final tag:** `stage-35-complete-v6` (pointing directly to HEAD)
 - **Approved for child delivery:** `FALSE`
-- **Authoritative Stage 35 empirical completion:** `NOT YET ACHIEVED`
+- **Temporary operational baseline:** `C0_RULE_BASELINE` retained pending authorized empirical evaluation
 
 ---
 
-## 2. Reconciled Accounting Highlights
+## 2. Tag Progression and Lineage
 
-1. **Level 1 (Inputs):** $N = 13$ locked test items ($N_{\text{common}} = 8$, $N_{\text{local}} = 5$).
+| Tag | Commit | Changes / Scope | Authoritative Status |
+|---|---|---|---|
+| `stage-35-start` | `79c0f26` | Anchored prerequisite at `stage-34-complete-v2` | Historical prerequisite anchor |
+| `stage-35-complete` | `b89e655` | Initial technical comparison adapters, validator, bridge | Superseded |
+| `stage-35-complete-v2` | `0280215` | Added implementation plan and initial documentation manifest | Superseded |
+| `stage-35-complete-v3` | `3222f32` | Reconciled configuration bundle, offline simulation status, initial decision | Superseded |
+| `stage-35-complete-v4` | `b3d0a9f` | Added full documentation suite of 14 reports | Superseded |
+| `stage-35-complete-v5` | `69b4389` | Reconciled blocked pairs (52=47+5), 20-artifact freeze bundle, simulation modes | Superseded |
+| **`stage-35-complete-v6`** | **`HEAD`** | Clean working tree (untracked `.pyc`), reclassified split as `DRY_RUN_DEVELOPMENT_CALIBRATION_SET`, acknowledged `RETROSPECTIVE_RECONCILIATION_BUNDLE` and compromised independence | **LATEST AUTHORITATIVE CHECKPOINT** |
+
+---
+
+## 3. Reconciled Accounting Highlights
+
+1. **Level 1 (Inputs):** $N = 13$ records formally classified as `DRY_RUN_DEVELOPMENT_CALIBRATION_SET` ($N_{\text{common}} = 8$, $N_{\text{local}} = 5$). Independence: `COMPROMISED BY DRY-RUN USE`.
 2. **Level 2 (Executions):**
    $$52 \text{ potential pairs} = 47 \text{ eligible executions} + 5 \text{ disclosure-blocked pairs}$$
    $$47 \text{ eligible executions} = 47 \text{ started} + 0 \text{ not started}$$
@@ -49,8 +62,3 @@
     `NO_MODEL_SELECTED_FROM_DRY_RUN`; `C0_RULE_BASELINE` retained pending authorized empirical evaluation.
 11. **Level 10 (Human Review):**
     `NOT_APPLICABLE_AUTOMATED_TECHNICAL_ONLY`.
-
----
-
-## 3. Remote Sealing Status
-All local tags (`stage-35-start`, `stage-35-complete`, `stage-35-complete-v2`, `stage-35-complete-v3`, `stage-35-complete-v4`, `stage-35-complete-v5`) and branch `feature/stage35-sinhala-model-comparison` are synchronized with remote origin repository.

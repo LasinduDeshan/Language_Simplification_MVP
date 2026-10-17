@@ -1,11 +1,14 @@
 {
-  "bundle_version": "3.0.0",
+  "bundle_version": "3.1.0",
   "stage": "stage35",
+  "bundle_classification": "RETROSPECTIVE_RECONCILIATION_BUNDLE",
+  "prospective_configuration_freeze": "NOT_YET_PROVEN",
+  "pre_run_freeze_established": false,
+  "qualification": "The 20-artifact bundle was generated retrospectively to reconcile and document configuration baselines across dry-run iterations. A prospective configuration freeze is NOT YET PROVEN and requires a pre-run commit strictly prior to future empirical execution.",
   "code_commit_anchor": "79c0f2619096869090615090b662e9ce9c8e2a7e",
-  "frozen_timestamp": "2026-10-17T07:51:52.172067+00:00",
+  "reconciliation_timestamp": "2026-10-17T09:15:00Z",
   "first_locked_request_timestamp": "2026-10-17T08:03:24Z",
-  "pre_run_freeze_established": true,
-  "master_configuration_sha256": "c440736e1de5f8960c133f8f8a800566e6809a22922b5bc0cf8deabbc67d2de8",
+  "master_configuration_sha256": "2aeb6f4880c23db8d5b93443a08a653c614b9104f9aad0e1f24dcec682516f0a",
   "governed_run_authorization_id": "AUTH-S35-LOCKED-TEST-AUTHORIZED-RUN-001",
   "controlled_artifacts_count": 20,
   "artifacts": [
@@ -62,7 +65,7 @@
     {
       "role": "CODE_COMMIT_RECORD",
       "path": "data/model_comparison/stage35/registry/stage35_code_commit_record.json",
-      "sha256": "dc3dfa455f701500962eef258eab8a2c6d8336b367510e3d560703b4b150dc27"
+      "sha256": "e9786bc0ca08945127f3ff91c45b0fe99dae9f0c8c7572df5a3d17d6f454d2ed"
     },
     {
       "role": "MODEL_REGISTRY",
@@ -72,7 +75,7 @@
     {
       "role": "DENOMINATOR_MANIFEST",
       "path": "data/model_comparison/stage35/registry/stage35_locked_test_denominators.json",
-      "sha256": "84d20c3f9e20e8e6e3906847809f0c97fb44ce97664a4a1d31b2ff4764a6a66b"
+      "sha256": "8f4a65fa61dfc1c5baf2d3676ffa5d8a14a8d90a7a167c91f8fad904ac837bdf"
     },
     {
       "role": "OPERATIONAL_POLICY",
@@ -82,7 +85,7 @@
     {
       "role": "SCHEMAS",
       "path": "backend/app/model_comparison/stage35/schemas.py",
-      "sha256": "a00ccd4054f1893abcca2466a856611b6b008d17071031f363a2d02140f3df48"
+      "sha256": "02b690a47cd41aed207c5d42bce9ea146beb90ffb15f3ecc502ea8453225e77c"
     },
     {
       "role": "STORAGE_MANAGER",
@@ -102,7 +105,7 @@
     {
       "role": "RUNNER_LOGIC",
       "path": "backend/app/model_comparison/stage35/runner.py",
-      "sha256": "efa8972f5987560653778ab18c7f5e7eb3cf1a47e1632e32d4407879b798330c"
+      "sha256": "9a9f0438a1b7f4886f7def5be77be271b55e3b225c22be2af461507ceb8b6fe5"
     },
     {
       "role": "DATASET_BRIDGE",

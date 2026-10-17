@@ -3,6 +3,9 @@
 **Stage:** Stage 35 — Comparative Evaluation of Gemini, mT5, and mBART for Sinhala Simplification  
 **Ledger Reference:** `data/model_comparison/stage35/evaluations/stage35_accounting_summary.json`  
 **Verdict:** `INFRASTRUCTURE_DRY_RUN_VALIDATED_EMPIRICAL_EVALUATION_NOT_ESTABLISHED`  
+**Freeze Bundle Classification:** `RETROSPECTIVE_RECONCILIATION_BUNDLE`  
+**Prospective Configuration Freeze:** `NOT_YET_PROVEN`  
+**Original Locked-Test Independence:** `COMPROMISED_BY_DRY_RUN_USE`  
 
 ---
 
@@ -10,6 +13,8 @@
 
 ### Level 1: Input Item Denominators
 $$\text{Registered Inputs (13)} = 8 \text{ Primary Common} + 5 \text{ Local-Only} + 0 \text{ Unaccounted}$$
+- **Split Classification:** `DRY_RUN_DEVELOPMENT_CALIBRATION_SET` (`S35-DEV-CALIB-13`)
+- **Empirical Requirement:** `RESERVED_UNTOUCHED_EMPIRICAL_TEST_SET required prior to authoritative live execution`
 
 ### Level 2: Potential Pairs and Execution Eligibility
 With 13 test inputs and 4 conditions:
