@@ -1,11 +1,17 @@
-﻿"""
+"""
 Reconciled Stage 35 Comparison Runner with Exact Accounting.
 Reconciles:
 1. Level 2: 52 Potential Condition-Input Pairs = 47 Eligible Executions + 5 Disclosure-Blocked Pairs.
-2. Levels 3-8: Distinguishes SIMULATION mode from empirical execution.
-3. Level 7: 47 Attempts = 0 EmpiricalUsageRecorded + 47 SimulationNotApplicable + 0 Missing.
-4. Level 8: 6 Dry-run comparison computations, 0 Empirical statistical comparisons, 6 Empirical comparisons not estimable.
-5. Level 9: Defensible decision NO_MODEL_SELECTED_FROM_DRY_RUN with C0_RULE_BASELINE retained.
+   47 Eligible Executions = 47 Executions Started + 0 Executions Not Started.
+2. Level 3: 47 Total Attempts = 0 Real Provider + 0 Real Local Model + 47 Simulated + 0 Cached + 0 Empirical Responses.
+3. Level 4: 47 Started = 47 Responses Selected + 0 Terminal Failures.
+4. Level 5A: 47 Responses Selected = 39 Valid Unchanged + 8 Rejected Protected Span (Pipeline Test Outcome) + 0 Unaccounted.
+5. Level 5B: 0 Terminal Failures.
+6. Level 6: 47 Responses * 5 Metrics = 235 Diagnostic Cells Computed, 0 Eligible Comparison Cells.
+7. Level 7: 47 Total Attempts = 0 EmpiricalUsageRecorded + 47 SimulationNotApplicable + 0 Missing.
+8. Level 8: 6 Dry-run comparison computations, 0 Empirical statistical comparisons, 6 Empirical comparisons not estimable.
+9. Level 9: Stage-level decision: NO_MODEL_SELECTED_FROM_DRY_RUN; Empirical minimum-gate eligibility: NOT ESTABLISHED;
+   C0_RULE_BASELINE retained pending authorized empirical evaluation.
 """
 
 import json
@@ -15,6 +21,7 @@ from app.model_comparison.stage35.schemas import (
     AttemptStatus,
     SelectedResponseDisposition,
     TerminalExecutionFailureDisposition,
+    ExecutionMode,
 )
 from app.model_comparison.stage35.adapters import (
     GeminiAdapter,
@@ -86,18 +93,22 @@ def run_reconciled_stage35_dryrun():
             if c == ConditionId.C0_RULE_BASELINE:
                 raw_out = "ශ්‍රී ලංකාවේ අගනුවර ශ්‍රී ජයවර්ධනපුර කෝට්ටේ වේ."
                 att_status = AttemptStatus.SUCCEEDED
+                mode = ExecutionMode.SIMULATED_RESPONSE.value
             elif c == ConditionId.C1_GEMINI_ZERO_SHOT:
                 res = gemini.generate(sample_source, req_id)
                 raw_out = res.get("raw_output", "")
                 att_status = res["status"]
+                mode = res.get("execution_mode", ExecutionMode.SIMULATED_RESPONSE.value)
             elif c == ConditionId.C2_MT5_ZERO_SHOT:
                 res = mt5.generate(sample_source, req_id)
                 raw_out = res.get("raw_output", "")
                 att_status = res["status"]
+                mode = res.get("execution_mode", ExecutionMode.SIMULATED_RESPONSE.value)
             elif c == ConditionId.C3_MBART_ZERO_SHOT:
                 res = mbart.generate(sample_source, req_id)
                 raw_out = res.get("raw_output", "")
                 att_status = res["status"]
+                mode = res.get("execution_mode", ExecutionMode.SIMULATED_RESPONSE.value)
                 
             disp_5a, disp_5b, metrics = validator.validate_response(
                 raw_output=raw_out,
@@ -116,11 +127,12 @@ def run_reconciled_stage35_dryrun():
             results.append({
                 "request_id": req_id,
                 "condition_id": c.value,
-                "execution_mode": "SIMULATED_RESPONSE",
+                "execution_mode": mode,
                 "attempt_status": att_status.value,
                 "response_disposition": disp_5a.value if disp_5a else None,
                 "terminal_failure_disposition": disp_5b.value if disp_5b else None,
                 "diagnostic_metrics": metrics,
+                "approved_for_child_delivery": False,
             })
             
     accounting_summary = {
@@ -138,11 +150,12 @@ def run_reconciled_stage35_dryrun():
             "eligible_executions": 47,
             "executions_started": 47,
             "executions_not_started": 0,
+            "reconciliation_formula": "52 potential pairs = 47 eligible executions + 5 disclosure-blocked pairs; 47 eligible executions = 47 started + 0 not started",
             "condition_breakdown": {
-                "C0_RULE_BASELINE": {"common": 8, "local_only": 5, "total": 13},
+                "C0_RULE_BASELINE": {"common": 8, "local_only": 5, "blocked": 0, "total": 13},
                 "C1_GEMINI_ZERO_SHOT": {"common": 8, "local_only": 0, "blocked": 5, "total": 8},
-                "C2_MT5_ZERO_SHOT": {"common": 8, "local_only": 5, "total": 13},
-                "C3_MBART_ZERO_SHOT": {"common": 8, "local_only": 5, "total": 13},
+                "C2_MT5_ZERO_SHOT": {"common": 8, "local_only": 5, "blocked": 0, "total": 13},
+                "C3_MBART_ZERO_SHOT": {"common": 8, "local_only": 5, "blocked": 0, "total": 13},
             },
             "unaccounted": 0
         },
@@ -153,6 +166,7 @@ def run_reconciled_stage35_dryrun():
             "simulated_attempts": 47,
             "cached_attempts": 0,
             "empirical_responses": 0,
+            "execution_mode_reconciliation": "47 total attempts = 0 real provider + 0 real local model + 47 simulated + 0 cached",
             "pipeline_test_status": {
                 "succeeded": 47,
                 "timeout": 0,
@@ -182,6 +196,7 @@ def run_reconciled_stage35_dryrun():
             "rejected_invalid_script": 0,
             "rejected_truncation": 0,
             "rejected_empty": 0,
+            "pipeline_test_qualification": "C1's 8 rejected protected-span outcomes are pipeline test fixtures, not an empirical Gemini capability finding. C2 and C3 no-op valid-unchanged responses are simulated fallbacks, not model capabilities.",
             "unaccounted": 0
         },
         "level_5b_terminal_failures": {
@@ -208,25 +223,46 @@ def run_reconciled_stage35_dryrun():
             "empirical_usage_recorded": 0,
             "simulation_not_applicable": 47,
             "missing": 0,
+            "accounting_formula": "47 total attempts = 0 EmpiricalUsageRecorded + 47 SimulationNotApplicable + 0 Missing",
             "unaccounted": 0
         },
         "level_8_statistical": {
             "dry_run_comparison_computations": 6,
             "empirical_statistical_comparisons": 0,
             "empirical_comparisons_not_estimable": 6,
+            "qualification": "Statistical calculations over simulated fixtures verify code paths only; empirical model comparisons are not estimable.",
             "unaccounted": 0
         },
         "level_9_condition_decisions": {
             "registered_conditions": 4,
             "condition_outcomes": {
-                "C0_RULE_BASELINE": "SELECTED_FALLBACK_BASELINE",
-                "C1_GEMINI_ZERO_SHOT": "INELIGIBLE_CRITICAL_GATE_SIMULATED_TEST",
-                "C2_MT5_ZERO_SHOT": "INSUFFICIENT_SIMPLIFICATION_EFFECT_SIMULATED_NOOP",
-                "C3_MBART_ZERO_SHOT": "INSUFFICIENT_SIMPLIFICATION_EFFECT_SIMULATED_NOOP"
+                "C0_RULE_BASELINE": {
+                    "disposition": "SELECTED_FALLBACK_BASELINE",
+                    "execution_mode": "SIMULATED_RESPONSE",
+                    "real_inference": "NOT_EXECUTED"
+                },
+                "C1_GEMINI_ZERO_SHOT": {
+                    "disposition": "INELIGIBLE_CRITICAL_GATE_SIMULATED_TEST",
+                    "execution_mode": "SIMULATED_RESPONSE",
+                    "real_provider_inference": "NOT_EXECUTED",
+                    "pipeline_finding": "Protected-span failure is a pipeline-test outcome, not a Gemini capability finding."
+                },
+                "C2_MT5_ZERO_SHOT": {
+                    "disposition": "INSUFFICIENT_SIMPLIFICATION_EFFECT_SIMULATED_NOOP",
+                    "execution_mode": "SIMULATED_RESPONSE",
+                    "real_local_inference": "NOT_ESTABLISHED",
+                    "cached_empirical_response": "NOT_APPLICABLE"
+                },
+                "C3_MBART_ZERO_SHOT": {
+                    "disposition": "INSUFFICIENT_SIMPLIFICATION_EFFECT_SIMULATED_NOOP",
+                    "execution_mode": "SIMULATED_RESPONSE",
+                    "real_local_inference": "NOT_ESTABLISHED",
+                    "cached_empirical_response": "NOT_APPLICABLE"
+                }
             },
             "stage_level_decision": "NO_MODEL_SELECTED_FROM_DRY_RUN",
             "empirical_minimum_gate_eligibility": "NOT_ESTABLISHED",
-            "required_fallback": "C0_RULE_BASELINE_RETAINED",
+            "required_fallback": "C0_RULE_BASELINE retained pending authorized empirical evaluation",
             "approved_for_child_delivery": False,
             "unaccounted": 0
         },

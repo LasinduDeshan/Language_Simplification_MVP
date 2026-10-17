@@ -1,0 +1,27 @@
+{
+  "artifact_id": "S35-RETRY-POLICY-001",
+  "stage": "stage35",
+  "role": "RETRY_AND_FAILURE_POLICY",
+  "max_retries": 3,
+  "retry_backoff_base_sec": 2.0,
+  "timeout_sec": 30.0,
+  "retryable_failure_codes": [
+    "TIMEOUT",
+    "RATE_LIMITED",
+    "TRANSIENT_SERVER_ERROR"
+  ],
+  "non_retryable_failure_codes": [
+    "CONTENT_POLICY_REFUSAL",
+    "INVALID_REQUEST",
+    "AUTHENTICATION_ERROR",
+    "MODEL_NOT_FOUND"
+  ],
+  "terminal_dispositions": {
+    "refusal": "FAILED_REFUSAL",
+    "timeout_exhausted": "FAILED_TIMEOUT_EXHAUSTED",
+    "rate_limit_exhausted": "FAILED_RATE_LIMIT_EXHAUSTED",
+    "provider_runtime": "FAILED_PROVIDER_RUNTIME",
+    "local_runtime": "FAILED_LOCAL_RUNTIME",
+    "interrupted": "FAILED_CANCELLED_OR_INTERRUPTED"
+  }
+}

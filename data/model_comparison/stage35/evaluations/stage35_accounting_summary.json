@@ -13,10 +13,12 @@
     "eligible_executions": 47,
     "executions_started": 47,
     "executions_not_started": 0,
+    "reconciliation_formula": "52 potential pairs = 47 eligible executions + 5 disclosure-blocked pairs; 47 eligible executions = 47 started + 0 not started",
     "condition_breakdown": {
       "C0_RULE_BASELINE": {
         "common": 8,
         "local_only": 5,
+        "blocked": 0,
         "total": 13
       },
       "C1_GEMINI_ZERO_SHOT": {
@@ -28,11 +30,13 @@
       "C2_MT5_ZERO_SHOT": {
         "common": 8,
         "local_only": 5,
+        "blocked": 0,
         "total": 13
       },
       "C3_MBART_ZERO_SHOT": {
         "common": 8,
         "local_only": 5,
+        "blocked": 0,
         "total": 13
       }
     },
@@ -45,6 +49,7 @@
     "simulated_attempts": 47,
     "cached_attempts": 0,
     "empirical_responses": 0,
+    "execution_mode_reconciliation": "47 total attempts = 0 real provider + 0 real local model + 47 simulated + 0 cached",
     "pipeline_test_status": {
       "succeeded": 47,
       "timeout": 0,
@@ -74,6 +79,7 @@
     "rejected_invalid_script": 0,
     "rejected_truncation": 0,
     "rejected_empty": 0,
+    "pipeline_test_qualification": "C1's 8 rejected protected-span outcomes are pipeline test fixtures, not an empirical Gemini capability finding. C2 and C3 no-op valid-unchanged responses are simulated fallbacks, not model capabilities.",
     "unaccounted": 0
   },
   "level_5b_terminal_failures": {
@@ -100,25 +106,46 @@
     "empirical_usage_recorded": 0,
     "simulation_not_applicable": 47,
     "missing": 0,
+    "accounting_formula": "47 total attempts = 0 EmpiricalUsageRecorded + 47 SimulationNotApplicable + 0 Missing",
     "unaccounted": 0
   },
   "level_8_statistical": {
     "dry_run_comparison_computations": 6,
     "empirical_statistical_comparisons": 0,
     "empirical_comparisons_not_estimable": 6,
+    "qualification": "Statistical calculations over simulated fixtures verify code paths only; empirical model comparisons are not estimable.",
     "unaccounted": 0
   },
   "level_9_condition_decisions": {
     "registered_conditions": 4,
     "condition_outcomes": {
-      "C0_RULE_BASELINE": "SELECTED_FALLBACK_BASELINE",
-      "C1_GEMINI_ZERO_SHOT": "INELIGIBLE_CRITICAL_GATE_SIMULATED_TEST",
-      "C2_MT5_ZERO_SHOT": "INSUFFICIENT_SIMPLIFICATION_EFFECT_SIMULATED_NOOP",
-      "C3_MBART_ZERO_SHOT": "INSUFFICIENT_SIMPLIFICATION_EFFECT_SIMULATED_NOOP"
+      "C0_RULE_BASELINE": {
+        "disposition": "SELECTED_FALLBACK_BASELINE",
+        "execution_mode": "SIMULATED_RESPONSE",
+        "real_inference": "NOT_EXECUTED"
+      },
+      "C1_GEMINI_ZERO_SHOT": {
+        "disposition": "INELIGIBLE_CRITICAL_GATE_SIMULATED_TEST",
+        "execution_mode": "SIMULATED_RESPONSE",
+        "real_provider_inference": "NOT_EXECUTED",
+        "pipeline_finding": "Protected-span failure is a pipeline-test outcome, not a Gemini capability finding."
+      },
+      "C2_MT5_ZERO_SHOT": {
+        "disposition": "INSUFFICIENT_SIMPLIFICATION_EFFECT_SIMULATED_NOOP",
+        "execution_mode": "SIMULATED_RESPONSE",
+        "real_local_inference": "NOT_ESTABLISHED",
+        "cached_empirical_response": "NOT_APPLICABLE"
+      },
+      "C3_MBART_ZERO_SHOT": {
+        "disposition": "INSUFFICIENT_SIMPLIFICATION_EFFECT_SIMULATED_NOOP",
+        "execution_mode": "SIMULATED_RESPONSE",
+        "real_local_inference": "NOT_ESTABLISHED",
+        "cached_empirical_response": "NOT_APPLICABLE"
+      }
     },
     "stage_level_decision": "NO_MODEL_SELECTED_FROM_DRY_RUN",
     "empirical_minimum_gate_eligibility": "NOT_ESTABLISHED",
-    "required_fallback": "C0_RULE_BASELINE_RETAINED",
+    "required_fallback": "C0_RULE_BASELINE retained pending authorized empirical evaluation",
     "approved_for_child_delivery": false,
     "unaccounted": 0
   },

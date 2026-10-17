@@ -1,0 +1,31 @@
+{
+  "artifact_id": "S35-DEP-LOCK-001",
+  "stage": "stage35",
+  "role": "SOFTWARE_DEPENDENCY_LOCK",
+  "python_version": "3.11.9",
+  "requirements_txt_path": "backend/requirements.txt",
+  "requirements_txt_sha256": "def75907ff97ec50cac3e81b389edc57ff7f8d67a89f9dece4ae60792feb5a36",
+  "pinned_packages": {
+    "fastapi": "0.110.0",
+    "uvicorn": "0.28.0",
+    "pydantic": "2.10.6",
+    "pydantic-settings": "2.2.0",
+    "sqlalchemy": "2.0.28",
+    "alembic": "1.13.1",
+    "spacy": "3.7.4",
+    "textstat": "0.7.3",
+    "python-dotenv": "1.0.1",
+    "requests": "2.31.0",
+    "pytest": "8.0.0",
+    "pytest-asyncio": "0.23.5",
+    "httpx": "0.27.0",
+    "scipy": "1.12.0",
+    "scikit-learn": "1.4.0",
+    "pandas": "2.2.0",
+    "regex": "2024.0.0",
+    "torch": "2.12.0+cpu",
+    "transformers": "4.46.3",
+    "sentencepiece": "0.2.2",
+    "google-genai": "2.31.0"
+  }
+}

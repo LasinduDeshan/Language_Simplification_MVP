@@ -1,4 +1,4 @@
-﻿"""
+"""
 Stage 35 Model Adapters.
 Implements WP4:
 1. GeminiAdapter: API client with latency, token usage, error categorization, and safe mock fallback if API key absent.
@@ -36,6 +36,7 @@ class GeminiAdapter:
             storage_ref, sha256_hash = save_raw_response("C1_GEMINI_ZERO_SHOT", request_id, raw_output)
             return {
                 "status": AttemptStatus.SUCCEEDED,
+                "execution_mode": "SIMULATED_RESPONSE",
                 "raw_output": raw_output,
                 "storage_ref": storage_ref,
                 "output_sha256": sha256_hash,
@@ -61,6 +62,7 @@ class GeminiAdapter:
             storage_ref, sha256_hash = save_raw_response("C1_GEMINI_ZERO_SHOT", request_id, raw_output)
             return {
                 "status": AttemptStatus.SUCCEEDED,
+                "execution_mode": "REAL_PROVIDER_INFERENCE",
                 "raw_output": raw_output,
                 "storage_ref": storage_ref,
                 "output_sha256": sha256_hash,
@@ -75,6 +77,7 @@ class GeminiAdapter:
             t1 = time.time()
             return {
                 "status": AttemptStatus.PROVIDER_FAILED,
+                "execution_mode": "REAL_PROVIDER_INFERENCE",
                 "error": str(e),
                 "latency_ms": (t1 - t0) * 1000.0,
                 "started_at": started_at,
@@ -99,6 +102,7 @@ class Mt5Adapter:
         storage_ref, sha256_hash = save_raw_response("C2_MT5_ZERO_SHOT", request_id, raw_output)
         return {
             "status": AttemptStatus.SUCCEEDED,
+            "execution_mode": "SIMULATED_RESPONSE",
             "raw_output": raw_output,
             "storage_ref": storage_ref,
             "output_sha256": sha256_hash,
@@ -126,6 +130,7 @@ class MbartAdapter:
         storage_ref, sha256_hash = save_raw_response("C3_MBART_ZERO_SHOT", request_id, raw_output)
         return {
             "status": AttemptStatus.SUCCEEDED,
+            "execution_mode": "SIMULATED_RESPONSE",
             "raw_output": raw_output,
             "storage_ref": storage_ref,
             "output_sha256": sha256_hash,

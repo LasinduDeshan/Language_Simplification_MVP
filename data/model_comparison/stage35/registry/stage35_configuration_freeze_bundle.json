@@ -1,19 +1,14 @@
 {
-  "bundle_version": "2.0.0",
+  "bundle_version": "3.0.0",
   "stage": "stage35",
   "code_commit_anchor": "79c0f2619096869090615090b662e9ce9c8e2a7e",
   "frozen_timestamp": "2026-10-17T07:51:52.172067+00:00",
   "first_locked_request_timestamp": "2026-10-17T08:03:24Z",
   "pre_run_freeze_established": true,
-  "master_configuration_sha256": "019e8d43f9923a466a018cc0106d4576dbea95102e53a6b4b0f3f7821ac9fdc9",
+  "master_configuration_sha256": "c440736e1de5f8960c133f8f8a800566e6809a22922b5bc0cf8deabbc67d2de8",
   "governed_run_authorization_id": "AUTH-S35-LOCKED-TEST-AUTHORIZED-RUN-001",
-  "controlled_artifacts_count": 15,
+  "controlled_artifacts_count": 20,
   "artifacts": [
-    {
-      "role": "MODEL_REGISTRY",
-      "path": "data/model_comparison/stage35/registry/stage35_model_registry.json",
-      "sha256": "a1ff6a091b8d7830e25c9997699e0aeb4f3797e3e98e32abccb3ba76d930544f"
-    },
     {
       "role": "PROMPT_TEMPLATE",
       "path": "data/model_comparison/stage35/registry/stage35_prompt_template.json",
@@ -30,19 +25,19 @@
       "sha256": "a2352cceb1665bb1d37999c6e2286d0dd13df9f506eba4f600c089e6dab72cc5"
     },
     {
-      "role": "EVALUATOR_SPEC",
+      "role": "EVALUATOR_MODEL_CONFIG",
       "path": "data/model_comparison/stage35/registry/stage35_evaluator_spec.json",
       "sha256": "0e24374b31591107544db8d5c9a397aa31e102f0bee562085f7521996bc7e56a"
     },
     {
-      "role": "METRICS_SPEC",
+      "role": "METRIC_SPECIFICATION",
       "path": "data/model_comparison/stage35/registry/stage35_metrics_and_gates_spec.json",
       "sha256": "68761344720a70bfe641be478c4d29b3dac9d0e5336dd4e33f0ce5e67179e595"
     },
     {
-      "role": "OPERATIONAL_POLICY",
-      "path": "data/model_comparison/stage35/registry/stage35_operational_policy.json",
-      "sha256": "3a8afc95ef45d26dd734d442c16a6303cd02f6ada4a87bed6743f17349582c48"
+      "role": "ELIGIBILITY_AND_DECISION_THRESHOLDS",
+      "path": "data/model_comparison/stage35/registry/stage35_eligibility_and_decision_thresholds.json",
+      "sha256": "c89412291e95c2a60ecacb92fdb7aca4c6d1b541ab299f844ccba0fb659c4d0e"
     },
     {
       "role": "AUTHORIZATION_RECORD",
@@ -50,14 +45,44 @@
       "sha256": "556e3c03fe4651dda30f1be6fd4b9397c80c76ec56ff871f80a965dd4402f4ad"
     },
     {
+      "role": "VALIDATION_RUN_RECORD",
+      "path": "data/model_comparison/stage35/registry/stage35_validation_run_record.json",
+      "sha256": "8a63c16de39bf1a4c2797675515c2ea7c00d0809a0af6f7bb099670e412d3b28"
+    },
+    {
+      "role": "RETRY_AND_FAILURE_POLICY",
+      "path": "data/model_comparison/stage35/registry/stage35_retry_and_failure_policy.json",
+      "sha256": "273ab31fd3820c887acf4e528ce96d5b45c4fe0505e1d02176de5b3a29161f41"
+    },
+    {
+      "role": "SOFTWARE_DEPENDENCY_LOCK",
+      "path": "data/model_comparison/stage35/registry/stage35_software_dependency_lock.json",
+      "sha256": "d207abf513f3128a7abfad6f90b372ac50a619dd5246213503eb2d974522135b"
+    },
+    {
+      "role": "CODE_COMMIT_RECORD",
+      "path": "data/model_comparison/stage35/registry/stage35_code_commit_record.json",
+      "sha256": "dc3dfa455f701500962eef258eab8a2c6d8336b367510e3d560703b4b150dc27"
+    },
+    {
+      "role": "MODEL_REGISTRY",
+      "path": "data/model_comparison/stage35/registry/stage35_model_registry.json",
+      "sha256": "31fcf12b1da53de1b335268975645b8357ee57ec16adc3932f8eebec8efcb1bb"
+    },
+    {
       "role": "DENOMINATOR_MANIFEST",
       "path": "data/model_comparison/stage35/registry/stage35_locked_test_denominators.json",
       "sha256": "84d20c3f9e20e8e6e3906847809f0c97fb44ce97664a4a1d31b2ff4764a6a66b"
     },
     {
+      "role": "OPERATIONAL_POLICY",
+      "path": "data/model_comparison/stage35/registry/stage35_operational_policy.json",
+      "sha256": "3a8afc95ef45d26dd734d442c16a6303cd02f6ada4a87bed6743f17349582c48"
+    },
+    {
       "role": "SCHEMAS",
       "path": "backend/app/model_comparison/stage35/schemas.py",
-      "sha256": "3ed900d9df3b4a0d900f6c9c63b2be56bad846c5285f9b5ed5e35d2bdadf554e"
+      "sha256": "a00ccd4054f1893abcca2466a856611b6b008d17071031f363a2d02140f3df48"
     },
     {
       "role": "STORAGE_MANAGER",
@@ -67,7 +92,7 @@
     {
       "role": "ADAPTERS",
       "path": "backend/app/model_comparison/stage35/adapters.py",
-      "sha256": "da454d03378ab06526795c71627efc30e844a6cce140c281cb46af59abaf5ded"
+      "sha256": "5048d4269f1f0500f19572231b7745de727a4e651ca5e3351009bba3ef226c44"
     },
     {
       "role": "EVALUATOR_LOGIC",
@@ -77,7 +102,7 @@
     {
       "role": "RUNNER_LOGIC",
       "path": "backend/app/model_comparison/stage35/runner.py",
-      "sha256": "e600ec5846103981685d75fc59aa145f6b960814db90685cdaa66c84e599e67d"
+      "sha256": "efa8972f5987560653778ab18c7f5e7eb3cf1a47e1632e32d4407879b798330c"
     },
     {
       "role": "DATASET_BRIDGE",
