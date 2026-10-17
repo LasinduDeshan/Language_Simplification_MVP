@@ -1,0 +1,23 @@
+{
+  "artifact_id": "S35-DECODING-CONFIG-001",
+  "deterministic_mode": true,
+  "gemini": {
+    "temperature": 0.0,
+    "top_p": 0.95,
+    "max_output_tokens": 1024,
+    "seed": 42
+  },
+  "mt5": {
+    "num_beams": 4,
+    "max_length": 256,
+    "no_repeat_ngram_size": 3,
+    "early_stopping": true
+  },
+  "mbart": {
+    "forced_bos_token": "si_LK",
+    "num_beams": 4,
+    "max_length": 256,
+    "early_stopping": true
+  },
+  "role": "DECODING_CONFIG"
+}

@@ -1,0 +1,8 @@
+{
+  "artifact_id": "S35-PROMPT-TEMPLATE-001",
+  "language": "si",
+  "locale": "si-LK",
+  "script": "Sinh",
+  "template": "Simplify the following Sinhala text for a young child while preserving meaning, named entities, numbers, and facts. Return only the simplified Sinhala text:\n\n{source_text}",
+  "role": "PROMPT_TEMPLATE"
+}

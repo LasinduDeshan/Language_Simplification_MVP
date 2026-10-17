@@ -1,50 +1,88 @@
 {
-  "bundle_version": "1.0.0",
+  "bundle_version": "2.0.0",
   "stage": "stage35",
+  "code_commit_anchor": "79c0f2619096869090615090b662e9ce9c8e2a7e",
   "frozen_timestamp": "2026-10-17T07:51:52.172067+00:00",
   "first_locked_request_timestamp": "2026-10-17T08:03:24Z",
   "pre_run_freeze_established": true,
-  "master_configuration_sha256": "eeda27f29d648a2e8f25bbaae920ca82243ee575a029c41204f8c9dd506a3d3f",
+  "master_configuration_sha256": "019e8d43f9923a466a018cc0106d4576dbea95102e53a6b4b0f3f7821ac9fdc9",
   "governed_run_authorization_id": "AUTH-S35-LOCKED-TEST-AUTHORIZED-RUN-001",
-  "file_digests": {
-    "adapters": {
-      "path": "backend/app/model_comparison/stage35/adapters.py",
-      "sha256": "da454d03378ab06526795c71627efc30e844a6cce140c281cb46af59abaf5ded"
-    },
-    "dataset_bridge": {
-      "path": "backend/app/model_comparison/stage35/dataset_bridge.py",
-      "sha256": "fc1f45afd0b295dbf9e663e9bad831ae1c1788725f7af5eb1f4a7ae321e5ed51"
-    },
-    "denominators": {
-      "path": "data/model_comparison/stage35/registry/stage35_locked_test_denominators.json",
-      "sha256": "84d20c3f9e20e8e6e3906847809f0c97fb44ce97664a4a1d31b2ff4764a6a66b"
-    },
-    "evaluator": {
-      "path": "backend/app/model_comparison/stage35/evaluator.py",
-      "sha256": "db5dcbea20ebe7f561d3f632e75d6553b2150b1f11fcc1ae7091b40a0fa5b8fe"
-    },
-    "model_registry": {
+  "controlled_artifacts_count": 15,
+  "artifacts": [
+    {
+      "role": "MODEL_REGISTRY",
       "path": "data/model_comparison/stage35/registry/stage35_model_registry.json",
       "sha256": "a1ff6a091b8d7830e25c9997699e0aeb4f3797e3e98e32abccb3ba76d930544f"
     },
-    "runner": {
-      "path": "backend/app/model_comparison/stage35/runner.py",
-      "sha256": "74b51d41f98f52e6bee916442b7bc5cb41a5d5d8073bffc6e77178a8e178d4af"
+    {
+      "role": "PROMPT_TEMPLATE",
+      "path": "data/model_comparison/stage35/registry/stage35_prompt_template.json",
+      "sha256": "0000b7346093c8564dff0ef3eaca703986d1322ad4abbc7fc23ed03f68c15d84"
     },
-    "schemas": {
+    {
+      "role": "DECODING_CONFIG",
+      "path": "data/model_comparison/stage35/registry/stage35_decoding_config.json",
+      "sha256": "39a606a2a1e257245e9cbade6fe2af6d3432653a6f7342f6b1c26f749fe0ffd7"
+    },
+    {
+      "role": "SAFETY_SETTINGS",
+      "path": "data/model_comparison/stage35/registry/stage35_safety_settings.json",
+      "sha256": "a2352cceb1665bb1d37999c6e2286d0dd13df9f506eba4f600c089e6dab72cc5"
+    },
+    {
+      "role": "EVALUATOR_SPEC",
+      "path": "data/model_comparison/stage35/registry/stage35_evaluator_spec.json",
+      "sha256": "0e24374b31591107544db8d5c9a397aa31e102f0bee562085f7521996bc7e56a"
+    },
+    {
+      "role": "METRICS_SPEC",
+      "path": "data/model_comparison/stage35/registry/stage35_metrics_and_gates_spec.json",
+      "sha256": "68761344720a70bfe641be478c4d29b3dac9d0e5336dd4e33f0ce5e67179e595"
+    },
+    {
+      "role": "OPERATIONAL_POLICY",
+      "path": "data/model_comparison/stage35/registry/stage35_operational_policy.json",
+      "sha256": "3a8afc95ef45d26dd734d442c16a6303cd02f6ada4a87bed6743f17349582c48"
+    },
+    {
+      "role": "AUTHORIZATION_RECORD",
+      "path": "data/model_comparison/stage35/registry/stage35_authorization_record.json",
+      "sha256": "556e3c03fe4651dda30f1be6fd4b9397c80c76ec56ff871f80a965dd4402f4ad"
+    },
+    {
+      "role": "DENOMINATOR_MANIFEST",
+      "path": "data/model_comparison/stage35/registry/stage35_locked_test_denominators.json",
+      "sha256": "84d20c3f9e20e8e6e3906847809f0c97fb44ce97664a4a1d31b2ff4764a6a66b"
+    },
+    {
+      "role": "SCHEMAS",
       "path": "backend/app/model_comparison/stage35/schemas.py",
       "sha256": "3ed900d9df3b4a0d900f6c9c63b2be56bad846c5285f9b5ed5e35d2bdadf554e"
     },
-    "storage": {
+    {
+      "role": "STORAGE_MANAGER",
       "path": "backend/app/model_comparison/stage35/storage.py",
       "sha256": "f0aa23148594ae99358c237dc953d3ef5880c24425adecf227abbad7840cedd4"
+    },
+    {
+      "role": "ADAPTERS",
+      "path": "backend/app/model_comparison/stage35/adapters.py",
+      "sha256": "da454d03378ab06526795c71627efc30e844a6cce140c281cb46af59abaf5ded"
+    },
+    {
+      "role": "EVALUATOR_LOGIC",
+      "path": "backend/app/model_comparison/stage35/evaluator.py",
+      "sha256": "db5dcbea20ebe7f561d3f632e75d6553b2150b1f11fcc1ae7091b40a0fa5b8fe"
+    },
+    {
+      "role": "RUNNER_LOGIC",
+      "path": "backend/app/model_comparison/stage35/runner.py",
+      "sha256": "e600ec5846103981685d75fc59aa145f6b960814db90685cdaa66c84e599e67d"
+    },
+    {
+      "role": "DATASET_BRIDGE",
+      "path": "backend/app/model_comparison/stage35/dataset_bridge.py",
+      "sha256": "fc1f45afd0b295dbf9e663e9bad831ae1c1788725f7af5eb1f4a7ae321e5ed51"
     }
-  },
-  "operational_policies": {
-    "random_seed": 42,
-    "repetition_count_per_condition": 1,
-    "adapted_conditions_executed": false,
-    "best_of_n_selection_used": false,
-    "gemini_execution_mode": "CONTROLLED_OFFLINE_SIMULATION_PIPELINE_VALIDATION"
-  }
+  ]
 }

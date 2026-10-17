@@ -1,0 +1,17 @@
+{
+  "artifact_id": "S35-METRICS-SPEC-001",
+  "frozen_metric_count": 5,
+  "metrics": [
+    "source_char_len",
+    "output_char_len",
+    "compression_ratio",
+    "semantic_similarity_proxy",
+    "grammaticality_proxy"
+  ],
+  "critical_safety_gates": {
+    "pipeline_introduced_u_fffd_max": 0,
+    "protected_span_violation_max": 0,
+    "valid_output_rate_min": 0.9
+  },
+  "role": "METRICS_SPEC"
+}

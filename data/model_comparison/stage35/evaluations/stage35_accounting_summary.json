@@ -1,5 +1,6 @@
 {
   "stage": "stage35",
+  "verdict": "INFRASTRUCTURE_DRY_RUN_VALIDATED_EMPIRICAL_EVALUATION_NOT_ESTABLISHED",
   "level_1_inputs": {
     "registered_inputs": 13,
     "primary_common": 8,
@@ -7,9 +8,11 @@
     "unaccounted": 0
   },
   "level_2_executions": {
-    "expected_executions": 47,
+    "potential_condition_input_pairs": 52,
+    "disclosure_blocked_pairs": 5,
+    "eligible_executions": 47,
     "executions_started": 47,
-    "executions_blocked_before_start": 0,
+    "executions_not_started": 0,
     "condition_breakdown": {
       "C0_RULE_BASELINE": {
         "common": 8,
@@ -19,6 +22,7 @@
       "C1_GEMINI_ZERO_SHOT": {
         "common": 8,
         "local_only": 0,
+        "blocked": 5,
         "total": 8
       },
       "C2_MT5_ZERO_SHOT": {
@@ -36,14 +40,21 @@
   },
   "level_3_attempts": {
     "total_attempts": 47,
-    "succeeded": 47,
-    "timeout": 0,
-    "rate_limited": 0,
-    "refused": 0,
-    "invalid_request": 0,
-    "cancelled": 0,
-    "provider_failed": 0,
-    "local_runtime_failed": 0,
+    "real_provider_attempts": 0,
+    "real_local_model_attempts": 0,
+    "simulated_attempts": 47,
+    "cached_attempts": 0,
+    "empirical_responses": 0,
+    "pipeline_test_status": {
+      "succeeded": 47,
+      "timeout": 0,
+      "rate_limited": 0,
+      "refused": 0,
+      "invalid_request": 0,
+      "cancelled": 0,
+      "provider_failed": 0,
+      "local_runtime_failed": 0
+    },
     "unaccounted": 0
   },
   "level_4_responses_vs_failures": {
@@ -79,39 +90,37 @@
     "response_selected": 47,
     "frozen_metric_count": 5,
     "expected_metric_cells": 235,
-    "computed": 235,
+    "diagnostic_cells_computed": 235,
+    "eligible_comparison_cells": 0,
     "missing": 0,
     "unaccounted": 0
   },
   "level_7_operational": {
     "total_attempts": 47,
-    "resource_usage_recorded": 47,
-    "usage_unavailable": 0,
+    "empirical_usage_recorded": 0,
+    "simulation_not_applicable": 47,
+    "missing": 0,
     "unaccounted": 0
   },
   "level_8_statistical": {
-    "planned_pairwise_comparisons": 6,
-    "completed": 6,
-    "not_estimable": 0,
-    "excluded_by_frozen_rule": 0,
+    "dry_run_comparison_computations": 6,
+    "empirical_statistical_comparisons": 0,
+    "empirical_comparisons_not_estimable": 6,
     "unaccounted": 0
   },
   "level_9_condition_decisions": {
     "registered_conditions": 4,
-    "selected_fallback_baseline": 1,
-    "eligible_not_selected": 0,
-    "ineligible_critical_gate": 1,
-    "insufficient_simplification_effect": 2,
-    "not_executed": 0,
-    "unaccounted": 0,
     "condition_outcomes": {
       "C0_RULE_BASELINE": "SELECTED_FALLBACK_BASELINE",
-      "C1_GEMINI_ZERO_SHOT": "INELIGIBLE_CRITICAL_GATE",
-      "C2_MT5_ZERO_SHOT": "INSUFFICIENT_SIMPLIFICATION_EFFECT",
-      "C3_MBART_ZERO_SHOT": "INSUFFICIENT_SIMPLIFICATION_EFFECT"
+      "C1_GEMINI_ZERO_SHOT": "INELIGIBLE_CRITICAL_GATE_SIMULATED_TEST",
+      "C2_MT5_ZERO_SHOT": "INSUFFICIENT_SIMPLIFICATION_EFFECT_SIMULATED_NOOP",
+      "C3_MBART_ZERO_SHOT": "INSUFFICIENT_SIMPLIFICATION_EFFECT_SIMULATED_NOOP"
     },
-    "stage_level_decision": "NO_MODEL_MEETS_MINIMUM_GATE",
-    "required_fallback": "C0_RULE_BASELINE"
+    "stage_level_decision": "NO_MODEL_SELECTED_FROM_DRY_RUN",
+    "empirical_minimum_gate_eligibility": "NOT_ESTABLISHED",
+    "required_fallback": "C0_RULE_BASELINE_RETAINED",
+    "approved_for_child_delivery": false,
+    "unaccounted": 0
   },
   "level_10_human_accounting": "NOT_APPLICABLE_AUTOMATED_TECHNICAL_ONLY"
 }
