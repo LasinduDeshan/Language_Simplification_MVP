@@ -1,0 +1,85 @@
+{
+  "stage": "stage35",
+  "level_1_inputs": {
+    "registered_inputs": 13,
+    "primary_common": 8,
+    "local_only": 5,
+    "unaccounted": 0
+  },
+  "level_2_executions": {
+    "expected_executions": 47,
+    "executions_started": 47,
+    "executions_blocked_before_start": 0,
+    "unaccounted": 0
+  },
+  "level_3_attempts": {
+    "total_attempts": 47,
+    "details": {
+      "succeeded": 47,
+      "timeout": 0,
+      "rate_limited": 0,
+      "refused": 0,
+      "invalid_request": 0,
+      "cancelled": 0,
+      "provider_failed": 0,
+      "local_runtime_failed": 0,
+      "unaccounted": 0
+    },
+    "unaccounted": 0
+  },
+  "level_4_responses_vs_failures": {
+    "executions_started": 47,
+    "response_selected": 47,
+    "terminal_execution_failure": 0,
+    "unaccounted": 0
+  },
+  "level_5a_selected_responses": {
+    "total_selected": 47,
+    "dispositions": {
+      "VALID_CHANGED_OUTPUT": 0,
+      "VALID_UNCHANGED_OUTPUT": 39,
+      "REVIEW_REQUIRED_SEMANTIC_RISK": 0,
+      "REVIEW_REQUIRED_POTENTIAL_HALLUCINATION": 0,
+      "REVIEW_REQUIRED_POTENTIAL_UNSAFE_OUTPUT": 0,
+      "REJECTED_PROTECTED_SPAN_CHANGE": 8,
+      "REJECTED_INVALID_UNICODE_OR_SCRIPT": 0,
+      "REJECTED_TRUNCATION": 0,
+      "REJECTED_EMPTY_OUTPUT": 0,
+      "unaccounted": 0
+    },
+    "unaccounted": 0
+  },
+  "level_5b_terminal_failures": {
+    "total_failures": 0,
+    "dispositions": {
+      "FAILED_REFUSAL": 0,
+      "FAILED_TIMEOUT_EXHAUSTED": 0,
+      "FAILED_RATE_LIMIT_EXHAUSTED": 0,
+      "FAILED_PROVIDER_RUNTIME": 0,
+      "FAILED_LOCAL_RUNTIME": 0,
+      "FAILED_CANCELLED_OR_INTERRUPTED": 0,
+      "unaccounted": 0
+    },
+    "unaccounted": 0
+  },
+  "level_6_metric_cells": {
+    "selected_responses": 47,
+    "frozen_metric_count": 5,
+    "expected_metric_cells": 235,
+    "computed": 235,
+    "missing": 0,
+    "unaccounted": 0
+  },
+  "level_9_condition_decisions": {
+    "registered_conditions": 4,
+    "condition_outcomes": {
+      "C0_RULE_BASELINE": "SELECTED",
+      "C1_GEMINI_ZERO_SHOT": "ELIGIBLE_NOT_SELECTED",
+      "C2_MT5_ZERO_SHOT": "INELIGIBLE_CRITICAL_GATE",
+      "C3_MBART_ZERO_SHOT": "INELIGIBLE_CRITICAL_GATE"
+    },
+    "unaccounted": 0,
+    "stage_level_decision": "CONDITIONALLY_SELECTED_WITH_FALLBACK"
+  },
+  "level_10_human_accounting": "NOT_APPLICABLE_AUTOMATED_TECHNICAL_ONLY"
+}

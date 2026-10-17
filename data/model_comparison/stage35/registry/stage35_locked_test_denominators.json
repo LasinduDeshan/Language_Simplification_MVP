@@ -1,0 +1,123 @@
+{
+  "ledger_version": "1.0.0",
+  "stage": "stage35",
+  "split": "locked_test",
+  "total_locked_test_records": 13,
+  "primary_common_count": 8,
+  "local_only_count": 5,
+  "n_common": 8,
+  "n_local": 5,
+  "primary_common_records": [
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0001",
+      "output_id": "SI-SIMP-OUT-000014",
+      "source_id": "SRC-SI-001",
+      "classification": "PRIMARY_COMMON_DENOMINATOR",
+      "gemini_eligible": true,
+      "local_models_eligible": true
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0002",
+      "output_id": "SI-SIMP-OUT-000015",
+      "source_id": "SRC-SI-001",
+      "classification": "PRIMARY_COMMON_DENOMINATOR",
+      "gemini_eligible": true,
+      "local_models_eligible": true
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0006",
+      "output_id": "SI-SIMP-OUT-000019",
+      "source_id": "SRC-SI-003",
+      "classification": "PRIMARY_COMMON_DENOMINATOR",
+      "gemini_eligible": true,
+      "local_models_eligible": true
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0007",
+      "output_id": "SI-SIMP-OUT-000020",
+      "source_id": "SRC-SI-003",
+      "classification": "PRIMARY_COMMON_DENOMINATOR",
+      "gemini_eligible": true,
+      "local_models_eligible": true
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0008",
+      "output_id": "SI-SIMP-OUT-000021",
+      "source_id": "SRC-SI-003",
+      "classification": "PRIMARY_COMMON_DENOMINATOR",
+      "gemini_eligible": true,
+      "local_models_eligible": true
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0009",
+      "output_id": "SI-SIMP-OUT-000022",
+      "source_id": "SRC-SI-003",
+      "classification": "PRIMARY_COMMON_DENOMINATOR",
+      "gemini_eligible": true,
+      "local_models_eligible": true
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0010",
+      "output_id": "SI-SIMP-OUT-000023",
+      "source_id": "SRC-SI-003",
+      "classification": "PRIMARY_COMMON_DENOMINATOR",
+      "gemini_eligible": true,
+      "local_models_eligible": true
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0011",
+      "output_id": "SI-SIMP-OUT-000024",
+      "source_id": "SRC-SI-003",
+      "classification": "PRIMARY_COMMON_DENOMINATOR",
+      "gemini_eligible": true,
+      "local_models_eligible": true
+    }
+  ],
+  "local_only_records": [
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0003",
+      "output_id": "SI-SIMP-OUT-000016",
+      "source_id": "SRC-SI-002",
+      "classification": "LOCAL_ONLY_SUPPLEMENTARY_DENOMINATOR",
+      "gemini_eligible": false,
+      "local_models_eligible": true,
+      "exclusion_reason": "Source SRC-SI-002 restricted to on-premise non-commercial / academic processing."
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0004",
+      "output_id": "SI-SIMP-OUT-000017",
+      "source_id": "SRC-SI-002",
+      "classification": "LOCAL_ONLY_SUPPLEMENTARY_DENOMINATOR",
+      "gemini_eligible": false,
+      "local_models_eligible": true,
+      "exclusion_reason": "Source SRC-SI-002 restricted to on-premise non-commercial / academic processing."
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0005",
+      "output_id": "SI-SIMP-OUT-000018",
+      "source_id": "SRC-SI-002",
+      "classification": "LOCAL_ONLY_SUPPLEMENTARY_DENOMINATOR",
+      "gemini_eligible": false,
+      "local_models_eligible": true,
+      "exclusion_reason": "Source SRC-SI-002 restricted to on-premise non-commercial / academic processing."
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0012",
+      "output_id": "SI-SIMP-OUT-000025",
+      "source_id": "SRC-SI-004",
+      "classification": "LOCAL_ONLY_SUPPLEMENTARY_DENOMINATOR",
+      "gemini_eligible": false,
+      "local_models_eligible": true,
+      "exclusion_reason": "Source SRC-SI-004 restricted to on-premise non-commercial / academic processing."
+    },
+    {
+      "request_id": "SI-SIMP-REQ-LOCK-0013",
+      "output_id": "SI-SIMP-OUT-000026",
+      "source_id": "SRC-SI-004",
+      "classification": "LOCAL_ONLY_SUPPLEMENTARY_DENOMINATOR",
+      "gemini_eligible": false,
+      "local_models_eligible": true,
+      "exclusion_reason": "Source SRC-SI-004 restricted to on-premise non-commercial / academic processing."
+    }
+  ]
+}

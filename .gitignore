@@ -82,3 +82,5 @@ data/external_english/**/normalized/*
 !data/external_english/**/raw/.gitkeep
 !data/external_english/**/normalized/.gitkeep
 
+
+.sinhala_model_comparison_protected_data/

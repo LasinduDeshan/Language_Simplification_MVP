@@ -1,0 +1,121 @@
+{
+  "registry_version": "1.0.0",
+  "stage": "stage35",
+  "frozen_timestamp": "2026-10-17T07:51:52.172067+00:00",
+  "evaluators": {
+    "multilingual_semantic_encoder": {
+      "model_id": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "revision_sha": "4328cf26390c98c5e3c738b4460a05b95f4911f5",
+      "purpose": "Automated semantic similarity proxy"
+    },
+    "sinhala_morphology_engine": {
+      "version": "stage30_stage33_frozen",
+      "purpose": "Grammatical agreement proxy"
+    },
+    "protected_span_policy": {
+      "ref": "data/sinhala_simplification/registry/protected_span_policy.json",
+      "purpose": "Deterministic span preservation check"
+    }
+  },
+  "conditions": {
+    "C0_RULE_BASELINE": {
+      "condition_id": "C0_RULE_BASELINE",
+      "family": "rule_baseline",
+      "requested_model_id": "sinhala_rule_engine_v1.0_stage33",
+      "resolved_model_version": "stage-33-sealed-rule-engine",
+      "checkpoint_revision": "74481f4d09beeba42ccb9b9c32ff994e372af5bf",
+      "artifact_sha256": "2ca838c0240606453a741d9366aa716c4ad9ce6c7945a5bad4047b5a8761326d",
+      "tokenizer_sha256": null,
+      "licence_label": "Internal Project Software (MIT-compatible)",
+      "licence_verified": true,
+      "terms_snapshot_sha256": null,
+      "sdk_version": "internal",
+      "identity_disposition": "IMMUTABLY_PINNED",
+      "safety_settings_dictionary": null,
+      "decoding_config": {
+        "mode": "deterministic_rules"
+      },
+      "prompt_template_sha256": null,
+      "frozen_at": "2026-10-17T07:51:52.172067+00:00",
+      "approved_for_execution": true
+    },
+    "C1_GEMINI_ZERO_SHOT": {
+      "condition_id": "C1_GEMINI_ZERO_SHOT",
+      "family": "gemini",
+      "requested_model_id": "gemini-2.5-flash",
+      "resolved_model_version": null,
+      "checkpoint_revision": null,
+      "artifact_sha256": null,
+      "tokenizer_sha256": null,
+      "licence_label": "Google APIs Terms of Service",
+      "licence_verified": true,
+      "terms_snapshot_sha256": "4cf29b71a251786523098eef6623bc1106e5e89a5874c83758e57f12e505872c",
+      "sdk_version": "google-genai 2.31.0",
+      "identity_disposition": "VERSION_METADATA_CAPTURED",
+      "safety_settings_dictionary": {
+        "HARM_CATEGORY_HARASSMENT": "BLOCK_MEDIUM_AND_ABOVE",
+        "HARM_CATEGORY_HATE_SPEECH": "BLOCK_MEDIUM_AND_ABOVE",
+        "HARM_CATEGORY_SEXUALLY_EXPLICIT": "BLOCK_MEDIUM_AND_ABOVE",
+        "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_MEDIUM_AND_ABOVE",
+        "HARM_CATEGORY_CIVIC_INTEGRITY": "BLOCK_MEDIUM_AND_ABOVE"
+      },
+      "decoding_config": {
+        "temperature": 0.0,
+        "top_p": 0.95,
+        "max_output_tokens": 1024,
+        "deterministic_seed": 42
+      },
+      "prompt_template_sha256": "38d1558231846bdfa67c617b07db27d532b851adbc0e2a537f002b489d70034a",
+      "frozen_at": "2026-10-17T07:51:52.172067+00:00",
+      "approved_for_execution": true
+    },
+    "C2_MT5_ZERO_SHOT": {
+      "condition_id": "C2_MT5_ZERO_SHOT",
+      "family": "mt5",
+      "requested_model_id": "google/mt5-base",
+      "resolved_model_version": "2eb15465c5dd7f72a8f7984306ad05ebc3dd1e1f",
+      "checkpoint_revision": "2eb15465c5dd7f72a8f7984306ad05ebc3dd1e1f",
+      "artifact_sha256": "05423871b6ba409890a59a721be5b376d8591efb0df3c15d742617f6c3ebf47b",
+      "tokenizer_sha256": "941d331904e57ecf01fcf264d88e0018d4d73ac6b16e1e7f3ea704ee303e3a47",
+      "licence_label": "Apache-2.0 (Provisional, verified against HF model card)",
+      "licence_verified": true,
+      "terms_snapshot_sha256": null,
+      "sdk_version": "transformers 4.46.3",
+      "identity_disposition": "IMMUTABLY_PINNED",
+      "safety_settings_dictionary": null,
+      "decoding_config": {
+        "num_beams": 4,
+        "max_length": 256,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3
+      },
+      "prompt_template_sha256": "7a61d15bf10c71a361bc4c4046d37651a24317d727b134ca83c31da4766bc907",
+      "frozen_at": "2026-10-17T07:51:52.172067+00:00",
+      "approved_for_execution": true
+    },
+    "C3_MBART_ZERO_SHOT": {
+      "condition_id": "C3_MBART_ZERO_SHOT",
+      "family": "mbart",
+      "requested_model_id": "facebook/mbart-large-50-many-to-many-mmt",
+      "resolved_model_version": "e30b6cb8eb0d43a0b73cab73c7676b9863223a30",
+      "checkpoint_revision": "e30b6cb8eb0d43a0b73cab73c7676b9863223a30",
+      "artifact_sha256": "5b8a06fae6396e987c8d9a4f4efb7074c7280aa3f631461ffea0c15ef9876e43",
+      "tokenizer_sha256": "8c9d0840134b22f183765e7143f67858c2a3e3ef917618032742913e9a7e65b2",
+      "licence_label": "MIT (Provisional, verified against HF model card)",
+      "licence_verified": true,
+      "terms_snapshot_sha256": null,
+      "sdk_version": "transformers 4.46.3",
+      "identity_disposition": "IMMUTABLY_PINNED",
+      "safety_settings_dictionary": null,
+      "decoding_config": {
+        "forced_bos_token": "si_LK",
+        "num_beams": 4,
+        "max_length": 256,
+        "early_stopping": true
+      },
+      "prompt_template_sha256": null,
+      "frozen_at": "2026-10-17T07:51:52.172067+00:00",
+      "approved_for_execution": true
+    }
+  }
+}
