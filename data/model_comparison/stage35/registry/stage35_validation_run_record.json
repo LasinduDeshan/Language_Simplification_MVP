@@ -1,0 +1,21 @@
+{
+  "artifact_id": "S35-VALI-RUN-RECORD-001",
+  "stage": "stage35",
+  "role": "VALIDATION_RUN_RECORD",
+  "validation_run_id": "S35-VALI-DRYRUN-001",
+  "validation_denominator": 13,
+  "validation_timestamp": "2026-10-17T07:51:52.172067+00:00",
+  "validation_status": "DRY_RUN_INFRASTRUCTURE_VALIDATION_PASSED",
+  "executed_conditions": [
+    "C0_RULE_BASELINE",
+    "C1_GEMINI_ZERO_SHOT",
+    "C2_MT5_ZERO_SHOT",
+    "C3_MBART_ZERO_SHOT"
+  ],
+  "assertions_verified": {
+    "zero_loss_accounting": true,
+    "mutual_exclusivity_dispositions": true,
+    "immutable_storage_hashing": true,
+    "pre_run_freeze_before_first_request": true
+  }
+}

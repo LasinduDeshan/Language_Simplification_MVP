@@ -1,0 +1,15 @@
+{
+  "artifact_id": "S35-EVALUATOR-SPEC-001",
+  "multilingual_semantic_encoder": {
+    "model_id": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+    "revision_sha": "4328cf26390c98c5e3c738b4460a05b95f4911f5",
+    "metric": "cosine_similarity"
+  },
+  "morphology_engine": {
+    "version": "stage30_stage33_frozen"
+  },
+  "protected_span_policy": {
+    "ref": "data/sinhala_simplification/registry/protected_span_policy.json"
+  },
+  "role": "EVALUATOR_SPEC"
+}

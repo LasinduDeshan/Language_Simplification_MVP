@@ -1,0 +1,566 @@
+[
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0001",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0002",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0006",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0007",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0008",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0009",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0010",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0011",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0003",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0004",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0005",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0012",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0013",
+    "condition_id": "C0_RULE_BASELINE",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0001",
+    "condition_id": "C1_GEMINI_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "REJECTED_PROTECTED_SPAN_CHANGE",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "missing_protected_span": "ශ්‍රී ලංකාවේ"
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0002",
+    "condition_id": "C1_GEMINI_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "REJECTED_PROTECTED_SPAN_CHANGE",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "missing_protected_span": "ශ්‍රී ලංකාවේ"
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0006",
+    "condition_id": "C1_GEMINI_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "REJECTED_PROTECTED_SPAN_CHANGE",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "missing_protected_span": "ශ්‍රී ලංකාවේ"
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0007",
+    "condition_id": "C1_GEMINI_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "REJECTED_PROTECTED_SPAN_CHANGE",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "missing_protected_span": "ශ්‍රී ලංකාවේ"
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0008",
+    "condition_id": "C1_GEMINI_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "REJECTED_PROTECTED_SPAN_CHANGE",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "missing_protected_span": "ශ්‍රී ලංකාවේ"
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0009",
+    "condition_id": "C1_GEMINI_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "REJECTED_PROTECTED_SPAN_CHANGE",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "missing_protected_span": "ශ්‍රී ලංකාවේ"
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0010",
+    "condition_id": "C1_GEMINI_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "REJECTED_PROTECTED_SPAN_CHANGE",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "missing_protected_span": "ශ්‍රී ලංකාවේ"
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0011",
+    "condition_id": "C1_GEMINI_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "REJECTED_PROTECTED_SPAN_CHANGE",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "missing_protected_span": "ශ්‍රී ලංකාවේ"
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0001",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0002",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0006",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0007",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0008",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0009",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0010",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0011",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0003",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0004",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0005",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0012",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0013",
+    "condition_id": "C2_MT5_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0001",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0002",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0006",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0007",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0008",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0009",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0010",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0011",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0003",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0004",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0005",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0012",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  },
+  {
+    "request_id": "SI-SIMP-REQ-LOCK-0013",
+    "condition_id": "C3_MBART_ZERO_SHOT",
+    "execution_mode": "SIMULATED_RESPONSE",
+    "attempt_status": "SUCCEEDED",
+    "response_disposition": "VALID_UNCHANGED_OUTPUT",
+    "terminal_failure_disposition": null,
+    "diagnostic_metrics": {
+      "is_unchanged": true
+    },
+    "approved_for_child_delivery": false
+  }
+]

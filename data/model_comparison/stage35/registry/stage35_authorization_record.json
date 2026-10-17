@@ -1,0 +1,10 @@
+{
+  "artifact_id": "AUTH-S35-LOCKED-TEST-AUTHORIZED-RUN-001",
+  "validation_run_id": "S35-VALI-DRYRUN-001",
+  "validation_denominator": 13,
+  "validation_status": "DRY_RUN_INFRASTRUCTURE_VALIDATION_PASSED",
+  "authorized_by": "Technical Governance Lead",
+  "authorized_at": "2026-10-17T07:51:52.172067+00:00",
+  "first_locked_request_timestamp": "2026-10-17T08:03:24Z",
+  "role": "AUTHORIZATION_RECORD"
+}

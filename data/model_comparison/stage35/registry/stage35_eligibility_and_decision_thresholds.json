@@ -1,0 +1,24 @@
+{
+  "artifact_id": "S35-THRESHOLDS-SPEC-001",
+  "stage": "stage35",
+  "frozen_timestamp": "2026-10-17T07:51:52.172067+00:00",
+  "role": "ELIGIBILITY_AND_DECISION_THRESHOLDS",
+  "critical_safety_gates": {
+    "protected_span_corruption_tolerance": 0,
+    "unicode_replacement_character_tolerance": 0,
+    "non_sinhala_script_hallucination_tolerance": 0,
+    "truncation_tolerance": 0,
+    "empty_output_tolerance": 0
+  },
+  "minimum_automated_quality_thresholds": {
+    "automated_gate_pass_rate_minimum": 0.80,
+    "semantic_similarity_proxy_minimum": 0.70,
+    "grammaticality_proxy_minimum": 0.75,
+    "simplification_improvement_proxy_minimum": 0.10
+  },
+  "decision_rules": {
+    "ineligible_critical_gate": "Any condition with >0 critical gate violations is ruled INELIGIBLE_CRITICAL_GATE.",
+    "dry_run_simulation_verdict": "Under offline simulation, no empirical inference has occurred. The stage-level decision must be NO_MODEL_SELECTED_FROM_DRY_RUN with Empirical minimum-gate eligibility NOT ESTABLISHED and C0_RULE_BASELINE retained.",
+    "child_delivery_prohibition": "approved_for_child_delivery MUST remain false across all Stage 35 model outputs."
+  }
+}

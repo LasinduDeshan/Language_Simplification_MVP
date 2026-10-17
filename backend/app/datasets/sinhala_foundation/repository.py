@@ -10,7 +10,11 @@ class SinhalaFoundationRepository:
     def __init__(self, db_path: Optional[str] = None):
         if db_path is None:
             from app.core.config import settings
-            self.db_path = settings._DEFAULT_DB
+            db_url = settings.database_url
+            if db_url.startswith("sqlite:///"):
+                self.db_path = db_url.replace("sqlite:///", "")
+            else:
+                self.db_path = settings._DEFAULT_DB
         else:
             self.db_path = db_path
             

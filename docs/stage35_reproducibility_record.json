@@ -1,0 +1,25 @@
+{
+  "stage": "stage35",
+  "reproducibility_status": "CONTROLLED_DRY_RUN_REPRODUCIBLE",
+  "bundle_classification": "RETROSPECTIVE_RECONCILIATION_BUNDLE",
+  "prospective_configuration_freeze": "NOT_YET_PROVEN",
+  "original_locked_test_independence": "COMPROMISED_BY_DRY_RUN_USE",
+  "split_classification": "DRY_RUN_DEVELOPMENT_CALIBRATION_SET",
+  "master_configuration_sha256": "2aeb6f4880c23db8d5b93443a08a653c614b9104f9aad0e1f24dcec682516f0a",
+  "code_commit_anchor": "79c0f2619096869090615090b662e9ce9c8e2a7e",
+  "random_seed": 42,
+  "frozen_timestamp": "2026-10-17T07:51:52.172067+00:00",
+  "first_locked_request_timestamp": "2026-10-17T08:03:24Z",
+  "python_version": "3.11.9",
+  "execution_mode": "SIMULATED_RESPONSE",
+  "denominators": {
+    "total_inputs": 13,
+    "primary_common": 8,
+    "local_only": 5,
+    "eligible_executions": 47,
+    "disclosure_blocked_pairs": 5
+  },
+  "results_ledger_sha256": "7c497455eabeb1438f995fe797c13f623228cb2ad2ff9829007d5c2a2feed3d7",
+  "accounting_ledger_sha256": "0fb6994a0fe593ada9aa64a8c08308891faf433ff5da8ae9cf43cc887207bdc2",
+  "governed_run_authorization_id": "AUTH-S35-LOCKED-TEST-AUTHORIZED-RUN-001"
+}

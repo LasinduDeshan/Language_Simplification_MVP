@@ -1,0 +1,116 @@
+{
+  "bundle_version": "3.1.0",
+  "stage": "stage35",
+  "bundle_classification": "RETROSPECTIVE_RECONCILIATION_BUNDLE",
+  "prospective_configuration_freeze": "NOT_YET_PROVEN",
+  "pre_run_freeze_established": false,
+  "qualification": "The 20-artifact bundle was generated retrospectively to reconcile and document configuration baselines across dry-run iterations. A prospective configuration freeze is NOT YET PROVEN and requires a pre-run commit strictly prior to future empirical execution.",
+  "code_commit_anchor": "79c0f2619096869090615090b662e9ce9c8e2a7e",
+  "reconciliation_timestamp": "2026-10-17T09:15:00Z",
+  "first_locked_request_timestamp": "2026-10-17T08:03:24Z",
+  "master_configuration_sha256": "2aeb6f4880c23db8d5b93443a08a653c614b9104f9aad0e1f24dcec682516f0a",
+  "governed_run_authorization_id": "AUTH-S35-LOCKED-TEST-AUTHORIZED-RUN-001",
+  "controlled_artifacts_count": 20,
+  "artifacts": [
+    {
+      "role": "PROMPT_TEMPLATE",
+      "path": "data/model_comparison/stage35/registry/stage35_prompt_template.json",
+      "sha256": "0000b7346093c8564dff0ef3eaca703986d1322ad4abbc7fc23ed03f68c15d84"
+    },
+    {
+      "role": "DECODING_CONFIG",
+      "path": "data/model_comparison/stage35/registry/stage35_decoding_config.json",
+      "sha256": "39a606a2a1e257245e9cbade6fe2af6d3432653a6f7342f6b1c26f749fe0ffd7"
+    },
+    {
+      "role": "SAFETY_SETTINGS",
+      "path": "data/model_comparison/stage35/registry/stage35_safety_settings.json",
+      "sha256": "a2352cceb1665bb1d37999c6e2286d0dd13df9f506eba4f600c089e6dab72cc5"
+    },
+    {
+      "role": "EVALUATOR_MODEL_CONFIG",
+      "path": "data/model_comparison/stage35/registry/stage35_evaluator_spec.json",
+      "sha256": "0e24374b31591107544db8d5c9a397aa31e102f0bee562085f7521996bc7e56a"
+    },
+    {
+      "role": "METRIC_SPECIFICATION",
+      "path": "data/model_comparison/stage35/registry/stage35_metrics_and_gates_spec.json",
+      "sha256": "68761344720a70bfe641be478c4d29b3dac9d0e5336dd4e33f0ce5e67179e595"
+    },
+    {
+      "role": "ELIGIBILITY_AND_DECISION_THRESHOLDS",
+      "path": "data/model_comparison/stage35/registry/stage35_eligibility_and_decision_thresholds.json",
+      "sha256": "c89412291e95c2a60ecacb92fdb7aca4c6d1b541ab299f844ccba0fb659c4d0e"
+    },
+    {
+      "role": "AUTHORIZATION_RECORD",
+      "path": "data/model_comparison/stage35/registry/stage35_authorization_record.json",
+      "sha256": "556e3c03fe4651dda30f1be6fd4b9397c80c76ec56ff871f80a965dd4402f4ad"
+    },
+    {
+      "role": "VALIDATION_RUN_RECORD",
+      "path": "data/model_comparison/stage35/registry/stage35_validation_run_record.json",
+      "sha256": "8a63c16de39bf1a4c2797675515c2ea7c00d0809a0af6f7bb099670e412d3b28"
+    },
+    {
+      "role": "RETRY_AND_FAILURE_POLICY",
+      "path": "data/model_comparison/stage35/registry/stage35_retry_and_failure_policy.json",
+      "sha256": "273ab31fd3820c887acf4e528ce96d5b45c4fe0505e1d02176de5b3a29161f41"
+    },
+    {
+      "role": "SOFTWARE_DEPENDENCY_LOCK",
+      "path": "data/model_comparison/stage35/registry/stage35_software_dependency_lock.json",
+      "sha256": "d207abf513f3128a7abfad6f90b372ac50a619dd5246213503eb2d974522135b"
+    },
+    {
+      "role": "CODE_COMMIT_RECORD",
+      "path": "data/model_comparison/stage35/registry/stage35_code_commit_record.json",
+      "sha256": "e9786bc0ca08945127f3ff91c45b0fe99dae9f0c8c7572df5a3d17d6f454d2ed"
+    },
+    {
+      "role": "MODEL_REGISTRY",
+      "path": "data/model_comparison/stage35/registry/stage35_model_registry.json",
+      "sha256": "31fcf12b1da53de1b335268975645b8357ee57ec16adc3932f8eebec8efcb1bb"
+    },
+    {
+      "role": "DENOMINATOR_MANIFEST",
+      "path": "data/model_comparison/stage35/registry/stage35_locked_test_denominators.json",
+      "sha256": "8f4a65fa61dfc1c5baf2d3676ffa5d8a14a8d90a7a167c91f8fad904ac837bdf"
+    },
+    {
+      "role": "OPERATIONAL_POLICY",
+      "path": "data/model_comparison/stage35/registry/stage35_operational_policy.json",
+      "sha256": "3a8afc95ef45d26dd734d442c16a6303cd02f6ada4a87bed6743f17349582c48"
+    },
+    {
+      "role": "SCHEMAS",
+      "path": "backend/app/model_comparison/stage35/schemas.py",
+      "sha256": "02b690a47cd41aed207c5d42bce9ea146beb90ffb15f3ecc502ea8453225e77c"
+    },
+    {
+      "role": "STORAGE_MANAGER",
+      "path": "backend/app/model_comparison/stage35/storage.py",
+      "sha256": "f0aa23148594ae99358c237dc953d3ef5880c24425adecf227abbad7840cedd4"
+    },
+    {
+      "role": "ADAPTERS",
+      "path": "backend/app/model_comparison/stage35/adapters.py",
+      "sha256": "5048d4269f1f0500f19572231b7745de727a4e651ca5e3351009bba3ef226c44"
+    },
+    {
+      "role": "EVALUATOR_LOGIC",
+      "path": "backend/app/model_comparison/stage35/evaluator.py",
+      "sha256": "db5dcbea20ebe7f561d3f632e75d6553b2150b1f11fcc1ae7091b40a0fa5b8fe"
+    },
+    {
+      "role": "RUNNER_LOGIC",
+      "path": "backend/app/model_comparison/stage35/runner.py",
+      "sha256": "9a9f0438a1b7f4886f7def5be77be271b55e3b225c22be2af461507ceb8b6fe5"
+    },
+    {
+      "role": "DATASET_BRIDGE",
+      "path": "backend/app/model_comparison/stage35/dataset_bridge.py",
+      "sha256": "fc1f45afd0b295dbf9e663e9bad831ae1c1788725f7af5eb1f4a7ae321e5ed51"
+    }
+  ]
+}

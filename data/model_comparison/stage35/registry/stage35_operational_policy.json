@@ -1,0 +1,9 @@
+{
+  "artifact_id": "S35-OPERATIONAL-POLICY-001",
+  "random_seed": 42,
+  "repetition_count_per_condition": 1,
+  "max_retries": 3,
+  "retry_backoff_base_sec": 2.0,
+  "timeout_sec": 30.0,
+  "role": "OPERATIONAL_POLICY"
+}
