@@ -453,7 +453,7 @@ export default function GuidedPlayground({
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.25rem" }}>
             <Sparkles color="#f97316" size={24} />
-            <h1 style={{ margin: 0, fontSize: "1.75rem", fontWeight: 800 }}>
+            <h1 style={{ margin: 0, fontSize: "1.75rem", fontWeight: 700, lineHeight: 1.4 }}>
               {t("headerTitle")}
             </h1>
           </div>

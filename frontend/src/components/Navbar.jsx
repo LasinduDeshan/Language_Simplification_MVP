@@ -74,14 +74,14 @@ export default function Navbar({
         aria-label={t("nav.brandTitle")}
       >
         <div className="brand-icon">
-          <Sparkles size={22} />
+          <Sparkles size={20} />
         </div>
-        <div>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <div className="brand-text-container">
+          <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
             <span className="brand-title">{t("nav.brandTitle")}</span>
             <span className="brand-tag">{t("nav.brandTag")}</span>
           </div>
-          <p className="brand-subtitle" style={{ fontSize: "0.72rem", color: "var(--text-muted)", margin: 0 }}>
+          <p className="brand-subtitle" style={{ fontSize: "0.7rem", color: "var(--text-muted)", margin: 0 }}>
             {t("nav.brandSubtitle")}
           </p>
         </div>

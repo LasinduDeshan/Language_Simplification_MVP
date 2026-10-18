@@ -3,7 +3,7 @@ Sinhala Demonstration UI — Typography and Language Rules (Plan §6, §7)
 */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap");
 
-/* Base Sinhala Font Application across all elements */
+/* Base Sinhala Font Tokens and Application across all elements */
 html[lang="si-LK"],
 html[lang="si-LK"] body,
 html[lang="si-LK"] button,
@@ -15,8 +15,13 @@ html[lang="si-LK"] optgroup,
 :lang(si-LK),
 [data-locale="si"],
 [data-locale="si-LK"] {
-  font-family: 'Noto Sans Sinhala', 'Iskoola Pota', 'Nirmala UI', system-ui, sans-serif;
+  --font-heading: 'Noto Sans Sinhala', 'Nirmala UI', 'Iskoola Pota', system-ui, -apple-system, sans-serif;
+  --font-body: 'Noto Sans Sinhala', 'Nirmala UI', 'Iskoola Pota', system-ui, -apple-system, sans-serif;
+  font-family: 'Noto Sans Sinhala', 'Nirmala UI', 'Iskoola Pota', system-ui, sans-serif;
   letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Base English Font */
@@ -25,20 +30,29 @@ html[lang="si-LK"] optgroup,
   line-height: 1.5;
 }
 
-/* Sinhala Line Heights for Combining Marks (Plan §6.2) */
+/* Sinhala Line Heights and Vertical Metrics for Combining Marks (Plan §6.2) */
 html[lang="si-LK"] body,
 [data-locale="si-LK"] body,
 [data-locale="si"] body {
   line-height: 1.6;
 }
 
+/* Headings: Prevent faux-bold double outline and clipping of top diacritics */
 html[lang="si-LK"] h1,
 html[lang="si-LK"] h2,
 html[lang="si-LK"] h3,
+html[lang="si-LK"] h4,
+html[lang="si-LK"] h5,
+html[lang="si-LK"] h6,
 [data-locale="si-LK"] h1,
 [data-locale="si-LK"] h2,
 [data-locale="si-LK"] h3 {
-  line-height: 1.45;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: normal;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 html[lang="si-LK"] p,
@@ -54,7 +68,7 @@ html[lang="si-LK"] button,
 
 /* Ensure Sinhala input fields have appropriate font and line height */
 .sinhala-input, [lang="si"] input, [lang="si"] textarea, html[lang="si-LK"] input, html[lang="si-LK"] textarea {
-  font-family: 'Noto Sans Sinhala', 'Iskoola Pota', 'Nirmala UI', sans-serif;
+  font-family: 'Noto Sans Sinhala', 'Nirmala UI', 'Iskoola Pota', sans-serif;
   line-height: 1.6;
 }
 
@@ -64,6 +78,18 @@ html[lang="si-LK"] button,
   text-align: left;
 }
 
+/* Brand Title in Sinhala: Disable gradient clip to prevent combining mark clipping */
+html[lang="si-LK"] .brand-title,
+[data-locale="si-LK"] .brand-title {
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #f8fafc;
+  color: #f8fafc;
+  letter-spacing: normal;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
 /* Sinhala Flexible Navigation & Button Metrics (Plan §7) */
 html[lang="si-LK"] .nav-tab,
 [data-locale="si-LK"] .nav-tab {
@@ -71,6 +97,7 @@ html[lang="si-LK"] .nav-tab,
   padding-inline: 14px;
   font-size: 0.88rem;
   font-weight: 600;
+  line-height: 1.45;
 }
 
 /* Sinhala View Mode Button Metrics */
