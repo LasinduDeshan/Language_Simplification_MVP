@@ -62,30 +62,7 @@ export default function Navbar({
 
   return (
     <header className="navbar">
-      {/* 1. Brand Region (Plan §5.1) */}
-      <div
-        className="navbar-brand"
-        onClick={() => {
-          setActiveTab("playground");
-          setIsMobileMenuOpen(false);
-        }}
-        role="button"
-        tabIndex={0}
-        aria-label={t("nav.brandTitle")}
-      >
-        <div className="brand-icon">
-          <Sparkles size={20} />
-        </div>
-        <div className="brand-text-container">
-          <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
-            <span className="brand-title">{t("nav.brandTitle")}</span>
-            <span className="brand-tag">{t("nav.brandTag")}</span>
-          </div>
-          <p className="brand-subtitle" style={{ fontSize: "0.7rem", color: "var(--text-muted)", margin: 0 }}>
-            {t("nav.brandSubtitle")}
-          </p>
-        </div>
-      </div>
+     
 
       {/* 2. Main Navigation Region (Desktop & Tablet) (Plan §5, §7) */}
       <nav className="nav-tabs" aria-label={t("nav.brandTitle")}>

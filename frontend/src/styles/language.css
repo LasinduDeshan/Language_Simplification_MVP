@@ -1,7 +1,6 @@
 /*
 Sinhala Demonstration UI — Typography and Language Rules (Plan §6, §7)
 */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap");
 
 /* Base Sinhala Font Tokens and Application across all elements */
 html[lang="si-LK"],
@@ -107,3 +106,26 @@ html[lang="si-LK"] .view-mode-btn,
   font-weight: 600;
   padding: 6px 14px;
 }
+
+/* Comprehensive Permanent Sinhala Typography Enforcement */
+html[lang^="si"] body,
+html[lang^="si"] button,
+html[lang^="si"] input,
+html[lang^="si"] select,
+html[lang^="si"] textarea,
+html[lang^="si"] h1,
+html[lang^="si"] h2,
+html[lang^="si"] h3,
+html[lang^="si"] h4,
+html[lang^="si"] p,
+html[lang^="si"] span,
+html[lang^="si"] label,
+html[lang^="si"] a {
+  font-family: "Noto Sans Sinhala", "Nirmala UI", sans-serif !important;
+  font-synthesis: none !important;
+  letter-spacing: 0 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 transparent !important;
+  line-height: 1.55;
+}
+
