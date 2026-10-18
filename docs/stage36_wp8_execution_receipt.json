@@ -1,0 +1,27 @@
+{
+  "run_id": "wp8-gov-eval-20261018-034910",
+  "description": "Post-freeze governed regression evaluation over previously exercised technical fixtures",
+  "evaluation_scope": "16 governed technical fixtures (software-validator verification, non-empirical)",
+  "freeze_tag": "stage-36-freeze-wp7b-v2",
+  "freeze_commit": "2c75505a0826a375ee808124b389de8a4c0acc86",
+  "freeze_timestamp_utc": "2026-10-18T03:38:21Z",
+  "wp8_execution_started_utc": "2026-10-18T03:49:10Z",
+  "wp8_execution_completed_utc": "2026-10-18T03:49:14Z",
+  "freeze_preceded_execution": true,
+  "chronology_assertion": "T_freeze < T_start < T_completion (2026-10-18T03:38:21Z < 2026-10-18T03:49:10Z < 2026-10-18T03:49:14Z)",
+  "evaluated_configuration_hash": "7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6",
+  "evaluation_fixture_manifest_hash": "0145101cad24cea3923ca046cf56a536f7d3b98a1fc5d3451bfd1a1e3624e3f2",
+  "accounting_generated_from_run_id": "wp8-gov-eval-20261018-034910",
+  "run_metrics": {
+    "registered_requests": 16,
+    "candidates_evaluated": 29,
+    "validator_cells_expected": 261,
+    "validator_cells_executed": 175,
+    "validator_cells_skipped": 86,
+    "findings_emitted": 34,
+    "fallback_transitions": 17,
+    "selected_outputs": 12,
+    "abstentions_no_output": 4,
+    "child_delivery_approved": 0
+  }
+}

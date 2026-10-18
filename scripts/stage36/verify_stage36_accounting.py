@@ -238,18 +238,23 @@ def verify_accounting():
 
         # Node-Level Flow Verification:
         # Node 0 (Primary Evaluation - 16 requests)
-        n0_primary_selected = sum(1 for t in all_traces if _val(t.final_outcome) in ("PRIMARY_CANDIDATE_SELECTED", "UNCHANGED_SOURCE_SELECTED_FOR_RESEARCH_ONLY") and t.total_fallback_transitions == 0)
+        n0_primary_changed_selected = sum(1 for t in all_traces if _val(t.final_outcome) == "PRIMARY_CANDIDATE_SELECTED" and t.total_fallback_transitions == 0)
+        n0_initial_unchanged_selected = sum(1 for t in all_traces if _val(t.final_outcome) == "UNCHANGED_SOURCE_SELECTED_FOR_RESEARCH_ONLY" and t.total_fallback_transitions == 0)
+        n0_selected_at_depth0 = n0_primary_changed_selected + n0_initial_unchanged_selected
         n0_direct_review = sum(1 for t in all_traces if t.total_fallback_transitions == 1 and _val(t.fallback_steps[0].transition_type) == "TO_MANUAL_REVIEW_NO_OUTPUT")
         n0_direct_reject = sum(1 for t in all_traces if t.total_fallback_transitions == 1 and _val(t.fallback_steps[0].transition_type) == "TO_REJECTED_NO_OUTPUT")
         n0_to_rule = sum(1 for t in all_traces if t.total_fallback_transitions >= 1 and _val(t.fallback_steps[0].transition_type) == "TO_RULE_BASELINE")
-        n0_sum = n0_primary_selected + n0_to_rule + n0_direct_review + n0_direct_reject
+        n0_sum = n0_selected_at_depth0 + n0_to_rule + n0_direct_review + n0_direct_reject
         print(f"Node 0 Flow (Primary Candidate Evaluation - 16 Requests):")
-        print(f"  PrimarySelected (Depth 0):      {n0_primary_selected}")
+        print(f"  SelectedAtDepth0:               {n0_selected_at_depth0}")
+        print(f"    = PrimaryChangedSelected:     {n0_primary_changed_selected}")
+        print(f"    + InitialUnchangedResearchOnly: {n0_initial_unchanged_selected}")
         print(f"  ToRuleFromPrimary (Step 1):     {n0_to_rule}")
         print(f"  DirectReview (Step 1 Terminal): {n0_direct_review}")
         print(f"  DirectReject (Step 1 Terminal): {n0_direct_reject}")
         print(f"  Node 0 Conservation Sum:        {n0_sum}")
         assert n0_sum == 16, f"Node 0 discrepancy: {n0_sum} != 16"
+        assert (n0_selected_at_depth0, n0_primary_changed_selected, n0_initial_unchanged_selected) == (4, 3, 1)
 
         # Node 1 (C0 Rule Baseline Evaluation - Inflow = n0_to_rule = 10)
         n1_rule_selected = sum(1 for t in all_traces if _val(t.final_outcome) == "RULE_FALLBACK_SELECTED")
@@ -264,14 +269,19 @@ def verify_accounting():
         assert n1_sum == n0_to_rule, f"Node 1 discrepancy: {n1_sum} != {n0_to_rule}"
 
         # Node 2 (Unchanged Source Evaluation - Inflow = n1_to_unchanged = 3)
-        n2_unchanged_research_only = sum(1 for t in all_traces if _val(t.final_outcome) == "UNCHANGED_SOURCE_SELECTED_FOR_RESEARCH_ONLY" and t.total_fallback_transitions > 0)
+        n2_fallback_unchanged_research_only = sum(1 for t in all_traces if _val(t.final_outcome) == "UNCHANGED_SOURCE_SELECTED_FOR_RESEARCH_ONLY" and t.total_fallback_transitions > 0)
         n2_unchanged_terminal_abstentions = sum(1 for t in all_traces if any(_val(s.transition_type) == "TO_UNCHANGED_SOURCE" for s in t.fallback_steps) and _val(t.final_outcome) in ("REJECTED_NO_OUTPUT", "MANUAL_REVIEW_NO_OUTPUT"))
-        n2_sum = n2_unchanged_research_only + n2_unchanged_terminal_abstentions
+        n2_sum = n2_fallback_unchanged_research_only + n2_unchanged_terminal_abstentions
+        total_unchanged_research_only = n0_initial_unchanged_selected + n2_fallback_unchanged_research_only
         print(f"Node 2 Flow (Unchanged Source Evaluation - Inflow: {n1_to_unchanged}):")
-        print(f"  UnchangedResearchOnly (Depth 2):        {n2_unchanged_research_only}")
+        print(f"  FallbackUnchangedResearchOnly (Depth 2): {n2_fallback_unchanged_research_only}")
         print(f"  UnchangedTerminalAbstentions (Depth 3): {n2_unchanged_terminal_abstentions}")
         print(f"  Node 2 Conservation Sum:                {n2_sum}")
+        print(f"Total UnchangedResearchOnly: {total_unchanged_research_only}")
+        print(f"  = InitialUnchangedResearchOnly:  {n0_initial_unchanged_selected}")
+        print(f"  + FallbackUnchangedResearchOnly: {n2_fallback_unchanged_research_only}")
         assert n2_sum == n1_to_unchanged, f"Node 2 discrepancy: {n2_sum} != {n1_to_unchanged}"
+        assert total_unchanged_research_only == 2
 
         # Path Length and Total Transitions Sum
         total_transitions_reconciled = n0_to_rule + n0_direct_review + n0_direct_reject + n1_to_unchanged + n1_other_rule_terminal + n2_unchanged_terminal_abstentions

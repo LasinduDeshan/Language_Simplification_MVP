@@ -25,17 +25,40 @@ Stage 36 establishes an automated, deterministic, fail-closed output validation 
 
 ---
 
-## 2. Prospective Freeze Evidence (WP7B)
+## 2. Prospective Freeze Evidence (WP7B-v2) & Post-Freeze WP8 Execution Receipt
+
+### Prospective Re-Freeze Anchor
+Following the finalization of candidate provenance representations (`UNCHANGED_SOURCE_FALLBACK`, `DETERMINISTIC_COPY`) and $V_8$ execution sequencing, the pipeline was sealed prospectively under tag `stage-36-freeze-wp7b-v2` prior to the governed evaluation rerun.
 
 | Parameter | Value | Verification |
 |---|---|---|
-| **WP7B Freeze Commit** | `98bc9c7cfe99eb25fd41c34d25bb036a62a73a41` | Tagged `stage-36-freeze-wp7b` |
-| **WP7B Freeze Timestamp** | `2026-10-17T14:30:00Z` | Recorded in `stage36_configuration.json` |
-| **WP8 First Execution Timestamp** | `2026-10-17T14:31:18Z` | Audit log sequence 1 timestamp |
-| **Temporal Precedence** | `Freeze timestamp < First WP8 execution` | **PASSED** |
-| **Ancestry Verification** | `Freeze commit is ancestor of completion commit` | **PASSED** |
-| **Frozen Configuration Hash** | `7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6` | Verified across WP8 |
-| **Frozen Bundle Integrity** | Zero modifications to frozen configuration during WP8 | **PASSED** |
+| **Freeze Tag** | `stage-36-freeze-wp7b-v2` | Preserved on remote |
+| **Freeze Commit** | `2c75505a0826a375ee808124b389de8a4c0acc86` | Prospective freeze point |
+| **Freeze Timestamp (UTC)** | `2026-10-18T03:38:21Z` | Freeze commit timestamp |
+| **Frozen Configuration Hash** | `7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6` | Verified across evaluation |
+| **Frozen Code Integrity** | Zero modifications to `backend/app/sinhala_output_validation/` | **PASSED (0 diff lines)** |
+
+### Post-Freeze WP8 Execution Receipt
+The execution receipt proves immutable, manifest-controlled execution chronology after the `stage-36-freeze-wp7b-v2` freeze:
+
+$$
+T_{\text{freeze}} < T_{\text{WP8 start}} < T_{\text{WP8 completion}}
+$$
+
+| Field | Value | Verification |
+|---|---|---|
+| **Post-freeze WP8 run ID** | `wp8-gov-eval-20261018-034910` | Unique run identifier |
+| **WP8 execution started** | `2026-10-18T03:49:10Z` | Audit log start timestamp |
+| **WP8 execution completed** | `2026-10-18T03:49:14Z` | Audit log completion timestamp |
+| **Freeze timestamp** | `2026-10-18T03:38:21Z` | Freeze commit timestamp |
+| **Freeze preceded execution** | `PASSED` | $T_{\text{freeze}} < T_{\text{WP8 start}} < T_{\text{WP8 completion}}$ (2026-10-18T03:38:21Z < 2026-10-18T03:49:10Z < 2026-10-18T03:49:14Z) |
+| **Evaluated configuration hash** | `7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6` | Verified unchanged |
+| **Evaluated freeze commit** | `2c75505a0826a375ee808124b389de8a4c0acc86` | Tagged `stage-36-freeze-wp7b-v2` |
+| **Evaluation fixture-manifest hash** | `0145101cad24cea3923ca046cf56a536f7d3b98a1fc5d3451bfd1a1e3624e3f2` | Verified SHA-256 |
+| **Accounting generated from run ID** | `wp8-gov-eval-20261018-034910` | Matched receipt run ID |
+
+### Methodological Qualification
+The post-freeze evaluation run is formally qualified as a **post-freeze governed regression evaluation over previously exercised technical fixtures**. Because the 16 fixtures had already been examined during earlier development and calibration runs, they are not described as untouched or independently held out. This software-validator verification establishes fail-closed deterministic routing and validator-gate invariants, rather than an empirical model comparison.
 
 ---
 
@@ -154,24 +177,32 @@ $$\text{FallbackTransitions} (17) = \text{ToRuleBaseline} (10) + \text{ToUnchang
 In addition to aggregate transition counts, the 17 transitions form mathematically verified, acyclic request paths across three decision nodes:
 
 1. **Node 0 Flow (Primary Candidate Evaluation — 16 Inflow Requests):**
-   $$\text{TotalRequests} (16) = \text{PrimarySelected} (4) + \text{ToRuleFromPrimary} (10) + \text{DirectReview} (2) + \text{DirectReject} (0) = \mathbf{16}$$
-   - PrimarySelected (Depth 0): 4 (3 primary candidate accepted + 1 unchanged primary candidate accepted for research only)
-   - ToRuleFromPrimary (Step 1): 10 (`TO_RULE_BASELINE`)
-   - DirectReview (Step 1 Terminal): 2 (`TO_MANUAL_REVIEW_NO_OUTPUT`)
-   - DirectReject (Step 1 Terminal): 0
+   $$\text{TotalRequests} (16) = \text{SelectedAtDepth0} (4) + \text{ToRuleFromPrimary} (10) + \text{DirectReview} (2) + \text{DirectReject} (0) = \mathbf{16}$$
+   - **SelectedAtDepth0:** 4
+     - **= PrimaryChangedSelected:** 3 (primary candidates accepted after simplification)
+     - **+ InitialUnchangedResearchOnly:** 1 (unchanged primary candidate accepted for research only)
+   - **ToRuleFromPrimary (Step 1):** 10 (`TO_RULE_BASELINE`)
+   - **DirectReview (Step 1 Terminal):** 2 (`TO_MANUAL_REVIEW_NO_OUTPUT`)
+   - **DirectReject (Step 1 Terminal):** 0
+   - **Conservation:** $4 + 10 + 2 + 0 = 16$ ($\text{Discrepancy} = 0$)
 
 2. **Node 1 Flow (C0 Rule Baseline Evaluation — 10 Inflow Requests):**
    $$\text{ToRuleFromPrimary} (10) = \text{RuleFallbackSelected} (7) + \text{ToUnchangedSource} (3) + \text{OtherRuleTerminalOutcomes} (0) = \mathbf{10}$$
-   - RuleFallbackSelected (Depth 1): 7
-   - ToUnchangedSource (Step 2): 3 (`TO_UNCHANGED_SOURCE`)
-   - OtherRuleTerminalOutcomes: 0
+   - **RuleFallbackSelected (Depth 1):** 7
+   - **ToUnchangedSource (Step 2):** 3 (`TO_UNCHANGED_SOURCE`)
+   - **OtherRuleTerminalOutcomes:** 0
+   - **Conservation:** $7 + 3 + 0 = 10$ ($\text{Discrepancy} = 0$)
 
 3. **Node 2 Flow (Unchanged Source Evaluation — 3 Inflow Requests):**
-   $$\text{ToUnchangedSource} (3) = \text{UnchangedResearchOnly} (1) + \text{UnchangedTerminalAbstentions} (2) = \mathbf{3}$$
-   - UnchangedResearchOnly (Depth 2): 1
-   - UnchangedTerminalAbstentions (Depth 3): 2 (`TO_REJECTED_NO_OUTPUT`)
+   $$\text{ToUnchangedSource} (3) = \text{FallbackUnchangedResearchOnly} (1) + \text{UnchangedTerminalAbstentions} (2) = \mathbf{3}$$
+   - **FallbackUnchangedResearchOnly (Depth 2):** 1
+   - **UnchangedTerminalAbstentions (Depth 3):** 2 (`TO_REJECTED_NO_OUTPUT`)
+   - **Conservation:** $1 + 2 = 3$ ($\text{Discrepancy} = 0$)
 
-4. **Path Length & Transition Total Reconciliation:**
+4. **Total UnchangedResearchOnly Decomposition:**
+   $$\text{Total UnchangedResearchOnly} (2) = \text{InitialUnchangedResearchOnly} (1) + \text{FallbackUnchangedResearchOnly} (1) = \mathbf{2}$$
+
+5. **Path Length & Transition Total Reconciliation:**
    - 4 requests with 0 transitions: $4 \times 0 = 0$
    - 2 requests with 1 transition (Primary $\rightarrow$ Review): $2 \times 1 = 2$
    - 7 requests with 1 transition (Primary $\rightarrow$ Rule Engine): $7 \times 1 = 7$
@@ -327,7 +358,9 @@ TotalFallbackTransitions: 17
   TO_UNCHANGED_SOURCE: 3
   Unaccounted: 0
 Node 0 Flow (Primary Candidate Evaluation - 16 Requests):
-  PrimarySelected (Depth 0):      4
+  SelectedAtDepth0:               4
+    = PrimaryChangedSelected:     3
+    + InitialUnchangedResearchOnly: 1
   ToRuleFromPrimary (Step 1):     10
   DirectReview (Step 1 Terminal): 2
   DirectReject (Step 1 Terminal): 0
@@ -338,9 +371,12 @@ Node 1 Flow (Rule Baseline Evaluation - Inflow: 10):
   OtherRuleTerminalOutcomes:      0
   Node 1 Conservation Sum:        10
 Node 2 Flow (Unchanged Source Evaluation - Inflow: 3):
-  UnchangedResearchOnly (Depth 2):        1
+  FallbackUnchangedResearchOnly (Depth 2): 1
   UnchangedTerminalAbstentions (Depth 3): 2
   Node 2 Conservation Sum:                3
+Total UnchangedResearchOnly: 2
+  = InitialUnchangedResearchOnly:  1
+  + FallbackUnchangedResearchOnly: 1
 Node-Level Reconciled Transitions: 17 (Equal to TotalFallbackTransitions: 17)
 
 --- LEVEL 7: SELECTION VS ABSTENTION ---
@@ -375,7 +411,7 @@ ALL 9 LEVELS CONSERVED AND VERIFIED WITH ZERO DISCREPANCIES.
 ### 6.3 Documentation and Implementation Manifest Verification & Tamper Tests
 ```
 $ python scripts/stage36/verify_stage36_manifest.py
-Verifying docs/stage36_manifest.sha256 (13 entries)...
+Verifying docs/stage36_manifest.sha256 (14 entries)...
 PASS: All entries in docs/stage36_manifest.sha256 verified.
 Verifying data/sinhala_output_validation/manifests/stage36_implementation_manifest.sha256 (23 entries)...
 PASS: All entries in data/sinhala_output_validation/manifests/stage36_implementation_manifest.sha256 verified.

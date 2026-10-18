@@ -222,13 +222,15 @@ In addition to aggregate transition counts, the 17 transitions form mathematical
 ##### 1. Node 0: Primary Candidate Evaluation ($16\text{ Inflow Requests}$)
 $$
 \begin{aligned}
-\text{TotalRequests} (16) ={}& \text{PrimarySelected} (4) \\
+\text{TotalRequests} (16) ={}& \text{SelectedAtDepth0} (4) \\
 & + \text{ToRuleFromPrimary} (10) \\
 & + \text{DirectReview} (2) \\
 & + \text{DirectReject} (0)
 \end{aligned}
 $$
-- $\text{PrimarySelected} (4)$: 3 primary candidates accepted + 1 unchanged primary candidate accepted for research only.
+- $\text{SelectedAtDepth0} (4)$:
+  - $\text{PrimaryChangedSelected} (3)$: 3 primary candidates accepted after simplification.
+  - $\text{InitialUnchangedResearchOnly} (1)$: 1 unchanged primary candidate accepted for research only.
 - $\text{ToRuleFromPrimary} (10)$: 10 failed primary candidates routed to Stage 33 C0 rule engine (`TO_RULE_BASELINE`).
 - $\text{DirectReview} (2)$: 2 candidates with inferred entity/delimiter ambiguity routed to expert review (`TO_MANUAL_REVIEW_NO_OUTPUT`).
 - $\text{DirectReject} (0)$: 0 candidates rejected directly without attempt.
@@ -250,13 +252,21 @@ $$
 ##### 3. Node 2: Unchanged Source Evaluation ($3\text{ Inflow Requests}$)
 $$
 \begin{aligned}
-\text{ToUnchangedSource} (3) ={}& \text{UnchangedResearchOnly} (1) \\
+\text{ToUnchangedSource} (3) ={}& \text{FallbackUnchangedResearchOnly} (1) \\
 & + \text{UnchangedTerminalAbstentions} (2)
 \end{aligned}
 $$
-- $\text{UnchangedResearchOnly} (1)$: 1 unchanged source passed all gates at depth 2 and was selected for research only.
+- $\text{FallbackUnchangedResearchOnly} (1)$: 1 unchanged source passed all gates at depth 2 and was selected for research only.
 - $\text{UnchangedTerminalAbstentions} (2)$: 2 unchanged sources failed critical script validation (corrupt source) and were terminally rejected (`TO_REJECTED_NO_OUTPUT`).
 - **Node 2 Conservation:** $1 + 2 = \mathbf{3}$ ($\text{Discrepancy} = 0$).
+
+##### Total UnchangedResearchOnly Decomposition
+$$
+\begin{aligned}
+\text{Total UnchangedResearchOnly} (2) ={}& \text{InitialUnchangedResearchOnly} (1) \\
+& + \text{FallbackUnchangedResearchOnly} (1) = \mathbf{2}
+\end{aligned}
+$$
 
 ##### 4. Path Length & Transition Total Reconciliation
 - 4 requests with 0 transitions: $4 \times 0 = 0$
@@ -348,10 +358,37 @@ $$
 
 ---
 
-## 3. Final Release Decision
+## 3. Methodological Qualification & Post-Freeze Execution Receipt
+
+### Methodological Qualification
+The final evaluation run represents a **post-freeze governed regression evaluation over previously exercised technical fixtures**. Because the 16 fixtures had already been examined during earlier development and calibration runs, they are not described as untouched or independently held out. This software-validator verification establishes fail-closed deterministic routing and validator-gate invariants, rather than an empirical model comparison.
+
+### Post-Freeze WP8 Execution Receipt
+The execution receipt proves immutable, manifest-controlled execution chronology after prospective freeze `stage-36-freeze-wp7b-v2`:
+
+$$
+T_{\text{freeze}} < T_{\text{WP8 start}} < T_{\text{WP8 completion}}
+$$
+
+| Receipt Property | Value | Verification Status |
+|---|---|---|
+| **Post-freeze WP8 run ID** | `wp8-gov-eval-20261018-034910` | Unique run identifier |
+| **WP8 execution started** | `2026-10-18T03:49:10Z` | Audit log start timestamp |
+| **WP8 execution completed** | `2026-10-18T03:49:14Z` | Audit log completion timestamp |
+| **Freeze timestamp** | `2026-10-18T03:38:21Z` | Freeze commit timestamp |
+| **Freeze preceded execution** | `PASSED` | $T_{\text{freeze}} < T_{\text{WP8 start}} < T_{\text{WP8 completion}}$ (2026-10-18T03:38:21Z < 2026-10-18T03:49:10Z < 2026-10-18T03:49:14Z) |
+| **Evaluated configuration hash** | `7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6` | Verified unchanged |
+| **Evaluated freeze commit** | `2c75505a0826a375ee808124b389de8a4c0acc86` | Tagged `stage-36-freeze-wp7b-v2` |
+| **Evaluation fixture-manifest hash** | `0145101cad24cea3923ca046cf56a536f7d3b98a1fc5d3451bfd1a1e3624e3f2` | Verified SHA-256 |
+| **Accounting generated from run ID** | `wp8-gov-eval-20261018-034910` | Matched receipt run ID |
+
+---
+
+## 4. Final Release Decision
 
 $$\mathbf{STAGE\_36\_VALIDATION\_AND\_FALLBACK\_PIPELINE\_OPERATIONAL\_AND\_SEALED}$$
 
 - **Automated Validation:** `OPERATIONAL (RESEARCH ONLY)`
 - **Child Delivery:** `NOT AUTHORIZED (HUMAN EXPERT REVIEW REQUIRED)`
 - **Full Backend Regression:** `745 / 745 PASSED (100%)`
+

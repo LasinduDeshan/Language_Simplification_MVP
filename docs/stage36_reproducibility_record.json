@@ -10,6 +10,20 @@
   "frozen_configuration_hash": "7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6",
   "frozen_configuration_timestamp_utc": "2026-10-18T03:38:21Z",
   "completion_tag": "stage-36-complete-v3",
+  "wp8_post_freeze_execution_receipt": {
+    "run_id": "wp8-gov-eval-20261018-034910",
+    "description": "Post-freeze governed regression evaluation over previously exercised technical fixtures",
+    "wp8_execution_started_utc": "2026-10-18T03:49:10Z",
+    "wp8_execution_completed_utc": "2026-10-18T03:49:14Z",
+    "freeze_timestamp_utc": "2026-10-18T03:38:21Z",
+    "freeze_preceded_execution": true,
+    "chronology_proven": "T_freeze (2026-10-18T03:38:21Z) < T_WP8_start (2026-10-18T03:49:10Z) < T_WP8_completion (2026-10-18T03:49:14Z)",
+    "evaluated_configuration_hash": "7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6",
+    "evaluated_freeze_commit": "2c75505a0826a375ee808124b389de8a4c0acc86",
+    "evaluation_fixture_manifest_hash": "0145101cad24cea3923ca046cf56a536f7d3b98a1fc5d3451bfd1a1e3624e3f2",
+    "accounting_generated_from_run_id": "wp8-gov-eval-20261018-034910",
+    "methodological_qualification": "Software-validator regression verification over previously exercised technical fixtures (non-empirical)"
+  },
   "database_baseline_sha256": "44ff4f07fca1ac92343875bb8c82957df5cc721017dd08d20e901689392bb701",
   "test_metrics": {
     "total_stage36_test_cases": 83,
@@ -89,7 +103,9 @@
       "unaccounted": 0,
       "node_flows": {
         "node0_primary_inflow": 16,
-        "node0_primary_selected": 4,
+        "node0_selected_at_depth_0": 4,
+        "node0_primary_changed_selected": 3,
+        "node0_initial_unchanged_research_only": 1,
         "node0_to_rule_from_primary": 10,
         "node0_direct_review": 2,
         "node0_direct_reject": 0,
@@ -98,8 +114,9 @@
         "node1_to_unchanged_source": 3,
         "node1_other_terminal": 0,
         "node2_unchanged_inflow": 3,
-        "node2_unchanged_research_only": 1,
-        "node2_unchanged_terminal_abstentions": 2
+        "node2_fallback_unchanged_research_only": 1,
+        "node2_unchanged_terminal_abstentions": 2,
+        "total_unchanged_research_only": 2
       }
     },
     "level7_selection_vs_abstention": {
