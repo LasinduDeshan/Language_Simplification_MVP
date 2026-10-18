@@ -4,7 +4,7 @@ import { useTranslation } from "../i18n/useTranslation.js";
 import { getLocalizedInstruction, getLocalizedOptions, getOptionEmoji } from "../i18n/activityLocalization.js";
 
 export default function ChildPreviewModal({ childView, adaptation, task, onClose }) {
-  const { t } = useTranslation();
+  const { t, resolvedLanguage } = useTranslation();
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
 
@@ -18,7 +18,7 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
   const retryCue = childView?.retry_cue;
   const adultSupportMessage = childView?.adult_support_message || (childView?.status === "adult_support_required" ? t("childModal.askTeacherHelper") : null);
   const rawOptions = childView?.options || task?.options || [];
-  const options = getLocalizedOptions(rawActivity, rawOptions);
+  const options = getLocalizedOptions(rawActivity, rawOptions, resolvedLanguage);
   const stimulus = childView?.stimulus || task?.stimulus;
 
   const handleSpeak = () => {
@@ -206,11 +206,14 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
             marginTop: "1rem"
           }}>
             {options.map((opt, idx) => {
-              const isSelected = selectedChoice === opt;
+              const optRaw = typeof opt === "object" && opt !== null ? opt.raw : opt;
+              const optLabel = typeof opt === "object" && opt !== null ? opt.label : opt;
+              const optEmoji = typeof opt === "object" && opt !== null && opt.emoji ? opt.emoji : getOptionEmoji(optRaw || optLabel);
+              const isSelected = selectedChoice === optRaw;
               return (
                 <button
                   key={idx}
-                  onClick={() => setSelectedChoice(opt)}
+                  onClick={() => setSelectedChoice(optRaw)}
                   style={{
                     background: isSelected ? "#f97316" : "#ffffff",
                     color: isSelected ? "#ffffff" : "#1e293b",
@@ -228,8 +231,8 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
                     transition: "all 0.15s ease-in-out"
                   }}
                 >
-                  <span style={{ fontSize: "2rem" }}>{getOptionEmoji(opt)}</span>
-                  <span>{opt}</span>
+                  <span style={{ fontSize: "2rem" }}>{optEmoji}</span>
+                  <span>{optLabel}</span>
                 </button>
               );
             })}

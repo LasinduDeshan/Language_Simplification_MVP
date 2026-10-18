@@ -177,12 +177,13 @@ export function getLocalizedInstruction(activity, localeOrFallback = '', options
   return activity.presented_instruction || activity.child_friendly_instruction || fallbackText;
 }
 
-export function getLocalizedOptions(activity, localeOrOptions = null) {
+export function getLocalizedOptions(activity, localeOrOptions = null, maybeLocale = null) {
   let opts = [];
   let locale = null;
 
   if (Array.isArray(localeOrOptions)) {
     opts = localeOrOptions;
+    if (typeof maybeLocale === 'string') locale = maybeLocale;
   } else if (typeof localeOrOptions === 'string') {
     locale = localeOrOptions;
   }

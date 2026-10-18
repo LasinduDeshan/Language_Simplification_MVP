@@ -72,4 +72,16 @@ describe('Dynamic Activity Content Localization Tests (Plan §12.3)', () => {
       'Researcher view may present marked fallback'
     );
   });
+
+  test('getLocalizedOptions accepts (activity, rawOptions, locale) signature and produces renderable strings', () => {
+    const rawOptions = ['cat', 'dog', 'rabbit'];
+    const options = getLocalizedOptions({ id: 'TASK-001' }, rawOptions, 'si');
+    assert.equal(options.length, 3);
+    for (const opt of options) {
+      assert.equal(typeof opt.raw, 'string');
+      assert.equal(typeof opt.label, 'string');
+      assert.equal(typeof opt.emoji, 'string');
+    }
+  });
 });
+
