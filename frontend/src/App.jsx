@@ -17,7 +17,7 @@ export default function App() {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("playground");
   const [viewMode, setViewMode] = useState("simple"); // 'simple' | 'researcher'
-  const [generationMode, setGenerationMode] = useState("rule");
+  const [generationMode, setGenerationMode] = useState("llm");
   const [isBackendHealthy, setIsBackendHealthy] = useState(false);
 
   const [tasks, setTasks] = useState([]);
