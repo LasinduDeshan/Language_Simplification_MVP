@@ -1,8 +1,8 @@
 /*
 Stage 29 Language and Typography Styles
 */
-:lang(si), :lang(si-LK) {
-  font-family: 'Noto Sans Sinhala', 'Nirmala UI', sans-serif;
+:lang(si), :lang(si-LK), html[lang="si-LK"], [data-locale="si"], [data-locale="si-LK"] {
+  font-family: 'Noto Sans Sinhala', 'Iskoola Pota', 'Nirmala UI', system-ui, sans-serif;
   line-height: 1.65;
   letter-spacing: 0.01em;
 }

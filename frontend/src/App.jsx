@@ -11,8 +11,10 @@ import IntegrationExplorer from "./components/IntegrationExplorer";
 import EvaluationHub from "./components/EvaluationHub";
 import TaskResultsHistoryView from "./components/TaskResultsHistoryView";
 import { checkHealth, fetchTasks, fetchLearners, fetchScenarios } from "./services/api";
+import { useTranslation } from "./i18n/useTranslation.js";
 
 export default function App() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("playground");
   const [viewMode, setViewMode] = useState("simple"); // 'simple' | 'researcher'
   const [generationMode, setGenerationMode] = useState("rule");
@@ -101,7 +103,7 @@ export default function App() {
         {loading ? (
           <div style={{ textAlign: "center", padding: "4rem" }}>
             <p style={{ color: "var(--text-secondary)", fontSize: "1.1rem" }}>
-              Initializing Learning Environment...
+              {t("common.initializing")}
             </p>
           </div>
         ) : (

@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import { X, Volume2, Sparkles, Heart, CheckCircle2, Star, Smile } from "lucide-react";
+import { useTranslation } from "../i18n/useTranslation.js";
+import { getLocalizedInstruction, getLocalizedOptions, getOptionEmoji } from "../i18n/activityLocalization.js";
 
 export default function ChildPreviewModal({ childView, adaptation, task, onClose }) {
+  const { t } = useTranslation();
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
 
-  const instruction = childView?.presented_instruction || adaptation?.child_instruction || task?.child_friendly_instruction || "Look at the picture and let's have fun!";
-  const supportiveMessage = childView?.supportive_message || adaptation?.supportive_message || "You are doing wonderful!";
+  const rawActivity = childView || adaptation || task;
+  const instruction = getLocalizedInstruction(
+    rawActivity,
+    t("childModal.defaultInstruction"),
+    true // isChildFacing = true ensures fail-closed approved Sinhala in child view
+  );
+  const supportiveMessage = childView?.supportive_message || adaptation?.supportive_message || t("childModal.supportiveDefault");
   const retryCue = childView?.retry_cue;
-  const adultSupportMessage = childView?.adult_support_message;
-  const options = childView?.options || task?.options || [];
+  const adultSupportMessage = childView?.adult_support_message || (childView?.status === "adult_support_required" ? t("childModal.askTeacherHelper") : null);
+  const rawOptions = childView?.options || task?.options || [];
+  const options = getLocalizedOptions(rawActivity, rawOptions);
   const stimulus = childView?.stimulus || task?.stimulus;
 
   const handleSpeak = () => {
@@ -23,31 +32,6 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
       utter.onerror = () => setIsSpeaking(false);
       window.speechSynthesis.speak(utter);
     }
-  };
-
-  const getOptionEmoji = (opt) => {
-    const o = String(opt).toLowerCase();
-    if (o.includes("cat")) return "🐱";
-    if (o.includes("dog")) return "🐶";
-    if (o.includes("rabbit")) return "🐰";
-    if (o.includes("pencil")) return "✏️";
-    if (o.includes("book")) return "📖";
-    if (o.includes("apple")) return "🍎";
-    if (o.includes("banana")) return "🍌";
-    if (o.includes("car")) return "🚗";
-    if (o.includes("fish") || o.includes("water")) return "🐟";
-    if (o.includes("tree")) return "🌳";
-    if (o.includes("in")) return "📥";
-    if (o.includes("on")) return "📦";
-    if (o.includes("under")) return "🪑";
-    if (o.includes("red")) return "🔴";
-    if (o.includes("blue")) return "🔵";
-    if (o.includes("yellow")) return "🟡";
-    if (o.includes("yes")) return "👍";
-    if (o.includes("no")) return "👎";
-    if (o.includes("she") || o.includes("girl")) return "👧";
-    if (o.includes("he") || o.includes("boy")) return "👦";
-    return "✨";
   };
 
   return (
@@ -95,7 +79,8 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
             boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
             color: "#ea580c"
           }}
-          title="Close Preview"
+          title={t("childModal.closePreview")}
+          aria-label={t("childModal.closePreview")}
         >
           <X size={24} />
         </button>
@@ -177,7 +162,7 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
             }}
           >
             <Volume2 size={22} className={isSpeaking ? "animate-pulse" : ""} />
-            <span>{isSpeaking ? "Listening..." : "Hear Instruction"}</span>
+            <span>{isSpeaking ? t("childModal.listening") : t("childModal.hearInstruction")}</span>
           </button>
         </div>
 

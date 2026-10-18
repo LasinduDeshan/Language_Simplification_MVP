@@ -4,6 +4,7 @@ import {
   ChevronDown, BookOpen, Users, Activity, Sliders, Cpu, Check
 } from "lucide-react";
 import LanguageSelector from "./language/LanguageSelector";
+import { useTranslation } from "../i18n/useTranslation.js";
 
 export default function Navbar({
   activeTab,
@@ -14,6 +15,7 @@ export default function Navbar({
   viewMode,
   setViewMode
 }) {
+  const { t } = useTranslation();
   const [isLabMenuOpen, setIsLabMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -29,12 +31,12 @@ export default function Navbar({
   }, []);
 
   const labTabs = [
-    { id: "dashboard", label: "Advanced Scenario Console", icon: PlayCircle, desc: "Full simulation & attempt matrix" },
-    { id: "tasks", label: "Task Repository (10)", icon: BookOpen, desc: "Browse curated English tasks" },
-    { id: "learners", label: "Learner Profiles (5)", icon: Users, desc: "Review educational performance profiles" },
-    { id: "analysis", label: "Linguistic & spaCy Diagnostics", icon: Activity, desc: "Clause & grammar parse tree" },
-    { id: "personalization", label: "Personalization Rules", icon: Sliders, desc: "Pedagogical templates & tier rules" },
-    { id: "integrations", label: "Subsystem JSON Payloads", icon: Cpu, desc: "Component 1, 2 (AR), 4 schemas" }
+    { id: "dashboard", label: t("nav.labDashboard"), icon: PlayCircle, desc: t("nav.labDashboardDesc") },
+    { id: "tasks", label: t("nav.labTasks"), icon: BookOpen, desc: t("nav.labTasksDesc") },
+    { id: "learners", label: t("nav.labLearners"), icon: Users, desc: t("nav.labLearnersDesc") },
+    { id: "analysis", label: t("nav.labAnalysis"), icon: Activity, desc: t("nav.labAnalysisDesc") },
+    { id: "personalization", label: t("nav.labPersonalization"), icon: Sliders, desc: t("nav.labPersonalizationDesc") },
+    { id: "integrations", label: t("nav.labIntegrations"), icon: Cpu, desc: t("nav.labIntegrationsDesc") }
   ];
 
   const isLabTabActive = labTabs.some(t => t.id === activeTab);
@@ -48,11 +50,11 @@ export default function Navbar({
         </div>
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <span className="brand-title">Adaptive Language MVP</span>
-            <span className="brand-tag">v2.2</span>
+            <span className="brand-title">{t("nav.brandTitle")}</span>
+            <span className="brand-tag">{t("nav.brandTag")}</span>
           </div>
           <p style={{ fontSize: "0.72rem", color: "var(--text-muted)" }}>
-            Child-Friendly Language Simplifier (Ages 4–8)
+            {t("nav.brandSubtitle")}
           </p>
         </div>
       </div>
@@ -63,43 +65,43 @@ export default function Navbar({
         <button
           className={`nav-tab ${activeTab === "playground" ? "active" : ""}`}
           onClick={() => setActiveTab("playground")}
-          title="Interactive child instruction playground with voice playback"
+          title={t("nav.interactivePlaygroundTitle")}
         >
           <Sparkles size={16} />
-          <span>Interactive Playground</span>
+          <span>{t("nav.interactivePlayground")}</span>
         </button>
 
         {/* 2. Safety & Anti-Leakage */}
         <button
           className={`nav-tab ${activeTab === "safety" ? "active" : ""}`}
           onClick={() => setActiveTab("safety")}
-          title="Test whether instructions leak answers or use complex words"
+          title={t("nav.safetyTitle")}
         >
           <ShieldCheck size={16} />
-          <span>Safety & Anti-Leakage</span>
+          <span>{t("nav.safety")}</span>
         </button>
 
         {/* 3. Evaluation & Data Exports */}
         <button
           className={`nav-tab ${activeTab === "evaluation" ? "active" : ""}`}
           onClick={() => setActiveTab("evaluation")}
-          title="Rate adaptations and download CSV / ZIP research bundles"
+          title={t("nav.evaluationTitle")}
         >
           <Award size={16} />
-          <span>Evaluation &amp; Exports</span>
+          <span>{t("nav.evaluation")}</span>
         </button>
 
         {/* 4. Results & History */}
         <button
           className={`nav-tab ${activeTab === "results" ? "active" : ""}`}
           onClick={() => setActiveTab("results")}
-          title="View all stored task outcome records with score evolution history"
+          title={t("nav.resultsTitle")}
         >
           <Clock size={16} />
-          <span>Results &amp; History</span>
+          <span>{t("nav.results")}</span>
         </button>
 
-        {/* 4. Technical Lab Dropdown Menu */}
+        {/* 5. Technical Lab Dropdown Menu */}
         <div className="dropdown-container" ref={dropdownRef} style={{ position: "relative" }}>
           <button
             className={`nav-tab ${isLabTabActive ? "active" : ""}`}
@@ -107,13 +109,13 @@ export default function Navbar({
             style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}
           >
             <Layers size={16} />
-            <span>Technical Lab</span>
+            <span>{t("nav.technicalLab")}</span>
             <ChevronDown size={14} style={{ transform: isLabMenuOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
           </button>
 
           {isLabMenuOpen && (
             <div className="dropdown-menu">
-              <div className="dropdown-header">Advanced Research Modules</div>
+              <div className="dropdown-header">{t("nav.advancedModules")}</div>
               {labTabs.map(tab => {
                 const IconComponent = tab.icon;
                 const isSelected = activeTab === tab.id;
@@ -150,16 +152,16 @@ export default function Navbar({
           <button
             className={`toggle-btn ${viewMode === "simple" ? "active" : ""}`}
             onClick={() => setViewMode("simple")}
-            title="Clean, easy-to-use interface without technical clutter"
+            title={t("common.simpleViewTitle")}
           >
-            ✨ Simple View
+            ✨ {t("common.simpleView")}
           </button>
           <button
             className={`toggle-btn ${viewMode === "researcher" ? "active" : ""}`}
             onClick={() => setViewMode("researcher")}
-            title="Unhide raw JSON, acoustic confidence, and educational metrics"
+            title={t("common.researcherViewTitle")}
           >
-            🔬 Researcher
+            🔬 {t("common.researcherView")}
           </button>
         </div>
 
@@ -172,16 +174,16 @@ export default function Navbar({
             onChange={(e) => setGenerationMode(e.target.value)}
             title="Choose AI generation engine"
           >
-            <option value="rule">Rule (Offline)</option>
-            <option value="hybrid">Hybrid (Target)</option>
-            <option value="llm">LLM (Simulated)</option>
+            <option value="rule">{t("nav.generationRule")}</option>
+            <option value="hybrid">{t("nav.generationHybrid")}</option>
+            <option value="llm">{t("nav.generationLlm")}</option>
           </select>
         </div>
 
         {/* Backend Online Status Pill */}
         <div className={`status-badge ${isBackendHealthy ? "status-healthy" : ""}`} title="FastAPI Health Status">
           <div className="status-indicator" />
-          <span>{isBackendHealthy ? "Online" : "Connecting..."}</span>
+          <span>{isBackendHealthy ? t("common.online") : t("common.connecting")}</span>
         </div>
       </div>
     </header>

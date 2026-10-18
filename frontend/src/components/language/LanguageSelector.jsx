@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { getLocale, setLocale, subscribeLocale, t } from '../../i18n/config.js';
-import { LOCALE_REGISTRY } from '../../i18n/localeRegistry.js';
 
 export function LanguageSelector({ id = "language-selector" }) {
   const [current, setCurrent] = useState(getLocale());
@@ -9,7 +8,8 @@ export function LanguageSelector({ id = "language-selector" }) {
   useEffect(() => {
     const unsubscribe = subscribeLocale(newLocale => {
       setCurrent(newLocale);
-      const msg = newLocale === 'si-LK'
+      const isSi = newLocale === 'si' || newLocale === 'si-LK';
+      const msg = isSi
         ? 'භාෂාව සිංහල ලෙස වෙනස් විය'
         : 'Language changed to English';
       setAnnouncement(msg);
@@ -22,6 +22,8 @@ export function LanguageSelector({ id = "language-selector" }) {
     setLocale(selected);
   };
 
+  const selectedValue = (current === 'si' || current === 'si-LK') ? 'si-LK' : 'en-LK';
+
   return (
     <div className="language-selector-container" id={`${id}-container`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
       <label htmlFor={id} style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-secondary, #94a3b8)' }}>
@@ -29,7 +31,7 @@ export function LanguageSelector({ id = "language-selector" }) {
       </label>
       <select
         id={id}
-        value={current}
+        value={selectedValue}
         onChange={handleChange}
         aria-label={t('language_selector.label')}
         style={{
@@ -43,8 +45,8 @@ export function LanguageSelector({ id = "language-selector" }) {
           outline: 'none'
         }}
       >
-        <option value="en-LK">English</option>
-        <option value="si-LK">සිංහල</option>
+        <option value="en-LK">{t('language_selector.english')}</option>
+        <option value="si-LK">{t('language_selector.sinhala')}</option>
       </select>
 
       {/* Screen reader live region */}

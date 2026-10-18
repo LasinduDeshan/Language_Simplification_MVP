@@ -427,9 +427,65 @@ ALL MANIFEST VERIFICATIONS AND TAMPER TESTS PASSED.
 
 ---
 
-## 7. Final Release Verdict
+## 7. Release History and Tagging Sequence
 
-$$\mathbf{STAGE\_36\_VALIDATION\_AND\_FALLBACK\_PIPELINE\_OPERATIONAL\_AND\_SEALED}$$
+- `stage-36-start`: `cd86a6b0aff2d07d7d0c4f8079f10e9833b5b3d0`
+- `stage-36-freeze-wp7b-v2`: `2c75505a0826a375ee808124b389de8a4c0acc86`
+- `stage-36-complete-v1`..`v4`: Historical documentation & pipeline releases (all tags strictly preserved).
+- `stage-36-complete-v5`: Reconciled UI localization checkpoint.
 
-**Operational Status:** The Sinhala validation and fallback engine is fully operational for research and supervised evaluation purposes. All generated outputs remain strictly research-grade and require human expert review prior to any child delivery.
+---
+
+## 8. Stage 36 Sinhala UI Localization Reconciliation (stage-36-complete-v5)
+
+### 8.1 Reconciliation Context and Purpose
+Following the Stage 36 complete v4 checkpoint (`9b04f4bc0bf22afd1f037bdc77f4a81276107877`), an interface inspection revealed that although the language selector switched to **සිංහල**, large portions of the frontend UI remained in English due to hardcoded strings, unattached translation namespaces, and direct exposure of raw database enum identifiers (e.g. `animal_naming`, `strong_visual_cue`, `high`/`moderate`/`low`).
+
+Under the **Stage 36 Sinhala UI Localization Reconciliation Plan**, comprehensive corrective implementation was executed on branch `fix/stage36-sinhala-ui-localization` to achieve full, verified UI localization across all interactive and research modules prior to Stage 37 speech integration.
+
+### 8.2 Deliverables and Technical Scope
+1. **Symmetric Translation Key Architecture:**
+   - Expanded `frontend/src/i18n/en.json` and `frontend/src/i18n/si.json` to 220 translation keys with 100% mutual parity.
+   - 15 governed namespaces: `app`, `nav`, `common`, `playground`, `childModal`, `risk`, `skills`, `support`, `status`, `safety`, `results`, `evaluation`, `language_selector`, `probe`, `governance`.
+   - Updated `frontend/src/i18n/translations.meta.json` with cryptographic SHA-256 digests.
+2. **Reactive Translation Hook & Namespace Routing:**
+   - Implemented `frontend/src/i18n/useTranslation.js` allowing seamless locale switching and instant component re-rendering without page refreshes.
+   - Multi-syntax parameter interpolation supporting both `{param}` and `{{param}}`.
+3. **Enum and Internal Identifier Localization:**
+   - Implemented `frontend/src/i18n/enumLocalization.js` mapping domain enums (`skills`, `support`, `risk`, `status`) to Sinhala display strings.
+   - Guaranteed 0 raw technical enum strings exposed in child-facing or researcher-facing UI.
+4. **Dynamic Activity Content & Fail-Closed Safety:**
+   - Implemented `frontend/src/i18n/activityLocalization.js` supporting multilingual activity objects `{ instruction: { en, si } }` and curated seed activity translations.
+   - Fail-closed behavior: When a task lacks an approved Sinhala instruction variant, child view presents approved child-safe instruction (`childModal.defaultInstruction`), while researcher view displays marked fallback warning.
+5. **Component Integration:**
+   - Fully localized `Navbar.jsx`, `GuidedPlayground.jsx`, `ChildPreviewModal.jsx`, `TaskResultsHistoryView.jsx`, `LanguageSelector.jsx`, and `App.jsx`.
+6. **Typography & Styling:**
+   - Configured `frontend/src/styles/language.css` with font stack `"Noto Sans Sinhala", "Iskoola Pota", "Nirmala UI", system-ui, sans-serif` and line-height `1.65` to prevent Sinhala combining mark clipping.
+7. **Automated Test Parity Suite:**
+   - 8 test suites containing 36 automated unit tests (`node --test src/tests/localization/*.test.js`) covering key parity, locale switching, persistence, dynamic activity resolution, enum localization, grapheme counting, and resource governance. All 36 passed.
+
+### 8.3 Verification Ledger
+| Metric / Check | Value / Result |
+| :--- | :--- |
+| Historical Baseline Checkpoint | `stage-36-complete-v4` (`9b04f4b`) |
+| Reconciled Checkpoint | `stage-36-complete-v5` |
+| Total Translation Keys in Parity | 220 keys (0 missing) |
+| Hardcoded Child-Facing English Strings | 0 |
+| Raw Enums Exposed to Children | 0 |
+| Frontend Localization Tests | 36 / 36 passed |
+| Frontend Production Build (`vite build`) | PASSED (0 errors) |
+| Full Backend Regression Tests | 745 / 745 passed (0 errors) |
+| Database Baseline SHA-256 | `44ff4f07fca1ac92343875bb8c82957df5cc721017dd08d20e901689392bb701` (Unchanged) |
+| Historical Tags Preserved | `stage-35-complete-v6`, `stage-35-complete-v7`, `stage-36-start`, `stage-36-freeze-wp7b-v2`, `stage-36-complete-v4` |
+| Approved for Child Delivery | `FALSE` (Unsupervised Child Delivery: `FALSE`) |
+| Stage 37 Prerequisite | `stage-36-complete-v5` |
+
+---
+
+## 9. Final Release Verdict
+
+$$\mathbf{STAGE\_36\_SINHALA\_UI\_LOCALIZATION\_RECONCILED\_AND\_SEALED}$$
+
+**Operational Status:** The Sinhala validation engine and complete localized frontend environment are verified and operational for research and supervised evaluation purposes. All generated outputs and child preview modals remain strictly research-grade and require human expert review prior to any child delivery.
+
 

@@ -5,6 +5,7 @@ import {
   User, Activity, BarChart2, X, Sparkles
 } from "lucide-react";
 import { fetchTaskResults, deleteTaskResult } from "../services/api";
+import { useTranslation, localizeSkill, localizeRisk, localizeStatus } from "../i18n";
 
 const CATEGORY_COLORS = {
   vocabulary: { bg: "#eff6ff", text: "#1d4ed8", border: "#bfdbfe" },
@@ -144,7 +145,13 @@ function AttemptDrawer({ attempts }) {
 }
 
 function ResultCard({ result, onDelete }) {
-  const outcome = OUTCOME_CONFIG[result.final_outcome] || OUTCOME_CONFIG.adult_support_required;
+  const { t } = useTranslation("results");
+  const localizedOutcomes = {
+    success: { label: `✓ ${t("outcomeIndependent")}`, bg: "#dcfce7", text: "#15803d", border: "#86efac" },
+    completed_with_adult_support: { label: `◑ ${t("outcomeWithSupport")}`, bg: "#eff6ff", text: "#1d4ed8", border: "#bfdbfe" },
+    adult_support_required: { label: `⚠ ${t("outcomeSupportRequired")}`, bg: "#fffbeb", text: "#92400e", border: "#fde68a" }
+  };
+  const outcome = localizedOutcomes[result.final_outcome] || localizedOutcomes.adult_support_required;
   const catColor = CATEGORY_COLORS[result.category] || CATEGORY_COLORS.vocabulary;
   const diffBadge = DIFFICULTY_BADGES[result.difficulty] || DIFFICULTY_BADGES.medium;
   const riskColor = result.risk_after === "high" ? "#ef4444" : result.risk_after === "moderate" ? "#f59e0b" : "#10b981";
@@ -250,6 +257,7 @@ function ResultCard({ result, onDelete }) {
 }
 
 export default function TaskResultsHistoryView({ onNavigateToPlayground }) {
+  const { t } = useTranslation("results");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -279,7 +287,7 @@ export default function TaskResultsHistoryView({ onNavigateToPlayground }) {
   useEffect(() => { loadResults(); }, [filterLearner, filterCategory, filterOutcome]);
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Remove this result record?")) return;
+    if (!window.confirm(t("deleteConfirm"))) return;
     try { await deleteTaskResult(id); loadResults(); }
     catch (err) { alert("Delete failed: " + err.message); }
   };
@@ -306,10 +314,10 @@ export default function TaskResultsHistoryView({ onNavigateToPlayground }) {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.3rem" }}>
               <Clock size={22} color="#f97316" />
-              <h1 style={{ margin: 0, fontSize: "1.45rem", fontWeight: 900 }}>Learning &amp; Evaluation History</h1>
+              <h1 style={{ margin: 0, fontSize: "1.45rem", fontWeight: 900 }}>{t("headerTitle")}</h1>
             </div>
             <p style={{ margin: 0, color: "#94a3b8", fontSize: "0.9rem" }}>
-              Every completed learning interaction is recorded automatically. Tracks Vocabulary, Grammar, Comprehension &amp; Instruction performance progression.
+              {t("headerSubtitle")}
             </p>
           </div>
           <button onClick={loadResults} style={{ background: "#f97316", border: "none", borderRadius: "10px", padding: "0.6rem 1.2rem", color: "#fff", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.9rem" }}>
@@ -329,15 +337,15 @@ export default function TaskResultsHistoryView({ onNavigateToPlayground }) {
         fontSize: "0.82rem",
         lineHeight: "1.4"
       }}>
-        <strong>Educational Tracking Notice:</strong> These indicators are derived from learning interactions to personalize educational scaffolding. They are non-diagnostic and do not modify the DLD screening risk indicator received from Component 1.
+        <strong>{t("educationalNoticeTitle")}</strong> {t("educationalNotice")}
       </div>
 
       {/* KPI Cards */}
       {data && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(155px, 1fr))", gap: "1rem", marginBottom: "1.5rem" }}>
           {[
-            { label: "Total Sessions", value: agg.total ?? 0, icon: Activity, color: "#6366f1" },
-            { label: "Mastery Rate", value: `${agg.mastery_rate_pct ?? 0}%`, icon: Award, color: "#10b981" },
+            { label: t("totalSessions"), value: agg.total ?? 0, icon: Activity, color: "#6366f1" },
+            { label: t("masteryRate"), value: `${agg.mastery_rate_pct ?? 0}%`, icon: Award, color: "#10b981" },
             { label: "Adult Escalations", value: agg.adult_escalations ?? 0, icon: AlertTriangle, color: "#f59e0b" },
             { label: "Avg Attempts", value: agg.avg_attempts ?? 0, icon: BarChart2, color: "#8b5cf6" },
             { label: "Avg Grammar Δ", value: `${agg.avg_grammar_delta > 0 ? "+" : ""}${agg.avg_grammar_delta ?? 0}`, icon: TrendingUp, color: (agg.avg_grammar_delta ?? 0) >= 0 ? "#10b981" : "#ef4444" }
