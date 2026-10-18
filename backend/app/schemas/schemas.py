@@ -1,6 +1,7 @@
-from typing import List, Dict, Any, Optional, Union
+from typing import List, Dict, Any, Optional, Union, Annotated, Literal
 from datetime import datetime
 from pydantic import BaseModel, Field, ConfigDict
+from app.localization.enums import TargetDisclosureClass, TargetDisclosurePolicy
 
 # ----------------- Learner Profile Schemas -----------------
 class LearnerProfileBase(BaseModel):
@@ -233,6 +234,44 @@ class LanguageObservationResponse(BaseModel):
     created_at: datetime
     model_config = ConfigDict(from_attributes=True)
 
+# ----------------- Stage 36 Discriminated Lineage Schemas -----------------
+class BaseLineageResponse(BaseModel):
+    strategy_code: str
+    simplification_status: str
+    source_instruction_ref: str
+    presented_instruction_ref: str
+    target_disclosure_class: TargetDisclosureClass
+    target_disclosure_policy: TargetDisclosurePolicy
+    independent_performance_measure: bool = False
+    score_interpretation: Literal[
+        "INDEPENDENT_BASELINE",
+        "SUPPORTED_PERFORMANCE",
+        "HIGHLY_SUPPORTED_PERFORMANCE",
+        "SUPPORTED_COMPLETION_ONLY",
+    ]
+
+class RuleEngineLineage(BaseLineageResponse):
+    generation_mode: Literal["RULE_ENGINE"] = "RULE_ENGINE"
+    simplification_run_id: str
+    applied_rule_ids: List[str]
+
+class TemplateLineage(BaseLineageResponse):
+    generation_mode: Literal["TEMPLATE_CATALOG"] = "TEMPLATE_CATALOG"
+    template_variant_id: str
+
+class ReuseLineage(BaseLineageResponse):
+    generation_mode: Literal["UNCHANGED_REUSE"] = "UNCHANGED_REUSE"
+    reused_from_attempt_id: str
+    reuse_reason_code: Literal[
+        "MINIMAL_SAFE_INSTRUCTION_ALREADY_REACHED",
+        "UPSTREAM_ATTEMPT2_RETAINED_SAFE",
+    ]
+
+SimplificationLineageResponse = Annotated[
+    Union[RuleEngineLineage, TemplateLineage, ReuseLineage],
+    Field(discriminator="generation_mode"),
+]
+
 class AttemptResponse(BaseModel):
     id: str
     activity_session_id: Optional[str] = None
@@ -295,6 +334,9 @@ class AttemptResponse(BaseModel):
     options: Optional[List[Any]] = None
     content_language_status: Optional[Dict[str, str]] = None
     content_availability: Optional[Dict[str, Any]] = None
+    simplification_lineage: Optional[Union[RuleEngineLineage, TemplateLineage, ReuseLineage, Dict[str, Any]]] = None
+    independent_performance_measure: Optional[bool] = None
+    score_interpretation: Optional[str] = None
     model_config = ConfigDict(from_attributes=True)
 
 # ----------------- Child-Safe View Schema -----------------

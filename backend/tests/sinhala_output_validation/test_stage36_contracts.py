@@ -168,7 +168,7 @@ class TestGovernanceStatusContract:
         assert contract.validation_status == "draft"
         assert contract.automated_validation_status == AutomatedValidationStatus.NOT_STARTED
         assert contract.completed_validator_count == 0
-        assert contract.expected_validator_count == 9
+        assert contract.expected_validator_count == 10
         assert contract.expert_validated_for_this_output is False
         assert contract.research_eligible is False
         assert contract.approved_for_child_delivery is False

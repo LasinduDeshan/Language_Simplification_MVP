@@ -247,7 +247,7 @@ export default function Navbar({
           {isMoreMenuOpen && (
             <div className="dropdown-menu more-menu-dropdown">
               <div className="dropdown-header">{t("nav.moreMenuTitle")}</div>
-              
+
               <div style={{ padding: "0.5rem 0.75rem" }}>
                 <label style={{ fontSize: "0.75rem", color: "var(--text-secondary)", display: "block", marginBottom: "4px" }}>
                   {t("nav.modelEngine")}:

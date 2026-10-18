@@ -4,6 +4,7 @@ Component: Demonstration UI / Component 1 activity presentation
 Stage 36 UI Correction: Real Activity Sinhala Availability
 """
 from typing import Dict, Any, Optional, List
+from app.localization.enums import TargetDisclosureClass, TargetDisclosurePolicy
 
 GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
     "VOC-NAMING-001": {
@@ -28,6 +29,14 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             "strong": {
                 "en": "Choose: cat or dog.",
                 "si": "තෝරන්න: පූසා හෝ බල්ලා."
+            },
+            "strong_scaffold": {
+                "en": "Choose: cat or dog.",
+                "si": "තෝරන්න: පූසා හෝ බල්ලා."
+            },
+            "strong_decomposed_step": {
+                "en": "Look at the picture closely. Choose the animal's name.",
+                "si": "පින්තූරය හොඳින් බලන්න. සත්වයාගේ නම තෝරන්න."
             }
         },
         "options": [
@@ -36,6 +45,9 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             {"id": "rabbit", "label": {"en": "Rabbit", "si": "හාවා"}}
         ],
         "target_skill": "animal_naming",
+        "target_id": "cat",
+        "target_disclosure_class": TargetDisclosureClass.INFERRED_ANSWER,
+        "target_disclosure_policy": TargetDisclosurePolicy.DO_NOT_REVEAL,
         "content_language_status": {
             "en": "AVAILABLE",
             "si": "AVAILABLE"
@@ -63,6 +75,14 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             "strong": {
                 "en": "Choose: pencil or book.",
                 "si": "තෝරන්න: පැන්සල හෝ පොත."
+            },
+            "strong_scaffold": {
+                "en": "Choose: pencil or book.",
+                "si": "තෝරන්න: පැන්සල හෝ පොත."
+            },
+            "strong_decomposed_step": {
+                "en": "Look at the two pictures. Choose what we use to write.",
+                "si": "පින්තූර දෙක බලන්න. ලිවීමට භාවිත කරන දේ තෝරන්න."
             }
         },
         "options": [
@@ -71,6 +91,9 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             {"id": "apple", "label": {"en": "Apple", "si": "ඇපල්"}}
         ],
         "target_skill": "object_identification",
+        "target_id": "pencil",
+        "target_disclosure_class": TargetDisclosureClass.INFERRED_ANSWER,
+        "target_disclosure_policy": TargetDisclosurePolicy.DO_NOT_REVEAL,
         "content_language_status": {
             "en": "AVAILABLE",
             "si": "AVAILABLE"
@@ -98,6 +121,14 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             "strong": {
                 "en": "Find the book.",
                 "si": "පොත සොයන්න."
+            },
+            "strong_scaffold": {
+                "en": "Find the book.",
+                "si": "පොත සොයන්න."
+            },
+            "strong_decomposed_step": {
+                "en": "Look at the two pictures. Choose the picture of the book.",
+                "si": "පින්තූර දෙක බලන්න. පොතේ පින්තූරය තෝරන්න."
             }
         },
         "options": [
@@ -106,6 +137,9 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             {"id": "ball", "label": {"en": "Ball", "si": "බෝලය"}}
         ],
         "target_skill": "picture_matching",
+        "target_id": "book",
+        "target_disclosure_class": TargetDisclosureClass.EXPLICIT_TASK_TARGET,
+        "target_disclosure_policy": TargetDisclosurePolicy.MAY_REPEAT_TASK_TARGET,
         "content_language_status": {
             "en": "AVAILABLE",
             "si": "AVAILABLE"
@@ -133,7 +167,16 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             "strong": {
                 "en": "Choose: apple or car.",
                 "si": "තෝරන්න: ඇපල් හෝ මෝටර් රථය."
+            },
+            "strong_scaffold": {
+                "en": "Choose: apple or car.",
+                "si": "තෝරන්න: ඇපල් හෝ මෝටර් රථය."
+            },
+            "strong_decomposed_step": {
+                "en": "Look at the two pictures. Choose what we can eat.",
+                "si": "පින්තූර දෙක බලන්න. ආහාරයට ගත හැකි දේ තෝරන්න."
             }
+
         },
         "options": [
             {"id": "apple", "label": {"en": "Apple", "si": "ඇපල්"}},
@@ -141,6 +184,9 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             {"id": "book", "label": {"en": "Book", "si": "පොත"}}
         ],
         "target_skill": "category_recognition",
+        "target_id": "apple",
+        "target_disclosure_class": TargetDisclosureClass.INFERRED_ANSWER,
+        "target_disclosure_policy": TargetDisclosurePolicy.DO_NOT_REVEAL,
         "content_language_status": {
             "en": "AVAILABLE",
             "si": "AVAILABLE"
@@ -168,7 +214,16 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             "strong": {
                 "en": "Find the different one.",
                 "si": "වෙනස් රූපය සොයන්න."
+            },
+            "strong_scaffold": {
+                "en": "Find the different one.",
+                "si": "වෙනස් රූපය සොයන්න."
+            },
+            "strong_decomposed_step": {
+                "en": "Look at each picture. Choose the one that does not belong.",
+                "si": "පින්තූර එකිනෙක බලන්න. නොගැලපෙන රූපය තෝරන්න."
             }
+
         },
         "options": [
             {"id": "apple", "label": {"en": "Apple", "si": "ඇපල්"}},
@@ -176,6 +231,9 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             {"id": "car", "label": {"en": "Car", "si": "මෝටර් රථය"}}
         ],
         "target_skill": "odd_one_out",
+        "target_id": "car",
+        "target_disclosure_class": TargetDisclosureClass.INFERRED_ANSWER,
+        "target_disclosure_policy": TargetDisclosurePolicy.DO_NOT_REVEAL,
         "content_language_status": {
             "en": "AVAILABLE",
             "si": "AVAILABLE"
@@ -203,7 +261,16 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             "strong": {
                 "en": "Touch: circle or square.",
                 "si": "තෝරන්න: රතු වෘත්තය හෝ නිල් සමචතුරස්‍රය."
+            },
+            "strong_scaffold": {
+                "en": "Touch: circle or square.",
+                "si": "තෝරන්න: රතු වෘත්තය හෝ නිල් සමචතුරස්‍රය."
+            },
+            "strong_decomposed_step": {
+                "en": "Look at the two shapes. Choose the red circle.",
+                "si": "හැඩතල දෙක බලන්න. රතු පාට වෘත්තය තෝරන්න."
             }
+
         },
         "options": [
             {"id": "circle", "label": {"en": "Red Circle", "si": "රතු වෘත්තය"}},
@@ -211,12 +278,16 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             {"id": "triangle", "label": {"en": "Yellow Triangle", "si": "කහ ත්‍රිකෝණය"}}
         ],
         "target_skill": "shape_match",
+        "target_id": "circle",
+        "target_disclosure_class": TargetDisclosureClass.EXPLICIT_TASK_TARGET,
+        "target_disclosure_policy": TargetDisclosurePolicy.MAY_REPEAT_TASK_TARGET,
         "content_language_status": {
             "en": "AVAILABLE",
             "si": "AVAILABLE"
         }
     }
 }
+
 
 # Aliases for cross-system consistency
 GOVERNED_ACTIVITY_CATALOG["ACT-ANIMAL-001"] = GOVERNED_ACTIVITY_CATALOG["VOC-NAMING-001"]
@@ -309,13 +380,24 @@ def enrich_attempt_localization(attempt: Any, task: Any, support_level: Optional
     presented_inst = getattr(attempt, "presented_instruction", None) or getattr(attempt, "instruction_shown", None) or ""
     level = support_level or getattr(attempt, "support_level", "moderate")
 
-    si_instruction = None
-    if cat:
-        if "support_versions" in cat and level in cat["support_versions"]:
-            si_instruction = cat["support_versions"][level].get("si")
+    strat = getattr(attempt, "adaptation_strategy", None)
+    att_num = getattr(attempt, "attempt_number", 1)
+
+    si_instruction = getattr(attempt, "presented_instruction_si", None)
+    if not si_instruction and cat:
+        sv = cat.get("support_versions", {})
+        if strat and strat in sv:
+            si_instruction = sv[strat].get("si")
+        elif att_num == 3 and "strong_decomposed_step" in sv:
+            si_instruction = sv["strong_decomposed_step"].get("si")
+        elif att_num == 2 and "strong_scaffold" in sv:
+            si_instruction = sv["strong_scaffold"].get("si")
+        elif level in sv:
+            si_instruction = sv[level].get("si")
         if not si_instruction and "instruction" in cat:
             si_instruction = cat["instruction"].get("si")
 
+    if cat:
         attempt.title = cat["title"]
         attempt.instruction = {
             "en": presented_inst or cat["instruction"]["en"],
@@ -339,7 +421,19 @@ def enrich_attempt_localization(attempt: Any, task: Any, support_level: Optional
             "content_available": False,
             "missing_localized_fields": ["instruction.si"]
         }
+
+    # Extract simplification lineage and scoring flags if stored in snapshot
+    snapshot = getattr(attempt, "automatic_analysis_snapshot", None)
+    if isinstance(snapshot, dict):
+        if "simplification_lineage" in snapshot:
+            attempt.simplification_lineage = snapshot["simplification_lineage"]
+        if "independent_performance_measure" in snapshot:
+            attempt.independent_performance_measure = snapshot["independent_performance_measure"]
+        if "score_interpretation" in snapshot:
+            attempt.score_interpretation = snapshot["score_interpretation"]
+
     return attempt
+
 
 
 def enrich_child_view_localization(view: Dict[str, Any], task: Any, attempt: Optional[Any] = None) -> Dict[str, Any]:

@@ -26,6 +26,128 @@ import {
   normalizeContentLocale
 } from "../i18n";
 
+function InstructionCard({
+  attempt,
+  activeTask,
+  viewMode,
+  resolvedLanguage,
+  t
+}) {
+  const [displayedInstruction, setDisplayedInstruction] = useState("");
+  const [lineageMeta, setLineageMeta] = useState(null);
+
+  useEffect(() => {
+    if (!attempt && !activeTask) return;
+    const contentLocale = normalizeContentLocale(resolvedLanguage);
+    const instructionResult = resolveLocalizedInstruction(
+      attempt || activeTask,
+      contentLocale,
+      { viewMode, isChildView: viewMode === "simple", task: activeTask }
+    );
+    setDisplayedInstruction(instructionResult.text || "");
+    setLineageMeta(attempt?.simplification_lineage || null);
+  }, [
+    attempt?.id,
+    attempt?.attempt_number,
+    attempt?.presented_instruction,
+    attempt?.presented_instruction_si,
+    attempt?.adaptation_strategy,
+    resolvedLanguage,
+    viewMode
+  ]);
+
+  const contentLocale = normalizeContentLocale(resolvedLanguage);
+  const instructionResult = resolveLocalizedInstruction(
+    attempt || activeTask,
+    contentLocale,
+    { viewMode, isChildView: viewMode === "simple", task: activeTask }
+  );
+  const textToShow = displayedInstruction || instructionResult.text;
+
+  return (
+    <div style={{
+      background: "#fffbeb",
+      borderRadius: "14px",
+      padding: "1.25rem",
+      border: "1px solid #fef3c7",
+      marginBottom: "1rem"
+    }}>
+      <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#b45309", marginBottom: "0.25rem" }}>
+        {t("instructionPresentedToChild")}
+      </div>
+      {viewMode === "researcher" && instructionResult.usedFallback && (
+        <div className="translation-warning" role="status" style={{
+          background: "rgba(245, 158, 11, 0.15)",
+          color: "#b45309",
+          padding: "0.4rem 0.75rem",
+          borderRadius: "8px",
+          fontSize: "0.82rem",
+          fontWeight: 600,
+          marginBottom: "0.5rem",
+          border: "1px solid rgba(245, 158, 11, 0.3)"
+        }}>
+          {t("localization.sinhalaContentUnavailable")}
+        </div>
+      )}
+      <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b", marginBottom: lineageMeta && viewMode === "researcher" ? "0.75rem" : "0" }}>
+        "{textToShow}"
+      </div>
+
+      {/* Researcher View: Truthful Simplification Lineage Notice */}
+      {viewMode === "researcher" && lineageMeta && (
+        <div style={{
+          background: "#ffffff",
+          padding: "0.75rem 1rem",
+          borderRadius: "10px",
+          border: "1px solid #e2e8f0",
+          fontSize: "0.8rem",
+          color: "#334155",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.35rem"
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
+            <span>
+              <strong>Simplification Mode:</strong>{" "}
+              {lineageMeta.generation_mode === "RULE_ENGINE" && (
+                <span style={{ color: "#15803d", fontWeight: 700 }}>
+                  Rule Engine ({lineageMeta.simplification_run_id}) | Rules: {lineageMeta.applied_rule_ids?.join(", ") || "SI-LEX-SUB-0001"}
+                </span>
+              )}
+              {lineageMeta.generation_mode === "TEMPLATE_CATALOG" && (
+                <span style={{ color: "#0369a1", fontWeight: 700 }}>
+                  Governed Template Fallback ({lineageMeta.template_variant_id})
+                </span>
+              )}
+              {lineageMeta.generation_mode === "UNCHANGED_REUSE" && (
+                <span style={{ color: "#b45309", fontWeight: 700 }}>
+                  Governed Unchanged Reuse
+                </span>
+              )}
+            </span>
+            <span style={{
+              background: lineageMeta.independent_performance_measure ? "#dcfce7" : "#fef3c7",
+              color: lineageMeta.independent_performance_measure ? "#15803d" : "#b45309",
+              padding: "0.2rem 0.5rem",
+              borderRadius: "6px",
+              fontWeight: 700,
+              fontSize: "0.75rem"
+            }}>
+              {lineageMeta.score_interpretation === "INDEPENDENT_BASELINE" ? "Independent Baseline" : "Supported Performance (Non-Independent)"}
+            </span>
+          </div>
+
+          {lineageMeta.generation_mode === "UNCHANGED_REUSE" && (
+            <div style={{ color: "#b45309", fontStyle: "italic", fontSize: "0.78rem" }}>
+              Notice: No further safe simplification was available; previous validated instruction retained (Reason: {lineageMeta.reuse_reason_code || "Minimal safe instruction already reached"}).
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function GuidedPlayground({
   tasks: initialTasks, learners: initialLearners, selectedTask: propSelectedTask,
   setSelectedTask: setPropSelectedTask, selectedLearner: propSelectedLearner,
@@ -57,6 +179,8 @@ export default function GuidedPlayground({
   const [timerSeconds, setTimerSeconds] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const timerRef = useRef(null);
+  const requestSequenceRef = useRef(0);
+
 
   // Review & Override State
   const [showAdultReview, setShowAdultReview] = useState(false);
@@ -287,6 +411,7 @@ export default function GuidedPlayground({
         }
       }
 
+      const reqId = ++requestSequenceRef.current;
       if (transRes.session_status === "completed" || transRes.session_status === "completed_with_adult_support") {
         setSessionOutcome("success");
       } else if (transRes.session_status === "adult_support_required") {
@@ -294,6 +419,7 @@ export default function GuidedPlayground({
       } else if (transRes.next_action && transRes.next_action.startsWith("create_attempt")) {
         // Automatically create next attempt instruction
         const nextAtt = await createAttemptInstruction(currentSession.id, generationMode);
+        if (reqId !== requestSequenceRef.current) return;
         setCurrentAttempt(nextAtt.attempt);
         setChildViewData(nextAtt.child_view);
         setManualTranscript("");
@@ -820,45 +946,16 @@ export default function GuidedPlayground({
                   </div>
                 </div>
 
-                {/* Presented Child Instruction Card */}
-                {(() => {
-                  const contentLocale = normalizeContentLocale(resolvedLanguage);
-                  const instructionResult = resolveLocalizedInstruction(
-                    currentAttempt || activeTask,
-                    contentLocale,
-                    { viewMode, isChildView: viewMode === "simple", task: activeTask }
-                  );
-                  return (
-                    <div style={{
-                      background: "#fffbeb",
-                      borderRadius: "14px",
-                      padding: "1.25rem",
-                      border: "1px solid #fef3c7",
-                      marginBottom: "1rem"
-                    }}>
-                      <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#b45309", marginBottom: "0.25rem" }}>
-                        {t("instructionPresentedToChild")}
-                      </div>
-                      {viewMode === "researcher" && instructionResult.usedFallback && (
-                        <div className="translation-warning" role="status" style={{
-                          background: "rgba(245, 158, 11, 0.15)",
-                          color: "#b45309",
-                          padding: "0.4rem 0.75rem",
-                          borderRadius: "8px",
-                          fontSize: "0.82rem",
-                          fontWeight: 600,
-                          marginBottom: "0.5rem",
-                          border: "1px solid rgba(245, 158, 11, 0.3)"
-                        }}>
-                          {t("localization.sinhalaContentUnavailable")}
-                        </div>
-                      )}
-                      <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b" }}>
-                        "{instructionResult.text}"
-                      </div>
-                    </div>
-                  );
-                })()}
+                {/* Presented Child Instruction Card with Canonical Keying */}
+                <InstructionCard
+                  key={currentAttempt ? currentAttempt.id : "initial-task"}
+                  attempt={currentAttempt}
+                  activeTask={activeTask}
+                  viewMode={viewMode}
+                  resolvedLanguage={resolvedLanguage}
+                  t={t}
+                />
+
 
                 {/* Quick Child View Embed */}
                 {childViewData && (

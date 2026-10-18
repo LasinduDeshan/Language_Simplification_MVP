@@ -67,8 +67,17 @@
       "version": "1.0.0",
       "severity": "DIAGNOSTIC",
       "reason_code": "DIAG_SIMPLIFICATION_METRICS"
+    },
+    {
+      "validator_id": "V9_ANSWER_DISCLOSURE",
+      "version": "1.0.0",
+      "severity_on_disclosure": "CRITICAL",
+      "reason_code": "REJ_ANSWER_DISCLOSURE_DETECTED",
+      "max_decomposed_sub_steps": 2,
+      "max_decomposed_words_per_step": 8
     }
   ],
+
   "disposition_precedence": [
     "REJECTED_CONFIGURATION_OR_PROVENANCE",
     "REJECTED_INVALID_UNICODE",

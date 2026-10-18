@@ -209,8 +209,8 @@ class ValidationResult(StrictBaseModel):
         description="Assigned terminal disposition if execution_outcome == COMPLETED; null if FAILED_INTERNAL"
     )
     automated_validation_status: AutomatedValidationStatus
-    completed_validator_count: int = Field(default=0, ge=0, le=9)
-    expected_validator_count: int = Field(default=9, ge=1)
+    completed_validator_count: int = Field(default=0, ge=0, le=12)
+    expected_validator_count: int = Field(default=10, ge=1)
     critical_gate_passed: bool = Field(default=False)
     fallback_required: bool = Field(default=False)
     findings: List[ValidatorFinding] = Field(default_factory=list)
@@ -257,8 +257,8 @@ class GovernanceStatusContract(StrictBaseModel):
     script: str = Field(default="Sinh")
     validation_status: str = Field(default="draft")
     automated_validation_status: AutomatedValidationStatus = Field(default=AutomatedValidationStatus.NOT_STARTED)
-    completed_validator_count: int = Field(default=0, ge=0, le=9)
-    expected_validator_count: int = Field(default=9)
+    completed_validator_count: int = Field(default=0, ge=0, le=12)
+    expected_validator_count: int = Field(default=10)
     expert_validated_for_this_output: bool = Field(default=False)
     research_eligible: bool = Field(default=False)
     approved_for_child_delivery: bool = Field(default=False)
