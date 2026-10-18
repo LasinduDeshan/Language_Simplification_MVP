@@ -65,11 +65,39 @@ export function localizeEnum(category, value, locale = null) {
     .replace(/\b\w/g, char => char.toUpperCase());
 }
 
+export const supportLabelKeys = {
+  STRONG_CHILD_FRIENDLY: 'support.strongChildFriendly',
+  MODERATE_CHILD_FRIENDLY: 'support.moderateChildFriendly',
+  STANDARD: 'support.standard',
+  strong_child_friendly: 'support.strongChildFriendly',
+  moderate_child_friendly: 'support.moderateChildFriendly',
+  standard: 'support.standard',
+  strong: 'support.strongChildFriendly',
+  moderate: 'support.moderateChildFriendly'
+};
+
 export function localizeSkill(skill, locale = null) {
+  if (!skill) return '';
+  if (String(skill).startsWith('skills.')) {
+    const direct = t(skill, {}, locale);
+    if (direct !== skill) return direct;
+  }
   return localizeEnum('skills', skill, locale);
 }
 
 export function localizeSupport(support, locale = null) {
+  if (!support) return '';
+  if (String(support).startsWith('support.')) {
+    const direct = t(support, {}, locale);
+    if (direct !== support) return direct;
+  }
+  const key = supportLabelKeys[support] || supportLabelKeys[String(support).toUpperCase()] || supportLabelKeys[String(support).toLowerCase()];
+  if (key) {
+    const translated = t(key, {}, locale);
+    if (translated !== key) {
+      return translated;
+    }
+  }
   return localizeEnum('support', support, locale);
 }
 

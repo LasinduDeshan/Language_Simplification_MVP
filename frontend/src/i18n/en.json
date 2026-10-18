@@ -202,7 +202,13 @@
     "visually_supported": "Visually Supported",
     "modelled": "Adult Modelled Answer",
     "fully_assisted": "Fully Assisted",
-    "default": "Default"
+    "default": "Default",
+    "strongChildFriendly": "Strong child-friendly support",
+    "moderateChildFriendly": "Moderate child-friendly support",
+    "standard": "Standard support",
+    "strong_child_friendly": "Strong child-friendly support",
+    "moderate_child_friendly": "Moderate child-friendly support",
+    "unknown": "Standard support"
   },
   "status": {
     "completed": "Completed",
@@ -273,5 +279,9 @@
   },
   "activity": {
     "nameTheAnimal": "Name the Animal"
+  },
+  "localization": {
+    "activityUnavailableInSinhala": "This activity is not yet available in Sinhala.",
+    "sinhalaContentUnavailable": "Sinhala version of this content is not yet available."
   }
 }

@@ -21,7 +21,9 @@ import {
   localizeStatus,
   getLocalizedInstruction,
   getLocalizedOptions,
-  getLocalizedTaskTitle
+  getLocalizedTaskTitle,
+  resolveLocalizedInstruction,
+  normalizeContentLocale
 } from "../i18n";
 
 export default function GuidedPlayground({
@@ -776,7 +778,15 @@ export default function GuidedPlayground({
                       fontSize: "0.85rem",
                       border: "1px solid #fed7aa"
                     }}>
-                      {t("supportLevel", { level: localizeSupport(currentAttempt?.support_level || "mild") })} ({localizeSupport(currentAttempt?.adaptation_strategy || "default")})
+                      {viewMode === "researcher" ? (
+                        <>
+                          {t("supportLevel", { level: localizeSupport(currentAttempt?.support_level || "mild") })} ({localizeSupport(currentAttempt?.adaptation_strategy || "default")})
+                        </>
+                      ) : (
+                        <>
+                          {localizeSupport(currentAttempt?.adaptation_strategy || currentAttempt?.support_level || "strong_child_friendly")}
+                        </>
+                      )}
                     </span>
                   </div>
 
@@ -811,20 +821,44 @@ export default function GuidedPlayground({
                 </div>
 
                 {/* Presented Child Instruction Card */}
-                <div style={{
-                  background: "#fffbeb",
-                  borderRadius: "14px",
-                  padding: "1.25rem",
-                  border: "1px solid #fef3c7",
-                  marginBottom: "1rem"
-                }}>
-                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#b45309", marginBottom: "0.25rem" }}>
-                    {t("instructionPresentedToChild")}
-                  </div>
-                  <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b" }}>
-                    "{getLocalizedInstruction(currentAttempt || activeTask, resolvedLanguage)}"
-                  </div>
-                </div>
+                {(() => {
+                  const contentLocale = normalizeContentLocale(resolvedLanguage);
+                  const instructionResult = resolveLocalizedInstruction(
+                    currentAttempt || activeTask,
+                    contentLocale,
+                    { viewMode, isChildView: viewMode === "simple", task: activeTask }
+                  );
+                  return (
+                    <div style={{
+                      background: "#fffbeb",
+                      borderRadius: "14px",
+                      padding: "1.25rem",
+                      border: "1px solid #fef3c7",
+                      marginBottom: "1rem"
+                    }}>
+                      <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#b45309", marginBottom: "0.25rem" }}>
+                        {t("instructionPresentedToChild")}
+                      </div>
+                      {viewMode === "researcher" && instructionResult.usedFallback && (
+                        <div className="translation-warning" role="status" style={{
+                          background: "rgba(245, 158, 11, 0.15)",
+                          color: "#b45309",
+                          padding: "0.4rem 0.75rem",
+                          borderRadius: "8px",
+                          fontSize: "0.82rem",
+                          fontWeight: 600,
+                          marginBottom: "0.5rem",
+                          border: "1px solid rgba(245, 158, 11, 0.3)"
+                        }}>
+                          {t("localization.sinhalaContentUnavailable")}
+                        </div>
+                      )}
+                      <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b" }}>
+                        "{instructionResult.text}"
+                      </div>
+                    </div>
+                  );
+                })()}
 
                 {/* Quick Child View Embed */}
                 {childViewData && (

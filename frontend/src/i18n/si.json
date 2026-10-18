@@ -202,7 +202,13 @@
     "visually_supported": "දෘශ්‍යමය සහාය සහිතව",
     "modelled": "වැඩිහිටි ආදර්ශ පිළිතුර",
     "fully_assisted": "සම්පූර්ණ සහාය සහිතව",
-    "default": "පෙරනිමි"
+    "default": "පෙරනිමි",
+    "strongChildFriendly": "ඉහළ ළමා-හිතකාමී සහාය",
+    "moderateChildFriendly": "මධ්‍යම ළමා-හිතකාමී සහාය",
+    "standard": "සාමාන්‍ය සහාය",
+    "strong_child_friendly": "ඉහළ ළමා-හිතකාමී සහාය",
+    "moderate_child_friendly": "මධ්‍යම ළමා-හිතකාමී සහාය",
+    "unknown": "සාමාන්‍ය සහාය"
   },
   "status": {
     "completed": "සම්පූර්ණයි",
@@ -273,5 +279,9 @@
   },
   "activity": {
     "nameTheAnimal": "සත්වයා නම් කරන්න"
+  },
+  "localization": {
+    "activityUnavailableInSinhala": "මෙම ක්‍රියාකාරකම සිංහල භාෂාවෙන් තවම ලබා ගත නොහැක.",
+    "sinhalaContentUnavailable": "මෙම අන්තර්ගතයේ සිංහල අනුවාදය තවම සකස් කර නොමැත."
   }
 }

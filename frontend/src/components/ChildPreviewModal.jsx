@@ -11,8 +11,8 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
   const rawActivity = childView || adaptation || task;
   const instruction = getLocalizedInstruction(
     rawActivity,
-    t("childModal.defaultInstruction"),
-    true // isChildFacing = true ensures fail-closed approved Sinhala in child view
+    resolvedLanguage,
+    { isChildView: true, task }
   );
   const supportiveMessage = childView?.supportive_message || adaptation?.supportive_message || t("childModal.supportiveDefault");
   const retryCue = childView?.retry_cue;

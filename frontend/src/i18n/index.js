@@ -13,7 +13,8 @@ export {
   localizeSkill,
   localizeSupport,
   localizeRisk,
-  localizeStatus
+  localizeStatus,
+  supportLabelKeys
 } from './enumLocalization.js';
 
 export {
@@ -21,7 +22,13 @@ export {
   getLocalizedOptions,
   getLocalizedTaskTitle,
   getOptionEmoji,
-  isSinhalaActive
+  isSinhalaActive,
+  normalizeContentLocale,
+  resolveLocalizedText,
+  resolveLocalizedInstruction,
+  validateDemonstrationActivity,
+  DEMONSTRATION_ACTIVITIES,
+  CURATED_ACTIVITY_SINHALA
 } from './activityLocalization.js';
 
 export {
