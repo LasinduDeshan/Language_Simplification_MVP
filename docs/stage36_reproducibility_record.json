@@ -35,8 +35,9 @@
     },
     "level2_candidate_origins": {
       "total_candidates_received": 29,
-      "rule_engine": 13,
       "simulated": 16,
+      "rule_engine": 10,
+      "unchanged_source_fallback": 3,
       "real_provider": 0,
       "real_local_model": 0,
       "cached_empirical": 0,

@@ -27,6 +27,7 @@ class ExecutionMode(str, Enum):
     CACHED_EMPIRICAL = "CACHED_EMPIRICAL"
     SIMULATED = "SIMULATED"
     RULE_ENGINE = "RULE_ENGINE"
+    DETERMINISTIC_COPY = "DETERMINISTIC_COPY"
 
 
 class SpanCategory(str, Enum):
@@ -143,7 +144,8 @@ class CandidateEnvelope(StrictBaseModel):
     source_text_sha256_internal: str = Field(..., pattern=r"^[0-9a-f]{64}$", description="64-char hex SHA-256")
     candidate_text_ref: str = Field(..., min_length=1, description="Protected URI reference for candidate text")
     candidate_text_sha256_internal: str = Field(..., pattern=r"^[0-9a-f]{64}$", description="64-char hex SHA-256")
-    provider_condition: ProviderCondition
+    candidate_origin: Optional[str] = Field(None, description="Explicit candidate origin descriptor")
+    provider_condition: Optional[ProviderCondition] = Field(None, description="Provider condition if model/rule generated, or None for deterministic copy")
     execution_mode: ExecutionMode
     provider_model_id: Optional[str] = Field(None, description="Exact model ID if external/local ML")
     provider_version: Optional[str] = Field(None, description="Model or engine version")

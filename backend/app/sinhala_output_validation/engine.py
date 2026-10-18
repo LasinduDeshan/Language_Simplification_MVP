@@ -146,9 +146,13 @@ def validate_candidate(
             diagnostic_metrics=context.get("diagnostic_metrics", {}),
             selected_output_ref=envelope.candidate_text_ref if critical_passed else None,
             selected_output_origin=(
-                envelope.provider_condition.value
-                if hasattr(envelope.provider_condition, "value")
-                else str(envelope.provider_condition)
+                (
+                    envelope.provider_condition.value
+                    if hasattr(envelope.provider_condition, "value")
+                    else str(envelope.provider_condition)
+                )
+                if envelope.provider_condition is not None
+                else (envelope.candidate_origin or "UNCHANGED_SOURCE_FALLBACK")
             ) if critical_passed else None,
             approved_for_child_delivery=False,
             approved_for_unsupervised_child_delivery=False,
@@ -364,8 +368,9 @@ class GovernedFallbackOrchestrator:
             source_text_sha256_internal=primary_envelope.source_text_sha256_internal,
             candidate_text_ref=f"protected://candidates/{unchanged_candidate_id}.txt",
             candidate_text_sha256_internal=src_hash,
-            provider_condition=ProviderCondition.C0_RULE_BASELINE,
-            execution_mode=ExecutionMode.RULE_ENGINE,
+            candidate_origin="UNCHANGED_SOURCE_FALLBACK",
+            provider_condition=None,
+            execution_mode=ExecutionMode.DETERMINISTIC_COPY,
             generation_configuration_hash=self.configuration_hash,
             external_processing_authorized=False,
             simulation_only=primary_envelope.simulation_only,

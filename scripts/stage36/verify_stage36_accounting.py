@@ -123,18 +123,20 @@ def verify_accounting():
             l2_origins[m] = l2_origins.get(m, 0) + 1
         rule_origin = l2_origins.get("RULE_ENGINE", 0)
         sim_origin = l2_origins.get("SIMULATED", 0)
+        unchanged_origin = l2_origins.get("DETERMINISTIC_COPY", 0)
         real_provider_origin = l2_origins.get("REAL_PROVIDER", 0)
         real_local_origin = l2_origins.get("REAL_LOCAL_MODEL", 0)
         cached_origin = l2_origins.get("CACHED_EMPIRICAL", 0)
-        l2_accounted = rule_origin + sim_origin + real_provider_origin + real_local_origin + cached_origin
+        l2_accounted = rule_origin + sim_origin + unchanged_origin + real_provider_origin + real_local_origin + cached_origin
         l2_unaccounted = l2_total - l2_accounted
         print(f"TotalCandidatesReceived: {l2_total}")
-        print(f"  RuleEngine:       {rule_origin}")
-        print(f"  Simulated:        {sim_origin}")
-        print(f"  RealProvider:     {real_provider_origin}")
-        print(f"  RealLocalModel:   {real_local_origin}")
-        print(f"  CachedEmpirical:  {cached_origin}")
-        print(f"  Unaccounted:      {l2_unaccounted}")
+        print(f"  Simulated:               {sim_origin}")
+        print(f"  RuleEngine:              {rule_origin}")
+        print(f"  UnchangedSourceFallback: {unchanged_origin}")
+        print(f"  RealProvider:            {real_provider_origin}")
+        print(f"  RealLocalModel:          {real_local_origin}")
+        print(f"  CachedEmpirical:         {cached_origin}")
+        print(f"  Unaccounted:             {l2_unaccounted}")
 
         # Explicit Candidate Lineage Verification
         initial_candidates = sum(1 for env, _ in validated_calls if env.fallback_depth == 0)
@@ -144,10 +146,10 @@ def verify_accounting():
         print(f"Candidate Lineage Decomposition:")
         print(f"  InitialCandidates:                  {initial_candidates} (16 SIMULATED)")
         print(f"  C0FallbackCandidates (Depth 1):     {c0_fallback_candidates} (10 RULE_ENGINE)")
-        print(f"  UnchangedFallbackCandidates (Depth 2): {unchanged_fallback_candidates} (3 RULE_ENGINE)")
+        print(f"  UnchangedFallbackCandidates (Depth 2): {unchanged_fallback_candidates} (3 DETERMINISTIC_COPY)")
         print(f"  TotalCandidatesLineage:             {total_lineage} (Equal to CandidatesReceived)")
         assert l2_unaccounted == 0, f"Level 2 discrepancy: {l2_unaccounted}"
-        assert (l2_total, sim_origin, rule_origin) == (29, 16, 13)
+        assert (l2_total, sim_origin, rule_origin, unchanged_origin) == (29, 16, 10, 3)
         assert (initial_candidates, c0_fallback_candidates, unchanged_fallback_candidates) == (16, 10, 3)
 
         # ---------------- LEVEL 3 ----------------
