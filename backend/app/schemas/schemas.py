@@ -152,6 +152,15 @@ class TaskResponse(TaskBase):
     created_at: datetime
     assets: List[ActivityAssetResponse] = []
     questions: List[ActivityQuestionResponse] = []
+    activity_id: Optional[str] = None
+    template_id: Optional[str] = None
+    title_en: Optional[str] = None
+    title_si: Optional[str] = None
+    instruction_en: Optional[str] = None
+    instruction_si: Optional[str] = None
+    localized_title: Optional[Dict[str, str]] = None
+    localized_instruction: Optional[Dict[str, str]] = None
+    content_language_status: Optional[Dict[str, str]] = None
     model_config = ConfigDict(from_attributes=True)
 
 # ----------------- Activity Session Schemas -----------------
@@ -276,6 +285,16 @@ class AttemptResponse(BaseModel):
     
     created_at: datetime
     observations: List[LanguageObservationResponse] = []
+    activity_id: Optional[str] = None
+    template_id: Optional[str] = None
+    task_code: Optional[str] = None
+    title: Optional[Dict[str, Optional[str]]] = None
+    instruction: Optional[Dict[str, Optional[str]]] = None
+    instruction_si: Optional[str] = None
+    presented_instruction_si: Optional[str] = None
+    options: Optional[List[Any]] = None
+    content_language_status: Optional[Dict[str, str]] = None
+    content_availability: Optional[Dict[str, Any]] = None
     model_config = ConfigDict(from_attributes=True)
 
 # ----------------- Child-Safe View Schema -----------------
@@ -287,13 +306,22 @@ class ChildSafeViewResponse(BaseModel):
     supportive_message: Optional[str] = None
     stimulus: Optional[Dict[str, Any]] = None
     prompt: Optional[str] = None
-    options: Optional[List[str]] = None
+    options: Optional[List[Any]] = None
     response_modes: List[str] = []
     visual_cues: List[str] = []
     audio_available: bool = True
     session_status: str = "active"
     retry_cue: Optional[str] = None
     adult_support_message: Optional[str] = None
+    activity_id: Optional[str] = None
+    template_id: Optional[str] = None
+    task_code: Optional[str] = None
+    title: Optional[Dict[str, Optional[str]]] = None
+    instruction: Optional[Dict[str, Optional[str]]] = None
+    instruction_si: Optional[str] = None
+    presented_instruction_si: Optional[str] = None
+    content_language_status: Optional[Dict[str, str]] = None
+    content_availability: Optional[Dict[str, Any]] = None
 
 # ----------------- Legacy Schemas (Backward Compatibility) -----------------
 class ExperimentRunCreate(BaseModel):

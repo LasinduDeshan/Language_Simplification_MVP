@@ -15,6 +15,11 @@ from app.generation.rule_generator import rule_generator
 from app.generation.llm_generator import llm_generator
 from app.validation.validator import adaptation_validator
 from app.security.input_sanitizer import sanitize_text
+from app.localization.activity_catalog import (
+    enrich_task_localization,
+    enrich_attempt_localization,
+    enrich_child_view_localization
+)
 
 class SessionService:
     def create_session(
@@ -177,6 +182,7 @@ class SessionService:
         session.current_support_level = support_level
         db.commit()
         db.refresh(attempt)
+        enrich_attempt_localization(attempt, task, support_level)
 
         child_view = self.get_child_view(db, session_id, attempt.id)
 
@@ -242,6 +248,9 @@ class SessionService:
         attempt.attempt_status = "confirmed"
         db.commit()
         db.refresh(attempt)
+        session = attempt.activity_session
+        if session and session.task:
+            enrich_attempt_localization(attempt, session.task)
         return attempt
 
     def analyse_attempt(
@@ -349,6 +358,9 @@ class SessionService:
 
         db.commit()
         db.refresh(attempt)
+        session = attempt.activity_session
+        if session and session.task:
+            enrich_attempt_localization(attempt, session.task)
         return attempt
 
     def transition_attempt(
@@ -598,7 +610,7 @@ class SessionService:
         if session.status == "adult_support_required":
             adult_support_message = "Great effort! Let's ask our teacher or helper to explore this together."
 
-        return {
+        child_view = {
             "session_id": session.id,
             "attempt_id": attempt.id if attempt else "",
             "attempt_number": attempt_num,
@@ -614,6 +626,7 @@ class SessionService:
             "retry_cue": retry_cue,
             "adult_support_message": adult_support_message
         }
+        return enrich_child_view_localization(child_view, task, attempt)
 
     def get_session_history(
         self,
@@ -625,11 +638,15 @@ class SessionService:
             raise ValueError(f"ActivitySession '{session_id}' not found")
 
         attempts = db.query(Attempt).filter(Attempt.activity_session_id == session_id).order_by(Attempt.attempt_number).all()
+        task = session.task
+        if task:
+            enrich_task_localization(task)
+            attempts = [enrich_attempt_localization(a, task) for a in attempts]
 
         return {
             "session": session,
             "learner": session.learner,
-            "task": session.task,
+            "task": task,
             "attempts": attempts,
             "events": session.integration_events
         }

@@ -465,7 +465,13 @@ export const KNOWN_INSTRUCTION_SINHALA = {
   'Find and touch the book.': 'පොතේ පින්තූරය සොයා තෝරන්න.',
   'Show what we can eat.': 'අපට ආහාරයට ගත හැකි දේ කුමක්දැයි පෙන්වන්න.',
   'Find the picture that does not belong.': 'මෙහි නොගැලපෙන රූපය තෝරන්න.',
-  'Touch the red circle.': 'රතු පාට වෘත්තය ස්පර්ශ කරන්න.'
+  'Touch the red circle.': 'රතු පාට වෘත්තය ස්පර්ශ කරන්න.',
+  'Choose: cat or dog.': 'තෝරන්න: පූසා හෝ බල්ලා.',
+  'Choose: cat, dog, or rabbit.': 'තෝරන්න: පූසා, බල්ලා හෝ හාවා.',
+  'Choose: pencil or book.': 'තෝරන්න: පැන්සල හෝ පොත.',
+  'Choose: apple or car.': 'තෝරන්න: ඇපල් හෝ මෝටර් රථය.',
+  'Find the different one.': 'වෙනස් රූපය සොයන්න.',
+  'Touch: circle or square.': 'තෝරන්න: රතු වෘත්තය හෝ නිල් සමචතුරස්‍රය.'
 };
 
 // General fallback vocabulary for common option words
@@ -507,6 +513,94 @@ export function normalizeContentLocale(locale) {
 export function isSinhalaActive() {
   const loc = getLocale();
   return normalizeContentLocale(loc) === 'si';
+}
+
+export function isUuid(str) {
+  if (typeof str !== 'string') return false;
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(str.trim());
+}
+
+/**
+ * Universal Multilingual Activity Adapter (§5)
+ * Normalizes fixtures, Component 1/API activities, database-loaded tasks,
+ * generated/personalized activities, and restored session state.
+ */
+export function normalizeActivityPayload(raw) {
+  if (!raw || typeof raw !== 'object') return null;
+
+  const rawTitle = raw.title;
+  const rawInstruction = raw.instruction;
+
+  const titleEn = (typeof rawTitle === 'object' && rawTitle !== null)
+    ? (rawTitle.en ?? raw.title_en ?? null)
+    : (raw.title_en ?? (typeof rawTitle === 'string' ? rawTitle : null));
+
+  const titleSi = (typeof rawTitle === 'object' && rawTitle !== null)
+    ? (rawTitle.si ?? raw.title_si ?? null)
+    : (raw.title_si ?? null);
+
+  const rawInstEn = (typeof rawInstruction === 'object' && rawInstruction !== null)
+    ? (rawInstruction.en ?? raw.instruction_en ?? null)
+    : (raw.instruction_en ?? (typeof rawInstruction === 'string' ? rawInstruction : null));
+
+  const instructionEn = rawInstEn
+    ?? raw.presented_instruction
+    ?? raw.child_friendly_instruction
+    ?? raw.instruction_shown
+    ?? raw.original_instruction
+    ?? null;
+
+  const rawInstSi = (typeof rawInstruction === 'object' && rawInstruction !== null)
+    ? (rawInstruction.si ?? raw.instruction_si ?? null)
+    : (raw.instruction_si ?? null);
+
+  const instructionSi = rawInstSi
+    ?? raw.child_friendly_instruction_si
+    ?? raw.presented_instruction_si
+    ?? null;
+
+  // Options normalization
+  let options = raw.options ?? null;
+  if (Array.isArray(options)) {
+    options = options.map(opt => {
+      if (typeof opt === 'object' && opt !== null) {
+        return {
+          id: opt.id ?? opt.raw ?? opt.label ?? String(opt),
+          label: {
+            en: opt.label?.en ?? opt.labels?.en ?? opt.en ?? (typeof opt.label === 'string' ? opt.label : (opt.raw || opt.id)),
+            si: opt.label?.si ?? opt.labels?.si ?? opt.si ?? null,
+          }
+        };
+      }
+      return {
+        id: String(opt),
+        label: {
+          en: String(opt),
+          si: null
+        }
+      };
+    });
+  }
+
+  return {
+    ...raw,
+    activity_id: raw.activity_id ?? raw.id ?? null,
+    template_id: raw.template_id ?? raw.task_code ?? raw.code ?? null,
+    task_code: raw.task_code ?? raw.template_id ?? null,
+    title: {
+      en: titleEn,
+      si: titleSi,
+    },
+    instruction: {
+      en: instructionEn,
+      si: instructionSi,
+    },
+    options,
+    content_language_status: raw.content_language_status ?? {
+      en: instructionEn ? 'AVAILABLE' : 'UNAVAILABLE',
+      si: instructionSi ? 'AVAILABLE' : 'UNAVAILABLE',
+    }
+  };
 }
 
 // Localized Content Resolver (§6)
@@ -576,10 +670,11 @@ export function resolveLocalizedText(values, requestedLocale = 'en') {
 }
 
 /**
- * Resolves localized activity instruction.
- * Section 8 contract: Never prepends technical warnings into the instruction text.
- * Simple View fails-closed to localized unavailable message when Sinhala is absent.
- * Researcher View returns clean English text so the caller can render warnings separately.
+ * Resolves localized activity instruction following Section 6 Precedence:
+ * 1. Use the activity's own non-empty instruction.si.
+ * 2. Use a governed localization registry entry keyed by exact stable activity/template ID.
+ * 3. In researcher view only, show English with a separate fallback warning.
+ * 4. In simple/child preview, show the clean unavailable notice and no English instruction.
  */
 export function getLocalizedInstruction(activity, localeOrFallback = '', optionsOrContext = false) {
   if (!activity) return '';
@@ -615,89 +710,68 @@ export function getLocalizedInstruction(activity, localeOrFallback = '', options
   const activeLocale = normalizeContentLocale(locale || getLocale());
   const isSi = activeLocale === 'si';
 
-  // 1. Explicit canonical multi-lingual instruction object { en: ..., si: ... }
-  const instructionObj = (activity.instruction && typeof activity.instruction === 'object')
-    ? activity.instruction
-    : (taskContext?.instruction && typeof taskContext.instruction === 'object' ? taskContext.instruction : null);
+  // Normalize activity and taskContext payloads (§5)
+  const normAct = normalizeActivityPayload(activity);
+  const normTask = taskContext ? normalizeActivityPayload(taskContext) : null;
 
-  if (instructionObj) {
-    const res = resolveLocalizedText(instructionObj, activeLocale);
-    if (!res.missing) {
-      if (!res.usedFallback || !isSi) {
-        return res.text;
-      }
-      // Sinhala requested but missing from object
-      if (isChildFacing || viewMode === 'simple') {
-        return t('localization.activityUnavailableInSinhala', {}, 'si') || 'මෙම ක්‍රියාකාරකම සිංහල භාෂාවෙන් තවම ලබා ගත නොහැක.';
-      }
-      return res.text; // Clean English in researcher view
-    }
-  }
-
-  // 2. Direct property child_friendly_instruction_si
-  if (isSi && (activity.child_friendly_instruction_si || taskContext?.child_friendly_instruction_si)) {
-    return activity.child_friendly_instruction_si || taskContext.child_friendly_instruction_si;
-  }
-
-  // 3. Demo activity lookup by code
-  const code = activity.task_code || activity.activity_id || activity.id || taskContext?.task_code || taskContext?.activity_id || taskContext?.id;
-  if (code) {
-    if (DEMONSTRATION_ACTIVITIES[code]) {
-      const demo = DEMONSTRATION_ACTIVITIES[code];
-      const res = resolveLocalizedText(demo.instruction, activeLocale);
-      if (!res.missing && (!res.usedFallback || !isSi)) {
-        return res.text;
-      }
-    }
-    if (CURATED_ACTIVITY_SINHALA[code]) {
-      if (isSi) {
-        return CURATED_ACTIVITY_SINHALA[code].instruction;
-      }
-    }
-  }
-
-  // 4. Match by English instruction text if known
-  const presented = activity.presented_instruction || activity.child_friendly_instruction || activity.instruction_shown || activity.original_instruction;
-  if (isSi && presented) {
-    if (/[\u0D80-\u0DFF]/.test(presented)) {
-      return presented;
-    }
-    const cleanPresented = presented.trim();
-    if (KNOWN_INSTRUCTION_SINHALA[cleanPresented]) {
-      return KNOWN_INSTRUCTION_SINHALA[cleanPresented];
-    }
-  }
-
-  // 5. If English locale, return English text cleanly
+  // English requested: return English instruction cleanly
   if (!isSi) {
-    if (activity.instruction && typeof activity.instruction === 'object' && activity.instruction.en) {
-      return activity.instruction.en;
-    }
-    if (activity.presented_instruction || activity.child_friendly_instruction) {
-      return activity.presented_instruction || activity.child_friendly_instruction;
-    }
-    if (code && DEMONSTRATION_ACTIVITIES[code]?.instruction?.en) {
-      return DEMONSTRATION_ACTIVITIES[code].instruction.en;
-    }
-    return presented || fallbackText;
+    return normAct?.instruction?.en
+      || normTask?.instruction?.en
+      || fallbackText
+      || '';
   }
 
-  // 6. Sinhala missing handling: Fail closed in Simple View, return clean English in Researcher View
-  if (isChildFacing || viewMode === 'simple') {
-    return t('localization.activityUnavailableInSinhala', {}, 'si') || 'මෙම ක්‍රියාකාරකම සිංහල භාෂාවෙන් තවම ලබා ගත නොහැක.';
-  } else {
-    // Researcher view returns clean text (technical marker is rendered outside in container)
-    return presented || fallbackText;
+  // Precedence 1 (§6): Use activity's own non-empty instruction.si
+  if (normAct?.instruction?.si && typeof normAct.instruction.si === 'string' && normAct.instruction.si.trim()) {
+    return normAct.instruction.si.trim();
   }
+  if (normTask?.instruction?.si && typeof normTask.instruction.si === 'string' && normTask.instruction.si.trim()) {
+    return normTask.instruction.si.trim();
+  }
+
+  // Precedence 2 (§6): Use governed localization registry entry keyed by exact stable activity/template ID
+  // Do NOT attempt to resolve a raw UUID through the demonstration registry
+  const stableIdCandidate = normAct?.template_id
+    || normTask?.template_id
+    || normAct?.task_code
+    || normTask?.task_code
+    || (normAct?.activity_id && !isUuid(normAct.activity_id) ? normAct.activity_id : null)
+    || (normAct?.id && !isUuid(normAct.id) ? normAct.id : null);
+
+  if (stableIdCandidate) {
+    if (DEMONSTRATION_ACTIVITIES[stableIdCandidate]?.instruction?.si) {
+      return DEMONSTRATION_ACTIVITIES[stableIdCandidate].instruction.si;
+    }
+    if (CURATED_ACTIVITY_SINHALA[stableIdCandidate]?.instruction) {
+      return CURATED_ACTIVITY_SINHALA[stableIdCandidate].instruction;
+    }
+  }
+
+  // Also match curated known instruction strings if exact phrase has official Sinhala
+  const enPresented = (normAct?.instruction?.en || normTask?.instruction?.en || '').trim();
+  if (enPresented && KNOWN_INSTRUCTION_SINHALA[enPresented]) {
+    return KNOWN_INSTRUCTION_SINHALA[enPresented];
+  }
+
+  // Precedence 3 & 4 (§6): Sinhala field missing
+  if (isChildFacing || viewMode === 'simple') {
+    // 4. In simple/child preview, show clean unavailable notice and no English instruction
+    return t('localization.activityUnavailableInSinhala', {}, 'si') || 'මෙම ක්‍රියාකාරකම සිංහල භාෂාවෙන් තවම ලබා ගත නොහැක.';
+  }
+
+  // 3. In researcher view only, show English with a separate fallback warning
+  return normAct?.instruction?.en || normTask?.instruction?.en || fallbackText || '';
 }
 
 /**
- * Returns structured result for instruction resolution including fallback metadata.
+ * Returns structured result for instruction resolution including fallback metadata (§7).
  */
 export function resolveLocalizedInstruction(activity, locale = null, context = {}) {
   const normLocale = normalizeContentLocale(locale || getLocale());
   let isChildFacing = false;
   let viewMode = 'simple';
+
   if (typeof context === 'boolean') {
     isChildFacing = context;
     viewMode = context ? 'simple' : 'researcher';
@@ -710,19 +784,35 @@ export function resolveLocalizedInstruction(activity, locale = null, context = {
     }
   }
 
+  const normAct = normalizeActivityPayload(activity);
   const text = getLocalizedInstruction(activity, normLocale, context);
   const isSinhala = /[\u0D80-\u0DFF]/.test(text);
   const unavailableMsg = t('localization.activityUnavailableInSinhala', {}, 'si') || 'මෙම ක්‍රියාකාරකම සිංහල භාෂාවෙන් තවම ලබා ගත නොහැක.';
   const isUnavailable = text === unavailableMsg;
   const usedFallback = normLocale === 'si' && (!isSinhala || isUnavailable);
 
-  return {
+  const resolution = {
     text,
     requestedLocale: normLocale,
-    resolvedLocale: isSinhala && !isUnavailable ? 'si' : (text ? 'en' : null),
+    resolvedLocale: isSinhala && !isUnavailable ? 'si' : (isUnavailable ? null : (text ? 'en' : null)),
     usedFallback,
-    missing: !text
+    missing: !text || (normLocale === 'si' && isUnavailable)
   };
+
+  // Section 7 debug logging (metadata only - never learner responses or protected text)
+  if (typeof window !== 'undefined' && (window.__DEBUG_LOCALIZATION__ || window.__STAGE36_DEBUG__)) {
+    console.debug("activity-localization", {
+      activityId: normAct?.activity_id ?? null,
+      templateId: normAct?.template_id ?? null,
+      requestedLocale: normLocale,
+      availableLocales: Object.keys(normAct?.instruction ?? {}).filter(k => Boolean(normAct?.instruction?.[k])),
+      resolvedLocale: resolution.resolvedLocale,
+      usedFallback: resolution.usedFallback,
+      missing: resolution.missing,
+    });
+  }
+
+  return resolution;
 }
 
 export function getLocalizedOptions(activity, localeOrOptions = null, maybeLocale = null) {

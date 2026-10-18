@@ -26,6 +26,8 @@ export {
   normalizeContentLocale,
   resolveLocalizedText,
   resolveLocalizedInstruction,
+  normalizeActivityPayload,
+  isUuid,
   validateDemonstrationActivity,
   DEMONSTRATION_ACTIVITIES,
   CURATED_ACTIVITY_SINHALA

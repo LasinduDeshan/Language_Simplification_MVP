@@ -1,4 +1,5 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
+import { normalizeActivityPayload } from "../i18n/activityLocalization.js";
 
 export async function checkHealth() {
   const res = await fetch(`${API_BASE_URL}/health`);
@@ -17,7 +18,8 @@ export async function fetchActivities(filters = {}) {
   const url = `${API_BASE_URL}/activities${params.toString() ? `?${params.toString()}` : ""}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to fetch activities");
-  return res.json();
+  const data = await res.json();
+  return Array.isArray(data) ? data.map(normalizeActivityPayload) : data;
 }
 
 export async function fetchActivityCategories() {
@@ -29,7 +31,8 @@ export async function fetchActivityCategories() {
 export async function fetchActivityById(activityId) {
   const res = await fetch(`${API_BASE_URL}/activities/${activityId}`);
   if (!res.ok) throw new Error("Failed to fetch activity");
-  return res.json();
+  const data = await res.json();
+  return normalizeActivityPayload(data);
 }
 
 export async function fetchLearners() {
@@ -73,7 +76,12 @@ export async function createAttemptInstruction(sessionId, generationMode = null)
     const err = await res.json().catch(() => ({}));
     throw new Error(err.detail || "Failed to generate attempt instruction");
   }
-  return res.json();
+  const data = await res.json();
+  return {
+    ...data,
+    attempt: data.attempt ? normalizeActivityPayload(data.attempt) : data.attempt,
+    child_view: data.child_view ? normalizeActivityPayload(data.child_view) : data.child_view
+  };
 }
 
 export async function recordAttemptResponse(attemptId, payload) {
@@ -141,13 +149,19 @@ export async function fetchChildSafeView(sessionId, attemptId = null) {
   const url = `${API_BASE_URL}/activity-sessions/${sessionId}/child-view${attemptId ? `?attempt_id=${attemptId}` : ""}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to fetch child-safe view");
-  return res.json();
+  const data = await res.json();
+  return normalizeActivityPayload(data);
 }
 
 export async function fetchActivitySessionHistory(sessionId) {
   const res = await fetch(`${API_BASE_URL}/activity-sessions/${sessionId}/history`);
   if (!res.ok) throw new Error("Failed to fetch session history");
-  return res.json();
+  const data = await res.json();
+  return {
+    ...data,
+    task: data.task ? normalizeActivityPayload(data.task) : data.task,
+    attempts: Array.isArray(data.attempts) ? data.attempts.map(normalizeActivityPayload) : data.attempts
+  };
 }
 
 export async function completeActivitySession(sessionId) {
