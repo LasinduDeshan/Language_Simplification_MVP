@@ -26,3 +26,14 @@ class FieldCategory(str, Enum):
     USERNAME = "username"
     LOG = "log"
     NLP_INPUT = "nlp_input"
+
+
+class TargetDisclosureClass(str, Enum):
+    INFERRED_ANSWER = "INFERRED_ANSWER"
+    EXPLICIT_TASK_TARGET = "EXPLICIT_TASK_TARGET"
+
+
+class TargetDisclosurePolicy(str, Enum):
+    DO_NOT_REVEAL = "DO_NOT_REVEAL"
+    MAY_REPEAT_TASK_TARGET = "MAY_REPEAT_TASK_TARGET"
+

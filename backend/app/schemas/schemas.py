@@ -1,6 +1,7 @@
-from typing import List, Dict, Any, Optional, Union
+from typing import List, Dict, Any, Optional, Union, Annotated, Literal
 from datetime import datetime
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict, model_validator
+from app.localization.enums import TargetDisclosureClass, TargetDisclosurePolicy
 
 # ----------------- Learner Profile Schemas -----------------
 class LearnerProfileBase(BaseModel):
@@ -38,10 +39,38 @@ class LearnerProfileCreate(LearnerProfileBase):
 
 class LearnerProfileResponse(LearnerProfileBase):
     id: str
+    participant_id: Optional[str] = None
+    display_code: Optional[str] = None
+    display_name: Optional[str] = None
+    age_years: Optional[int] = None
+    risk_level: Optional[str] = None
+    risk_source: Optional[str] = "DEMONSTRATION_DATA"
+    risk_assessed_at: Optional[datetime] = None
     disclaimer: str = "Educational performance indicators; not a diagnosis."
     created_at: datetime
     updated_at: datetime
     model_config = ConfigDict(from_attributes=True)
+
+    @model_validator(mode="after")
+    def populate_display_fields(self):
+        if not self.participant_id:
+            self.participant_id = self.id
+        if not self.display_code:
+            self.display_code = self.learner_code
+        if self.age_years is None:
+            self.age_years = self.age
+        if not self.display_name:
+            import re
+            m = re.search(r"\d+", self.learner_code or "")
+            num_str = f"{int(m.group(0)):02d}" if m else "01"
+            self.display_name = f"දරුවා {num_str}"
+        if not self.risk_level:
+            level = self.screening_risk_level or self.risk_support_level
+            self.risk_level = level.upper() if level else None
+        if self.screening_source == "component_1":
+            self.risk_source = "DEMONSTRATION_DATA"
+            self.risk_assessed_at = None
+        return self
 
 # ----------------- Activity Asset Schemas -----------------
 class ActivityAssetResponse(BaseModel):
@@ -152,6 +181,15 @@ class TaskResponse(TaskBase):
     created_at: datetime
     assets: List[ActivityAssetResponse] = []
     questions: List[ActivityQuestionResponse] = []
+    activity_id: Optional[str] = None
+    template_id: Optional[str] = None
+    title_en: Optional[str] = None
+    title_si: Optional[str] = None
+    instruction_en: Optional[str] = None
+    instruction_si: Optional[str] = None
+    localized_title: Optional[Dict[str, str]] = None
+    localized_instruction: Optional[Dict[str, str]] = None
+    content_language_status: Optional[Dict[str, str]] = None
     model_config = ConfigDict(from_attributes=True)
 
 # ----------------- Activity Session Schemas -----------------
@@ -224,6 +262,44 @@ class LanguageObservationResponse(BaseModel):
     created_at: datetime
     model_config = ConfigDict(from_attributes=True)
 
+# ----------------- Stage 36 Discriminated Lineage Schemas -----------------
+class BaseLineageResponse(BaseModel):
+    strategy_code: str
+    simplification_status: str
+    source_instruction_ref: str
+    presented_instruction_ref: str
+    target_disclosure_class: TargetDisclosureClass
+    target_disclosure_policy: TargetDisclosurePolicy
+    independent_performance_measure: bool = False
+    score_interpretation: Literal[
+        "INDEPENDENT_BASELINE",
+        "SUPPORTED_PERFORMANCE",
+        "HIGHLY_SUPPORTED_PERFORMANCE",
+        "SUPPORTED_COMPLETION_ONLY",
+    ]
+
+class RuleEngineLineage(BaseLineageResponse):
+    generation_mode: Literal["RULE_ENGINE"] = "RULE_ENGINE"
+    simplification_run_id: str
+    applied_rule_ids: List[str]
+
+class TemplateLineage(BaseLineageResponse):
+    generation_mode: Literal["TEMPLATE_CATALOG"] = "TEMPLATE_CATALOG"
+    template_variant_id: str
+
+class ReuseLineage(BaseLineageResponse):
+    generation_mode: Literal["UNCHANGED_REUSE"] = "UNCHANGED_REUSE"
+    reused_from_attempt_id: str
+    reuse_reason_code: Literal[
+        "MINIMAL_SAFE_INSTRUCTION_ALREADY_REACHED",
+        "UPSTREAM_ATTEMPT2_RETAINED_SAFE",
+    ]
+
+SimplificationLineageResponse = Annotated[
+    Union[RuleEngineLineage, TemplateLineage, ReuseLineage],
+    Field(discriminator="generation_mode"),
+]
+
 class AttemptResponse(BaseModel):
     id: str
     activity_session_id: Optional[str] = None
@@ -276,6 +352,19 @@ class AttemptResponse(BaseModel):
     
     created_at: datetime
     observations: List[LanguageObservationResponse] = []
+    activity_id: Optional[str] = None
+    template_id: Optional[str] = None
+    task_code: Optional[str] = None
+    title: Optional[Dict[str, Optional[str]]] = None
+    instruction: Optional[Dict[str, Optional[str]]] = None
+    instruction_si: Optional[str] = None
+    presented_instruction_si: Optional[str] = None
+    options: Optional[List[Any]] = None
+    content_language_status: Optional[Dict[str, str]] = None
+    content_availability: Optional[Dict[str, Any]] = None
+    simplification_lineage: Optional[Union[RuleEngineLineage, TemplateLineage, ReuseLineage, Dict[str, Any]]] = None
+    independent_performance_measure: Optional[bool] = None
+    score_interpretation: Optional[str] = None
     model_config = ConfigDict(from_attributes=True)
 
 # ----------------- Child-Safe View Schema -----------------
@@ -287,13 +376,22 @@ class ChildSafeViewResponse(BaseModel):
     supportive_message: Optional[str] = None
     stimulus: Optional[Dict[str, Any]] = None
     prompt: Optional[str] = None
-    options: Optional[List[str]] = None
+    options: Optional[List[Any]] = None
     response_modes: List[str] = []
     visual_cues: List[str] = []
     audio_available: bool = True
     session_status: str = "active"
     retry_cue: Optional[str] = None
     adult_support_message: Optional[str] = None
+    activity_id: Optional[str] = None
+    template_id: Optional[str] = None
+    task_code: Optional[str] = None
+    title: Optional[Dict[str, Optional[str]]] = None
+    instruction: Optional[Dict[str, Optional[str]]] = None
+    instruction_si: Optional[str] = None
+    presented_instruction_si: Optional[str] = None
+    content_language_status: Optional[Dict[str, str]] = None
+    content_availability: Optional[Dict[str, Any]] = None
 
 # ----------------- Legacy Schemas (Backward Compatibility) -----------------
 class ExperimentRunCreate(BaseModel):

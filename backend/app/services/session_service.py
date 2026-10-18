@@ -15,6 +15,14 @@ from app.generation.rule_generator import rule_generator
 from app.generation.llm_generator import llm_generator
 from app.validation.validator import adaptation_validator
 from app.security.input_sanitizer import sanitize_text
+from app.localization.activity_catalog import (
+    enrich_task_localization,
+    enrich_attempt_localization,
+    enrich_child_view_localization,
+    get_governed_activity_localization,
+)
+from app.sinhala_output_validation.simplification_adapter import Stage36SimplificationAdapter
+
 
 class SessionService:
     def create_session(
@@ -150,6 +158,75 @@ class SessionService:
                 response_format_adjusted = True
                 current_response_mode = "multiple_choice"
 
+        # Query previous attempts for lineage and reuse
+        prev_attempts = db.query(Attempt).filter(
+            Attempt.activity_session_id == session.id
+        ).order_by(Attempt.attempt_number.asc()).all()
+        attempt_2 = next((a for a in prev_attempts if a.attempt_number == 2), None)
+
+        # Scoring interpretation contract:
+        # Attempt 1: INDEPENDENT_BASELINE, independent = True
+        # Attempt 2: SUPPORTED_PERFORMANCE, independent = False
+        # Attempt 3: HIGHLY_SUPPORTED_PERFORMANCE, independent = False
+        if attempt_number == 1:
+            independent_perf = True
+            score_interp = "INDEPENDENT_BASELINE"
+        elif attempt_number == 2:
+            independent_perf = False
+            score_interp = "SUPPORTED_PERFORMANCE"
+        else:
+            independent_perf = False
+            score_interp = "HIGHLY_SUPPORTED_PERFORMANCE"
+
+        cat = get_governed_activity_localization(task.task_code)
+        presented_instruction_si = None
+        simplification_lineage = None
+
+        if attempt_number == 3:
+            # Route Attempt 3 through Stage 36 Simplification Adapter
+            source_si = (
+                cat.get("instruction", {}).get("si")
+                if cat
+                else (getattr(task, "instruction_si", None) or presented_instruction)
+            )
+            attempt_2_si = getattr(attempt_2, "presented_instruction_si", None) or getattr(attempt_2, "presented_instruction", None) if attempt_2 else None
+            attempt_2_id = attempt_2.id if attempt_2 else None
+            target_id = cat.get("target_id") if cat else None
+            catalog_fb_text = (
+                cat.get("support_versions", {}).get("strong_decomposed_step", {}).get("si")
+                if cat
+                else None
+            )
+
+            adapter = Stage36SimplificationAdapter()
+            simp_res = adapter.simplify_attempt_3(
+                task_code=task.task_code,
+                source_text=source_si or presented_instruction,
+                attempt_2_instruction=attempt_2_si,
+                attempt_2_id=attempt_2_id,
+                target_id=target_id,
+                catalog_fallback_text=catalog_fb_text,
+            )
+            presented_instruction_si = simp_res["presented_instruction"]
+            simplification_lineage = simp_res["lineage_dict"]
+            generation_method = simplification_lineage.get("generation_mode", generation_method)
+            validation_status = simplification_lineage.get("simplification_status", validation_status)
+            if cat and "support_versions" in cat and "strong_decomposed_step" in cat["support_versions"]:
+                presented_instruction = cat["support_versions"]["strong_decomposed_step"].get("en", presented_instruction)
+
+        elif attempt_number == 2:
+            if cat and "support_versions" in cat and "strong_scaffold" in cat["support_versions"]:
+                presented_instruction = cat["support_versions"]["strong_scaffold"].get("en", presented_instruction)
+                presented_instruction_si = cat["support_versions"]["strong_scaffold"].get("si")
+
+        initial_snapshot = {
+            "created_at": datetime.utcnow().isoformat(),
+            "independent_performance_measure": independent_perf,
+            "score_interpretation": score_interp,
+        }
+        if simplification_lineage:
+            initial_snapshot["simplification_lineage"] = simplification_lineage
+
         # 3. Store exact presented instruction in Attempt record
         attempt = Attempt(
             activity_session_id=session.id,
@@ -170,13 +247,17 @@ class SessionService:
             response_format_adjusted=response_format_adjusted,
             original_response_mode=original_response_mode,
             current_response_mode=current_response_mode,
-            target_skill=task.target_skill or task.subskill
+            target_skill=task.target_skill or task.subskill,
+            automatic_analysis_snapshot=initial_snapshot,
         )
         db.add(attempt)
         session.current_attempt_number = attempt_number
         session.current_support_level = support_level
         db.commit()
         db.refresh(attempt)
+        attempt.presented_instruction_si = presented_instruction_si
+        enrich_attempt_localization(attempt, task, support_level)
+
 
         child_view = self.get_child_view(db, session_id, attempt.id)
 
@@ -242,6 +323,9 @@ class SessionService:
         attempt.attempt_status = "confirmed"
         db.commit()
         db.refresh(attempt)
+        session = attempt.activity_session
+        if session and session.task:
+            enrich_attempt_localization(attempt, session.task)
         return attempt
 
     def analyse_attempt(
@@ -276,8 +360,10 @@ class SessionService:
         retry_required = eval_res["retry_required"]
         retry_reason = eval_res["retry_reason"]
 
-        # Store automatic analysis snapshot
+        # Store automatic analysis snapshot while preserving initial lineage/scoring metadata
+        existing_snapshot = dict(attempt.automatic_analysis_snapshot or {})
         snapshot = {
+            **existing_snapshot,
             "concept_result": concept_result,
             "target_skill_result": target_skill_result,
             "grammar_observations": grammar_obs,
@@ -286,6 +372,7 @@ class SessionService:
             "retry_reason": retry_reason,
             "analysed_at": datetime.utcnow().isoformat()
         }
+
 
         attempt.target_skill = eval_res["target_skill"]
         attempt.concept_result = concept_result
@@ -349,6 +436,9 @@ class SessionService:
 
         db.commit()
         db.refresh(attempt)
+        session = attempt.activity_session
+        if session and session.task:
+            enrich_attempt_localization(attempt, session.task)
         return attempt
 
     def transition_attempt(
@@ -598,7 +688,7 @@ class SessionService:
         if session.status == "adult_support_required":
             adult_support_message = "Great effort! Let's ask our teacher or helper to explore this together."
 
-        return {
+        child_view = {
             "session_id": session.id,
             "attempt_id": attempt.id if attempt else "",
             "attempt_number": attempt_num,
@@ -614,6 +704,7 @@ class SessionService:
             "retry_cue": retry_cue,
             "adult_support_message": adult_support_message
         }
+        return enrich_child_view_localization(child_view, task, attempt)
 
     def get_session_history(
         self,
@@ -625,11 +716,15 @@ class SessionService:
             raise ValueError(f"ActivitySession '{session_id}' not found")
 
         attempts = db.query(Attempt).filter(Attempt.activity_session_id == session_id).order_by(Attempt.attempt_number).all()
+        task = session.task
+        if task:
+            enrich_task_localization(task)
+            attempts = [enrich_attempt_localization(a, task) for a in attempts]
 
         return {
             "session": session,
             "learner": session.learner,
-            "task": session.task,
+            "task": task,
             "attempts": attempts,
             "events": session.integration_events
         }

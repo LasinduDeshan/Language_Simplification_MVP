@@ -152,7 +152,7 @@ export default function IntegrationExplorer({
             >
               {tasks.map(t => (
                 <option key={t.id} value={t.id}>
-                  {t.task_code} - {t.title}
+                  {t.task_code} - {typeof t.title === 'object' && t.title !== null ? (t.title.si || t.title.en || '') : t.title}
                 </option>
               ))}
             </select>
@@ -622,11 +622,11 @@ function GeneratorCard({ title, subtitle, tag, tagColor, data, isTarget }) {
             Generated Instruction:
           </span>
           <p style={{ fontSize: "1.05rem", fontWeight: 700, color: "white", margin: "0.25rem 0 0" }}>
-            "{data.instruction}"
+            "{typeof data.instruction === 'object' && data.instruction !== null ? (data.instruction.si || data.instruction.en || '') : data.instruction}"
           </p>
           {data.supportive_message && (
             <p style={{ fontSize: "0.78rem", color: "#a5b4fc", fontStyle: "italic", margin: "0.35rem 0 0" }}>
-              ✨ {data.supportive_message}
+              ✨ {typeof data.supportive_message === 'object' && data.supportive_message !== null ? (data.supportive_message.si || data.supportive_message.en || '') : data.supportive_message}
             </p>
           )}
         </div>

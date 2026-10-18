@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   Sparkles, Play, RotateCcw, Volume2, CheckCircle2, AlertCircle,
   HelpCircle, ArrowRight, UserCheck, ShieldCheck, Heart, Eye,
-  ChevronDown, ChevronUp, Layers, Check, Compass, Timer, Pause,
+  ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Layers, Check, Compass, Timer, Pause,
   FileCheck, ThumbsUp, AlertTriangle, RefreshCw, Award, BookOpen,
   MessageSquare, User
 } from "lucide-react";
@@ -13,12 +13,180 @@ import {
   fetchActivitySessionHistory
 } from "../services/api";
 import ChildPreviewModal from "./ChildPreviewModal";
+import {
+  useTranslation,
+  localizeSkill,
+  localizeSupport,
+  localizeRisk,
+  localizeStatus,
+  getLocalizedInstruction,
+  getLocalizedOptions,
+  getLocalizedTaskTitle,
+  resolveLocalizedInstruction,
+  normalizeContentLocale
+} from "../i18n";
+
+function InstructionCard({
+  attempt,
+  activeTask,
+  viewMode,
+  resolvedLanguage,
+  t
+}) {
+  const [displayedInstruction, setDisplayedInstruction] = useState("");
+  const [lineageMeta, setLineageMeta] = useState(null);
+
+  useEffect(() => {
+    if (!attempt && !activeTask) return;
+    const contentLocale = normalizeContentLocale(resolvedLanguage);
+    const instructionResult = resolveLocalizedInstruction(
+      attempt || activeTask,
+      contentLocale,
+      { viewMode, isChildView: viewMode === "simple", task: activeTask }
+    );
+    setDisplayedInstruction(instructionResult.text || "");
+    setLineageMeta(attempt?.simplification_lineage || null);
+  }, [
+    attempt?.id,
+    attempt?.attempt_number,
+    attempt?.presented_instruction,
+    attempt?.presented_instruction_si,
+    attempt?.adaptation_strategy,
+    resolvedLanguage,
+    viewMode
+  ]);
+
+  const contentLocale = normalizeContentLocale(resolvedLanguage);
+  const instructionResult = resolveLocalizedInstruction(
+    attempt || activeTask,
+    contentLocale,
+    { viewMode, isChildView: viewMode === "simple", task: activeTask }
+  );
+  const textToShow = displayedInstruction || instructionResult.text;
+
+  return (
+    <div style={{
+      background: "#fffbeb",
+      borderRadius: "14px",
+      padding: "1.25rem",
+      border: "1px solid #fef3c7",
+      marginBottom: "1rem"
+    }}>
+      <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#b45309", marginBottom: "0.25rem" }}>
+        {t("instructionPresentedToChild")}
+      </div>
+      {viewMode === "researcher" && instructionResult.usedFallback && (
+        <div className="translation-warning" role="status" style={{
+          background: "rgba(245, 158, 11, 0.15)",
+          color: "#b45309",
+          padding: "0.4rem 0.75rem",
+          borderRadius: "8px",
+          fontSize: "0.82rem",
+          fontWeight: 600,
+          marginBottom: "0.5rem",
+          border: "1px solid rgba(245, 158, 11, 0.3)"
+        }}>
+          {t("localization.sinhalaContentUnavailable")}
+        </div>
+      )}
+      <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b", marginBottom: lineageMeta && viewMode === "researcher" ? "0.75rem" : "0" }}>
+        "{textToShow}"
+      </div>
+
+      {/* Researcher View: Truthful Simplification Lineage Notice */}
+      {viewMode === "researcher" && lineageMeta && (
+        <div style={{
+          background: "#ffffff",
+          padding: "0.75rem 1rem",
+          borderRadius: "10px",
+          border: "1px solid #e2e8f0",
+          fontSize: "0.8rem",
+          color: "#334155",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.35rem"
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
+            <span>
+              <strong>Simplification Mode:</strong>{" "}
+              {lineageMeta.generation_mode === "RULE_ENGINE" && (
+                <span style={{ color: "#15803d", fontWeight: 700 }}>
+                  Rule Engine ({lineageMeta.simplification_run_id}) | Rules: {lineageMeta.applied_rule_ids?.join(", ") || "SI-LEX-SUB-0001"}
+                </span>
+              )}
+              {lineageMeta.generation_mode === "TEMPLATE_CATALOG" && (
+                <span style={{ color: "#0369a1", fontWeight: 700 }}>
+                  Governed Template Fallback ({lineageMeta.template_variant_id})
+                </span>
+              )}
+              {lineageMeta.generation_mode === "UNCHANGED_REUSE" && (
+                <span style={{ color: "#b45309", fontWeight: 700 }}>
+                  Governed Unchanged Reuse
+                </span>
+              )}
+            </span>
+            <span style={{
+              background: lineageMeta.independent_performance_measure ? "#dcfce7" : "#fef3c7",
+              color: lineageMeta.independent_performance_measure ? "#15803d" : "#b45309",
+              padding: "0.2rem 0.5rem",
+              borderRadius: "6px",
+              fontWeight: 700,
+              fontSize: "0.75rem"
+            }}>
+              {lineageMeta.score_interpretation === "INDEPENDENT_BASELINE" ? "Independent Baseline" : "Supported Performance (Non-Independent)"}
+            </span>
+          </div>
+
+          {lineageMeta.generation_mode === "UNCHANGED_REUSE" && (
+            <div style={{ color: "#b45309", fontStyle: "italic", fontSize: "0.78rem" }}>
+              Notice: No further safe simplification was available; previous validated instruction retained (Reason: {lineageMeta.reuse_reason_code || "Minimal safe instruction already reached"}).
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function getParticipantDisplayName(learner, lang, isResearcher = false) {
+  if (!learner) return "";
+  const isSi = lang?.startsWith("si");
+  if (isSi) {
+    if (learner.display_name) return learner.display_name;
+    const num = (learner.display_code || learner.learner_code || "").replace(/\D+/g, "").padStart(2, "0") || "01";
+    return `දරුවා ${num}`;
+  }
+  if (isResearcher) {
+    return learner.display_code || learner.learner_code || "CHILD-001";
+  }
+  if (learner.display_code) {
+    const num = learner.display_code.replace(/\D+/g, "").padStart(2, "0");
+    return `Child ${num}`;
+  }
+  return learner.learner_code || "Child 01";
+}
+
+function getParticipantRiskInfo(learner, lang) {
+  if (!learner) return { text: "", color: "#64748b", isDemonstration: false };
+  const isDemo = learner.risk_source === "DEMONSTRATION_DATA" || learner.screening_source === "component_1" || !learner.risk_assessed_at;
+  const rawRisk = learner.risk_level || learner.screening_risk_level || learner.risk_support_level;
+  
+  const text = localizeRisk(rawRisk, lang, isDemo);
+  const r = String(rawRisk || "").toLowerCase();
+  let color = "#64748b";
+  if (r === "high" || r === "critical") color = "#ef4444";
+  else if (r === "moderate") color = "#f59e0b";
+  else if (r === "low") color = "#10b981";
+  
+  return { text, color, isDemonstration: isDemo };
+}
 
 export default function GuidedPlayground({
   tasks: initialTasks, learners: initialLearners, selectedTask: propSelectedTask,
   setSelectedTask: setPropSelectedTask, selectedLearner: propSelectedLearner,
   setSelectedLearner: setPropSelectedLearner, generationMode, viewMode, onLearnerUpdated
 }) {
+  const { t, resolvedLanguage } = useTranslation("playground");
   // Activity Categories & Filters
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [activitiesList, setActivitiesList] = useState(initialTasks || []);
@@ -44,6 +212,8 @@ export default function GuidedPlayground({
   const [timerSeconds, setTimerSeconds] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const timerRef = useRef(null);
+  const requestSequenceRef = useRef(0);
+
 
   // Review & Override State
   const [showAdultReview, setShowAdultReview] = useState(false);
@@ -133,8 +303,10 @@ export default function GuidedPlayground({
   });
 
   // Step 1: Start Activity Session
-  const handleStartActivity = async () => {
-    if (!activeLearner || !activeTask) {
+  const handleStartActivityWithTask = async (taskToRun, learnerToRun) => {
+    const targetTask = taskToRun || activeTask;
+    const targetLearner = learnerToRun || activeLearner;
+    if (!targetLearner || !targetTask) {
       setError("Please select both a learner profile and an activity.");
       return;
     }
@@ -153,7 +325,7 @@ export default function GuidedPlayground({
 
     try {
       // 1. Create Activity Session
-      const session = await createActivitySession(activeLearner.id, activeTask.id, generationMode);
+      const session = await createActivitySession(targetLearner.id, targetTask.id, generationMode);
 
       // 2. Generate and store exact instruction in Attempt 1 BEFORE child sees it
       const attemptData = await createAttemptInstruction(session.id, generationMode);
@@ -169,6 +341,54 @@ export default function GuidedPlayground({
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleStartActivity = () => handleStartActivityWithTask(activeTask, activeLearner);
+
+  const handleSelectTask = async (act) => {
+    setActiveTask(act);
+    if (setPropSelectedTask) setPropSelectedTask(act);
+    if (currentSession && currentSession.status === "active") {
+      await handleStartActivityWithTask(act, activeLearner);
+    }
+  };
+
+  const handleSelectLearner = async (lrn) => {
+    setActiveLearner(lrn);
+    if (setPropSelectedLearner) setPropSelectedLearner(lrn);
+    if (currentSession && currentSession.status === "active") {
+      await handleStartActivityWithTask(activeTask, lrn);
+    }
+  };
+
+  const currentTaskIndex = activitiesList.findIndex(
+    act => act.id === activeTask?.id || act.task_code === activeTask?.task_code
+  );
+
+  const handlePrevQuestion = async () => {
+    if (currentTaskIndex > 0) {
+      const prevTask = activitiesList[currentTaskIndex - 1];
+      setActiveTask(prevTask);
+      if (setPropSelectedTask) setPropSelectedTask(prevTask);
+      await handleStartActivityWithTask(prevTask, activeLearner);
+    }
+  };
+
+  const handleNextQuestion = async () => {
+    if (currentTaskIndex < activitiesList.length - 1) {
+      const nextTask = activitiesList[currentTaskIndex + 1];
+      setActiveTask(nextTask);
+      if (setPropSelectedTask) setPropSelectedTask(nextTask);
+      await handleStartActivityWithTask(nextTask, activeLearner);
+    }
+  };
+
+  const handleExitSession = () => {
+    setCurrentSession(null);
+    setCurrentAttempt(null);
+    setChildViewData(null);
+    setSessionHistory(null);
+    setSessionOutcome(null);
   };
 
   // Step 2: Record Response
@@ -274,6 +494,7 @@ export default function GuidedPlayground({
         }
       }
 
+      const reqId = ++requestSequenceRef.current;
       if (transRes.session_status === "completed" || transRes.session_status === "completed_with_adult_support") {
         setSessionOutcome("success");
       } else if (transRes.session_status === "adult_support_required") {
@@ -281,6 +502,7 @@ export default function GuidedPlayground({
       } else if (transRes.next_action && transRes.next_action.startsWith("create_attempt")) {
         // Automatically create next attempt instruction
         const nextAtt = await createAttemptInstruction(currentSession.id, generationMode);
+        if (reqId !== requestSequenceRef.current) return;
         setCurrentAttempt(nextAtt.attempt);
         setChildViewData(nextAtt.child_view);
         setManualTranscript("");
@@ -314,12 +536,12 @@ export default function GuidedPlayground({
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.25rem" }}>
             <Sparkles color="#f97316" size={24} />
-            <h1 style={{ margin: 0, fontSize: "1.75rem", fontWeight: 800 }}>
-              Manual-Input Adaptive Learning Runner
+            <h1 style={{ margin: 0, fontSize: "1.75rem", fontWeight: 700, lineHeight: 1.4 }}>
+              {t("headerTitle")}
             </h1>
           </div>
           <p style={{ margin: 0, color: "#94a3b8", fontSize: "0.95rem" }}>
-            Supervised English educational session with separate concept vs. target skill evaluation and progressive scaffolding.
+            {t("headerSubtitle")}
           </p>
         </div>
 
@@ -341,7 +563,7 @@ export default function GuidedPlayground({
             }}
           >
             <Eye size={20} />
-            <span>Open Child Preview</span>
+            <span>{t("openChildPreview")}</span>
           </button>
         )}
       </div>
@@ -371,49 +593,67 @@ export default function GuidedPlayground({
           <div className="card" style={{ background: "#ffffff", padding: "1.25rem", borderRadius: "16px", border: "1px solid #e2e8f0" }}>
             <h3 style={{ margin: "0 0 1rem 0", fontSize: "1.1rem", display: "flex", alignItems: "center", gap: "0.5rem", color: "#1e293b" }}>
               <User size={18} color="#f97316" />
-              <span>Learner Profile</span>
+              <span>{t("learnerProfile")}</span>
             </h3>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {learnersList.map(lrn => {
                 const isSelected = activeLearner?.id === lrn.id || activeLearner?.learner_code === lrn.learner_code;
-                const riskColor = lrn.risk_support_level === "high" ? "#ef4444" : (lrn.risk_support_level === "moderate" ? "#f59e0b" : "#10b981");
+                const riskInfo = getParticipantRiskInfo(lrn, resolvedLanguage);
+                const displayName = getParticipantDisplayName(lrn, resolvedLanguage, viewMode === "researcher");
                 return (
                   <button
                     key={lrn.id || lrn.learner_code}
-                    onClick={() => {
-                      setActiveLearner(lrn);
-                      if (setPropSelectedLearner) setPropSelectedLearner(lrn);
-                    }}
-                    disabled={!!currentSession && currentSession.status === "active"}
+                    onClick={() => handleSelectLearner(lrn)}
+                    title={viewMode !== "researcher" ? `${t("internalId") || "Internal ID"}: ${lrn.participant_id || lrn.id}` : undefined}
                     style={{
                       display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
+                      flexDirection: "column",
+                      alignItems: "stretch",
                       padding: "0.75rem 1rem",
                       background: isSelected ? "#fff7ed" : "#f8fafc",
                       border: isSelected ? "2px solid #f97316" : "1px solid #e2e8f0",
                       borderRadius: "12px",
-                      cursor: currentSession?.status === "active" ? "not-allowed" : "pointer",
-                      textAlign: "left"
+                      cursor: "pointer",
+                      textAlign: "left",
+                      gap: "0.3rem"
                     }}
                   >
-                    <div>
-                      <div style={{ fontWeight: 700, color: "#1e293b" }}>{lrn.learner_code} (Age {lrn.age})</div>
-                      <div style={{ fontSize: "0.8rem", color: "#64748b" }}>
-                        Vocab: {lrn.vocabulary_score} | Gram: {lrn.grammar_score} | Comp: {lrn.comprehension_score}
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <div style={{ fontWeight: 700, color: "#1e293b", fontSize: "0.95rem" }}>
+                        {displayName} ({t("ageLabel", { age: lrn.age_years ?? lrn.age })})
                       </div>
+                      <span style={{
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                        padding: "0.2rem 0.6rem",
+                        borderRadius: "9999px",
+                        background: `${riskInfo.color}15`,
+                        color: riskInfo.color
+                      }}>
+                        {riskInfo.text}
+                      </span>
                     </div>
-                    <span style={{
-                      fontSize: "0.75rem",
-                      fontWeight: 700,
-                      padding: "0.2rem 0.6rem",
-                      borderRadius: "9999px",
-                      background: `${riskColor}15`,
-                      color: riskColor
-                    }}>
-                      {lrn.risk_support_level}
-                    </span>
+
+                    <div style={{ fontSize: "0.8rem", color: "#64748b" }}>
+                      {t("metricVocabulary")}: {lrn.vocabulary_score} | {t("metricGrammar")}: {lrn.grammar_score} | {t("metricComprehension")}: {lrn.comprehension_score}
+                    </div>
+
+                    {viewMode === "researcher" && (
+                      <div style={{
+                        fontSize: "0.72rem",
+                        color: "#475569",
+                        marginTop: "0.25rem",
+                        padding: "0.35rem 0.5rem",
+                        background: "#e2e8f0",
+                        borderRadius: "6px",
+                        fontFamily: "monospace",
+                        lineHeight: 1.4
+                      }}>
+                        <div><strong>{t("internalId") || "Internal ID"}:</strong> {lrn.participant_id || lrn.id}</div>
+                        <div><strong>{t("riskSource") || "Risk Source"}:</strong> {lrn.risk_source || (lrn.screening_source === "component_1" ? "DEMONSTRATION_DATA" : "NOT_CONNECTED")}</div>
+                      </div>
+                    )}
                   </button>
                 );
               })}
@@ -424,17 +664,17 @@ export default function GuidedPlayground({
           <div className="card" style={{ background: "#ffffff", padding: "1.25rem", borderRadius: "16px", border: "1px solid #e2e8f0" }}>
             <h3 style={{ margin: "0 0 1rem 0", fontSize: "1.1rem", display: "flex", alignItems: "center", gap: "0.5rem", color: "#1e293b" }}>
               <BookOpen size={18} color="#f97316" />
-              <span>Activity Categories</span>
+              <span>{t("activityCatalog")}</span>
             </h3>
 
             {/* Category Pills */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginBottom: "1rem" }}>
               {[
-                { id: "all", label: "All (30)" },
-                { id: "vocabulary", label: "Vocabulary" },
-                { id: "grammar", label: "Grammar" },
-                { id: "sentence_and_instruction", label: "Instructions" },
-                { id: "comprehension", label: "Comprehension" }
+                { id: "all", label: t("categoryAll", { count: activitiesList.length || 30 }) },
+                { id: "vocabulary", label: t("categoryVocabulary") },
+                { id: "grammar", label: t("categoryGrammar") },
+                { id: "sentence_and_instruction", label: t("categoryInstructions") },
+                { id: "comprehension", label: t("categoryComprehension") }
               ].map(cat => (
                 <button
                   key={cat.id}
@@ -462,23 +702,21 @@ export default function GuidedPlayground({
                 return (
                   <button
                     key={act.id || act.task_code}
-                    onClick={() => {
-                      setActiveTask(act);
-                      if (setPropSelectedTask) setPropSelectedTask(act);
-                    }}
-                    disabled={!!currentSession && currentSession.status === "active"}
+                    onClick={() => handleSelectTask(act)}
                     style={{
                       padding: "0.6rem 0.8rem",
                       background: isSelected ? "#fff7ed" : "#ffffff",
                       border: isSelected ? "2px solid #f97316" : "1px solid #e2e8f0",
                       borderRadius: "10px",
-                      cursor: currentSession?.status === "active" ? "not-allowed" : "pointer",
+                      cursor: "pointer",
                       textAlign: "left"
                     }}
                   >
-                    <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1e293b" }}>{act.title}</div>
+                    <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1e293b" }}>
+                      {getLocalizedTaskTitle(act, resolvedLanguage)}
+                    </div>
                     <div style={{ fontSize: "0.75rem", color: "#64748b" }}>
-                      {act.task_code} • Ages {act.minimum_age}-{act.maximum_age}
+                      {act.task_code} • {t("agesLabel", { min: act.minimum_age, max: act.maximum_age })}
                     </div>
                   </button>
                 );
@@ -502,9 +740,9 @@ export default function GuidedPlayground({
               {sessionOutcome === "success" ? (
                 <div style={{ padding: "1.5rem 0" }}>
                   <Award size={64} color="#10b981" style={{ margin: "0 auto 1rem auto" }} />
-                  <h2 style={{ color: "#065f46", margin: "0 0 0.5rem 0" }}>Activity Successfully Completed!</h2>
+                  <h2 style={{ color: "#065f46", margin: "0 0 0.5rem 0" }}>{t("sessionSuccess")}</h2>
                   <p style={{ color: "#047857", maxWidth: "500px", margin: "0 auto 1.5rem auto" }}>
-                    The child demonstrated target skill mastery across the structured adaptation workflow.
+                    {t("sessionSuccessDesc")}
                   </p>
                 </div>
               ) : sessionOutcome === "adult_support_required" ? (
@@ -516,10 +754,9 @@ export default function GuidedPlayground({
                   marginBottom: "1.5rem"
                 }}>
                   <AlertTriangle size={56} color="#d97706" style={{ margin: "0 auto 1rem auto" }} />
-                  <h2 style={{ color: "#92400e", margin: "0 0 0.5rem 0" }}>Adult Support Required & Session Summary</h2>
+                  <h2 style={{ color: "#92400e", margin: "0 0 0.5rem 0" }}>{t("sessionSupportRequired")}</h2>
                   <p style={{ color: "#b45309", maxWidth: "540px", margin: "0 auto" }}>
-                    Three instructional attempts were completed without demonstrating independent target skill mastery.
-                    Please review the stored session history and provide direct human educational scaffolding.
+                    {t("sessionSupportRequiredDesc")}
                   </p>
                 </div>
               ) : null}
@@ -549,10 +786,10 @@ export default function GuidedPlayground({
                       </div>
                       <div>
                         <h3 style={{ margin: 0, fontSize: "1.05rem", fontWeight: 800, color: "#14532d" }}>
-                          Learner Profile Dynamic Recalibration
+                          {t("recalibrationTitle")}
                         </h3>
                         <div style={{ fontSize: "0.8rem", color: "#166534" }}>
-                          Skill parameters updated for <strong>{profileUpdateResult.learner_code}</strong> based on performance
+                          {t("recalibrationNotice", { code: getParticipantDisplayName(profileUpdateResult, resolvedLanguage, viewMode === "researcher") || profileUpdateResult.learner_code })}
                         </div>
                       </div>
                     </div>
@@ -570,7 +807,10 @@ export default function GuidedPlayground({
                         alignItems: "center",
                         gap: "0.4rem"
                       }}>
-                        <AlertTriangle size={14} /> Risk Level Shifted: {profileUpdateResult.before.risk_support_level} → {profileUpdateResult.after.risk_support_level}
+                        <AlertTriangle size={14} /> {t("riskShifted", {
+                          before: localizeRisk(profileUpdateResult.before.risk_support_level),
+                          after: localizeRisk(profileUpdateResult.after.risk_support_level)
+                        })}
                       </span>
                     ) : (
                       <span style={{
@@ -582,7 +822,9 @@ export default function GuidedPlayground({
                         fontSize: "0.8rem",
                         fontWeight: 700
                       }}>
-                        Support Tier: {profileUpdateResult.after.risk_support_level.toUpperCase()} (Maintained)
+                        {t("supportTierMaintained", {
+                          tier: localizeRisk(profileUpdateResult.after.risk_support_level)
+                        })}
                       </span>
                     )}
                   </div>
@@ -595,10 +837,10 @@ export default function GuidedPlayground({
                     marginBottom: "1rem"
                   }}>
                     {[
-                      { label: "Vocabulary", before: profileUpdateResult.before.vocabulary_score, after: profileUpdateResult.after.vocabulary_score, delta: profileUpdateResult.deltas.vocabulary },
-                      { label: "Grammar", before: profileUpdateResult.before.grammar_score, after: profileUpdateResult.after.grammar_score, delta: profileUpdateResult.deltas.grammar },
-                      { label: "Comprehension", before: profileUpdateResult.before.comprehension_score, after: profileUpdateResult.after.comprehension_score, delta: profileUpdateResult.deltas.comprehension },
-                      { label: "Instruction", before: profileUpdateResult.before.instruction_following_score, after: profileUpdateResult.after.instruction_following_score, delta: profileUpdateResult.deltas.instruction },
+                      { label: t("metricVocabulary"), before: profileUpdateResult.before.vocabulary_score, after: profileUpdateResult.after.vocabulary_score, delta: profileUpdateResult.deltas.vocabulary },
+                      { label: t("metricGrammar"), before: profileUpdateResult.before.grammar_score, after: profileUpdateResult.after.grammar_score, delta: profileUpdateResult.deltas.grammar },
+                      { label: t("metricComprehension"), before: profileUpdateResult.before.comprehension_score, after: profileUpdateResult.after.comprehension_score, delta: profileUpdateResult.deltas.comprehension },
+                      { label: t("metricInstruction"), before: profileUpdateResult.before.instruction_following_score, after: profileUpdateResult.after.instruction_following_score, delta: profileUpdateResult.deltas.instruction },
                     ].map(metric => {
                       const isPos = metric.delta > 0;
                       const isNeg = metric.delta < 0;
@@ -654,8 +896,8 @@ export default function GuidedPlayground({
                     gap: "0.5rem"
                   }}>
                     <span>
-                      Composite Index (CLI): <strong>{profileUpdateResult.after.composite_language_index}/100</strong>
-                      &nbsp;&bull;&nbsp;English Level: <strong style={{ textTransform: "capitalize" }}>{profileUpdateResult.after.english_level}</strong>
+                      {t("compositeIndex")}: <strong>{profileUpdateResult.after.composite_language_index}/100</strong>
+                      &nbsp;&bull;&nbsp;{t("englishLevel")}: <strong style={{ textTransform: "capitalize" }}>{profileUpdateResult.after.english_level}</strong>
                     </span>
                     <span style={{ color: "#64748b", fontSize: "0.78rem" }}>
                       {profileUpdateResult.reason}
@@ -675,22 +917,47 @@ export default function GuidedPlayground({
                 gap: "1rem"
               }}>
                 <div>
-                  <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 700 }}>SELECTED LEARNER</span>
+                  <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 700 }}>{t("selectedLearner")}</span>
                   <div style={{ fontWeight: 800, fontSize: "1.1rem", color: "#1e293b" }}>
-                    {activeLearner?.learner_code} (Age {activeLearner?.age})
+                    {getParticipantDisplayName(activeLearner, resolvedLanguage, viewMode === "researcher")} ({t("ageLabel", { age: activeLearner?.age_years ?? activeLearner?.age })})
                   </div>
-                  <div style={{ fontSize: "0.85rem", color: "#475569" }}>
-                    Risk Level: <strong>{activeLearner?.risk_support_level}</strong>
-                  </div>
+                  {(() => {
+                    const activeRiskInfo = getParticipantRiskInfo(activeLearner, resolvedLanguage);
+                    return (
+                      <>
+                        <div style={{ fontSize: "0.85rem", color: "#475569", marginTop: "0.25rem" }}>
+                          {t("riskLevel")}: <strong style={{ color: activeRiskInfo.color }}>{activeRiskInfo.text}</strong>
+                        </div>
+                        <div style={{ fontSize: "0.8rem", color: "#64748b", marginTop: "0.2rem" }}>
+                          {t("metricVocabulary")}: {activeLearner?.vocabulary_score} | {t("metricGrammar")}: {activeLearner?.grammar_score} | {t("metricComprehension")}: {activeLearner?.comprehension_score}
+                        </div>
+                        {viewMode === "researcher" && (
+                          <div style={{
+                            fontSize: "0.75rem",
+                            color: "#475569",
+                            marginTop: "0.4rem",
+                            padding: "0.35rem 0.5rem",
+                            background: "#e2e8f0",
+                            borderRadius: "6px",
+                            fontFamily: "monospace",
+                            lineHeight: 1.4
+                          }}>
+                            <div><strong>{t("internalId") || "Internal ID"}:</strong> {activeLearner?.participant_id || activeLearner?.id}</div>
+                            <div><strong>{t("riskSource") || "Risk Source"}:</strong> {activeLearner?.risk_source || (activeLearner?.screening_source === "component_1" ? "DEMONSTRATION_DATA" : "NOT_CONNECTED")}</div>
+                          </div>
+                        )}
+                      </>
+                    );
+                  })()}
                 </div>
 
                 <div>
-                  <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 700 }}>SELECTED ACTIVITY</span>
+                  <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 700 }}>{t("selectedActivity")}</span>
                   <div style={{ fontWeight: 800, fontSize: "1.1rem", color: "#1e293b" }}>
-                    {activeTask?.title}
+                    {getLocalizedTaskTitle(activeTask, resolvedLanguage)}
                   </div>
                   <div style={{ fontSize: "0.85rem", color: "#475569" }}>
-                    Skill: <strong>{activeTask?.target_skill || activeTask?.subskill}</strong>
+                    {t("skill")}: <strong>{localizeSkill(activeTask?.target_skill || activeTask?.subskill)}</strong>
                   </div>
                 </div>
               </div>
@@ -714,7 +981,7 @@ export default function GuidedPlayground({
                 }}
               >
                 <Play size={22} fill="#ffffff" />
-                <span>{loading ? "Starting..." : "Start Learning Session"}</span>
+                <span>{loading ? t("starting") : t("startSession")}</span>
               </button>
             </div>
           ) : (
@@ -728,6 +995,100 @@ export default function GuidedPlayground({
                 border: "2px solid #fed7aa",
                 boxShadow: "0 4px 16px rgba(249, 115, 22, 0.08)"
               }}>
+                {/* Question Navigation Toolbar */}
+                <div style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  paddingBottom: "1rem",
+                  marginBottom: "1rem",
+                  borderBottom: "1px solid #fed7aa",
+                  flexWrap: "wrap",
+                  gap: "0.5rem"
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
+                    <button
+                      onClick={handlePrevQuestion}
+                      disabled={currentTaskIndex <= 0 || loading}
+                      title={t("prevQuestion")}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.25rem",
+                        padding: "0.4rem 0.75rem",
+                        borderRadius: "8px",
+                        border: "1px solid #cbd5e1",
+                        background: currentTaskIndex <= 0 ? "#f8fafc" : "#ffffff",
+                        color: currentTaskIndex <= 0 ? "#94a3b8" : "#1e293b",
+                        fontSize: "0.82rem",
+                        fontWeight: 600,
+                        cursor: currentTaskIndex <= 0 || loading ? "not-allowed" : "pointer",
+                        transition: "all 0.15s ease"
+                      }}
+                    >
+                      <ChevronLeft size={16} />
+                      <span>{t("prevQuestion")}</span>
+                    </button>
+
+                    <span style={{
+                      fontWeight: 700,
+                      fontSize: "0.88rem",
+                      color: "#334155",
+                      padding: "0.3rem 0.6rem",
+                      background: "#f1f5f9",
+                      borderRadius: "6px"
+                    }}>
+                      {t("questionCounter", { current: currentTaskIndex >= 0 ? currentTaskIndex + 1 : 1, total: activitiesList.length || 10 })}
+                      {" • "}
+                      <span style={{ color: "#f97316" }}>{getLocalizedTaskTitle(activeTask, resolvedLanguage)}</span>
+                    </span>
+
+                    <button
+                      onClick={handleNextQuestion}
+                      disabled={currentTaskIndex >= activitiesList.length - 1 || loading}
+                      title={t("nextQuestion")}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.25rem",
+                        padding: "0.4rem 0.75rem",
+                        borderRadius: "8px",
+                        border: "1px solid #cbd5e1",
+                        background: currentTaskIndex >= activitiesList.length - 1 ? "#f8fafc" : "#ffffff",
+                        color: currentTaskIndex >= activitiesList.length - 1 ? "#94a3b8" : "#1e293b",
+                        fontSize: "0.82rem",
+                        fontWeight: 600,
+                        cursor: currentTaskIndex >= activitiesList.length - 1 || loading ? "not-allowed" : "pointer",
+                        transition: "all 0.15s ease"
+                      }}
+                    >
+                      <span>{t("nextQuestion")}</span>
+                      <ChevronRight size={16} />
+                    </button>
+                  </div>
+
+                  <button
+                    onClick={handleExitSession}
+                    title={t("changeQuestion")}
+                    style={{
+                      background: "#f8fafc",
+                      color: "#64748b",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: "8px",
+                      padding: "0.4rem 0.75rem",
+                      fontSize: "0.82rem",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.35rem"
+                    }}
+                  >
+                    <BookOpen size={15} />
+                    <span>{t("changeQuestion")}</span>
+                  </button>
+                </div>
+
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                     <span style={{
@@ -738,7 +1099,7 @@ export default function GuidedPlayground({
                       fontWeight: 800,
                       fontSize: "0.85rem"
                     }}>
-                      Attempt {currentAttempt?.attempt_number ?? 1} of 3
+                      {t("attemptCounter", { current: currentAttempt?.attempt_number ?? 1, total: 3 })}
                     </span>
                     <span style={{
                       background: "#fff7ed",
@@ -749,7 +1110,15 @@ export default function GuidedPlayground({
                       fontSize: "0.85rem",
                       border: "1px solid #fed7aa"
                     }}>
-                      Support: {currentAttempt?.support_level || "mild"} ({currentAttempt?.adaptation_strategy || "default"})
+                      {viewMode === "researcher" ? (
+                        <>
+                          {t("supportLevel", { level: localizeSupport(currentAttempt?.support_level || "mild") })} ({localizeSupport(currentAttempt?.adaptation_strategy || "default")})
+                        </>
+                      ) : (
+                        <>
+                          {localizeSupport(currentAttempt?.adaptation_strategy || currentAttempt?.support_level || "strong_child_friendly")}
+                        </>
+                      )}
                     </span>
                   </div>
 
@@ -769,35 +1138,30 @@ export default function GuidedPlayground({
                     <button
                       onClick={() => setIsTimerRunning(!isTimerRunning)}
                       style={{ background: "none", border: "none", cursor: "pointer", padding: "0 0.2rem" }}
-                      title={isTimerRunning ? "Pause Timer" : "Start Timer"}
+                      title={isTimerRunning ? t("pauseTimer") : t("startTimer")}
                     >
                       {isTimerRunning ? <Pause size={16} /> : <Play size={16} />}
                     </button>
                     <button
                       onClick={() => setTimerSeconds(0)}
                       style={{ background: "none", border: "none", cursor: "pointer", padding: "0 0.2rem" }}
-                      title="Reset Timer"
+                      title={t("resetTimer")}
                     >
                       <RotateCcw size={16} />
                     </button>
                   </div>
                 </div>
 
-                {/* Presented Child Instruction Card */}
-                <div style={{
-                  background: "#fffbeb",
-                  borderRadius: "14px",
-                  padding: "1.25rem",
-                  border: "1px solid #fef3c7",
-                  marginBottom: "1rem"
-                }}>
-                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#b45309", marginBottom: "0.25rem" }}>
-                    INSTRUCTION PRESENTED TO CHILD:
-                  </div>
-                  <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b" }}>
-                    "{currentAttempt?.presented_instruction || activeTask?.child_friendly_instruction || "Look at the picture and let's have fun!"}"
-                  </div>
-                </div>
+                {/* Presented Child Instruction Card with Canonical Keying */}
+                <InstructionCard
+                  key={currentAttempt ? currentAttempt.id : "initial-task"}
+                  attempt={currentAttempt}
+                  activeTask={activeTask}
+                  viewMode={viewMode}
+                  resolvedLanguage={resolvedLanguage}
+                  t={t}
+                />
+
 
                 {/* Quick Child View Embed */}
                 {childViewData && (
@@ -819,10 +1183,10 @@ export default function GuidedPlayground({
                       }}
                     >
                       <Eye size={16} />
-                      <span>Preview Child Modal View</span>
+                      <span>{t("previewChildView")}</span>
                     </button>
                     <span style={{ fontSize: "0.85rem", color: "#64748b" }}>
-                      Target Skill: <strong>{currentAttempt?.target_skill || activeTask?.target_skill}</strong>
+                      {t("targetSkill")}: <strong>{localizeSkill(currentAttempt?.target_skill || activeTask?.target_skill)}</strong>
                     </span>
                   </div>
                 )}
@@ -837,19 +1201,19 @@ export default function GuidedPlayground({
               }}>
                 <h3 style={{ margin: "0 0 1rem 0", fontSize: "1.15rem", fontWeight: 800, color: "#1e293b", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <MessageSquare size={20} color="#f97316" />
-                  <span>Adult Response Observation Form</span>
+                  <span>{t("adultObservationForm")}</span>
                 </h3>
 
                 {/* Manual Transcript Input */}
                 <div style={{ marginBottom: "1.25rem" }}>
                   <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#334155", marginBottom: "0.4rem" }}>
-                    Child Spoken Transcript (Enter exact speech verbatim):
+                    {t("childTranscript")}
                   </label>
                   <textarea
                     rows={3}
                     value={manualTranscript}
                     onChange={e => setManualTranscript(e.target.value)}
-                    placeholder="e.g. Fish live water."
+                    placeholder={t("transcriptPlaceholder")}
                     style={{
                       width: "100%",
                       padding: "0.75rem",
@@ -866,29 +1230,29 @@ export default function GuidedPlayground({
                 {activeTask?.options && activeTask.options.length > 0 && (
                   <div style={{ marginBottom: "1.25rem" }}>
                     <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#334155", marginBottom: "0.4rem" }}>
-                      Selected Option (If multiple choice / picture selection):
+                      {t("selectedOption")}
                     </label>
                     <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                      {activeTask.options.map((opt, i) => (
+                      {getLocalizedOptions(activeTask, resolvedLanguage).map((opt, i) => (
                         <button
                           key={i}
                           type="button"
                           onClick={() => {
-                            setSelectedOption(opt);
-                            if (!manualTranscript) setManualTranscript(opt);
+                            setSelectedOption(opt.raw);
+                            if (!manualTranscript) setManualTranscript(opt.label);
                           }}
                           style={{
                             padding: "0.5rem 1rem",
                             borderRadius: "8px",
                             fontWeight: 700,
                             fontSize: "0.9rem",
-                            border: selectedOption === opt ? "2px solid #f97316" : "1px solid #cbd5e1",
-                            background: selectedOption === opt ? "#fff7ed" : "#f8fafc",
-                            color: selectedOption === opt ? "#c2410c" : "#334155",
+                            border: selectedOption === opt.raw ? "2px solid #f97316" : "1px solid #cbd5e1",
+                            background: selectedOption === opt.raw ? "#fff7ed" : "#f8fafc",
+                            color: selectedOption === opt.raw ? "#c2410c" : "#334155",
                             cursor: "pointer"
                           }}
                         >
-                          {opt}
+                          {opt.emoji ? `${opt.emoji} ` : ""}{typeof opt.label === 'object' && opt.label !== null ? (opt.label.si || opt.label.en || "") : opt.label}
                         </button>
                       ))}
                     </div>
@@ -899,34 +1263,34 @@ export default function GuidedPlayground({
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1.25rem" }}>
                   <div>
                     <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#334155", marginBottom: "0.4rem" }}>
-                      Completion Status:
+                      {t("completionStatus")}
                     </label>
                     <select
                       value={completionStatus}
                       onChange={e => setCompletionStatus(e.target.value)}
                       style={{ width: "100%", padding: "0.6rem", borderRadius: "8px", border: "1px solid #cbd5e1" }}
                     >
-                      <option value="completed">Completed Answer</option>
-                      <option value="no_response">No Response Provided</option>
-                      <option value="asked_for_help">Child Asked for Help</option>
-                      <option value="skipped">Skipped</option>
+                      <option value="completed">{t("status.completed")}</option>
+                      <option value="no_response">{t("status.no_response")}</option>
+                      <option value="asked_for_help">{t("status.asked_for_help")}</option>
+                      <option value="skipped">{t("status.skipped")}</option>
                     </select>
                   </div>
 
                   <div>
                     <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#334155", marginBottom: "0.4rem" }}>
-                      Assistance Level:
+                      {t("assistanceLevel")}
                     </label>
                     <select
                       value={assistanceLevel}
                       onChange={e => setAssistanceLevel(e.target.value)}
                       style={{ width: "100%", padding: "0.6rem", borderRadius: "8px", border: "1px solid #cbd5e1" }}
                     >
-                      <option value="independent">Independent</option>
-                      <option value="prompted">Prompted / Cue Given</option>
-                      <option value="visually_supported">Visually Supported</option>
-                      <option value="modelled">Adult Modelled Answer</option>
-                      <option value="fully_assisted">Fully Assisted</option>
+                      <option value="independent">{t("support.independent")}</option>
+                      <option value="prompted">{t("support.prompted")}</option>
+                      <option value="visually_supported">{t("support.visually_supported")}</option>
+                      <option value="modelled">{t("support.modelled")}</option>
+                      <option value="fully_assisted">{t("support.fully_assisted")}</option>
                     </select>
                   </div>
                 </div>
@@ -934,13 +1298,13 @@ export default function GuidedPlayground({
                 {/* Adult Notes */}
                 <div style={{ marginBottom: "1.5rem" }}>
                   <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#334155", marginBottom: "0.4rem" }}>
-                    Adult Notes & Observations (Optional):
+                    {t("adultNotes")}
                   </label>
                   <input
                     type="text"
                     value={adultNotes}
                     onChange={e => setAdultNotes(e.target.value)}
-                    placeholder="e.g. Child understood location conceptually but omitted preposition 'in'."
+                    placeholder={t("adultNotesPlaceholder")}
                     style={{ width: "100%", padding: "0.6rem", borderRadius: "8px", border: "1px solid #cbd5e1" }}
                   />
                 </div>
@@ -960,7 +1324,7 @@ export default function GuidedPlayground({
                       cursor: "pointer"
                     }}
                   >
-                    1. Save Response
+                    {t("saveResponse")}
                   </button>
 
                   <button
@@ -981,7 +1345,7 @@ export default function GuidedPlayground({
                     }}
                   >
                     <CheckCircle2 size={18} />
-                    <span>{currentAttempt?.adult_confirmed ? "Confirmed & Analysed" : "2. Confirm Transcript & Analyse"}</span>
+                    <span>{currentAttempt?.adult_confirmed ? t("confirmedAndAnalysed") : t("confirmAndAnalyse")}</span>
                   </button>
                 </div>
               </div>
@@ -997,7 +1361,7 @@ export default function GuidedPlayground({
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
                     <h3 style={{ margin: 0, fontSize: "1.15rem", fontWeight: 800, color: "#1e293b", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                       <FileCheck size={20} color="#10b981" />
-                      <span>Separated Analysis Breakdown</span>
+                      <span>{t("analysisBreakdown")}</span>
                     </h3>
 
                     <button
@@ -1013,38 +1377,38 @@ export default function GuidedPlayground({
                         cursor: "pointer"
                       }}
                     >
-                      {showAdultReview ? "Close Review Override" : "Adult Review / Override"}
+                      {showAdultReview ? t("closeReview") : t("reviewOverride")}
                     </button>
                   </div>
 
                   {/* Results Grid */}
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                     <div style={{ background: "#f8fafc", padding: "1rem", borderRadius: "12px", border: "1px solid #e2e8f0" }}>
-                      <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b" }}>CONCEPT RESULT</div>
+                      <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b" }}>{t("conceptResult")}</div>
                       <div style={{
                         fontSize: "1.2rem",
                         fontWeight: 800,
                         color: currentAttempt?.concept_result === "correct" ? "#10b981" : "#ef4444"
                       }}>
-                        {currentAttempt?.final_concept_result || currentAttempt?.concept_result}
+                        {localizeStatus(currentAttempt?.final_concept_result || currentAttempt?.concept_result)}
                       </div>
                     </div>
 
                     <div style={{ background: "#f8fafc", padding: "1rem", borderRadius: "12px", border: "1px solid #e2e8f0" }}>
-                      <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b" }}>TARGET SKILL RESULT</div>
+                      <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b" }}>{t("targetSkillResult")}</div>
                       <div style={{
                         fontSize: "1.2rem",
                         fontWeight: 800,
                         color: (currentAttempt?.final_target_skill_result || currentAttempt?.target_skill_result) === "correct" ? "#10b981" : "#ef4444"
                       }}>
-                        {currentAttempt?.final_target_skill_result || currentAttempt?.target_skill_result}
+                        {localizeStatus(currentAttempt?.final_target_skill_result || currentAttempt?.target_skill_result)}
                       </div>
                     </div>
 
                     <div style={{ background: "#f8fafc", padding: "1rem", borderRadius: "12px", border: "1px solid #e2e8f0" }}>
-                      <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b" }}>NEXT ACTION</div>
+                      <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b" }}>{t("nextAction")}</div>
                       <div style={{ fontSize: "1.1rem", fontWeight: 800, color: (currentAttempt?.final_retry_required ?? currentAttempt?.retry_required) ? "#f59e0b" : "#10b981" }}>
-                        {(currentAttempt?.final_retry_required ?? currentAttempt?.retry_required) ? "Retry Required" : "Target Achieved"}
+                        {(currentAttempt?.final_retry_required ?? currentAttempt?.retry_required) ? t("retryRequired") : t("targetAchieved")}
                       </div>
                     </div>
                   </div>
@@ -1052,7 +1416,7 @@ export default function GuidedPlayground({
                   {/* Observations */}
                   {currentAttempt?.grammar_observations && currentAttempt.grammar_observations.length > 0 && (
                     <div style={{ marginBottom: "1rem" }}>
-                      <span style={{ fontSize: "0.8rem", fontWeight: 700, color: "#64748b" }}>OBSERVED GRAMMAR PATTERNS:</span>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 700, color: "#64748b" }}>{t("observedPatterns")}</span>
                       <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "0.25rem" }}>
                         {currentAttempt.grammar_observations.map((obs, idx) => (
                           <span key={idx} style={{ background: "#fef3c7", color: "#92400e", padding: "0.2rem 0.6rem", borderRadius: "6px", fontSize: "0.8rem", fontWeight: 700 }}>
@@ -1072,36 +1436,36 @@ export default function GuidedPlayground({
                       padding: "1.25rem",
                       marginBottom: "1rem"
                     }}>
-                      <h4 style={{ margin: "0 0 0.75rem 0", color: "#166534" }}>Adult Override Decision</h4>
+                      <h4 style={{ margin: "0 0 0.75rem 0", color: "#166534" }}>{t("adultOverrideTitle")}</h4>
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0.75rem", marginBottom: "0.75rem" }}>
                         <div>
-                          <label style={{ fontSize: "0.75rem", fontWeight: 700 }}>Concept Result:</label>
+                          <label style={{ fontSize: "0.75rem", fontWeight: 700 }}>{t("conceptResult")}:</label>
                           <select value={overrideConcept} onChange={e => setOverrideConcept(e.target.value)} style={{ width: "100%", padding: "0.4rem" }}>
-                            <option value="correct">Correct</option>
-                            <option value="partial">Partial</option>
-                            <option value="incorrect">Incorrect</option>
+                            <option value="correct">{t("status.correct")}</option>
+                            <option value="partial">{t("status.partial")}</option>
+                            <option value="incorrect">{t("status.incorrect")}</option>
                           </select>
                         </div>
                         <div>
-                          <label style={{ fontSize: "0.75rem", fontWeight: 700 }}>Target Skill Result:</label>
+                          <label style={{ fontSize: "0.75rem", fontWeight: 700 }}>{t("targetSkillResult")}:</label>
                           <select value={overrideTargetSkill} onChange={e => setOverrideTargetSkill(e.target.value)} style={{ width: "100%", padding: "0.4rem" }}>
-                            <option value="correct">Correct</option>
-                            <option value="incorrect">Incorrect</option>
-                            <option value="not_applicable">Not Applicable</option>
+                            <option value="correct">{t("status.correct")}</option>
+                            <option value="incorrect">{t("status.incorrect")}</option>
+                            <option value="not_applicable">{t("status.not_applicable")}</option>
                           </select>
                         </div>
                         <div>
-                          <label style={{ fontSize: "0.75rem", fontWeight: 700 }}>Retry Required:</label>
+                          <label style={{ fontSize: "0.75rem", fontWeight: 700 }}>{t("retryRequired")}:</label>
                           <select value={overrideRetry ? "yes" : "no"} onChange={e => setOverrideRetry(e.target.value === "yes")} style={{ width: "100%", padding: "0.4rem" }}>
-                            <option value="no">No (Target Achieved)</option>
-                            <option value="yes">Yes (Retry Required)</option>
+                            <option value="no">{t("status.no")}</option>
+                            <option value="yes">{t("status.yes")}</option>
                           </select>
                         </div>
                       </div>
 
                       <input
                         type="text"
-                        placeholder="Reason for adult override (recorded in audit history)..."
+                        placeholder={t("overrideReasonPlaceholder")}
                         value={overrideReason}
                         onChange={e => setOverrideReason(e.target.value)}
                         style={{ width: "100%", padding: "0.5rem", borderRadius: "6px", border: "1px solid #86efac", marginBottom: "0.75rem" }}
@@ -1111,7 +1475,7 @@ export default function GuidedPlayground({
                         onClick={handleSubmitReview}
                         style={{ background: "#16a34a", color: "#ffffff", border: "none", padding: "0.5rem 1rem", borderRadius: "8px", fontWeight: 700, cursor: "pointer" }}
                       >
-                        Apply Override
+                        {t("applyOverride")}
                       </button>
                     </div>
                   )}
@@ -1134,7 +1498,7 @@ export default function GuidedPlayground({
                       gap: "0.5rem"
                     }}
                   >
-                    <span>Proceed / Advance Session</span>
+                    <span>{t("proceedNext")}</span>
                     <ArrowRight size={18} />
                   </button>
                 </div>

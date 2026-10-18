@@ -183,7 +183,7 @@ export default function ScenarioDashboard({
               <option value="">-- Choose from 20 Scenarios --</option>
               {scenarios.map(s => (
                 <option key={s.scenario_code} value={s.scenario_code}>
-                  {s.scenario_code}: {s.title}
+                  {s.scenario_code}: {typeof s.title === 'object' && s.title !== null ? (s.title.si || s.title.en || '') : s.title}
                 </option>
               ))}
             </select>
@@ -214,7 +214,7 @@ export default function ScenarioDashboard({
               >
                 {tasks.map(t => (
                   <option key={t.id} value={t.id}>
-                    {t.task_code}: {t.title}
+                    {t.task_code}: {typeof t.title === 'object' && t.title !== null ? (t.title.si || t.title.en || '') : t.title}
                   </option>
                 ))}
               </select>
@@ -271,17 +271,17 @@ export default function ScenarioDashboard({
               </div>
 
               <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.5rem" }}>
-                {selectedTask.title}
+                {typeof selectedTask.title === 'object' && selectedTask.title !== null ? (selectedTask.title.si || selectedTask.title.en || '') : selectedTask.title}
               </h3>
 
               <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", marginBottom: "0.85rem" }}>
-                <strong>Objective:</strong> {selectedTask.learning_objective}
+                <strong>Objective:</strong> {typeof selectedTask.learning_objective === 'object' && selectedTask.learning_objective !== null ? (selectedTask.learning_objective.si || selectedTask.learning_objective.en || '') : selectedTask.learning_objective}
               </p>
 
               <div style={{ background: "rgba(0,0,0,0.25)", padding: "0.75rem", borderRadius: "var(--radius-sm)", marginBottom: "0.85rem" }}>
                 <span style={{ fontSize: "0.7rem", color: "var(--text-muted)", textTransform: "uppercase", fontWeight: 700 }}>Original Instruction:</span>
                 <p style={{ fontSize: "0.88rem", color: "#e2e8f0", fontStyle: "italic" }}>
-                  "{selectedTask.original_instruction}"
+                  "{typeof selectedTask.original_instruction === 'object' && selectedTask.original_instruction !== null ? (selectedTask.original_instruction.si || selectedTask.original_instruction.en || '') : selectedTask.original_instruction}"
                 </p>
               </div>
 

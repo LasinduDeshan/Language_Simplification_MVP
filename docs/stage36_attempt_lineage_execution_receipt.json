@@ -1,0 +1,318 @@
+{
+  "execution_receipt_id": "ST36-ATTEMPT-LINEAGE-RECEIPT-V1",
+  "timestamp_utc": "2026-10-18T14:02:08.974910+00:00",
+  "git_commit": "795dd25d2952d7e220a938c4fac07f86ecb1190e",
+  "prospective_freeze_tag": "stage-36-freeze-attempt-lineage-v1",
+  "immutable_upstream_tags": {
+    "stage-33-complete-v2": {
+      "expected_tag_or_commit": "36cc373616f2f7b87ca336523d59dbe607efa14e",
+      "tag_sha": "36cc373616f2f7b87ca336523d59dbe607efa14e",
+      "commit_sha": "74481f4d09beeba42ccb9b9c32ff994e372af5bf",
+      "verified": true
+    },
+    "stage-35-complete-v6": {
+      "expected_tag_or_commit": "f222efc5919627effd62fa2b31c14f5913b6ec9e",
+      "tag_sha": "826b08a8595e781153c8f68bb81ef7b9c89929c3",
+      "commit_sha": "f222efc5919627effd62fa2b31c14f5913b6ec9e",
+      "verified": true
+    },
+    "stage-36-complete-v7": {
+      "expected_tag_or_commit": "3d42a7125dad994276adc3c7263a7f557cd9ad98",
+      "tag_sha": "3d42a7125dad994276adc3c7263a7f557cd9ad98",
+      "commit_sha": "3d42a7125dad994276adc3c7263a7f557cd9ad98",
+      "verified": true
+    }
+  },
+  "database_baseline_verification": {
+    "expected_sha256": "44ff4f07fca1ac92343875bb8c82957df5cc721017dd08d20e901689392bb701",
+    "actual_sha256": "44ff4f07fca1ac92343875bb8c82957df5cc721017dd08d20e901689392bb701",
+    "status": "PASSED"
+  },
+  "stage33_immutability_verification": {
+    "target_directory": "backend/app/sinhala_simplification/",
+    "baseline_tag": "stage-36-complete-v7",
+    "diff_empty": true,
+    "status": "PASSED"
+  },
+  "governed_activities_count": 6,
+  "all_activities_non_repetition_verified": true,
+  "all_activities_validation_passed": true,
+  "activities": [
+    {
+      "activity_code": "VOC-NAMING-001",
+      "title_si": "සත්වයා නම් කරන්න",
+      "target_id": "cat",
+      "disclosure_class": "INFERRED_ANSWER",
+      "disclosure_policy": "DO_NOT_REVEAL",
+      "attempt_1": {
+        "attempt_number": 1,
+        "strategy_code": "MODERATE_REWORDING",
+        "presented_instruction": "මෙම පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්ද?",
+        "generation_mode": "BASELINE_TASK",
+        "independent_performance_measure": true,
+        "score_interpretation": "INDEPENDENT_BASELINE"
+      },
+      "attempt_2": {
+        "attempt_number": 2,
+        "strategy_code": "STRONG_SCAFFOLD",
+        "presented_instruction": "තෝරන්න: පූසා හෝ බල්ලා.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "independent_performance_measure": false,
+        "score_interpretation": "SUPPORTED_PERFORMANCE"
+      },
+      "attempt_3": {
+        "attempt_number": 3,
+        "strategy_code": "STRONG_DECOMPOSED_STEP",
+        "presented_instruction": "පින්තූරය හොඳින් බලන්න. සත්වයාගේ නම තෝරන්න.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "lineage": {
+          "strategy_code": "STRONG_DECOMPOSED_STEP",
+          "generation_mode": "TEMPLATE_CATALOG",
+          "simplification_status": "TEMPLATE_FALLBACK_USED",
+          "source_instruction_ref": "governed://task/VOC-NAMING-001/source",
+          "presented_instruction_ref": "governed://task/VOC-NAMING-001/presented",
+          "template_variant_id": "VOC-NAMING-001:strong_decomposed_step:v1",
+          "target_disclosure_class": "INFERRED_ANSWER",
+          "target_disclosure_policy": "DO_NOT_REVEAL",
+          "independent_performance_measure": false,
+          "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE"
+        },
+        "independent_performance_measure": false,
+        "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE",
+        "validation_passed": true,
+        "non_repetition_verified": true
+      },
+      "all_attempts_distinct": true
+    },
+    {
+      "activity_code": "VOC-NAMING-002",
+      "title_si": "වස්තු හඳුනාගැනීම",
+      "target_id": "pencil",
+      "disclosure_class": "INFERRED_ANSWER",
+      "disclosure_policy": "DO_NOT_REVEAL",
+      "attempt_1": {
+        "attempt_number": 1,
+        "strategy_code": "MODERATE_REWORDING",
+        "presented_instruction": "ලිවීම සඳහා භාවිත කරන්නේ කුමක්දැයි පෙන්වන්න.",
+        "generation_mode": "BASELINE_TASK",
+        "independent_performance_measure": true,
+        "score_interpretation": "INDEPENDENT_BASELINE"
+      },
+      "attempt_2": {
+        "attempt_number": 2,
+        "strategy_code": "STRONG_SCAFFOLD",
+        "presented_instruction": "තෝරන්න: පැන්සල හෝ පොත.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "independent_performance_measure": false,
+        "score_interpretation": "SUPPORTED_PERFORMANCE"
+      },
+      "attempt_3": {
+        "attempt_number": 3,
+        "strategy_code": "STRONG_DECOMPOSED_STEP",
+        "presented_instruction": "පින්තූර දෙක බලන්න. ලිවීමට භාවිත කරන දේ තෝරන්න.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "lineage": {
+          "strategy_code": "STRONG_DECOMPOSED_STEP",
+          "generation_mode": "TEMPLATE_CATALOG",
+          "simplification_status": "TEMPLATE_FALLBACK_USED",
+          "source_instruction_ref": "governed://task/VOC-NAMING-002/source",
+          "presented_instruction_ref": "governed://task/VOC-NAMING-002/presented",
+          "template_variant_id": "VOC-NAMING-002:strong_decomposed_step:v1",
+          "target_disclosure_class": "INFERRED_ANSWER",
+          "target_disclosure_policy": "DO_NOT_REVEAL",
+          "independent_performance_measure": false,
+          "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE"
+        },
+        "independent_performance_measure": false,
+        "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE",
+        "validation_passed": true,
+        "non_repetition_verified": true
+      },
+      "all_attempts_distinct": true
+    },
+    {
+      "activity_code": "VOC-MATCH-001",
+      "title_si": "පොත සෙවීම",
+      "target_id": "book",
+      "disclosure_class": "INFERRED_ANSWER",
+      "disclosure_policy": "DO_NOT_REVEAL",
+      "attempt_1": {
+        "attempt_number": 1,
+        "strategy_code": "MODERATE_REWORDING",
+        "presented_instruction": "පොතේ පින්තූරය සොයා තෝරන්න.",
+        "generation_mode": "BASELINE_TASK",
+        "independent_performance_measure": true,
+        "score_interpretation": "INDEPENDENT_BASELINE"
+      },
+      "attempt_2": {
+        "attempt_number": 2,
+        "strategy_code": "STRONG_SCAFFOLD",
+        "presented_instruction": "පොත සොයන්න.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "independent_performance_measure": false,
+        "score_interpretation": "SUPPORTED_PERFORMANCE"
+      },
+      "attempt_3": {
+        "attempt_number": 3,
+        "strategy_code": "STRONG_DECOMPOSED_STEP",
+        "presented_instruction": "පින්තූර දෙක බලන්න. පොතේ පින්තූරය තෝරන්න.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "lineage": {
+          "strategy_code": "STRONG_DECOMPOSED_STEP",
+          "generation_mode": "TEMPLATE_CATALOG",
+          "simplification_status": "TEMPLATE_FALLBACK_USED",
+          "source_instruction_ref": "governed://task/VOC-MATCH-001/source",
+          "presented_instruction_ref": "governed://task/VOC-MATCH-001/presented",
+          "template_variant_id": "VOC-MATCH-001:strong_decomposed_step:v1",
+          "target_disclosure_class": "EXPLICIT_TASK_TARGET",
+          "target_disclosure_policy": "MAY_REPEAT_TASK_TARGET",
+          "independent_performance_measure": false,
+          "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE"
+        },
+        "independent_performance_measure": false,
+        "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE",
+        "validation_passed": true,
+        "non_repetition_verified": true
+      },
+      "all_attempts_distinct": true
+    },
+    {
+      "activity_code": "VOC-CAT-001",
+      "title_si": "ආහාර තේරීම",
+      "target_id": "apple",
+      "disclosure_class": "INFERRED_ANSWER",
+      "disclosure_policy": "DO_NOT_REVEAL",
+      "attempt_1": {
+        "attempt_number": 1,
+        "strategy_code": "MODERATE_REWORDING",
+        "presented_instruction": "අපට ආහාරයට ගත හැකි දේ කුමක්දැයි පෙන්වන්න.",
+        "generation_mode": "BASELINE_TASK",
+        "independent_performance_measure": true,
+        "score_interpretation": "INDEPENDENT_BASELINE"
+      },
+      "attempt_2": {
+        "attempt_number": 2,
+        "strategy_code": "STRONG_SCAFFOLD",
+        "presented_instruction": "තෝරන්න: ඇපල් හෝ මෝටර් රථය.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "independent_performance_measure": false,
+        "score_interpretation": "SUPPORTED_PERFORMANCE"
+      },
+      "attempt_3": {
+        "attempt_number": 3,
+        "strategy_code": "STRONG_DECOMPOSED_STEP",
+        "presented_instruction": "පින්තූර දෙක බලන්න. ආහාරයට ගත හැකි දේ තෝරන්න.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "lineage": {
+          "strategy_code": "STRONG_DECOMPOSED_STEP",
+          "generation_mode": "TEMPLATE_CATALOG",
+          "simplification_status": "TEMPLATE_FALLBACK_USED",
+          "source_instruction_ref": "governed://task/VOC-CAT-001/source",
+          "presented_instruction_ref": "governed://task/VOC-CAT-001/presented",
+          "template_variant_id": "VOC-CAT-001:strong_decomposed_step:v1",
+          "target_disclosure_class": "INFERRED_ANSWER",
+          "target_disclosure_policy": "DO_NOT_REVEAL",
+          "independent_performance_measure": false,
+          "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE"
+        },
+        "independent_performance_measure": false,
+        "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE",
+        "validation_passed": true,
+        "non_repetition_verified": true
+      },
+      "all_attempts_distinct": true
+    },
+    {
+      "activity_code": "VOC-ODD-001",
+      "title_si": "නොගැලපෙන රූපය සෙවීම",
+      "target_id": "car",
+      "disclosure_class": "INFERRED_ANSWER",
+      "disclosure_policy": "DO_NOT_REVEAL",
+      "attempt_1": {
+        "attempt_number": 1,
+        "strategy_code": "MODERATE_REWORDING",
+        "presented_instruction": "මෙහි නොගැලපෙන රූපය තෝරන්න.",
+        "generation_mode": "BASELINE_TASK",
+        "independent_performance_measure": true,
+        "score_interpretation": "INDEPENDENT_BASELINE"
+      },
+      "attempt_2": {
+        "attempt_number": 2,
+        "strategy_code": "STRONG_SCAFFOLD",
+        "presented_instruction": "වෙනස් රූපය සොයන්න.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "independent_performance_measure": false,
+        "score_interpretation": "SUPPORTED_PERFORMANCE"
+      },
+      "attempt_3": {
+        "attempt_number": 3,
+        "strategy_code": "STRONG_DECOMPOSED_STEP",
+        "presented_instruction": "පින්තූර එකිනෙක බලන්න. නොගැලපෙන රූපය තෝරන්න.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "lineage": {
+          "strategy_code": "STRONG_DECOMPOSED_STEP",
+          "generation_mode": "TEMPLATE_CATALOG",
+          "simplification_status": "TEMPLATE_FALLBACK_USED",
+          "source_instruction_ref": "governed://task/VOC-ODD-001/source",
+          "presented_instruction_ref": "governed://task/VOC-ODD-001/presented",
+          "template_variant_id": "VOC-ODD-001:strong_decomposed_step:v1",
+          "target_disclosure_class": "INFERRED_ANSWER",
+          "target_disclosure_policy": "DO_NOT_REVEAL",
+          "independent_performance_measure": false,
+          "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE"
+        },
+        "independent_performance_measure": false,
+        "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE",
+        "validation_passed": true,
+        "non_repetition_verified": true
+      },
+      "all_attempts_distinct": true
+    },
+    {
+      "activity_code": "TASK-017",
+      "title_si": "හැඩතල ගැලපීම",
+      "target_id": "circle",
+      "disclosure_class": "INFERRED_ANSWER",
+      "disclosure_policy": "DO_NOT_REVEAL",
+      "attempt_1": {
+        "attempt_number": 1,
+        "strategy_code": "MODERATE_REWORDING",
+        "presented_instruction": "රතු පාට වෘත්තය ස්පර්ශ කරන්න.",
+        "generation_mode": "BASELINE_TASK",
+        "independent_performance_measure": true,
+        "score_interpretation": "INDEPENDENT_BASELINE"
+      },
+      "attempt_2": {
+        "attempt_number": 2,
+        "strategy_code": "STRONG_SCAFFOLD",
+        "presented_instruction": "තෝරන්න: රතු වෘත්තය හෝ නිල් සමචතුරස්‍රය.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "independent_performance_measure": false,
+        "score_interpretation": "SUPPORTED_PERFORMANCE"
+      },
+      "attempt_3": {
+        "attempt_number": 3,
+        "strategy_code": "STRONG_DECOMPOSED_STEP",
+        "presented_instruction": "හැඩතල දෙක බලන්න. රතු පාට වෘත්තය තෝරන්න.",
+        "generation_mode": "TEMPLATE_CATALOG",
+        "lineage": {
+          "strategy_code": "STRONG_DECOMPOSED_STEP",
+          "generation_mode": "TEMPLATE_CATALOG",
+          "simplification_status": "TEMPLATE_FALLBACK_USED",
+          "source_instruction_ref": "governed://task/TASK-017/source",
+          "presented_instruction_ref": "governed://task/TASK-017/presented",
+          "template_variant_id": "TASK-017:strong_decomposed_step:v1",
+          "target_disclosure_class": "EXPLICIT_TASK_TARGET",
+          "target_disclosure_policy": "MAY_REPEAT_TASK_TARGET",
+          "independent_performance_measure": false,
+          "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE"
+        },
+        "independent_performance_measure": false,
+        "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE",
+        "validation_passed": true,
+        "non_repetition_verified": true
+      },
+      "all_attempts_distinct": true
+    }
+  ]
+}

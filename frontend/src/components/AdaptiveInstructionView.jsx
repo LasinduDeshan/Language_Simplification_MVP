@@ -147,7 +147,7 @@ export default function AdaptiveInstructionView({
             >
               {tasks.map(t => (
                 <option key={t.id} value={t.id}>
-                  {t.task_code}: {t.title} ({t.task_type})
+                  {t.task_code}: {typeof t.title === 'object' && t.title !== null ? (t.title.si || t.title.en || '') : t.title} ({t.task_type})
                 </option>
               ))}
             </select>
@@ -243,7 +243,7 @@ export default function AdaptiveInstructionView({
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#ffffff", display: "flex", alignItems: "center", gap: "0.5rem" }}>
               <Sparkles size={18} color="#818cf8" />
-              <span>Scaffolding Progression: {activeTask?.title}</span>
+              <span>Scaffolding Progression: {typeof activeTask?.title === 'object' && activeTask?.title !== null ? (activeTask.title.si || activeTask.title.en || '') : activeTask?.title}</span>
             </h2>
             <span style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
               Target length $\le$ 8–10 words (Hard limit 12 words)

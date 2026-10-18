@@ -31,6 +31,7 @@ from app.validation.validator import adaptation_validator
 from app.generation.rule_generator import rule_generator
 from app.generation.llm_generator import llm_generator
 from app.generation.hybrid_generator import hybrid_generator
+from app.localization.activity_catalog import enrich_task_localization, enrich_attempt_localization
 
 router = APIRouter(prefix="/api")
 
@@ -64,7 +65,7 @@ def get_activities(
     tasks = query.all()
     if delivery_mode:
         tasks = [t for t in tasks if t.delivery_modes and delivery_mode in t.delivery_modes]
-    return tasks
+    return [enrich_task_localization(t) for t in tasks]
 
 @router.get("/activities/categories")
 def get_activity_categories(db: Session = Depends(get_db)):
@@ -82,7 +83,7 @@ def get_activity(id: str, db: Session = Depends(get_db)):
     task = db.query(Task).filter((Task.id == id) | (Task.task_code == id)).first()
     if not task:
         raise HTTPException(status_code=404, detail="Activity not found")
-    return task
+    return enrich_task_localization(task)
 
 @router.get("/activities/{id}/assets", response_model=List[ActivityAssetResponse])
 def get_activity_assets(id: str, db: Session = Depends(get_db)):

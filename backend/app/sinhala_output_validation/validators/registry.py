@@ -31,11 +31,12 @@ from app.sinhala_output_validation.validators.v6_v8_diagnostics import (
     ValidatorV7GrammaticalityProxy,
     ValidatorV8SimplificationGain,
 )
+from app.sinhala_output_validation.validators.v9_answer_disclosure import ValidatorV9AnswerDisclosureGate
 
 
 class ValidatorPipeline:
     """
-    Sequential pipeline executing V0 through V8.
+    Sequential pipeline executing V0 through V9.
     Applies short-circuit fail-closed behavior on critical provenance/Unicode gates if configured,
     or executes all applicable validators to assemble comprehensive diagnostics.
     """
@@ -52,7 +53,9 @@ class ValidatorPipeline:
             ValidatorV6SemanticProxy(),
             ValidatorV7GrammaticalityProxy(),
             ValidatorV8SimplificationGain(),
+            ValidatorV9AnswerDisclosureGate(),
         ]
+
 
     def execute(
         self,

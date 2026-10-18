@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import { X, Volume2, Sparkles, Heart, CheckCircle2, Star, Smile } from "lucide-react";
+import { useTranslation } from "../i18n/useTranslation.js";
+import { getLocalizedInstruction, getLocalizedOptions, getOptionEmoji } from "../i18n/activityLocalization.js";
 
 export default function ChildPreviewModal({ childView, adaptation, task, onClose }) {
+  const { t, resolvedLanguage } = useTranslation();
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
 
-  const instruction = childView?.presented_instruction || adaptation?.child_instruction || task?.child_friendly_instruction || "Look at the picture and let's have fun!";
-  const supportiveMessage = childView?.supportive_message || adaptation?.supportive_message || "You are doing wonderful!";
-  const retryCue = childView?.retry_cue;
-  const adultSupportMessage = childView?.adult_support_message;
-  const options = childView?.options || task?.options || [];
+  const rawActivity = childView || adaptation || task;
+  const instruction = getLocalizedInstruction(
+    rawActivity,
+    resolvedLanguage,
+    { isChildView: true, task }
+  );
+  const rawSupportive = childView?.supportive_message || adaptation?.supportive_message || t("childModal.supportiveDefault");
+  const supportiveMessage = typeof rawSupportive === 'object' && rawSupportive !== null ? (rawSupportive.si || rawSupportive.en || '') : rawSupportive;
+  const rawRetry = childView?.retry_cue;
+  const retryCue = typeof rawRetry === 'object' && rawRetry !== null ? (rawRetry.si || rawRetry.en || '') : rawRetry;
+  const rawAdult = childView?.adult_support_message || (childView?.status === "adult_support_required" ? t("childModal.askTeacherHelper") : null);
+  const adultSupportMessage = typeof rawAdult === 'object' && rawAdult !== null ? (rawAdult.si || rawAdult.en || '') : rawAdult;
+  const rawOptions = childView?.options || task?.options || [];
+  const options = getLocalizedOptions(rawActivity, rawOptions, resolvedLanguage);
   const stimulus = childView?.stimulus || task?.stimulus;
 
   const handleSpeak = () => {
@@ -23,31 +35,6 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
       utter.onerror = () => setIsSpeaking(false);
       window.speechSynthesis.speak(utter);
     }
-  };
-
-  const getOptionEmoji = (opt) => {
-    const o = String(opt).toLowerCase();
-    if (o.includes("cat")) return "🐱";
-    if (o.includes("dog")) return "🐶";
-    if (o.includes("rabbit")) return "🐰";
-    if (o.includes("pencil")) return "✏️";
-    if (o.includes("book")) return "📖";
-    if (o.includes("apple")) return "🍎";
-    if (o.includes("banana")) return "🍌";
-    if (o.includes("car")) return "🚗";
-    if (o.includes("fish") || o.includes("water")) return "🐟";
-    if (o.includes("tree")) return "🌳";
-    if (o.includes("in")) return "📥";
-    if (o.includes("on")) return "📦";
-    if (o.includes("under")) return "🪑";
-    if (o.includes("red")) return "🔴";
-    if (o.includes("blue")) return "🔵";
-    if (o.includes("yellow")) return "🟡";
-    if (o.includes("yes")) return "👍";
-    if (o.includes("no")) return "👎";
-    if (o.includes("she") || o.includes("girl")) return "👧";
-    if (o.includes("he") || o.includes("boy")) return "👦";
-    return "✨";
   };
 
   return (
@@ -95,7 +82,8 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
             boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
             color: "#ea580c"
           }}
-          title="Close Preview"
+          title={t("childModal.closePreview")}
+          aria-label={t("childModal.closePreview")}
         >
           <X size={24} />
         </button>
@@ -177,7 +165,7 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
             }}
           >
             <Volume2 size={22} className={isSpeaking ? "animate-pulse" : ""} />
-            <span>{isSpeaking ? "Listening..." : "Hear Instruction"}</span>
+            <span>{isSpeaking ? t("childModal.listening") : t("childModal.hearInstruction")}</span>
           </button>
         </div>
 
@@ -221,11 +209,14 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
             marginTop: "1rem"
           }}>
             {options.map((opt, idx) => {
-              const isSelected = selectedChoice === opt;
+              const optRaw = typeof opt === "object" && opt !== null ? (typeof opt.raw === 'object' && opt.raw !== null ? (opt.raw.si || opt.raw.en || '') : String(opt.raw || opt.id || '')) : String(opt);
+              const optLabel = typeof opt === "object" && opt !== null ? (typeof opt.label === 'object' && opt.label !== null ? (opt.label.si || opt.label.en || '') : String(opt.label || '')) : String(opt);
+              const optEmoji = typeof opt === "object" && opt !== null && opt.emoji ? opt.emoji : getOptionEmoji(optRaw || optLabel);
+              const isSelected = selectedChoice === optRaw;
               return (
                 <button
                   key={idx}
-                  onClick={() => setSelectedChoice(opt)}
+                  onClick={() => setSelectedChoice(optRaw)}
                   style={{
                     background: isSelected ? "#f97316" : "#ffffff",
                     color: isSelected ? "#ffffff" : "#1e293b",
@@ -243,8 +234,8 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
                     transition: "all 0.15s ease-in-out"
                   }}
                 >
-                  <span style={{ fontSize: "2rem" }}>{getOptionEmoji(opt)}</span>
-                  <span>{opt}</span>
+                  <span style={{ fontSize: "2rem" }}>{optEmoji}</span>
+                  <span>{optLabel}</span>
                 </button>
               );
             })}

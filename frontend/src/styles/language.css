@@ -1,20 +1,73 @@
 /*
-Stage 29 Language and Typography Styles
+Sinhala Demonstration UI — Typography and Language Rules (Plan §6, §7)
 */
-:lang(si), :lang(si-LK) {
-  font-family: 'Noto Sans Sinhala', 'Nirmala UI', sans-serif;
-  line-height: 1.65;
+
+/* Base Sinhala Font Tokens and Application across all elements */
+html[lang="si-LK"],
+html[lang="si-LK"] body,
+html[lang="si-LK"] button,
+html[lang="si-LK"] input,
+html[lang="si-LK"] textarea,
+html[lang="si-LK"] select,
+html[lang="si-LK"] optgroup,
+:lang(si),
+:lang(si-LK),
+[data-locale="si"],
+[data-locale="si-LK"] {
+  --font-heading: 'Noto Sans Sinhala', 'Nirmala UI', 'Iskoola Pota', system-ui, -apple-system, sans-serif;
+  --font-body: 'Noto Sans Sinhala', 'Nirmala UI', 'Iskoola Pota', system-ui, -apple-system, sans-serif;
+  font-family: 'Noto Sans Sinhala', 'Nirmala UI', 'Iskoola Pota', system-ui, sans-serif;
   letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:lang(en), :lang(en-LK) {
+/* Base English Font */
+:lang(en), :lang(en-LK), html[lang="en"], html[lang="en-LK"] {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.5;
 }
 
+/* Sinhala Line Heights and Vertical Metrics for Combining Marks (Plan §6.2) */
+html[lang="si-LK"] body,
+[data-locale="si-LK"] body,
+[data-locale="si"] body {
+  line-height: 1.6;
+}
+
+/* Headings: Prevent faux-bold double outline and clipping of top diacritics */
+html[lang="si-LK"] h1,
+html[lang="si-LK"] h2,
+html[lang="si-LK"] h3,
+html[lang="si-LK"] h4,
+html[lang="si-LK"] h5,
+html[lang="si-LK"] h6,
+[data-locale="si-LK"] h1,
+[data-locale="si-LK"] h2,
+[data-locale="si-LK"] h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: normal;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+html[lang="si-LK"] p,
+html[lang="si-LK"] label,
+html[lang="si-LK"] span,
+html[lang="si-LK"] button,
+[data-locale="si-LK"] p,
+[data-locale="si-LK"] label,
+[data-locale="si-LK"] span,
+[data-locale="si-LK"] button {
+  line-height: 1.55;
+}
+
 /* Ensure Sinhala input fields have appropriate font and line height */
-.sinhala-input, [lang="si"] input, [lang="si"] textarea {
-  font-family: 'Noto Sans Sinhala', 'Nirmala UI', sans-serif;
+.sinhala-input, [lang="si"] input, [lang="si"] textarea, html[lang="si-LK"] input, html[lang="si-LK"] textarea {
+  font-family: 'Noto Sans Sinhala', 'Nirmala UI', 'Iskoola Pota', sans-serif;
   line-height: 1.6;
 }
 
@@ -23,3 +76,56 @@ Stage 29 Language and Typography Styles
   direction: ltr;
   text-align: left;
 }
+
+/* Brand Title in Sinhala: Disable gradient clip to prevent combining mark clipping */
+html[lang="si-LK"] .brand-title,
+[data-locale="si-LK"] .brand-title {
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #f8fafc;
+  color: #f8fafc;
+  letter-spacing: normal;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+/* Sinhala Flexible Navigation & Button Metrics (Plan §7) */
+html[lang="si-LK"] .nav-tab,
+[data-locale="si-LK"] .nav-tab {
+  min-height: 48px;
+  padding-inline: 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+/* Sinhala View Mode Button Metrics */
+html[lang="si-LK"] .view-mode-btn,
+[data-locale="si-LK"] .view-mode-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+}
+
+/* Comprehensive Permanent Sinhala Typography Enforcement */
+html[lang^="si"] body,
+html[lang^="si"] button,
+html[lang^="si"] input,
+html[lang^="si"] select,
+html[lang^="si"] textarea,
+html[lang^="si"] h1,
+html[lang^="si"] h2,
+html[lang^="si"] h3,
+html[lang^="si"] h4,
+html[lang^="si"] p,
+html[lang^="si"] span,
+html[lang^="si"] label,
+html[lang^="si"] a {
+  font-family: "Noto Sans Sinhala", "Nirmala UI", sans-serif !important;
+  font-synthesis: none !important;
+  letter-spacing: 0 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 transparent !important;
+  line-height: 1.55;
+}
+

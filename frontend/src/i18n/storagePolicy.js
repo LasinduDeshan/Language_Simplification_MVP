@@ -8,6 +8,7 @@ export const LOCALE_STORAGE_KEY = 'app_locale_preference';
 
 export function getStoredLocalePreference() {
   try {
+    if (typeof localStorage === 'undefined') return DEFAULT_LOCALE;
     const raw = localStorage.getItem(LOCALE_STORAGE_KEY);
     if (!raw) return DEFAULT_LOCALE;
 
@@ -30,7 +31,9 @@ export function setStoredLocalePreference(locale) {
   try {
     const resolved = resolveLocale(locale);
     const target = resolved ? resolved.locale : DEFAULT_LOCALE;
-    localStorage.setItem(LOCALE_STORAGE_KEY, target);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(LOCALE_STORAGE_KEY, target);
+    }
     return target;
   } catch (err) {
     console.error('[i18n] Error setting stored locale:', err);
@@ -40,7 +43,9 @@ export function setStoredLocalePreference(locale) {
 
 export function clearStoredLocalePreference() {
   try {
-    localStorage.removeItem(LOCALE_STORAGE_KEY);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.removeItem(LOCALE_STORAGE_KEY);
+    }
   } catch (err) {
     console.error('[i18n] Error clearing stored locale:', err);
   }

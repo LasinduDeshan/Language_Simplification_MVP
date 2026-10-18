@@ -44,11 +44,11 @@ export default function TaskBrowser({ tasks, onSelectTask }) {
               </div>
 
               <h2 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.5rem" }}>
-                {task.title}
+                {typeof task.title === 'object' && task.title !== null ? (task.title.si || task.title.en || '') : task.title}
               </h2>
 
               <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", marginBottom: "1rem" }}>
-                <strong>Objective:</strong> {task.learning_objective}
+                <strong>Objective:</strong> {typeof task.learning_objective === 'object' && task.learning_objective !== null ? (task.learning_objective.si || task.learning_objective.en || '') : task.learning_objective}
               </p>
 
               <div style={{
@@ -62,7 +62,7 @@ export default function TaskBrowser({ tasks, onSelectTask }) {
                   Original Classroom Instruction
                 </span>
                 <p style={{ fontSize: "0.9rem", color: "#e2e8f0", fontStyle: "italic" }}>
-                  "{task.original_instruction}"
+                  "{typeof task.original_instruction === 'object' && task.original_instruction !== null ? (task.original_instruction.si || task.original_instruction.en || '') : task.original_instruction}"
                 </p>
               </div>
 

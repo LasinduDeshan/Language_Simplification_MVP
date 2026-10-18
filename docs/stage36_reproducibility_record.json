@@ -9,12 +9,12 @@
   "freeze_commit": "2c75505a0826a375ee808124b389de8a4c0acc86",
   "frozen_configuration_hash": "7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6",
   "frozen_configuration_timestamp_utc": "2026-10-18T03:38:21Z",
-  "completion_tag": "stage-36-complete-v4",
+  "completion_tag": "stage-36-complete-v5",
   "wp8_post_freeze_execution_receipt": {
     "run_id": "wp8-gov-eval-20261018-034910",
     "description": "Post-freeze governed regression evaluation over previously exercised technical fixtures",
     "receipt_file": "docs/stage36_wp8_execution_receipt.json",
-    "receipt_sha256": "6eaf2de2d22ae2e3bfeda37537d8bcde52cb83cd5bf4eb5db64249cd6bc50257",
+    "receipt_sha256": "29be3187fc15b9e6db81958fbf79e575d82d720f5377500ddc6ecbe4f5136a6a",
     "audit_event_hmac_sha256": "39adff2e8b415a3802be95e2ae3185818e3655a2bb54b2a4828567ea1f380a1a",
     "documentation_contract": "15 deliverables = 14 manifest-controlled documents + 1 self-excluding checksum manifest",
     "wp8_execution_started_utc": "2026-10-18T03:49:10Z",
@@ -28,6 +28,20 @@
     "accounting_generated_from_run_id": "wp8-gov-eval-20261018-034910",
     "methodological_qualification": "Software-validator regression verification over previously exercised technical fixtures (non-empirical)"
   },
+  "reconciliation_v5": {
+    "historical_checkpoint": "stage-36-complete-v4",
+    "reconciled_checkpoint": "stage-36-complete-v5",
+    "purpose": "Stage 36 Sinhala UI Localization Reconciliation",
+    "hardcoded_child_facing_english_strings": 0,
+    "missing_required_sinhala_keys": 0,
+    "raw_enum_values_exposed_to_children": 0,
+    "total_translation_keys_parity": 220,
+    "frontend_localization_tests_collected": 36,
+    "frontend_localization_tests_passed": 36,
+    "frontend_production_build": "PASSED",
+    "backend_regression_tests_passed": 745,
+    "approved_for_child_delivery": false
+  },
   "database_baseline_sha256": "44ff4f07fca1ac92343875bb8c82957df5cc721017dd08d20e901689392bb701",
   "test_metrics": {
     "total_stage36_test_cases": 83,
@@ -37,8 +51,8 @@
     "full_backend_regression_tests_collected": 745,
     "full_backend_regression_tests_passed": 745,
     "full_backend_regression_tests_failed": 0,
-    "frontend_tests_collected": 17,
-    "frontend_tests_passed": 17,
+    "frontend_tests_collected": 36,
+    "frontend_tests_passed": 36,
     "frontend_production_build": "PASSED"
   },
   "nine_level_accounting": {
