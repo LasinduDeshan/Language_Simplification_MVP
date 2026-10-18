@@ -122,7 +122,7 @@ function AttemptDrawer({ attempts }) {
                 </div>
                 {att.instruction && (
                   <div style={{ fontSize: "0.78rem", color: "#475569", marginBottom: "0.3rem" }}>
-                    <strong>Instruction:</strong> {att.instruction}
+                    <strong>Instruction:</strong> {typeof att.instruction === 'object' && att.instruction !== null ? (att.instruction.si || att.instruction.en || "") : att.instruction}
                   </div>
                 )}
                 {(att.transcript || att.selected_option) && (

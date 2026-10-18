@@ -14,9 +14,12 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
     resolvedLanguage,
     { isChildView: true, task }
   );
-  const supportiveMessage = childView?.supportive_message || adaptation?.supportive_message || t("childModal.supportiveDefault");
-  const retryCue = childView?.retry_cue;
-  const adultSupportMessage = childView?.adult_support_message || (childView?.status === "adult_support_required" ? t("childModal.askTeacherHelper") : null);
+  const rawSupportive = childView?.supportive_message || adaptation?.supportive_message || t("childModal.supportiveDefault");
+  const supportiveMessage = typeof rawSupportive === 'object' && rawSupportive !== null ? (rawSupportive.si || rawSupportive.en || '') : rawSupportive;
+  const rawRetry = childView?.retry_cue;
+  const retryCue = typeof rawRetry === 'object' && rawRetry !== null ? (rawRetry.si || rawRetry.en || '') : rawRetry;
+  const rawAdult = childView?.adult_support_message || (childView?.status === "adult_support_required" ? t("childModal.askTeacherHelper") : null);
+  const adultSupportMessage = typeof rawAdult === 'object' && rawAdult !== null ? (rawAdult.si || rawAdult.en || '') : rawAdult;
   const rawOptions = childView?.options || task?.options || [];
   const options = getLocalizedOptions(rawActivity, rawOptions, resolvedLanguage);
   const stimulus = childView?.stimulus || task?.stimulus;
@@ -206,8 +209,8 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
             marginTop: "1rem"
           }}>
             {options.map((opt, idx) => {
-              const optRaw = typeof opt === "object" && opt !== null ? opt.raw : opt;
-              const optLabel = typeof opt === "object" && opt !== null ? opt.label : opt;
+              const optRaw = typeof opt === "object" && opt !== null ? (typeof opt.raw === 'object' && opt.raw !== null ? (opt.raw.si || opt.raw.en || '') : String(opt.raw || opt.id || '')) : String(opt);
+              const optLabel = typeof opt === "object" && opt !== null ? (typeof opt.label === 'object' && opt.label !== null ? (opt.label.si || opt.label.en || '') : String(opt.label || '')) : String(opt);
               const optEmoji = typeof opt === "object" && opt !== null && opt.emoji ? opt.emoji : getOptionEmoji(optRaw || optLabel);
               const isSelected = selectedChoice === optRaw;
               return (

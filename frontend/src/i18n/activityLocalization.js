@@ -843,11 +843,43 @@ export function getLocalizedOptions(activity, localeOrOptions = null, maybeLocal
     let label = '';
 
     if (typeof opt === 'object' && opt !== null) {
-      raw = opt.id || opt.raw || opt.label || String(opt);
+      const optLabelObj = typeof opt.label === 'object' && opt.label !== null ? opt.label : null;
+      const optLabelStr = typeof opt.label === 'string' ? opt.label : null;
+      const optLabelsObj = typeof opt.labels === 'object' && opt.labels !== null ? opt.labels : null;
+
+      raw = (typeof opt.id === 'string' && opt.id)
+        || (typeof opt.raw === 'string' && opt.raw)
+        || optLabelStr
+        || optLabelObj?.en
+        || optLabelObj?.si
+        || (opt.id ? String(opt.id) : (opt.raw ? String(opt.raw) : ''));
+
       if (isSi) {
-        label = opt.labels?.si || opt.si || (curated && opt.id && curated[opt.id]) || (curated && curated[raw]) || COMMON_OPTION_TRANSLATIONS[opt.id] || COMMON_OPTION_TRANSLATIONS[opt.label] || opt.label || raw;
+        label = optLabelObj?.si
+          || optLabelsObj?.si
+          || (typeof opt.si === 'string' && opt.si)
+          || (curated && opt.id && curated[opt.id])
+          || (curated && curated[raw])
+          || (opt.id && COMMON_OPTION_TRANSLATIONS[opt.id])
+          || (optLabelStr && COMMON_OPTION_TRANSLATIONS[optLabelStr])
+          || (raw && COMMON_OPTION_TRANSLATIONS[raw])
+          || optLabelStr
+          || optLabelObj?.en
+          || raw;
       } else {
-        label = opt.labels?.en || opt.en || opt.label || raw;
+        label = optLabelObj?.en
+          || optLabelsObj?.en
+          || (typeof opt.en === 'string' && opt.en)
+          || optLabelStr
+          || (curated && opt.id && curated[opt.id])
+          || raw;
+      }
+
+      if (typeof label === 'object' && label !== null) {
+        label = label[activeLocale] || label.en || label.si || String(raw);
+      }
+      if (typeof raw === 'object' && raw !== null) {
+        raw = raw[activeLocale] || raw.en || raw.si || String(raw);
       }
     } else {
       raw = String(opt);
@@ -860,16 +892,29 @@ export function getLocalizedOptions(activity, localeOrOptions = null, maybeLocal
       }
     }
 
+    if (typeof label === 'object' && label !== null) {
+      label = label[activeLocale] || label.en || label.si || String(raw);
+    }
+    if (typeof raw === 'object' && raw !== null) {
+      raw = raw[activeLocale] || raw.en || raw.si || String(raw);
+    }
+
     return {
-      raw,
-      label,
+      raw: String(raw),
+      label: String(label),
       emoji: getOptionEmoji(raw || label)
     };
   });
 }
 
 export function getOptionEmoji(opt) {
-  const o = String(opt).toLowerCase();
+  let text = '';
+  if (typeof opt === 'string') {
+    text = opt;
+  } else if (typeof opt === 'object' && opt !== null) {
+    text = opt.en || opt.si || (typeof opt.label === 'string' ? opt.label : (opt.label?.en || opt.label?.si)) || opt.id || '';
+  }
+  const o = String(text || '').toLowerCase();
   if (o.includes('cat') || o.includes('පූසා')) return '🐱';
   if (o.includes('dog') || o.includes('බල්ලා')) return '🐶';
   if (o.includes('rabbit') || o.includes('හාවා')) return '🐰';
@@ -898,18 +943,21 @@ export function getLocalizedTaskTitle(task, locale = null) {
 
   if (!isSi) {
     if (typeof task.title === 'object' && task.title !== null) {
-      return task.title.en || task.title.label || '';
+      const titleStr = task.title.en || task.title.label || task.title.si;
+      if (titleStr) return String(titleStr);
     }
     const code = task.task_code || task.activity_id || task.id;
     if (code && DEMONSTRATION_ACTIVITIES[code]?.title?.en) {
       return DEMONSTRATION_ACTIVITIES[code].title.en;
     }
-    return task.title || task.name || '';
+    const res = task.title || task.name || '';
+    return typeof res === 'object' && res !== null ? (res.en || res.si || '') : String(res || '');
   }
 
   // Sinhala mode
   if (typeof task.title === 'object' && task.title !== null) {
-    if (task.title.si) return task.title.si;
+    if (task.title.si) return String(task.title.si);
+    if (task.title.en) return String(task.title.en);
   }
   const code = task.task_code || task.activity_id || task.id;
   if (code && DEMONSTRATION_ACTIVITIES[code]?.title?.si) {
@@ -919,14 +967,30 @@ export function getLocalizedTaskTitle(task, locale = null) {
     return CURATED_ACTIVITY_SINHALA[code].title;
   }
   const rawTitle = typeof task.title === 'string' ? task.title : (task.name || '');
+  if (typeof rawTitle === 'object' && rawTitle !== null) {
+    return String(rawTitle.si || rawTitle.en || '');
+  }
   if (COMMON_TASK_TITLES[rawTitle]) {
     return COMMON_TASK_TITLES[rawTitle];
   }
   const translated = t('activity.nameTheAnimal', {}, activeLocale);
-  if (rawTitle.toLowerCase().includes('animal') && translated !== 'activity.nameTheAnimal') {
+  if (String(rawTitle).toLowerCase().includes('animal') && translated !== 'activity.nameTheAnimal') {
     return translated;
   }
-  return rawTitle;
+  return String(rawTitle || '');
+}
+
+/**
+ * Universal safe string extractor that unwraps { en, si } objects or returns string representation
+ */
+export function safeText(val, locale = null) {
+  if (val === null || val === undefined) return '';
+  if (typeof val === 'string') return val;
+  if (typeof val === 'object') {
+    const activeLocale = normalizeContentLocale(locale || getLocale());
+    return val[activeLocale] || val.si || val.en || '';
+  }
+  return String(val);
 }
 
 // Demonstration Activity Validator (§10)

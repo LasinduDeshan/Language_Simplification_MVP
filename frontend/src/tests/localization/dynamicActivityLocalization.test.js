@@ -4,6 +4,7 @@ import {
   getLocalizedInstruction,
   getLocalizedOptions,
   getLocalizedTaskTitle,
+  safeText,
   normalizeContentLocale,
   normalizeActivityPayload,
   resolveLocalizedText,
@@ -265,5 +266,68 @@ describe('Stage 36 Runtime Activity Integration Scenarios (§8)', () => {
     assert.equal(result.text, 'තෝරන්න: පූසා හෝ බල්ලා.');
     assert.equal(result.resolvedLocale, 'si');
     assert.equal(result.usedFallback, false);
+  });
+
+  test('React Child Safety: getLocalizedOptions returns primitive strings and never {en, si} objects', () => {
+    // Activity with normalized { en, si } option labels
+    const activityWithNormalizedOptions = {
+      id: 'task-opt-test',
+      options: [
+        { id: 'cat', label: { en: 'Cat', si: 'පූසා' } },
+        { id: 'dog', label: { en: 'Dog', si: 'බල්ලා' } },
+        { id: 'custom', label: { en: 'Custom Item', si: 'විශේෂ අයිතමය' } }
+      ]
+    };
+
+    // English mode
+    const enOpts = getLocalizedOptions(activityWithNormalizedOptions, 'en');
+    for (const opt of enOpts) {
+      assert.equal(typeof opt.raw, 'string');
+      assert.equal(typeof opt.label, 'string');
+      assert.notEqual(typeof opt.label, 'object');
+    }
+    assert.equal(enOpts[0].label, 'Cat');
+    assert.equal(enOpts[1].label, 'Dog');
+    assert.equal(enOpts[2].label, 'Custom Item');
+
+    // Sinhala mode
+    const siOpts = getLocalizedOptions(activityWithNormalizedOptions, 'si');
+    for (const opt of siOpts) {
+      assert.equal(typeof opt.raw, 'string');
+      assert.equal(typeof opt.label, 'string');
+      assert.notEqual(typeof opt.label, 'object');
+    }
+    assert.equal(siOpts[0].label, 'පූසා');
+    assert.equal(siOpts[1].label, 'බල්ලා');
+    assert.equal(siOpts[2].label, 'විශේෂ අයිතමය');
+  });
+
+  test('React Child Safety: getLocalizedTaskTitle returns primitive strings and never {en, si} objects', () => {
+    const taskWithNormalizedTitle = {
+      id: 'task-title-test',
+      title: {
+        en: 'Animal Identification',
+        si: 'සතුන් හඳුනාගැනීම'
+      }
+    };
+
+    const enTitle = getLocalizedTaskTitle(taskWithNormalizedTitle, 'en');
+    assert.equal(typeof enTitle, 'string');
+    assert.notEqual(typeof enTitle, 'object');
+    assert.equal(enTitle, 'Animal Identification');
+
+    const siTitle = getLocalizedTaskTitle(taskWithNormalizedTitle, 'si');
+    assert.equal(typeof siTitle, 'string');
+    assert.notEqual(typeof siTitle, 'object');
+    assert.equal(siTitle, 'සතුන් හඳුනාගැනීම');
+  });
+
+  test('React Child Safety: safeText extracts primitive string safely from objects, strings, and primitives', () => {
+    assert.equal(safeText({ en: 'Hello', si: 'ආයුබෝවන්' }, 'en'), 'Hello');
+    assert.equal(safeText({ en: 'Hello', si: 'ආයුබෝවන්' }, 'si'), 'ආයුබෝවන්');
+    assert.equal(safeText('plain string'), 'plain string');
+    assert.equal(safeText(null), '');
+    assert.equal(safeText(undefined), '');
+    assert.equal(safeText(42), '42');
   });
 });

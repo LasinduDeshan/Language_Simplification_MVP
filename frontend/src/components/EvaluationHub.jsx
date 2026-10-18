@@ -267,7 +267,9 @@ export default function EvaluationHub({ tasks = [], learners = [] }) {
                 onChange={(e) => setSelectedTaskId(e.target.value)}
               >
                 {tasks.map(t => (
-                  <option key={t.id} value={t.id}>{t.task_code} - {t.title}</option>
+                  <option key={t.id} value={t.id}>
+                    {t.task_code} - {typeof t.title === 'object' && t.title !== null ? (t.title.si || t.title.en || '') : t.title}
+                  </option>
                 ))}
               </select>
             </div>

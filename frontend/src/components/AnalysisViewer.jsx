@@ -189,7 +189,7 @@ export default function AnalysisViewer({ tasks, learners, selectedTask: initialT
             >
               {tasks.map(t => (
                 <option key={t.id} value={t.id}>
-                  {t.task_code}: {t.title} ({t.task_type})
+                  {t.task_code}: {typeof t.title === 'object' && t.title !== null ? (t.title.si || t.title.en || '') : t.title} ({t.task_type})
                 </option>
               ))}
             </select>
@@ -291,10 +291,10 @@ export default function AnalysisViewer({ tasks, learners, selectedTask: initialT
               </div>
 
               <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.4rem" }}>
-                {activeTask.title}
+                {typeof activeTask.title === 'object' && activeTask.title !== null ? (activeTask.title.si || activeTask.title.en || '') : activeTask.title}
               </h3>
               <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "1rem" }}>
-                <strong>Objective:</strong> {activeTask.learning_objective}
+                <strong>Objective:</strong> {typeof activeTask.learning_objective === 'object' && activeTask.learning_objective !== null ? (activeTask.learning_objective.si || activeTask.learning_objective.en || '') : activeTask.learning_objective}
               </p>
 
               <div style={{ background: "rgba(0,0,0,0.3)", padding: "0.85rem", borderRadius: "var(--radius-sm)", marginBottom: "0.85rem" }}>
@@ -302,7 +302,7 @@ export default function AnalysisViewer({ tasks, learners, selectedTask: initialT
                   Original Instruction Prompt:
                 </span>
                 <p style={{ fontSize: "0.88rem", color: "#e2e8f0", fontStyle: "italic" }}>
-                  "{activeTask.original_instruction}"
+                  "{typeof activeTask.original_instruction === 'object' && activeTask.original_instruction !== null ? (activeTask.original_instruction.si || activeTask.original_instruction.en || '') : activeTask.original_instruction}"
                 </p>
               </div>
 

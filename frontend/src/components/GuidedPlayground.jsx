@@ -949,7 +949,7 @@ export default function GuidedPlayground({
                             cursor: "pointer"
                           }}
                         >
-                          {opt.emoji ? `${opt.emoji} ` : ""}{opt.label}
+                          {opt.emoji ? `${opt.emoji} ` : ""}{typeof opt.label === 'object' && opt.label !== null ? (opt.label.si || opt.label.en || "") : opt.label}
                         </button>
                       ))}
                     </div>
