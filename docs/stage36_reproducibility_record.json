@@ -1,0 +1,153 @@
+{
+  "stage": "Stage 36 - Sinhala Output Validation and Fallback Pipeline",
+  "component": "Component 3 - AI/NLP-Based Language Simplification",
+  "prerequisite_tag": "stage-35-complete-v7",
+  "prerequisite_commit": "cd86a6b0aff2d07d7d0c4f8079f10e9833b5b3d0",
+  "start_tag": "stage-36-start",
+  "start_commit": "cd86a6b0aff2d07d7d0c4f8079f10e9833b5b3d0",
+  "freeze_tag": "stage-36-freeze-wp7b-v2",
+  "freeze_commit": "2c75505a0826a375ee808124b389de8a4c0acc86",
+  "frozen_configuration_hash": "7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6",
+  "frozen_configuration_timestamp_utc": "2026-10-18T03:38:21Z",
+  "completion_tag": "stage-36-complete-v4",
+  "wp8_post_freeze_execution_receipt": {
+    "run_id": "wp8-gov-eval-20261018-034910",
+    "description": "Post-freeze governed regression evaluation over previously exercised technical fixtures",
+    "receipt_file": "docs/stage36_wp8_execution_receipt.json",
+    "receipt_sha256": "6eaf2de2d22ae2e3bfeda37537d8bcde52cb83cd5bf4eb5db64249cd6bc50257",
+    "audit_event_hmac_sha256": "39adff2e8b415a3802be95e2ae3185818e3655a2bb54b2a4828567ea1f380a1a",
+    "documentation_contract": "15 deliverables = 14 manifest-controlled documents + 1 self-excluding checksum manifest",
+    "wp8_execution_started_utc": "2026-10-18T03:49:10Z",
+    "wp8_execution_completed_utc": "2026-10-18T03:49:14Z",
+    "freeze_timestamp_utc": "2026-10-18T03:38:21Z",
+    "freeze_preceded_execution": true,
+    "chronology_proven": "T_freeze (2026-10-18T03:38:21Z) < T_WP8_start (2026-10-18T03:49:10Z) < T_WP8_completion (2026-10-18T03:49:14Z)",
+    "evaluated_configuration_hash": "7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6",
+    "evaluated_freeze_commit": "2c75505a0826a375ee808124b389de8a4c0acc86",
+    "evaluation_fixture_manifest_hash": "0145101cad24cea3923ca046cf56a536f7d3b98a1fc5d3451bfd1a1e3624e3f2",
+    "accounting_generated_from_run_id": "wp8-gov-eval-20261018-034910",
+    "methodological_qualification": "Software-validator regression verification over previously exercised technical fixtures (non-empirical)"
+  },
+  "database_baseline_sha256": "44ff4f07fca1ac92343875bb8c82957df5cc721017dd08d20e901689392bb701",
+  "test_metrics": {
+    "total_stage36_test_cases": 83,
+    "total_stage36_test_modules": 6,
+    "stage36_tests_passed": 83,
+    "stage36_tests_failed": 0,
+    "full_backend_regression_tests_collected": 745,
+    "full_backend_regression_tests_passed": 745,
+    "full_backend_regression_tests_failed": 0,
+    "frontend_tests_collected": 17,
+    "frontend_tests_passed": 17,
+    "frontend_production_build": "PASSED"
+  },
+  "nine_level_accounting": {
+    "level1_registered_requests": {
+      "registered_requests": 16,
+      "primary_selected": 3,
+      "rule_fallback_selected": 7,
+      "unchanged_research_only": 2,
+      "manual_review_no_output": 2,
+      "rejected_no_output": 2,
+      "failed_internal_no_output": 0,
+      "unaccounted": 0
+    },
+    "level2_candidate_origins": {
+      "total_candidates_received": 29,
+      "simulated": 16,
+      "rule_engine": 10,
+      "unchanged_source_fallback": 3,
+      "real_provider": 0,
+      "real_local_model": 0,
+      "cached_empirical": 0,
+      "unaccounted": 0,
+      "candidate_lineage": {
+        "initial_candidates": 16,
+        "c0_fallback_candidates": 10,
+        "unchanged_fallback_candidates": 3,
+        "total_lineage": 29
+      }
+    },
+    "level3_validator_execution_cells": {
+      "expected_validator_cells": 261,
+      "executed": 175,
+      "skipped_earlier_terminal_gate": 86,
+      "not_applicable": 0,
+      "failed_internal": 0,
+      "unaccounted": 0
+    },
+    "level4_validator_findings": {
+      "total_findings": 34,
+      "critical": 15,
+      "review": 2,
+      "warning": 1,
+      "diagnostic": 16,
+      "unaccounted": 0
+    },
+    "level5_candidate_dispositions": {
+      "completed_candidates": 29,
+      "accepted_technical_research_candidate": 10,
+      "manual_review_required": 2,
+      "rejected_configuration_or_provenance": 1,
+      "rejected_invalid_unicode": 6,
+      "rejected_numerical_or_polarity_drift": 1,
+      "rejected_protected_span_violation": 4,
+      "rejected_unsupported_insertion": 2,
+      "rejected_critical_semantic_risk": 1,
+      "valid_unchanged_no_simplification": 2,
+      "unaccounted": 0
+    },
+    "level6_fallback_transitions": {
+      "total_fallback_transitions": 17,
+      "to_rule_baseline": 10,
+      "to_unchanged_source": 3,
+      "to_manual_review_no_output": 2,
+      "to_rejected_no_output": 2,
+      "to_failed_internal_no_output": 0,
+      "unaccounted": 0,
+      "node_flows": {
+        "node0_primary_inflow": 16,
+        "node0_selected_at_depth_0": 4,
+        "node0_primary_changed_selected": 3,
+        "node0_initial_unchanged_research_only": 1,
+        "node0_to_rule_from_primary": 10,
+        "node0_direct_review": 2,
+        "node0_direct_reject": 0,
+        "node1_rule_inflow": 10,
+        "node1_rule_fallback_selected": 7,
+        "node1_to_unchanged_source": 3,
+        "node1_other_terminal": 0,
+        "node2_unchanged_inflow": 3,
+        "node2_fallback_unchanged_research_only": 1,
+        "node2_unchanged_terminal_abstentions": 2,
+        "total_unchanged_research_only": 2
+      }
+    },
+    "level7_selection_vs_abstention": {
+      "registered_requests": 16,
+      "selected_outputs_total": 12,
+      "abstentions_no_output_total": 4,
+      "unaccounted": 0,
+      "child_delivery_approved": 0,
+      "unsupervised_child_delivery_approved": 0
+    },
+    "level8_span_and_trace_mappings": {
+      "trace_elements_total": 12,
+      "exact_declared_mappings": 4,
+      "exact_deterministic_mappings": 6,
+      "inferred_review_mappings": 2,
+      "unmapped_routed_to_review": 0,
+      "unaccounted": 0
+    },
+    "level9_export_and_boundary_decisions": {
+      "requests_evaluated": 16,
+      "public_permitted": 0,
+      "protected_internal": 12,
+      "suppressed_by_policy": 2,
+      "review_required": 2,
+      "unaccounted": 0
+    }
+  },
+  "provenance_key_id": "stage36-public-provenance-v1",
+  "final_release_decision": "STAGE_36_VALIDATION_AND_FALLBACK_PIPELINE_OPERATIONAL_AND_SEALED"
+}
