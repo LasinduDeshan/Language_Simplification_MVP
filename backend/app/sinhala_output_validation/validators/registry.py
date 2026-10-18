@@ -40,7 +40,7 @@ class ValidatorPipeline:
     or executes all applicable validators to assemble comprehensive diagnostics.
     """
 
-    def __init__(self, halt_on_critical: bool = False):
+    def __init__(self, halt_on_critical: bool = True):
         self.halt_on_critical = halt_on_critical
         self.validators: List[BaseValidator] = [
             ValidatorV0EnvelopeProvenance(),
