@@ -1,7 +1,7 @@
 {
   "execution_receipt_id": "ST36-ATTEMPT-LINEAGE-RECEIPT-V1",
-  "timestamp_utc": "2026-10-18T13:59:48.262311+00:00",
-  "git_commit": "3d42a7125dad994276adc3c7263a7f557cd9ad98",
+  "timestamp_utc": "2026-10-18T14:02:08.974910+00:00",
+  "git_commit": "795dd25d2952d7e220a938c4fac07f86ecb1190e",
   "prospective_freeze_tag": "stage-36-freeze-attempt-lineage-v1",
   "immutable_upstream_tags": {
     "stage-33-complete-v2": {
