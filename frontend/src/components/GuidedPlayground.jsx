@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   Sparkles, Play, RotateCcw, Volume2, CheckCircle2, AlertCircle,
   HelpCircle, ArrowRight, UserCheck, ShieldCheck, Heart, Eye,
-  ChevronDown, ChevronUp, Layers, Check, Compass, Timer, Pause,
+  ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Layers, Check, Compass, Timer, Pause,
   FileCheck, ThumbsUp, AlertTriangle, RefreshCw, Award, BookOpen,
   MessageSquare, User
 } from "lucide-react";
@@ -303,8 +303,10 @@ export default function GuidedPlayground({
   });
 
   // Step 1: Start Activity Session
-  const handleStartActivity = async () => {
-    if (!activeLearner || !activeTask) {
+  const handleStartActivityWithTask = async (taskToRun, learnerToRun) => {
+    const targetTask = taskToRun || activeTask;
+    const targetLearner = learnerToRun || activeLearner;
+    if (!targetLearner || !targetTask) {
       setError("Please select both a learner profile and an activity.");
       return;
     }
@@ -323,7 +325,7 @@ export default function GuidedPlayground({
 
     try {
       // 1. Create Activity Session
-      const session = await createActivitySession(activeLearner.id, activeTask.id, generationMode);
+      const session = await createActivitySession(targetLearner.id, targetTask.id, generationMode);
 
       // 2. Generate and store exact instruction in Attempt 1 BEFORE child sees it
       const attemptData = await createAttemptInstruction(session.id, generationMode);
@@ -339,6 +341,54 @@ export default function GuidedPlayground({
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleStartActivity = () => handleStartActivityWithTask(activeTask, activeLearner);
+
+  const handleSelectTask = async (act) => {
+    setActiveTask(act);
+    if (setPropSelectedTask) setPropSelectedTask(act);
+    if (currentSession && currentSession.status === "active") {
+      await handleStartActivityWithTask(act, activeLearner);
+    }
+  };
+
+  const handleSelectLearner = async (lrn) => {
+    setActiveLearner(lrn);
+    if (setPropSelectedLearner) setPropSelectedLearner(lrn);
+    if (currentSession && currentSession.status === "active") {
+      await handleStartActivityWithTask(activeTask, lrn);
+    }
+  };
+
+  const currentTaskIndex = activitiesList.findIndex(
+    act => act.id === activeTask?.id || act.task_code === activeTask?.task_code
+  );
+
+  const handlePrevQuestion = async () => {
+    if (currentTaskIndex > 0) {
+      const prevTask = activitiesList[currentTaskIndex - 1];
+      setActiveTask(prevTask);
+      if (setPropSelectedTask) setPropSelectedTask(prevTask);
+      await handleStartActivityWithTask(prevTask, activeLearner);
+    }
+  };
+
+  const handleNextQuestion = async () => {
+    if (currentTaskIndex < activitiesList.length - 1) {
+      const nextTask = activitiesList[currentTaskIndex + 1];
+      setActiveTask(nextTask);
+      if (setPropSelectedTask) setPropSelectedTask(nextTask);
+      await handleStartActivityWithTask(nextTask, activeLearner);
+    }
+  };
+
+  const handleExitSession = () => {
+    setCurrentSession(null);
+    setCurrentAttempt(null);
+    setChildViewData(null);
+    setSessionHistory(null);
+    setSessionOutcome(null);
   };
 
   // Step 2: Record Response
@@ -554,12 +604,8 @@ export default function GuidedPlayground({
                 return (
                   <button
                     key={lrn.id || lrn.learner_code}
-                    onClick={() => {
-                      setActiveLearner(lrn);
-                      if (setPropSelectedLearner) setPropSelectedLearner(lrn);
-                    }}
+                    onClick={() => handleSelectLearner(lrn)}
                     title={viewMode !== "researcher" ? `${t("internalId") || "Internal ID"}: ${lrn.participant_id || lrn.id}` : undefined}
-                    disabled={!!currentSession && currentSession.status === "active"}
                     style={{
                       display: "flex",
                       flexDirection: "column",
@@ -568,7 +614,7 @@ export default function GuidedPlayground({
                       background: isSelected ? "#fff7ed" : "#f8fafc",
                       border: isSelected ? "2px solid #f97316" : "1px solid #e2e8f0",
                       borderRadius: "12px",
-                      cursor: currentSession?.status === "active" ? "not-allowed" : "pointer",
+                      cursor: "pointer",
                       textAlign: "left",
                       gap: "0.3rem"
                     }}
@@ -656,17 +702,13 @@ export default function GuidedPlayground({
                 return (
                   <button
                     key={act.id || act.task_code}
-                    onClick={() => {
-                      setActiveTask(act);
-                      if (setPropSelectedTask) setPropSelectedTask(act);
-                    }}
-                    disabled={!!currentSession && currentSession.status === "active"}
+                    onClick={() => handleSelectTask(act)}
                     style={{
                       padding: "0.6rem 0.8rem",
                       background: isSelected ? "#fff7ed" : "#ffffff",
                       border: isSelected ? "2px solid #f97316" : "1px solid #e2e8f0",
                       borderRadius: "10px",
-                      cursor: currentSession?.status === "active" ? "not-allowed" : "pointer",
+                      cursor: "pointer",
                       textAlign: "left"
                     }}
                   >
@@ -953,6 +995,100 @@ export default function GuidedPlayground({
                 border: "2px solid #fed7aa",
                 boxShadow: "0 4px 16px rgba(249, 115, 22, 0.08)"
               }}>
+                {/* Question Navigation Toolbar */}
+                <div style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  paddingBottom: "1rem",
+                  marginBottom: "1rem",
+                  borderBottom: "1px solid #fed7aa",
+                  flexWrap: "wrap",
+                  gap: "0.5rem"
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
+                    <button
+                      onClick={handlePrevQuestion}
+                      disabled={currentTaskIndex <= 0 || loading}
+                      title={t("prevQuestion")}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.25rem",
+                        padding: "0.4rem 0.75rem",
+                        borderRadius: "8px",
+                        border: "1px solid #cbd5e1",
+                        background: currentTaskIndex <= 0 ? "#f8fafc" : "#ffffff",
+                        color: currentTaskIndex <= 0 ? "#94a3b8" : "#1e293b",
+                        fontSize: "0.82rem",
+                        fontWeight: 600,
+                        cursor: currentTaskIndex <= 0 || loading ? "not-allowed" : "pointer",
+                        transition: "all 0.15s ease"
+                      }}
+                    >
+                      <ChevronLeft size={16} />
+                      <span>{t("prevQuestion")}</span>
+                    </button>
+
+                    <span style={{
+                      fontWeight: 700,
+                      fontSize: "0.88rem",
+                      color: "#334155",
+                      padding: "0.3rem 0.6rem",
+                      background: "#f1f5f9",
+                      borderRadius: "6px"
+                    }}>
+                      {t("questionCounter", { current: currentTaskIndex >= 0 ? currentTaskIndex + 1 : 1, total: activitiesList.length || 10 })}
+                      {" • "}
+                      <span style={{ color: "#f97316" }}>{getLocalizedTaskTitle(activeTask, resolvedLanguage)}</span>
+                    </span>
+
+                    <button
+                      onClick={handleNextQuestion}
+                      disabled={currentTaskIndex >= activitiesList.length - 1 || loading}
+                      title={t("nextQuestion")}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.25rem",
+                        padding: "0.4rem 0.75rem",
+                        borderRadius: "8px",
+                        border: "1px solid #cbd5e1",
+                        background: currentTaskIndex >= activitiesList.length - 1 ? "#f8fafc" : "#ffffff",
+                        color: currentTaskIndex >= activitiesList.length - 1 ? "#94a3b8" : "#1e293b",
+                        fontSize: "0.82rem",
+                        fontWeight: 600,
+                        cursor: currentTaskIndex >= activitiesList.length - 1 || loading ? "not-allowed" : "pointer",
+                        transition: "all 0.15s ease"
+                      }}
+                    >
+                      <span>{t("nextQuestion")}</span>
+                      <ChevronRight size={16} />
+                    </button>
+                  </div>
+
+                  <button
+                    onClick={handleExitSession}
+                    title={t("changeQuestion")}
+                    style={{
+                      background: "#f8fafc",
+                      color: "#64748b",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: "8px",
+                      padding: "0.4rem 0.75rem",
+                      fontSize: "0.82rem",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.35rem"
+                    }}
+                  >
+                    <BookOpen size={15} />
+                    <span>{t("changeQuestion")}</span>
+                  </button>
+                </div>
+
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                     <span style={{
