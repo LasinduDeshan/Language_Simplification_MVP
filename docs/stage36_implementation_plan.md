@@ -798,8 +798,8 @@ The pipeline outputs structured review cases with rubric definitions, but must n
 ## 19. Required Documentation Deliverables
 
 ```text
-14 documentation deliverables
-= 13 manifest-controlled documents
+15 documentation deliverables
+= 14 manifest-controlled documents
 + 1 self-excluding checksum manifest
 ```
 
@@ -816,7 +816,8 @@ The pipeline outputs structured review cases with rubric definitions, but must n
 11. `docs/stage36_accounting_summary.md`
 12. `docs/stage36_reproducibility_record.json`
 13. `docs/stage36_completion_record.md`
-14. `docs/stage36_manifest.sha256`
+14. `docs/stage36_wp8_execution_receipt.json`
+15. `docs/stage36_manifest.sha256`
 
 An independent implementation manifest (`data/sinhala_output_validation/manifests/stage36_implementation_manifest.sha256`) will govern code, schemas, validators, registries, ledgers, and scripts.
 

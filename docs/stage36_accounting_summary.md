@@ -373,6 +373,10 @@ $$
 | Receipt Property | Value | Verification Status |
 |---|---|---|
 | **Post-freeze WP8 run ID** | `wp8-gov-eval-20261018-034910` | Unique run identifier |
+| **Receipt file** | `docs/stage36_wp8_execution_receipt.json` | Manifest-controlled deliverable |
+| **Receipt SHA-256** | `6eaf2de2d22ae2e3bfeda37537d8bcde52cb83cd5bf4eb5db64249cd6bc50257` | Verified SHA-256 |
+| **Audit event reference** | Sequence 1, HMAC-SHA256 `39adff2e8b415a3802be95e2ae3185818e3655a2bb54b2a4828567ea1f380a1a` | Append-only hash chain |
+| **Documentation contract** | 15 deliverables = 14 manifest-controlled documents + 1 self-excluding checksum manifest | Verified |
 | **WP8 execution started** | `2026-10-18T03:49:10Z` | Audit log start timestamp |
 | **WP8 execution completed** | `2026-10-18T03:49:14Z` | Audit log completion timestamp |
 | **Freeze timestamp** | `2026-10-18T03:38:21Z` | Freeze commit timestamp |

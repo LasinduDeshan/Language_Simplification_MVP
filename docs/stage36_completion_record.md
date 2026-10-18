@@ -7,7 +7,7 @@
 **Implementation Branch:** `feature/stage36-sinhala-output-validation`  
 **Prerequisite Anchor:** `stage-35-complete-v7` at `cd86a6b0aff2d07d7d0c4f8079f10e9833b5b3d0`  
 **Start Tag:** `stage-36-start` at `cd86a6b0aff2d07d7d0c4f8079f10e9833b5b3d0`  
-**Completion Tag:** `stage-36-complete`  
+**Completion Tag:** `stage-36-complete-v4`  
 **Configuration Freeze Hash (SHA-256):** `7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6`  
 **Database Baseline Integrity:** `backend/adaptive_learning.db` SHA-256 `44ff4f07fca1ac92343875bb8c82957df5cc721017dd08d20e901689392bb701` (Unchanged, Verified)
 
@@ -48,6 +48,10 @@ $$
 | Field | Value | Verification |
 |---|---|---|
 | **Post-freeze WP8 run ID** | `wp8-gov-eval-20261018-034910` | Unique run identifier |
+| **Receipt file** | `docs/stage36_wp8_execution_receipt.json` | Manifest-controlled deliverable |
+| **Receipt SHA-256** | `6eaf2de2d22ae2e3bfeda37537d8bcde52cb83cd5bf4eb5db64249cd6bc50257` | Verified SHA-256 |
+| **Audit event reference** | Sequence 1, HMAC-SHA256 `39adff2e8b415a3802be95e2ae3185818e3655a2bb54b2a4828567ea1f380a1a` | Append-only hash chain |
+| **Documentation contract** | 15 deliverables = 14 manifest-controlled documents + 1 self-excluding checksum manifest | Verified |
 | **WP8 execution started** | `2026-10-18T03:49:10Z` | Audit log start timestamp |
 | **WP8 execution completed** | `2026-10-18T03:49:14Z` | Audit log completion timestamp |
 | **Freeze timestamp** | `2026-10-18T03:38:21Z` | Freeze commit timestamp |
@@ -78,7 +82,7 @@ The post-freeze evaluation run is formally qualified as a **post-freeze governed
 | **WP7B** | Prospective Configuration Freeze | PASSED | Re-anchored prospectively in `stage-36-freeze-wp7b-v2` (`2c75505a0826...`) with frozen configuration `7175125f...` |
 | **WP8** | Governed Evaluation & Accounting | PASSED | 17 evaluation tests passing (`test_stage36_evaluation.py`) |
 | **WP9** | Database Isolation & Immutability Verification | PASSED | DB hash unchanged (`44ff4f07...`), historical tags intact |
-| **WP10** | Regression, Manifests & Release Sealing | PASSED | **745/745 full backend regression tests passed (100%)**, 17/17 frontend tests passed, release anchored at `stage-36-complete-v3` |
+| **WP10** | Regression, Manifests & Release Sealing | PASSED | **745/745 full backend regression tests passed (100%)**, 17/17 frontend tests passed, release anchored at `stage-36-complete-v4` (15 deliverables = 14 manifest-controlled documents + 1 self-excluding checksum manifest) |
 
 ---
 
