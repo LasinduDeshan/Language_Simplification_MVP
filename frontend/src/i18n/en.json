@@ -137,6 +137,8 @@
     "overrideReasonPlaceholder": "Reason for adult override (recorded in audit history)...",
     "proceedNext": "Proceed / Advance Session",
     "riskLevel": "Risk Level",
+    "internalId": "Internal ID",
+    "riskSource": "Risk Source",
     "riskShifted": "Risk Level Shifted: {before} → {after}",
     "supportTierMaintained": "Support Tier: {tier} (Maintained)",
     "metricVocabulary": "Vocabulary",
@@ -167,7 +169,13 @@
     "moderate": "Moderate",
     "high": "High",
     "critical": "Critical",
-    "unknown": "Unknown"
+    "unknown": "Unknown",
+    "not_assessed": "Not Assessed Yet",
+    "demonstrationPrefix": "Demonstration",
+    "demo_low": "Demonstration Low",
+    "demo_moderate": "Demonstration Moderate",
+    "demo_high": "Demonstration High",
+    "demo_critical": "Demonstration Critical"
   },
   "skills": {
     "animal_naming": "Animal Naming",

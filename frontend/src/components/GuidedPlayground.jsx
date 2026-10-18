@@ -148,6 +148,39 @@ function InstructionCard({
   );
 }
 
+function getParticipantDisplayName(learner, lang, isResearcher = false) {
+  if (!learner) return "";
+  const isSi = lang?.startsWith("si");
+  if (isSi) {
+    if (learner.display_name) return learner.display_name;
+    const num = (learner.display_code || learner.learner_code || "").replace(/\D+/g, "").padStart(2, "0") || "01";
+    return `දරුවා ${num}`;
+  }
+  if (isResearcher) {
+    return learner.display_code || learner.learner_code || "CHILD-001";
+  }
+  if (learner.display_code) {
+    const num = learner.display_code.replace(/\D+/g, "").padStart(2, "0");
+    return `Child ${num}`;
+  }
+  return learner.learner_code || "Child 01";
+}
+
+function getParticipantRiskInfo(learner, lang) {
+  if (!learner) return { text: "", color: "#64748b", isDemonstration: false };
+  const isDemo = learner.risk_source === "DEMONSTRATION_DATA" || learner.screening_source === "component_1" || !learner.risk_assessed_at;
+  const rawRisk = learner.risk_level || learner.screening_risk_level || learner.risk_support_level;
+  
+  const text = localizeRisk(rawRisk, lang, isDemo);
+  const r = String(rawRisk || "").toLowerCase();
+  let color = "#64748b";
+  if (r === "high" || r === "critical") color = "#ef4444";
+  else if (r === "moderate") color = "#f59e0b";
+  else if (r === "low") color = "#10b981";
+  
+  return { text, color, isDemonstration: isDemo };
+}
+
 export default function GuidedPlayground({
   tasks: initialTasks, learners: initialLearners, selectedTask: propSelectedTask,
   setSelectedTask: setPropSelectedTask, selectedLearner: propSelectedLearner,
@@ -516,7 +549,8 @@ export default function GuidedPlayground({
             <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {learnersList.map(lrn => {
                 const isSelected = activeLearner?.id === lrn.id || activeLearner?.learner_code === lrn.learner_code;
-                const riskColor = lrn.risk_support_level === "high" ? "#ef4444" : (lrn.risk_support_level === "moderate" ? "#f59e0b" : "#10b981");
+                const riskInfo = getParticipantRiskInfo(lrn, resolvedLanguage);
+                const displayName = getParticipantDisplayName(lrn, resolvedLanguage, viewMode === "researcher");
                 return (
                   <button
                     key={lrn.id || lrn.learner_code}
@@ -524,40 +558,55 @@ export default function GuidedPlayground({
                       setActiveLearner(lrn);
                       if (setPropSelectedLearner) setPropSelectedLearner(lrn);
                     }}
+                    title={viewMode !== "researcher" ? `${t("internalId") || "Internal ID"}: ${lrn.participant_id || lrn.id}` : undefined}
                     disabled={!!currentSession && currentSession.status === "active"}
                     style={{
                       display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
+                      flexDirection: "column",
+                      alignItems: "stretch",
                       padding: "0.75rem 1rem",
                       background: isSelected ? "#fff7ed" : "#f8fafc",
                       border: isSelected ? "2px solid #f97316" : "1px solid #e2e8f0",
                       borderRadius: "12px",
                       cursor: currentSession?.status === "active" ? "not-allowed" : "pointer",
-                      textAlign: "left"
+                      textAlign: "left",
+                      gap: "0.3rem"
                     }}
                   >
-                    <div>
-                      <div style={{ fontWeight: 700, color: "#1e293b" }}>
-                        {viewMode === "simple"
-                          ? `${resolvedLanguage?.startsWith("si") ? "ළමයා" : "Learner"} ${lrn.id} (${t("ageLabel", { age: lrn.age })})`
-                          : `${lrn.learner_code} (${t("ageLabel", { age: lrn.age })})`}
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <div style={{ fontWeight: 700, color: "#1e293b", fontSize: "0.95rem" }}>
+                        {displayName} ({t("ageLabel", { age: lrn.age_years ?? lrn.age })})
                       </div>
-                      <div style={{ fontSize: "0.8rem", color: "#64748b" }}>
-                        {t("metricVocabulary")}: {lrn.vocabulary_score} | {t("metricGrammar")}: {lrn.grammar_score} | {t("metricComprehension")}: {lrn.comprehension_score}
-                      </div>
-                    </div>
-                    {viewMode === "researcher" && (
                       <span style={{
                         fontSize: "0.75rem",
                         fontWeight: 700,
                         padding: "0.2rem 0.6rem",
                         borderRadius: "9999px",
-                        background: `${riskColor}15`,
-                        color: riskColor
+                        background: `${riskInfo.color}15`,
+                        color: riskInfo.color
                       }}>
-                        {localizeRisk(lrn.risk_support_level)}
+                        {riskInfo.text}
                       </span>
+                    </div>
+
+                    <div style={{ fontSize: "0.8rem", color: "#64748b" }}>
+                      {t("metricVocabulary")}: {lrn.vocabulary_score} | {t("metricGrammar")}: {lrn.grammar_score} | {t("metricComprehension")}: {lrn.comprehension_score}
+                    </div>
+
+                    {viewMode === "researcher" && (
+                      <div style={{
+                        fontSize: "0.72rem",
+                        color: "#475569",
+                        marginTop: "0.25rem",
+                        padding: "0.35rem 0.5rem",
+                        background: "#e2e8f0",
+                        borderRadius: "6px",
+                        fontFamily: "monospace",
+                        lineHeight: 1.4
+                      }}>
+                        <div><strong>{t("internalId") || "Internal ID"}:</strong> {lrn.participant_id || lrn.id}</div>
+                        <div><strong>{t("riskSource") || "Risk Source"}:</strong> {lrn.risk_source || (lrn.screening_source === "component_1" ? "DEMONSTRATION_DATA" : "NOT_CONNECTED")}</div>
+                      </div>
                     )}
                   </button>
                 );
@@ -698,7 +747,7 @@ export default function GuidedPlayground({
                           {t("recalibrationTitle")}
                         </h3>
                         <div style={{ fontSize: "0.8rem", color: "#166534" }}>
-                          {t("recalibrationNotice", { code: profileUpdateResult.learner_code })}
+                          {t("recalibrationNotice", { code: getParticipantDisplayName(profileUpdateResult, resolvedLanguage, viewMode === "researcher") || profileUpdateResult.learner_code })}
                         </div>
                       </div>
                     </div>
@@ -828,15 +877,36 @@ export default function GuidedPlayground({
                 <div>
                   <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 700 }}>{t("selectedLearner")}</span>
                   <div style={{ fontWeight: 800, fontSize: "1.1rem", color: "#1e293b" }}>
-                    {viewMode === "simple"
-                      ? `${resolvedLanguage?.startsWith("si") ? "ළමයා" : "Learner"} ${activeLearner?.id || 1} (${t("ageLabel", { age: activeLearner?.age })})`
-                      : `${activeLearner?.learner_code} (${t("ageLabel", { age: activeLearner?.age })})`}
+                    {getParticipantDisplayName(activeLearner, resolvedLanguage, viewMode === "researcher")} ({t("ageLabel", { age: activeLearner?.age_years ?? activeLearner?.age })})
                   </div>
-                  {viewMode === "researcher" && (
-                    <div style={{ fontSize: "0.85rem", color: "#475569" }}>
-                      {t("riskLevel")}: <strong>{localizeRisk(activeLearner?.risk_support_level)}</strong>
-                    </div>
-                  )}
+                  {(() => {
+                    const activeRiskInfo = getParticipantRiskInfo(activeLearner, resolvedLanguage);
+                    return (
+                      <>
+                        <div style={{ fontSize: "0.85rem", color: "#475569", marginTop: "0.25rem" }}>
+                          {t("riskLevel")}: <strong style={{ color: activeRiskInfo.color }}>{activeRiskInfo.text}</strong>
+                        </div>
+                        <div style={{ fontSize: "0.8rem", color: "#64748b", marginTop: "0.2rem" }}>
+                          {t("metricVocabulary")}: {activeLearner?.vocabulary_score} | {t("metricGrammar")}: {activeLearner?.grammar_score} | {t("metricComprehension")}: {activeLearner?.comprehension_score}
+                        </div>
+                        {viewMode === "researcher" && (
+                          <div style={{
+                            fontSize: "0.75rem",
+                            color: "#475569",
+                            marginTop: "0.4rem",
+                            padding: "0.35rem 0.5rem",
+                            background: "#e2e8f0",
+                            borderRadius: "6px",
+                            fontFamily: "monospace",
+                            lineHeight: 1.4
+                          }}>
+                            <div><strong>{t("internalId") || "Internal ID"}:</strong> {activeLearner?.participant_id || activeLearner?.id}</div>
+                            <div><strong>{t("riskSource") || "Risk Source"}:</strong> {activeLearner?.risk_source || (activeLearner?.screening_source === "component_1" ? "DEMONSTRATION_DATA" : "NOT_CONNECTED")}</div>
+                          </div>
+                        )}
+                      </>
+                    );
+                  })()}
                 </div>
 
                 <div>

@@ -34,7 +34,13 @@ export const ENUM_CATEGORY_MAPS = {
     moderate: 'risk.moderate',
     high: 'risk.high',
     critical: 'risk.critical',
-    unknown: 'risk.unknown'
+    unknown: 'risk.unknown',
+    not_assessed: 'risk.not_assessed',
+    demonstrationPrefix: 'risk.demonstrationPrefix',
+    demo_low: 'risk.demo_low',
+    demo_moderate: 'risk.demo_moderate',
+    demo_high: 'risk.demo_high',
+    demo_critical: 'risk.demo_critical'
   },
   status: {
     completed: 'status.completed',
@@ -101,8 +107,18 @@ export function localizeSupport(support, locale = null) {
   return localizeEnum('support', support, locale);
 }
 
-export function localizeRisk(risk, locale = null) {
-  return localizeEnum('risk', risk, locale);
+export function localizeRisk(risk, locale = null, isDemonstration = false) {
+  if (!risk || risk === 'none' || risk === 'unknown' || risk === 'not_assessed') {
+    return localizeEnum('risk', 'not_assessed', locale);
+  }
+  const cleanRisk = String(risk).toLowerCase();
+  if (isDemonstration) {
+    const demoKey = `demo_${cleanRisk}`;
+    if (ENUM_CATEGORY_MAPS.risk[demoKey]) {
+      return localizeEnum('risk', demoKey, locale);
+    }
+  }
+  return localizeEnum('risk', cleanRisk, locale);
 }
 
 export function localizeStatus(status, locale = null) {

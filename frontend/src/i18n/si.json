@@ -137,6 +137,8 @@
     "overrideReasonPlaceholder": "වැඩිහිටි වෙනස් කිරීමට හේතුව (විගණන ඉතිහාසයේ සටහන් වේ)...",
     "proceedNext": "ඉදිරියට යන්න / සැසිය ඉදිරියට ගෙන යන්න",
     "riskLevel": "අවදානම් මට්ටම",
+    "internalId": "අභ්‍යන්තර හඳුනාගැනීම",
+    "riskSource": "අවදානම් මූලාශ්‍රය",
     "riskShifted": "අවදානම් මට්ටම වෙනස් විය: {before} → {after}",
     "supportTierMaintained": "ආධාරක මට්ටම: {tier} (වෙනස් නොවී පවතී)",
     "metricVocabulary": "වචන මාලාව",
@@ -167,7 +169,13 @@
     "moderate": "මධ්‍යම",
     "high": "ඉහළ",
     "critical": "තීරණාත්මක",
-    "unknown": "නොදනී"
+    "unknown": "නොදනී",
+    "not_assessed": "තවම තක්සේරු කර නැත",
+    "demonstrationPrefix": "ආදර්ශ",
+    "demo_low": "ආදර්ශ අඩු",
+    "demo_moderate": "ආදර්ශ මධ්‍යස්ථ",
+    "demo_high": "ආදර්ශ ඉහළ",
+    "demo_critical": "ආදර්ශ තීරණාත්මක"
   },
   "skills": {
     "animal_naming": "සත්ව නම් කිරීම",

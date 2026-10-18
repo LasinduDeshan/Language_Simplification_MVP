@@ -1,6 +1,6 @@
 from typing import List, Dict, Any, Optional, Union, Annotated, Literal
 from datetime import datetime
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict, model_validator
 from app.localization.enums import TargetDisclosureClass, TargetDisclosurePolicy
 
 # ----------------- Learner Profile Schemas -----------------
@@ -39,10 +39,38 @@ class LearnerProfileCreate(LearnerProfileBase):
 
 class LearnerProfileResponse(LearnerProfileBase):
     id: str
+    participant_id: Optional[str] = None
+    display_code: Optional[str] = None
+    display_name: Optional[str] = None
+    age_years: Optional[int] = None
+    risk_level: Optional[str] = None
+    risk_source: Optional[str] = "DEMONSTRATION_DATA"
+    risk_assessed_at: Optional[datetime] = None
     disclaimer: str = "Educational performance indicators; not a diagnosis."
     created_at: datetime
     updated_at: datetime
     model_config = ConfigDict(from_attributes=True)
+
+    @model_validator(mode="after")
+    def populate_display_fields(self):
+        if not self.participant_id:
+            self.participant_id = self.id
+        if not self.display_code:
+            self.display_code = self.learner_code
+        if self.age_years is None:
+            self.age_years = self.age
+        if not self.display_name:
+            import re
+            m = re.search(r"\d+", self.learner_code or "")
+            num_str = f"{int(m.group(0)):02d}" if m else "01"
+            self.display_name = f"දරුවා {num_str}"
+        if not self.risk_level:
+            level = self.screening_risk_level or self.risk_support_level
+            self.risk_level = level.upper() if level else None
+        if self.screening_source == "component_1":
+            self.risk_source = "DEMONSTRATION_DATA"
+            self.risk_assessed_at = None
+        return self
 
 # ----------------- Activity Asset Schemas -----------------
 class ActivityAssetResponse(BaseModel):
