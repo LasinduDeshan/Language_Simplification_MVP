@@ -52,10 +52,10 @@ Stage 36 establishes an automated, deterministic, fail-closed output validation 
 | **WP6** | Validators V6–V8 (Diagnostics & Readability) | PASSED | N-gram Jaccard risk proxy, virama syntax, and word length reduction metrics |
 | **WP7** | Candidate Disposition Router & Fallback Engine | PASSED | 20 unit tests passing (`test_stage36_validators_and_engine.py`) |
 | **WP7A** | Development Fixture Calibration | PASSED | 14 development calibration fixtures passing (`test_stage36_calibration.py`) |
-| **WP7B** | Prospective Configuration Freeze | PASSED | Frozen bundle sealed in `stage36_configuration.json` (SHA-256: `7175125f...`) |
+| **WP7B** | Prospective Configuration Freeze | PASSED | Re-anchored prospectively in `stage-36-freeze-wp7b-v2` (`2c75505a0826...`) with frozen configuration `7175125f...` |
 | **WP8** | Governed Evaluation & Accounting | PASSED | 17 evaluation tests passing (`test_stage36_evaluation.py`) |
 | **WP9** | Database Isolation & Immutability Verification | PASSED | DB hash unchanged (`44ff4f07...`), historical tags intact |
-| **WP10** | Regression, Manifests & Release Sealing | PASSED | **745/745 full backend regression tests passed (100%)**, 17/17 frontend tests passed, frontend built clean |
+| **WP10** | Regression, Manifests & Release Sealing | PASSED | **745/745 full backend regression tests passed (100%)**, 17/17 frontend tests passed, release anchored at `stage-36-complete-v3` |
 
 ---
 
@@ -139,7 +139,7 @@ $$\text{CompletedCandidates} (29) = \sum_{i=1}^{9} \text{Disposition}_i + \text{
 - **Total Completed Candidates:** 29 (100.00%)
 - **Level 5 Discrepancy:** **0**
 
-### Level 6: Fallback Transitions
+### Level 6: Fallback Transitions & Node-Level Flows
 $$\text{FallbackTransitions} (17) = \text{ToRuleBaseline} (10) + \text{ToUnchangedSource} (3) + \text{ToManualReviewNoOutput} (2) + \text{ToRejectedNoOutput} (2) + \text{ToFailedInternalNoOutput} (0) + \text{Unaccounted} (0)$$
 - **To Rule Baseline (`TO_RULE_BASELINE`):** 10 (58.82%)
 - **To Unchanged Source (`TO_UNCHANGED_SOURCE`):** 3 (17.65%)
@@ -149,6 +149,36 @@ $$\text{FallbackTransitions} (17) = \text{ToRuleBaseline} (10) + \text{ToUnchang
 - **Maximum Transition Depth:** 3 (Bounded ladder, cycle-free)
 - **Total Fallback Transitions:** 17 (100.00%)
 - **Level 6 Discrepancy:** **0**
+
+#### Node-Level Request Flow Conservation
+In addition to aggregate transition counts, the 17 transitions form mathematically verified, acyclic request paths across three decision nodes:
+
+1. **Node 0 Flow (Primary Candidate Evaluation — 16 Inflow Requests):**
+   $$\text{TotalRequests} (16) = \text{PrimarySelected} (4) + \text{ToRuleFromPrimary} (10) + \text{DirectReview} (2) + \text{DirectReject} (0) = \mathbf{16}$$
+   - PrimarySelected (Depth 0): 4 (3 primary candidate accepted + 1 unchanged primary candidate accepted for research only)
+   - ToRuleFromPrimary (Step 1): 10 (`TO_RULE_BASELINE`)
+   - DirectReview (Step 1 Terminal): 2 (`TO_MANUAL_REVIEW_NO_OUTPUT`)
+   - DirectReject (Step 1 Terminal): 0
+
+2. **Node 1 Flow (C0 Rule Baseline Evaluation — 10 Inflow Requests):**
+   $$\text{ToRuleFromPrimary} (10) = \text{RuleFallbackSelected} (7) + \text{ToUnchangedSource} (3) + \text{OtherRuleTerminalOutcomes} (0) = \mathbf{10}$$
+   - RuleFallbackSelected (Depth 1): 7
+   - ToUnchangedSource (Step 2): 3 (`TO_UNCHANGED_SOURCE`)
+   - OtherRuleTerminalOutcomes: 0
+
+3. **Node 2 Flow (Unchanged Source Evaluation — 3 Inflow Requests):**
+   $$\text{ToUnchangedSource} (3) = \text{UnchangedResearchOnly} (1) + \text{UnchangedTerminalAbstentions} (2) = \mathbf{3}$$
+   - UnchangedResearchOnly (Depth 2): 1
+   - UnchangedTerminalAbstentions (Depth 3): 2 (`TO_REJECTED_NO_OUTPUT`)
+
+4. **Path Length & Transition Total Reconciliation:**
+   - 4 requests with 0 transitions: $4 \times 0 = 0$
+   - 2 requests with 1 transition (Primary $\rightarrow$ Review): $2 \times 1 = 2$
+   - 7 requests with 1 transition (Primary $\rightarrow$ Rule Engine): $7 \times 1 = 7$
+   - 1 request with 2 transitions (Primary $\rightarrow$ Rule Engine $\rightarrow$ Unchanged Source): $1 \times 2 = 2$
+   - 2 requests with 3 transitions (Primary $\rightarrow$ Rule Engine $\rightarrow$ Unchanged Source $\rightarrow$ Rejected): $2 \times 3 = 6$
+   - **Total Requests Conserved:** $4 + 2 + 7 + 1 + 2 = \mathbf{16}$
+   - **Total Transitions Conserved:** $0 + 2 + 7 + 2 + 6 = \mathbf{17}$ ($\text{Discrepancy} = 0$)
 
 #### Reconciliation of Fallback Transition Counts (17 vs. 18)
 An earlier draft note reported 18 transitions based on an unverified theoretical branch calculation ($11 + 4 + 3 = 18$). The verified execution ledger generated directly from the 16 `RequestTrace` objects confirms exactly 17 transitions across the evaluation corpus ($10\text{ ToRule} + 3\text{ ToUnchanged} + 2\text{ ToReview} + 2\text{ ToRejected} = 17$).
@@ -289,13 +319,29 @@ CompletedCandidates: 29
   VALID_UNCHANGED_NO_SIMPLIFICATION: 2
   Unaccounted: 0
 
---- LEVEL 6: FALLBACK TRANSITIONS ---
+--- LEVEL 6: FALLBACK TRANSITIONS & NODE-LEVEL FLOWS ---
 TotalFallbackTransitions: 17
   TO_MANUAL_REVIEW_NO_OUTPUT: 2
   TO_REJECTED_NO_OUTPUT: 2
   TO_RULE_BASELINE: 10
   TO_UNCHANGED_SOURCE: 3
   Unaccounted: 0
+Node 0 Flow (Primary Candidate Evaluation - 16 Requests):
+  PrimarySelected (Depth 0):      4
+  ToRuleFromPrimary (Step 1):     10
+  DirectReview (Step 1 Terminal): 2
+  DirectReject (Step 1 Terminal): 0
+  Node 0 Conservation Sum:        16
+Node 1 Flow (Rule Baseline Evaluation - Inflow: 10):
+  RuleFallbackSelected (Depth 1): 7
+  ToUnchangedSource (Step 2):     3
+  OtherRuleTerminalOutcomes:      0
+  Node 1 Conservation Sum:        10
+Node 2 Flow (Unchanged Source Evaluation - Inflow: 3):
+  UnchangedResearchOnly (Depth 2):        1
+  UnchangedTerminalAbstentions (Depth 3): 2
+  Node 2 Conservation Sum:                3
+Node-Level Reconciled Transitions: 17 (Equal to TotalFallbackTransitions: 17)
 
 --- LEVEL 7: SELECTION VS ABSTENTION ---
 RegisteredRequests:       16

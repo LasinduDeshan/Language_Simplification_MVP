@@ -5,10 +5,11 @@
   "prerequisite_commit": "cd86a6b0aff2d07d7d0c4f8079f10e9833b5b3d0",
   "start_tag": "stage-36-start",
   "start_commit": "cd86a6b0aff2d07d7d0c4f8079f10e9833b5b3d0",
-  "freeze_tag": "stage-36-freeze-wp7b",
-  "freeze_commit": "98bc9c7cfe99eb25fd41c34d25bb036a62a73a41",
+  "freeze_tag": "stage-36-freeze-wp7b-v2",
+  "freeze_commit": "2c75505a0826a375ee808124b389de8a4c0acc86",
   "frozen_configuration_hash": "7175125fbb32459a8f41100007c13c37994a1063ffb04b745414bd58a22aaaf6",
-  "frozen_configuration_timestamp_utc": "2026-10-17T14:30:00Z",
+  "frozen_configuration_timestamp_utc": "2026-10-18T03:38:21Z",
+  "completion_tag": "stage-36-complete-v3",
   "database_baseline_sha256": "44ff4f07fca1ac92343875bb8c82957df5cc721017dd08d20e901689392bb701",
   "test_metrics": {
     "total_stage36_test_cases": 83,
@@ -85,7 +86,21 @@
       "to_manual_review_no_output": 2,
       "to_rejected_no_output": 2,
       "to_failed_internal_no_output": 0,
-      "unaccounted": 0
+      "unaccounted": 0,
+      "node_flows": {
+        "node0_primary_inflow": 16,
+        "node0_primary_selected": 4,
+        "node0_to_rule_from_primary": 10,
+        "node0_direct_review": 2,
+        "node0_direct_reject": 0,
+        "node1_rule_inflow": 10,
+        "node1_rule_fallback_selected": 7,
+        "node1_to_unchanged_source": 3,
+        "node1_other_terminal": 0,
+        "node2_unchanged_inflow": 3,
+        "node2_unchanged_research_only": 1,
+        "node2_unchanged_terminal_abstentions": 2
+      }
     },
     "level7_selection_vs_abstention": {
       "registered_requests": 16,

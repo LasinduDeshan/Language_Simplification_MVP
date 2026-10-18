@@ -215,6 +215,58 @@ $$
 | **Total Fallback Transitions** | **17** | **100.00%** | All state transitions tracked in request traces |
 | **Unaccounted Discrepancies** | **0** | **0.00%** | **Level 6 Conservation Verified ($\text{Unaccounted} = 0$)** |
 
+#### Node-Level Request Flow Conservation
+
+In addition to aggregate transition counts, the 17 transitions form mathematically verified, acyclic request paths across three decision nodes:
+
+##### 1. Node 0: Primary Candidate Evaluation ($16\text{ Inflow Requests}$)
+$$
+\begin{aligned}
+\text{TotalRequests} (16) ={}& \text{PrimarySelected} (4) \\
+& + \text{ToRuleFromPrimary} (10) \\
+& + \text{DirectReview} (2) \\
+& + \text{DirectReject} (0)
+\end{aligned}
+$$
+- $\text{PrimarySelected} (4)$: 3 primary candidates accepted + 1 unchanged primary candidate accepted for research only.
+- $\text{ToRuleFromPrimary} (10)$: 10 failed primary candidates routed to Stage 33 C0 rule engine (`TO_RULE_BASELINE`).
+- $\text{DirectReview} (2)$: 2 candidates with inferred entity/delimiter ambiguity routed to expert review (`TO_MANUAL_REVIEW_NO_OUTPUT`).
+- $\text{DirectReject} (0)$: 0 candidates rejected directly without attempt.
+- **Node 0 Conservation:** $4 + 10 + 2 + 0 = \mathbf{16}$ ($\text{Discrepancy} = 0$).
+
+##### 2. Node 1: C0 Rule Baseline Evaluation ($10\text{ Inflow Requests}$)
+$$
+\begin{aligned}
+\text{ToRuleFromPrimary} (10) ={}& \text{RuleFallbackSelected} (7) \\
+& + \text{ToUnchangedSource} (3) \\
+& + \text{OtherRuleTerminalOutcomes} (0)
+\end{aligned}
+$$
+- $\text{RuleFallbackSelected} (7)$: 7 rule fallback candidates passed all gates and were selected.
+- $\text{ToUnchangedSource} (3)$: 3 rule fallback candidates failed or were no-ops, routed to unchanged source (`TO_UNCHANGED_SOURCE`).
+- $\text{OtherRuleTerminalOutcomes} (0)$: 0 rule candidates routed to other outcomes.
+- **Node 1 Conservation:** $7 + 3 + 0 = \mathbf{10}$ ($\text{Discrepancy} = 0$).
+
+##### 3. Node 2: Unchanged Source Evaluation ($3\text{ Inflow Requests}$)
+$$
+\begin{aligned}
+\text{ToUnchangedSource} (3) ={}& \text{UnchangedResearchOnly} (1) \\
+& + \text{UnchangedTerminalAbstentions} (2)
+\end{aligned}
+$$
+- $\text{UnchangedResearchOnly} (1)$: 1 unchanged source passed all gates at depth 2 and was selected for research only.
+- $\text{UnchangedTerminalAbstentions} (2)$: 2 unchanged sources failed critical script validation (corrupt source) and were terminally rejected (`TO_REJECTED_NO_OUTPUT`).
+- **Node 2 Conservation:** $1 + 2 = \mathbf{3}$ ($\text{Discrepancy} = 0$).
+
+##### 4. Path Length & Transition Total Reconciliation
+- 4 requests with 0 transitions: $4 \times 0 = 0$
+- 2 requests with 1 transition (Primary $\rightarrow$ Review): $2 \times 1 = 2$
+- 7 requests with 1 transition (Primary $\rightarrow$ Rule Engine): $7 \times 1 = 7$
+- 1 request with 2 transitions (Primary $\rightarrow$ Rule Engine $\rightarrow$ Unchanged Source): $1 \times 2 = 2$
+- 2 requests with 3 transitions (Primary $\rightarrow$ Rule Engine $\rightarrow$ Unchanged Source $\rightarrow$ Rejected): $2 \times 3 = 6$
+- **Total Requests Conserved:** $4 + 2 + 7 + 1 + 2 = \mathbf{16}$
+- **Total Transitions Conserved:** $0 + 2 + 7 + 2 + 6 = \mathbf{17}$ ($\text{Discrepancy} = 0$)
+
 #### Reconciliation of 17 vs. 18 Fallback Transitions
 An earlier preliminary draft calculation cited 18 transitions based on a hypothetical branch projection ($11 + 4 + 3 = 18$). The verified execution ledger generated directly from the 16 `RequestTrace` objects confirms exactly 17 transitions ($10\text{ ToRule} + 3\text{ ToUnchanged} + 2\text{ ToReview} + 2\text{ ToRejected} = 17$).
 
