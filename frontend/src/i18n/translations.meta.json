@@ -10,7 +10,7 @@
       "review_status": "unreviewed_by_linguist",
       "approved_for_infrastructure_testing": true,
       "approved_for_child_delivery": false,
-      "sha256": "5100aeb8e2c050f6fab47b85b61c3d74b7683ac79d1e0b82e2bcb71f9a3321ae"
+      "sha256": "8c0141c81857ac8b19feadd8d2d7ceaa80e9f4c642e2c109456c67b3b0366bbc"
     },
     {
       "resource_file": "si.json",
@@ -21,7 +21,7 @@
       "review_status": "unreviewed_by_linguist",
       "approved_for_infrastructure_testing": true,
       "approved_for_child_delivery": false,
-      "sha256": "da43dc907deab2a85c66188a9e3ce87047f623604fe0fd30becda4d4e03a1707"
+      "sha256": "e12f90930d6fb059d5e78d39ae140dea14b0b94182cf0fdb2777794551e35fb6"
     }
   ]
 }

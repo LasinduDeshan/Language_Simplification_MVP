@@ -19,6 +19,7 @@ export {
 export {
   getLocalizedInstruction,
   getLocalizedOptions,
+  getLocalizedTaskTitle,
   getOptionEmoji,
   isSinhalaActive
 } from './activityLocalization.js';

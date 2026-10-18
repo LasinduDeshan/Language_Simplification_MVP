@@ -1,20 +1,60 @@
 /*
-Stage 29 Language and Typography Styles
+Sinhala Demonstration UI — Typography and Language Rules (Plan §6, §7)
 */
-:lang(si), :lang(si-LK), html[lang="si-LK"], [data-locale="si"], [data-locale="si-LK"] {
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap");
+
+/* Base Sinhala Font Application across all elements */
+html[lang="si-LK"],
+html[lang="si-LK"] body,
+html[lang="si-LK"] button,
+html[lang="si-LK"] input,
+html[lang="si-LK"] textarea,
+html[lang="si-LK"] select,
+html[lang="si-LK"] optgroup,
+:lang(si),
+:lang(si-LK),
+[data-locale="si"],
+[data-locale="si-LK"] {
   font-family: 'Noto Sans Sinhala', 'Iskoola Pota', 'Nirmala UI', system-ui, sans-serif;
-  line-height: 1.65;
   letter-spacing: 0.01em;
 }
 
-:lang(en), :lang(en-LK) {
+/* Base English Font */
+:lang(en), :lang(en-LK), html[lang="en"], html[lang="en-LK"] {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.5;
 }
 
+/* Sinhala Line Heights for Combining Marks (Plan §6.2) */
+html[lang="si-LK"] body,
+[data-locale="si-LK"] body,
+[data-locale="si"] body {
+  line-height: 1.6;
+}
+
+html[lang="si-LK"] h1,
+html[lang="si-LK"] h2,
+html[lang="si-LK"] h3,
+[data-locale="si-LK"] h1,
+[data-locale="si-LK"] h2,
+[data-locale="si-LK"] h3 {
+  line-height: 1.45;
+}
+
+html[lang="si-LK"] p,
+html[lang="si-LK"] label,
+html[lang="si-LK"] span,
+html[lang="si-LK"] button,
+[data-locale="si-LK"] p,
+[data-locale="si-LK"] label,
+[data-locale="si-LK"] span,
+[data-locale="si-LK"] button {
+  line-height: 1.55;
+}
+
 /* Ensure Sinhala input fields have appropriate font and line height */
-.sinhala-input, [lang="si"] input, [lang="si"] textarea {
-  font-family: 'Noto Sans Sinhala', 'Nirmala UI', sans-serif;
+.sinhala-input, [lang="si"] input, [lang="si"] textarea, html[lang="si-LK"] input, html[lang="si-LK"] textarea {
+  font-family: 'Noto Sans Sinhala', 'Iskoola Pota', 'Nirmala UI', sans-serif;
   line-height: 1.6;
 }
 
@@ -22,4 +62,21 @@ Stage 29 Language and Typography Styles
 [dir="ltr"] {
   direction: ltr;
   text-align: left;
+}
+
+/* Sinhala Flexible Navigation & Button Metrics (Plan §7) */
+html[lang="si-LK"] .nav-tab,
+[data-locale="si-LK"] .nav-tab {
+  min-height: 48px;
+  padding-inline: 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* Sinhala View Mode Button Metrics */
+html[lang="si-LK"] .view-mode-btn,
+[data-locale="si-LK"] .view-mode-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
 }

@@ -20,7 +20,8 @@ import {
   localizeRisk,
   localizeStatus,
   getLocalizedInstruction,
-  getLocalizedOptions
+  getLocalizedOptions,
+  getLocalizedTaskTitle
 } from "../i18n";
 
 export default function GuidedPlayground({
@@ -409,21 +410,27 @@ export default function GuidedPlayground({
                     }}
                   >
                     <div>
-                      <div style={{ fontWeight: 700, color: "#1e293b" }}>{lrn.learner_code} ({t("ageLabel", { age: lrn.age })})</div>
+                      <div style={{ fontWeight: 700, color: "#1e293b" }}>
+                        {viewMode === "simple"
+                          ? `${resolvedLanguage?.startsWith("si") ? "ළමයා" : "Learner"} ${lrn.id} (${t("ageLabel", { age: lrn.age })})`
+                          : `${lrn.learner_code} (${t("ageLabel", { age: lrn.age })})`}
+                      </div>
                       <div style={{ fontSize: "0.8rem", color: "#64748b" }}>
                         {t("metricVocabulary")}: {lrn.vocabulary_score} | {t("metricGrammar")}: {lrn.grammar_score} | {t("metricComprehension")}: {lrn.comprehension_score}
                       </div>
                     </div>
-                    <span style={{
-                      fontSize: "0.75rem",
-                      fontWeight: 700,
-                      padding: "0.2rem 0.6rem",
-                      borderRadius: "9999px",
-                      background: `${riskColor}15`,
-                      color: riskColor
-                    }}>
-                      {localizeRisk(lrn.risk_support_level)}
-                    </span>
+                    {viewMode === "researcher" && (
+                      <span style={{
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                        padding: "0.2rem 0.6rem",
+                        borderRadius: "9999px",
+                        background: `${riskColor}15`,
+                        color: riskColor
+                      }}>
+                        {localizeRisk(lrn.risk_support_level)}
+                      </span>
+                    )}
                   </button>
                 );
               })}
@@ -486,7 +493,9 @@ export default function GuidedPlayground({
                       textAlign: "left"
                     }}
                   >
-                    <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1e293b" }}>{act.title}</div>
+                    <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1e293b" }}>
+                      {getLocalizedTaskTitle(act, resolvedLanguage)}
+                    </div>
                     <div style={{ fontSize: "0.75rem", color: "#64748b" }}>
                       {act.task_code} • {t("agesLabel", { min: act.minimum_age, max: act.maximum_age })}
                     </div>
@@ -691,17 +700,21 @@ export default function GuidedPlayground({
                 <div>
                   <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 700 }}>{t("selectedLearner")}</span>
                   <div style={{ fontWeight: 800, fontSize: "1.1rem", color: "#1e293b" }}>
-                    {activeLearner?.learner_code} ({t("ageLabel", { age: activeLearner?.age })})
+                    {viewMode === "simple"
+                      ? `${resolvedLanguage?.startsWith("si") ? "ළමයා" : "Learner"} ${activeLearner?.id || 1} (${t("ageLabel", { age: activeLearner?.age })})`
+                      : `${activeLearner?.learner_code} (${t("ageLabel", { age: activeLearner?.age })})`}
                   </div>
-                  <div style={{ fontSize: "0.85rem", color: "#475569" }}>
-                    {t("riskLevel")}: <strong>{localizeRisk(activeLearner?.risk_support_level)}</strong>
-                  </div>
+                  {viewMode === "researcher" && (
+                    <div style={{ fontSize: "0.85rem", color: "#475569" }}>
+                      {t("riskLevel")}: <strong>{localizeRisk(activeLearner?.risk_support_level)}</strong>
+                    </div>
+                  )}
                 </div>
 
                 <div>
                   <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 700 }}>{t("selectedActivity")}</span>
                   <div style={{ fontWeight: 800, fontSize: "1.1rem", color: "#1e293b" }}>
-                    {activeTask?.title}
+                    {getLocalizedTaskTitle(activeTask, resolvedLanguage)}
                   </div>
                   <div style={{ fontSize: "0.85rem", color: "#475569" }}>
                     {t("skill")}: <strong>{localizeSkill(activeTask?.target_skill || activeTask?.subskill)}</strong>

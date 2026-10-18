@@ -50,7 +50,7 @@ export function setLocale(newLocale) {
 
   // Update DOM language attributes
   if (typeof document !== 'undefined') {
-    document.documentElement.lang = resolved.language === 'si' ? 'si-LK' : 'en';
+    document.documentElement.lang = resolved.language === 'si' ? 'si-LK' : 'en-LK';
     document.documentElement.setAttribute('data-locale', resolved.locale);
     document.documentElement.dir = resolved.direction;
   }
@@ -98,7 +98,7 @@ export function t(key, params = {}, localeOverride = null) {
 // Initial DOM sync on load
 if (typeof document !== 'undefined') {
   const initial = resolveLocale(currentLocale) || resolveLocale(DEFAULT_LOCALE);
-  document.documentElement.lang = initial.language === 'si' ? 'si-LK' : 'en';
+  document.documentElement.lang = initial.language === 'si' ? 'si-LK' : 'en-LK';
   document.documentElement.setAttribute('data-locale', initial.locale);
   document.documentElement.dir = initial.direction;
 }

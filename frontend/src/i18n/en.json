@@ -11,15 +11,19 @@
     "brandTitle": "Adaptive Language MVP",
     "brandTag": "v2.2",
     "brandSubtitle": "Child-Friendly Language Simplifier (Ages 4–8)",
-    "interactivePlayground": "Interactive Playground",
-    "interactivePlaygroundTitle": "Interactive child instruction playground with voice playback",
-    "safety": "Safety & Anti-Leakage",
-    "safetyTitle": "Test whether instructions leak answers or use complex words",
-    "evaluation": "Evaluation & Exports",
-    "evaluationTitle": "Rate adaptations and download CSV / ZIP research bundles",
-    "results": "Results & History",
-    "resultsTitle": "View all stored task outcome records with score evolution history",
+    "interactivePlayground": "Playground",
+    "interactivePlaygroundTitle": "Interactive learning activities with voice playback",
+    "safety": "Safety",
+    "safetyTitle": "Safety and data-leakage controls",
+    "evaluation": "Evaluation",
+    "evaluationTitle": "Evaluation and controlled exports",
+    "results": "Results",
+    "resultsTitle": "Results and session history",
     "technicalLab": "Technical Lab",
+    "technicalLabTitle": "Technical testing and configuration",
+    "moreMenu": "More",
+    "moreMenuTitle": "More settings and technical controls",
+    "modelEngine": "AI Engine",
     "advancedModules": "Advanced Research Modules",
     "labDashboard": "Advanced Scenario Console",
     "labDashboardDesc": "Full simulation & attempt matrix",
@@ -39,9 +43,11 @@
   },
   "common": {
     "simpleView": "Simple View",
-    "simpleViewTitle": "Clean, easy-to-use interface without technical clutter",
+    "simpleViewTitle": "Simplified user view",
     "researcherView": "Researcher",
-    "researcherViewTitle": "Unhide raw JSON, acoustic confidence, and educational metrics",
+    "researcherViewTitle": "Researcher view",
+    "viewMode": "View Mode",
+    "childLearner": "Learner",
     "online": "Online",
     "connecting": "Connecting...",
     "initializing": "Initializing Learning Environment...",
@@ -264,5 +270,8 @@
   "governance": {
     "technical_draft_notice": "Sinhala UI labels are in technical draft status for infrastructure verification.",
     "child_delivery_status": "Child delivery approval: Not established (HUMAN EXPERT REVIEW REQUIRED)"
+  },
+  "activity": {
+    "nameTheAnimal": "Name the Animal"
   }
 }

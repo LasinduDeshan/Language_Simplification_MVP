@@ -11,15 +11,19 @@
     "brandTitle": "අනුවර්තී භාෂා වේදිකාව",
     "brandTag": "v2.2",
     "brandSubtitle": "ළමා හිතකාමී භාෂා සරලකරණය (වයස 4–8)",
-    "interactivePlayground": "අන්තර්ක්‍රියාකාරී පිටිය",
-    "interactivePlaygroundTitle": "හඬ ධාවනය සහිත අන්තර්ක්‍රියාකාරී ළමා උපදෙස් පිටිය",
-    "safety": "ආරක්ෂාව සහ කාන්දු වැළැක්වීම",
-    "safetyTitle": "උපදෙස් මඟින් පිළිතුරු කාන්දු වේද හෝ සංකීර්ණ වචන භාවිත වේදැයි පරීක්ෂා කරන්න",
-    "evaluation": "ඇගයීම් සහ අපනයන",
-    "evaluationTitle": "අනුවර්තනයන් ඇගයීම සහ පර්යේෂණ දත්ත බාගත කිරීම",
-    "results": "ප්‍රතිඵල සහ ඉතිහාසය",
-    "resultsTitle": "සියලු කාර්ය ප්‍රතිඵල වාර්තා සහ ලකුණු ඉතිහාසය බලන්න",
-    "technicalLab": "තාක්ෂණික පර්යේෂණාගාරය",
+    "interactivePlayground": "ක්‍රියාකාරකම්",
+    "interactivePlaygroundTitle": "අන්තර්ක්‍රියාකාරී ඉගෙනුම් ක්‍රියාකාරකම්",
+    "safety": "ආරක්ෂාව",
+    "safetyTitle": "ආරක්ෂණ සහ දත්ත-නිරාවරණ පාලන",
+    "evaluation": "ඇගයීම්",
+    "evaluationTitle": "ඇගයීම් සහ පාලිත අපනයන",
+    "results": "ප්‍රතිඵල",
+    "resultsTitle": "ප්‍රතිඵල සහ පෙර ඉතිහාසය",
+    "technicalLab": "තාක්ෂණික අංශය",
+    "technicalLabTitle": "තාක්ෂණික පරීක්ෂණ සහ වින්‍යාස",
+    "moreMenu": "තවත්",
+    "moreMenuTitle": "තවත් සැකසුම් සහ තාක්ෂණික විකල්ප",
+    "modelEngine": "AI ආකෘතිය",
     "advancedModules": "උසස් පර්යේෂණ මොඩියුල",
     "labDashboard": "උසස් අවස්ථා කොන්සෝලය",
     "labDashboardDesc": "සම්පූර්ණ අනුකරණ සහ උත්සාහ න්‍යාසය",
@@ -38,10 +42,12 @@
     "generationLlm": "LLM (අනුකරණය)"
   },
   "common": {
-    "simpleView": "සරල දර්ශනය",
-    "simpleViewTitle": "තාක්ෂණික සංකීර්ණත්වයෙන් තොර සරල අතුරුමුහුණත",
+    "simpleView": "සරල දැක්ම",
+    "simpleViewTitle": "සරල කළ පරිශීලක දර්ශනය",
     "researcherView": "පර්යේෂක",
-    "researcherViewTitle": "JSON දත්ත, ධ්වනි විශ්වාසනීයත්වය සහ අධ්‍යාපනික ප්‍රමිතික පෙන්වන්න",
+    "researcherViewTitle": "පර්යේෂක දර්ශනය",
+    "viewMode": "දර්ශන මාදිලිය",
+    "childLearner": "ළමයා",
     "online": "සක්‍රීයයි",
     "connecting": "සම්බන්ධ වෙමින්...",
     "initializing": "ඉගෙනුම් පරිසරය සූදානම් වෙමින්...",
@@ -264,5 +270,8 @@
   "governance": {
     "technical_draft_notice": "සිංහල ලේබල යටිතල පහසුකම් පරීක්ෂා කිරීම සඳහා වන තාක්ෂණික කෙටුම්පත් වේ.",
     "child_delivery_status": "ළමා බෙදාහැරීමේ අනුමැතිය: තහවුරු කර නොමැත (මානව විශේෂඥ සමාලෝචනය අවශ්‍යයි)"
+  },
+  "activity": {
+    "nameTheAnimal": "සත්වයා නම් කරන්න"
   }
 }

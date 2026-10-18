@@ -18,6 +18,13 @@
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
 
+  /* Enhanced contrast text tokens (Plan §11) */
+  --text-primary-dark: #f8fafc;
+  --text-secondary-dark: #cbd5e1;
+  --text-muted-dark: #94a3b8;
+  --text-primary-light: #0f172a;
+  --text-secondary-light: #475569;
+
   --accent-primary: #6366f1;
   --accent-primary-hover: #4f46e5;
   --accent-secondary: #ec4899;
@@ -84,23 +91,28 @@ body {
 }
 
 /* Navbar */
+/* Navbar (Plan §5, §7) */
 .navbar {
-  background: rgba(11, 15, 25, 0.85);
+  background: rgba(11, 15, 25, 0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 50;
-  padding: 0.85rem 2rem;
+  padding: 0.75rem 1.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
 }
 
 .brand-icon {
@@ -138,35 +150,46 @@ body {
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.75rem;
+  flex-shrink: 0;
 }
 
+/* Flexible Navigation Tabs (Plan §7) */
 .nav-tabs {
   display: flex;
+  align-items: center;
   background: rgba(255, 255, 255, 0.04);
   padding: 4px;
-  border-radius: var(--radius-md);
+  border-radius: 12px;
   border: 1px solid var(--border-color);
+  gap: 4px;
+  min-width: 0;
 }
 
 .nav-tab {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 6px;
+  width: auto;
+  min-width: max-content;
+  min-height: 44px;
   padding: 6px 14px;
   font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  border-radius: var(--radius-sm);
+  font-weight: 600;
+  color: var(--text-secondary-dark, #cbd5e1);
+  border-radius: 10px;
   border: none;
   background: transparent;
   cursor: pointer;
-  transition: var(--transition);
+  white-space: nowrap;
+  line-height: 1.45;
+  transition: all 0.15s ease-in-out;
 }
 
 .nav-tab:hover {
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary-dark, #f8fafc);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .nav-tab.active {
@@ -423,32 +446,142 @@ body {
    Guided Playground & User-Friendly Redesign Styles
    ========================================================================== */
 
-/* View Mode Switcher */
-.view-mode-toggle {
+/* View Mode Control — Pill-Shaped Segmented Control (Plan §8) */
+.view-mode-control {
   display: inline-flex;
-  background: rgba(15, 23, 42, 0.6);
+  align-items: stretch;
   padding: 3px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color, #30384a);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.8);
   gap: 2px;
 }
 
-.toggle-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  padding: 4px 12px;
-  font-size: 0.78rem;
+.view-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 38px;
+  padding: 6px 14px;
+  border: 0;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-size: 0.82rem;
   font-weight: 600;
-  border-radius: var(--radius-full);
   cursor: pointer;
-  transition: var(--transition);
+  background: transparent;
+  color: var(--text-secondary-dark, #cbd5e1);
+  transition: all 0.15s ease;
 }
 
-.toggle-btn.active {
+.view-mode-btn:hover {
+  color: var(--text-primary-dark, #f8fafc);
+}
+
+.view-mode-btn.active {
   background: var(--accent-primary);
   color: #ffffff;
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
+/* Secondary Controls (Engine & Status) */
+.secondary-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* More Menu Trigger & Dropdown (Plan §5, §10) */
+.more-menu-container {
+  display: inline-flex;
+  position: relative;
+}
+
+.more-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  background: rgba(30, 41, 59, 0.8);
+  color: var(--text-primary-dark, #f8fafc);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.more-menu-trigger:hover {
+  background: rgba(51, 65, 85, 0.8);
+}
+
+.more-menu-dropdown {
+  right: 0;
+  left: auto;
+  width: 240px;
+}
+
+/* Mobile Menu Trigger & Drawer (Plan §5.3, §10) */
+.mobile-menu-trigger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: rgba(30, 41, 59, 0.8);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.mobile-drawer {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #0f172a;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary-dark, #cbd5e1);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
+  background: rgba(99, 102, 241, 0.15);
+  color: #ffffff;
+}
+
+.mobile-drawer-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Dropdown Menu for Technical Lab */
@@ -1154,4 +1287,66 @@ body {
   color: var(--text-secondary);
   max-width: 500px;
   margin: 0 auto 1.75rem;
+}
+
+/* Responsive Breakpoints (Plan §10) */
+@media (min-width: 1501px) {
+  .secondary-controls {
+    display: flex;
+  }
+  .more-menu-container {
+    display: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .secondary-controls {
+    display: none;
+  }
+  .more-menu-container {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 1100px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 10px;
+    padding: 0.75rem 1.25rem;
+  }
+  .navbar-actions {
+    grid-column: 2;
+    justify-self: end;
+  }
+  .nav-tabs {
+    grid-column: 1 / -1;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1rem;
+  }
+  .brand-subtitle {
+    display: none;
+  }
+  .nav-tabs,
+  .view-mode-control,
+  .secondary-controls,
+  .more-menu-container {
+    display: none;
+  }
+  .mobile-menu-trigger {
+    display: inline-flex;
+  }
+  .mobile-drawer {
+    display: block;
+  }
 }

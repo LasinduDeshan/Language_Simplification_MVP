@@ -11,6 +11,7 @@ import { getLocale, t } from './config.js';
 export const CURATED_ACTIVITY_SINHALA = {
   // TASK-001 / ACT-ANIMAL-001
   'TASK-001': {
+    title: 'සත්වයා නම් කරන්න',
     instruction: 'පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්දැයි කියන්න.',
     options: {
       'Cat': 'පූසා',
@@ -22,6 +23,7 @@ export const CURATED_ACTIVITY_SINHALA = {
     }
   },
   'ACT-ANIMAL-001': {
+    title: 'සත්වයා නම් කරන්න',
     instruction: 'පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්දැයි කියන්න.',
     options: {
       'Cat': 'පූසා',
@@ -34,6 +36,19 @@ export const CURATED_ACTIVITY_SINHALA = {
   },
   // TASK-002 / ACT-OBJECT-001
   'TASK-002': {
+    title: 'වස්තු හඳුනාගැනීම',
+    instruction: 'ලිවීම සඳහා භාවිත කරන්නේ කුමක්දැයි පෙන්වන්න.',
+    options: {
+      'Pencil': 'පැන්සල',
+      'Book': 'පොත',
+      'Apple': 'ඇපල්',
+      'pencil': 'පැන්සල',
+      'book': 'පොත',
+      'apple': 'ඇපල්'
+    }
+  },
+  'ACT-OBJECT-001': {
+    title: 'වස්තු හඳුනාගැනීම',
     instruction: 'ලිවීම සඳහා භාවිත කරන්නේ කුමක්දැයි පෙන්වන්න.',
     options: {
       'Pencil': 'පැන්සල',
@@ -46,6 +61,19 @@ export const CURATED_ACTIVITY_SINHALA = {
   },
   // TASK-003 / ACT-BOOK-001
   'TASK-003': {
+    title: 'පොත සෙවීම',
+    instruction: 'පොතේ පින්තූරය සොයා තෝරන්න.',
+    options: {
+      'Book': 'පොත',
+      'Pencil': 'පැන්සල',
+      'Ball': 'බෝලය',
+      'book': 'පොත',
+      'pencil': 'පැන්සල',
+      'ball': 'බෝලය'
+    }
+  },
+  'ACT-BOOK-001': {
+    title: 'පොත සෙවීම',
     instruction: 'පොතේ පින්තූරය සොයා තෝරන්න.',
     options: {
       'Book': 'පොත',
@@ -58,6 +86,19 @@ export const CURATED_ACTIVITY_SINHALA = {
   },
   // TASK-006 / ACT-FOOD-001
   'TASK-006': {
+    title: 'ආහාර තේරීම',
+    instruction: 'අපට ආහාරයට ගත හැකි දේ කුමක්දැයි පෙන්වන්න.',
+    options: {
+      'Apple': 'ඇපල්',
+      'Car': 'මෝටර් රථය',
+      'Book': 'පොත',
+      'apple': 'ඇපල්',
+      'car': 'මෝටර් රථය',
+      'book': 'පොත'
+    }
+  },
+  'ACT-FOOD-001': {
+    title: 'ආහාර තේරීම',
     instruction: 'අපට ආහාරයට ගත හැකි දේ කුමක්දැයි පෙන්වන්න.',
     options: {
       'Apple': 'ඇපල්',
@@ -70,11 +111,27 @@ export const CURATED_ACTIVITY_SINHALA = {
   },
   // TASK-007 / ACT-ODD-001
   'TASK-007': {
+    title: 'නොගැලපෙන රූපය සෙවීම',
+    instruction: 'මෙහි නොගැලපෙන රූපය තෝරන්න.',
+    options: {}
+  },
+  'ACT-ODD-001': {
+    title: 'නොගැලපෙන රූපය සෙවීම',
     instruction: 'මෙහි නොගැලපෙන රූපය තෝරන්න.',
     options: {}
   },
   // TASK-017 / ACT-SHAPE-001
   'TASK-017': {
+    title: 'හැඩතල ගැලපීම',
+    instruction: 'රතු පාට වෘත්තය ස්පර්ශ කරන්න.',
+    options: {
+      'Red Circle': 'රතු වෘත්තය',
+      'Blue Square': 'නිල් සමචතුරස්‍රය',
+      'Yellow Triangle': 'කහ ත්‍රිකෝණය'
+    }
+  },
+  'ACT-SHAPE-001': {
+    title: 'හැඩතල ගැලපීම',
     instruction: 'රතු පාට වෘත්තය ස්පර්ශ කරන්න.',
     options: {
       'Red Circle': 'රතු වෘත්තය',
@@ -82,6 +139,15 @@ export const CURATED_ACTIVITY_SINHALA = {
       'Yellow Triangle': 'කහ ත්‍රිකෝණය'
     }
   }
+};
+
+export const COMMON_TASK_TITLES = {
+  'Name the Animal': 'සත්වයා නම් කරන්න',
+  'Object Identification': 'වස්තු හඳුනාගැනීම',
+  'Book Finder': 'පොත සෙවීම',
+  'Food Selection': 'ආහාර තේරීම',
+  'Odd One Out': 'නොගැලපෙන රූපය සෙවීම',
+  'Shape Match': 'හැඩතල ගැලපීම'
 };
 
 // General fallback vocabulary for common option words
@@ -249,3 +315,35 @@ export function getOptionEmoji(opt) {
   if (o.includes('boy') || o.includes('පිරිමි')) return '👦';
   return '✨';
 }
+
+export function getLocalizedTaskTitle(task, locale = null) {
+  if (!task) return '';
+  const activeLocale = locale || getLocale();
+  const isSi = activeLocale === 'si' || activeLocale === 'si-LK';
+
+  if (!isSi) {
+    if (typeof task.title === 'object' && task.title !== null) {
+      return task.title.en || task.title.label || '';
+    }
+    return task.title || task.name || '';
+  }
+
+  // Sinhala mode
+  if (typeof task.title === 'object' && task.title !== null) {
+    if (task.title.si) return task.title.si;
+  }
+  const code = task.task_code || task.activity_id || task.id;
+  if (code && CURATED_ACTIVITY_SINHALA[code]?.title) {
+    return CURATED_ACTIVITY_SINHALA[code].title;
+  }
+  const rawTitle = typeof task.title === 'string' ? task.title : (task.name || '');
+  if (COMMON_TASK_TITLES[rawTitle]) {
+    return COMMON_TASK_TITLES[rawTitle];
+  }
+  const translated = t('activity.nameTheAnimal', {}, activeLocale);
+  if (rawTitle.toLowerCase().includes('animal') && translated !== 'activity.nameTheAnimal') {
+    return translated;
+  }
+  return rawTitle;
+}
+
