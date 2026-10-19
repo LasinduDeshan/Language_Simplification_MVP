@@ -29,10 +29,10 @@ describe('Locale Switching, Persistence and Parameter Interpolation Tests (Plan 
     assert.match(getLocale(), /^si(-LK)?$/);
 
     const title = t('playground.headerTitle');
-    assert.equal(title, 'මඟපෙන්වන අධ්‍යාපනික පිටිය');
+    assert.equal(title, 'පුංචි පැංචන්ගේ ලෝකය');
 
     const learnerProfile = t('playground.learnerProfile');
-    assert.equal(learnerProfile, 'ඉගෙනුම්කරුගේ පැතිකඩ');
+    assert.equal(learnerProfile, 'ළමුන්ගේ පැතිකඩ');
   });
 
   test('notifies subscribers on language change without full reload', () => {

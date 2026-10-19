@@ -107,6 +107,13 @@ export function localizeSkill(skill, locale = null) {
   ) {
     return loc === 'si' ? 'කර්තෘ–ක්‍රියා–කර්ම වචන අනුපිළිවෙළ' : 'S-V-O Word Order';
   }
+  if (
+    normalizedSkill === 'subject_predicate_identification' ||
+    normalizedSkill === 'subject_predicate' ||
+    normalizedSkill === 'subject_and_predicate'
+  ) {
+    return loc === 'si' ? 'උක්තය සහ ආඛ්‍යාතය හඳුනාගැනීම' : 'Subject & Predicate Identification';
+  }
 
   if (String(skill).startsWith('skills.')) {
     const direct = t(skill, {}, locale);

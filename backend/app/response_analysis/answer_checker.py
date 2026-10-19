@@ -1,7 +1,13 @@
 import re
 import string
+import unicodedata
 from typing import Dict, Any, List, Optional
 from app.tasks.repository import task_repository
+
+def normalize_nfc(text: str) -> str:
+    if not text:
+        return ""
+    return unicodedata.normalize("NFC", str(text).strip())
 
 def normalize_text(text: str) -> str:
     """Lowercases, removes punctuation, and collapses whitespace."""
@@ -58,7 +64,14 @@ class AnswerChecker:
         selected_text = ""
         if selected_answer:
             if isinstance(selected_answer, dict):
-                selected_text = str(selected_answer.get("value", selected_answer.get("label", "")))
+                if "value" in selected_answer or "label" in selected_answer:
+                    selected_text = str(selected_answer.get("value", selected_answer.get("label", "")))
+                elif "subject" in selected_answer or "predicate" in selected_answer or "selected_subject" in selected_answer or "selected_predicate" in selected_answer:
+                    subj_part = str(selected_answer.get("subject") or selected_answer.get("selected_subject") or "")
+                    pred_part = str(selected_answer.get("predicate") or selected_answer.get("selected_predicate") or "")
+                    selected_text = f"{subj_part} {pred_part}".strip()
+                else:
+                    selected_text = " ".join(str(v) for v in selected_answer.values() if v)
             elif isinstance(selected_answer, list):
                 selected_text = " ".join(str(item) for item in selected_answer)
             else:
@@ -243,6 +256,79 @@ class AnswerChecker:
                 target_skill_result = "incorrect"
                 if "incorrect_word_order_svo" not in grammar_observations:
                     grammar_observations.append("incorrect_word_order_svo")
+
+        elif "subject_predicate" in target_skill.lower() or getattr(task, "task_type", "") == "SUBJECT_PREDICATE_IDENTIFICATION" or getattr(task, "task_code", "") == "GRAM-SI-SUBPRED-001":
+            from app.localization.activity_catalog import get_governed_activity_localization
+            cat_entry = get_governed_activity_localization(getattr(task, "task_code", "GRAM-SI-SUBPRED-001"))
+            primary = cat_entry.get("primary_example", {}) if cat_entry else {}
+            expected_subj = normalize_nfc(primary.get("subject", "ළමයා"))
+            expected_pred = normalize_nfc(primary.get("predicate", "පොත කියවයි"))
+            expected_verb = normalize_nfc(primary.get("verb", "කියවයි"))
+
+            nfc_combined = normalize_nfc(combined_text)
+            selected_subj_val = ""
+            selected_pred_val = ""
+
+            if isinstance(selected_answer, dict):
+                selected_subj_val = normalize_nfc(selected_answer.get("subject") or selected_answer.get("selected_subject") or "")
+                selected_pred_val = normalize_nfc(selected_answer.get("predicate") or selected_answer.get("selected_predicate") or "")
+            elif isinstance(selected_answer, list):
+                if len(selected_answer) >= 2:
+                    selected_subj_val = normalize_nfc(selected_answer[0])
+                    selected_pred_val = normalize_nfc(selected_answer[1])
+                elif len(selected_answer) == 1:
+                    val = normalize_nfc(selected_answer[0])
+                    if val in [expected_subj, "TOK-SUBJ", "OPT-SUBJ-001"]:
+                        selected_subj_val = val
+                    else:
+                        selected_pred_val = val
+            elif selected_answer:
+                val = normalize_nfc(str(selected_answer))
+                if val in [expected_subj, "TOK-SUBJ", "OPT-SUBJ-001"]:
+                    selected_subj_val = val
+                else:
+                    selected_pred_val = val
+
+            is_subj_correct = (
+                selected_subj_val in [expected_subj, "TOK-SUBJ", "OPT-SUBJ-001"]
+                or (not selected_subj_val and expected_subj in nfc_combined)
+            )
+
+            is_verb_only = (
+                selected_pred_val in [expected_verb, "TOK-PRED-2"]
+                or (selected_pred_val == expected_verb)
+                or (nfc_combined == expected_verb)
+            )
+
+            is_pred_correct = (
+                not is_verb_only and (
+                    selected_pred_val in [expected_pred, "TOK-PRED-COMBINED", "OPT-PRED-001"]
+                    or (not selected_pred_val and expected_pred in nfc_combined)
+                )
+            )
+
+            if is_verb_only:
+                grammar_observations.append("predicate_incomplete_verb_only")
+
+            if is_subj_correct and is_pred_correct:
+                concept_result = "correct"
+                target_skill_result = "correct"
+                grammar_observations.append("subject_identified")
+                grammar_observations.append("predicate_identified")
+            elif is_subj_correct:
+                concept_result = "partial"
+                target_skill_result = "partial"
+                grammar_observations.append("subject_identified")
+                grammar_observations.append("predicate_missing_or_incomplete")
+            elif is_pred_correct:
+                concept_result = "partial"
+                target_skill_result = "partial"
+                grammar_observations.append("predicate_identified")
+                grammar_observations.append("subject_missing")
+            else:
+                concept_result = "incorrect"
+                target_skill_result = "incorrect"
+                grammar_observations.append("subject_and_predicate_missing")
 
         else:
             # For vocabulary, instructions, and comprehension, target skill aligns with concept correctness

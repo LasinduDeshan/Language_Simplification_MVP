@@ -42,3 +42,12 @@ class ContentLanguageStatus(str, Enum):
     AVAILABLE = "AVAILABLE"
     UNAVAILABLE = "UNAVAILABLE"
 
+
+class GovernedTaskType(str, Enum):
+    VOCABULARY_NAMING = "VOCABULARY_NAMING"
+    WORD_ORDERING = "WORD_ORDERING"
+    SUBJECT_PREDICATE_IDENTIFICATION = "SUBJECT_PREDICATE_IDENTIFICATION"
+
+
+TaskType = GovernedTaskType
+

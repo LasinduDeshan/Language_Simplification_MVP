@@ -32,7 +32,7 @@ from app.validation.validator import adaptation_validator
 from app.generation.rule_generator import rule_generator
 from app.generation.llm_generator import llm_generator
 from app.generation.hybrid_generator import hybrid_generator
-from app.localization.activity_catalog import enrich_task_localization, enrich_attempt_localization
+from app.localization.activity_catalog import enrich_task_localization, enrich_attempt_localization, get_governed_activity_localization
 
 router = APIRouter(prefix="/api")
 
@@ -46,6 +46,39 @@ def health_check():
     }
 
 # ----------------- Activities Catalog -----------------
+def synthesize_governed_task(cat_entry: Dict[str, Any]) -> Dict[str, Any]:
+    code = cat_entry.get("task_code", "")
+    return {
+        "id": cat_entry.get("activity_id", code),
+        "task_code": code,
+        "title": cat_entry.get("title", {}).get("en", code),
+        "category": cat_entry.get("category", "grammar"),
+        "task_type": cat_entry.get("task_type", "SUBJECT_PREDICATE_IDENTIFICATION"),
+        "subskill": cat_entry.get("subskill", "subject_predicate"),
+        "target_skill": cat_entry.get("target_skill", {}).get("code") if isinstance(cat_entry.get("target_skill"), dict) else cat_entry.get("target_skill", "SUBJECT_PREDICATE_IDENTIFICATION"),
+        "language": cat_entry.get("language", "si"),
+        "learning_objective": cat_entry.get("learning_objective", {}).get("en", ""),
+        "original_instruction": cat_entry.get("instruction", {}).get("en", ""),
+        "child_friendly_instruction": cat_entry.get("instruction", {}).get("si", ""),
+        "minimum_age": cat_entry.get("minimum_age", cat_entry.get("target_age_min", 6)),
+        "maximum_age": cat_entry.get("maximum_age", cat_entry.get("target_age_max", 8)),
+        "base_difficulty": cat_entry.get("base_difficulty", "medium"),
+        "delivery_modes": cat_entry.get("delivery_modes", ["standard"]),
+        "response_modes": cat_entry.get("response_modes", ["multiple_choice", "manual_transcript"]),
+        "options": [opt.get("label", {}).get("si") or opt.get("id") for opt in cat_entry.get("options", [])],
+        "tokens": cat_entry.get("tokens", []),
+        "ar_metadata": {
+            "validation_status": cat_entry.get("validation_status", "draft"),
+            "expert_validated": cat_entry.get("expert_validated", False),
+            "research_eligible": cat_entry.get("research_eligible", False),
+            "approved_for_child_delivery": cat_entry.get("approved_for_child_delivery", False),
+            "approved_for_unsupervised_child_delivery": cat_entry.get("approved_for_unsupervised_child_delivery", False),
+            "requires_expert_review": cat_entry.get("requires_expert_review", True)
+        },
+        "created_at": datetime.utcnow(),
+        "is_active": True
+    }
+
 @router.get("/v1/tasks", response_model=List[TaskResponse])
 @router.get("/tasks", response_model=List[TaskResponse])
 @router.get("/activities", response_model=List[TaskResponse])
@@ -66,7 +99,27 @@ def get_activities(
     tasks = query.all()
     if delivery_mode:
         tasks = [t for t in tasks if t.delivery_modes and delivery_mode in t.delivery_modes]
-    return [enrich_task_localization(t) for t in tasks]
+    enriched = [enrich_task_localization(t) for t in tasks]
+    existing_codes = {t.task_code for t in tasks}
+
+    from app.localization.activity_catalog import GOVERNED_ACTIVITY_CATALOG, is_uuid
+    for code, cat_entry in GOVERNED_ACTIVITY_CATALOG.items():
+        if code not in existing_codes and not is_uuid(code) and cat_entry.get("task_code") == code:
+            act_cat = cat_entry.get("category", "grammar")
+            if category and act_cat != category:
+                continue
+            min_age = cat_entry.get("minimum_age", cat_entry.get("target_age_min", 4))
+            max_age = cat_entry.get("maximum_age", cat_entry.get("target_age_max", 8))
+            if age and (age < min_age or age > max_age):
+                continue
+            d_modes = cat_entry.get("delivery_modes", ["standard"])
+            if delivery_mode and delivery_mode not in d_modes:
+                continue
+
+            synth = synthesize_governed_task(cat_entry)
+            enriched.append(enrich_task_localization(synth))
+            existing_codes.add(code)
+    return enriched
 
 @router.get("/activities/categories")
 def get_activity_categories(db: Session = Depends(get_db)):
@@ -83,6 +136,9 @@ def get_activity_categories(db: Session = Depends(get_db)):
 def get_activity(id: str, db: Session = Depends(get_db)):
     task = db.query(Task).filter((Task.id == id) | (Task.task_code == id)).first()
     if not task:
+        cat_entry = get_governed_activity_localization(id)
+        if cat_entry:
+            return enrich_task_localization(synthesize_governed_task(cat_entry))
         raise HTTPException(status_code=404, detail="Activity not found")
     return enrich_task_localization(task)
 

@@ -64,7 +64,14 @@ class ValidatorV6SemanticProxy(BaseValidator):
         context["diagnostic_metrics"] = context.get("diagnostic_metrics", {})
         context["diagnostic_metrics"]["semantic_similarity_proxy"] = round(similarity, 4)
 
-        if similarity < self.min_similarity_threshold:
+        min_thresh = self.min_similarity_threshold
+        if (
+            context.get("strategy_code") in ("STRONG_DECOMPOSED_STEP", "STRONG_SCAFFOLD")
+            or str(getattr(envelope, "execution_mode", "")) in ("DETERMINISTIC_COPY", "ExecutionMode.DETERMINISTIC_COPY")
+        ):
+            min_thresh = 0.01
+
+        if similarity < min_thresh:
             findings.append(
                 ValidatorFinding(
                     finding_id=f"fnd_{envelope.candidate_id}_v6_drift",

@@ -321,6 +321,190 @@ export const DEMONSTRATION_ACTIVITIES = {
       en: 'AVAILABLE',
       si: 'AVAILABLE'
     }
+  },
+  'GRAM-SI-SUBPRED-001': {
+    activity_id: 'GRAM-SI-SUBPRED-001',
+    task_code: 'GRAM-SI-SUBPRED-001',
+    template_id: 'GRAM-SI-SUBPRED-001',
+    task_type: 'SUBJECT_PREDICATE_IDENTIFICATION',
+    activity_type: {
+      en: 'Subject & Predicate Identification',
+      si: 'උක්තය සහ ආඛ්‍යාතය හඳුනාගැනීම'
+    },
+    title: {
+      en: 'Identifying the Subject and Predicate',
+      si: 'උක්තය සහ ආඛ්‍යාතය හඳුනාගැනීම'
+    },
+    description: {
+      en: 'A Sinhala sentence can be examined as a subject and a predicate. The subject identifies whom or what the sentence is about. The predicate states something about the subject and normally contains the verb.',
+      si: 'සිංහල වාක්‍යයක ප්‍රධාන කොටස් දෙකක් ලෙස උක්තය සහ ආඛ්‍යාතය හඳුනාගත හැක. උක්තය මඟින් වාක්‍යයේ කවුරුන් හෝ කුමක් ගැන කියන්නේද දක්වයි. ආඛ්‍යාතය මඟින් එම උක්තය ගැන කියන දෙය දක්වන අතර, සාමාන්‍යයෙන් එයට ක්‍රියා පදයක් ඇතුළත් වේ.'
+    },
+    short_explanation: {
+      en: 'The subject identifies whom or what the sentence is about. The predicate states what is said about it.',
+      si: 'උක්තය කියන්නේ වාක්‍යය කවුරුන් හෝ කුමක් ගැනද කියන කොටසයි. ආඛ්‍යාතය කියන්නේ ඒ ගැන කියන දෙයයි.'
+    },
+    instruction: {
+      en: 'Identify the subject and predicate in the sentence.',
+      si: 'වාක්‍යයේ උක්තය සහ ආඛ්‍යාතය හඳුනාගන්න.'
+    },
+    support_versions: {
+      mild: {
+        en: 'Identify whom or what the sentence is about and what is said about it.',
+        si: 'වාක්‍යය කවුරුන් හෝ කුමක් ගැනද සහ ඒ ගැන කියන දෙය කුමක්ද හඳුනාගන්න.'
+      },
+      mild_support: {
+        en: 'Identify whom or what the sentence is about and what is said about it.',
+        si: 'වාක්‍යය කවුරුන් හෝ කුමක් ගැනද සහ ඒ ගැන කියන දෙය කුමක්ද හඳුනාගන්න.'
+      },
+      moderate: {
+        en: 'First select the subject. Then select the predicate.',
+        si: 'පළමුව උක්තය තෝරන්න. ඉන්පසු ආඛ්‍යාතය තෝරන්න.'
+      },
+      moderate_support: {
+        en: 'First select the subject. Then select the predicate.',
+        si: 'පළමුව උක්තය තෝරන්න. ඉන්පසු ආඛ්‍යාතය තෝරන්න.'
+      },
+      strong: {
+        en: 'Who or what? What is said about it?',
+        si: 'කවුද හෝ කුමක්ද? ඒ ගැන කියන්නේ කුමක්ද?'
+      },
+      strong_scaffold: {
+        en: 'Who or what? What is said about it?',
+        si: 'කවුද හෝ කුමක්ද? ඒ ගැන කියන්නේ කුමක්ද?'
+      },
+      strong_decomposed_step: {
+        en: 'First find who and select it. Now select what that person does.',
+        si: 'පළමුව “කවුද?” කියා සොයා එය තෝරන්න. දැන් ඒ අය කරන දෙය තෝරන්න.'
+      }
+    },
+    feedback_copy: {
+      correct_subject: {
+        en: 'Correct! “ළමයා” is the subject.',
+        si: 'හරි! “ළමයා” උක්තයයි.'
+      },
+      correct_predicate: {
+        en: 'Correct! “පොත කියවයි” is the predicate.',
+        si: 'හරි! “පොත කියවයි” ආඛ්‍යාතයයි.'
+      },
+      incorrect_subject: {
+        en: 'Try again. Whom is the sentence about?',
+        si: 'නැවත බලන්න. වාක්‍යය කවුරුන් ගැනද?'
+      },
+      incorrect_predicate: {
+        en: 'Try again. What does the sentence say about the subject?',
+        si: 'නැවත බලන්න. උක්තය ගැන කියන්නේ කුමක්ද?'
+      },
+      completed: {
+        en: 'Well done! You identified the subject and predicate.',
+        si: 'හොඳයි! ඔබ උක්තය සහ ආඛ්‍යාතය හඳුනාගත්තා.'
+      }
+    },
+    target_skill: {
+      code: 'SUBJECT_PREDICATE_IDENTIFICATION',
+      label: {
+        en: 'Subject & Predicate Identification',
+        si: 'උක්තය සහ ආඛ්‍යාතය හඳුනාගැනීම'
+      }
+    },
+    primary_example: {
+      item_id: 'GRAM-SI-SUBPRED-001-I01',
+      sentence: 'ළමයා පොත කියවයි.',
+      subject: 'ළමයා',
+      predicate: 'පොත කියවයි',
+      verb: 'කියවයි'
+    },
+    items: [
+      {
+        item_id: 'GRAM-SI-SUBPRED-001-I01',
+        sentence: 'ළමයා පොත කියවයි.',
+        subject: 'ළමයා',
+        predicate: 'පොත කියවයි',
+        verb: 'කියවයි'
+      },
+      {
+        item_id: 'GRAM-SI-SUBPRED-001-I02',
+        sentence: 'බල්ලා වේගයෙන් දුවයි.',
+        subject: 'බල්ලා',
+        predicate: 'වේගයෙන් දුවයි',
+        verb: 'දුවයි'
+      },
+      {
+        item_id: 'GRAM-SI-SUBPRED-001-I03',
+        sentence: 'ගැහැනු ළමයා මලක් අඳියි.',
+        subject: 'ගැහැනු ළමයා',
+        predicate: 'මලක් අඳියි',
+        verb: 'අඳියි'
+      },
+      {
+        item_id: 'GRAM-SI-SUBPRED-001-I04',
+        sentence: 'කුරුල්ලා ගස මත වාඩි වෙයි.',
+        subject: 'කුරුල්ලා',
+        predicate: 'ගස මත වාඩි වෙයි',
+        verb: 'වාඩි වෙයි'
+      },
+      {
+        item_id: 'GRAM-SI-SUBPRED-001-I05',
+        sentence: 'අම්මා බත් පිසියි.',
+        subject: 'අම්මා',
+        predicate: 'බත් පිසියි',
+        verb: 'පිසියි'
+      }
+    ],
+    tokens: [
+      {
+        token_id: 'TOK-SUBJ',
+        order: 1,
+        text: { en: 'The child', si: 'ළමයා' },
+        role: 'subject',
+        role_label: { en: 'Subject', si: 'උක්තය' }
+      },
+      {
+        token_id: 'TOK-PRED-1',
+        order: 2,
+        text: { en: 'the book', si: 'පොත' },
+        role: 'predicate_object',
+        role_label: { en: 'Predicate Part', si: 'ආඛ්‍යාත කොටස' }
+      },
+      {
+        token_id: 'TOK-PRED-2',
+        order: 3,
+        text: { en: 'reads', si: 'කියවයි' },
+        role: 'verb',
+        role_label: { en: 'Verb (Predicate)', si: 'ක්‍රියා පදය (ආඛ්‍යාතය)' }
+      }
+    ],
+    options: [
+      {
+        id: 'OPT-SUBJ-001',
+        token_id: 'TOK-SUBJ',
+        raw: 'ළමයා',
+        label: { en: 'The child', si: 'ළමයා' },
+        labels: { en: 'The child', si: 'ළමයා' },
+        role: 'subject'
+      },
+      {
+        id: 'OPT-PRED-001',
+        token_id: 'TOK-PRED-COMBINED',
+        raw: 'පොත කියවයි',
+        label: { en: 'reads the book', si: 'පොත කියවයි' },
+        labels: { en: 'reads the book', si: 'පොත කියවයි' },
+        role: 'predicate'
+      }
+    ],
+    content_language_status: {
+      en: 'AVAILABLE',
+      si: 'AVAILABLE'
+    },
+    localization_status: {
+      en: 'AVAILABLE',
+      si: 'AVAILABLE'
+    },
+    validation_status: 'draft',
+    expert_validated: false,
+    research_eligible: false,
+    approved_for_child_delivery: false,
+    approved_for_unsupervised_child_delivery: false,
+    requires_expert_review: true
   }
 };
 
@@ -337,9 +521,23 @@ DEMONSTRATION_ACTIVITIES['TASK-007'] = DEMONSTRATION_ACTIVITIES['ACT-ODD-001'];
 DEMONSTRATION_ACTIVITIES['VOC-ODD-001'] = DEMONSTRATION_ACTIVITIES['ACT-ODD-001'];
 DEMONSTRATION_ACTIVITIES['TASK-017'] = DEMONSTRATION_ACTIVITIES['ACT-SHAPE-001'];
 DEMONSTRATION_ACTIVITIES['ACT-WORD-001'] = DEMONSTRATION_ACTIVITIES['GRAM-WORD-001'];
+DEMONSTRATION_ACTIVITIES['ACT-SUBPRED-001'] = DEMONSTRATION_ACTIVITIES['GRAM-SI-SUBPRED-001'];
 
 // Curated Sinhala translations for core seed tasks / activities
 export const CURATED_ACTIVITY_SINHALA = {
+  'GRAM-SI-SUBPRED-001': {
+    title: 'උක්තය සහ ආඛ්‍යාතය හඳුනාගැනීම',
+    instruction: 'වාක්‍යයේ උක්තය සහ ආඛ්‍යාතය හඳුනාගන්න.',
+    options: {
+      'ළමයා': 'ළමයා',
+      'පොත කියවයි': 'පොත කියවයි',
+      'කියවයි': 'කියවයි'
+    }
+  },
+  'ACT-SUBPRED-001': {
+    title: 'උක්තය සහ ආඛ්‍යාතය හඳුනාගැනීම',
+    instruction: 'වාක්‍යයේ උක්තය සහ ආඛ්‍යාතය හඳුනාගන්න.'
+  },
   'GRAM-WORD-001': {
     title: 'කර්තෘ–ක්‍රියා–කර්ම වාක්‍යය පෙළගස්වන්න',
     instruction: 'වචන නිවැරදි අනුපිළිවෙළට සකස් කරන්න.',
@@ -1237,6 +1435,12 @@ export function getLocalizedTaskTitle(task, locale = null) {
   // Sinhala mode
   if (typeof task.title === 'object' && task.title !== null && task.title.si) {
     return String(task.title.si);
+  }
+  if (task.title_si) {
+    return String(task.title_si);
+  }
+  if (task.localized_title && typeof task.localized_title === 'object' && task.localized_title.si) {
+    return String(task.localized_title.si);
   }
   const code = task.task_code || task.template_id || task.activity_id || task.id;
   if (code && DEMONSTRATION_ACTIVITIES[code]?.title?.si) {

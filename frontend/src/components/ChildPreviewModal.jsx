@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { X, Volume2, Sparkles, Heart, CheckCircle2, Star, Smile } from "lucide-react";
 import { useTranslation } from "../i18n/useTranslation.js";
 import { getLocalizedInstruction, getLocalizedOptions, getOptionEmoji } from "../i18n/activityLocalization.js";
+import SubjectPredicateTask from "./SubjectPredicateTask";
 
 export default function ChildPreviewModal({ childView, adaptation, task, onClose }) {
   const { t, resolvedLanguage } = useTranslation();
@@ -202,46 +203,56 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
           </div>
         )}
 
-        {/* Interactive Response Options (If available) */}
-        {options && options.length > 0 && (
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: options.length <= 2 ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
-            gap: "1rem",
-            marginTop: "1rem"
-          }}>
-            {options.map((opt, idx) => {
-              const optRaw = typeof opt === "object" && opt !== null ? (typeof opt.raw === 'object' && opt.raw !== null ? (opt.raw.si || opt.raw.en || '') : String(opt.raw || opt.id || '')) : String(opt);
-              const optLabel = typeof opt === "object" && opt !== null ? (typeof opt.label === 'object' && opt.label !== null ? (opt.label.si || opt.label.en || '') : String(opt.label || '')) : String(opt);
-              const optEmoji = typeof opt === "object" && opt !== null && opt.emoji ? opt.emoji : getOptionEmoji(optRaw || optLabel);
-              const isSelected = selectedChoice === optRaw;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedChoice(optRaw)}
-                  style={{
-                    background: isSelected ? "#f97316" : "#ffffff",
-                    color: isSelected ? "#ffffff" : "#1e293b",
-                    border: isSelected ? "3px solid #ea580c" : "2px solid #e2e8f0",
-                    borderRadius: "20px",
-                    padding: "1.25rem 1rem",
-                    cursor: "pointer",
-                    fontSize: "1.2rem",
-                    fontWeight: 800,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    boxShadow: isSelected ? "0 8px 20px rgba(249, 115, 22, 0.35)" : "0 4px 10px rgba(0,0,0,0.04)",
-                    transition: "all 0.15s ease-in-out"
-                  }}
-                >
-                  <span style={{ fontSize: "2rem" }}>{optEmoji}</span>
-                  <span>{optLabel}</span>
-                </button>
-              );
-            })}
-          </div>
+        {/* Subject & Predicate Interactive Two-Stage Activity */}
+        {(rawActivity?.task_code === 'GRAM-SI-SUBPRED-001' || rawActivity?.task_type === 'SUBJECT_PREDICATE_IDENTIFICATION') ? (
+          <SubjectPredicateTask
+            task={rawActivity}
+            isChildModal={true}
+            resolvedLanguage={resolvedLanguage}
+            viewMode="simple"
+          />
+        ) : (
+          /* Interactive Response Options (If available) */
+          options && options.length > 0 && (
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: options.length <= 2 ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
+              gap: "1rem",
+              marginTop: "1rem"
+            }}>
+              {options.map((opt, idx) => {
+                const optRaw = typeof opt === "object" && opt !== null ? (typeof opt.raw === 'object' && opt.raw !== null ? (opt.raw.si || opt.raw.en || '') : String(opt.raw || opt.id || '')) : String(opt);
+                const optLabel = typeof opt === "object" && opt !== null ? (typeof opt.label === 'object' && opt.label !== null ? (opt.label.si || opt.label.en || '') : String(opt.label || '')) : String(opt);
+                const optEmoji = typeof opt === "object" && opt !== null && opt.emoji ? opt.emoji : getOptionEmoji(optRaw || optLabel);
+                const isSelected = selectedChoice === optRaw;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedChoice(optRaw)}
+                    style={{
+                      background: isSelected ? "#f97316" : "#ffffff",
+                      color: isSelected ? "#ffffff" : "#1e293b",
+                      border: isSelected ? "3px solid #ea580c" : "2px solid #e2e8f0",
+                      borderRadius: "20px",
+                      padding: "1.25rem 1rem",
+                      cursor: "pointer",
+                      fontSize: "1.2rem",
+                      fontWeight: 800,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      boxShadow: isSelected ? "0 8px 20px rgba(249, 115, 22, 0.35)" : "0 4px 10px rgba(0,0,0,0.04)",
+                      transition: "all 0.15s ease-in-out"
+                    }}
+                  >
+                    <span style={{ fontSize: "2rem" }}>{optEmoji}</span>
+                    <span>{optLabel}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )
         )}
       </div>
     </div>

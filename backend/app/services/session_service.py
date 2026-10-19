@@ -39,7 +39,33 @@ class SessionService:
 
         task = db.query(Task).filter((Task.id == task_id) | (Task.task_code == task_id)).first()
         if not task:
-            raise ValueError(f"Task '{task_id}' not found")
+            cat = get_governed_activity_localization(task_id)
+            if cat:
+                code = cat.get("task_code", task_id)
+                task = Task(
+                    id=cat.get("activity_id", code),
+                    task_code=code,
+                    title=cat.get("title", {}).get("en", code),
+                    category=cat.get("category", "grammar"),
+                    task_type=cat.get("task_type", "SUBJECT_PREDICATE_IDENTIFICATION"),
+                    subskill=cat.get("subskill", "subject_predicate"),
+                    target_skill=cat.get("target_skill", {}).get("code") if isinstance(cat.get("target_skill"), dict) else cat.get("target_skill", "SUBJECT_PREDICATE_IDENTIFICATION"),
+                    language=cat.get("language", "si"),
+                    learning_objective=cat.get("learning_objective", {}).get("en", "Identify subject and predicate"),
+                    original_instruction=cat.get("instruction", {}).get("en", "Identify subject and predicate"),
+                    child_friendly_instruction=cat.get("instruction", {}).get("si", "වාක්‍යයේ උක්තය සහ ආඛ්‍යාතය හඳුනාගන්න."),
+                    minimum_age=cat.get("minimum_age", cat.get("target_age_min", 6)),
+                    maximum_age=cat.get("maximum_age", cat.get("target_age_max", 8)),
+                    base_difficulty=cat.get("base_difficulty", "medium"),
+                    delivery_modes=cat.get("delivery_modes", ["standard"]),
+                    response_modes=cat.get("response_modes", ["multiple_choice", "manual_transcript"]),
+                    options=[opt.get("label", {}).get("si") or opt.get("id") for opt in cat.get("options", [])],
+                    is_active=True
+                )
+                db.add(task)
+                db.flush()
+            else:
+                raise ValueError(f"Task '{task_id}' not found")
 
         # 1. Deterministic Initial Support calculation
         init_support_data = personalization_controller.calculate_initial_support(learner, task)
@@ -180,7 +206,7 @@ class SessionService:
 
         cat = get_governed_activity_localization(task.task_code)
         presented_instruction_si = None
-        simplification_lineage = None
+        simplification_lineage: Optional[Dict[str, Any]] = None
 
         if attempt_number == 3:
             # Route Attempt 3 through Stage 36 Simplification Adapter
@@ -208,9 +234,10 @@ class SessionService:
                 catalog_fallback_text=catalog_fb_text,
             )
             presented_instruction_si = simp_res["presented_instruction"]
-            simplification_lineage = simp_res["lineage_dict"]
-            generation_method = simplification_lineage.get("generation_mode", generation_method)
-            validation_status = simplification_lineage.get("simplification_status", validation_status)
+            lineage_dict: Dict[str, Any] = simp_res.get("lineage_dict") or {}
+            simplification_lineage = lineage_dict
+            generation_method = lineage_dict.get("generation_mode", generation_method)
+            validation_status = lineage_dict.get("simplification_status", validation_status)
             if cat and "support_versions" in cat and "strong_decomposed_step" in cat["support_versions"]:
                 presented_instruction = cat["support_versions"]["strong_decomposed_step"].get("en", presented_instruction)
 
@@ -219,7 +246,33 @@ class SessionService:
                 presented_instruction = cat["support_versions"]["strong_scaffold"].get("en", presented_instruction)
                 presented_instruction_si = cat["support_versions"]["strong_scaffold"].get("si")
 
-        initial_snapshot = {
+        elif attempt_number == 1:
+            if cat and "instruction" in cat:
+                presented_instruction = cat["instruction"].get("en", presented_instruction)
+                presented_instruction_si = cat["instruction"].get("si")
+
+        elif attempt_number > 3:
+            prev_att = attempt_2 if attempt_2 else None
+            source_si = (cat.get("support_versions", {}).get("strong_decomposed_step", {}).get("si") if cat else None) or presented_instruction
+            presented_instruction_si = source_si
+            simplification_lineage = {
+                "simplification_status": "NO_FURTHER_SAFE_SIMPLIFICATION",
+                "instruction_reused": True,
+                "generation_mode": "UNCHANGED_REUSE",
+                "reused_from_attempt_id": prev_att.id if prev_att else "previous_attempt",
+                "reuse_reason_code": "MINIMAL_SAFE_INSTRUCTION_ALREADY_REACHED",
+                "strategy_code": "STRONG_DECOMPOSED_STEP",
+                "source_instruction_ref": "attempt_3_decomposed",
+                "presented_instruction_ref": "attempt_3_decomposed",
+                "target_disclosure_class": "EXPLICIT_TASK_TARGET",
+                "target_disclosure_policy": "DO_NOT_REVEAL",
+                "independent_performance_measure": False,
+                "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE"
+            }
+            generation_method = "UNCHANGED_REUSE"
+            validation_status = "NO_FURTHER_SAFE_SIMPLIFICATION"
+
+        initial_snapshot: Dict[str, Any] = {
             "created_at": datetime.utcnow().isoformat(),
             "independent_performance_measure": independent_perf,
             "score_interpretation": score_interp,

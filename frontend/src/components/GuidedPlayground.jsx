@@ -13,6 +13,7 @@ import {
   fetchActivitySessionHistory
 } from "../services/api";
 import ChildPreviewModal from "./ChildPreviewModal";
+import SubjectPredicateTask from "./SubjectPredicateTask";
 import {
   useTranslation,
   localizeSkill,
@@ -1170,13 +1171,33 @@ export default function GuidedPlayground({
 
                 {/* Presented Child Instruction Card with Canonical Keying */}
                 <InstructionCard
-                  key={currentAttempt ? currentAttempt.id : "initial-task"}
+                  key={currentAttempt ? `${currentAttempt.id}-${activeTask?.task_code}` : `initial-${activeTask?.task_code}`}
                   attempt={currentAttempt}
                   activeTask={activeTask}
                   viewMode={viewMode}
                   resolvedLanguage={resolvedLanguage}
                   t={t}
                 />
+
+                {/* Subject & Predicate Interactive Demonstration Activity (GRAM-SI-SUBPRED-001) */}
+                {(activeTask?.task_code === 'GRAM-SI-SUBPRED-001' || activeTask?.task_type === 'SUBJECT_PREDICATE_IDENTIFICATION') && (
+                  <SubjectPredicateTask
+                    key={`subj-pred-${currentAttempt?.id || 'static'}-${activeTask?.task_code}`}
+                    task={activeTask}
+                    attempt={currentAttempt}
+                    viewMode={viewMode}
+                    resolvedLanguage={resolvedLanguage}
+                    onSelectionChange={({ subject, predicate, isCompleted, summary }) => {
+                      if (subject && predicate) {
+                        setManualTranscript(`${subject} ${predicate}`);
+                        setSelectedOption(summary || `${subject} | ${predicate}`);
+                      } else if (subject) {
+                        setManualTranscript(subject);
+                        setSelectedOption(subject);
+                      }
+                    }}
+                  />
+                )}
 
 
                 {/* Quick Child View Embed */}
