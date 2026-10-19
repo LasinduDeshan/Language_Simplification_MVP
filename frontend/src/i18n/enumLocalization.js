@@ -84,6 +84,30 @@ export const supportLabelKeys = {
 
 export function localizeSkill(skill, locale = null) {
   if (!skill) return '';
+  const loc = (locale && String(locale).toLowerCase().startsWith('si')) || (!locale && getLocale().startsWith('si')) ? 'si' : 'en';
+
+  if (typeof skill === 'object' && skill !== null) {
+    if (skill.label) {
+      if (typeof skill.label === 'object') {
+        return skill.label[loc] || skill.label.si || skill.label.en || skill.code || '';
+      }
+      return String(skill.label);
+    }
+    return skill[loc] || skill.si || skill.en || '';
+  }
+
+  const cleanSkill = String(skill).toLowerCase().trim();
+  const normalizedSkill = cleanSkill.replace(/[\s-]+/g, '_');
+  if (
+    normalizedSkill === 'word_order_svo' ||
+    normalizedSkill === 'word_order' ||
+    normalizedSkill === 'word_ordering' ||
+    normalizedSkill === 's_v_o_word_order' ||
+    normalizedSkill === 'svo_word_order'
+  ) {
+    return loc === 'si' ? 'කර්තෘ–ක්‍රියා–කර්ම වචන අනුපිළිවෙළ' : 'S-V-O Word Order';
+  }
+
   if (String(skill).startsWith('skills.')) {
     const direct = t(skill, {}, locale);
     if (direct !== skill) return direct;

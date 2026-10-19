@@ -249,6 +249,78 @@ export const DEMONSTRATION_ACTIVITIES = {
       en: 'AVAILABLE',
       si: 'DRAFT_DEMONSTRATION'
     }
+  },
+  'GRAM-WORD-001': {
+    activity_id: 'GRAM-WORD-001',
+    task_code: 'GRAM-WORD-001',
+    activity_type: {
+      en: 'Word Ordering',
+      si: 'වචන පෙළගැස්වීම'
+    },
+    title: {
+      en: 'Word Ordering: S-V-O Sentence',
+      si: 'කර්තෘ–ක්‍රියා–කර්ම වාක්‍යය පෙළගස්වන්න'
+    },
+    description: {
+      en: 'Arrange the words to create a correct sentence.',
+      si: 'නිවැරදි වාක්‍යයක් සෑදීමට වචන පෙළගස්වන්න.'
+    },
+    instruction: {
+      en: 'Put the words in the correct order.',
+      si: 'වචන නිවැරදි අනුපිළිවෙළට සකස් කරන්න.'
+    },
+    target_skill: {
+      code: 'WORD_ORDER_SVO',
+      label: {
+        en: 'S-V-O Word Order',
+        si: 'කර්තෘ–ක්‍රියා–කර්ම වචන අනුපිළිවෙළ'
+      }
+    },
+    tokens: [
+      {
+        token_id: 'TOKEN-001',
+        order: 1,
+        text: { en: 'The boy', si: 'පිරිමි ළමයා' }
+      },
+      {
+        token_id: 'TOKEN-002',
+        order: 3,
+        text: { en: 'likes', si: 'කැමතියි' }
+      },
+      {
+        token_id: 'TOKEN-003',
+        order: 2,
+        text: { en: 'apples', si: 'ඇපල්වලට' }
+      }
+    ],
+    options: [
+      {
+        id: 'TOKEN-001',
+        raw: 'The boy',
+        label: { en: 'The boy', si: 'පිරිමි ළමයා' },
+        labels: { en: 'The boy', si: 'පිරිමි ළමයා' }
+      },
+      {
+        id: 'TOKEN-003',
+        raw: 'apples',
+        label: { en: 'apples', si: 'ඇපල්වලට' },
+        labels: { en: 'apples', si: 'ඇපල්වලට' }
+      },
+      {
+        id: 'TOKEN-002',
+        raw: 'likes',
+        label: { en: 'likes', si: 'කැමතියි' },
+        labels: { en: 'likes', si: 'කැමතියි' }
+      }
+    ],
+    content_language_status: {
+      en: 'AVAILABLE',
+      si: 'AVAILABLE'
+    },
+    localization_status: {
+      en: 'AVAILABLE',
+      si: 'AVAILABLE'
+    }
   }
 };
 
@@ -264,9 +336,32 @@ DEMONSTRATION_ACTIVITIES['VOC-CAT-001'] = DEMONSTRATION_ACTIVITIES['ACT-FOOD-001
 DEMONSTRATION_ACTIVITIES['TASK-007'] = DEMONSTRATION_ACTIVITIES['ACT-ODD-001'];
 DEMONSTRATION_ACTIVITIES['VOC-ODD-001'] = DEMONSTRATION_ACTIVITIES['ACT-ODD-001'];
 DEMONSTRATION_ACTIVITIES['TASK-017'] = DEMONSTRATION_ACTIVITIES['ACT-SHAPE-001'];
+DEMONSTRATION_ACTIVITIES['ACT-WORD-001'] = DEMONSTRATION_ACTIVITIES['GRAM-WORD-001'];
 
 // Curated Sinhala translations for core seed tasks / activities
 export const CURATED_ACTIVITY_SINHALA = {
+  'GRAM-WORD-001': {
+    title: 'කර්තෘ–ක්‍රියා–කර්ම වාක්‍යය පෙළගස්වන්න',
+    instruction: 'වචන නිවැරදි අනුපිළිවෙළට සකස් කරන්න.',
+    options: {
+      'The boy': 'පිරිමි ළමයා',
+      'likes': 'කැමතියි',
+      'apples': 'ඇපල්වලට',
+      'the boy': 'පිරිමි ළමයා',
+      'apple': 'ඇපල්'
+    }
+  },
+  'ACT-WORD-001': {
+    title: 'කර්තෘ–ක්‍රියා–කර්ම වාක්‍යය පෙළගස්වන්න',
+    instruction: 'වචන නිවැරදි අනුපිළිවෙළට සකස් කරන්න.',
+    options: {
+      'The boy': 'පිරිමි ළමයා',
+      'likes': 'කැමතියි',
+      'apples': 'ඇපල්වලට',
+      'the boy': 'පිරිමි ළමයා',
+      'apple': 'ඇපල්'
+    }
+  },
   'TASK-001': {
     title: 'සත්වයා නම් කරන්න',
     instruction: 'මෙම පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්ද?',
@@ -452,7 +547,9 @@ export const COMMON_TASK_TITLES = {
   'Book Finder': 'පොත සෙවීම',
   'Food Selection': 'ආහාර තේරීම',
   'Odd One Out': 'නොගැලපෙන රූපය සෙවීම',
-  'Shape Match': 'හැඩතල ගැලපීම'
+  'Shape Match': 'හැඩතල ගැලපීම',
+  'Word Ordering: S-V-O Sentence': 'කර්තෘ–ක්‍රියා–කර්ම වාක්‍යය පෙළගස්වන්න',
+  'Word Ordering': 'වචන පෙළගැස්වීම'
 };
 
 // Known instruction string translations
@@ -471,7 +568,9 @@ export const KNOWN_INSTRUCTION_SINHALA = {
   'Choose: pencil or book.': 'තෝරන්න: පැන්සල හෝ පොත.',
   'Choose: apple or car.': 'තෝරන්න: ඇපල් හෝ මෝටර් රථය.',
   'Find the different one.': 'වෙනස් රූපය සොයන්න.',
-  'Touch: circle or square.': 'තෝරන්න: රතු වෘත්තය හෝ නිල් සමචතුරස්‍රය.'
+  'Touch: circle or square.': 'තෝරන්න: රතු වෘත්තය හෝ නිල් සමචතුරස්‍රය.',
+  'Put the words in the correct order.': 'වචන නිවැරදි අනුපිළිවෙළට සකස් කරන්න.',
+  'Put the words in order to make a sentence.': 'වචන නිවැරදි අනුපිළිවෙළට සකස් කරන්න.'
 };
 
 // General fallback vocabulary for common option words
@@ -482,6 +581,7 @@ export const COMMON_OPTION_TRANSLATIONS = {
   'Pencil': 'පැන්සල', 'pencil': 'පැන්සල',
   'Book': 'පොත', 'book': 'පොත',
   'Apple': 'ඇපල්', 'apple': 'ඇපල්',
+  'apples': 'ඇපල්වලට', 'Apples': 'ඇපල්වලට',
   'Banana': 'කෙසෙල්', 'banana': 'කෙසෙල්',
   'Car': 'මෝටර් රථය', 'car': 'මෝටර් රථය',
   'Fish': 'මාළුවා', 'fish': 'මාළුවා',
@@ -495,6 +595,8 @@ export const COMMON_OPTION_TRANSLATIONS = {
   'Square': 'සමචතුරස්‍රය', 'square': 'සමචතුරස්‍රය',
   'Triangle': 'ත්‍රිකෝණය', 'triangle': 'ත්‍රිකෝණය',
   'Boy': 'පිරිමි ළමයා', 'boy': 'පිරිමි ළමයා',
+  'The boy': 'පිරිමි ළමයා', 'the boy': 'පිරිමි ළමයා',
+  'likes': 'කැමතියි', 'Likes': 'කැමතියි',
   'Girl': 'ගැහැණු ළමයා', 'girl': 'ගැහැණු ළමයා',
   'Star': 'තරුව', 'star': 'තරුව',
   'Bell': 'ඝණ්ටාරය', 'bell': 'ඝණ්ටාරය'
@@ -521,6 +623,52 @@ export function isUuid(str) {
 }
 
 /**
+ * Normalizes any value (object, string, null) to a standardized { en, si } object.
+ */
+export function normalizeLocalizedText(val, enVal = null, siVal = null) {
+  if (typeof val === 'object' && val !== null) {
+    return {
+      en: val.en ?? val.label ?? enVal ?? null,
+      si: val.si ?? siVal ?? null,
+    };
+  }
+  if (typeof val === 'string') {
+    const isSinhala = /[\u0D80-\u0DFF]/.test(val);
+    return {
+      en: !isSinhala ? val : (enVal ?? null),
+      si: isSinhala ? val : (siVal ?? null),
+    };
+  }
+  return {
+    en: enVal ?? null,
+    si: siVal ?? null,
+  };
+}
+
+/**
+ * Normalizes a localized token { token_id, order, text: { en, si } }
+ */
+export function normalizeLocalizedToken(token, defaultOrder = 0) {
+  if (!token) return null;
+  if (typeof token === 'string') {
+    return {
+      token_id: token,
+      order: defaultOrder,
+      text: normalizeLocalizedText(token)
+    };
+  }
+  if (typeof token === 'object') {
+    const textVal = token.text ?? token.label ?? token.labels ?? token.raw ?? token.id;
+    return {
+      token_id: String(token.token_id ?? token.id ?? ''),
+      order: typeof token.order === 'number' ? token.order : defaultOrder,
+      text: normalizeLocalizedText(textVal, token.en, token.si)
+    };
+  }
+  return null;
+}
+
+/**
  * Universal Multilingual Activity Adapter (§5)
  * Normalizes fixtures, Component 1/API activities, database-loaded tasks,
  * generated/personalized activities, and restored session state.
@@ -528,16 +676,23 @@ export function isUuid(str) {
 export function normalizeActivityPayload(raw) {
   if (!raw || typeof raw !== 'object') return null;
 
+  const stableIdCandidate = raw.template_id
+    || raw.task_code
+    || raw.code
+    || (raw.activity_id && !isUuid(raw.activity_id) ? raw.activity_id : null)
+    || (raw.id && !isUuid(raw.id) ? raw.id : null);
+  const demoEntry = stableIdCandidate ? DEMONSTRATION_ACTIVITIES[stableIdCandidate] : null;
+
   const rawTitle = raw.title;
   const rawInstruction = raw.instruction;
 
   const titleEn = (typeof rawTitle === 'object' && rawTitle !== null)
     ? (rawTitle.en ?? raw.title_en ?? null)
-    : (raw.title_en ?? (typeof rawTitle === 'string' ? rawTitle : null));
+    : (raw.title_en ?? (typeof rawTitle === 'string' ? rawTitle : demoEntry?.title?.en ?? null));
 
   const titleSi = (typeof rawTitle === 'object' && rawTitle !== null)
     ? (rawTitle.si ?? raw.title_si ?? null)
-    : (raw.title_si ?? null);
+    : (raw.title_si ?? demoEntry?.title?.si ?? null);
 
   const rawInstEn = (typeof rawInstruction === 'object' && rawInstruction !== null)
     ? (rawInstruction.en ?? raw.instruction_en ?? null)
@@ -548,6 +703,7 @@ export function normalizeActivityPayload(raw) {
     ?? raw.child_friendly_instruction
     ?? raw.instruction_shown
     ?? raw.original_instruction
+    ?? demoEntry?.instruction?.en
     ?? null;
 
   const rawInstSi = (typeof rawInstruction === 'object' && rawInstruction !== null)
@@ -557,18 +713,60 @@ export function normalizeActivityPayload(raw) {
   const instructionSi = rawInstSi
     ?? raw.child_friendly_instruction_si
     ?? raw.presented_instruction_si
+    ?? demoEntry?.instruction?.si
     ?? null;
 
+  // Description normalization
+  const descRaw = raw.description ?? demoEntry?.description;
+  const description = normalizeLocalizedText(descRaw, raw.description_en, raw.description_si);
+
+  // Target skill normalization
+  let targetSkill = raw.target_skill_details ?? raw.target_skill ?? demoEntry?.target_skill ?? null;
+  if (typeof targetSkill === 'string') {
+    targetSkill = {
+      code: targetSkill,
+      label: {
+        en: targetSkill,
+        si: null
+      }
+    };
+  } else if (typeof targetSkill === 'object' && targetSkill !== null) {
+    targetSkill = {
+      code: targetSkill.code ?? targetSkill.id ?? '',
+      label: normalizeLocalizedText(targetSkill.label ?? targetSkill.labels ?? targetSkill.text, targetSkill.en, targetSkill.si)
+    };
+  }
+
+  // Activity type normalization
+  const actTypeRaw = raw.activity_type ?? demoEntry?.activity_type ?? null;
+  const activityType = typeof actTypeRaw === 'object' && actTypeRaw !== null
+    ? normalizeLocalizedText(actTypeRaw)
+    : (actTypeRaw || null);
+
+  // Tokens normalization
+  const rawTokens = raw.tokens ?? demoEntry?.tokens ?? null;
+  let tokens = null;
+  if (Array.isArray(rawTokens)) {
+    tokens = rawTokens.map((tok, idx) => normalizeLocalizedToken(tok, idx + 1)).filter(Boolean);
+  }
+
   // Options normalization
-  let options = raw.options ?? null;
-  if (Array.isArray(options)) {
-    options = options.map(opt => {
+  let rawOptions = raw.options ?? (tokens ? tokens.map(tok => ({
+    id: tok.token_id,
+    raw: tok.text?.en || tok.token_id,
+    label: tok.text
+  })) : null) ?? demoEntry?.options ?? null;
+
+  let options = null;
+  if (Array.isArray(rawOptions)) {
+    options = rawOptions.map(opt => {
       if (typeof opt === 'object' && opt !== null) {
+        const textVal = opt.text ?? opt.label ?? opt.labels;
         return {
-          id: opt.id ?? opt.raw ?? opt.label ?? String(opt),
+          id: opt.id ?? opt.raw ?? opt.token_id ?? String(opt),
           label: {
-            en: opt.label?.en ?? opt.labels?.en ?? opt.en ?? (typeof opt.label === 'string' ? opt.label : (opt.raw || opt.id)),
-            si: opt.label?.si ?? opt.labels?.si ?? opt.si ?? null,
+            en: textVal?.en ?? opt.en ?? (typeof opt.label === 'string' ? opt.label : (opt.raw || opt.id)),
+            si: textVal?.si ?? opt.si ?? null,
           }
         };
       }
@@ -581,6 +779,16 @@ export function normalizeActivityPayload(raw) {
       };
     });
   }
+
+  const hasSiTokens = tokens ? tokens.length > 0 && tokens.every(t => Boolean(t.text?.si)) : true;
+  const hasSiInstruction = Boolean(instructionSi);
+  const hasSiTitle = Boolean(titleSi);
+  const isSiAvailable = hasSiInstruction && hasSiTitle && hasSiTokens;
+
+  const contentStatus = raw.content_language_status ?? raw.contentLanguageStatus ?? {
+    en: (instructionEn && titleEn) ? 'AVAILABLE' : 'UNAVAILABLE',
+    si: isSiAvailable ? 'AVAILABLE' : 'UNAVAILABLE',
+  };
 
   return {
     ...raw,
@@ -595,17 +803,43 @@ export function normalizeActivityPayload(raw) {
       en: instructionEn,
       si: instructionSi,
     },
+    description,
+    target_skill: targetSkill,
+    target_skill_details: targetSkill,
+    activity_type: activityType,
+    tokens,
     options,
-    content_language_status: raw.content_language_status ?? {
-      en: instructionEn ? 'AVAILABLE' : 'UNAVAILABLE',
-      si: instructionSi ? 'AVAILABLE' : 'UNAVAILABLE',
-    }
+    content_language_status: contentStatus,
+    contentLanguageStatus: contentStatus
   };
 }
 
+/**
+ * Returns localized word tokens for an activity
+ */
+export function getLocalizedTokens(activity, locale = null) {
+  if (!activity) return [];
+  const normAct = normalizeActivityPayload(activity);
+  const activeLocale = normalizeContentLocale(locale || getLocale());
+  const isSi = activeLocale === 'si';
+
+  const tokens = normAct?.tokens || [];
+  return tokens.map(tok => {
+    const textObj = tok.text || {};
+    const text = isSi ? (textObj.si || textObj.en || '') : (textObj.en || textObj.si || '');
+    return {
+      token_id: tok.token_id,
+      order: tok.order,
+      text: typeof text === 'string' ? text : String(text || ''),
+      raw: textObj.en || textObj.si || tok.token_id
+    };
+  });
+}
+
 // Localized Content Resolver (§6)
-export function resolveLocalizedText(values, requestedLocale = 'en') {
+export function resolveLocalizedText(values, requestedLocale = 'en', options = {}) {
   const normLocale = normalizeContentLocale(requestedLocale);
+  const allowFallback = Boolean(options?.allowFallback);
 
   if (typeof values === 'object' && values !== null) {
     const requestedText = values[normLocale]?.trim();
@@ -619,19 +853,23 @@ export function resolveLocalizedText(values, requestedLocale = 'en') {
       };
     }
 
-    const englishText = values.en?.trim();
-    if (englishText) {
-      return {
-        text: englishText,
-        requestedLocale: normLocale,
-        resolvedLocale: 'en',
-        usedFallback: normLocale !== 'en',
-        missing: false
-      };
+    if (allowFallback) {
+      const fallbackLocale = normLocale === 'si' ? 'en' : 'si';
+      const fallbackText = values[fallbackLocale]?.trim();
+      if (fallbackText) {
+        return {
+          text: fallbackText,
+          requestedLocale: normLocale,
+          resolvedLocale: fallbackLocale,
+          usedFallback: true,
+          missing: false
+        };
+      }
     }
 
+    // Fail closed: Never coerce English scalar into Sinhala
     return {
-      text: '',
+      text: null,
       requestedLocale: normLocale,
       resolvedLocale: null,
       usedFallback: false,
@@ -641,27 +879,67 @@ export function resolveLocalizedText(values, requestedLocale = 'en') {
 
   if (typeof values === 'string' && values.trim()) {
     const isSinhala = /[\u0D80-\u0DFF]/.test(values);
-    if (isSinhala) {
-      return {
-        text: values.trim(),
-        requestedLocale: normLocale,
-        resolvedLocale: 'si',
-        usedFallback: normLocale !== 'si',
-        missing: false
-      };
+    if (normLocale === 'si') {
+      if (isSinhala) {
+        return {
+          text: values.trim(),
+          requestedLocale: 'si',
+          resolvedLocale: 'si',
+          usedFallback: false,
+          missing: false
+        };
+      } else {
+        if (allowFallback) {
+          return {
+            text: values.trim(),
+            requestedLocale: 'si',
+            resolvedLocale: 'en',
+            usedFallback: true,
+            missing: false
+          };
+        }
+        // Fail closed for Sinhala requested on English scalar
+        return {
+          text: null,
+          requestedLocale: 'si',
+          resolvedLocale: null,
+          usedFallback: false,
+          missing: true
+        };
+      }
     } else {
-      return {
-        text: values.trim(),
-        requestedLocale: normLocale,
-        resolvedLocale: 'en',
-        usedFallback: normLocale !== 'en',
-        missing: false
-      };
+      // English requested
+      if (!isSinhala) {
+        return {
+          text: values.trim(),
+          requestedLocale: 'en',
+          resolvedLocale: 'en',
+          usedFallback: false,
+          missing: false
+        };
+      } else {
+        if (allowFallback) {
+          return {
+            text: values.trim(),
+            requestedLocale: 'en',
+            resolvedLocale: 'si',
+            usedFallback: true,
+            missing: false
+          };
+        }
+        return {
+          text: null,
+          requestedLocale: 'en',
+          resolvedLocale: null,
+          usedFallback: false,
+          missing: true
+        };
+      }
     }
   }
 
   return {
-    text: '',
+    text: null,
     requestedLocale: normLocale,
     resolvedLocale: null,
     usedFallback: false,
@@ -843,12 +1121,14 @@ export function getLocalizedOptions(activity, localeOrOptions = null, maybeLocal
     let label = '';
 
     if (typeof opt === 'object' && opt !== null) {
-      const optLabelObj = typeof opt.label === 'object' && opt.label !== null ? opt.label : null;
-      const optLabelStr = typeof opt.label === 'string' ? opt.label : null;
+      const optTextObj = typeof opt.text === 'object' && opt.text !== null ? opt.text : null;
+      const optLabelObj = (typeof opt.label === 'object' && opt.label !== null ? opt.label : null) || optTextObj;
+      const optLabelStr = typeof opt.label === 'string' ? opt.label : (typeof opt.text === 'string' ? opt.text : null);
       const optLabelsObj = typeof opt.labels === 'object' && opt.labels !== null ? opt.labels : null;
 
       raw = (typeof opt.id === 'string' && opt.id)
         || (typeof opt.raw === 'string' && opt.raw)
+        || (typeof opt.token_id === 'string' && opt.token_id)
         || optLabelStr
         || optLabelObj?.en
         || optLabelObj?.si
@@ -955,27 +1235,30 @@ export function getLocalizedTaskTitle(task, locale = null) {
   }
 
   // Sinhala mode
-  if (typeof task.title === 'object' && task.title !== null) {
-    if (task.title.si) return String(task.title.si);
-    if (task.title.en) return String(task.title.en);
+  if (typeof task.title === 'object' && task.title !== null && task.title.si) {
+    return String(task.title.si);
   }
-  const code = task.task_code || task.activity_id || task.id;
+  const code = task.task_code || task.template_id || task.activity_id || task.id;
   if (code && DEMONSTRATION_ACTIVITIES[code]?.title?.si) {
     return DEMONSTRATION_ACTIVITIES[code].title.si;
   }
   if (code && CURATED_ACTIVITY_SINHALA[code]?.title) {
     return CURATED_ACTIVITY_SINHALA[code].title;
   }
-  const rawTitle = typeof task.title === 'string' ? task.title : (task.name || '');
+  const rawTitle = typeof task.title === 'string' ? task.title : (task.title?.en || task.name || '');
   if (typeof rawTitle === 'object' && rawTitle !== null) {
-    return String(rawTitle.si || rawTitle.en || '');
-  }
-  if (COMMON_TASK_TITLES[rawTitle]) {
-    return COMMON_TASK_TITLES[rawTitle];
+    if (rawTitle.si) return String(rawTitle.si);
+  } else if (typeof rawTitle === 'string' && rawTitle.trim()) {
+    if (COMMON_TASK_TITLES[rawTitle.trim()]) {
+      return COMMON_TASK_TITLES[rawTitle.trim()];
+    }
   }
   const translated = t('activity.nameTheAnimal', {}, activeLocale);
   if (String(rawTitle).toLowerCase().includes('animal') && translated !== 'activity.nameTheAnimal') {
     return translated;
+  }
+  if (typeof task.title === 'object' && task.title !== null && task.title.en) {
+    return String(task.title.en);
   }
   return String(rawTitle || '');
 }

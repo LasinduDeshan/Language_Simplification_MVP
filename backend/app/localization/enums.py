@@ -37,3 +37,8 @@ class TargetDisclosurePolicy(str, Enum):
     DO_NOT_REVEAL = "DO_NOT_REVEAL"
     MAY_REPEAT_TASK_TARGET = "MAY_REPEAT_TASK_TARGET"
 
+
+class ContentLanguageStatus(str, Enum):
+    AVAILABLE = "AVAILABLE"
+    UNAVAILABLE = "UNAVAILABLE"
+

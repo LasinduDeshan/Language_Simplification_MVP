@@ -228,7 +228,7 @@ class SessionService:
             initial_snapshot["simplification_lineage"] = simplification_lineage
 
         # 3. Store exact presented instruction in Attempt record
-        attempt = Attempt(
+        attempt: Any = Attempt(
             activity_session_id=session.id,
             attempt_number=attempt_number,
             attempt_status="awaiting_response",
@@ -280,7 +280,7 @@ class SessionService:
         assistance_level: str = "independent",
         adult_notes: Optional[str] = None
     ) -> Attempt:
-        attempt = db.query(Attempt).filter(Attempt.id == attempt_id).first()
+        attempt: Any = db.query(Attempt).filter(Attempt.id == attempt_id).first()
         if not attempt:
             raise ValueError(f"Attempt '{attempt_id}' not found")
 
@@ -301,6 +301,9 @@ class SessionService:
 
         db.commit()
         db.refresh(attempt)
+        session = attempt.activity_session
+        if session and session.task:
+            enrich_attempt_localization(attempt, session.task)
         return attempt
 
     def confirm_response(
@@ -310,7 +313,7 @@ class SessionService:
         confirmed: bool = True,
         manual_transcript: Optional[str] = None
     ) -> Attempt:
-        attempt = db.query(Attempt).filter(Attempt.id == attempt_id).first()
+        attempt: Any = db.query(Attempt).filter(Attempt.id == attempt_id).first()
         if not attempt:
             raise ValueError(f"Attempt '{attempt_id}' not found")
 
@@ -333,7 +336,7 @@ class SessionService:
         db: Session,
         attempt_id: str
     ) -> Dict[str, Any]:
-        attempt = db.query(Attempt).filter(Attempt.id == attempt_id).first()
+        attempt: Any = db.query(Attempt).filter(Attempt.id == attempt_id).first()
         if not attempt:
             raise ValueError(f"Attempt '{attempt_id}' not found")
 
@@ -421,7 +424,7 @@ class SessionService:
         reviewed_by_user_id: str = "authorized_adult",
         adult_notes: Optional[str] = None
     ) -> Attempt:
-        attempt = db.query(Attempt).filter(Attempt.id == attempt_id).first()
+        attempt: Any = db.query(Attempt).filter(Attempt.id == attempt_id).first()
         if not attempt:
             raise ValueError(f"Attempt '{attempt_id}' not found")
 
@@ -446,7 +449,7 @@ class SessionService:
         db: Session,
         attempt_id: str
     ) -> Dict[str, Any]:
-        attempt = db.query(Attempt).filter(Attempt.id == attempt_id).first()
+        attempt: Any = db.query(Attempt).filter(Attempt.id == attempt_id).first()
         if not attempt:
             raise ValueError(f"Attempt '{attempt_id}' not found")
 
@@ -671,9 +674,9 @@ class SessionService:
         
         # Get active attempt
         if attempt_id:
-            attempt = db.query(Attempt).filter(Attempt.id == attempt_id).first()
+            attempt: Any = db.query(Attempt).filter(Attempt.id == attempt_id).first()
         else:
-            attempt = db.query(Attempt).filter(Attempt.activity_session_id == session_id).order_by(Attempt.attempt_number.desc()).first()
+            attempt: Any = db.query(Attempt).filter(Attempt.activity_session_id == session_id).order_by(Attempt.attempt_number.desc()).first()
 
         presented_inst = attempt.presented_instruction if attempt else (task.child_friendly_instruction or task.original_instruction)
         attempt_num = attempt.attempt_number if attempt else 1

@@ -12,6 +12,10 @@ from typing import Optional
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent.parent.parent
 
+class SecurityError(Exception):
+    """Raised when access to a protected or forbidden storage path is attempted."""
+
+
 class ProtectedStorageManager:
     """Manages secure access to storage outside the Git repository."""
 

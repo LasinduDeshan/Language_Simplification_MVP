@@ -1,7 +1,24 @@
 from typing import List, Dict, Any, Optional, Union, Annotated, Literal
 from datetime import datetime
 from pydantic import BaseModel, Field, ConfigDict, model_validator
-from app.localization.enums import TargetDisclosureClass, TargetDisclosurePolicy
+from app.localization.enums import TargetDisclosureClass, TargetDisclosurePolicy, ContentLanguageStatus
+
+# ----------------- Stage 36 Multilingual Schemas -----------------
+class LocalizedText(BaseModel):
+    en: Optional[str] = None
+    si: Optional[str] = None
+
+
+class LocalizedToken(BaseModel):
+    token_id: str
+    order: int
+    text: LocalizedText
+
+
+class LocalizedTargetSkill(BaseModel):
+    code: str
+    label: LocalizedText
+
 
 # ----------------- Learner Profile Schemas -----------------
 class LearnerProfileBase(BaseModel):
@@ -183,13 +200,20 @@ class TaskResponse(TaskBase):
     questions: List[ActivityQuestionResponse] = []
     activity_id: Optional[str] = None
     template_id: Optional[str] = None
+    title: Optional[Union[str, Dict[str, Optional[str]]]] = None
+    instruction: Optional[Union[str, Dict[str, Optional[str]]]] = None
     title_en: Optional[str] = None
     title_si: Optional[str] = None
     instruction_en: Optional[str] = None
     instruction_si: Optional[str] = None
-    localized_title: Optional[Dict[str, str]] = None
-    localized_instruction: Optional[Dict[str, str]] = None
-    content_language_status: Optional[Dict[str, str]] = None
+    localized_title: Optional[Dict[str, Optional[str]]] = None
+    localized_instruction: Optional[Dict[str, Optional[str]]] = None
+    content_language_status: Optional[Dict[str, Optional[str]]] = None
+    content_availability: Optional[Dict[str, Any]] = None
+    tokens: Optional[List[LocalizedToken]] = None
+    activity_type: Optional[Union[str, LocalizedText, Dict[str, Any]]] = None
+    description: Optional[Union[str, LocalizedText, Dict[str, Any]]] = None
+    target_skill_details: Optional[LocalizedTargetSkill] = None
     model_config = ConfigDict(from_attributes=True)
 
 # ----------------- Activity Session Schemas -----------------
@@ -360,8 +384,12 @@ class AttemptResponse(BaseModel):
     instruction_si: Optional[str] = None
     presented_instruction_si: Optional[str] = None
     options: Optional[List[Any]] = None
-    content_language_status: Optional[Dict[str, str]] = None
+    content_language_status: Optional[Dict[str, Optional[str]]] = None
     content_availability: Optional[Dict[str, Any]] = None
+    tokens: Optional[List[LocalizedToken]] = None
+    activity_type: Optional[Union[str, LocalizedText, Dict[str, Any]]] = None
+    description: Optional[Union[str, LocalizedText, Dict[str, Any]]] = None
+    target_skill_details: Optional[LocalizedTargetSkill] = None
     simplification_lineage: Optional[Union[RuleEngineLineage, TemplateLineage, ReuseLineage, Dict[str, Any]]] = None
     independent_performance_measure: Optional[bool] = None
     score_interpretation: Optional[str] = None
@@ -390,7 +418,11 @@ class ChildSafeViewResponse(BaseModel):
     instruction: Optional[Dict[str, Optional[str]]] = None
     instruction_si: Optional[str] = None
     presented_instruction_si: Optional[str] = None
-    content_language_status: Optional[Dict[str, str]] = None
+    tokens: Optional[List[LocalizedToken]] = None
+    activity_type: Optional[Union[str, LocalizedText, Dict[str, Any]]] = None
+    description: Optional[Union[str, LocalizedText, Dict[str, Any]]] = None
+    target_skill_details: Optional[LocalizedTargetSkill] = None
+    content_language_status: Optional[Dict[str, Optional[str]]] = None
     content_availability: Optional[Dict[str, Any]] = None
 
 # ----------------- Legacy Schemas (Backward Compatibility) -----------------

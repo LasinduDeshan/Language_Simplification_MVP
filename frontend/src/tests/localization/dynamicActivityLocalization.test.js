@@ -9,6 +9,9 @@ import {
   normalizeActivityPayload,
   resolveLocalizedText,
   resolveLocalizedInstruction,
+  normalizeLocalizedText,
+  normalizeLocalizedToken,
+  getLocalizedTokens,
   validateDemonstrationActivity,
   isUuid,
   DEMONSTRATION_ACTIVITIES
@@ -329,5 +332,96 @@ describe('Stage 36 Runtime Activity Integration Scenarios (§8)', () => {
     assert.equal(safeText(null), '');
     assert.equal(safeText(undefined), '');
     assert.equal(safeText(42), '42');
+  });
+
+  // Stage 36 Dynamic Token and Activity Localization Tests
+  test('Stage 36: GRAM-WORD-001 localization in Sinhala and English', () => {
+    const gramTask = DEMONSTRATION_ACTIVITIES['GRAM-WORD-001'];
+    assert.ok(gramTask);
+    const norm = normalizeActivityPayload(gramTask);
+
+    // English resolution
+    const enTitle = getLocalizedTaskTitle(norm, 'en');
+    assert.equal(enTitle, 'Word Ordering: S-V-O Sentence');
+    const enInstruction = getLocalizedInstruction(norm, 'en');
+    assert.equal(enInstruction, 'Put the words in the correct order.');
+    const enTokens = getLocalizedTokens(norm, 'en');
+    assert.equal(enTokens.length, 3);
+    assert.equal(enTokens[0].text, 'The boy');
+    assert.equal(enTokens[1].text, 'likes');
+    assert.equal(enTokens[2].text, 'apples');
+
+    // Sinhala resolution
+    const siTitle = getLocalizedTaskTitle(norm, 'si');
+    assert.equal(siTitle, 'කර්තෘ–ක්‍රියා–කර්ම වාක්‍යය පෙළගස්වන්න');
+    const siInstruction = getLocalizedInstruction(norm, 'si');
+    assert.equal(siInstruction, 'වචන නිවැරදි අනුපිළිවෙළට සකස් කරන්න.');
+    const siTokens = getLocalizedTokens(norm, 'si');
+    assert.equal(siTokens.length, 3);
+    assert.equal(siTokens[0].text, 'පිරිමි ළමයා');
+    assert.equal(siTokens[1].text, 'කැමතියි');
+    assert.equal(siTokens[2].text, 'ඇපල්වලට');
+
+    // Target skill resolution
+    assert.equal(localizeSkill(norm.target_skill, 'en'), 'S-V-O Word Order');
+    assert.equal(localizeSkill(norm.target_skill, 'si'), 'කර්තෘ–ක්‍රියා–කර්ම වචන අනුපිළිවෙළ');
+    assert.equal(localizeSkill('word_order_svo', 'si'), 'කර්තෘ–ක්‍රියා–කර්ම වචන අනුපිළිවෙළ');
+    assert.equal(localizeSkill('Word Order Svo', 'si'), 'කර්තෘ–ක්‍රියා–කර්ම වචන අනුපිළිවෙළ');
+  });
+
+  test('Stage 36: resolveLocalizedText fail-closed contract vs allowFallback', () => {
+    const bilingual = { en: 'Hello', si: 'ආයුබෝවන්' };
+    const englishOnly = { en: 'Welcome to class' };
+
+    // Bilingual: Sinhala resolved without fallback
+    const resSi = resolveLocalizedText(bilingual, 'si');
+    assert.equal(resSi.text, 'ආයුබෝවන්');
+    assert.equal(resSi.resolvedLocale, 'si');
+    assert.equal(resSi.usedFallback, false);
+    assert.equal(resSi.missing, false);
+
+    // English-only object: Fail-closed when Sinhala is requested
+    const failClosedObj = resolveLocalizedText(englishOnly, 'si');
+    assert.equal(failClosedObj.text, null);
+    assert.equal(failClosedObj.resolvedLocale, null);
+    assert.equal(failClosedObj.usedFallback, false);
+    assert.equal(failClosedObj.missing, true);
+
+    // English-only object with allowFallback: true (researcher view)
+    const allowedFallbackObj = resolveLocalizedText(englishOnly, 'si', { allowFallback: true });
+    assert.equal(allowedFallbackObj.text, 'Welcome to class');
+    assert.equal(allowedFallbackObj.resolvedLocale, 'en');
+    assert.equal(allowedFallbackObj.usedFallback, true);
+    assert.equal(allowedFallbackObj.missing, false);
+
+    // English scalar string: Fail-closed when Sinhala is requested
+    const failClosedStr = resolveLocalizedText('English text only', 'si');
+    assert.equal(failClosedStr.text, null);
+    assert.equal(failClosedStr.resolvedLocale, null);
+    assert.equal(failClosedStr.usedFallback, false);
+    assert.equal(failClosedStr.missing, true);
+  });
+
+  test('Stage 36: normalizeLocalizedText and normalizeLocalizedToken', () => {
+    // normalizeLocalizedText
+    const objText = normalizeLocalizedText({ en: 'Cat', si: 'පූසා' });
+    assert.deepEqual(objText, { en: 'Cat', si: 'පූසා' });
+
+    const strEn = normalizeLocalizedText('Dog');
+    assert.deepEqual(strEn, { en: 'Dog', si: null });
+
+    const strSi = normalizeLocalizedText('බල්ලා');
+    assert.deepEqual(strSi, { en: null, si: 'බල්ලා' });
+
+    // normalizeLocalizedToken
+    const tokenObj = normalizeLocalizedToken({
+      token_id: 'tok-1',
+      order: 1,
+      text: { en: 'The boy', si: 'පිරිමි ළමයා' }
+    });
+    assert.equal(tokenObj.token_id, 'tok-1');
+    assert.equal(tokenObj.order, 1);
+    assert.equal(tokenObj.text.en, 'The boy');
+    assert.equal(tokenObj.text.si, 'පිරිමි ළමයා');
   });
 });

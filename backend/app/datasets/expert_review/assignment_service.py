@@ -6,7 +6,7 @@ reassignment upon reviewer revocation.
 """
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 from .schemas import (
     ReviewBatch,
     ReviewManifestItem,

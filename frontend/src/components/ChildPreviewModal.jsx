@@ -20,8 +20,10 @@ export default function ChildPreviewModal({ childView, adaptation, task, onClose
   const retryCue = typeof rawRetry === 'object' && rawRetry !== null ? (rawRetry.si || rawRetry.en || '') : rawRetry;
   const rawAdult = childView?.adult_support_message || (childView?.status === "adult_support_required" ? t("childModal.askTeacherHelper") : null);
   const adultSupportMessage = typeof rawAdult === 'object' && rawAdult !== null ? (rawAdult.si || rawAdult.en || '') : rawAdult;
-  const rawOptions = childView?.options || task?.options || [];
-  const options = getLocalizedOptions(rawActivity, rawOptions, resolvedLanguage);
+  const rawOptions = childView?.options || childView?.tokens || task?.tokens || task?.options || [];
+  const isSi = resolvedLanguage?.toLowerCase().startsWith('si');
+  const isUnavailable = instruction === (t("localization.activityUnavailableInSinhala", {}, "si") || 'මෙම ක්‍රියාකාරකම සිංහල භාෂාවෙන් තවම ලබා ගත නොහැක.');
+  const options = (isSi && isUnavailable) ? [] : getLocalizedOptions(rawActivity, rawOptions, resolvedLanguage);
   const stimulus = childView?.stimulus || task?.stimulus;
 
   const handleSpeak = () => {

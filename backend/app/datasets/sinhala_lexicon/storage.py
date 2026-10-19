@@ -11,6 +11,10 @@ from typing import Optional, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent.parent.parent
 
+class SecurityError(Exception):
+    """Raised when access to a protected or forbidden storage path is attempted."""
+
+
 class LexiconProtectedStorageManager:
     """Manages protected storage for lexicon contexts, concordance lines, and isolated tokens."""
 

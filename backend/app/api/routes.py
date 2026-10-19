@@ -1,6 +1,7 @@
 import os
 import json
 import io
+from datetime import datetime
 from typing import List, Dict, Any, Optional
 from fastapi import APIRouter, Depends, HTTPException, status, Query, Response
 from fastapi.responses import StreamingResponse
@@ -8,7 +9,7 @@ from sqlalchemy.orm import Session
 from app.database.db import get_db
 from app.database.models import (
     Task, LearnerProfile, ActivitySession, Attempt, ActivityAsset, ActivityQuestion,
-    ExperimentRun, Adaptation, ValidationResult, ExpertEvaluation, TaskResult
+    ExperimentRun, Adaptation, ValidationResult, ExpertEvaluation, TaskResult, IntegrationEvent
 )
 from app.schemas.schemas import (
     TaskResponse, LearnerProfileResponse, ActivitySessionCreate, ActivitySessionResponse,

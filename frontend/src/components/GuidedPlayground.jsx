@@ -89,9 +89,25 @@ function InstructionCard({
           {t("localization.sinhalaContentUnavailable")}
         </div>
       )}
-      <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b", marginBottom: lineageMeta && viewMode === "researcher" ? "0.75rem" : "0" }}>
-        "{textToShow}"
-      </div>
+      {viewMode === "simple" && instructionResult.missing && contentLocale === "si" ? (
+        <div className="sinhala-unavailable-notice" role="status" style={{
+          background: "#fef2f2",
+          color: "#991b1b",
+          border: "1px solid #fecaca",
+          borderRadius: "10px",
+          padding: "0.75rem 1rem",
+          fontWeight: 700,
+          fontSize: "1.05rem",
+          textAlign: "center",
+          marginBottom: "0.5rem"
+        }}>
+          {textToShow}
+        </div>
+      ) : (
+        <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b", marginBottom: lineageMeta && viewMode === "researcher" ? "0.75rem" : "0" }}>
+          "{textToShow}"
+        </div>
+      )}
 
       {/* Researcher View: Truthful Simplification Lineage Notice */}
       {viewMode === "researcher" && lineageMeta && (
@@ -957,7 +973,7 @@ export default function GuidedPlayground({
                     {getLocalizedTaskTitle(activeTask, resolvedLanguage)}
                   </div>
                   <div style={{ fontSize: "0.85rem", color: "#475569" }}>
-                    {t("skill")}: <strong>{localizeSkill(activeTask?.target_skill || activeTask?.subskill)}</strong>
+                    {t("skill")}: <strong>{localizeSkill(activeTask?.target_skill || activeTask?.subskill, resolvedLanguage)}</strong>
                   </div>
                 </div>
               </div>
@@ -1186,7 +1202,7 @@ export default function GuidedPlayground({
                       <span>{t("previewChildView")}</span>
                     </button>
                     <span style={{ fontSize: "0.85rem", color: "#64748b" }}>
-                      {t("targetSkill")}: <strong>{localizeSkill(currentAttempt?.target_skill || activeTask?.target_skill)}</strong>
+                      {t("targetSkill")}: <strong>{localizeSkill(currentAttempt?.target_skill || activeTask?.target_skill, resolvedLanguage)}</strong>
                     </span>
                   </div>
                 )}
@@ -1226,12 +1242,33 @@ export default function GuidedPlayground({
                   />
                 </div>
 
-                {/* Multiple Choice Options (If task has options) */}
-                {activeTask?.options && activeTask.options.length > 0 && (
+                {/* Multiple Choice Options or Word Tokens */}
+                {((activeTask?.options && activeTask.options.length > 0) || (activeTask?.tokens && activeTask.tokens.length > 0)) && (
                   <div style={{ marginBottom: "1.25rem" }}>
-                    <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#334155", marginBottom: "0.4rem" }}>
-                      {t("selectedOption")}
-                    </label>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.4rem" }}>
+                      <label style={{ fontSize: "0.85rem", fontWeight: 700, color: "#334155" }}>
+                        {activeTask?.tokens?.length > 0 ? (t("wordTokens") || "Word Tokens / පද මාලාව") : t("selectedOption")}
+                      </label>
+                      {manualTranscript && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setManualTranscript("");
+                            setSelectedOption("");
+                          }}
+                          style={{
+                            fontSize: "0.75rem",
+                            color: "#94a3b8",
+                            background: "none",
+                            border: "none",
+                            cursor: "pointer",
+                            textDecoration: "underline"
+                          }}
+                        >
+                          {t("clear") || "Clear"}
+                        </button>
+                      )}
+                    </div>
                     <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                       {getLocalizedOptions(activeTask, resolvedLanguage).map((opt, i) => (
                         <button
@@ -1239,17 +1276,23 @@ export default function GuidedPlayground({
                           type="button"
                           onClick={() => {
                             setSelectedOption(opt.raw);
-                            if (!manualTranscript) setManualTranscript(opt.label);
+                            const isWordOrder = activeTask?.task_code === 'GRAM-WORD-001' || activeTask?.tokens?.length > 0 || String(activeTask?.target_skill?.code || activeTask?.target_skill || '').toLowerCase().includes('word');
+                            if (isWordOrder) {
+                              setManualTranscript(prev => (prev ? `${prev} ${opt.label}` : opt.label));
+                            } else {
+                              setManualTranscript(opt.label);
+                            }
                           }}
                           style={{
                             padding: "0.5rem 1rem",
                             borderRadius: "8px",
                             fontWeight: 700,
-                            fontSize: "0.9rem",
+                            fontSize: "0.95rem",
                             border: selectedOption === opt.raw ? "2px solid #f97316" : "1px solid #cbd5e1",
                             background: selectedOption === opt.raw ? "#fff7ed" : "#f8fafc",
                             color: selectedOption === opt.raw ? "#c2410c" : "#334155",
-                            cursor: "pointer"
+                            cursor: "pointer",
+                            transition: "all 0.15s ease"
                           }}
                         >
                           {opt.emoji ? `${opt.emoji} ` : ""}{typeof opt.label === 'object' && opt.label !== null ? (opt.label.si || opt.label.en || "") : opt.label}
