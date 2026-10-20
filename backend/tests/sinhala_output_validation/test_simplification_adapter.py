@@ -36,11 +36,11 @@ def test_adapter_template_fallback_produces_discriminated_lineage():
         attempt_2_instruction="තෝරන්න: පැන්සල හෝ පොත.",
         attempt_2_id="ATT-002",
         target_id="pencil",
-        catalog_fallback_text="පින්තූර දෙක බලන්න. ලිවීමට භාවිත කරන දේ තෝරන්න.",
+        catalog_fallback_text="පින්තූර දෙස බලන්න. ලිවීමට භාවිත කරන දේ තෝරන්න.",
     )
 
     assert res["validation_passed"] is True
-    assert res["presented_instruction"] == "පින්තූර දෙක බලන්න. ලිවීමට භාවිත කරන දේ තෝරන්න."
+    assert res["presented_instruction"] == "පින්තූර දෙස බලන්න. ලිවීමට භාවිත කරන දේ තෝරන්න."
     assert res["presented_instruction"] != "තෝරන්න: පැන්සල හෝ පොත."
 
     lineage = res["lineage_dict"]

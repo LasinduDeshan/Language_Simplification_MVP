@@ -22,6 +22,7 @@ from app.localization.activity_catalog import (
     get_governed_activity_localization,
 )
 from app.sinhala_output_validation.simplification_adapter import Stage36SimplificationAdapter
+from app.services.adaptation_decision_service import adaptation_decision_service, normalize_text_nfc
 
 
 class SessionService:
@@ -31,7 +32,11 @@ class SessionService:
         learner_id: str,
         task_id: str,
         generation_mode: str = "rule",
-        created_by: str = "authorized_adult"
+        created_by: str = "authorized_adult",
+        recommended_support_level: Optional[str] = None,
+        support_decision_reasons: Optional[List[str]] = None,
+        source_screening_result_id: Optional[str] = None,
+        source_recommendation_id: Optional[str] = None
     ) -> ActivitySession:
         learner = db.query(LearnerProfile).filter((LearnerProfile.id == learner_id) | (LearnerProfile.learner_code == learner_id)).first()
         if not learner:
@@ -67,10 +72,22 @@ class SessionService:
             else:
                 raise ValueError(f"Task '{task_id}' not found")
 
-        # 1. Deterministic Initial Support calculation
-        init_support_data = personalization_controller.calculate_initial_support(learner, task)
-        initial_support = init_support_data["initial_support_level"]
-        reasons = init_support_data["support_decision_reasons"]
+        # 1. Deterministic Initial Support calculation or Component 4 recommendation intake
+        if recommended_support_level:
+            raw_rec = recommended_support_level.lower().strip()
+            if raw_rec == "low":
+                initial_support = "mild"
+            elif raw_rec == "high":
+                initial_support = "strong"
+            elif raw_rec in ["mild", "moderate", "strong"]:
+                initial_support = raw_rec
+            else:
+                initial_support = "moderate"
+            reasons = support_decision_reasons or [f"component4_recommendation_{initial_support}"]
+        else:
+            init_support_data = personalization_controller.calculate_initial_support(learner, task)
+            initial_support = init_support_data["initial_support_level"]
+            reasons = init_support_data["support_decision_reasons"]
 
         # 2. Immutable Learner Profile Snapshot
         profile_snapshot = {
@@ -83,7 +100,9 @@ class SessionService:
             "comprehension_score": learner.comprehension_score,
             "instruction_following_score": learner.instruction_following_score,
             "english_level": learner.english_level,
-            "preferred_language": learner.preferred_language
+            "preferred_language": learner.preferred_language,
+            "source_screening_result_id": source_screening_result_id,
+            "source_recommendation_id": source_recommendation_id
         }
 
         session = ActivitySession(
@@ -128,51 +147,147 @@ class SessionService:
         learner = session.learner
         gen_mode = generation_mode or session.generation_mode
 
-        # 1. Scaffolding progression based on initial support level
-        scaffolding = personalization_controller.get_scaffolding_for_attempt(
-            initial_support_level=session.initial_support_level,
-            target_attempt_number=attempt_number
-        )
-        support_level = scaffolding["support_level"]
-        adaptation_strategy = scaffolding["adaptation_strategy"]
-        assistance_level = scaffolding["assistance_level"]
-        visual_cues = scaffolding["visual_cues"]
+        # 1. Scaffolding & Strategy Determination
+        cat = get_governed_activity_localization(task.task_code)
+        prev_attempts = db.query(Attempt).filter(
+            Attempt.activity_session_id == session.id
+        ).order_by(Attempt.attempt_number.asc()).all()
+        last_attempt = prev_attempts[-1] if prev_attempts else None
 
-        # 2. Select / Generate exact instruction before child sees it
+        is_risk_adaptive_catalog = bool(cat and "support_versions" in cat and "ORIGINAL_BASELINE" in cat["support_versions"])
+
+        if is_risk_adaptive_catalog:
+            if attempt_number == 1:
+                init_rec = {
+                    "recommended_support_level": session.initial_support_level,
+                    "reason_codes": session.support_decision_reasons or [],
+                    "source_recommendation_id": f"REC-{session.id[:8]}",
+                    "source_screening_result_id": getattr(learner, "screening_id", None) or f"SCR-{learner.id[:8]}"
+                }
+                decision = adaptation_decision_service.select_initial_strategy(init_rec)
+                strategy_code = decision["strategy_code"]
+                adaptation_strategy = decision["adaptation_strategy"]
+                support_level = str(session.initial_support_level or "moderate").lower()
+                assistance_level = "independent"
+                visual_cues = []
+                reason_codes = list(decision["reason_codes"])
+                additional_support = []
+                reuse_declared = False
+                prev_correct = None
+                prev_time = None
+            else:
+                effective_target_result = (
+                    last_attempt.final_target_skill_result
+                    if last_attempt and last_attempt.final_target_skill_result is not None
+                    else (last_attempt.target_skill_result if last_attempt else None)
+                )
+                prev_correct = (effective_target_result == "correct") or (last_attempt.concept_result == "correct" if last_attempt else False)
+                prev_time = (last_attempt.response_time_ms if last_attempt else 0) or 0
+                prev_timeout = last_attempt.completion_status in ["no_response", "timeout", "skipped"] if last_attempt else False
+                prev_errors = sum(1 for a in prev_attempts if (a.concept_result != "correct" and a.target_skill_result != "correct"))
+
+                response_evidence = {
+                    "correct": prev_correct,
+                    "response_time_ms": prev_time,
+                    "expected_time_ms": 15000,
+                    "timeout": prev_timeout,
+                    "previous_errors": prev_errors
+                }
+                decision = adaptation_decision_service.select_next_strategy(
+                    current_attempt=last_attempt,
+                    response_evidence=response_evidence,
+                    activity=cat
+                )
+                strategy_code = decision["next_strategy_code"]
+                adaptation_strategy = decision["adaptation_strategy"]
+                reason_codes = list(decision["reason_codes"])
+                additional_support = list(decision.get("additional_support", []))
+                reuse_declared = decision.get("reuse_declared", False)
+
+                if strategy_code in ["ORIGINAL_BASELINE", "MILD_SUPPORT"]:
+                    support_level = "mild"
+                elif strategy_code == "MODERATE_SUPPORT":
+                    support_level = "moderate"
+                else:
+                    support_level = "strong"
+
+                assistance_level = "prompted" if attempt_number == 2 else "visually_supported"
+                visual_cues = ["highlight_key_terms"] if attempt_number == 2 else ["binary_choice_focus", "highlight_key_terms"]
+                if "VISUAL_CHOICE_HIGHLIGHTING" in additional_support:
+                    visual_cues.append("visual_choice_highlighting")
+                if "TOUCH_RESPONSE_MODE" in additional_support:
+                    visual_cues.append("touch_response_mode")
+        else:
+            scaffolding = personalization_controller.get_scaffolding_for_attempt(
+                initial_support_level=session.initial_support_level,
+                target_attempt_number=attempt_number
+            )
+            support_level = scaffolding["support_level"]
+            adaptation_strategy = scaffolding["adaptation_strategy"]
+            assistance_level = scaffolding["assistance_level"]
+            visual_cues = scaffolding["visual_cues"]
+            strategy_code = adaptation_strategy.upper()
+            reason_codes = list(scaffolding["reason_codes"])
+            additional_support = []
+            reuse_declared = False
+            prev_correct = None
+            prev_time = None
+
+        # 2. Select presented instructions (English & Sinhala)
         presented_instruction = ""
-        supportive_message = "You can do it! Take your time."
+        presented_instruction_si = None
         generation_method = "curated"
         validation_status = "approved"
 
-        # Check curated support versions in task definition first
-        support_versions = task.support_versions or {}
-        if support_level in support_versions and support_versions[support_level]:
-            presented_instruction = support_versions[support_level]
-            generation_method = "curated"
-        elif task.child_friendly_instruction:
-            presented_instruction = task.child_friendly_instruction
-            generation_method = "curated"
-        else:
-            # Fallback to rule generator
-            rule_out = rule_generator.generate(task, learner, attempt_number, support_level)
-            presented_instruction = rule_out["child_instruction"]
-            supportive_message = rule_out.get("supportive_message", supportive_message)
-            generation_method = "rule_based"
+        if cat and "support_versions" in cat:
+            sv = cat["support_versions"]
+            strat_key = strategy_code.upper()
+            strat_lower = strategy_code.lower()
 
-        # If LLM requested, attempt generation with deterministic validation & curated fallback
-        if gen_mode == "llm":
-            try:
-                llm_out = llm_generator.generate(task, learner, attempt_number, support_level)
-                val_res = adaptation_validator.validate_candidate(task, llm_out, learner)
-                if val_res["status"] == "approved":
-                    presented_instruction = llm_out["child_instruction"]
-                    supportive_message = llm_out.get("supportive_message", supportive_message)
-                    generation_method = "llm_generated_rule_validated"
-                    validation_status = "approved"
-                else:
-                    validation_status = "fallback_used"
-            except Exception:
-                validation_status = "fallback_used"
+            if strat_key in sv:
+                presented_instruction = sv[strat_key].get("en", "")
+                presented_instruction_si = sv[strat_key].get("si")
+            elif strat_lower in sv:
+                presented_instruction = sv[strat_lower].get("en", "")
+                presented_instruction_si = sv[strat_lower].get("si")
+            elif support_level in sv:
+                presented_instruction = sv[support_level].get("en", "")
+                presented_instruction_si = sv[support_level].get("si")
+
+        if not presented_instruction:
+            support_versions = task.support_versions or {}
+            if support_level in support_versions and support_versions[support_level]:
+                presented_instruction = support_versions[support_level]
+            elif task.child_friendly_instruction:
+                presented_instruction = task.child_friendly_instruction
+            elif cat and "instruction" in cat:
+                presented_instruction = cat["instruction"].get("en", task.original_instruction)
+            else:
+                rule_out = rule_generator.generate(task, learner, attempt_number, support_level)
+                presented_instruction = rule_out["child_instruction"]
+                generation_method = "rule_based"
+
+        if not presented_instruction_si and cat and "instruction" in cat:
+            presented_instruction_si = cat["instruction"].get("si")
+
+        # 3. Check for Minimal Safe Instruction & Governed Reuse
+        instruction_changed = True
+        instruction_reused = False
+        reuse_reason_code = None
+
+        if attempt_number > 1 and last_attempt:
+            prev_en_norm = normalize_text_nfc(last_attempt.presented_instruction)
+            cand_en_norm = normalize_text_nfc(presented_instruction)
+            if reuse_declared or (cand_en_norm == prev_en_norm):
+                instruction_changed = False
+                instruction_reused = True
+                generation_method = "UNCHANGED_REUSE"
+                validation_status = "NO_FURTHER_SAFE_SIMPLIFICATION"
+                reuse_reason_code = "MINIMAL_SAFE_INSTRUCTION_ALREADY_REACHED"
+                presented_instruction = last_attempt.presented_instruction
+                presented_instruction_si = getattr(last_attempt, "presented_instruction_si", None) or presented_instruction_si
+                if not additional_support:
+                    additional_support = ["VISUAL_CHOICE_HIGHLIGHTING", "TOUCH_RESPONSE_MODE"]
 
         # Check for response format adjustments across retries
         response_format_adjusted = False
@@ -183,12 +298,6 @@ class SessionService:
             if original_response_mode != "multiple_choice":
                 response_format_adjusted = True
                 current_response_mode = "multiple_choice"
-
-        # Query previous attempts for lineage and reuse
-        prev_attempts = db.query(Attempt).filter(
-            Attempt.activity_session_id == session.id
-        ).order_by(Attempt.attempt_number.asc()).all()
-        attempt_2 = next((a for a in prev_attempts if a.attempt_number == 2), None)
 
         # Scoring interpretation contract:
         # Attempt 1: INDEPENDENT_BASELINE, independent = True
@@ -204,81 +313,71 @@ class SessionService:
             independent_perf = False
             score_interp = "HIGHLY_SUPPORTED_PERFORMANCE"
 
-        cat = get_governed_activity_localization(task.task_code)
-        presented_instruction_si = None
-        simplification_lineage: Optional[Dict[str, Any]] = None
+        # Stage 36 Simplification Adapter integration for Attempt 3 when appropriate
+        if attempt_number == 3 and not instruction_reused:
+            try:
+                adapter = Stage36SimplificationAdapter()
+                source_si = (
+                    cat.get("instruction", {}).get("si")
+                    if cat
+                    else (getattr(task, "instruction_si", None) or presented_instruction)
+                )
+                attempt_2 = next((a for a in prev_attempts if a.attempt_number == 2), None)
+                attempt_2_si = getattr(attempt_2, "presented_instruction_si", None) or getattr(attempt_2, "presented_instruction", None) if attempt_2 else None
+                attempt_2_id = attempt_2.id if attempt_2 else None
+                target_id = cat.get("target_id") if cat else None
+                catalog_fb_text = (
+                    cat.get("support_versions", {}).get("strong_decomposed_step", {}).get("si")
+                    if cat
+                    else None
+                )
+                simp_res = adapter.simplify_attempt_3(
+                    task_code=task.task_code,
+                    source_text=source_si or presented_instruction,
+                    attempt_2_instruction=attempt_2_si,
+                    attempt_2_id=attempt_2_id,
+                    target_id=target_id,
+                    catalog_fallback_text=catalog_fb_text,
+                )
+                if simp_res.get("presented_instruction"):
+                    presented_instruction_si = simp_res["presented_instruction"]
+            except Exception:
+                pass
 
-        if attempt_number == 3:
-            # Route Attempt 3 through Stage 36 Simplification Adapter
-            source_si = (
-                cat.get("instruction", {}).get("si")
-                if cat
-                else (getattr(task, "instruction_si", None) or presented_instruction)
-            )
-            attempt_2_si = getattr(attempt_2, "presented_instruction_si", None) or getattr(attempt_2, "presented_instruction", None) if attempt_2 else None
-            attempt_2_id = attempt_2.id if attempt_2 else None
-            target_id = cat.get("target_id") if cat else None
-            catalog_fb_text = (
-                cat.get("support_versions", {}).get("strong_decomposed_step", {}).get("si")
-                if cat
-                else None
-            )
+        snapshot = session.learner_profile_snapshot or {}
+        source_scr_id = snapshot.get("source_screening_result_id") or getattr(learner, "screening_id", None) or f"SCR-{learner.id[:8]}"
+        source_rec_id = snapshot.get("source_recommendation_id") or getattr(session, "recommendation_id", None) or f"REC-{session.id[:8]}"
 
-            adapter = Stage36SimplificationAdapter()
-            simp_res = adapter.simplify_attempt_3(
-                task_code=task.task_code,
-                source_text=source_si or presented_instruction,
-                attempt_2_instruction=attempt_2_si,
-                attempt_2_id=attempt_2_id,
-                target_id=target_id,
-                catalog_fallback_text=catalog_fb_text,
-            )
-            presented_instruction_si = simp_res["presented_instruction"]
-            lineage_dict: Dict[str, Any] = simp_res.get("lineage_dict") or {}
-            simplification_lineage = lineage_dict
-            generation_method = lineage_dict.get("generation_mode", generation_method)
-            validation_status = lineage_dict.get("simplification_status", validation_status)
-            if cat and "support_versions" in cat and "strong_decomposed_step" in cat["support_versions"]:
-                presented_instruction = cat["support_versions"]["strong_decomposed_step"].get("en", presented_instruction)
-
-        elif attempt_number == 2:
-            if cat and "support_versions" in cat and "strong_scaffold" in cat["support_versions"]:
-                presented_instruction = cat["support_versions"]["strong_scaffold"].get("en", presented_instruction)
-                presented_instruction_si = cat["support_versions"]["strong_scaffold"].get("si")
-
-        elif attempt_number == 1:
-            if cat and "instruction" in cat:
-                presented_instruction = cat["instruction"].get("en", presented_instruction)
-                presented_instruction_si = cat["instruction"].get("si")
-
-        elif attempt_number > 3:
-            prev_att = attempt_2 if attempt_2 else None
-            source_si = (cat.get("support_versions", {}).get("strong_decomposed_step", {}).get("si") if cat else None) or presented_instruction
-            presented_instruction_si = source_si
-            simplification_lineage = {
-                "simplification_status": "NO_FURTHER_SAFE_SIMPLIFICATION",
-                "instruction_reused": True,
-                "generation_mode": "UNCHANGED_REUSE",
-                "reused_from_attempt_id": prev_att.id if prev_att else "previous_attempt",
-                "reuse_reason_code": "MINIMAL_SAFE_INSTRUCTION_ALREADY_REACHED",
-                "strategy_code": "STRONG_DECOMPOSED_STEP",
-                "source_instruction_ref": "attempt_3_decomposed",
-                "presented_instruction_ref": "attempt_3_decomposed",
-                "target_disclosure_class": "EXPLICIT_TASK_TARGET",
-                "target_disclosure_policy": "DO_NOT_REVEAL",
-                "independent_performance_measure": False,
-                "score_interpretation": "HIGHLY_SUPPORTED_PERFORMANCE"
-            }
-            generation_method = "UNCHANGED_REUSE"
-            validation_status = "NO_FURTHER_SAFE_SIMPLIFICATION"
+        simplification_lineage: Dict[str, Any] = {
+            "attempt_id": None,
+            "attempt_number": attempt_number,
+            "learner_id": learner.learner_code,
+            "activity_id": task.task_code,
+            "source_screening_result_id": source_scr_id,
+            "source_recommendation_id": source_rec_id,
+            "recommended_support_level": str(session.initial_support_level or "moderate").upper(),
+            "strategy_code": strategy_code,
+            "generation_mode": generation_method,
+            "previous_attempt_id": last_attempt.id if last_attempt else None,
+            "previous_response_correct": prev_correct if last_attempt else None,
+            "previous_response_time_ms": prev_time if last_attempt else None,
+            "adaptation_reason_codes": reason_codes,
+            "instruction_changed": instruction_changed,
+            "instruction_reused": instruction_reused,
+            "reuse_reason_code": reuse_reason_code,
+            "additional_support": additional_support,
+            "fallback_used": False,
+            "validation_status": validation_status,
+            "score_interpretation": score_interp,
+            "approved_for_child_delivery": False
+        }
 
         initial_snapshot: Dict[str, Any] = {
             "created_at": datetime.utcnow().isoformat(),
             "independent_performance_measure": independent_perf,
             "score_interpretation": score_interp,
+            "simplification_lineage": simplification_lineage
         }
-        if simplification_lineage:
-            initial_snapshot["simplification_lineage"] = simplification_lineage
 
         # 3. Store exact presented instruction in Attempt record
         attempt: Any = Attempt(
@@ -304,6 +403,10 @@ class SessionService:
             automatic_analysis_snapshot=initial_snapshot,
         )
         db.add(attempt)
+        db.flush()
+        simplification_lineage["attempt_id"] = attempt.id
+        initial_snapshot["simplification_lineage"] = simplification_lineage
+        attempt.automatic_analysis_snapshot = dict(initial_snapshot)
         session.current_attempt_number = attempt_number
         session.current_support_level = support_level
         db.commit()

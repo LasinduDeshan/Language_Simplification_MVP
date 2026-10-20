@@ -35,8 +35,8 @@ GOVERNED_TARGET_ALIAS_REFS: Dict[str, Dict[str, Any]] = {
     },
     "cat": {
         "target_id": "cat",
-        "target_disclosure_class": TargetDisclosureClass.INFERRED_ANSWER,
-        "target_disclosure_policy": TargetDisclosurePolicy.DO_NOT_REVEAL,
+        "target_disclosure_class": TargetDisclosureClass.EXPLICIT_TASK_TARGET,
+        "target_disclosure_policy": TargetDisclosurePolicy.MAY_REPEAT_TASK_TARGET,
         "alias_set_version": 1,
         "alias_set_ref": "protected://stage36/target-aliases/cat-v1.json",
     },

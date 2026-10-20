@@ -14,29 +14,53 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             "si": "සත්වයා නම් කරන්න"
         },
         "instruction": {
-            "en": "Look at this picture. What animal do you see?",
-            "si": "මෙම පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්ද?"
+            "en": "Look at the animal and tell me its name.",
+            "si": "පින්තූරයේ සිටින සතා හඳුනාගෙන එහි නම කියන්න."
         },
         "support_versions": {
             "mild": {
-                "en": "What animal is this?",
-                "si": "මෙම පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්ද?"
+                "en": "Look at the animal. What is its name?",
+                "si": "සතා දෙස හොඳින් බලන්න. එහි නම කුමක්ද?"
             },
             "moderate": {
-                "en": "Look at the animal. What is it?",
-                "si": "මෙම පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්ද?"
+                "en": "Is it a cat or a dog?",
+                "si": "මේ පූසෙක්ද බල්ලෙක්ද?"
             },
             "strong": {
-                "en": "Choose: cat or dog.",
-                "si": "තෝරන්න: පූසා හෝ බල්ලා."
+                "en": "Look at the animal. Choose: cat or dog.",
+                "si": "සතා දෙස බලන්න. පූසා හෝ බල්ලා තෝරන්න."
             },
             "strong_scaffold": {
-                "en": "Choose: cat or dog.",
-                "si": "තෝරන්න: පූසා හෝ බල්ලා."
+                "en": "Look at the animal. Choose: cat or dog.",
+                "si": "සතා දෙස බලන්න. පූසා හෝ බල්ලා තෝරන්න."
             },
             "strong_decomposed_step": {
-                "en": "Look at the picture closely. Choose the animal's name.",
-                "si": "පින්තූරය හොඳින් බලන්න. සත්වයාගේ නම තෝරන්න."
+                "en": "First look at the animal. Now touch cat or dog.",
+                "si": "පළමුව සතා දෙස බලන්න. දැන් පූසා හෝ බල්ලා තෝරන්න."
+            },
+            "ORIGINAL_BASELINE": {
+                "en": "Look at the animal and tell me its name.",
+                "si": "පින්තූරයේ සිටින සතා හඳුනාගෙන එහි නම කියන්න."
+            },
+            "MILD_SUPPORT": {
+                "en": "Look at the animal. What is its name?",
+                "si": "සතා දෙස හොඳින් බලන්න. එහි නම කුමක්ද?"
+            },
+            "MODERATE_SUPPORT": {
+                "en": "Is it a cat or a dog?",
+                "si": "මේ පූසෙක්ද බල්ලෙක්ද?"
+            },
+            "STRONG_SCAFFOLD": {
+                "en": "Look at the animal. Choose: cat or dog.",
+                "si": "සතා දෙස බලන්න. පූසා හෝ බල්ලා තෝරන්න."
+            },
+            "STRONG_DECOMPOSED_STEP": {
+                "en": "First look at the animal. Now touch cat or dog.",
+                "si": "පළමුව සතා දෙස බලන්න. දැන් පූසා හෝ බල්ලා තෝරන්න."
+            },
+            "UNCHANGED_REUSE": {
+                "en": "Look at the animal. Choose: cat or dog.",
+                "si": "සතා දෙස බලන්න. පූසා හෝ බල්ලා තෝරන්න."
             }
         },
         "options": [
@@ -46,8 +70,8 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
         ],
         "target_skill": "animal_naming",
         "target_id": "cat",
-        "target_disclosure_class": TargetDisclosureClass.INFERRED_ANSWER,
-        "target_disclosure_policy": TargetDisclosurePolicy.DO_NOT_REVEAL,
+        "target_disclosure_class": TargetDisclosureClass.EXPLICIT_TASK_TARGET,
+        "target_disclosure_policy": TargetDisclosurePolicy.MAY_REPEAT_TASK_TARGET,
         "content_language_status": {
             "en": "AVAILABLE",
             "si": "AVAILABLE"
@@ -82,7 +106,7 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             },
             "strong_decomposed_step": {
                 "en": "Look at the two pictures. Choose what we use to write.",
-                "si": "පින්තූර දෙක බලන්න. ලිවීමට භාවිත කරන දේ තෝරන්න."
+                "si": "පින්තූර දෙස බලන්න. ලිවීමට භාවිත කරන දේ තෝරන්න."
             }
         },
         "options": [
@@ -128,7 +152,7 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             },
             "strong_decomposed_step": {
                 "en": "Look at the two pictures. Choose the picture of the book.",
-                "si": "පින්තූර දෙක බලන්න. පොතේ පින්තූරය තෝරන්න."
+                "si": "පින්තූර දෙස බලන්න. පොතේ පින්තූරය තෝරන්න."
             }
         },
         "options": [
@@ -174,7 +198,7 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             },
             "strong_decomposed_step": {
                 "en": "Look at the two pictures. Choose what we can eat.",
-                "si": "පින්තූර දෙක බලන්න. ආහාරයට ගත හැකි දේ තෝරන්න."
+                "si": "පින්තූර දෙස බලන්න. ආහාරයට ගත හැකි දේ තෝරන්න."
             }
 
         },
@@ -417,11 +441,11 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
         "support_versions": {
             "mild": {
                 "si": "වාක්‍යය කවුරුන් හෝ කුමක් ගැනද සහ ඒ ගැන කියන දෙය කුමක්ද හඳුනාගන්න.",
-                "en": "Identify whom or what the sentence is about and what is said about it."
+                "en": "Identify what the sentence is about and what is said."
             },
             "mild_support": {
                 "si": "වාක්‍යය කවුරුන් හෝ කුමක් ගැනද සහ ඒ ගැන කියන දෙය කුමක්ද හඳුනාගන්න.",
-                "en": "Identify whom or what the sentence is about and what is said about it."
+                "en": "Identify what the sentence is about and what is said."
             },
             "moderate": {
                 "si": "පළමුව උක්තය තෝරන්න. ඉන්පසු ආඛ්‍යාතය තෝරන්න.",
@@ -449,7 +473,7 @@ GOVERNED_ACTIVITY_CATALOG: Dict[str, Dict[str, Any]] = {
             },
             "MILD_SUPPORT": {
                 "si": "වාක්‍යය කවුරුන් හෝ කුමක් ගැනද සහ ඒ ගැන කියන දෙය කුමක්ද හඳුනාගන්න.",
-                "en": "Identify whom or what the sentence is about and what is said about it."
+                "en": "Identify what the sentence is about and what is said."
             },
             "MODERATE_SUPPORT": {
                 "si": "පළමුව උක්තය තෝරන්න. ඉන්පසු ආඛ්‍යාතය තෝරන්න.",
@@ -816,12 +840,12 @@ def enrich_attempt_localization(attempt: Any, task: Any, support_level: Optional
     si_instruction = getattr(attempt, "presented_instruction_si", None)
     if not si_instruction and cat:
         sv = cat.get("support_versions", {})
-        if strat and strat in sv:
-            si_instruction = sv[strat].get("si")
-        elif att_num == 3 and "strong_decomposed_step" in sv:
-            si_instruction = sv["strong_decomposed_step"].get("si")
-        elif att_num == 2 and "strong_scaffold" in sv:
-            si_instruction = sv["strong_scaffold"].get("si")
+        strat_upper = (strat or "").upper()
+        strat_lower = (strat or "").lower()
+        if strat_upper and strat_upper in sv:
+            si_instruction = sv[strat_upper].get("si")
+        elif strat_lower and strat_lower in sv:
+            si_instruction = sv[strat_lower].get("si")
         elif level in sv:
             si_instruction = sv[level].get("si")
         if not si_instruction and "instruction" in cat:
@@ -902,9 +926,17 @@ def enrich_child_view_localization(view: Dict[str, Any], task: Any, attempt: Opt
     }
     si_available = val_report["content_available"]
 
-    si_instruction = None
-    if cat:
-        if "support_versions" in cat and level in cat["support_versions"]:
+    si_instruction = (attempt.get("presented_instruction_si") if isinstance(attempt, dict) else getattr(attempt, "presented_instruction_si", None)) if attempt else None
+    strat = (attempt.get("adaptation_strategy") if isinstance(attempt, dict) else getattr(attempt, "adaptation_strategy", None)) if attempt else None
+    if not si_instruction and cat:
+        sv = cat.get("support_versions", {})
+        strat_upper = (strat or "").upper()
+        strat_lower = (strat or "").lower()
+        if strat_upper and strat_upper in sv:
+            si_instruction = sv[strat_upper].get("si")
+        elif strat_lower and strat_lower in sv:
+            si_instruction = sv[strat_lower].get("si")
+        elif "support_versions" in cat and level in cat["support_versions"]:
             si_instruction = cat["support_versions"][level].get("si")
         if not si_instruction and "instruction" in cat:
             si_instruction = cat["instruction"].get("si")

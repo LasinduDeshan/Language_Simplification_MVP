@@ -445,24 +445,24 @@ class RuleGenerator(BaseInstructionGenerator):
 
             "GRAM-SI-SUBPRED-001": {  # Subject & Predicate Identification
                 1: {
-                    "mild": "Identify whom or what the sentence is about and what is said about it.",
+                    "mild": "Identify what the sentence is about and what is said.",
                     "moderate": "First select the subject. Then select the predicate.",
                     "strong": "Who or what? What is said about it?",
-                    "answer_format": "two_step_span_selection",
+                    "answer_format": "tap_selection",
                     "visual_cues": ["show_sentence_card", "highlight_subject_cue", "highlight_predicate_cue"]
                 },
                 2: {
                     "mild": "Find the subject and predicate in the sentence.",
                     "moderate": "First select the subject. Then select the predicate.",
                     "strong": "Who or what? What is said about it?",
-                    "answer_format": "two_step_span_selection",
+                    "answer_format": "tap_selection",
                     "visual_cues": ["blue_subject_guide", "orange_predicate_guide"]
                 },
                 3: {
                     "mild": "First find who. Select it. Then select what that person does.",
                     "moderate": "First find who. Select it. Now select what that person does.",
                     "strong": "First find who. Select it. Now select what that person does.",
-                    "answer_format": "two_step_span_selection",
+                    "answer_format": "tap_selection",
                     "visual_cues": ["step_one_subject_callout", "step_two_predicate_callout"]
                 }
             },

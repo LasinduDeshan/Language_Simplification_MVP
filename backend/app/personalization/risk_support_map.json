@@ -1,0 +1,17 @@
+{
+  "mapping_version": "risk-support-map:v1",
+  "initial_strategy_by_support": {
+    "LOW": "ORIGINAL_BASELINE",
+    "MODERATE": "MILD_SUPPORT",
+    "HIGH": "STRONG_SCAFFOLD"
+  },
+  "strategy_ladder": [
+    "ORIGINAL_BASELINE",
+    "MILD_SUPPORT",
+    "MODERATE_SUPPORT",
+    "STRONG_SCAFFOLD",
+    "STRONG_DECOMPOSED_STEP",
+    "UNCHANGED_REUSE"
+  ],
+  "expert_validated": false
+}

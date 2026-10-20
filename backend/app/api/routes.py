@@ -170,7 +170,11 @@ def create_activity_session(req: ActivitySessionCreate, db: Session = Depends(ge
             learner_id=req.learner_id,
             task_id=req.task_id,
             generation_mode=req.generation_mode,
-            created_by=req.created_by
+            created_by=req.created_by,
+            recommended_support_level=req.recommended_support_level,
+            support_decision_reasons=req.support_decision_reasons,
+            source_screening_result_id=req.source_screening_result_id,
+            source_recommendation_id=req.source_recommendation_id
         )
         return session
     except ValueError as e:

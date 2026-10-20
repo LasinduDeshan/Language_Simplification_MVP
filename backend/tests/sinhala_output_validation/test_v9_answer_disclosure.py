@@ -45,7 +45,7 @@ def test_v9_may_repeat_task_target_policy_allows_target():
     }
 
     source_text = "පොතේ පින්තූරය සොයා තෝරන්න."
-    candidate_text = "පින්තූර දෙක බලන්න. පොතේ පින්තූරය තෝරන්න."
+    candidate_text = "පින්තූර දෙස බලන්න. පොතේ පින්තූරය තෝරන්න."
 
     findings = v9.validate(source_text, candidate_text, env, context)
     disclosure_findings = [f for f in findings if f.reason_code == "REJ_ANSWER_DISCLOSURE_DETECTED"]
@@ -128,7 +128,7 @@ def test_v9_non_revealing_decomposition_passes():
     }
 
     source_text = "ලිවීම සඳහා භාවිත කරන්නේ කුමක්දැයි පෙන්වන්න."
-    candidate_safe = "පින්තූර දෙක බලන්න. ලිවීමට භාවිත කරන දේ තෝරන්න."
+    candidate_safe = "පින්තූර දෙස බලන්න. ලිවීමට භාවිත කරන දේ තෝරන්න."
 
     findings = v9.validate(source_text, candidate_safe, env, context)
     critical_findings = [f for f in findings if f.severity == SeverityLevel.CRITICAL]

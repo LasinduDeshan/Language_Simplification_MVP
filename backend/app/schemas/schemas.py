@@ -222,6 +222,10 @@ class ActivitySessionCreate(BaseModel):
     task_id: str
     generation_mode: str = Field("rule", pattern="^(rule|llm|hybrid)$")
     created_by: str = "authorized_adult"
+    recommended_support_level: Optional[str] = None
+    support_decision_reasons: Optional[List[str]] = None
+    source_screening_result_id: Optional[str] = None
+    source_recommendation_id: Optional[str] = None
 
 class ActivitySessionResponse(BaseModel):
     id: str

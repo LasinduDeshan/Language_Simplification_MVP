@@ -21,6 +21,99 @@ export const DEMONSTRATION_ACTIVITIES = {
       en: 'Look at this picture. What animal do you see?',
       si: 'මෙම පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්ද?'
     },
+    support_versions: {
+      ORIGINAL_BASELINE: {
+        en: 'Look at the animal and tell me its name.',
+        si: 'පින්තූරයේ සිටින සතා හඳුනාගෙන එහි නම කියන්න.'
+      },
+      MILD_SUPPORT: {
+        en: 'Look at the animal. What is its name?',
+        si: 'සතා දෙස හොඳින් බලන්න. එහි නම කුමක්ද?'
+      },
+      MODERATE_SUPPORT: {
+        en: 'Is it a cat or a dog?',
+        si: 'මේ පූසෙක්ද බල්ලෙක්ද?'
+      },
+      STRONG_SCAFFOLD: {
+        en: 'Look at the animal. Choose: cat or dog.',
+        si: 'සතා දෙස බලන්න. පූසා හෝ බල්ලා තෝරන්න.'
+      },
+      STRONG_DECOMPOSED_STEP: {
+        en: 'First look at the animal. Now touch cat or dog.',
+        si: 'පළමුව සතා දෙස බලන්න. දැන් පූසා හෝ බල්ලා තෝරන්න.'
+      },
+      UNCHANGED_REUSE: {
+        en: 'Look at the animal. Choose: cat or dog.',
+        si: 'සතා දෙස බලන්න. පූසා හෝ බල්ලා තෝරන්න.'
+      }
+    },
+    options: [
+      {
+        id: 'cat',
+        labels: {
+          en: 'Cat',
+          si: 'පූසා'
+        }
+      },
+      {
+        id: 'dog',
+        labels: {
+          en: 'Dog',
+          si: 'බල්ලා'
+        }
+      },
+      {
+        id: 'rabbit',
+        labels: {
+          en: 'Rabbit',
+          si: 'හාවා'
+        }
+      }
+    ],
+    target_skill: 'animal_naming',
+    localization_status: {
+      en: 'AVAILABLE',
+      si: 'DRAFT_DEMONSTRATION'
+    }
+  },
+  'VOC-NAMING-001': {
+    activity_id: 'VOC-NAMING-001',
+    task_code: 'VOC-NAMING-001',
+    activity_type: 'animal_naming',
+    title: {
+      en: 'Name the Animal',
+      si: 'සත්වයා නම් කරන්න'
+    },
+    instruction: {
+      en: 'Look at the animal and tell me its name.',
+      si: 'පින්තූරයේ සිටින සතා හඳුනාගෙන එහි නම කියන්න.'
+    },
+    support_versions: {
+      ORIGINAL_BASELINE: {
+        en: 'Look at the animal and tell me its name.',
+        si: 'පින්තූරයේ සිටින සතා හඳුනාගෙන එහි නම කියන්න.'
+      },
+      MILD_SUPPORT: {
+        en: 'Look at the animal. What is its name?',
+        si: 'සතා දෙස හොඳින් බලන්න. එහි නම කුමක්ද?'
+      },
+      MODERATE_SUPPORT: {
+        en: 'Is it a cat or a dog?',
+        si: 'මේ පූසෙක්ද බල්ලෙක්ද?'
+      },
+      STRONG_SCAFFOLD: {
+        en: 'Look at the animal. Choose: cat or dog.',
+        si: 'සතා දෙස බලන්න. පූසා හෝ බල්ලා තෝරන්න.'
+      },
+      STRONG_DECOMPOSED_STEP: {
+        en: 'First look at the animal. Now touch cat or dog.',
+        si: 'පළමුව සතා දෙස බලන්න. දැන් පූසා හෝ බල්ලා තෝරන්න.'
+      },
+      UNCHANGED_REUSE: {
+        en: 'Look at the animal. Choose: cat or dog.',
+        si: 'සතා දෙස බලන්න. පූසා හෝ බල්ලා තෝරන්න.'
+      }
+    },
     options: [
       {
         id: 'cat',
@@ -753,9 +846,16 @@ export const COMMON_TASK_TITLES = {
 // Known instruction string translations
 export const KNOWN_INSTRUCTION_SINHALA = {
   'Look at this picture. What animal do you see?': 'මෙම පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්ද?',
+  'Look at the animal and tell me its name.': 'පින්තූරයේ සිටින සතා හඳුනාගෙන එහි නම කියන්න.',
+  'Look carefully. What animal is this?': 'හොඳින් බලන්න. මේ සතා කුමක්ද?',
   'What animal is this?': 'මෙම පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්ද?',
   'Look at the picture. Tell me what animal you see.': 'මෙම පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්ද?',
   'Look at the animal. What is it?': 'මෙම පින්තූරය බලන්න. ඔබට පෙනෙන සත්වයා කුමක්ද?',
+  'Look at the animal. What is its name?': 'සතා දෙස හොඳින් බලන්න. එහි නම කුමක්ද?',
+  'Is it a cat or a dog?': 'මේ පූසෙක්ද බල්ලෙක්ද?',
+  'Choose the animal\'s name: cat or dog.': 'සතාගේ නිවැරදි නම තෝරන්න: පූසා හෝ බල්ලා.',
+  'Look at the animal. Choose: cat or dog.': 'සතා දෙස බලන්න. පූසා හෝ බල්ලා තෝරන්න.',
+  'First look at the animal. Now touch cat or dog.': 'පළමුව සතා දෙස බලන්න. දැන් පූසා හෝ බල්ලා තෝරන්න.',
   'Show what we use to write with.': 'ලිවීම සඳහා භාවිත කරන්නේ කුමක්දැයි පෙන්වන්න.',
   'Find and touch the book.': 'පොතේ පින්තූරය සොයා තෝරන්න.',
   'Show what we can eat.': 'අපට ආහාරයට ගත හැකි දේ කුමක්දැයි පෙන්වන්න.',
@@ -1216,6 +1316,15 @@ export function getLocalizedInstruction(activity, localeOrFallback = '', options
     || (normAct?.id && !isUuid(normAct.id) ? normAct.id : null);
 
   if (stableIdCandidate) {
+    if (normAct?.adaptation_strategy) {
+      const strat = String(normAct.adaptation_strategy);
+      const sv = DEMONSTRATION_ACTIVITIES[stableIdCandidate]?.support_versions;
+      if (sv) {
+        if (sv[strat]?.si) return sv[strat].si;
+        if (sv[strat.toUpperCase()]?.si) return sv[strat.toUpperCase()].si;
+        if (sv[strat.toLowerCase()]?.si) return sv[strat.toLowerCase()].si;
+      }
+    }
     if (DEMONSTRATION_ACTIVITIES[stableIdCandidate]?.instruction?.si) {
       return DEMONSTRATION_ACTIVITIES[stableIdCandidate].instruction.si;
     }
@@ -1302,17 +1411,20 @@ export function getLocalizedOptions(activity, localeOrOptions = null, maybeLocal
     locale = localeOrOptions;
   }
 
+  const code = activity?.task_code || activity?.activity_id || activity?.id;
+  const curated = code ? CURATED_ACTIVITY_SINHALA[code]?.options : null;
+  const demoActivity = code ? (DEMONSTRATION_ACTIVITIES[code] || (code === 'VOC-NAMING-001' ? DEMONSTRATION_ACTIVITIES['ACT-ANIMAL-001'] : (code === 'ACT-ANIMAL-001' ? DEMONSTRATION_ACTIVITIES['VOC-NAMING-001'] : null))) : null;
+
   if (opts.length === 0 && activity?.options) {
     opts = activity.options;
+  }
+  if (opts.length === 0 && (demoActivity?.options || curated)) {
+    opts = demoActivity?.options || curated;
   }
   if (!opts || !Array.isArray(opts)) return [];
 
   const activeLocale = normalizeContentLocale(locale || getLocale());
   const isSi = activeLocale === 'si';
-
-  const code = activity?.task_code || activity?.activity_id || activity?.id;
-  const curated = code ? CURATED_ACTIVITY_SINHALA[code]?.options : null;
-  const demoActivity = code ? DEMONSTRATION_ACTIVITIES[code] : null;
 
   return opts.map(opt => {
     let raw = '';

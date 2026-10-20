@@ -48,7 +48,7 @@ export async function fetchLearnerById(learnerId) {
 }
 
 // ----------------- Activity Session Lifecycle -----------------
-export async function createActivitySession(learnerId, taskId, generationMode = "llm", createdBy = "authorized_adult") {
+export async function createActivitySession(learnerId, taskId, generationMode = "llm", createdBy = "authorized_adult", extraParams = {}) {
   const res = await fetch(`${API_BASE_URL}/activity-sessions`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -56,7 +56,8 @@ export async function createActivitySession(learnerId, taskId, generationMode = 
       learner_id: learnerId,
       task_id: taskId,
       generation_mode: generationMode,
-      created_by: createdBy
+      created_by: createdBy,
+      ...extraParams
     })
   });
   if (!res.ok) {

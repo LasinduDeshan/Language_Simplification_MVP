@@ -105,12 +105,20 @@ function InstructionCard({
           {textToShow}
         </div>
       ) : (
-        <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b", marginBottom: lineageMeta && viewMode === "researcher" ? "0.75rem" : "0" }}>
-          "{textToShow}"
+        <div>
+          <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b", marginBottom: lineageMeta && viewMode === "researcher" ? "0.75rem" : "0.35rem" }}>
+            "{textToShow}"
+          </div>
+          {viewMode === "simple" && (lineageMeta?.generation_mode === "UNCHANGED_REUSE" || (lineageMeta?.additional_support && lineageMeta.additional_support.length > 0)) && (
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", padding: "0.25rem 0.6rem", background: "#fef3c7", borderRadius: "8px", fontSize: "0.82rem", color: "#92400e", fontWeight: 600 }}>
+              <span>✨</span>
+              <span>{resolvedLanguage?.startsWith("si") ? "දෘශ්‍ය තේරීම් උදව් සක්‍රීයයි" : "Visual choices highlighted for support"}</span>
+            </div>
+          )}
         </div>
       )}
 
-      {/* Researcher View: Truthful Simplification Lineage Notice */}
+      {/* Researcher View: Truthful Simplification Lineage & Strategy Notice */}
       {viewMode === "researcher" && lineageMeta && (
         <div style={{
           background: "#ffffff",
@@ -121,27 +129,29 @@ function InstructionCard({
           color: "#334155",
           display: "flex",
           flexDirection: "column",
-          gap: "0.35rem"
+          gap: "0.45rem"
         }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
-            <span>
-              <strong>Simplification Mode:</strong>{" "}
-              {lineageMeta.generation_mode === "RULE_ENGINE" && (
-                <span style={{ color: "#15803d", fontWeight: 700 }}>
-                  Rule Engine ({lineageMeta.simplification_run_id}) | Rules: {lineageMeta.applied_rule_ids?.join(", ") || "SI-LEX-SUB-0001"}
-                </span>
-              )}
-              {lineageMeta.generation_mode === "TEMPLATE_CATALOG" && (
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
+              <span>
+                <strong>Strategy:</strong>{" "}
                 <span style={{ color: "#0369a1", fontWeight: 700 }}>
-                  Governed Template Fallback ({lineageMeta.template_variant_id})
+                  {lineageMeta.strategy_code || attempt?.adaptation_strategy || "ORIGINAL_BASELINE"}
                 </span>
-              )}
-              {lineageMeta.generation_mode === "UNCHANGED_REUSE" && (
-                <span style={{ color: "#b45309", fontWeight: 700 }}>
-                  Governed Unchanged Reuse
-                </span>
-              )}
-            </span>
+              </span>
+              <span>
+                &bull; <strong>Mode:</strong>{" "}
+                {lineageMeta.generation_mode === "UNCHANGED_REUSE" ? (
+                  <span style={{ color: "#b45309", fontWeight: 700 }}>
+                    Governed Unchanged Reuse
+                  </span>
+                ) : (
+                  <span style={{ color: "#15803d", fontWeight: 700 }}>
+                    {lineageMeta.generation_mode || "Curated Template"}
+                  </span>
+                )}
+              </span>
+            </div>
             <span style={{
               background: lineageMeta.independent_performance_measure ? "#dcfce7" : "#fef3c7",
               color: lineageMeta.independent_performance_measure ? "#15803d" : "#b45309",
@@ -154,9 +164,27 @@ function InstructionCard({
             </span>
           </div>
 
+          {/* Adaptation Reasons */}
+          {lineageMeta.adaptation_reason_codes && lineageMeta.adaptation_reason_codes.length > 0 && (
+            <div style={{ fontSize: "0.76rem", color: "#64748b" }}>
+              <strong>Adaptation Evidence:</strong> {lineageMeta.adaptation_reason_codes.join(" • ")}
+            </div>
+          )}
+
+          {/* Reused Instruction Notice */}
           {lineageMeta.generation_mode === "UNCHANGED_REUSE" && (
-            <div style={{ color: "#b45309", fontStyle: "italic", fontSize: "0.78rem" }}>
-              Notice: No further safe simplification was available; previous validated instruction retained (Reason: {lineageMeta.reuse_reason_code || "Minimal safe instruction already reached"}).
+            <div style={{
+              background: "#fffbeb",
+              border: "1px solid #fef3c7",
+              borderRadius: "6px",
+              padding: "0.4rem 0.6rem",
+              color: "#b45309",
+              fontSize: "0.78rem"
+            }}>
+              <strong>No further safe simplification:</strong> {lineageMeta.reuse_reason_code || "MINIMAL_SAFE_INSTRUCTION_ALREADY_REACHED"}
+              {lineageMeta.additional_support && lineageMeta.additional_support.length > 0 && (
+                <div><strong>Active Non-Textual Supports:</strong> {lineageMeta.additional_support.join(", ")}</div>
+              )}
             </div>
           )}
         </div>
@@ -341,8 +369,16 @@ export default function GuidedPlayground({
     setShowAdultReview(false);
 
     try {
-      // 1. Create Activity Session
-      const session = await createActivitySession(targetLearner.id, targetTask.id, generationMode);
+      // 1. Create Activity Session with recommended support level intake if available
+      const rawRisk = String(targetLearner.risk_support_level || targetLearner.screening_risk_level || "moderate").toLowerCase();
+      const recLevel = targetLearner.recommended_support_level || (
+        rawRisk === "low" ? "mild" : (rawRisk === "high" ? "strong" : "moderate")
+      );
+      const session = await createActivitySession(targetLearner.id, targetTask.id, generationMode, "authorized_adult", {
+        recommended_support_level: recLevel,
+        source_screening_result_id: targetLearner.screening_id || `SCR-${String(targetLearner.id).slice(0, 8)}`,
+        source_recommendation_id: `REC-${String(targetLearner.id).slice(0, 8)}`
+      });
 
       // 2. Generate and store exact instruction in Attempt 1 BEFORE child sees it
       const attemptData = await createAttemptInstruction(session.id, generationMode);
@@ -949,18 +985,57 @@ export default function GuidedPlayground({
                           {t("metricVocabulary")}: {activeLearner?.vocabulary_score} | {t("metricGrammar")}: {activeLearner?.grammar_score} | {t("metricComprehension")}: {activeLearner?.comprehension_score}
                         </div>
                         {viewMode === "researcher" && (
-                          <div style={{
-                            fontSize: "0.75rem",
-                            color: "#475569",
-                            marginTop: "0.4rem",
-                            padding: "0.35rem 0.5rem",
-                            background: "#e2e8f0",
-                            borderRadius: "6px",
-                            fontFamily: "monospace",
-                            lineHeight: 1.4
-                          }}>
-                            <div><strong>{t("internalId") || "Internal ID"}:</strong> {activeLearner?.participant_id || activeLearner?.id}</div>
-                            <div><strong>{t("riskSource") || "Risk Source"}:</strong> {activeLearner?.risk_source || (activeLearner?.screening_source === "component_1" ? "DEMONSTRATION_DATA" : "NOT_CONNECTED")}</div>
+                          <div style={{ marginTop: "0.5rem" }}>
+                            <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "#64748b", marginBottom: "0.25rem" }}>
+                              Simulate Screening Risk (Component 1 Signal):
+                            </div>
+                            <div style={{ display: "flex", gap: "0.4rem", marginBottom: "0.4rem" }}>
+                              {["low", "moderate", "high"].map((r) => {
+                                const curRisk = String(activeLearner?.risk_support_level || activeLearner?.screening_risk_level || "moderate").toLowerCase();
+                                const isSel = curRisk === r;
+                                return (
+                                  <button
+                                    key={r}
+                                    type="button"
+                                    onClick={() => {
+                                      const updated = {
+                                        ...activeLearner,
+                                        risk_support_level: r,
+                                        screening_risk_level: r,
+                                        recommended_support_level: r === "low" ? "mild" : (r === "high" ? "strong" : "moderate")
+                                      };
+                                      setActiveLearner(updated);
+                                      if (onLearnerUpdated) onLearnerUpdated(updated);
+                                    }}
+                                    style={{
+                                      padding: "0.25rem 0.6rem",
+                                      borderRadius: "6px",
+                                      fontSize: "0.75rem",
+                                      fontWeight: 700,
+                                      textTransform: "uppercase",
+                                      border: isSel ? "2px solid #f97316" : "1px solid #cbd5e1",
+                                      background: isSel ? "#fff7ed" : "#ffffff",
+                                      color: isSel ? "#c2410c" : "#475569",
+                                      cursor: "pointer"
+                                    }}
+                                  >
+                                    {r}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                            <div style={{
+                              fontSize: "0.75rem",
+                              color: "#475569",
+                              padding: "0.35rem 0.5rem",
+                              background: "#e2e8f0",
+                              borderRadius: "6px",
+                              fontFamily: "monospace",
+                              lineHeight: 1.4
+                            }}>
+                              <div><strong>{t("internalId") || "Internal ID"}:</strong> {activeLearner?.participant_id || activeLearner?.id}</div>
+                              <div><strong>{t("riskSource") || "Risk Source"}:</strong> {activeLearner?.risk_source || (activeLearner?.screening_source === "component_1" ? "DEMONSTRATION_DATA" : "NOT_CONNECTED")}</div>
+                            </div>
                           </div>
                         )}
                       </>
@@ -1137,6 +1212,45 @@ export default function GuidedPlayground({
                         </>
                       )}
                     </span>
+                    {viewMode === "researcher" && (
+                      <div style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", background: "#f8fafc", padding: "0.25rem 0.5rem", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+                        <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#64748b" }}>Risk Signal:</span>
+                        {["low", "moderate", "high"].map((r) => {
+                          const curRisk = String(activeLearner?.risk_support_level || activeLearner?.screening_risk_level || "moderate").toLowerCase();
+                          const isSel = curRisk === r;
+                          return (
+                            <button
+                              key={r}
+                              type="button"
+                              onClick={async () => {
+                                const updated = {
+                                  ...activeLearner,
+                                  risk_support_level: r,
+                                  screening_risk_level: r,
+                                  recommended_support_level: r === "low" ? "mild" : (r === "high" ? "strong" : "moderate")
+                                };
+                                setActiveLearner(updated);
+                                if (onLearnerUpdated) onLearnerUpdated(updated);
+                                await handleStartActivityWithTask(activeTask, updated);
+                              }}
+                              style={{
+                                padding: "0.2rem 0.5rem",
+                                borderRadius: "6px",
+                                fontSize: "0.72rem",
+                                fontWeight: 700,
+                                textTransform: "uppercase",
+                                border: isSel ? "1.5px solid #f97316" : "1px solid #cbd5e1",
+                                background: isSel ? "#fff7ed" : "#ffffff",
+                                color: isSel ? "#ea580c" : "#64748b",
+                                cursor: "pointer"
+                              }}
+                            >
+                              {r}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
 
                   {/* Timer Widget */}
@@ -1264,7 +1378,7 @@ export default function GuidedPlayground({
                 </div>
 
                 {/* Multiple Choice Options or Word Tokens */}
-                {((activeTask?.options && activeTask.options.length > 0) || (activeTask?.tokens && activeTask.tokens.length > 0)) && (
+                {((activeTask?.options && activeTask.options.length > 0) || (activeTask?.tokens && activeTask.tokens.length > 0) || getLocalizedOptions(activeTask, resolvedLanguage).length > 0) && (
                   <div style={{ marginBottom: "1.25rem" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.4rem" }}>
                       <label style={{ fontSize: "0.85rem", fontWeight: 700, color: "#334155" }}>
@@ -1291,34 +1405,51 @@ export default function GuidedPlayground({
                       )}
                     </div>
                     <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                      {getLocalizedOptions(activeTask, resolvedLanguage).map((opt, i) => (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => {
-                            setSelectedOption(opt.raw);
-                            const isWordOrder = activeTask?.task_code === 'GRAM-WORD-001' || activeTask?.tokens?.length > 0 || String(activeTask?.target_skill?.code || activeTask?.target_skill || '').toLowerCase().includes('word');
-                            if (isWordOrder) {
-                              setManualTranscript(prev => (prev ? `${prev} ${opt.label}` : opt.label));
-                            } else {
-                              setManualTranscript(opt.label);
-                            }
-                          }}
-                          style={{
-                            padding: "0.5rem 1rem",
-                            borderRadius: "8px",
-                            fontWeight: 700,
-                            fontSize: "0.95rem",
-                            border: selectedOption === opt.raw ? "2px solid #f97316" : "1px solid #cbd5e1",
-                            background: selectedOption === opt.raw ? "#fff7ed" : "#f8fafc",
-                            color: selectedOption === opt.raw ? "#c2410c" : "#334155",
-                            cursor: "pointer",
-                            transition: "all 0.15s ease"
-                          }}
-                        >
-                          {opt.emoji ? `${opt.emoji} ` : ""}{typeof opt.label === 'object' && opt.label !== null ? (opt.label.si || opt.label.en || "") : opt.label}
-                        </button>
-                      ))}
+                      {getLocalizedOptions(activeTask, resolvedLanguage).map((opt, i) => {
+                        const lineage = currentAttempt?.simplification_lineage;
+                        const isVisualHighlightActive = lineage?.additional_support?.includes("VISUAL_CHOICE_HIGHLIGHTING") ||
+                          lineage?.reuse_reason_code === "MINIMAL_SAFE_INSTRUCTION_ALREADY_REACHED" ||
+                          ["STRONG_SCAFFOLD", "STRONG_DECOMPOSED_STEP"].includes(lineage?.strategy_code || currentAttempt?.adaptation_strategy);
+                        const isOptionTargetChoice = ["cat", "dog", "පූසා", "බල්ලා"].includes(String(opt.raw || opt.id || opt.label || "").toLowerCase());
+                        const shouldHighlight = isVisualHighlightActive && isOptionTargetChoice;
+                        const isEnlarged = lineage?.reuse_reason_code === "MINIMAL_SAFE_INSTRUCTION_ALREADY_REACHED" || lineage?.additional_support?.includes("TOUCH_RESPONSE_MODE");
+
+                        return (
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={() => {
+                              setSelectedOption(opt.raw);
+                              const isWordOrder = activeTask?.task_code === 'GRAM-WORD-001' || activeTask?.tokens?.length > 0 || String(activeTask?.target_skill?.code || activeTask?.target_skill || '').toLowerCase().includes('word');
+                              if (isWordOrder) {
+                                setManualTranscript(prev => (prev ? `${prev} ${opt.label}` : opt.label));
+                              } else {
+                                setManualTranscript(opt.label);
+                              }
+                            }}
+                            style={{
+                              padding: isEnlarged ? "0.85rem 1.6rem" : "0.5rem 1rem",
+                              borderRadius: isEnlarged ? "12px" : "8px",
+                              fontWeight: 700,
+                              fontSize: isEnlarged ? "1.15rem" : "0.95rem",
+                              border: selectedOption === opt.raw
+                                ? "2px solid #f97316"
+                                : (shouldHighlight ? "2px solid #eab308" : "1px solid #cbd5e1"),
+                              background: selectedOption === opt.raw
+                                ? "#fff7ed"
+                                : (shouldHighlight ? "#fefce8" : "#f8fafc"),
+                              color: selectedOption === opt.raw
+                                ? "#c2410c"
+                                : (shouldHighlight ? "#854d0e" : "#334155"),
+                              boxShadow: shouldHighlight ? "0 0 0 3px rgba(234, 179, 8, 0.3)" : "none",
+                              cursor: "pointer",
+                              transition: "all 0.15s ease"
+                            }}
+                          >
+                            {opt.emoji ? `${opt.emoji} ` : ""}{typeof opt.label === 'object' && opt.label !== null ? (opt.label.si || opt.label.en || "") : opt.label}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
